@@ -1,0 +1,80 @@
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.Form1.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.Properties.Resources.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\bin\Debug\pbl.exe.config
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\bin\Debug\pbl.exe
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\bin\Debug\pbl.pdb
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.exe
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.pdb
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.personinfor.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.Employeemanagement.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.Passengermanagement.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.Schedulemanagement.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.Employee.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.Admin.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.Passengermeployee.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.Ticketmanagement.resources
+E:\DOTNET\qlsv\giuaki\New folder\pbl\pbl\obj\Debug\pbl.addticket.resources
+C:\Users\DELL\Downloads\pbl\pbl\bin\Debug\pbl.exe.config
+C:\Users\DELL\Downloads\pbl\pbl\bin\Debug\pbl.exe
+C:\Users\DELL\Downloads\pbl\pbl\bin\Debug\pbl.pdb
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.addticket.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Employee.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Employeemanagement.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Form1.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Admin.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Passengermanagement.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Passengermeployee.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.personinfor.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Properties.Resources.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Schedulemanagement.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Ticketmanagement.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.exe
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.pdb
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Book.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Passenger.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Schedule.resources
+C:\Users\DELL\Downloads\pbl\pbl\obj\Debug\pbl.Ticket.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\bin\Debug\pbl.exe.config
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\bin\Debug\pbl.exe
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\bin\Debug\pbl.pdb
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.addticket.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Employee.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Employeemanagement.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Admin.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Passengermanagement.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Passengermeployee.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Form1.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Book.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Passenger.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Schedule.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Ticket.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.personinfor.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Properties.Resources.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Schedulemanagement.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Ticketmanagement.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.exe
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.pdb
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Form2.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUI.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUITicket.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIChat.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUISchedule.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIBook.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIMainSchedule.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUINotification.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Form3.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUICalendar.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIOption.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIPersonal.resources
