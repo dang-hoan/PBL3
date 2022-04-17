@@ -33,6 +33,7 @@ namespace pbl
 
         private void bEditInfor_Click(object sender, EventArgs e)
         {
+            txtUsername.Enabled = true;
             txtName.Enabled = true;
             rbMale.Enabled = true;
             rbFemale.Enabled = true;
@@ -45,6 +46,7 @@ namespace pbl
 
         private void bSaveInfor_Click(object sender, EventArgs e)
         {
+            txtUsername.Enabled = false;
             txtName.Enabled = false;
             rbMale.Enabled = false;
             rbFemale.Enabled = false;

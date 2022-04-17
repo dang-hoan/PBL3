@@ -46,7 +46,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -239,7 +239,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox2.Location = new System.Drawing.Point(12, 300);
+            this.groupBox2.Location = new System.Drawing.Point(35, 349);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -266,14 +266,14 @@
             this.txtName.Size = new System.Drawing.Size(306, 30);
             this.txtName.TabIndex = 7;
             // 
-            // txtID
+            // txtUsername
             // 
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(245, 40);
-            this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(306, 30);
-            this.txtID.TabIndex = 6;
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Location = new System.Drawing.Point(245, 40);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(306, 30);
+            this.txtUsername.TabIndex = 6;
             // 
             // label1
             // 
@@ -357,7 +357,7 @@
             this.groupBox1.Controls.Add(this.txtPhone);
             this.groupBox1.Controls.Add(this.txtPosition);
             this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.txtID);
+            this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
@@ -365,7 +365,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(463, 36);
+            this.groupBox1.Location = new System.Drawing.Point(464, 85);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -437,7 +437,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(127, 36);
+            this.pictureBox1.Location = new System.Drawing.Point(150, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(184, 214);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -449,7 +449,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(1098, 677);
+            this.ClientSize = new System.Drawing.Size(1098, 711);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -482,7 +482,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtPosition;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
