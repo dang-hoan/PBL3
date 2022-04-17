@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIBook));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pSave = new System.Windows.Forms.PictureBox();
             this.labelSchedule = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,14 +44,13 @@
             this.pOption = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pSave = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,6 +74,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(973, 611);
             this.panel1.TabIndex = 0;
+            // 
+            // pSave
+            // 
+            this.pSave.BackColor = System.Drawing.Color.Green;
+            this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
+            this.pSave.Location = new System.Drawing.Point(26, 540);
+            this.pSave.Name = "pSave";
+            this.pSave.Size = new System.Drawing.Size(53, 33);
+            this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pSave.TabIndex = 58;
+            this.pSave.TabStop = false;
             // 
             // labelSchedule
             // 
@@ -219,18 +231,6 @@
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
             // 
-            // pSave
-            // 
-            this.pSave.BackColor = System.Drawing.Color.Green;
-            this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
-            this.pSave.Location = new System.Drawing.Point(26, 540);
-            this.pSave.Name = "pSave";
-            this.pSave.Size = new System.Drawing.Size(53, 33);
-            this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pSave.TabIndex = 58;
-            this.pSave.TabStop = false;
-            // 
             // GUIBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -241,12 +241,12 @@
             this.Text = "GUIBook";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();
             this.ResumeLayout(false);
 
         }
