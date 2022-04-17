@@ -54,13 +54,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBirthDay = new System.Windows.Forms.DateTimePicker();
             this.txtIDCard = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtBirthDay = new System.Windows.Forms.DateTimePicker();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -282,9 +282,9 @@
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(44, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 25);
+            this.label1.Size = new System.Drawing.Size(145, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ID";
+            this.label1.Text = "Tên đăng nhập";
             // 
             // label6
             // 
@@ -374,6 +374,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
             // 
+            // txtBirthDay
+            // 
+            this.txtBirthDay.Enabled = false;
+            this.txtBirthDay.Location = new System.Drawing.Point(245, 192);
+            this.txtBirthDay.Name = "txtBirthDay";
+            this.txtBirthDay.Size = new System.Drawing.Size(306, 30);
+            this.txtBirthDay.TabIndex = 21;
+            // 
             // txtIDCard
             // 
             this.txtIDCard.Enabled = false;
@@ -435,14 +443,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
-            // 
-            // txtBirthDay
-            // 
-            this.txtBirthDay.Enabled = false;
-            this.txtBirthDay.Location = new System.Drawing.Point(245, 192);
-            this.txtBirthDay.Name = "txtBirthDay";
-            this.txtBirthDay.Size = new System.Drawing.Size(306, 30);
-            this.txtBirthDay.TabIndex = 21;
             // 
             // GUIPersonal
             // 
