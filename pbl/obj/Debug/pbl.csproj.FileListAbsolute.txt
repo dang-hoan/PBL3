@@ -47,21 +47,7 @@ D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\bin\Debug\pbl.exe
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\bin\Debug\pbl.pdb
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.addticket.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Employee.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Employeemanagement.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Admin.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Passengermanagement.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Passengermeployee.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Form1.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Book.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Passenger.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Schedule.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Ticket.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.personinfor.resources
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Properties.Resources.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Schedulemanagement.resources
-D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Ticketmanagement.resources
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.exe
@@ -78,3 +64,4 @@ D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.Form3.resources
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUICalendar.resources
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIOption.resources
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIPersonal.resources
+D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIForget.resources

@@ -127,12 +127,6 @@
     </Compile>
     <Compile Include="People.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Passenger\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Passenger\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QL.cs" />
@@ -141,9 +135,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Passenger\GUICalendar.resx">
       <DependentUpon>GUICalendar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Passenger\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
