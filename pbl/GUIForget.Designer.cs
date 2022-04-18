@@ -145,7 +145,6 @@
             this.Controls.Add(this.label1);
             this.Name = "GUIForget";
             this.Text = "GUIForget";
-            this.Load += new System.EventHandler(this.GUIForget_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

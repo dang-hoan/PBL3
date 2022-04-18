@@ -16,10 +16,5 @@ namespace pbl
         {
             InitializeComponent();
         }
-
-        private void GUIForget_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
