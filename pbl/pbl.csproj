@@ -47,22 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form3.cs">
+    <Compile Include="Passenger\Form3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
+    <Compile Include="Passenger\Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUICalendar.cs">
+    <Compile Include="Passenger\GUICalendar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUICalendar.Designer.cs">
+    <Compile Include="Passenger\GUICalendar.Designer.cs">
       <DependentUpon>GUICalendar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Passenger\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="Passenger\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIForget.cs">
@@ -77,172 +77,75 @@
     <Compile Include="GUIPersonal.Designer.cs">
       <DependentUpon>GUIPersonal.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIMainSchedule.cs">
+    <Compile Include="Passenger\GUIMainSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIMainSchedule.Designer.cs">
+    <Compile Include="Passenger\GUIMainSchedule.Designer.cs">
       <DependentUpon>GUIMainSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUINotification.cs">
+    <Compile Include="Passenger\GUINotification.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUINotification.Designer.cs">
+    <Compile Include="Passenger\GUINotification.Designer.cs">
       <DependentUpon>GUINotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUITicket.cs">
+    <Compile Include="Passenger\GUITicket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUITicket.Designer.cs">
+    <Compile Include="Passenger\GUITicket.Designer.cs">
       <DependentUpon>GUITicket.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUISchedule.cs">
+    <Compile Include="Passenger\GUISchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUISchedule.Designer.cs">
+    <Compile Include="Passenger\GUISchedule.Designer.cs">
       <DependentUpon>GUISchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIBook.cs">
+    <Compile Include="Passenger\GUIBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIBook.Designer.cs">
+    <Compile Include="Passenger\GUIBook.Designer.cs">
       <DependentUpon>GUIBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIChat.cs">
+    <Compile Include="Passenger\GUIChat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIChat.Designer.cs">
+    <Compile Include="Passenger\GUIChat.Designer.cs">
       <DependentUpon>GUIChat.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI.cs">
+    <Compile Include="Passenger\GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI.Designer.cs">
+    <Compile Include="Passenger\GUI.Designer.cs">
       <DependentUpon>GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIOption.cs">
+    <Compile Include="Passenger\GUIOption.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIOption.Designer.cs">
+    <Compile Include="Passenger\GUIOption.Designer.cs">
       <DependentUpon>GUIOption.cs</DependentUpon>
     </Compile>
     <Compile Include="People.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Employee\addticket.cs">
+    <Compile Include="Passenger\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\addticket.Designer.cs">
-      <DependentUpon>addticket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Employee\Employee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Employee\Employee.Designer.cs">
-      <DependentUpon>Employee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Employeemanagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\Employeemanagement.Designer.cs">
-      <DependentUpon>Employeemanagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\Admin.Designer.cs">
-      <DependentUpon>Admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Passengermanagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\Passengermanagement.Designer.cs">
-      <DependentUpon>Passengermanagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Employee\Passengermeployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Employee\Passengermeployee.Designer.cs">
-      <DependentUpon>Passengermeployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Passenger\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Passenger\Book.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Passenger\Book.Designer.cs">
-      <DependentUpon>Book.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Passenger\Passenger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Passenger\Passenger.Designer.cs">
-      <DependentUpon>Passenger.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Passenger\Schedule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Passenger\Schedule.Designer.cs">
-      <DependentUpon>Schedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Passenger\Ticket.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Passenger\Ticket.Designer.cs">
-      <DependentUpon>Ticket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="personinfor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="personinfor.Designer.cs">
-      <DependentUpon>personinfor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Employee\Schedulemanagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Employee\Schedulemanagement.Designer.cs">
-      <DependentUpon>Schedulemanagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Employee\Ticketmanagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Employee\Ticketmanagement.Designer.cs">
-      <DependentUpon>Ticketmanagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="QL.cs" />
-    <EmbeddedResource Include="Form3.resx">
+    <EmbeddedResource Include="Passenger\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUICalendar.resx">
+    <EmbeddedResource Include="Passenger\GUICalendar.resx">
       <DependentUpon>GUICalendar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee\addticket.resx">
-      <DependentUpon>addticket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Employee\Employee.resx">
-      <DependentUpon>Employee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Employeemanagement.resx">
-      <DependentUpon>Employeemanagement.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Admin.resx">
-      <DependentUpon>Admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Passengermanagement.resx">
-      <DependentUpon>Passengermanagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Employee\Passengermeployee.resx">
-      <DependentUpon>Passengermeployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Passenger\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="Passenger\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIForget.resx">
@@ -251,44 +154,29 @@
     <EmbeddedResource Include="GUIPersonal.resx">
       <DependentUpon>GUIPersonal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIMainSchedule.resx">
+    <EmbeddedResource Include="Passenger\GUIMainSchedule.resx">
       <DependentUpon>GUIMainSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUINotification.resx">
+    <EmbeddedResource Include="Passenger\GUINotification.resx">
       <DependentUpon>GUINotification.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUITicket.resx">
+    <EmbeddedResource Include="Passenger\GUITicket.resx">
       <DependentUpon>GUITicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUISchedule.resx">
+    <EmbeddedResource Include="Passenger\GUISchedule.resx">
       <DependentUpon>GUISchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIBook.resx">
+    <EmbeddedResource Include="Passenger\GUIBook.resx">
       <DependentUpon>GUIBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIChat.resx">
+    <EmbeddedResource Include="Passenger\GUIChat.resx">
       <DependentUpon>GUIChat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI.resx">
+    <EmbeddedResource Include="Passenger\GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIOption.resx">
+    <EmbeddedResource Include="Passenger\GUIOption.resx">
       <DependentUpon>GUIOption.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\Book.resx">
-      <DependentUpon>Book.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\Passenger.resx">
-      <DependentUpon>Passenger.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\Schedule.resx">
-      <DependentUpon>Schedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\Ticket.resx">
-      <DependentUpon>Ticket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="personinfor.resx">
-      <DependentUpon>personinfor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -299,12 +187,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Employee\Schedulemanagement.resx">
-      <DependentUpon>Schedulemanagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Employee\Ticketmanagement.resx">
-      <DependentUpon>Ticketmanagement.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -318,6 +200,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Admin\" />
+    <Folder Include="Employee\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
