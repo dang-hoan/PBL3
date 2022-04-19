@@ -71,11 +71,11 @@
     <Compile Include="Admin\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee\customer.cs">
+    <Compile Include="Employee\lichtrinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\customer.Designer.cs">
-      <DependentUpon>customer.cs</DependentUpon>
+    <Compile Include="Employee\lichtrinh.Designer.cs">
+      <DependentUpon>lichtrinh.cs</DependentUpon>
     </Compile>
     <Compile Include="Formlogin.cs">
       <SubType>Form</SubType>
@@ -220,8 +220,11 @@
     <EmbeddedResource Include="Admin\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee\customer.resx">
-      <DependentUpon>customer.cs</DependentUpon>
+    <EmbeddedResource Include="Employee\lichtrinh.resx">
+      <DependentUpon>lichtrinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\themacc.resx">
+      <DependentUpon>themacc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formlogin.resx">
       <DependentUpon>Formlogin.cs</DependentUpon>

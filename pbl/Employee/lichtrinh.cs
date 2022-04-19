@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public partial class customer : Form
+    public partial class lichtrinh : Form
     {
-        public customer()
+        public lichtrinh()
         {
             InitializeComponent();
         }
