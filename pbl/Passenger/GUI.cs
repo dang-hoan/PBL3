@@ -17,7 +17,7 @@ namespace pbl
         public GUI(Form login)
         {
             InitializeComponent();
-            this.Size = new Size(750, 550);
+            this.Size = new Size(750, 528);
             this.CenterToScreen();
             ShowForm(CreatForm());
             this.login = login;
@@ -39,6 +39,10 @@ namespace pbl
         }
         private void ChangeColor(PictureBox p)
         {           
+            
+        }
+        private void ChangeColor(PictureBox p, PictureBox pi, Label l, Panel pa, bool Different)
+        {
             pOther.BackColor = Color.FromArgb(0, 192, 0);
             pHome.BackColor = Color.FromArgb(0, 192, 0);
             pChat.BackColor = Color.FromArgb(0, 192, 0);
@@ -46,7 +50,25 @@ namespace pbl
             pSchedule.BackColor = Color.FromArgb(0, 192, 0);
             pNotify.BackColor = Color.FromArgb(0, 192, 0);
             pArrow.BackColor = Color.FromArgb(0, 192, 0);
-            if(p != null) p.BackColor = Color.Green;
+            if (p != null) p.BackColor = Color.Green;
+
+            pHelp.BackColor = Color.FromArgb(0, 192, 0);
+            labelHelp.BackColor = Color.FromArgb(0, 192, 0);
+            panelHelp.BackColor = Color.FromArgb(0, 192, 0);
+            pFeedback.BackColor = Color.FromArgb(0, 192, 0);
+            labelFeedback.BackColor = Color.FromArgb(0, 192, 0);
+            panelFeedback.BackColor = Color.FromArgb(0, 192, 0);
+            pSetting.BackColor = Color.FromArgb(0, 192, 0);
+            labelSetting.BackColor = Color.FromArgb(0, 192, 0);
+            panelSetting.BackColor = Color.FromArgb(0, 192, 0);
+            if (Different)
+            {
+                pi.BackColor = Color.Green;
+                l.BackColor = Color.Green;
+                pa.BackColor = Color.Green;
+            }
+
+            labelPersonal.BackColor = Color.FromArgb(0, 192, 0);
         }
         private void DocFill()
         {
@@ -80,35 +102,51 @@ namespace pbl
             }
             else
             {
-                ChangeColor(pOther);
+                pOther.BackColor = Color.Green;
                 panel_Other.Visible = true;
             }
         }
+        private void Help_Click(object sender, EventArgs e)
+        {
+            ChangeColor(null, pHelp, labelHelp, panelHelp, true);
+            ShowForm(new GUIHelp());
+        }
+        private void Feedback_Click(object sender, EventArgs e)
+        {
+            ChangeColor(null, pFeedback, labelFeedback, panelFeedback, true);
+            ShowForm(new GUIFeedback());
+        }
+        private void Setting_Click(object sender, EventArgs e)
+        {
+            ChangeColor(null, pSetting, labelSetting, panelSetting, true);
+            ShowForm(new GUISetting());
+        }
+
         private void pHome_Click(object sender, EventArgs e)
         {
-            ChangeColor(pHome);
+            ChangeColor(pHome, null, null, null, false);
             ShowForm(CreatForm());
         }
         private void pChat_Click(object sender, EventArgs e)
         {
-            ChangeColor(pChat);
+            ChangeColor(pChat, null, null, null, false);
             ShowForm(new GUIChat());
         }
         private void pTicket_Click(object sender, EventArgs e)
         {
-            ChangeColor(pTicket);
+            ChangeColor(pTicket, null, null, null, false);
             ShowForm(new GUITicket());
         }
 
         private void pSchedule_Click(object sender, EventArgs e)
         {
-            ChangeColor(pSchedule);
+            ChangeColor(pSchedule, null, null, null, false);
             ShowForm(new GUIMainSchedule());
         }
 
         private void pNotify_Click(object sender, EventArgs e)
         {
-            ChangeColor(pNotify);
+            ChangeColor(pNotify, null, null, null, false);
             ShowForm(new GUINotification());
         }
 
@@ -119,7 +157,8 @@ namespace pbl
         }
         private void CallInfoForm(object sender, EventArgs e)
         {
-            ChangeColor(null);
+            ChangeColor(null, null, null, null, false);
+            labelPersonal.BackColor = Color.Green;
             ShowForm(new GUIPersonal());
         }
         private void labelLogOut_Click(object sender, EventArgs e)

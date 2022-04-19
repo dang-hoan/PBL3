@@ -134,6 +134,18 @@
     <Compile Include="GUIPersonal.Designer.cs">
       <DependentUpon>GUIPersonal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Passenger\GUIFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Passenger\GUIFeedback.Designer.cs">
+      <DependentUpon>GUIFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Passenger\GUIHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Passenger\GUIHelp.Designer.cs">
+      <DependentUpon>GUIHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Passenger\GUIMainSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,12 @@
     </Compile>
     <Compile Include="Passenger\GUINotification.Designer.cs">
       <DependentUpon>GUINotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Passenger\GUISetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Passenger\GUISetting.Designer.cs">
+      <DependentUpon>GUISetting.cs</DependentUpon>
     </Compile>
     <Compile Include="Passenger\GUITicket.cs">
       <SubType>Form</SubType>
@@ -223,11 +241,20 @@
     <EmbeddedResource Include="GUIPersonal.resx">
       <DependentUpon>GUIPersonal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Passenger\GUIFeedback.resx">
+      <DependentUpon>GUIFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Passenger\GUIHelp.resx">
+      <DependentUpon>GUIHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Passenger\GUIMainSchedule.resx">
       <DependentUpon>GUIMainSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Passenger\GUINotification.resx">
       <DependentUpon>GUINotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Passenger\GUISetting.resx">
+      <DependentUpon>GUISetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Passenger\GUITicket.resx">
       <DependentUpon>GUITicket.cs</DependentUpon>

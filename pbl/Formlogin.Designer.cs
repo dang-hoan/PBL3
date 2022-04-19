@@ -128,6 +128,7 @@
             this.txtpass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtpass.Multiline = true;
             this.txtpass.Name = "txtpass";
+            this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(262, 50);
             this.txtpass.TabIndex = 3;
             // 

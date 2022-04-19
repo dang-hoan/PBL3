@@ -30,22 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUITicket));
             this.panel_Content = new System.Windows.Forms.Panel();
+            this.pSave = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.bCancel = new System.Windows.Forms.Button();
             this.bBook = new System.Windows.Forms.Button();
             this.labelSchedule = new System.Windows.Forms.Label();
             this.pOption = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pSave = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel_Content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Content
             // 
             this.panel_Content.BackColor = System.Drawing.Color.White;
+            this.panel_Content.Controls.Add(this.button1);
             this.panel_Content.Controls.Add(this.pSave);
             this.panel_Content.Controls.Add(this.comboBox1);
             this.panel_Content.Controls.Add(this.bCancel);
@@ -57,6 +59,18 @@
             this.panel_Content.Name = "panel_Content";
             this.panel_Content.Size = new System.Drawing.Size(1096, 689);
             this.panel_Content.TabIndex = 0;
+            // 
+            // pSave
+            // 
+            this.pSave.BackColor = System.Drawing.Color.Green;
+            this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
+            this.pSave.Location = new System.Drawing.Point(1015, 640);
+            this.pSave.Name = "pSave";
+            this.pSave.Size = new System.Drawing.Size(53, 31);
+            this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pSave.TabIndex = 58;
+            this.pSave.TabStop = false;
             // 
             // comboBox1
             // 
@@ -128,17 +142,17 @@
             this.dataGridView1.Size = new System.Drawing.Size(1044, 490);
             this.dataGridView1.TabIndex = 37;
             // 
-            // pSave
+            // button1
             // 
-            this.pSave.BackColor = System.Drawing.Color.Green;
-            this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
-            this.pSave.Location = new System.Drawing.Point(1015, 640);
-            this.pSave.Name = "pSave";
-            this.pSave.Size = new System.Drawing.Size(53, 31);
-            this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pSave.TabIndex = 58;
-            this.pSave.TabStop = false;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(569, 58);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 40);
+            this.button1.TabIndex = 59;
+            this.button1.Text = "Hiển thị";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // GUITicket
             // 
@@ -150,9 +164,9 @@
             this.Text = "GUITicket";
             this.panel_Content.ResumeLayout(false);
             this.panel_Content.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -167,5 +181,6 @@
         private System.Windows.Forms.Button bCancel;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pSave;
+        private System.Windows.Forms.Button button1;
     }
 }
