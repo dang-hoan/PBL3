@@ -38,7 +38,7 @@ namespace pbl
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            showform(new customer());
+            showform(new Schedule());
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

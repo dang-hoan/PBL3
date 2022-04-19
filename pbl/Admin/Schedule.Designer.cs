@@ -1,6 +1,6 @@
 ﻿namespace pbl
 {
-    partial class Schedule
+    partial class cutomer
     {
         /// <summary>
         /// Required designer variable.
