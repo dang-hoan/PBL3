@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pbl", "pbl\pbl.csproj", "{6B6F1566-4875-436C-88FF-2CCEE3FBB93A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pbl33", "E:\DOTNET\pbl33\pbl33\pbl33.csproj", "{FBC7D267-B9EE-4B5A-BB51-86F239F54000}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{6B6F1566-4875-436C-88FF-2CCEE3FBB93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B6F1566-4875-436C-88FF-2CCEE3FBB93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B6F1566-4875-436C-88FF-2CCEE3FBB93A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FBC7D267-B9EE-4B5A-BB51-86F239F54000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBC7D267-B9EE-4B5A-BB51-86F239F54000}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBC7D267-B9EE-4B5A-BB51-86F239F54000}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBC7D267-B9EE-4B5A-BB51-86F239F54000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

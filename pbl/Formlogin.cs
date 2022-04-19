@@ -29,6 +29,7 @@ namespace pbl
             {
                 Form1 f = new Form1(this);
                 f.Show();
+            
             }
             else if(txtusername.Text == "2")
             {
