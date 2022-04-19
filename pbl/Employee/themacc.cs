@@ -16,7 +16,7 @@ namespace pbl
         {
             InitializeComponent();
         }
-
+/*
         private void bEditPass_Click(object sender, EventArgs e)
         {
             txtOld.Enabled = true;
@@ -55,6 +55,6 @@ namespace pbl
             txtIDCard.Enabled = false;
             txtEmail.Enabled = false;
             txtPhone.Enabled = false;
-        }
+        }*/
     }
 }

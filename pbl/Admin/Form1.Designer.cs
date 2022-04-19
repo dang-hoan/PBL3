@@ -91,6 +91,7 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 8;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // label3
             // 
@@ -145,7 +146,7 @@
             this.pSchedule.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pSchedule.TabIndex = 2;
             this.pSchedule.TabStop = false;
-            this.pSchedule.Click += new System.EventHandler(this.pictureBox3_Click);
+            
             // 
             // potheradmin
             // 

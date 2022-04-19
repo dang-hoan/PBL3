@@ -34,11 +34,7 @@ namespace pbl
             showform(new infor());
         }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            showform(new Schedule());
-        }
-
+       
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             showform(new ticket());

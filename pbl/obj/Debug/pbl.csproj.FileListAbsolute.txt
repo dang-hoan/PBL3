@@ -123,3 +123,5 @@ C:\PBL3\pbl\obj\Debug\pbl.customer.resources
 C:\PBL3\pbl\obj\Debug\pbl.infor.resources
 C:\PBL3\pbl\obj\Debug\pbl.nhanvien.resources
 C:\PBL3\pbl\obj\Debug\pbl.ticket.resources
+C:\PBL3\pbl\obj\Debug\pbl.themacc.resources
+C:\PBL3\pbl\obj\Debug\pbl.cutomer.resources

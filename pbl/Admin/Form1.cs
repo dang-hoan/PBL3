@@ -61,7 +61,7 @@ namespace pbl
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            ShowForm(new Schedule());
+            ShowForm(new schedule());
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -73,6 +73,11 @@ namespace pbl
         {
 
             ShowForm(new note());
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
