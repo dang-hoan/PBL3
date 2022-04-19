@@ -12,9 +12,11 @@ namespace pbl
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        Form login;
+        public Form1(Form login)
         {
             InitializeComponent();
+            this.login = login;
         }
         Form f=null;
         //tao form moi tren form cu
@@ -74,5 +76,6 @@ namespace pbl
 
             ShowForm(new note());
         }
+
     }
 }
