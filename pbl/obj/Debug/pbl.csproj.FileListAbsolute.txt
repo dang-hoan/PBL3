@@ -65,3 +65,26 @@ D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUICalendar.resources
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIOption.resources
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIPersonal.resources
 D:\Học tập\Kỳ 2 Năm 2\Pbl3\pbl\pbl\obj\Debug\pbl.GUIForget.resources
+C:\PBL3\pbl\pbl\bin\Debug\pbl.exe.config
+C:\PBL3\pbl\pbl\bin\Debug\pbl.exe
+C:\PBL3\pbl\pbl\bin\Debug\pbl.pdb
+C:\PBL3\pbl\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
+C:\PBL3\pbl\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
+C:\PBL3\pbl\pbl\obj\Debug\pbl.Form3.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUICalendar.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.Form2.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUIForget.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUIPersonal.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUIMainSchedule.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUINotification.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUITicket.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUISchedule.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUIBook.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUIChat.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUI.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.GUIOption.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.Properties.Resources.resources
+C:\PBL3\pbl\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
+C:\PBL3\pbl\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
+C:\PBL3\pbl\pbl\obj\Debug\pbl.exe
+C:\PBL3\pbl\pbl\obj\Debug\pbl.pdb

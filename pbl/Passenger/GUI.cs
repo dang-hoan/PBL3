@@ -71,9 +71,16 @@ namespace pbl
         }
         private void pOther_Click(object sender, EventArgs e)
         {
-            ChangeColor(pOther);
-            if (panel_Other.Visible) panel_Other.Visible = false;
-            else panel_Other.Visible = false;
+            if (panel_Other.Visible)
+            {
+                pOther.BackColor = Color.FromArgb(0, 192, 0);
+                panel_Other.Visible = false;
+            }
+            else
+            {
+                ChangeColor(pOther);
+                panel_Other.Visible = true;
+            }
         }
         private void pHome_Click(object sender, EventArgs e)
         {
