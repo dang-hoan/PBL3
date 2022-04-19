@@ -119,9 +119,12 @@ C:\PBL3\pbl\obj\Debug\pbl.note.resources
 C:\PBL3\pbl\obj\Debug\pbl.Passenger.resources
 C:\PBL3\pbl\obj\Debug\pbl.Schedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.addticket.resources
-C:\PBL3\pbl\obj\Debug\pbl.customer.resources
 C:\PBL3\pbl\obj\Debug\pbl.infor.resources
 C:\PBL3\pbl\obj\Debug\pbl.nhanvien.resources
 C:\PBL3\pbl\obj\Debug\pbl.ticket.resources
 C:\PBL3\pbl\obj\Debug\pbl.themacc.resources
+<<<<<<< HEAD
 C:\PBL3\pbl\obj\Debug\pbl.cutomer.resources
+=======
+C:\PBL3\pbl\obj\Debug\pbl.lichtrinh.resources
+>>>>>>> 56189591597c8ac2502b753db62da6211e9cbcad

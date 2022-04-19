@@ -12,9 +12,11 @@ namespace pbl
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        Form login;
+        public Form1(Form login)
         {
             InitializeComponent();
+            this.login = login;
         }
         Form f=null;
         //tao form moi tren form cu
@@ -61,7 +63,7 @@ namespace pbl
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            ShowForm(new schedule());
+            ShowForm(new Schedule());
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -75,9 +77,11 @@ namespace pbl
             ShowForm(new note());
         }
 
+
         private void pictureBox7_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }

@@ -102,6 +102,7 @@
             this.labelLogOut.TabIndex = 13;
             this.labelLogOut.Text = "Đăng xuất";
             this.labelLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelLogOut.Click += new System.EventHandler(this.labelLogOut_Click);
             // 
             // labelPersonal
             // 

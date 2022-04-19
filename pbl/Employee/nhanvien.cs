@@ -12,9 +12,11 @@ namespace pbl
 {
     public partial class nhanvien : Form
     {
-        public nhanvien()
+        Form login;
+        public nhanvien(Form login)
         {
             InitializeComponent();
+            this.login = login;
 
         }
         Form form = null;
@@ -34,7 +36,15 @@ namespace pbl
             showform(new infor());
         }
 
+<<<<<<< HEAD
        
+=======
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            showform(new lichtrinh());
+        }
+
+>>>>>>> 56189591597c8ac2502b753db62da6211e9cbcad
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             showform(new ticket());

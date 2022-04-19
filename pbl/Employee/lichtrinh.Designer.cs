@@ -1,6 +1,6 @@
 ﻿namespace pbl
 {
-    partial class schedule
+    partial class lichtrinh
     {
         /// <summary>
         /// Required designer variable.
@@ -185,7 +185,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(990, 153);
             this.dataGridView1.TabIndex = 19;
             // 
-            // schedule
+            // lichtrinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -207,8 +207,8 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "schedule";
-            this.Text = "schedule";
+            this.Name = "lichtrinh";
+            this.Text = "lichtrinh";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

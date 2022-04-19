@@ -16,6 +16,7 @@ namespace pbl
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
 /*
         private void bEditPass_Click(object sender, EventArgs e)
         {
@@ -56,5 +57,9 @@ namespace pbl
             txtEmail.Enabled = false;
             txtPhone.Enabled = false;
         }*/
+=======
+
+       
+>>>>>>> 56189591597c8ac2502b753db62da6211e9cbcad
     }
 }

@@ -12,13 +12,15 @@ namespace pbl
 {
     public partial class GUI : Form
     {
+        Form login;
         Form form = null;
-        public GUI()
+        public GUI(Form login)
         {
             InitializeComponent();
             this.Size = new Size(750, 550);
             this.CenterToScreen();
             ShowForm(CreatForm());
+            this.login = login;
         }        
         private Form CreatForm()
         {
@@ -118,6 +120,11 @@ namespace pbl
         private void CallInfoForm(object sender, EventArgs e)
         {
             ShowForm(new GUIPersonal());
+        }
+        private void labelLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            login.Show();
         }
 
     }

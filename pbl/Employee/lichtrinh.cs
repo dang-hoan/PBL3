@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public partial class schedule : Form
+    public partial class lichtrinh : Form
     {
-        public schedule()
+        public lichtrinh()
         {
             InitializeComponent();
         }
