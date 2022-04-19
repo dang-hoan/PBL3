@@ -38,7 +38,7 @@ namespace pbl
             return GUIHome;
         }
         private void ChangeColor(PictureBox p)
-        {
+        {           
             pOther.BackColor = Color.FromArgb(0, 192, 0);
             pHome.BackColor = Color.FromArgb(0, 192, 0);
             pChat.BackColor = Color.FromArgb(0, 192, 0);
@@ -46,7 +46,7 @@ namespace pbl
             pSchedule.BackColor = Color.FromArgb(0, 192, 0);
             pNotify.BackColor = Color.FromArgb(0, 192, 0);
             pArrow.BackColor = Color.FromArgb(0, 192, 0);
-            p.BackColor = Color.Green;
+            if(p != null) p.BackColor = Color.Green;
         }
         private void DocFill()
         {
@@ -119,6 +119,7 @@ namespace pbl
         }
         private void CallInfoForm(object sender, EventArgs e)
         {
+            ChangeColor(null);
             ShowForm(new GUIPersonal());
         }
         private void labelLogOut_Click(object sender, EventArgs e)

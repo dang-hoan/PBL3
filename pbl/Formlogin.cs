@@ -29,7 +29,7 @@ namespace pbl
             {
                 Form1 f = new Form1(this);
                 f.Show();
-            
+                this.Hide();
             }
             else if(txtusername.Text == "2")
             {
@@ -38,8 +38,11 @@ namespace pbl
             else if(txtusername.Text == "3")
             {
                 GUI g = new GUI(this);
-                g.ShowDialog();
+                g.Show();
+                this.Hide();
             }
+            txtusername.Text = "";
+            txtpass.Text = "";
         }
     }
 }
