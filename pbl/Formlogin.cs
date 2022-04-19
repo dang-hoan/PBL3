@@ -32,9 +32,9 @@ namespace pbl
             }
             else if(txtusername.Text == "2")
             {
-                nhanvien f = new nhanvien(this);
-                f.Show();
-                this.Hide();
+                //nhanvien f = new nhanvien(this);
+                //f.Show();
+                //this.Hide();
             }
             else if(txtusername.Text == "3" )
             {
