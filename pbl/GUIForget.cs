@@ -12,9 +12,22 @@ namespace pbl
 {
     public partial class GUIForget : Form
     {
-        public GUIForget()
+        Form login;
+        public GUIForget(Form login)
         {
             InitializeComponent();
+            this.login = login;
+        }
+
+        private void bAgree_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            login.Show();
         }
     }
 }

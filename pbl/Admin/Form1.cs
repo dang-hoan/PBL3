@@ -16,6 +16,7 @@ namespace pbl
         public Form1(Form login)
         {
             InitializeComponent();
+            
             this.login = login;
             
         }
@@ -43,6 +44,11 @@ namespace pbl
            // pNotify.BackColor = Color.FromArgb(0, 192, 0);
            // pArrow.BackColor = Color.FromArgb(0, 192, 0);
             p.BackColor = Color.Green;
+        }
+        private void pArrow_Click(object sender, EventArgs e)
+        {
+            if (paneluser.Visible) paneluser.Visible = false;
+            else paneluser.Visible = true;
         }
         private void pOther_Click(object sender, EventArgs e)
         {
@@ -84,6 +90,11 @@ namespace pbl
         private void pSchedule_Click(object sender, EventArgs e)
         {
             ShowForm(new Schedule());
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

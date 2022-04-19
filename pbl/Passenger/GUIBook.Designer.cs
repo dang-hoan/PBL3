@@ -238,6 +238,7 @@
             this.ClientSize = new System.Drawing.Size(978, 616);
             this.Controls.Add(this.panel1);
             this.Name = "GUIBook";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GUIBook";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

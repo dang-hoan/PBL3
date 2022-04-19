@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formlogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkRegister = new System.Windows.Forms.LinkLabel();
+            this.linkForget = new System.Windows.Forms.LinkLabel();
             this.btdangnhap = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -45,6 +47,8 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.linkRegister);
+            this.panel1.Controls.Add(this.linkForget);
             this.panel1.Controls.Add(this.btdangnhap);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox3);
@@ -54,8 +58,34 @@
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(487, 562);
+            this.panel1.Size = new System.Drawing.Size(487, 598);
             this.panel1.TabIndex = 0;
+            // 
+            // linkRegister
+            // 
+            this.linkRegister.AutoSize = true;
+            this.linkRegister.BackColor = System.Drawing.Color.Transparent;
+            this.linkRegister.LinkColor = System.Drawing.Color.White;
+            this.linkRegister.Location = new System.Drawing.Point(279, 548);
+            this.linkRegister.Name = "linkRegister";
+            this.linkRegister.Size = new System.Drawing.Size(174, 20);
+            this.linkRegister.TabIndex = 8;
+            this.linkRegister.TabStop = true;
+            this.linkRegister.Text = "Đăng ký tài khoản mới?";
+            // 
+            // linkForget
+            // 
+            this.linkForget.AutoSize = true;
+            this.linkForget.BackColor = System.Drawing.Color.Transparent;
+            this.linkForget.ForeColor = System.Drawing.Color.Red;
+            this.linkForget.LinkColor = System.Drawing.Color.White;
+            this.linkForget.Location = new System.Drawing.Point(326, 508);
+            this.linkForget.Name = "linkForget";
+            this.linkForget.Size = new System.Drawing.Size(127, 20);
+            this.linkForget.TabIndex = 7;
+            this.linkForget.TabStop = true;
+            this.linkForget.Text = "Quên mật khẩu?";
+            this.linkForget.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForget_LinkClicked);
             // 
             // btdangnhap
             // 
@@ -126,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 542);
+            this.ClientSize = new System.Drawing.Size(489, 599);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -151,5 +181,7 @@
         private System.Windows.Forms.TextBox txtusername;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btdangnhap;
+        private System.Windows.Forms.LinkLabel linkRegister;
+        private System.Windows.Forms.LinkLabel linkForget;
     }
 }

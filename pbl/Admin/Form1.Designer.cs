@@ -43,6 +43,11 @@
             this.panel_Other = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.paneluser = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -51,8 +56,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSchedule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.potheradmin)).BeginInit();
+            this.panel_Content.SuspendLayout();
             this.panel_Other.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.paneluser.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,6 +90,7 @@
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 9;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pArrow_Click);
             // 
             // pictureBox7
             // 
@@ -170,9 +180,12 @@
             // panel_Content
             // 
             this.panel_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel_Content.Location = new System.Drawing.Point(12, 73);
+            this.panel_Content.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_Content.BackgroundImage")));
+            this.panel_Content.Controls.Add(this.panel_Other);
+            this.panel_Content.Controls.Add(this.paneluser);
+            this.panel_Content.Location = new System.Drawing.Point(3, 76);
             this.panel_Content.Name = "panel_Content";
-            this.panel_Content.Size = new System.Drawing.Size(1084, 375);
+            this.panel_Content.Size = new System.Drawing.Size(1093, 375);
             this.panel_Content.TabIndex = 1;
             // 
             // panel_Other
@@ -180,10 +193,11 @@
             this.panel_Other.BackColor = System.Drawing.Color.DarkGray;
             this.panel_Other.Controls.Add(this.label1);
             this.panel_Other.Controls.Add(this.pictureBox1);
-            this.panel_Other.Location = new System.Drawing.Point(3, 72);
+            this.panel_Other.Location = new System.Drawing.Point(3, 2);
             this.panel_Other.Name = "panel_Other";
             this.panel_Other.Size = new System.Drawing.Size(200, 373);
             this.panel_Other.TabIndex = 0;
+            this.panel_Other.Visible = false;
             // 
             // label1
             // 
@@ -206,12 +220,60 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // paneluser
+            // 
+            this.paneluser.BackColor = System.Drawing.Color.Silver;
+            this.paneluser.Controls.Add(this.panel5);
+            this.paneluser.Controls.Add(this.panel4);
+            this.paneluser.Location = new System.Drawing.Point(899, 0);
+            this.paneluser.Name = "paneluser";
+            this.paneluser.Size = new System.Drawing.Size(194, 373);
+            this.paneluser.TabIndex = 0;
+            this.paneluser.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 18);
+            this.label2.TabIndex = 0;
+            this.label2.Text = " Hồ sơ cá nhân";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(52, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 18);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Đăng xuất";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(194, 58);
+            this.panel4.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Silver;
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Location = new System.Drawing.Point(0, 62);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(194, 58);
+            this.panel5.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 450);
-            this.Controls.Add(this.panel_Other);
             this.Controls.Add(this.panel_Content);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -226,9 +288,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSchedule)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.potheradmin)).EndInit();
+            this.panel_Content.ResumeLayout(false);
             this.panel_Other.ResumeLayout(false);
             this.panel_Other.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.paneluser.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -249,6 +317,11 @@
         private System.Windows.Forms.Panel panel_Other;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel paneluser;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 

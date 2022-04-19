@@ -361,6 +361,7 @@
             this.Controls.Add(this.panel_Title);
             this.Controls.Add(this.panel_Content);
             this.Name = "GUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đường sắt Việt Nam";
             this.panel_Content.ResumeLayout(false);
             this.panel_User.ResumeLayout(false);
