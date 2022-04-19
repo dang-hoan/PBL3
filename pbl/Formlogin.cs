@@ -17,23 +17,27 @@ namespace pbl
             InitializeComponent();
         }
 
-        private void bLogin_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if(txtUsername.Text == "1")
+            this.Close();
+        }
+
+       
+        private void btdangnhap_Click_1(object sender, EventArgs e)
+        {
+            if (txtusername.Text == "1")
             {
-                Form1 Admin = new Form1(this);
-                Admin.Show();
-                this.Hide();
+                Form1 f = new Form1(this);
+                f.Show();
             }
-            else if(txtUsername.Text == "2")
+            else if(txtusername.Text == "2")
             {
 
             }
-            else if(txtUsername.Text == "3")
+            else if(txtusername.Text == "3")
             {
-                GUI form3 = new GUI(this);
-                form3.Show();
-                this.Hide();
+                GUI g = new GUI(this);
+                g.ShowDialog();
             }
         }
     }

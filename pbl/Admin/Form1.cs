@@ -17,6 +17,7 @@ namespace pbl
         {
             InitializeComponent();
             this.login = login;
+            
         }
         Form f=null;
         //tao form moi tren form cu
@@ -61,10 +62,7 @@ namespace pbl
             ShowForm(new employee());
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            ShowForm(new Schedule());
-        }
+       
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
@@ -83,5 +81,9 @@ namespace pbl
 
         }
 
+        private void pSchedule_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Schedule());
+        }
     }
 }
