@@ -28,7 +28,7 @@ namespace pbl
             GUIHome.Size = new Size(1096, 689);
             picture.Width = 730;
             picture.Height = 470;
-            Bitmap image = new Bitmap(@"C:\PBL3\pbl\picture\text.png");
+            Bitmap image = new Bitmap(@"C:\PBL3\picture\text.png");
             picture.Image = (Image)image;
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
 
