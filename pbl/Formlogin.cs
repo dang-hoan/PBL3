@@ -11,39 +11,30 @@ using System.Windows.Forms;
 namespace pbl
 {
     public partial class Formlogin : Form
-    {        
+    {
         public Formlogin()
         {
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void bLogin_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void btdangnhap_Click(object sender, EventArgs e)
-        {
-            if( txtusername.Text == "1" )
+            if(txtUsername.Text == "1")
             {
-                  Form1 form1 = new Form1(this);
-                  form1.Show();
-                  this.Hide();
-            }
-            else if(txtusername.Text == "2")
-            {
-                //nhanvien f = new nhanvien(this);
-                //f.Show();
-                //this.Hide();
-            }
-            else if(txtusername.Text == "3" )
-            {
-                GUI g=new GUI(this);
-                g.Show();
+                Form1 Admin = new Form1(this);
+                Admin.Show();
                 this.Hide();
             }
+            else if(txtUsername.Text == "2")
+            {
 
-               
+            }
+            else if(txtUsername.Text == "3")
+            {
+                GUI form3 = new GUI(this);
+                form3.Show();
+                this.Hide();
+            }
         }
     }
 }

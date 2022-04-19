@@ -77,5 +77,11 @@ namespace pbl
             ShowForm(new note());
         }
 
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

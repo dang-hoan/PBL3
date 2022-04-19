@@ -93,6 +93,13 @@ C:\PBL3\pbl\bin\Debug\pbl.exe
 C:\PBL3\pbl\bin\Debug\pbl.pdb
 C:\PBL3\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
+C:\PBL3\pbl\obj\Debug\pbl.AddForm.resources
+C:\PBL3\pbl\obj\Debug\pbl.employee.resources
+C:\PBL3\pbl\obj\Debug\pbl.Form1.resources
+C:\PBL3\pbl\obj\Debug\pbl.note.resources
+C:\PBL3\pbl\obj\Debug\pbl.Passenger.resources
+C:\PBL3\pbl\obj\Debug\pbl.Schedule.resources
+C:\PBL3\pbl\obj\Debug\pbl.Formlogin.resources
 C:\PBL3\pbl\obj\Debug\pbl.Form3.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUICalendar.resources
 C:\PBL3\pbl\obj\Debug\pbl.Form2.resources
@@ -111,10 +118,3 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
 C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
-C:\PBL3\pbl\obj\Debug\pbl.AddForm.resources
-C:\PBL3\pbl\obj\Debug\pbl.employee.resources
-C:\PBL3\pbl\obj\Debug\pbl.Form1.resources
-C:\PBL3\pbl\obj\Debug\pbl.Formlogin.resources
-C:\PBL3\pbl\obj\Debug\pbl.note.resources
-C:\PBL3\pbl\obj\Debug\pbl.Passenger.resources
-C:\PBL3\pbl\obj\Debug\pbl.Schedule.resources
