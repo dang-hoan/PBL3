@@ -35,9 +35,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pHome = new System.Windows.Forms.PictureBox();
+            this.pSchedule = new System.Windows.Forms.PictureBox();
+            this.potheradmin = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel_Content = new System.Windows.Forms.Panel();
             this.panel_Other = new System.Windows.Forms.Panel();
@@ -48,9 +48,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pSchedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.potheradmin)).BeginInit();
             this.panel_Other.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,9 +63,9 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pHome);
+            this.panel1.Controls.Add(this.pSchedule);
+            this.panel1.Controls.Add(this.potheradmin);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -125,37 +125,38 @@
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
-            // pictureBox4
+            // pHome
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(216, 11);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(60, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.pHome.Image = ((System.Drawing.Image)(resources.GetObject("pHome.Image")));
+            this.pHome.Location = new System.Drawing.Point(216, 11);
+            this.pHome.Name = "pHome";
+            this.pHome.Size = new System.Drawing.Size(60, 50);
+            this.pHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pHome.TabIndex = 3;
+            this.pHome.TabStop = false;
+            this.pHome.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // pictureBox3
+            // pSchedule
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(476, 11);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(59, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pSchedule.Image = ((System.Drawing.Image)(resources.GetObject("pSchedule.Image")));
+            this.pSchedule.Location = new System.Drawing.Point(476, 11);
+            this.pSchedule.Name = "pSchedule";
+            this.pSchedule.Size = new System.Drawing.Size(59, 50);
+            this.pSchedule.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pSchedule.TabIndex = 2;
+            this.pSchedule.TabStop = false;
+            this.pSchedule.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // pictureBox2
+            // potheradmin
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(59, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.potheradmin.Image = ((System.Drawing.Image)(resources.GetObject("potheradmin.Image")));
+            this.potheradmin.Location = new System.Drawing.Point(3, 12);
+            this.potheradmin.Name = "potheradmin";
+            this.potheradmin.Size = new System.Drawing.Size(59, 50);
+            this.potheradmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.potheradmin.TabIndex = 1;
+            this.potheradmin.TabStop = false;
+            this.potheradmin.Click += new System.EventHandler(this.pOther_Click);
             // 
             // panel3
             // 
@@ -221,9 +222,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pSchedule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.potheradmin)).EndInit();
             this.panel_Other.ResumeLayout(false);
             this.panel_Other.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -241,9 +242,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pHome;
+        private System.Windows.Forms.PictureBox pSchedule;
+        private System.Windows.Forms.PictureBox potheradmin;
         private System.Windows.Forms.Panel panel_Other;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;

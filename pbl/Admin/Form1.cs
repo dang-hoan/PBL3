@@ -30,7 +30,30 @@ namespace pbl
             panel_Content.Tag = subForm;
             subForm.Show();
         }
-
+        private void ChangeColor(PictureBox p)
+        {
+            potheradmin.BackColor = Color.FromArgb(0, 192, 0);
+            pHome.BackColor = Color.FromArgb(0, 192, 0);
+            //pChat.BackColor = Color.FromArgb(0, 192, 0);
+           // pTicket.BackColor = Color.FromArgb(0, 192, 0);
+            pSchedule.BackColor = Color.FromArgb(0, 192, 0);
+           // pNotify.BackColor = Color.FromArgb(0, 192, 0);
+           // pArrow.BackColor = Color.FromArgb(0, 192, 0);
+            p.BackColor = Color.Green;
+        }
+        private void pOther_Click(object sender, EventArgs e)
+        {
+            if (panel_Other.Visible)
+            {
+                potheradmin.BackColor = Color.FromArgb(0, 192, 0);
+                panel_Other.Visible = false;
+            }
+            else
+            {
+                ChangeColor(potheradmin);
+                panel_Other.Visible = true;
+            }
+        }
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             ShowForm(new employee());
