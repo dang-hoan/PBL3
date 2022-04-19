@@ -10,13 +10,16 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public partial class cutomer : Form
+    public partial class infor : Form
     {
-        public cutomer()
+        public infor()
         {
             InitializeComponent();
         }
 
-       
+        private void infor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

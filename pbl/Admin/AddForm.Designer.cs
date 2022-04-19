@@ -248,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
-            this.ClientSize = new System.Drawing.Size(1149, 440);
+            this.ClientSize = new System.Drawing.Size(1144, 453);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -10,13 +10,23 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public partial class cutomer : Form
+    public partial class schedule : Form
     {
-        public cutomer()
+        public schedule()
         {
             InitializeComponent();
         }
 
-       
+
+
+        private void btndlt_Click(object sender, EventArgs e)
+        {
+
+        } 
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

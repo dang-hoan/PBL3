@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Employee\addticket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\addticket.Designer.cs">
+      <DependentUpon>addticket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,12 @@
     </Compile>
     <Compile Include="Admin\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\lichtrinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\lichtrinh.Designer.cs">
+      <DependentUpon>lichtrinh.cs</DependentUpon>
     </Compile>
     <Compile Include="Formlogin.cs">
       <SubType>Form</SubType>
@@ -88,6 +100,18 @@
     </Compile>
     <Compile Include="Admin\Schedule.Designer.cs">
       <DependentUpon>Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\infor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\infor.Designer.cs">
+      <DependentUpon>infor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\nhanvien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\nhanvien.Designer.cs">
+      <DependentUpon>nhanvien.cs</DependentUpon>
     </Compile>
     <Compile Include="Passenger\Form3.cs">
       <SubType>Form</SubType>
@@ -172,6 +196,21 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QL.cs" />
+    <Compile Include="Employee\themacc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\themacc.Designer.cs">
+      <DependentUpon>themacc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\ticket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\ticket.Designer.cs">
+      <DependentUpon>ticket.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Employee\addticket.resx">
+      <DependentUpon>addticket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +219,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\lichtrinh.resx">
+      <DependentUpon>lichtrinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\themacc.resx">
+      <DependentUpon>themacc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formlogin.resx">
       <DependentUpon>Formlogin.cs</DependentUpon>
@@ -192,6 +237,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\infor.resx">
+      <DependentUpon>infor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\nhanvien.resx">
+      <DependentUpon>nhanvien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Passenger\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
@@ -241,6 +292,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Employee\ticket.resx">
+      <DependentUpon>ticket.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -10,13 +10,16 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public partial class cutomer : Form
+    public partial class ticket : Form
     {
-        public cutomer()
+        public ticket()
         {
             InitializeComponent();
         }
-
-       
+    private void button1_Click(object sender, EventArgs e)
+        {
+            addticket f = new addticket();
+            f.Show();
+        }
     }
 }

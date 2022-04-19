@@ -29,7 +29,12 @@ namespace pbl
                   Form1 form1 = new Form1();
                   form1.ShowDialog();
             }
-            else
+            else if(txtusername.Text == "2")
+            {
+                nhanvien f = new nhanvien();
+                f.ShowDialog();
+            }
+            else if(txtusername.Text == "3" )
             {
                 GUI g=new GUI();
                 g.ShowDialog();
