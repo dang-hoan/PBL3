@@ -12,9 +12,11 @@ namespace pbl
 {
     public partial class nhanvien : Form
     {
-        public nhanvien()
+        Form login;
+        public nhanvien(Form login)
         {
             InitializeComponent();
+            this.login = login;
 
         }
         Form form = null;

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace pbl
 {
     public partial class Formlogin : Form
-    {
+    {        
         public Formlogin()
         {
             InitializeComponent();
@@ -26,18 +26,21 @@ namespace pbl
         {
             if( txtusername.Text == "1" )
             {
-                  Form1 form1 = new Form1();
-                  form1.ShowDialog();
+                  Form1 form1 = new Form1(this);
+                  form1.Show();
+                  this.Hide();
             }
             else if(txtusername.Text == "2")
             {
-                nhanvien f = new nhanvien();
-                f.ShowDialog();
+                nhanvien f = new nhanvien(this);
+                f.Show();
+                this.Hide();
             }
             else if(txtusername.Text == "3" )
             {
-                GUI g=new GUI();
-                g.ShowDialog();
+                GUI g=new GUI(this);
+                g.Show();
+                this.Hide();
             }
 
                
