@@ -200,6 +200,7 @@
     <Compile Include="Passenger\GUIOption.Designer.cs">
       <DependentUpon>GUIOption.cs</DependentUpon>
     </Compile>
+    <Compile Include="Passenger\HandlerMyInterfaces.cs" />
     <Compile Include="People.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Program.cs" />
