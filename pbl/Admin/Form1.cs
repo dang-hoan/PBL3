@@ -26,7 +26,7 @@ namespace pbl
         {
             if (f != null) f.Close();
             f = subForm;
-            panel_Other.Visible = false;
+            
             subForm.TopLevel = false;
             subForm.FormBorderStyle = FormBorderStyle.None;
             subForm.Dock = DockStyle.Fill;
@@ -36,7 +36,7 @@ namespace pbl
         }
         private void ChangeColor(PictureBox p)
         {
-            potheradmin.BackColor = Color.FromArgb(0, 192, 0);
+            
             pHome.BackColor = Color.FromArgb(0, 192, 0);
             //pChat.BackColor = Color.FromArgb(0, 192, 0);
            // pTicket.BackColor = Color.FromArgb(0, 192, 0);
@@ -50,30 +50,8 @@ namespace pbl
             if (paneluser.Visible) paneluser.Visible = false;
             else paneluser.Visible = true;
         }
-        private void pOther_Click(object sender, EventArgs e)
-        {
-            if (panel_Other.Visible)
-            {
-                potheradmin.BackColor = Color.FromArgb(0, 192, 0);
-                panel_Other.Visible = false;
-            }
-            else
-            {
-                ChangeColor(potheradmin);
-                panel_Other.Visible = true;
-            }
-        }
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            ShowForm(new employee());
-        }
-
+        
        
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            ShowForm(new Passenger());
-        }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
@@ -87,10 +65,7 @@ namespace pbl
             ShowForm(new GUIPersonal());
         }
 
-        private void pSchedule_Click(object sender, EventArgs e)
-        {
-            ShowForm(new Schedule());
-        }
+        
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -101,6 +76,37 @@ namespace pbl
         private void lcanhan_Click(object sender, EventArgs e)
         {
             ShowForm(new GUIPersonal());
+        }
+
+        private void lbqlnv_Click(object sender, EventArgs e)
+        {
+            ShowForm(new employee());
+        }
+
+        private void pqlnv_Click(object sender, EventArgs e)
+        {
+            ShowForm(new employee());
+        }
+
+        private void lblichtrinh_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Schedule());
+        }
+
+        private void pSchedule_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Schedule());
+        }
+
+        private void lbkhachhang_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Passenger());
+        }
+       
+
+        private void lkhachhang_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Passenger());
         }
     }
 }

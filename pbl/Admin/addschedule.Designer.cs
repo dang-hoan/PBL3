@@ -185,6 +185,7 @@
             this.Controls.Add(this.bTOK);
             this.Controls.Add(this.panel1);
             this.Name = "addschedule";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addschedule";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
