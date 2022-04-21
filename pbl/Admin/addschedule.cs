@@ -8,20 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace pbl
+namespace pbl.Admin
 {
-    public partial class AddForm : Form
+    public partial class addschedule : Form
     {
-        public AddForm()
+        public addschedule()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bTOK_Click(object sender, EventArgs e)
         {
-            this.Close();        
+            this.Close();
         }
-
-       
     }
 }

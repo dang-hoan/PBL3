@@ -68,6 +68,12 @@
     <Compile Include="Admin\AddForm.Designer.cs">
       <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\addschedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\addschedule.Designer.cs">
+      <DependentUpon>addschedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     <Compile Include="QL.cs" />
     <EmbeddedResource Include="Admin\AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\addschedule.resx">
+      <DependentUpon>addschedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\employee.resx">
       <DependentUpon>employee.cs</DependentUpon>
