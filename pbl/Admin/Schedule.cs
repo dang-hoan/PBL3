@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pbl.Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,11 @@ namespace pbl
             InitializeComponent();
         }
 
-       
+        private void btaddschedule_Click(object sender, EventArgs e)
+        {
+            addschedule a = new addschedule();
+            a.Show();
+
+        }
     }
 }

@@ -118,3 +118,7 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
 C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
+C:\PBL3\pbl\obj\Debug\pbl.GUIFeedback.resources
+C:\PBL3\pbl\obj\Debug\pbl.GUIHelp.resources
+C:\PBL3\pbl\obj\Debug\pbl.GUISetting.resources
+C:\PBL3\pbl\obj\Debug\pbl.Admin.addschedule.resources

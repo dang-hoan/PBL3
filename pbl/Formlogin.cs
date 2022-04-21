@@ -48,6 +48,7 @@ namespace pbl
         private void linkForget_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
+            txtpass.Text = "";
             GUIForget Forget = new GUIForget(this);
             Forget.Show();
         }

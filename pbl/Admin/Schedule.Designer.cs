@@ -37,7 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btaddschedule = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -125,14 +125,15 @@
             this.button3.Text = "XÓA LỊCH TRÌNH";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btaddschedule
             // 
-            this.button4.Location = new System.Drawing.Point(75, 279);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(177, 38);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "THÊM LỊCH TRÌNH";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btaddschedule.Location = new System.Drawing.Point(75, 279);
+            this.btaddschedule.Name = "btaddschedule";
+            this.btaddschedule.Size = new System.Drawing.Size(177, 38);
+            this.btaddschedule.TabIndex = 10;
+            this.btaddschedule.Text = "THÊM LỊCH TRÌNH";
+            this.btaddschedule.UseVisualStyleBackColor = true;
+            this.btaddschedule.Click += new System.EventHandler(this.btaddschedule_Click);
             // 
             // label4
             // 
@@ -197,7 +198,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btaddschedule);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -226,7 +227,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btaddschedule;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;

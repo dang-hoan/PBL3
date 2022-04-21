@@ -45,12 +45,13 @@
             // 
             // bCalendar
             // 
+            this.bCalendar.BackColor = System.Drawing.Color.Gray;
             this.bCalendar.Location = new System.Drawing.Point(3, 601);
             this.bCalendar.Name = "bCalendar";
             this.bCalendar.Size = new System.Drawing.Size(88, 34);
             this.bCalendar.TabIndex = 44;
             this.bCalendar.Text = "Calendar";
-            this.bCalendar.UseVisualStyleBackColor = true;
+            this.bCalendar.UseVisualStyleBackColor = false;
             this.bCalendar.Click += new System.EventHandler(this.bCalendar_Click);
             // 
             // panel_Content

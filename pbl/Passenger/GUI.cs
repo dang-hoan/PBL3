@@ -17,10 +17,10 @@ namespace pbl
         public GUI(Form login)
         {
             InitializeComponent();
-            this.Size = new Size(750, 550);
-            this.CenterToScreen();
+            this.Size = new Size(750, 528);
             ShowForm(CreatForm());
             this.login = login;
+            AddHandler();
         }        
         private Form CreatForm()
         {
@@ -37,16 +37,24 @@ namespace pbl
             GUIHome.Controls.Add(picture);
             return GUIHome;
         }
-        private void ChangeColor(PictureBox p)
-        {           
+        private void ChangeColor(PictureBox p, Button b)
+        {
             pOther.BackColor = Color.FromArgb(0, 192, 0);
             pHome.BackColor = Color.FromArgb(0, 192, 0);
             pChat.BackColor = Color.FromArgb(0, 192, 0);
             pTicket.BackColor = Color.FromArgb(0, 192, 0);
             pSchedule.BackColor = Color.FromArgb(0, 192, 0);
             pNotify.BackColor = Color.FromArgb(0, 192, 0);
+            pImage.BackColor = Color.FromArgb(0, 192, 0);
             pArrow.BackColor = Color.FromArgb(0, 192, 0);
-            if(p != null) p.BackColor = Color.Green;
+            if (p != null) p.BackColor = Color.Green;
+
+            bHelp.BackColor = Color.FromArgb(0, 192, 0);
+            bFeedback.BackColor = Color.FromArgb(0, 192, 0);
+            bSetting.BackColor = Color.FromArgb(0, 192, 0);
+            if (b != null) b.BackColor = Color.Green;
+
+            labelPersonal.BackColor = Color.FromArgb(0, 192, 0);
         }
         private void DocFill()
         {
@@ -57,6 +65,51 @@ namespace pbl
             //pSchedule.Dock = DockStyle.Fill;
             //pNotify.Dock = DockStyle.Fill;
             //pArrow.Dock = DockStyle.Fill;
+        }
+        private void AddHandler()
+        {
+            //pOther
+            this.pOther.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.pOther.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //pHome
+            this.pHome.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.pHome.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //pChat
+            this.pChat.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.pChat.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //pTicket
+            this.pTicket.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.pTicket.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //pSchedule
+            this.pSchedule.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.pSchedule.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //pNotify
+            this.pNotify.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.pNotify.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //labelName
+            this.labelName.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.labelName.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //pImage
+            this.pImage.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.pImage.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //pArrow
+            this.pArrow.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.pArrow.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //labelPersonal
+            this.labelPersonal.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.labelPersonal.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //labelLogOut
+            this.labelLogOut.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
+            this.labelLogOut.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            //bHelp
+            this.bHelp.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Button_MouseMove);
+            this.bHelp.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Button_MouseLeave);
+            //bFeedback
+            this.bFeedback.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Button_MouseMove);
+            this.bFeedback.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Button_MouseLeave);
+            //bSetting
+            this.bSetting.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Button_MouseMove);
+            this.bSetting.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Button_MouseLeave);
         }
         private void ShowForm(Form subForm)
         {
@@ -80,35 +133,51 @@ namespace pbl
             }
             else
             {
-                ChangeColor(pOther);
+                pOther.BackColor = Color.Green;
                 panel_Other.Visible = true;
             }
         }
+        private void Help_Click(object sender, EventArgs e)
+        {
+            ChangeColor(null, bHelp);
+            ShowForm(new GUIHelp());
+        }
+        private void Feedback_Click(object sender, EventArgs e)
+        {
+            ChangeColor(null, bFeedback);
+            ShowForm(new GUIFeedback());
+        }
+        private void Setting_Click(object sender, EventArgs e)
+        {
+            ChangeColor(null,bSetting);
+            ShowForm(new GUISetting());
+        }
+
         private void pHome_Click(object sender, EventArgs e)
         {
-            ChangeColor(pHome);
+            ChangeColor(pHome, null);
             ShowForm(CreatForm());
         }
         private void pChat_Click(object sender, EventArgs e)
         {
-            ChangeColor(pChat);
+            ChangeColor(pChat, null);
             ShowForm(new GUIChat());
         }
         private void pTicket_Click(object sender, EventArgs e)
         {
-            ChangeColor(pTicket);
+            ChangeColor(pTicket, null);
             ShowForm(new GUITicket());
         }
 
         private void pSchedule_Click(object sender, EventArgs e)
         {
-            ChangeColor(pSchedule);
+            ChangeColor(pSchedule, null);
             ShowForm(new GUIMainSchedule());
         }
 
         private void pNotify_Click(object sender, EventArgs e)
         {
-            ChangeColor(pNotify);
+            ChangeColor(pNotify, null);
             ShowForm(new GUINotification());
         }
 
@@ -119,7 +188,8 @@ namespace pbl
         }
         private void CallInfoForm(object sender, EventArgs e)
         {
-            ChangeColor(null);
+            ChangeColor(null, null);
+            labelPersonal.BackColor = Color.Green;
             ShowForm(new GUIPersonal());
         }
         private void labelLogOut_Click(object sender, EventArgs e)
