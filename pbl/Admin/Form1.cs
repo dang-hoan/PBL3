@@ -84,7 +84,7 @@ namespace pbl
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-
+            ShowForm(new GUIPersonal());
         }
 
         private void pSchedule_Click(object sender, EventArgs e)
@@ -96,6 +96,11 @@ namespace pbl
         {
             this.Close();
             login.Show();
+        }
+
+        private void lcanhan_Click(object sender, EventArgs e)
+        {
+            ShowForm(new GUIPersonal());
         }
     }
 }
