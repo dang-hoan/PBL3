@@ -256,6 +256,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddForm";
             this.Text = "AddForm";
+         
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

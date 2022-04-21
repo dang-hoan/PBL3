@@ -44,5 +44,12 @@ namespace pbl
             txtusername.Text = "";
             txtpass.Text = "";
         }
+
+        private void linkForget_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            GUIForget Forget = new GUIForget(this);
+            Forget.Show();
+        }
     }
 }
