@@ -20,8 +20,8 @@ namespace pbl
             {
                 if (i["Username"].ToString().Equals(userName) && i["PassWord"].ToString().Equals(passWord))
                 {
-                    string query2 = "select Position from POSITION inner join PEOPLE on POSITION.PositionID = PEOPLE.PositionID" +
-                        "inner join LOGIN on PEOPLE.Username = LOGIN.Username";
+                    string query2 = "select Position from POSITION inner join PEOPLE on POSITION.PositionID = PEOPLE.PositionID " +
+                        "inner join LOGIN on PEOPLE.Username = LOGIN.Username where PEOPLE.Username = '" + i["Username"].ToString() + "'";
                     DataTable dt2 = db.GetRecord(query2, null);
                     if (dt2.Rows[0]["Position"].Equals("Giám đốc"))
                         return 1;
