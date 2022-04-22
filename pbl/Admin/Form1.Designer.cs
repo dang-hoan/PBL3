@@ -55,6 +55,7 @@
             this.pnhome = new System.Windows.Forms.Panel();
             this.lbtrangchu = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcanhan)).BeginInit();
@@ -73,6 +74,7 @@
             this.pnqlnv.SuspendLayout();
             this.pnhome.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,7 +97,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(914, 3);
+            this.pictureBox8.Location = new System.Drawing.Point(828, 3);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(42, 50);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -106,9 +108,9 @@
             // pcanhan
             // 
             this.pcanhan.Image = ((System.Drawing.Image)(resources.GetObject("pcanhan.Image")));
-            this.pcanhan.Location = new System.Drawing.Point(851, 3);
+            this.pcanhan.Location = new System.Drawing.Point(773, 3);
             this.pcanhan.Name = "pcanhan";
-            this.pcanhan.Size = new System.Drawing.Size(59, 50);
+            this.pcanhan.Size = new System.Drawing.Size(55, 50);
             this.pcanhan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcanhan.TabIndex = 8;
             this.pcanhan.TabStop = false;
@@ -118,7 +120,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(753, 23);
+            this.label3.Location = new System.Drawing.Point(671, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 25);
             this.label3.TabIndex = 7;
@@ -183,9 +185,9 @@
             this.paneluser.BackColor = System.Drawing.Color.Silver;
             this.paneluser.Controls.Add(this.panel5);
             this.paneluser.Controls.Add(this.panel4);
-            this.paneluser.Location = new System.Drawing.Point(792, 3);
+            this.paneluser.Location = new System.Drawing.Point(773, 3);
             this.paneluser.Name = "paneluser";
-            this.paneluser.Size = new System.Drawing.Size(179, 653);
+            this.paneluser.Size = new System.Drawing.Size(198, 653);
             this.paneluser.TabIndex = 0;
             this.paneluser.Visible = false;
             // 
@@ -329,17 +331,30 @@
             this.lbtrangchu.Size = new System.Drawing.Size(93, 20);
             this.lbtrangchu.TabIndex = 4;
             this.lbtrangchu.Text = "Trang chủ";
+            this.lbtrangchu.Click += new System.EventHandler(this.lbtrangchu_Click);
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel10.Controls.Add(this.pictureBox2);
             this.panel10.Controls.Add(this.pictureBox8);
             this.panel10.Controls.Add(this.label3);
             this.panel10.Controls.Add(this.pcanhan);
             this.panel10.Location = new System.Drawing.Point(260, 12);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(971, 71);
+            this.panel10.Size = new System.Drawing.Size(968, 71);
             this.panel10.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(912, 10);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // Form1
             // 
@@ -350,6 +365,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_Content);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -378,6 +394,7 @@
             this.pnhome.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -410,6 +427,7 @@
         private System.Windows.Forms.Label lbtrangchu;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

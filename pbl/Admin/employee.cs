@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -34,6 +35,27 @@ namespace pbl
         {
             AddForm add =   new AddForm();
             add.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bttimkiem_Click(object sender, EventArgs e)
+        {
+            string s = @"Data Source=DESKTOP-59M8QSM\SQLEXPRESS;Initial Catalog=pbl33;Integrated Security=True";
+            //DBHelper db = new DBHelper(s);
+            string query = "select * from PEOPLE where Name = '" + txttimkiem.Text + "'";
+            //dataGridView1.DataSource = db.GetRecordSV(query);
+            SqlConnection cnn = new SqlConnection(s);
+            SqlDataAdapter da = new SqlDataAdapter(query, cnn);
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            cnn.Open();
+            da.Fill(dt);
+            cnn.Close();
+            dataGridView1.DataSource = dt;
         }
     }
 }

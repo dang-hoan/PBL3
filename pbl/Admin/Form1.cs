@@ -108,5 +108,15 @@ namespace pbl
         {
             ShowForm(new Passenger());
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lbtrangchu_Click(object sender, EventArgs e)
+        {
+            ShowForm(new note());
+        }
     }
 }

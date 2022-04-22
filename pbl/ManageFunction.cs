@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace pbl
 {
@@ -17,7 +18,7 @@ namespace pbl
             dt = db.GetRecord(query, null);
             foreach (DataRow i in dt.Rows)
             {
-                if (i["Username"].Equals(userName) && i["Password"].Equals(passWord))
+                if (i["Username"].ToString().Equals(userName) && i["PassWord"].ToString().Equals(passWord))
                 {
                     string query2 = "select Position from POSITION inner join PEOPLE on POSITION.PositionID = PEOPLE.PositionID" +
                         "inner join LOGIN on PEOPLE.Username = LOGIN.Username";

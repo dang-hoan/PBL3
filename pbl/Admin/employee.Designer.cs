@@ -31,18 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txttimkiem = new System.Windows.Forms.TextBox();
+            this.bttimkiem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,23 +54,34 @@
             this.panel1.Size = new System.Drawing.Size(834, 464);
             this.panel1.TabIndex = 0;
             // 
-            // textBox1
+            // dataGridView1
             // 
-            this.textBox1.Location = new System.Drawing.Point(549, 14);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 33);
-            this.textBox1.TabIndex = 5;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(834, 461);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // button4
+            // txttimkiem
             // 
-            this.button4.BackColor = System.Drawing.Color.Aqua;
-            this.button4.Location = new System.Drawing.Point(737, 14);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 33);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "TÌM KIẾM";
-            this.button4.UseVisualStyleBackColor = false;
+            this.txttimkiem.Location = new System.Drawing.Point(549, 14);
+            this.txttimkiem.Multiline = true;
+            this.txttimkiem.Name = "txttimkiem";
+            this.txttimkiem.Size = new System.Drawing.Size(142, 33);
+            this.txttimkiem.TabIndex = 5;
+            // 
+            // bttimkiem
+            // 
+            this.bttimkiem.BackColor = System.Drawing.Color.Aqua;
+            this.bttimkiem.Location = new System.Drawing.Point(737, 14);
+            this.bttimkiem.Name = "bttimkiem";
+            this.bttimkiem.Size = new System.Drawing.Size(147, 33);
+            this.bttimkiem.TabIndex = 6;
+            this.bttimkiem.Text = "TÌM KIẾM";
+            this.bttimkiem.UseVisualStyleBackColor = false;
+            this.bttimkiem.Click += new System.EventHandler(this.bttimkiem_Click);
             // 
             // panel2
             // 
@@ -79,13 +90,24 @@
             this.panel2.Controls.Add(this.button7);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.btAdd);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.bttimkiem);
+            this.panel2.Controls.Add(this.txttimkiem);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Location = new System.Drawing.Point(0, -2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(971, 694);
             this.panel2.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Cyan;
+            this.button2.Location = new System.Drawing.Point(803, 590);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(113, 33);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Thoát";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button7
             // 
@@ -118,26 +140,6 @@
             this.btAdd.UseVisualStyleBackColor = false;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(834, 461);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Cyan;
-            this.button2.Location = new System.Drawing.Point(803, 590);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 33);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Thoát";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -149,9 +151,9 @@
             this.Text = "employee";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -159,8 +161,8 @@
         #endregion
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txttimkiem;
+        private System.Windows.Forms.Button bttimkiem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
