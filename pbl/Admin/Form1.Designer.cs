@@ -331,6 +331,7 @@
             this.lbtrangchu.Size = new System.Drawing.Size(93, 20);
             this.lbtrangchu.TabIndex = 4;
             this.lbtrangchu.Text = "Trang chủ";
+            this.lbtrangchu.Click += new System.EventHandler(this.lbtrangchu_Click);
             // 
             // panel10
             // 

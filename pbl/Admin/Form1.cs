@@ -113,5 +113,10 @@ namespace pbl
         {
             this.Close();
         }
+
+        private void lbtrangchu_Click(object sender, EventArgs e)
+        {
+            ShowForm(new note());
+        }
     }
 }

@@ -104,6 +104,7 @@
     <Compile Include="Admin\Schedule.Designer.cs">
       <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dbhelper.cs" />
     <Compile Include="Formlogin.cs">
       <SubType>Form</SubType>
     </Compile>
