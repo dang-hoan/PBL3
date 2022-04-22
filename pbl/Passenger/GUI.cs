@@ -14,6 +14,7 @@ namespace pbl
     {
         Form login;
         Form form = null;
+        ManageFunction man = new ManageFunction();
         public GUI(Form login)
         {
             InitializeComponent();

@@ -38,6 +38,7 @@
             this.txtpass = new System.Windows.Forms.TextBox();
             this.txtusername = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelNotify = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -47,6 +48,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.labelNotify);
             this.panel1.Controls.Add(this.linkRegister);
             this.panel1.Controls.Add(this.linkForget);
             this.panel1.Controls.Add(this.btdangnhap);
@@ -153,6 +155,16 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // labelNotify
+            // 
+            this.labelNotify.AutoSize = true;
+            this.labelNotify.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNotify.ForeColor = System.Drawing.Color.Red;
+            this.labelNotify.Location = new System.Drawing.Point(268, 418);
+            this.labelNotify.Name = "labelNotify";
+            this.labelNotify.Size = new System.Drawing.Size(0, 19);
+            this.labelNotify.TabIndex = 9;
+            // 
             // Formlogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.Button btdangnhap;
         private System.Windows.Forms.LinkLabel linkRegister;
         private System.Windows.Forms.LinkLabel linkForget;
+        private System.Windows.Forms.Label labelNotify;
     }
 }

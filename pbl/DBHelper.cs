@@ -15,7 +15,7 @@ namespace pbl
         {
             cnn = new SqlConnection(s);
         }
-        private int CountRecord(string query)
+        public int CountRecord(string query)
         {
             SqlCommand cmd = new SqlCommand(query, cnn);
             cnn.Open();
@@ -23,7 +23,7 @@ namespace pbl
             cnn.Close();
             return count;
         }
-        private int ExcuteDB(string query, SqlParameter p)
+        public int ExcuteDB(string query, SqlParameter p)
         {
             SqlCommand cmd = new SqlCommand(query, cnn);
             if(p != null) cmd.Parameters.Add(p);
@@ -32,7 +32,7 @@ namespace pbl
             cnn.Close();
             return result;
         }
-        private DataTable GetRecord(string query, SqlParameter p)
+        public DataTable GetRecord(string query, SqlParameter p)
         {
             SqlDataAdapter ada = new SqlDataAdapter(query, cnn);
             DataTable dt = new DataTable();

@@ -12,6 +12,7 @@ namespace pbl
 {
     public partial class Formlogin : Form
     {
+        ManageFunction man = new ManageFunction();
         public Formlogin()
         {
             InitializeComponent();
@@ -25,21 +26,35 @@ namespace pbl
        
         private void btdangnhap_Click_1(object sender, EventArgs e)
         {
-            if (txtusername.Text == "1")
+            int result = man.checkAccount(txtusername.Text, txtpass.Text);
+            switch (result)
             {
-                Form1 f = new Form1(this);
-                f.Show();
-                this.Hide();
-            }
-            else if(txtusername.Text == "2")
-            {
-
-            }
-            else if(txtusername.Text == "3")
-            {
-                GUI g = new GUI(this);
-                g.Show();
-                this.Hide();
+                case 0:
+                    {
+                        labelNotify.Text = "*Tên đăng nhập hoặc mật khẩu không đúng!";
+                        labelNotify.Location = new Point(panel1.Location.X + 40, btdangnhap.Location.Y - 20);
+                        labelNotify.BackColor = Color.Transparent;
+                        labelNotify.ForeColor = Color.White;
+                        break;
+                    }
+                case 1:
+                    {
+                        Form1 f = new Form1(this);
+                        f.Show();
+                        this.Hide();
+                        break;
+                    }
+                case 2:
+                    {
+                        break;
+                    }
+                case 3:
+                    {
+                        GUI g = new GUI(this);
+                        g.Show();
+                        this.Hide();
+                        break;
+                    }
             }
             txtusername.Text = "";
             txtpass.Text = "";
