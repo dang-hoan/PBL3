@@ -26,7 +26,7 @@ namespace pbl
         public int ExcuteDB(string query, SqlParameter p)
         {
             SqlCommand cmd = new SqlCommand(query, cnn);
-            if (p != null) cmd.Parameters.Add(p);
+            if(p != null) cmd.Parameters.Add(p);
             cnn.Open();
             int result = cmd.ExecuteNonQuery();
             cnn.Close();
