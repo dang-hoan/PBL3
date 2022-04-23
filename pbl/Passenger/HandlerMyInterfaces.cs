@@ -29,15 +29,19 @@ namespace pbl
             if(((Control)sender).BackColor != Click)
                 ((Control)sender).BackColor = First;
         }
-        public void Button_MouseMove(object sender, MouseEventArgs e)
+        public void ColoredControls_MouseMove(object sender, MouseEventArgs e)
         {
-            if (((Control)sender).BackColor != Click)
-                ((Control)sender).BackColor = Move;
+            Color bc = ((Control)sender).BackColor;
+            Byte alpha = bc.A;
+            if (bc != Color.FromArgb(alpha - 50, bc.R, bc.G, bc.B))
+                bc = Color.FromArgb(alpha - 80, bc.R, bc.G, bc.B);
         }
-        public void Button_MouseLeave(object sender, EventArgs e)
+        public void ColoredControls_MouseLeave(object sender, EventArgs e)
         {
-            if (((Control)sender).BackColor != Click)
-                ((Control)sender).BackColor = First;
+            Color bc = ((Control)sender).BackColor;
+            Byte alpha = bc.A;
+            if (bc != Color.FromArgb(alpha - 50, bc.R, bc.G, bc.B))
+                bc = Color.FromArgb(alpha, bc.R, bc.G, bc.B);
         }
     }
 }

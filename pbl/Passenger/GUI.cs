@@ -14,7 +14,7 @@ namespace pbl
     {
         Form login;
         Form form = null;
-        HandlerMyInterfaces handler = new HandlerMyInterfaces(Color.FromArgb(0, 192, 0), Color.FromArgb(0, 230, 0), Color.Green);
+        HandlerMyInterfaces handler = new HandlerMyInterfaces(Color.FromArgb(0, 192, 0), Color.FromArgb(0, 140, 0), Color.Green);
         ManageFunction man = new ManageFunction();
         public GUI(Form login)
         {
@@ -103,16 +103,15 @@ namespace pbl
             //labelLogOut
             this.labelLogOut.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
             this.labelLogOut.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
-            handler.Move = Color.FromArgb(0, 140, 0);
             //bHelp
-            this.bHelp.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Button_MouseMove);
-            this.bHelp.MouseLeave += new System.EventHandler(handler.Button_MouseLeave);
+            this.bHelp.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.bHelp.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //bFeedback
-            this.bFeedback.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Button_MouseMove);
-            this.bFeedback.MouseLeave += new System.EventHandler(handler.Button_MouseLeave);
+            this.bFeedback.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.bFeedback.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //bSetting
-            this.bSetting.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Button_MouseMove);
-            this.bSetting.MouseLeave += new System.EventHandler(handler.Button_MouseLeave);
+            this.bSetting.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.bSetting.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
         }
         private void ShowForm(Form subForm)
         {
