@@ -10,7 +10,7 @@ namespace pbl
 {
     public class ManageFunction
     {
-        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-59M8QSM\SQLEXPRESS;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
+        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-DKTP37G\CSDL;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
         public int checkAccount(string userName, string passWord)
         {
             DataTable dt = new DataTable();
