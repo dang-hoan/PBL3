@@ -201,5 +201,9 @@ namespace pbl
             login.Show();
         }
 
+        private void panel_User_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
