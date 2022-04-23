@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,21 @@ namespace pbl
         {
             string query = "select DepartureTime from SCHEDULE";
             return db.GetRecord(query, null);
+        }
+
+        //Admin
+        public DataTable GetAllNV ()
+        {
+
+            string query = "select * from PEOPLE where PositionID ='" + 222 + "'";
+
+            return db.GetRecord(query,null);
+
+        }
+        public void Addnv(string Username,string Name,bool Gender,DateTime BirthDay,string Address,string IDCard,string Email,string Phone,string PositionID)
+        {
+            string query = $"INSERT INTO  PEOPLE VALUES ('{Username}','{Name}','{Gender}','{BirthDay}','{Address}','{IDCard}','{Email}','{Phone}','{PositionID}') ";
+            db.ExcuteDB(query,null);
         }
     }
 }

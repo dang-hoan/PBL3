@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace pbl
 {
+    
     public partial class AddForm : Form
     {
+        ManageFunction man = new ManageFunction();
         public AddForm()
         {
             InitializeComponent();
@@ -19,7 +21,9 @@ namespace pbl
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();        
+            man.Addnv(username.Text, txtname.Text, male.Checked || !female.Checked, date.Value, address.Text, idcard.Text, gmail.Text, phone.Text, positionid.Text);
+            this.Close();
+            
         }
 
        
