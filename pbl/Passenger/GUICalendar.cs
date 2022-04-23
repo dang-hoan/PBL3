@@ -14,6 +14,8 @@ namespace pbl
     {
         ManageFunction man = new ManageFunction();
         Label[] label = new Label[31];
+        HandlerMyInterfaces handler = new HandlerMyInterfaces(Color.Silver, Color.DarkGray, Color.Gray);
+        HandlerMyInterfaces handler2 = new HandlerMyInterfaces(Color.FromArgb(0, 192, 0), Color.FromArgb(0, 170, 0), Color.Green);
         public GUICalendar()
         {
             InitializeComponent();
@@ -25,7 +27,6 @@ namespace pbl
         {
             int size = 50;
             int X = 80, Y = 75;
-            HandlerMyInterfaces handler = new HandlerMyInterfaces(Color.Gray, Color.Silver, Color.DarkGray);
             for(int i = 0; i < 31; i++)
             {
                 label[i] = new Label();
@@ -43,12 +44,12 @@ namespace pbl
 
                 //Trang trí
                 label[i].BorderStyle = BorderStyle.FixedSingle;
-                label[i].BackColor = Color.Gray;
+                label[i].BackColor = Color.Silver;
 
                 //Xử lý sự kiện
                 label[i].Click += new EventHandler(label_Click);
-                label[i].MouseMove += new MouseEventHandler(handler.Controls_MouseMove);
-                label[i].MouseLeave += new EventHandler(handler.Controls_MouseLeave);
+                label[i].MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+                label[i].MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
 
                 this.Controls.Add(label[i]);
             }
@@ -60,29 +61,65 @@ namespace pbl
             int now = DateTime.Now.Year;
             for(int i = now - 200; i <= now + 200; i++) cbbYear.Items.Add(i);
         }
+        private bool[] hasSchedule = new bool[31];
         private void label_Click(object sender, EventArgs e)
         {
-            Label label = (Label)sender;
-            for(int i = 0; i < this.label.Length; i++)
+            if (cbbMonth.Text == "" || cbbYear.Text == "")
             {
-                this.label[i].BackColor = Color.White;
+                MessageBox.Show("Hãy nhập đủ năm tháng!");
+                return;
             }
-            label.BackColor = Color.DarkGreen;
-            labelContent.Text = man.GetSchedule(label.Text, cbbMonth.Text, cbbYear.Text);//"Ga đi: Hà Nội\nGa đến: Đà Nẵng\nThời gian đi: 12:00 15/04/2022\nThời gian đến: 15:00 16/04/2022";
-            panel_Detail.Visible = true;
+            for(int i = 0; i < 31; i++)
+            {
+                if(this.label[i].BackColor == Color.Gray)
+                {
+                    this.label[i].BackColor = Color.Silver;
+                }
+                if (this.label[i].BackColor == Color.Green)
+                {
+                    this.label[i].BackColor = Color.FromArgb(0, 192, 0);
+                }
+            }
+            Label label = (Label)sender;
+            if(label.BackColor == Color.FromArgb(0, 170, 0))
+            {
+                label.BackColor = Color.Green;
+                labelContent.Text = man.GetSchedule(label.Text, cbbMonth.Text, cbbYear.Text);
+                panel_Detail.Visible = true;
+            }
+            else
+            {
+                label.BackColor = Color.Gray;
+                labelContent.Text = "Ngày này bạn không có lịch trình";
+                panel_Detail.Visible = true;
+            }
         }
         private void ChangeMonthYear(object sender, EventArgs e)
         {
             DataTable dt = man.GetDepartureTime();
-            string date = cbbYear.Text + "/" + cbbMonth.Text + "/";
-            string dateCSDL; DateTime d;
-            foreach (DataRow i in dt.Rows)
+            DateTime key;
+            for(int i = 0; i < 31; i++)
             {
-                d = (DateTime)i[0];
-                dateCSDL = d.ToString("yyyy/MM/dd");
-                if (dateCSDL.Contains(date))
+                if (hasSchedule[i])
                 {
-                    label[d.Day].BackColor = Color.Green;
+                    label[i].MouseMove -= new System.Windows.Forms.MouseEventHandler(handler2.Controls_MouseMove);
+                    label[i].MouseLeave -= new System.EventHandler(handler2.Controls_MouseLeave);
+                    label[i].MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+                    label[i].MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
+                }
+                hasSchedule[i] = false;
+            }
+            foreach(DataRow i in dt.Rows)
+            {
+                key = (DateTime)i[0];
+                if (key.Month.ToString().Equals(cbbMonth.Text) && key.Year.ToString().Equals(cbbYear.Text))
+                {
+                    label[key.Day-1].BackColor = Color.FromArgb(0, 192, 0);
+                    label[key.Day - 1].MouseMove -= new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+                    label[key.Day - 1].MouseLeave -= new System.EventHandler(handler.Controls_MouseLeave);
+                    label[key.Day - 1].MouseMove += new System.Windows.Forms.MouseEventHandler(handler2.Controls_MouseMove);
+                    label[key.Day - 1].MouseLeave += new System.EventHandler(handler2.Controls_MouseLeave);
+                    hasSchedule[key.Day - 1] = true;
                 }
             }
         }

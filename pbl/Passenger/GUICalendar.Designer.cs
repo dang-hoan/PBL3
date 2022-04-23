@@ -35,6 +35,7 @@
             this.panel_Detail = new System.Windows.Forms.Panel();
             this.labelContent = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel_Detail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(416, 58);
+            this.label1.Location = new System.Drawing.Point(369, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 19);
             this.label1.TabIndex = 16;
@@ -69,7 +70,7 @@
             // cbbMonth
             // 
             this.cbbMonth.FormattingEnabled = true;
-            this.cbbMonth.Location = new System.Drawing.Point(480, 58);
+            this.cbbMonth.Location = new System.Drawing.Point(433, 58);
             this.cbbMonth.Name = "cbbMonth";
             this.cbbMonth.Size = new System.Drawing.Size(121, 28);
             this.cbbMonth.TabIndex = 18;
@@ -94,7 +95,6 @@
             this.labelContent.Size = new System.Drawing.Size(321, 413);
             this.labelContent.TabIndex = 43;
             this.labelContent.Text = "Đây là nội dung...";
-            this.labelContent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelTitle
             // 
@@ -107,11 +107,23 @@
             this.labelTitle.Text = "Chi tiết lịch trình";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(584, 56);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 31);
+            this.button1.TabIndex = 46;
+            this.button1.Text = "Hiển thị";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.ChangeMonthYear);
+            // 
             // GUICalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 479);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel_Detail);
             this.Controls.Add(this.cbbMonth);
             this.Controls.Add(this.cbbYear);
@@ -133,5 +145,6 @@
         private System.Windows.Forms.Panel panel_Detail;
         private System.Windows.Forms.Label labelContent;
         private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Button button1;
     }
 }

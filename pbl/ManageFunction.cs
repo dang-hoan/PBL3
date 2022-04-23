@@ -34,13 +34,19 @@ namespace pbl
         }
         public string GetSchedule(string day, string month, string year)
         {
-            string result = "";
+            string result = ""; string s = ""; DataRow dr;
             string date = year + "/" + month + "/" + day;
             string query = "select * from SCHEDULE where DepartureTime = '" + date + "'";
             DataTable dt = db.GetRecord(query, null);
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                result += dt.Rows[i].ToString() + "\n";
+                s = "\n\n";
+                dr = dt.Rows[i];
+                for(int j = 1; j < dt.Columns.Count; j++)
+                {
+                    s += dr[j] + "\n";
+                }
+                result += s;
             }
             return result;
         }
