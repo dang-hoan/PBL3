@@ -32,5 +32,22 @@ namespace pbl
             }
             return 0;
         }
+        public string GetSchedule(string day, string month, string year)
+        {
+            string result = "";
+            string date = year + "/" + month + "/" + day;
+            string query = "select * from SCHEDULE where DepartureTime = '" + date + "'";
+            DataTable dt = db.GetRecord(query, null);
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                result += dt.Rows[i].ToString() + "\n";
+            }
+            return result;
+        }
+        public DataTable GetDepartureTime()
+        {
+            string query = "select DepartureTime from SCHEDULE";
+            return db.GetRecord(query, null);
+        }
     }
 }

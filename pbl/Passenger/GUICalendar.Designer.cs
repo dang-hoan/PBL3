@@ -30,11 +30,11 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbbYear = new System.Windows.Forms.ComboBox();
+            this.cbbMonth = new System.Windows.Forms.ComboBox();
             this.panel_Detail = new System.Windows.Forms.Panel();
             this.labelContent = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.panel_Detail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,27 +58,27 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Tháng";
             // 
-            // comboBox1
+            // cbbYear
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(198, 55);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 17;
+            this.cbbYear.FormattingEnabled = true;
+            this.cbbYear.Location = new System.Drawing.Point(198, 55);
+            this.cbbYear.Name = "cbbYear";
+            this.cbbYear.Size = new System.Drawing.Size(121, 28);
+            this.cbbYear.TabIndex = 17;
             // 
-            // comboBox2
+            // cbbMonth
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(480, 58);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 28);
-            this.comboBox2.TabIndex = 18;
+            this.cbbMonth.FormattingEnabled = true;
+            this.cbbMonth.Location = new System.Drawing.Point(480, 58);
+            this.cbbMonth.Name = "cbbMonth";
+            this.cbbMonth.Size = new System.Drawing.Size(121, 28);
+            this.cbbMonth.TabIndex = 18;
             // 
             // panel_Detail
             // 
             this.panel_Detail.BackColor = System.Drawing.Color.LightGray;
             this.panel_Detail.Controls.Add(this.labelContent);
-            this.panel_Detail.Controls.Add(this.label3);
+            this.panel_Detail.Controls.Add(this.labelTitle);
             this.panel_Detail.Location = new System.Drawing.Point(727, 0);
             this.panel_Detail.Name = "panel_Detail";
             this.panel_Detail.Size = new System.Drawing.Size(365, 589);
@@ -96,16 +96,16 @@
             this.labelContent.Text = "Đây là nội dung...";
             this.labelContent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // labelTitle
             // 
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(57, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(251, 84);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Chi tiết lịch trình";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelTitle.Location = new System.Drawing.Point(57, 42);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(251, 84);
+            this.labelTitle.TabIndex = 42;
+            this.labelTitle.Text = "Chi tiết lịch trình";
+            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GUICalendar
             // 
@@ -113,8 +113,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 479);
             this.Controls.Add(this.panel_Detail);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbbMonth);
+            this.Controls.Add(this.cbbYear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "GUICalendar";
@@ -128,10 +128,10 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbbYear;
+        private System.Windows.Forms.ComboBox cbbMonth;
         private System.Windows.Forms.Panel panel_Detail;
         private System.Windows.Forms.Label labelContent;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTitle;
     }
 }
