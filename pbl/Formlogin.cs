@@ -46,6 +46,9 @@ namespace pbl
                     }
                 case 2:
                     {
+                        Employeechinh f = new Employeechinh(this);
+                        f.Show();
+                        this.Hide();
                         break;
                     }
                 case 3:
