@@ -112,6 +112,7 @@ namespace pbl
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
+            login.Close();
         }
 
         private void lbtrangchu_Click(object sender, EventArgs e)
