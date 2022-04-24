@@ -12,9 +12,11 @@ namespace pbl
 {
     public partial class GUITicket : Form
     {
+        ManageFunction man = new ManageFunction();
         public GUITicket()
         {
             InitializeComponent();
+            dataGridView1.DataSource = man.GetAllTicket();
         }
 
         private void bBook_Click(object sender, EventArgs e)
@@ -33,6 +35,11 @@ namespace pbl
         {
             GUIOption option = new GUIOption();
             option.Show();
+        }
+
+        private void bShow_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

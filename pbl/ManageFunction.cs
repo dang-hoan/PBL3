@@ -32,27 +32,40 @@ namespace pbl
             }
             return 0;
         }
+
+        //Passenger
+        public string GetName(string UserName)
+        {
+            string query = "select Name from PEOPLE where UserName = '" + UserName + "'";
+            return db.GetRecord(query, null).Rows[0][0].ToString();
+        }
         public string GetSchedule(string day, string month, string year)
         {
             string result = ""; string s = ""; DataRow dr;
-            string date = year + "/" + month + "/" + day;
-            string query = "select * from SCHEDULE where DepartureTime = '" + date + "'";
+            string query = $"select * from SCHEDULE where day(DepartureTime) = {day} and month(DepartureTime) = {month} and year(DepartureTime) = {year}";
             DataTable dt = db.GetRecord(query, null);
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                s = "\n\n";
+                s = "\n";
                 dr = dt.Rows[i];
-                for(int j = 1; j < dt.Columns.Count; j++)
-                {
-                    s += dr[j] + "\n";
-                }
+                s += "Ga đi: " + dr[1] + "\n";
+                s += "Ga đến: " + dr[2] + "\n";
+                s += "Thời gian khởi hành: " + dr[3] + "\n";
+                s += "Thời gian đến: " + dr[4] + "\n";
                 result += s;
             }
             return result;
         }
-        public DataTable GetDepartureTime()
+        public DataTable GetDepartureTime(string UserName)
         {
-            string query = "select DepartureTime from SCHEDULE";
+            string query = "select DepartureTime from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
+                "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
+                "where Username = '" + UserName + "'";
+            return db.GetRecord(query, null);
+        }
+        public DataTable GetAllTicket()
+        {
+            string query = "select * from TICKET where CustomerUN = '" + GUI.userName + "'";
             return db.GetRecord(query, null);
         }
     }

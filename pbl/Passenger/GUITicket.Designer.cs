@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUITicket));
             this.panel_Content = new System.Windows.Forms.Panel();
+            this.bShow = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.bCancel = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.labelSchedule = new System.Windows.Forms.Label();
             this.pOption = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel_Content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).BeginInit();
@@ -47,7 +47,7 @@
             // panel_Content
             // 
             this.panel_Content.BackColor = System.Drawing.Color.White;
-            this.panel_Content.Controls.Add(this.button1);
+            this.panel_Content.Controls.Add(this.bShow);
             this.panel_Content.Controls.Add(this.pSave);
             this.panel_Content.Controls.Add(this.comboBox1);
             this.panel_Content.Controls.Add(this.bCancel);
@@ -60,12 +60,25 @@
             this.panel_Content.Size = new System.Drawing.Size(1096, 689);
             this.panel_Content.TabIndex = 0;
             // 
+            // bShow
+            // 
+            this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShow.Location = new System.Drawing.Point(537, 63);
+            this.bShow.Name = "bShow";
+            this.bShow.Size = new System.Drawing.Size(139, 40);
+            this.bShow.TabIndex = 59;
+            this.bShow.Text = "Hiển thị";
+            this.bShow.UseVisualStyleBackColor = false;
+            this.bShow.Click += new System.EventHandler(this.bShow_Click);
+            // 
             // pSave
             // 
             this.pSave.BackColor = System.Drawing.Color.Green;
             this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
-            this.pSave.Location = new System.Drawing.Point(1015, 640);
+            this.pSave.Location = new System.Drawing.Point(997, 648);
             this.pSave.Name = "pSave";
             this.pSave.Size = new System.Drawing.Size(53, 31);
             this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -76,7 +89,7 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(146, 52);
+            this.comboBox1.Location = new System.Drawing.Point(167, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(138, 27);
             this.comboBox1.TabIndex = 49;
@@ -87,7 +100,7 @@
             this.bCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bCancel.Location = new System.Drawing.Point(930, 58);
+            this.bCancel.Location = new System.Drawing.Point(898, 63);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(138, 40);
             this.bCancel.TabIndex = 48;
@@ -99,7 +112,7 @@
             this.bBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBook.Location = new System.Drawing.Point(734, 58);
+            this.bBook.Location = new System.Drawing.Point(702, 63);
             this.bBook.Name = "bBook";
             this.bBook.Size = new System.Drawing.Size(170, 40);
             this.bBook.TabIndex = 47;
@@ -112,7 +125,7 @@
             this.labelSchedule.AutoSize = true;
             this.labelSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelSchedule.Font = new System.Drawing.Font("Arial Black", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSchedule.Location = new System.Drawing.Point(29, 82);
+            this.labelSchedule.Location = new System.Drawing.Point(50, 80);
             this.labelSchedule.Name = "labelSchedule";
             this.labelSchedule.Size = new System.Drawing.Size(93, 23);
             this.labelSchedule.TabIndex = 45;
@@ -123,7 +136,7 @@
             // 
             this.pOption.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pOption.Image = ((System.Drawing.Image)(resources.GetObject("pOption.Image")));
-            this.pOption.Location = new System.Drawing.Point(51, 43);
+            this.pOption.Location = new System.Drawing.Point(72, 41);
             this.pOption.Name = "pOption";
             this.pOption.Size = new System.Drawing.Size(45, 36);
             this.pOption.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -134,25 +147,13 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 136);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 136);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1044, 490);
+            this.dataGridView1.Size = new System.Drawing.Size(980, 490);
             this.dataGridView1.TabIndex = 37;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(569, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 40);
-            this.button1.TabIndex = 59;
-            this.button1.Text = "Hiển thị";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // GUITicket
             // 
@@ -181,6 +182,6 @@
         private System.Windows.Forms.Button bCancel;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pSave;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bShow;
     }
 }
