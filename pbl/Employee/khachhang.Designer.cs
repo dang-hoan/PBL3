@@ -57,7 +57,6 @@
             this.butsua.TabIndex = 14;
             this.butsua.Text = "SỬA";
             this.butsua.UseVisualStyleBackColor = false;
-            this.butsua.Click += new System.EventHandler(this.butsua_Click);
             // 
             // btAdd
             // 
@@ -79,6 +78,7 @@
             this.buttimkiem.TabIndex = 12;
             this.buttimkiem.Text = "TÌM KIẾM";
             this.buttimkiem.UseVisualStyleBackColor = false;
+            this.buttimkiem.Click += new System.EventHandler(this.buttimkiem_Click);
             // 
             // txtsearch
             // 

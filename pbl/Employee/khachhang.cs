@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,20 +18,18 @@ namespace pbl
         {
             InitializeComponent();
         }
-        public void show(int id)
+        public void show(int id, string txt)
         {
-            string query = "";
+     
+            string q = "";
             if (id == 0)
             {
-
-                query = "select * from SV";
+                q = "select ID,Name,Gender,Birthday,Email,Phone,POSITION.Position from PEOPLE inner join POSITION on PEOPLE.PositionID = POSITION.PositionID where Name like '%" + txt + "%'";
             }
             else
-            {
-
-                query = "select * from SV where ID = " + id;
-            }
-            dataGridView1.DataSource = db.GetRecord(query,cnn);
+                q = "select ID,Name,Gender,Birthday,Email,Phone,POSITION.Position from PEOPLE inner join POSITION on PEOPLE.PositionID = POSITION.PositionID where PEOPLE.PositionID = " + id + "and Name like '%" + txt + "%'";
+       
+            dataGridView1.DataSource = db.GetRecord(q,null);
         }
        
 
@@ -42,24 +41,21 @@ namespace pbl
 
         private void butdel_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 1)
-            {
-                string id = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
-                string query = $"delete from SV where ID = {id}";
-                db.ExcuteDB(query,"");
-                
-            }
-        }
+            DataGridViewSelectedRowCollection row = dataGridView1.SelectedRows;
 
-        private void butsua_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count == 1)
+            foreach (DataGridViewRow r in row)
             {
-                string id = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
-                addkhachhang f = new addkhachhang(id);
-                f.d = new addkhachhang.mydel(show);
-                f.Show();
+                string MSSV = Convert.ToString(r.Cells["MSSV"].Value);
+                string q = "delete from SV where MSSV ='" + MSSV + "'";
+                db.ExcuteDB(q,null);
+
             }
+            show(0, "");
+        }
+       private void buttimkiem_Click(object sender, EventArgs e)
+        {
+         
+            show(0, txtsearch.Text);
         }
     }
 }
