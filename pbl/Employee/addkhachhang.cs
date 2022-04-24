@@ -11,8 +11,7 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public delegate void mydel(int id);
-   
+    
     public partial class addkhachhang : Form
     {
         public addkhachhang()

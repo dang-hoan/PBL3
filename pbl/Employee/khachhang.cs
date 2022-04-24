@@ -35,8 +35,7 @@ namespace pbl
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            addkhachhang f = new addkhachhang();
-            f.Show();
+            
         }
 
         private void butdel_Click(object sender, EventArgs e)
