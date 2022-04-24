@@ -32,7 +32,7 @@
             this.panel_Content = new System.Windows.Forms.Panel();
             this.bShow = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbTrain = new System.Windows.Forms.ComboBox();
             this.bCancel = new System.Windows.Forms.Button();
             this.bBook = new System.Windows.Forms.Button();
             this.labelSchedule = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.panel_Content.BackColor = System.Drawing.Color.White;
             this.panel_Content.Controls.Add(this.bShow);
             this.panel_Content.Controls.Add(this.pSave);
-            this.panel_Content.Controls.Add(this.comboBox1);
+            this.panel_Content.Controls.Add(this.cbbTrain);
             this.panel_Content.Controls.Add(this.bCancel);
             this.panel_Content.Controls.Add(this.bBook);
             this.panel_Content.Controls.Add(this.labelSchedule);
@@ -85,15 +85,15 @@
             this.pSave.TabIndex = 58;
             this.pSave.TabStop = false;
             // 
-            // comboBox1
+            // cbbTrain
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(167, 50);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(138, 27);
-            this.comboBox1.TabIndex = 49;
-            this.comboBox1.Text = "Tìm theo tàu";
+            this.cbbTrain.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTrain.FormattingEnabled = true;
+            this.cbbTrain.Location = new System.Drawing.Point(167, 50);
+            this.cbbTrain.Name = "cbbTrain";
+            this.cbbTrain.Size = new System.Drawing.Size(138, 27);
+            this.cbbTrain.TabIndex = 49;
+            this.cbbTrain.Text = "Tìm theo tàu";
             // 
             // bCancel
             // 
@@ -106,6 +106,7 @@
             this.bCancel.TabIndex = 48;
             this.bCancel.Text = "Huỷ vé";
             this.bCancel.UseVisualStyleBackColor = false;
+            this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
             // bBook
             // 
@@ -130,7 +131,7 @@
             this.labelSchedule.Size = new System.Drawing.Size(93, 23);
             this.labelSchedule.TabIndex = 45;
             this.labelSchedule.Text = "Lịch trình";
-            this.labelSchedule.Click += new System.EventHandler(this.labelSchedule_Click);
+            this.labelSchedule.Click += new System.EventHandler(this.Schedule_Click);
             // 
             // pOption
             // 
@@ -142,7 +143,7 @@
             this.pOption.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pOption.TabIndex = 44;
             this.pOption.TabStop = false;
-            this.pOption.Click += new System.EventHandler(this.pOption_Click);
+            this.pOption.Click += new System.EventHandler(this.Schedule_Click);
             // 
             // dataGridView1
             // 
@@ -180,7 +181,7 @@
         private System.Windows.Forms.PictureBox pOption;
         private System.Windows.Forms.Button bBook;
         private System.Windows.Forms.Button bCancel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbTrain;
         private System.Windows.Forms.PictureBox pSave;
         private System.Windows.Forms.Button bShow;
     }

@@ -13,10 +13,29 @@ namespace pbl
     public partial class GUITicket : Form
     {
         ManageFunction man = new ManageFunction();
+        private string Departure, Destination, DepartureTime, DestinationTime;
+        private bool Type;
         public GUITicket()
         {
             InitializeComponent();
-            dataGridView1.DataSource = man.GetAllTicket();
+            Init();
+            dataGridView1.DataSource = man.GetAllTicket(GUI.userName);
+        }
+        private void Init()
+        {
+            DataTable dt = man.GetTrain().DefaultView.ToTable(true, "TrainName");
+            foreach (DataRow dr in dt.Rows)
+            {
+                cbbTrain.Items.Add(dr[0]);
+            }
+        }
+        private void Get(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime)
+        {
+            this.Departure = Departure;
+            this.Destination = Destination;
+            this.Type = Type;
+            this.DepartureTime = DepartureTime;
+            this.DestinationTime = DestinationTime;
         }
 
         private void bBook_Click(object sender, EventArgs e)
@@ -24,22 +43,36 @@ namespace pbl
             GUIBook form = new GUIBook();
             form.Show();
         }
-
-        private void pOption_Click(object sender, EventArgs e)
+        private void bCancel_Click(object sender, EventArgs e)
         {
-            GUIOption option = new GUIOption();
-            option.Show();
+            if(dataGridView1.SelectedRows.Count > 0)
+            {
+                DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn huỷ những vé đã chọn không?", "Thông báo", MessageBoxButtons.OKCancel);
+                if (res == DialogResult.OK)
+                {
+                    foreach (DataGridViewRow i in dataGridView1.SelectedRows)
+                    {
+                        man.SetTicket(i.Cells["TicketID"].Value.ToString(), GUI.userName, false);
+                    }
+                    MessageBox.Show("Đã huỷ những vé bạn chọn!");
+                    Reload();
+                }
+            }
         }
-
-        private void labelSchedule_Click(object sender, EventArgs e)
+        private void Reload()
+        {
+            dataGridView1.DataSource = man.GetTicket(GUI.userName, Departure, Destination, Type, DepartureTime, DestinationTime, cbbTrain.SelectedIndex, "");
+        }
+        private void Schedule_Click(object sender, EventArgs e)
         {
             GUIOption option = new GUIOption();
+            option.d += new GUIOption.MyDel(Get);
             option.Show();
         }
 
         private void bShow_Click(object sender, EventArgs e)
         {
-
+            Reload();
         }
     }
 }
