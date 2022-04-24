@@ -70,6 +70,8 @@ namespace pbl
         {
             string query = $"INSERT INTO  PEOPLE VALUES ('{Username}','{Name}','{Gender}','{BirthDay}','{Address}','{IDCard}','{Email}','{Phone}','{PositionID}') ";
             db.ExcuteDB(query,null);
+            //GetAllNV();
         }
+        
     }
 }

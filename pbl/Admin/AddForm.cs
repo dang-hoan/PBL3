@@ -23,7 +23,7 @@ namespace pbl
         {
             man.Addnv(username.Text, txtname.Text, male.Checked || !female.Checked, date.Value, address.Text, idcard.Text, gmail.Text, phone.Text, positionid.Text);
             this.Close();
-            
+           
         }
 
        
