@@ -58,9 +58,8 @@
             this.panel1.Controls.Add(this.txtusername);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(487, 598);
+            this.panel1.Size = new System.Drawing.Size(433, 478);
             this.panel1.TabIndex = 0;
             // 
             // labelNotify
@@ -68,9 +67,15 @@
             this.labelNotify.AutoSize = true;
             this.labelNotify.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNotify.ForeColor = System.Drawing.Color.Red;
+
+            this.labelNotify.Location = new System.Drawing.Point(238, 334);
+            this.labelNotify.Name = "labelNotify";
+            this.labelNotify.Size = new System.Drawing.Size(0, 16);
+
             this.labelNotify.Location = new System.Drawing.Point(264, 398);
             this.labelNotify.Name = "labelNotify";
             this.labelNotify.Size = new System.Drawing.Size(0, 19);
+
             this.labelNotify.TabIndex = 9;
             // 
             // linkRegister
@@ -78,9 +83,13 @@
             this.linkRegister.AutoSize = true;
             this.linkRegister.BackColor = System.Drawing.Color.Transparent;
             this.linkRegister.LinkColor = System.Drawing.Color.White;
+
+            this.linkRegister.Location = new System.Drawing.Point(248, 438);
+
             this.linkRegister.Location = new System.Drawing.Point(275, 493);
+
             this.linkRegister.Name = "linkRegister";
-            this.linkRegister.Size = new System.Drawing.Size(174, 20);
+            this.linkRegister.Size = new System.Drawing.Size(145, 16);
             this.linkRegister.TabIndex = 8;
             this.linkRegister.TabStop = true;
             this.linkRegister.Text = "Đăng ký tài khoản mới?";
@@ -92,20 +101,27 @@
             this.linkForget.BackColor = System.Drawing.Color.Transparent;
             this.linkForget.ForeColor = System.Drawing.Color.Red;
             this.linkForget.LinkColor = System.Drawing.Color.White;
+
+            this.linkForget.Location = new System.Drawing.Point(290, 406);
+
             this.linkForget.Location = new System.Drawing.Point(322, 453);
+
             this.linkForget.Name = "linkForget";
-            this.linkForget.Size = new System.Drawing.Size(127, 20);
+            this.linkForget.Size = new System.Drawing.Size(103, 16);
             this.linkForget.TabIndex = 7;
             this.linkForget.TabStop = true;
             this.linkForget.Text = "Quên mật khẩu?";
             this.linkForget.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForget_LinkClicked);
             // 
             // btdangnhap
-            // 
+            //
+            this.btdangnhap.Location = new System.Drawing.Point(169, 353);
+
             this.btdangnhap.Location = new System.Drawing.Point(186, 386);
             this.btdangnhap.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+
             this.btdangnhap.Name = "btdangnhap";
-            this.btdangnhap.Size = new System.Drawing.Size(146, 42);
+            this.btdangnhap.Size = new System.Drawing.Size(130, 34);
             this.btdangnhap.TabIndex = 6;
             this.btdangnhap.Text = "Đăng nhập";
             this.btdangnhap.UseVisualStyleBackColor = true;
@@ -115,10 +131,14 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+
+            this.pictureBox4.Location = new System.Drawing.Point(60, 281);
+
             this.pictureBox4.Location = new System.Drawing.Point(64, 305);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(48, 51);
+            this.pictureBox4.Size = new System.Drawing.Size(43, 41);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
@@ -127,52 +147,79 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+
+            this.pictureBox3.Location = new System.Drawing.Point(60, 207);
+
             this.pictureBox3.Location = new System.Drawing.Point(64, 241);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(48, 51);
+            this.pictureBox3.Size = new System.Drawing.Size(43, 41);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
             // txtpass
             // 
+
+            this.txtpass.Location = new System.Drawing.Point(125, 281);
+            this.txtpass.Multiline = true;
+            this.txtpass.Name = "txtpass";
+            this.txtpass.PasswordChar = '*';
+            this.txtpass.Size = new System.Drawing.Size(233, 41);
+
             this.txtpass.Location = new System.Drawing.Point(137, 315);
             this.txtpass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(262, 26);
+
             this.txtpass.TabIndex = 3;
             // 
             // txtusername
             // 
+
+            this.txtusername.Location = new System.Drawing.Point(125, 207);
+            this.txtusername.Multiline = true;
+            this.txtusername.Name = "txtusername";
+            this.txtusername.Size = new System.Drawing.Size(233, 41);
+
             this.txtusername.Location = new System.Drawing.Point(137, 255);
             this.txtusername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(262, 26);
+
             this.txtusername.TabIndex = 2;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+
+            this.pictureBox2.Location = new System.Drawing.Point(169, 67);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(131, 134);
+
             this.pictureBox2.Location = new System.Drawing.Point(186, 38);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(146, 218);
+
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // Formlogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 599);
+            this.ClientSize = new System.Drawing.Size(435, 479);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+
             this.Name = "Formlogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG NHẬP";

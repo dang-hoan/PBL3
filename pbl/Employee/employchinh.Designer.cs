@@ -80,6 +80,7 @@
             this.panel_User.Name = "panel_User";
             this.panel_User.Size = new System.Drawing.Size(194, 202);
             this.panel_User.TabIndex = 6;
+            this.panel_User.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_User_Paint);
             // 
             // labelLogOut
             // 
@@ -93,6 +94,7 @@
             this.labelLogOut.TabIndex = 13;
             this.labelLogOut.Text = "Đăng xuất";
             this.labelLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelLogOut.Click += new System.EventHandler(this.labelLogOut_Click);
             // 
             // labelPersonal
             // 
