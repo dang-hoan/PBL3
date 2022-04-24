@@ -98,5 +98,16 @@ namespace pbl
         {
             showform(new GUIPersonal());
         }
+
+        private void panel_User_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            login.Show();
+        }
     }
 }

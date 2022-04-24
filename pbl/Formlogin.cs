@@ -70,5 +70,7 @@ namespace pbl
             GUIForget Forget = new GUIForget(this);
             Forget.Show();
         }
+
+       
     }
 }

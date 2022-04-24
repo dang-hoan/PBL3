@@ -122,3 +122,11 @@ C:\PBL3\pbl\obj\Debug\pbl.GUIFeedback.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIHelp.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUISetting.resources
 C:\PBL3\pbl\obj\Debug\pbl.Admin.addschedule.resources
+C:\PBL3\pbl\obj\Debug\pbl.addkhachhang.resources
+C:\PBL3\pbl\obj\Debug\pbl.addlichtrinh.resources
+C:\PBL3\pbl\obj\Debug\pbl.addve.resources
+C:\PBL3\pbl\obj\Debug\pbl.datve.resources
+C:\PBL3\pbl\obj\Debug\pbl.chat.resources
+C:\PBL3\pbl\obj\Debug\pbl.Employeechinh.resources
+C:\PBL3\pbl\obj\Debug\pbl.khachhang.resources
+C:\PBL3\pbl\obj\Debug\pbl.lichtrinh.resources
