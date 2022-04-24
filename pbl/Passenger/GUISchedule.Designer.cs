@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUISchedule));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bSearch = new System.Windows.Forms.Button();
+            this.bShow = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbbHourDes = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbbMinuteDep = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,14 +44,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dateDes = new System.Windows.Forms.DateTimePicker();
             this.dateDep = new System.Windows.Forms.DateTimePicker();
-            this.txtDes = new System.Windows.Forms.TextBox();
-            this.txtDep = new System.Windows.Forms.TextBox();
             this.rbRound = new System.Windows.Forms.RadioButton();
             this.rbOne = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.cbbDep = new System.Windows.Forms.ComboBox();
+            this.cbbDes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             this.SuspendLayout();
@@ -78,18 +78,19 @@
             this.dataGridView1.Size = new System.Drawing.Size(813, 259);
             this.dataGridView1.TabIndex = 53;
             // 
-            // bSearch
+            // bShow
             // 
-            this.bSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bSearch.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.Location = new System.Drawing.Point(780, 521);
-            this.bSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(84, 35);
-            this.bSearch.TabIndex = 44;
-            this.bSearch.Text = "Hiển thị";
-            this.bSearch.UseVisualStyleBackColor = false;
+            this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bShow.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShow.Location = new System.Drawing.Point(780, 521);
+            this.bShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bShow.Name = "bShow";
+            this.bShow.Size = new System.Drawing.Size(84, 35);
+            this.bShow.TabIndex = 44;
+            this.bShow.Text = "Hiển thị";
+            this.bShow.UseVisualStyleBackColor = false;
+            this.bShow.Click += new System.EventHandler(this.bShow_Click);
             // 
             // pSave
             // 
@@ -113,13 +114,13 @@
             this.label8.TabIndex = 76;
             this.label8.Text = ":";
             // 
-            // comboBox1
+            // cbbMinuteDes
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(667, 201);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(49, 28);
-            this.comboBox1.TabIndex = 75;
+            this.cbbMinuteDes.FormattingEnabled = true;
+            this.cbbMinuteDes.Location = new System.Drawing.Point(667, 201);
+            this.cbbMinuteDes.Name = "cbbMinuteDes";
+            this.cbbMinuteDes.Size = new System.Drawing.Size(49, 28);
+            this.cbbMinuteDes.TabIndex = 75;
             // 
             // label9
             // 
@@ -130,13 +131,13 @@
             this.label9.TabIndex = 74;
             this.label9.Text = "Giờ đến";
             // 
-            // comboBox2
+            // cbbHourDes
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(600, 201);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(49, 28);
-            this.comboBox2.TabIndex = 73;
+            this.cbbHourDes.FormattingEnabled = true;
+            this.cbbHourDes.Location = new System.Drawing.Point(600, 201);
+            this.cbbHourDes.Name = "cbbHourDes";
+            this.cbbHourDes.Size = new System.Drawing.Size(49, 28);
+            this.cbbHourDes.TabIndex = 73;
             // 
             // label7
             // 
@@ -193,22 +194,8 @@
             // 
             this.dateDep.Location = new System.Drawing.Point(172, 149);
             this.dateDep.Name = "dateDep";
-            this.dateDep.Size = new System.Drawing.Size(225, 26);
+            this.dateDep.Size = new System.Drawing.Size(234, 26);
             this.dateDep.TabIndex = 66;
-            // 
-            // txtDes
-            // 
-            this.txtDes.Location = new System.Drawing.Point(599, 55);
-            this.txtDes.Name = "txtDes";
-            this.txtDes.Size = new System.Drawing.Size(234, 26);
-            this.txtDes.TabIndex = 65;
-            // 
-            // txtDep
-            // 
-            this.txtDep.Location = new System.Drawing.Point(174, 52);
-            this.txtDep.Name = "txtDep";
-            this.txtDep.Size = new System.Drawing.Size(225, 26);
-            this.txtDep.TabIndex = 64;
             // 
             // rbRound
             // 
@@ -268,15 +255,33 @@
             this.label10.TabIndex = 58;
             this.label10.Text = "Ga đi";
             // 
+            // cbbDep
+            // 
+            this.cbbDep.FormattingEnabled = true;
+            this.cbbDep.Location = new System.Drawing.Point(172, 52);
+            this.cbbDep.Name = "cbbDep";
+            this.cbbDep.Size = new System.Drawing.Size(234, 28);
+            this.cbbDep.TabIndex = 77;
+            // 
+            // cbbDes
+            // 
+            this.cbbDes.FormattingEnabled = true;
+            this.cbbDes.Location = new System.Drawing.Point(599, 52);
+            this.cbbDes.Name = "cbbDes";
+            this.cbbDes.Size = new System.Drawing.Size(234, 28);
+            this.cbbDes.TabIndex = 78;
+            // 
             // GUISchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 571);
+            this.Controls.Add(this.cbbDes);
+            this.Controls.Add(this.cbbDep);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbbMinuteDes);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbbHourDes);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbbMinuteDep);
             this.Controls.Add(this.label6);
@@ -284,8 +289,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateDes);
             this.Controls.Add(this.dateDep);
-            this.Controls.Add(this.txtDes);
-            this.Controls.Add(this.txtDep);
             this.Controls.Add(this.rbRound);
             this.Controls.Add(this.rbOne);
             this.Controls.Add(this.label4);
@@ -295,7 +298,7 @@
             this.Controls.Add(this.pSave);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.bSearch);
+            this.Controls.Add(this.bShow);
             this.Name = "GUISchedule";
             this.Text = "Schedule";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -308,12 +311,12 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button bSearch;
+        private System.Windows.Forms.Button bShow;
         private System.Windows.Forms.PictureBox pSave;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbMinuteDes;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbbHourDes;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbbMinuteDep;
         private System.Windows.Forms.Label label6;
@@ -321,13 +324,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateDes;
         private System.Windows.Forms.DateTimePicker dateDep;
-        private System.Windows.Forms.TextBox txtDes;
-        private System.Windows.Forms.TextBox txtDep;
         private System.Windows.Forms.RadioButton rbRound;
         private System.Windows.Forms.RadioButton rbOne;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbbDep;
+        private System.Windows.Forms.ComboBox cbbDes;
     }
 }

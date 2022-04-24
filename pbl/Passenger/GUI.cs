@@ -12,15 +12,19 @@ namespace pbl
 {
     public partial class GUI : Form
     {
-        Form login;
-        Form form = null;
-        ManageFunction man = new ManageFunction();
-        public GUI(Form login)
+        private Form login;
+        public static string userName;
+        private Form form = null;
+        private HandlerMyInterfaces handler = new HandlerMyInterfaces(Color.FromArgb(0, 192, 0), Color.FromArgb(0, 140, 0), Color.Green);
+        private ManageFunction man = new ManageFunction();
+        public GUI(Form login, string userName)
         {
             InitializeComponent();
             this.Size = new Size(750, 528);
             ShowForm(CreatForm());
             this.login = login;
+            GUI.userName = userName;
+            labelName.Text = man.GetName(userName);
             AddHandler();
         }        
         private Form CreatForm()
@@ -70,47 +74,47 @@ namespace pbl
         private void AddHandler()
         {
             //pOther
-            this.pOther.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.pOther.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.pOther.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.pOther.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //pHome
-            this.pHome.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.pHome.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.pHome.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.pHome.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //pChat
-            this.pChat.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.pChat.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.pChat.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.pChat.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //pTicket
-            this.pTicket.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.pTicket.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.pTicket.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.pTicket.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //pSchedule
-            this.pSchedule.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.pSchedule.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.pSchedule.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.pSchedule.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //pNotify
-            this.pNotify.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.pNotify.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.pNotify.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.pNotify.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //labelName
-            this.labelName.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.labelName.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.labelName.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.labelName.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //pImage
-            this.pImage.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.pImage.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.pImage.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.pImage.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //pArrow
-            this.pArrow.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.pArrow.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.pArrow.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.pArrow.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //labelPersonal
-            this.labelPersonal.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.labelPersonal.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.labelPersonal.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.labelPersonal.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //labelLogOut
-            this.labelLogOut.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Controls_MouseMove);
-            this.labelLogOut.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Controls_MouseLeave);
+            this.labelLogOut.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.labelLogOut.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //bHelp
-            this.bHelp.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Button_MouseMove);
-            this.bHelp.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Button_MouseLeave);
+            this.bHelp.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.bHelp.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //bFeedback
-            this.bFeedback.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Button_MouseMove);
-            this.bFeedback.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Button_MouseLeave);
+            this.bFeedback.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.bFeedback.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //bSetting
-            this.bSetting.MouseMove += new System.Windows.Forms.MouseEventHandler(HandlerMyInterfaces.Button_MouseMove);
-            this.bSetting.MouseLeave += new System.EventHandler(HandlerMyInterfaces.Button_MouseLeave);
+            this.bSetting.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            this.bSetting.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
         }
         private void ShowForm(Form subForm)
         {

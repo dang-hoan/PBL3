@@ -13,9 +13,12 @@ namespace pbl
 {
     public partial class employee : Form
     {
+       
+        ManageFunction man = new ManageFunction();
         public employee()
         {
             InitializeComponent();
+            dtgridemploy.DataSource = man.GetAllNV();
         }
         Form f = null;
         //tao form moi tren form cu
@@ -35,6 +38,7 @@ namespace pbl
         {
             AddForm add =   new AddForm();
             add.Show();
+            man.GetAllNV();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -55,7 +59,24 @@ namespace pbl
             cnn.Open();
             da.Fill(dt);
             cnn.Close();
-            dataGridView1.DataSource = dt;
+            dtgridemploy.DataSource = dt;
         }
+       /* public void GetAllNV()
+        {
+            cnn.Open();
+            string query = "select * from PEOPLE  where PositionID ='"+222+"'";
+               
+
+            
+           
+            SqlCommand com = new SqlCommand(query, cnn); //bat dau truy van
+            com.CommandType = CommandType.Text;
+            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
+            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
+            da.Fill(dt);  // đổ dữ liệu vào kho
+            cnn.Close();  // đóng kết nối
+            
+            dtgridemploy.DataSource = dt; //đổ dữ liệu vào datagridview
+        }*/
     }
 }

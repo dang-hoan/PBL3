@@ -26,6 +26,14 @@ namespace pbl
        
         private void btdangnhap_Click_1(object sender, EventArgs e)
         {
+            if(txtusername.Text == "" || txtpass.Text == "")
+            {
+                labelNotify.Text = "*Thông tin đăng nhập chưa đủ!";
+                labelNotify.Location = new Point(panel1.Location.X + 90, btdangnhap.Location.Y - 20);
+                labelNotify.BackColor = Color.Transparent;
+                labelNotify.ForeColor = Color.White;
+                return;
+            }
             int result = man.checkAccount(txtusername.Text, txtpass.Text);
             switch (result)
             {
@@ -53,7 +61,7 @@ namespace pbl
                     }
                 case 3:
                     {
-                        GUI g = new GUI(this);
+                        GUI g = new GUI(this, txtusername.Text);
                         g.Show();
                         this.Hide();
                         break;
@@ -71,6 +79,17 @@ namespace pbl
             Forget.Show();
         }
 
-       
+        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void Formlogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btdangnhap_Click_1(sender, e);
+            }
+        }
     }
 }

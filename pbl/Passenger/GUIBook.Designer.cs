@@ -30,15 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIBook));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bShow = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
             this.labelSchedule = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelBooked = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelCarriage = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pLeft = new System.Windows.Forms.PictureBox();
+            this.pRight = new System.Windows.Forms.PictureBox();
+            this.cbbTrain = new System.Windows.Forms.ComboBox();
             this.bBack = new System.Windows.Forms.Button();
             this.bBook = new System.Windows.Forms.Button();
             this.pOption = new System.Windows.Forms.PictureBox();
@@ -46,8 +47,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pLeft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -56,15 +57,16 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.bShow);
             this.panel1.Controls.Add(this.pSave);
             this.panel1.Controls.Add(this.labelSchedule);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.labelBooked);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.labelCarriage);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pictureBox12);
-            this.panel1.Controls.Add(this.pictureBox9);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.pLeft);
+            this.panel1.Controls.Add(this.pRight);
+            this.panel1.Controls.Add(this.cbbTrain);
             this.panel1.Controls.Add(this.bBack);
             this.panel1.Controls.Add(this.bBook);
             this.panel1.Controls.Add(this.pOption);
@@ -74,6 +76,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(973, 611);
             this.panel1.TabIndex = 0;
+            // 
+            // bShow
+            // 
+            this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShow.Location = new System.Drawing.Point(375, 537);
+            this.bShow.Name = "bShow";
+            this.bShow.Size = new System.Drawing.Size(170, 40);
+            this.bShow.TabIndex = 59;
+            this.bShow.Text = "Hiển thị";
+            this.bShow.UseVisualStyleBackColor = false;
+            this.bShow.Click += new System.EventHandler(this.bShow_Click);
             // 
             // pSave
             // 
@@ -97,18 +112,18 @@
             this.labelSchedule.Size = new System.Drawing.Size(81, 19);
             this.labelSchedule.TabIndex = 14;
             this.labelSchedule.Text = "Lịch trình";
-            this.labelSchedule.Click += new System.EventHandler(this.labelSchedule_Click);
+            this.labelSchedule.Click += new System.EventHandler(this.Schedule_Click);
             // 
-            // label6
+            // labelBooked
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(646, 69);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 68);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "0";
+            this.labelBooked.AutoSize = true;
+            this.labelBooked.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBooked.ForeColor = System.Drawing.Color.Red;
+            this.labelBooked.Location = new System.Drawing.Point(646, 69);
+            this.labelBooked.Name = "labelBooked";
+            this.labelBooked.Size = new System.Drawing.Size(61, 68);
+            this.labelBooked.TabIndex = 13;
+            this.labelBooked.Text = "0";
             // 
             // label5
             // 
@@ -116,19 +131,19 @@
             this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(611, 46);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 24);
+            this.label5.Size = new System.Drawing.Size(133, 24);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Số vé còn lại";
+            this.label5.Text = "Số vé đã bán";
             // 
-            // label3
+            // labelCarriage
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(441, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 68);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "1";
+            this.labelCarriage.AutoSize = true;
+            this.labelCarriage.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCarriage.Location = new System.Drawing.Point(454, 83);
+            this.labelCarriage.Name = "labelCarriage";
+            this.labelCarriage.Size = new System.Drawing.Size(36, 40);
+            this.labelCarriage.TabIndex = 10;
+            this.labelCarriage.Text = "1";
             // 
             // label2
             // 
@@ -140,37 +155,40 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Chọn toa";
             // 
-            // pictureBox12
+            // pLeft
             // 
-            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(410, 81);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(25, 50);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 8;
-            this.pictureBox12.TabStop = false;
+            this.pLeft.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pLeft.Image = ((System.Drawing.Image)(resources.GetObject("pLeft.Image")));
+            this.pLeft.Location = new System.Drawing.Point(410, 81);
+            this.pLeft.Name = "pLeft";
+            this.pLeft.Size = new System.Drawing.Size(25, 50);
+            this.pLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pLeft.TabIndex = 8;
+            this.pLeft.TabStop = false;
+            this.pLeft.Click += new System.EventHandler(this.pLeft_Click);
             // 
-            // pictureBox9
+            // pRight
             // 
-            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(505, 80);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(25, 50);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 7;
-            this.pictureBox9.TabStop = false;
+            this.pRight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pRight.Image = ((System.Drawing.Image)(resources.GetObject("pRight.Image")));
+            this.pRight.Location = new System.Drawing.Point(505, 80);
+            this.pRight.Name = "pRight";
+            this.pRight.Size = new System.Drawing.Size(25, 50);
+            this.pRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pRight.TabIndex = 7;
+            this.pRight.TabStop = false;
+            this.pRight.Click += new System.EventHandler(this.pRight_Click);
             // 
-            // comboBox1
+            // cbbTrain
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(203, 43);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(138, 27);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.Text = "Chọn một tàu";
+            this.cbbTrain.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTrain.FormattingEnabled = true;
+            this.cbbTrain.Location = new System.Drawing.Point(203, 43);
+            this.cbbTrain.Name = "cbbTrain";
+            this.cbbTrain.Size = new System.Drawing.Size(138, 27);
+            this.cbbTrain.TabIndex = 6;
+            this.cbbTrain.Text = "Chọn một tàu";
+            this.cbbTrain.SelectedIndexChanged += new System.EventHandler(this.cbbTrain_SelectedIndexChanged);
             // 
             // bBack
             // 
@@ -208,7 +226,7 @@
             this.pOption.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pOption.TabIndex = 1;
             this.pOption.TabStop = false;
-            this.pOption.Click += new System.EventHandler(this.pOption_Click);
+            this.pOption.Click += new System.EventHandler(this.Schedule_Click);
             // 
             // dataGridView1
             // 
@@ -243,8 +261,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pLeft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -259,15 +277,16 @@
         private System.Windows.Forms.PictureBox pOption;
         private System.Windows.Forms.Button bBook;
         private System.Windows.Forms.Button bBack;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbTrain;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelCarriage;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pLeft;
+        private System.Windows.Forms.PictureBox pRight;
+        private System.Windows.Forms.Label labelBooked;
         private System.Windows.Forms.Label labelSchedule;
         private System.Windows.Forms.PictureBox pSave;
+        private System.Windows.Forms.Button bShow;
     }
 }

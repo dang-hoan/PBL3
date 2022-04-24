@@ -12,7 +12,7 @@ namespace pbl
 {
     public partial class Form1 : Form
     {
-        Form login;
+        private Form login;
         public Form1(Form login)
         {
             InitializeComponent();
@@ -112,6 +112,7 @@ namespace pbl
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
+            login.Close();
         }
 
         private void lbtrangchu_Click(object sender, EventArgs e)
