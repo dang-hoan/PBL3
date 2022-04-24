@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgridemploy = new System.Windows.Forms.DataGridView();
             this.txttimkiem = new System.Windows.Forms.TextBox();
             this.bttimkiem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -41,28 +41,28 @@
             this.btAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgridemploy)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dtgridemploy);
             this.panel1.Location = new System.Drawing.Point(50, 75);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(834, 464);
             this.panel1.TabIndex = 0;
             // 
-            // dataGridView1
+            // dtgridemploy
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(834, 461);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgridemploy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgridemploy.Location = new System.Drawing.Point(0, 0);
+            this.dtgridemploy.Name = "dtgridemploy";
+            this.dtgridemploy.RowHeadersWidth = 51;
+            this.dtgridemploy.RowTemplate.Height = 24;
+            this.dtgridemploy.Size = new System.Drawing.Size(834, 461);
+            this.dtgridemploy.TabIndex = 0;
             // 
             // txttimkiem
             // 
@@ -151,7 +151,7 @@
             this.Text = "employee";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgridemploy)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -167,7 +167,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btAdd;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgridemploy;
         private System.Windows.Forms.Button button2;
     }
 }
