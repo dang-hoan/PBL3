@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formlogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelNotify = new System.Windows.Forms.Label();
             this.linkRegister = new System.Windows.Forms.LinkLabel();
             this.linkForget = new System.Windows.Forms.LinkLabel();
             this.btdangnhap = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
             this.txtpass = new System.Windows.Forms.TextBox();
             this.txtusername = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.labelNotify = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -63,17 +63,28 @@
             this.panel1.Size = new System.Drawing.Size(487, 598);
             this.panel1.TabIndex = 0;
             // 
+            // labelNotify
+            // 
+            this.labelNotify.AutoSize = true;
+            this.labelNotify.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNotify.ForeColor = System.Drawing.Color.Red;
+            this.labelNotify.Location = new System.Drawing.Point(264, 398);
+            this.labelNotify.Name = "labelNotify";
+            this.labelNotify.Size = new System.Drawing.Size(0, 19);
+            this.labelNotify.TabIndex = 9;
+            // 
             // linkRegister
             // 
             this.linkRegister.AutoSize = true;
             this.linkRegister.BackColor = System.Drawing.Color.Transparent;
             this.linkRegister.LinkColor = System.Drawing.Color.White;
-            this.linkRegister.Location = new System.Drawing.Point(279, 548);
+            this.linkRegister.Location = new System.Drawing.Point(275, 493);
             this.linkRegister.Name = "linkRegister";
             this.linkRegister.Size = new System.Drawing.Size(174, 20);
             this.linkRegister.TabIndex = 8;
             this.linkRegister.TabStop = true;
             this.linkRegister.Text = "Đăng ký tài khoản mới?";
+            this.linkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegister_LinkClicked);
             // 
             // linkForget
             // 
@@ -81,7 +92,7 @@
             this.linkForget.BackColor = System.Drawing.Color.Transparent;
             this.linkForget.ForeColor = System.Drawing.Color.Red;
             this.linkForget.LinkColor = System.Drawing.Color.White;
-            this.linkForget.Location = new System.Drawing.Point(326, 508);
+            this.linkForget.Location = new System.Drawing.Point(322, 453);
             this.linkForget.Name = "linkForget";
             this.linkForget.Size = new System.Drawing.Size(127, 20);
             this.linkForget.TabIndex = 7;
@@ -91,7 +102,7 @@
             // 
             // btdangnhap
             // 
-            this.btdangnhap.Location = new System.Drawing.Point(190, 441);
+            this.btdangnhap.Location = new System.Drawing.Point(186, 386);
             this.btdangnhap.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btdangnhap.Name = "btdangnhap";
             this.btdangnhap.Size = new System.Drawing.Size(146, 42);
@@ -104,7 +115,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(68, 351);
+            this.pictureBox4.Location = new System.Drawing.Point(64, 305);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(48, 51);
@@ -116,7 +127,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(68, 259);
+            this.pictureBox3.Location = new System.Drawing.Point(64, 241);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(48, 51);
@@ -126,44 +137,32 @@
             // 
             // txtpass
             // 
-            this.txtpass.Location = new System.Drawing.Point(141, 351);
+            this.txtpass.Location = new System.Drawing.Point(137, 315);
             this.txtpass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtpass.Multiline = true;
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
-            this.txtpass.Size = new System.Drawing.Size(262, 50);
+            this.txtpass.Size = new System.Drawing.Size(262, 26);
             this.txtpass.TabIndex = 3;
             // 
             // txtusername
             // 
-            this.txtusername.Location = new System.Drawing.Point(141, 259);
+            this.txtusername.Location = new System.Drawing.Point(137, 255);
             this.txtusername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtusername.Multiline = true;
             this.txtusername.Name = "txtusername";
-            this.txtusername.Size = new System.Drawing.Size(262, 50);
+            this.txtusername.Size = new System.Drawing.Size(262, 26);
             this.txtusername.TabIndex = 2;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(190, 84);
+            this.pictureBox2.Location = new System.Drawing.Point(186, 38);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(147, 168);
+            this.pictureBox2.Size = new System.Drawing.Size(146, 218);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
-            // 
-            // labelNotify
-            // 
-            this.labelNotify.AutoSize = true;
-            this.labelNotify.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotify.ForeColor = System.Drawing.Color.Red;
-            this.labelNotify.Location = new System.Drawing.Point(268, 418);
-            this.labelNotify.Name = "labelNotify";
-            this.labelNotify.Size = new System.Drawing.Size(0, 19);
-            this.labelNotify.TabIndex = 9;
             // 
             // Formlogin
             // 
@@ -172,10 +171,12 @@
             this.ClientSize = new System.Drawing.Size(489, 599);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Formlogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG NHẬP";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Formlogin_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

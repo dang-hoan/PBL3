@@ -43,7 +43,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(148, 58);
+            this.label2.Location = new System.Drawing.Point(330, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 19);
             this.label2.TabIndex = 13;
@@ -53,7 +53,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(369, 58);
+            this.label1.Location = new System.Drawing.Point(110, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 19);
             this.label1.TabIndex = 16;
@@ -62,18 +62,18 @@
             // cbbYear
             // 
             this.cbbYear.FormattingEnabled = true;
-            this.cbbYear.Location = new System.Drawing.Point(198, 55);
+            this.cbbYear.Location = new System.Drawing.Point(380, 58);
             this.cbbYear.Name = "cbbYear";
             this.cbbYear.Size = new System.Drawing.Size(121, 28);
-            this.cbbYear.TabIndex = 17;
+            this.cbbYear.TabIndex = 18;
             // 
             // cbbMonth
             // 
             this.cbbMonth.FormattingEnabled = true;
-            this.cbbMonth.Location = new System.Drawing.Point(433, 58);
+            this.cbbMonth.Location = new System.Drawing.Point(174, 57);
             this.cbbMonth.Name = "cbbMonth";
             this.cbbMonth.Size = new System.Drawing.Size(121, 28);
-            this.cbbMonth.TabIndex = 18;
+            this.cbbMonth.TabIndex = 17;
             // 
             // panel_Detail
             // 
@@ -88,7 +88,7 @@
             // labelContent
             // 
             this.labelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelContent.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContent.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelContent.ForeColor = System.Drawing.Color.Black;
             this.labelContent.Location = new System.Drawing.Point(23, 126);
             this.labelContent.Name = "labelContent";
@@ -110,7 +110,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(584, 56);
+            this.button1.Location = new System.Drawing.Point(568, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 31);
             this.button1.TabIndex = 46;
@@ -131,6 +131,7 @@
             this.Controls.Add(this.label2);
             this.Name = "GUICalendar";
             this.Text = "Calendar";
+            this.Click += new System.EventHandler(this.GUICalendar_Click);
             this.panel_Detail.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -12,7 +12,7 @@ namespace pbl
 {
     public partial class Employeechinh : Form
     {
-        Form login;
+        private Form login;
         public Employeechinh(Form login)
         {
             InitializeComponent();

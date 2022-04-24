@@ -11,7 +11,7 @@ namespace pbl
 {
     public class ManageFunction
     {
-        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-59M8QSM\SQLEXPRESS;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
+        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-DKTP37G\CSDL;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
         public int checkAccount(string userName, string passWord)
         {
             DataTable dt = new DataTable();
@@ -33,30 +33,126 @@ namespace pbl
             }
             return 0;
         }
+
+        //Passenger
+        public string GetName(string UserName)
+        {
+            string query = "select Name from PEOPLE where UserName = '" + UserName + "'";
+            return db.GetRecord(query, null).Rows[0][0].ToString();
+        }
+        public DataTable GetStation(string UserName)
+        {
+            string query = "select Departure, Destination from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
+                "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
+                "where Username = '" + UserName + "'";
+            return db.GetRecord(query, null);
+        }
+        public DataTable GetStation()
+        {
+            string query = "select StationName from STATION";
+            return db.GetRecord(query, null);
+        }
+        public DataTable GetSchedule(string UserName)
+        {
+            string query = "select SCHEDULE.* from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
+                "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
+                "where Username = '" + UserName + "'";
+            return db.GetRecord(query, null);
+        }
         public string GetSchedule(string day, string month, string year)
         {
             string result = ""; string s = ""; DataRow dr;
-            string date = year + "/" + month + "/" + day;
-            string query = "select * from SCHEDULE where DepartureTime = '" + date + "'";
+            string query = $"select * from SCHEDULE where day(DepartureTime) = {day} and month(DepartureTime) = {month} and year(DepartureTime) = {year}";
             DataTable dt = db.GetRecord(query, null);
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                s = "\n\n";
+                s = "\n";
                 dr = dt.Rows[i];
-                for(int j = 1; j < dt.Columns.Count; j++)
-                {
-                    s += dr[j] + "\n";
-                }
+                s += "Ga đi: " + dr[1] + "\n";
+                s += "Ga đến: " + dr[2] + "\n";
+                s += "Thời gian khởi hành: " + dr[3] + "\n";
+                s += "Thời gian đến: " + dr[4] + "\n";
                 result += s;
             }
             return result;
         }
-        public DataTable GetDepartureTime()
+        public DataTable GetSchedule(string UserName, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
         {
-            string query = "select DepartureTime from SCHEDULE";
+            string query = "select SCHEDULE.* from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
+                "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
+                $"where Username = '{UserName}' and Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}'";
             return db.GetRecord(query, null);
         }
-
+        public DataTable GetDepartureTime(string UserName)
+        {
+            string query = "select DepartureTime from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
+                "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
+                "where Username = '" + UserName + "'";
+            return db.GetRecord(query, null);
+        }
+        public DataTable GetAllTicket(string UserName)
+        {
+            string query = "select * from TICKET where CustomerUN = '" + UserName + "'";
+            return db.GetRecord(query, null);
+        }
+        public DataTable GetAllTicket()
+        {
+            string query = "select * from TICKET";
+            return db.GetRecord(query, null);
+        }
+        private char[] Carriages = new char [26]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}; 
+        public DataTable GetTicket(string UserName, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, int TrainID, string Carriages)
+        {
+            string cari;
+            if (Carriages == "") cari = "%";
+            else cari = this.Carriages[Convert.ToInt32(Carriages) - 1] + "%'";
+            string query = "select TicketID, TrainName, SeatNo, TicketPrice from PEOPLE inner join TICKET on PEOPLE.Username = TICKET.CustomerUN inner join TRAIN on TICKET.TrainID = TRAIN.TrainID" +
+                " inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where " +
+                $" Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}' and" +
+                $" TRAIN.TrainID = '{TrainID + 1}' and SeatNo like '{cari}' and Username = '{UserName}'";
+            return db.GetRecord(query, null);
+        }
+        public DataTable GetTicket(string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, int TrainID, string Carriages)
+        {
+            string cari;
+            if (Carriages == "") cari = "%";
+            else cari = this.Carriages[Convert.ToInt32(Carriages) - 1] + "%'";
+            string query = "select TicketID, TrainName, SeatNo, TicketPrice from TICKET inner join TRAIN on TICKET.TrainID = TRAIN.TrainID" +
+                " inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where " +
+                $" Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}' and" +
+                $" TRAIN.TrainID = '{TrainID + 1}' and SeatNo like '{cari}'";
+            return db.GetRecord(query, null);
+        }
+        public void SetTicket(string TicketID, string UserName, bool type)
+        {
+            string query;
+            if (type)
+            {
+                query = "update TICKET set " +
+                    "Booked = 'True', " +
+                    "CustomerID = '" + UserName + "' " +
+                    "where TicketID = '" + TicketID + "'";
+            }
+            else
+            {
+                query = "update TICKET set " +
+                    "Booked = 'False', " +
+                    "CustomerID = 'NULL' " +
+                    "where TicketID = '" + TicketID + "'";
+            }
+            db.ExcuteDB(query, null);
+        }
+        public DataTable GetTrain()
+        {
+            string query = "select TrainName from TRAIN";
+            return db.GetRecord(query, null);
+        }
+        public string GetNumberOfCarriages(int TrainID)
+        {
+            string query = "select NumberOfCarriages from TRAIN where TrainID = '" + (TrainID + 1) + "'";
+            DataTable dt = db.GetRecord(query, null);
+            return dt.Rows[0][0].ToString();
+        }
         //Admin
         public DataTable GetAllNV ()
         {
@@ -68,7 +164,7 @@ namespace pbl
         }
         public void Addnv(string Username,string Name,bool Gender,DateTime BirthDay,string Address,string IDCard,string Email,string Phone,string PositionID)
         {
-            string query = $"INSERT INTO  PEOPLE VALUES ('{Username}','{Name}','{Gender}','{BirthDay}','{Address}','{IDCard}','{Email}','{Phone}','{PositionID}') ";
+            string query = $"INSERT INTO  PEOPLE VALUES ('{Username}',N'{Name}','{Gender}','{BirthDay}','{Address}','{IDCard}','{Email}','{Phone}','{PositionID}') ";
             db.ExcuteDB(query,null);
             //GetAllNV();
         }
