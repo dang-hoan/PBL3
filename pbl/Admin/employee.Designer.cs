@@ -128,6 +128,7 @@
             this.button6.TabIndex = 8;
             this.button6.Text = "SỬA";
             this.button6.UseVisualStyleBackColor = false;
+         
             // 
             // btAdd
             // 

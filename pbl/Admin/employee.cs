@@ -36,7 +36,7 @@ namespace pbl
         }
         private void btAdd_Click(object sender, EventArgs e)
         {
-            AddForm add =   new AddForm();
+            AddForm add = new AddForm();
             add.Show();
             man.GetAllNV();
         }
@@ -48,35 +48,18 @@ namespace pbl
 
         private void bttimkiem_Click(object sender, EventArgs e)
         {
-            string s = @"Data Source=DESKTOP-59M8QSM\SQLEXPRESS;Initial Catalog=pbl33;Integrated Security=True";
-            //DBHelper db = new DBHelper(s);
-            string query = "select * from PEOPLE where Name = '" + txttimkiem.Text + "'";
-            //dataGridView1.DataSource = db.GetRecordSV(query);
+            string s = @"Data Source=DESKTOP-59M8QSM\SQLEXPRESS;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678";
+            string query = "select * from PEOPLE where Name = '"+ txttimkiem.Text+"'";
+           
             SqlConnection cnn = new SqlConnection(s);
             SqlDataAdapter da = new SqlDataAdapter(query, cnn);
-            DataSet ds = new DataSet();
+           // DataSet ds = new DataSet();
             DataTable dt = new DataTable();
             cnn.Open();
             da.Fill(dt);
             cnn.Close();
             dtgridemploy.DataSource = dt;
         }
-       /* public void GetAllNV()
-        {
-            cnn.Open();
-            string query = "select * from PEOPLE  where PositionID ='"+222+"'";
-               
 
-            
-           
-            SqlCommand com = new SqlCommand(query, cnn); //bat dau truy van
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com); //chuyen du lieu ve
-            DataTable dt = new DataTable(); //tạo một kho ảo để lưu trữ dữ liệu
-            da.Fill(dt);  // đổ dữ liệu vào kho
-            cnn.Close();  // đóng kết nối
-            
-            dtgridemploy.DataSource = dt; //đổ dữ liệu vào datagridview
-        }*/
     }
 }

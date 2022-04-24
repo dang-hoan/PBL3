@@ -166,6 +166,8 @@ namespace pbl
         {
             string query = $"INSERT INTO  PEOPLE VALUES ('{Username}',N'{Name}','{Gender}','{BirthDay}','{Address}','{IDCard}','{Email}','{Phone}','{PositionID}') ";
             db.ExcuteDB(query,null);
+            //GetAllNV();
         }
+        
     }
 }
