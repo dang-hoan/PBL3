@@ -33,6 +33,31 @@ namespace pbl
             }
             return 0;
         }
+        public DataTable getInfo(string UserName)
+        {
+            string query = "select * from PEOPLE where Username = '" + UserName + "'";
+            return db.GetRecord(query, null);
+        }
+        public bool setPass(string UserName, string passWord, string newPass)
+        {
+            string query2 = $"update LOGIN set PassWord = '{newPass}' where Username = '{UserName}' && PassWord = '{passWord}'";
+            if (db.ExcuteDB(query2, null) != -1) return true;
+            else return false;
+        }
+        public void setInfo(string UserName, string Name, bool Gender, string BirthDay, string Address, string IDCard, string Email, string Phone)
+        {
+            string query = $"update PEOPLE set" +
+                $" Name = N'{Name}'" +
+                $", Gender = '{Gender}'" +
+                $", BirthDay = '{BirthDay}'" +
+                $", Address = N'{Address}'" +
+                $", IDCard = '{IDCard}'" +
+                $", Email = '{Email}'" +
+                $", Phone = '{Phone}'" +
+                $" where Username = '{UserName}'";
+            db.ExcuteDB(query, null);
+        }
+
 
         //Passenger
         public string GetName(string UserName)
@@ -105,7 +130,7 @@ namespace pbl
         {
             string cari;
             if (Carriages == "") cari = "%";
-            else cari = this.Carriages[Convert.ToInt32(Carriages) - 1] + "%'";
+            else cari = this.Carriages[Convert.ToInt32(Carriages) - 1] + "%";
             string query = "select TicketID, TrainName, SeatNo, TicketPrice from PEOPLE inner join TICKET on PEOPLE.Username = TICKET.CustomerUN inner join TRAIN on TICKET.TrainID = TRAIN.TrainID" +
                 " inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where " +
                 $" Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}' and" +
@@ -116,7 +141,7 @@ namespace pbl
         {
             string cari;
             if (Carriages == "") cari = "%";
-            else cari = this.Carriages[Convert.ToInt32(Carriages) - 1] + "%'";
+            else cari = this.Carriages[Convert.ToInt32(Carriages) - 1] + "%";
             string query = "select TicketID, TrainName, SeatNo, TicketPrice from TICKET inner join TRAIN on TICKET.TrainID = TRAIN.TrainID" +
                 " inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where " +
                 $" Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}' and" +
@@ -147,11 +172,26 @@ namespace pbl
             string query = "select TrainName from TRAIN";
             return db.GetRecord(query, null);
         }
-        public string GetNumberOfCarriages(int TrainID)
+        public DataTable GetNumberOfCarriages(int TrainID)
         {
             string query = "select NumberOfCarriages from TRAIN where TrainID = '" + (TrainID + 1) + "'";
             DataTable dt = db.GetRecord(query, null);
-            return dt.Rows[0][0].ToString();
+            MessageBox.Show(dt.Rows[0][0].ToString());
+            return dt;
+        }
+        public int GetNumberBooked(int TrainID, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
+        {
+            string query = "select Booked from TICKET inner join TRAIN on TICKET.TrainID = TRAIN.TrainID" +
+                " inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where " +
+                $" Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}' and" +
+                $" TRAIN.TrainID = '{TrainID + 1}'";
+            DataTable dt = db.GetRecord(query, null);
+            int count = 0;
+            foreach(DataRow dr in dt.Rows)
+            {
+                if (Convert.ToBoolean(dr[0])) count++;
+            }
+            return count;
         }
         //Admin
         public DataTable GetAllNV ()

@@ -76,8 +76,9 @@ namespace pbl
         }
 
         private void cbbTrain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            numberOfCarriages = Convert.ToInt32(man.GetNumberOfCarriages(cbbTrain.SelectedIndex));
+        {            
+            DataTable dt = man.GetNumberOfCarriages(cbbTrain.SelectedIndex);
+            numberOfCarriages = Convert.ToInt32(dt.Rows[0][0].ToString());
         }
 
         private void pLeft_Click(object sender, EventArgs e)
@@ -95,6 +96,7 @@ namespace pbl
         {
             pLeft.Image = imageLeft2;
         }
+
         private void pLeft_MouseLeave(object sender, EventArgs e)
         {
             pLeft.Image = imageLeft1;
@@ -102,6 +104,7 @@ namespace pbl
 
         private void bShow_Click(object sender, EventArgs e)
         {
+            labelCarriage.Text = man.GetNumberBooked(cbbTrain.SelectedIndex, Departure, Destination, Type, DepartureTime, DestinationTime).ToString();
             Reload();            
         }
         private void Reload()

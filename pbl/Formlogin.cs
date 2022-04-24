@@ -13,6 +13,7 @@ namespace pbl
     public partial class Formlogin : Form
     {
         ManageFunction man = new ManageFunction();
+        public static string userName;
         public Formlogin()
         {
             InitializeComponent();
@@ -67,6 +68,7 @@ namespace pbl
                         break;
                     }
             }
+            userName = txtusername.Text;
             txtusername.Text = "";
             txtpass.Text = "";
         }

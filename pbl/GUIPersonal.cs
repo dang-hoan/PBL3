@@ -12,11 +12,33 @@ namespace pbl
 {
     public partial class GUIPersonal : Form
     {
+        ManageFunction man = new ManageFunction();
         public GUIPersonal()
         {
             InitializeComponent();
+            GUI();
         }
+        private void GUI()
+        {
+            DataTable dt = man.getInfo(Formlogin.userName);
 
+            //infor
+            txtUsername.Text = dt.Rows[0][0].ToString();
+            txtName.Text = dt.Rows[0][1].ToString();
+            if (Convert.ToBoolean(dt.Rows[0][2].ToString()))
+            {
+                rbMale.Checked = true;
+            }
+            else
+            {
+                rbFemale.Checked = true;
+            }
+            txtBirthDay.Value = Convert.ToDateTime(dt.Rows[0][3].ToString());
+            txtAddress.Text = dt.Rows[0][4].ToString();
+            txtIDCard.Text = dt.Rows[0][5].ToString();
+            txtEmail.Text = dt.Rows[0][6].ToString();
+            txtPhone.Text = dt.Rows[0][7].ToString();
+        }
         private void bEditPass_Click(object sender, EventArgs e)
         {
             txtOld.Enabled = true;
@@ -26,14 +48,28 @@ namespace pbl
 
         private void bSavePass_Click(object sender, EventArgs e)
         {
-            txtOld.Enabled = false;
-            txtNew.Enabled = false;
-            txtConfirm.Enabled = false;
+            if (!txtOld.Text.Equals(txtConfirm.Text))
+            {
+                MessageBox.Show("Mật khẩu xác nhận không giống mật khẩu cũ!");
+            }
+            else if (man.setPass(Formlogin.userName, txtConfirm.Text, txtNew.Text))
+            {
+                MessageBox.Show("Đổi mật khẩu thành công!");
+                txtOld.Text = "";
+                txtNew.Text = "";
+                txtConfirm.Text = "";
+                txtOld.Enabled = false;
+                txtNew.Enabled = false;
+                txtConfirm.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Mật khẩu xác nhận không đúng!");
+            }
         }
 
         private void bEditInfor_Click(object sender, EventArgs e)
         {
-            txtUsername.Enabled = true;
             txtName.Enabled = true;
             rbMale.Enabled = true;
             rbFemale.Enabled = true;
@@ -46,7 +82,8 @@ namespace pbl
 
         private void bSaveInfor_Click(object sender, EventArgs e)
         {
-            txtUsername.Enabled = false;
+            man.setInfo(Formlogin.userName, txtName.Text, rbMale.Checked || !rbFemale.Checked, txtBirthDay.Value.ToString("yyyy/MM/dd"), txtAddress.Text, txtIDCard.Text, txtEmail.Text, txtPhone.Text);
+            MessageBox.Show("Chỉnh sửa thông tin thành công!");
             txtName.Enabled = false;
             rbMale.Enabled = false;
             rbFemale.Enabled = false;
