@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    
     public partial class addkhachhang : Form
     {
         public addkhachhang()
