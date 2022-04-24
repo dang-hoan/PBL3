@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace pbl
 {
-
     public class DBHelper
     {
         private SqlConnection cnn;
@@ -43,8 +42,5 @@ namespace pbl
             cnn.Close();
             return dt;
         }
-        
-
-
     }
 }
