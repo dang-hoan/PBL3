@@ -100,13 +100,13 @@ namespace pbl
 
         private void lbkhachhang_Click(object sender, EventArgs e)
         {
-            ShowForm(new Passenger());
+            ShowForm(new FormPassenger());
         }
        
 
         private void lkhachhang_Click(object sender, EventArgs e)
         {
-            ShowForm(new Passenger());
+            ShowForm(new FormPassenger());
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

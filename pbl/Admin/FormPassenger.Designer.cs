@@ -1,6 +1,6 @@
 ﻿namespace pbl
 {
-    partial class Passenger
+    partial class FormPassenger
     {
         /// <summary>
         /// Required designer variable.

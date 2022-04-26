@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace pbl.Passenger
+namespace pbl
 {
     public partial class GUISystemSchedule : Form
     {
@@ -57,8 +57,8 @@ namespace pbl.Passenger
 
         private void bBook_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.SelectedRows.Count >= 1)
-            {   
+            if (dataGridView1.SelectedRows.Count >= 1)
+            {
                 GUIBook book = new GUIBook();
                 book.Show();
             }
@@ -66,7 +66,7 @@ namespace pbl.Passenger
             {
                 MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
             }
-            
+
         }
 
         private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)

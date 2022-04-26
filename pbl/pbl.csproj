@@ -116,11 +116,11 @@
     <Compile Include="Admin\note.Designer.cs">
       <DependentUpon>note.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Passenger.cs">
+    <Compile Include="Admin\FormPassenger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Passenger.Designer.cs">
-      <DependentUpon>Passenger.cs</DependentUpon>
+    <Compile Include="Admin\FormPassenger.Designer.cs">
+      <DependentUpon>FormPassenger.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\Schedule.cs">
       <SubType>Form</SubType>
@@ -158,6 +158,12 @@
     </Compile>
     <Compile Include="Employee\khachhang.Designer.cs">
       <DependentUpon>khachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Passenger\GUISystemSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Passenger\GUISystemSchedule.Designer.cs">
+      <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageFunction.cs" />
     <Compile Include="Passenger\Form3.cs">
@@ -202,11 +208,11 @@
     <Compile Include="Passenger\GUIHelp.Designer.cs">
       <DependentUpon>GUIHelp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUIMainSchedule.cs">
+    <Compile Include="Passenger\GUIPrivateSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUIMainSchedule.Designer.cs">
-      <DependentUpon>GUIMainSchedule.cs</DependentUpon>
+    <Compile Include="Passenger\GUIPrivateSchedule.Designer.cs">
+      <DependentUpon>GUIPrivateSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="Passenger\GUINotification.cs">
       <SubType>Form</SubType>
@@ -226,11 +232,11 @@
     <Compile Include="Passenger\GUITicket.Designer.cs">
       <DependentUpon>GUITicket.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUISchedule.cs">
+    <Compile Include="Passenger\GUIDetailSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUISchedule.Designer.cs">
-      <DependentUpon>GUISchedule.cs</DependentUpon>
+    <Compile Include="Passenger\GUIDetailSchedule.Designer.cs">
+      <DependentUpon>GUIDetailSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="Passenger\GUIBook.cs">
       <SubType>Form</SubType>
@@ -257,6 +263,12 @@
       <DependentUpon>GUIOption.cs</DependentUpon>
     </Compile>
     <Compile Include="Passenger\HandlerMyInterfaces.cs" />
+    <Compile Include="Passenger\GUISchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Passenger\GUISchedule.Designer.cs">
+      <DependentUpon>GUISchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="People.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Program.cs" />
@@ -295,8 +307,8 @@
     <EmbeddedResource Include="Admin\note.resx">
       <DependentUpon>note.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Passenger.resx">
-      <DependentUpon>Passenger.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\FormPassenger.resx">
+      <DependentUpon>FormPassenger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
@@ -312,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employee\khachhang.resx">
       <DependentUpon>khachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Passenger\GUISystemSchedule.resx">
+      <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Passenger\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
@@ -334,8 +349,8 @@
     <EmbeddedResource Include="Passenger\GUIHelp.resx">
       <DependentUpon>GUIHelp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUIMainSchedule.resx">
-      <DependentUpon>GUIMainSchedule.cs</DependentUpon>
+    <EmbeddedResource Include="Passenger\GUIPrivateSchedule.resx">
+      <DependentUpon>GUIPrivateSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Passenger\GUINotification.resx">
       <DependentUpon>GUINotification.cs</DependentUpon>
@@ -346,8 +361,8 @@
     <EmbeddedResource Include="Passenger\GUITicket.resx">
       <DependentUpon>GUITicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUISchedule.resx">
-      <DependentUpon>GUISchedule.cs</DependentUpon>
+    <EmbeddedResource Include="Passenger\GUIDetailSchedule.resx">
+      <DependentUpon>GUIDetailSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Passenger\GUIBook.resx">
       <DependentUpon>GUIBook.cs</DependentUpon>
@@ -361,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Passenger\GUIOption.resx">
       <DependentUpon>GUIOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Passenger\GUISchedule.resx">
+      <DependentUpon>GUISchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

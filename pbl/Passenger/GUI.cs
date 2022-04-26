@@ -177,7 +177,7 @@ namespace pbl
         private void pSchedule_Click(object sender, EventArgs e)
         {
             ChangeColor(pSchedule, null);
-            ShowForm(new GUIPrivateSchedule());
+            ShowForm(new GUISchedule());
         }
 
         private void pNotify_Click(object sender, EventArgs e)

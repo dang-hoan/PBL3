@@ -1,6 +1,6 @@
-﻿namespace pbl.Passenger
+﻿namespace pbl
 {
-    partial class MainSchedule
+    partial class GUISchedule
     {
         /// <summary>
         /// Required designer variable.
@@ -37,15 +37,15 @@
             // 
             this.panel_Main.Location = new System.Drawing.Point(1, 0);
             this.panel_Main.Name = "panel_Main";
-            this.panel_Main.Size = new System.Drawing.Size(1104, 615);
+            this.panel_Main.Size = new System.Drawing.Size(1098, 642);
             this.panel_Main.TabIndex = 0;
             // 
             // bPrivate
             // 
             this.bPrivate.BackColor = System.Drawing.Color.Gray;
-            this.bPrivate.Location = new System.Drawing.Point(1, 621);
+            this.bPrivate.Location = new System.Drawing.Point(1, 644);
             this.bPrivate.Name = "bPrivate";
-            this.bPrivate.Size = new System.Drawing.Size(146, 31);
+            this.bPrivate.Size = new System.Drawing.Size(158, 35);
             this.bPrivate.TabIndex = 1;
             this.bPrivate.Text = "Lịch trình cá nhân";
             this.bPrivate.UseVisualStyleBackColor = false;
@@ -53,24 +53,25 @@
             // 
             // bSystem
             // 
-            this.bSystem.Location = new System.Drawing.Point(147, 621);
+            this.bSystem.Location = new System.Drawing.Point(156, 644);
             this.bSystem.Name = "bSystem";
-            this.bSystem.Size = new System.Drawing.Size(169, 31);
+            this.bSystem.Size = new System.Drawing.Size(169, 35);
             this.bSystem.TabIndex = 2;
             this.bSystem.Text = "Lịch trình hệ thống";
             this.bSystem.UseVisualStyleBackColor = true;
             this.bSystem.Click += new System.EventHandler(this.bSystem_Click);
             // 
-            // MainSchedule
+            // GUISchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 664);
+            this.ClientSize = new System.Drawing.Size(1102, 691);
             this.Controls.Add(this.bSystem);
             this.Controls.Add(this.bPrivate);
             this.Controls.Add(this.panel_Main);
-            this.Name = "MainSchedule";
+            this.Name = "GUISchedule";
             this.Text = "MainSchedule";
+            this.Load += new System.EventHandler(this.GUISchedule_Load);
             this.ResumeLayout(false);
 
         }

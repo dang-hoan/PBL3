@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace pbl.Passenger
+namespace pbl
 {
-    public partial class MainSchedule : Form
+    public partial class GUISchedule : Form
     {
         Form form;
-        public MainSchedule()
+        public GUISchedule()
         {
             InitializeComponent();
             ShowForm(new GUIPrivateSchedule());
@@ -33,6 +33,7 @@ namespace pbl.Passenger
             subform.Dock = DockStyle.Fill;
             panel_Main.Controls.Add(subform);
             panel_Main.Tag = subform;
+            subform.Show();
         }
 
         private void bPrivate_Click(object sender, EventArgs e)
@@ -44,7 +45,12 @@ namespace pbl.Passenger
         private void bSystem_Click(object sender, EventArgs e)
         {
             ChangeColor(bSystem);
-            ShowForm(new GUIDetailSchedule());
+            ShowForm(new GUISystemSchedule());
+        }
+
+        private void GUISchedule_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
