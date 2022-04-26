@@ -38,6 +38,7 @@ namespace pbl
             txtIDCard.Text = dt.Rows[0][5].ToString();
             txtEmail.Text = dt.Rows[0][6].ToString();
             txtPhone.Text = dt.Rows[0][7].ToString();
+            txtPosition.Text = dt.Rows[0][9].ToString();
         }
         private void bEditPass_Click(object sender, EventArgs e)
         {
@@ -48,11 +49,15 @@ namespace pbl
 
         private void bSavePass_Click(object sender, EventArgs e)
         {
-            if (!txtOld.Text.Equals(txtConfirm.Text))
+            if (!txtNew.Text.Equals(txtConfirm.Text))
             {
-                MessageBox.Show("Mật khẩu xác nhận không giống mật khẩu cũ!");
+                MessageBox.Show("Mật khẩu xác nhận và mật khẩu mới không khớp!");
             }
-            else if (man.setPass(Formlogin.userName, txtConfirm.Text, txtNew.Text))
+            else if(txtOld.Text == "")
+            {
+                MessageBox.Show("Mật khẩu cũ không đúng!");
+            }
+            else if (man.setPass(Formlogin.userName, txtOld.Text, txtNew.Text))
             {
                 MessageBox.Show("Đổi mật khẩu thành công!");
                 txtOld.Text = "";
@@ -64,7 +69,7 @@ namespace pbl
             }
             else
             {
-                MessageBox.Show("Mật khẩu xác nhận không đúng!");
+                MessageBox.Show("Mật khẩu cũ không đúng!");
             }
         }
 

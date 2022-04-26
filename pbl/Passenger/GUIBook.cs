@@ -80,23 +80,33 @@ namespace pbl
             DataTable dt = man.GetNumberOfCarriages(cbbTrain.SelectedIndex);
             numberOfCarriages = Convert.ToInt32(dt.Rows[0][0].ToString());
         }
-
+        private void ChangeLocation(Label lab)
+        {
+            if(lab.Text == "9" || lab.Text == "10")
+            {
+                int x = (pRight.Location.X - pLeft.Location.X - pLeft.Size.Width - labelCarriage.Size.Width) / 2;
+                Point poi = lab.Location;
+                poi.X = pLeft.Location.X + pLeft.Size.Width + x;
+                lab.Location = poi;
+            }
+        }
         private void pLeft_Click(object sender, EventArgs e)
         {
             if (labelCarriage.Text == "1") return;
             labelCarriage.Text = (Convert.ToInt32(labelCarriage.Text)-1).ToString();
+            ChangeLocation(labelCarriage);
         }
 
         private void pRight_Click(object sender, EventArgs e)
         {
             if (labelCarriage.Text == numberOfCarriages.ToString()) return;
             labelCarriage.Text = (Convert.ToInt32(labelCarriage.Text) + 1).ToString();
+            ChangeLocation(labelCarriage);
         }
         private void pLeft_MouseMove(object sender, EventArgs e)
         {
             pLeft.Image = imageLeft2;
         }
-
         private void pLeft_MouseLeave(object sender, EventArgs e)
         {
             pLeft.Image = imageLeft1;

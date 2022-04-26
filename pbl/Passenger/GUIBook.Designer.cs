@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.bShow = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
-            this.labelSchedule = new System.Windows.Forms.Label();
             this.labelBooked = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelCarriage = new System.Windows.Forms.Label();
@@ -42,14 +41,12 @@
             this.cbbTrain = new System.Windows.Forms.ComboBox();
             this.bBack = new System.Windows.Forms.Button();
             this.bBook = new System.Windows.Forms.Button();
-            this.pOption = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +56,6 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.bShow);
             this.panel1.Controls.Add(this.pSave);
-            this.panel1.Controls.Add(this.labelSchedule);
             this.panel1.Controls.Add(this.labelBooked);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.labelCarriage);
@@ -69,7 +65,6 @@
             this.panel1.Controls.Add(this.cbbTrain);
             this.panel1.Controls.Add(this.bBack);
             this.panel1.Controls.Add(this.bBook);
-            this.panel1.Controls.Add(this.pOption);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Location = new System.Drawing.Point(2, 4);
@@ -102,24 +97,12 @@
             this.pSave.TabIndex = 58;
             this.pSave.TabStop = false;
             // 
-            // labelSchedule
-            // 
-            this.labelSchedule.AutoSize = true;
-            this.labelSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelSchedule.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSchedule.Location = new System.Drawing.Point(34, 90);
-            this.labelSchedule.Name = "labelSchedule";
-            this.labelSchedule.Size = new System.Drawing.Size(81, 19);
-            this.labelSchedule.TabIndex = 14;
-            this.labelSchedule.Text = "Lịch trình";
-            this.labelSchedule.Click += new System.EventHandler(this.Schedule_Click);
-            // 
             // labelBooked
             // 
             this.labelBooked.AutoSize = true;
             this.labelBooked.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBooked.ForeColor = System.Drawing.Color.Red;
-            this.labelBooked.Location = new System.Drawing.Point(646, 69);
+            this.labelBooked.Location = new System.Drawing.Point(657, 70);
             this.labelBooked.Name = "labelBooked";
             this.labelBooked.Size = new System.Drawing.Size(61, 68);
             this.labelBooked.TabIndex = 13;
@@ -128,18 +111,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(611, 46);
+            this.label5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(603, 49);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(133, 24);
+            this.label5.Size = new System.Drawing.Size(168, 19);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Số vé đã bán";
+            this.label5.Text = "Số vé đã bán của tàu";
             // 
             // labelCarriage
             // 
             this.labelCarriage.AutoSize = true;
             this.labelCarriage.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCarriage.Location = new System.Drawing.Point(454, 83);
+            this.labelCarriage.Location = new System.Drawing.Point(453, 83);
             this.labelCarriage.Name = "labelCarriage";
             this.labelCarriage.Size = new System.Drawing.Size(36, 40);
             this.labelCarriage.TabIndex = 10;
@@ -171,7 +154,7 @@
             // 
             this.pRight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pRight.Image = ((System.Drawing.Image)(resources.GetObject("pRight.Image")));
-            this.pRight.Location = new System.Drawing.Point(505, 80);
+            this.pRight.Location = new System.Drawing.Point(505, 81);
             this.pRight.Name = "pRight";
             this.pRight.Size = new System.Drawing.Size(25, 50);
             this.pRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -216,25 +199,15 @@
             this.bBook.UseVisualStyleBackColor = false;
             this.bBook.Click += new System.EventHandler(this.bBook_Click);
             // 
-            // pOption
-            // 
-            this.pOption.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pOption.Image = ((System.Drawing.Image)(resources.GetObject("pOption.Image")));
-            this.pOption.Location = new System.Drawing.Point(59, 53);
-            this.pOption.Name = "pOption";
-            this.pOption.Size = new System.Drawing.Size(30, 36);
-            this.pOption.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pOption.TabIndex = 1;
-            this.pOption.TabStop = false;
-            this.pOption.Click += new System.EventHandler(this.Schedule_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(26, 173);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(914, 345);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -263,7 +236,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
@@ -274,7 +246,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox pOption;
         private System.Windows.Forms.Button bBook;
         private System.Windows.Forms.Button bBack;
         private System.Windows.Forms.ComboBox cbbTrain;
@@ -285,7 +256,6 @@
         private System.Windows.Forms.PictureBox pLeft;
         private System.Windows.Forms.PictureBox pRight;
         private System.Windows.Forms.Label labelBooked;
-        private System.Windows.Forms.Label labelSchedule;
         private System.Windows.Forms.PictureBox pSave;
         private System.Windows.Forms.Button bShow;
     }

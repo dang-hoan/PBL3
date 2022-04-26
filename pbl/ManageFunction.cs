@@ -11,7 +11,12 @@ namespace pbl
 {
     public class ManageFunction
     {
-        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-5LQORUF;Initial Catalog=PBL3;Integrated Security=True");
+        //Hoan
+        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-DKTP37G\CSDL;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
+        //Đức
+        //private DBHelper db = new DBHelper(@"");
+        //Phong
+        //private DBHelper db = new DBHelper(@"Data Source=DESKTOP-5LQORUF;Initial Catalog=PBL3;Integrated Security=True");
         public int checkAccount(string userName, string passWord)
         {
             DataTable dt = new DataTable();
@@ -35,12 +40,12 @@ namespace pbl
         }
         public DataTable getInfo(string UserName)
         {
-            string query = "select * from PEOPLE where Username = '" + UserName + "'";
+            string query = "select PEOPLE.*, Position from PEOPLE inner join POSITION on POSITION.PositionID = PEOPLE.PositionID where Username = '" + UserName + "'";
             return db.GetRecord(query, null);
         }
         public bool setPass(string UserName, string passWord, string newPass)
         {
-            string query2 = $"update LOGIN set PassWord = '{newPass}' where Username = '{UserName}' && PassWord = '{passWord}'";
+            string query2 = $"update LOGIN set PassWord = '{newPass}' where Username = '{UserName}' and PassWord = '{passWord}'";
             if (db.ExcuteDB(query2, null) != -1) return true;
             else return false;
         }
@@ -89,7 +94,7 @@ namespace pbl
             string result = ""; string s = ""; DataRow dr;
             string query = $"select * from SCHEDULE where day(DepartureTime) = {day} and month(DepartureTime) = {month} and year(DepartureTime) = {year}";
             DataTable dt = db.GetRecord(query, null);
-            for(int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 s = "\n";
                 dr = dt.Rows[i];
@@ -106,6 +111,13 @@ namespace pbl
             string query = "select SCHEDULE.* from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
                 "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
                 $"where Username = '{UserName}' and Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}'";
+            return db.GetRecord(query, null);
+        }
+        public DataTable GetSchedule(string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
+        {
+            string query = "select SCHEDULE.* from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
+                "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
+                $"where Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}'";
             return db.GetRecord(query, null);
         }
         public DataTable GetDepartureTime(string UserName)
@@ -125,7 +137,7 @@ namespace pbl
             string query = "select * from TICKET";
             return db.GetRecord(query, null);
         }
-        private char[] Carriages = new char [26]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}; 
+        private char[] Carriages = new char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
         public DataTable GetTicket(string UserName, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, int TrainID, string Carriages)
         {
             string cari;
@@ -187,27 +199,29 @@ namespace pbl
                 $" TRAIN.TrainID = '{TrainID + 1}'";
             DataTable dt = db.GetRecord(query, null);
             int count = 0;
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 if (Convert.ToBoolean(dr[0])) count++;
             }
             return count;
         }
+
+
         //Admin
-        public DataTable GetAllNV ()
+        public DataTable GetAllNV()
         {
 
             string query = "select * from PEOPLE where PositionID ='" + 222 + "'";
 
-            return db.GetRecord(query,null);
+            return db.GetRecord(query, null);
 
         }
-        public void Addnv(string Username,string Name,bool Gender,DateTime BirthDay,string Address,string IDCard,string Email,string Phone,string PositionID)
+        public void Addnv(string Username, string Name, bool Gender, DateTime BirthDay, string Address, string IDCard, string Email, string Phone, string PositionID)
         {
             string query = $"INSERT INTO  PEOPLE VALUES ('{Username}',N'{Name}','{Gender}','{BirthDay}','{Address}','{IDCard}','{Email}','{Phone}','{PositionID}') ";
-            db.ExcuteDB(query,null);
+            db.ExcuteDB(query, null);
             //GetAllNV();
         }
-        
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace pbl
 {
-    partial class GUIMainSchedule
+    partial class GUIPrivateSchedule
     {
         /// <summary>
         /// Required designer variable.
@@ -35,43 +35,44 @@
             // 
             // bList
             // 
-            this.bList.Location = new System.Drawing.Point(91, 601);
+            this.bList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bList.Location = new System.Drawing.Point(127, 4);
             this.bList.Name = "bList";
             this.bList.Size = new System.Drawing.Size(115, 34);
             this.bList.TabIndex = 45;
-            this.bList.Text = "Detailed list";
-            this.bList.UseVisualStyleBackColor = true;
+            this.bList.Text = "Xem chi tiết";
+            this.bList.UseVisualStyleBackColor = false;
             this.bList.Click += new System.EventHandler(this.bList_Click);
             // 
             // bCalendar
             // 
-            this.bCalendar.BackColor = System.Drawing.Color.Gray;
-            this.bCalendar.Location = new System.Drawing.Point(3, 601);
+            this.bCalendar.BackColor = System.Drawing.Color.Green;
+            this.bCalendar.Location = new System.Drawing.Point(2, 4);
             this.bCalendar.Name = "bCalendar";
-            this.bCalendar.Size = new System.Drawing.Size(88, 34);
+            this.bCalendar.Size = new System.Drawing.Size(125, 34);
             this.bCalendar.TabIndex = 44;
-            this.bCalendar.Text = "Calendar";
+            this.bCalendar.Text = "Xem theo lịch";
             this.bCalendar.UseVisualStyleBackColor = false;
             this.bCalendar.Click += new System.EventHandler(this.bCalendar_Click);
             // 
             // panel_Content
             // 
             this.panel_Content.BackColor = System.Drawing.Color.White;
-            this.panel_Content.Location = new System.Drawing.Point(3, 2);
+            this.panel_Content.Location = new System.Drawing.Point(3, 44);
             this.panel_Content.Name = "panel_Content";
             this.panel_Content.Size = new System.Drawing.Size(1096, 593);
             this.panel_Content.TabIndex = 0;
             // 
-            // GUIMainSchedule
+            // GUIPrivateSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1102, 640);
-            this.Controls.Add(this.panel_Content);
-            this.Controls.Add(this.bCalendar);
             this.Controls.Add(this.bList);
-            this.Name = "GUIMainSchedule";
+            this.Controls.Add(this.bCalendar);
+            this.Controls.Add(this.panel_Content);
+            this.Name = "GUIPrivateSchedule";
             this.Text = "Schedule";
             this.ResumeLayout(false);
 

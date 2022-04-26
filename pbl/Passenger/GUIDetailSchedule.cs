@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public partial class GUISchedule : Form
+    public partial class GUIDetailSchedule : Form
     {
         ManageFunction man = new ManageFunction();
-        public GUISchedule()
+        public GUIDetailSchedule()
         {
             InitializeComponent();
             Init();
@@ -38,22 +38,33 @@ namespace pbl
                 cbbMinuteDep.Items.Add(i);
                 cbbMinuteDes.Items.Add(i);
             }
+            dateDep.Text = "";
+            dateDes.Text = "";
         }
         private void bShow_Click(object sender, EventArgs e)
         {
             string DepTime, DesTime;
-            DepTime = dateDep.Value.ToString("yyyy/MM/dd ") + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            DesTime = dateDes.Value.ToString("yyyy/MM/dd ") + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
-            if (cbbHourDep.Text == "" || cbbMinuteDep.Text == "")
+            DepTime = dateDep.Value.ToString("yyyy/MM/dd");
+            DesTime = dateDes.Value.ToString("yyyy/MM/dd");
+            if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
             {
-                DepTime = dateDep.Value.ToString("yyyy/MM/dd ");
+                DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
             }
-            if (cbbHourDes.Text == "" || cbbMinuteDes.Text == "")
+            if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
             {
-                DesTime = dateDes.Value.ToString("yyyy/MM/dd ");
+                DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
             }
-            MessageBox.Show(DepTime + DesTime);
             dataGridView1.DataSource = man.GetSchedule(GUI.userName, cbbDep.Text, cbbDes.Text, rbOne.Checked||!rbRound.Checked, DepTime, DesTime);
+        }
+
+        private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbDes.Items.Remove(cbbDep.Text);
+        }
+
+        private void cbbDes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbDep.Items.Remove(cbbDes.Text);
         }
     }
 }

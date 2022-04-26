@@ -74,6 +74,7 @@
             this.panel_Content.Name = "panel_Content";
             this.panel_Content.Size = new System.Drawing.Size(1096, 689);
             this.panel_Content.TabIndex = 0;
+            this.panel_Content.Click += new System.EventHandler(this.panel_Content_Click);
             // 
             // panel_User
             // 

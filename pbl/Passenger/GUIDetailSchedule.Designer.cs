@@ -1,6 +1,6 @@
 ﻿namespace pbl
 {
-    partial class GUISchedule
+    partial class GUIDetailSchedule
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUISchedule));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIDetailSchedule));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bShow = new System.Windows.Forms.Button();
@@ -262,6 +262,7 @@
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(234, 28);
             this.cbbDep.TabIndex = 77;
+            this.cbbDep.SelectedIndexChanged += new System.EventHandler(this.cbbDep_SelectedIndexChanged);
             // 
             // cbbDes
             // 
@@ -270,8 +271,9 @@
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(234, 28);
             this.cbbDes.TabIndex = 78;
+            this.cbbDes.SelectedIndexChanged += new System.EventHandler(this.cbbDes_SelectedIndexChanged);
             // 
-            // GUISchedule
+            // GUIDetailSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -299,7 +301,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bShow);
-            this.Name = "GUISchedule";
+            this.Name = "GUIDetailSchedule";
             this.Text = "Schedule";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();

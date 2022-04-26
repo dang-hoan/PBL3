@@ -37,12 +37,6 @@ namespace pbl
             this.DepartureTime = DepartureTime;
             this.DestinationTime = DestinationTime;
         }
-
-        private void bBook_Click(object sender, EventArgs e)
-        {
-            GUIBook form = new GUIBook();
-            form.Show();
-        }
         private void bCancel_Click(object sender, EventArgs e)
         {
             if(dataGridView1.SelectedRows.Count > 0)

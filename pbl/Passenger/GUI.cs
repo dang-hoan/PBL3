@@ -177,7 +177,7 @@ namespace pbl
         private void pSchedule_Click(object sender, EventArgs e)
         {
             ChangeColor(pSchedule, null);
-            ShowForm(new GUIMainSchedule());
+            ShowForm(new GUIPrivateSchedule());
         }
 
         private void pNotify_Click(object sender, EventArgs e)
@@ -206,6 +206,11 @@ namespace pbl
         private void panel_User_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel_Content_Click(object sender, EventArgs e)
+        {
+            panel_Other.Visible = false;
         }
     }
 }

@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public partial class GUIMainSchedule : Form
+    public partial class GUIPrivateSchedule : Form
     {
         Form form = null;
-        public GUIMainSchedule()
+        public GUIPrivateSchedule()
         {
             InitializeComponent();
             ShowForm(new GUICalendar());
         }
         private void ChangeColor(Button b)
         {
-            bCalendar.BackColor = Color.White;
-            bList.BackColor = Color.White;
-            b.BackColor = Color.Gray;
+            bCalendar.BackColor = Color.FromArgb(0, 192, 0);
+            bList.BackColor = Color.FromArgb(0, 192, 0);
+            b.BackColor = Color.Green;
         }
         private void ShowForm(Form subform)
         {
@@ -44,7 +44,7 @@ namespace pbl
         private void bList_Click(object sender, EventArgs e)
         {
             ChangeColor(bList);
-            ShowForm(new GUISchedule());
+            ShowForm(new GUIDetailSchedule());
         }
     }
 }

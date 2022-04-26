@@ -34,7 +34,6 @@
             this.pSave = new System.Windows.Forms.PictureBox();
             this.cbbTrain = new System.Windows.Forms.ComboBox();
             this.bCancel = new System.Windows.Forms.Button();
-            this.bBook = new System.Windows.Forms.Button();
             this.labelSchedule = new System.Windows.Forms.Label();
             this.pOption = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -51,13 +50,12 @@
             this.panel_Content.Controls.Add(this.pSave);
             this.panel_Content.Controls.Add(this.cbbTrain);
             this.panel_Content.Controls.Add(this.bCancel);
-            this.panel_Content.Controls.Add(this.bBook);
             this.panel_Content.Controls.Add(this.labelSchedule);
             this.panel_Content.Controls.Add(this.pOption);
             this.panel_Content.Controls.Add(this.dataGridView1);
             this.panel_Content.Location = new System.Drawing.Point(3, 2);
             this.panel_Content.Name = "panel_Content";
-            this.panel_Content.Size = new System.Drawing.Size(1096, 689);
+            this.panel_Content.Size = new System.Drawing.Size(1086, 692);
             this.panel_Content.TabIndex = 0;
             // 
             // bShow
@@ -65,7 +63,7 @@
             this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShow.Location = new System.Drawing.Point(537, 63);
+            this.bShow.Location = new System.Drawing.Point(738, 63);
             this.bShow.Name = "bShow";
             this.bShow.Size = new System.Drawing.Size(139, 40);
             this.bShow.TabIndex = 59;
@@ -78,7 +76,7 @@
             this.pSave.BackColor = System.Drawing.Color.Green;
             this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
-            this.pSave.Location = new System.Drawing.Point(997, 648);
+            this.pSave.Location = new System.Drawing.Point(978, 640);
             this.pSave.Name = "pSave";
             this.pSave.Size = new System.Drawing.Size(53, 31);
             this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -107,19 +105,6 @@
             this.bCancel.Text = "Huỷ vé";
             this.bCancel.UseVisualStyleBackColor = false;
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
-            // 
-            // bBook
-            // 
-            this.bBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBook.Location = new System.Drawing.Point(702, 63);
-            this.bBook.Name = "bBook";
-            this.bBook.Size = new System.Drawing.Size(170, 40);
-            this.bBook.TabIndex = 47;
-            this.bBook.Text = "Đặt vé mới";
-            this.bBook.UseVisualStyleBackColor = false;
-            this.bBook.Click += new System.EventHandler(this.bBook_Click);
             // 
             // labelSchedule
             // 
@@ -160,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 693);
+            this.ClientSize = new System.Drawing.Size(1089, 693);
             this.Controls.Add(this.panel_Content);
             this.Name = "GUITicket";
             this.Text = "GUITicket";
@@ -179,7 +164,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label labelSchedule;
         private System.Windows.Forms.PictureBox pOption;
-        private System.Windows.Forms.Button bBook;
         private System.Windows.Forms.Button bCancel;
         private System.Windows.Forms.ComboBox cbbTrain;
         private System.Windows.Forms.PictureBox pSave;
