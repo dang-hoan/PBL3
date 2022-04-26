@@ -147,11 +147,11 @@
     <Compile Include="Employee\qlve.Designer.cs">
       <DependentUpon>qlve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formlogin.cs">
+    <Compile Include="GUILogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formlogin.Designer.cs">
-      <DependentUpon>Formlogin.cs</DependentUpon>
+    <Compile Include="GUILogin.Designer.cs">
+      <DependentUpon>GUILogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee\khachhang.cs">
       <SubType>Form</SubType>
@@ -280,6 +280,12 @@
     <Compile Include="Employee\lichtrinh.Designer.cs">
       <DependentUpon>lichtrinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIRegister.Designer.cs">
+      <DependentUpon>GUIRegister.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Employee\addkhachhang.resx">
       <DependentUpon>addkhachhang.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,8 +325,8 @@
     <EmbeddedResource Include="Employee\employchinh.resx">
       <DependentUpon>employchinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formlogin.resx">
-      <DependentUpon>Formlogin.cs</DependentUpon>
+    <EmbeddedResource Include="GUILogin.resx">
+      <DependentUpon>GUILogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee\khachhang.resx">
       <DependentUpon>khachhang.cs</DependentUpon>

@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public partial class Formlogin : Form
+    public partial class GUILogin : Form
     {
         ManageFunction man = new ManageFunction();
         public static string userName;
-        public Formlogin()
+        public GUILogin()
         {
             InitializeComponent();
         }

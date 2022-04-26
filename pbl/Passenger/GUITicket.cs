@@ -29,7 +29,7 @@ namespace pbl
                 cbbTrain.Items.Add(dr[0]);
             }
         }
-        private void Get(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime)
+        private void Get(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime, bool hasInputDep, bool hasInputDes)
         {
             this.Departure = Departure;
             this.Destination = Destination;

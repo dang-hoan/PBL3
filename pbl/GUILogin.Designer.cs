@@ -1,6 +1,6 @@
 ﻿namespace pbl
 {
-    partial class Formlogin
+    partial class GUILogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formlogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUILogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelNotify = new System.Windows.Forms.Label();
             this.linkRegister = new System.Windows.Forms.LinkLabel();

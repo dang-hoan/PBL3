@@ -17,6 +17,7 @@ namespace pbl
         Image imageLeft1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1) - Copy.png"), imageRight1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1).png");
         Image imageLeft2 = (Image)new Bitmap(@"C:\PBL3\picture\play1.png"), imageRight2 = (Image)new Bitmap(@"C:\PBL3\picture\play.png");
         private string Departure, Destination, DepartureTime, DestinationTime;
+        private bool hasInputDep, hasInputDes;
         private bool Type;
         public GUIBook()
         {
@@ -36,13 +37,15 @@ namespace pbl
             pRight.MouseMove += new System.Windows.Forms.MouseEventHandler(pRight_MouseMove);
             pRight.MouseLeave += new System.EventHandler(pRight_MouseLeave);
         }
-        private void Get(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime)
+        private void Get(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime, bool hasInputDep, bool hasInputDes)
         {
             this.Departure = Departure;
             this.Destination = Destination;
             this.Type = Type;
             this.DepartureTime = DepartureTime;
             this.DestinationTime = DestinationTime;
+            this.hasInputDep = hasInputDep;
+            this.hasInputDes = hasInputDes;
         }
         private void Schedule_Click(object sender, EventArgs e)
         {

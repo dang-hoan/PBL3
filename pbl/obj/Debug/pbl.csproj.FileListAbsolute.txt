@@ -102,7 +102,6 @@ C:\PBL3\pbl\obj\Debug\pbl.note.resources
 C:\PBL3\pbl\obj\Debug\pbl.Schedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.chat.resources
 C:\PBL3\pbl\obj\Debug\pbl.Employeechinh.resources
-C:\PBL3\pbl\obj\Debug\pbl.Formlogin.resources
 C:\PBL3\pbl\obj\Debug\pbl.khachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUISystemSchedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.Form3.resources
@@ -132,3 +131,4 @@ C:\PBL3\pbl\bin\Debug\pbl.pdb
 C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
 C:\PBL3\pbl\obj\Debug\pbl.GUISchedule.resources
+C:\PBL3\pbl\obj\Debug\pbl.GUILogin.resources

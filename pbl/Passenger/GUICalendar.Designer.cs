@@ -80,9 +80,9 @@
             this.panel_Detail.BackColor = System.Drawing.Color.LightGray;
             this.panel_Detail.Controls.Add(this.labelContent);
             this.panel_Detail.Controls.Add(this.labelTitle);
-            this.panel_Detail.Location = new System.Drawing.Point(552, 2);
+            this.panel_Detail.Location = new System.Drawing.Point(572, 2);
             this.panel_Detail.Name = "panel_Detail";
-            this.panel_Detail.Size = new System.Drawing.Size(365, 640);
+            this.panel_Detail.Size = new System.Drawing.Size(345, 640);
             this.panel_Detail.TabIndex = 45;
             // 
             // labelContent
@@ -90,9 +90,9 @@
             this.labelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelContent.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelContent.ForeColor = System.Drawing.Color.Black;
-            this.labelContent.Location = new System.Drawing.Point(23, 126);
+            this.labelContent.Location = new System.Drawing.Point(21, 118);
             this.labelContent.Name = "labelContent";
-            this.labelContent.Size = new System.Drawing.Size(321, 465);
+            this.labelContent.Size = new System.Drawing.Size(302, 473);
             this.labelContent.TabIndex = 43;
             this.labelContent.Text = "Đây là nội dung...";
             // 
@@ -100,7 +100,7 @@
             // 
             this.labelTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelTitle.Location = new System.Drawing.Point(57, 42);
+            this.labelTitle.Location = new System.Drawing.Point(49, 21);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(251, 84);
             this.labelTitle.TabIndex = 42;

@@ -20,7 +20,7 @@ namespace pbl
         }
         private void GUI()
         {
-            DataTable dt = man.getInfo(Formlogin.userName);
+            DataTable dt = man.getInfo(GUILogin.userName);
 
             //infor
             txtUsername.Text = dt.Rows[0][0].ToString();
@@ -57,7 +57,7 @@ namespace pbl
             {
                 MessageBox.Show("Mật khẩu cũ không đúng!");
             }
-            else if (man.setPass(Formlogin.userName, txtOld.Text, txtNew.Text))
+            else if (man.setPass(GUILogin.userName, txtOld.Text, txtNew.Text))
             {
                 MessageBox.Show("Đổi mật khẩu thành công!");
                 txtOld.Text = "";
@@ -87,7 +87,7 @@ namespace pbl
 
         private void bSaveInfor_Click(object sender, EventArgs e)
         {
-            man.setInfo(Formlogin.userName, txtName.Text, rbMale.Checked || !rbFemale.Checked, txtBirthDay.Value.ToString("yyyy/MM/dd"), txtAddress.Text, txtIDCard.Text, txtEmail.Text, txtPhone.Text);
+            man.setInfo(GUILogin.userName, txtName.Text, rbMale.Checked || !rbFemale.Checked, txtBirthDay.Value.ToString("yyyy/MM/dd"), txtAddress.Text, txtIDCard.Text, txtEmail.Text, txtPhone.Text);
             MessageBox.Show("Chỉnh sửa thông tin thành công!");
             txtName.Enabled = false;
             rbMale.Enabled = false;

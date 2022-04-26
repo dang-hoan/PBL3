@@ -77,7 +77,7 @@
             this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShow.Location = new System.Drawing.Point(375, 537);
+            this.bShow.Location = new System.Drawing.Point(377, 537);
             this.bShow.Name = "bShow";
             this.bShow.Size = new System.Drawing.Size(170, 40);
             this.bShow.TabIndex = 59;
@@ -90,7 +90,7 @@
             this.pSave.BackColor = System.Drawing.Color.Green;
             this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
-            this.pSave.Location = new System.Drawing.Point(26, 540);
+            this.pSave.Location = new System.Drawing.Point(28, 540);
             this.pSave.Name = "pSave";
             this.pSave.Size = new System.Drawing.Size(53, 33);
             this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -102,7 +102,7 @@
             this.labelBooked.AutoSize = true;
             this.labelBooked.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBooked.ForeColor = System.Drawing.Color.Red;
-            this.labelBooked.Location = new System.Drawing.Point(657, 70);
+            this.labelBooked.Location = new System.Drawing.Point(659, 70);
             this.labelBooked.Name = "labelBooked";
             this.labelBooked.Size = new System.Drawing.Size(61, 68);
             this.labelBooked.TabIndex = 13;
@@ -112,7 +112,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(603, 49);
+            this.label5.Location = new System.Drawing.Point(605, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(168, 19);
             this.label5.TabIndex = 12;
@@ -122,7 +122,7 @@
             // 
             this.labelCarriage.AutoSize = true;
             this.labelCarriage.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCarriage.Location = new System.Drawing.Point(453, 83);
+            this.labelCarriage.Location = new System.Drawing.Point(455, 83);
             this.labelCarriage.Name = "labelCarriage";
             this.labelCarriage.Size = new System.Drawing.Size(36, 40);
             this.labelCarriage.TabIndex = 10;
@@ -132,7 +132,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(432, 49);
+            this.label2.Location = new System.Drawing.Point(434, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 19);
             this.label2.TabIndex = 9;
@@ -142,7 +142,7 @@
             // 
             this.pLeft.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pLeft.Image = ((System.Drawing.Image)(resources.GetObject("pLeft.Image")));
-            this.pLeft.Location = new System.Drawing.Point(410, 81);
+            this.pLeft.Location = new System.Drawing.Point(412, 81);
             this.pLeft.Name = "pLeft";
             this.pLeft.Size = new System.Drawing.Size(25, 50);
             this.pLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -154,7 +154,7 @@
             // 
             this.pRight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pRight.Image = ((System.Drawing.Image)(resources.GetObject("pRight.Image")));
-            this.pRight.Location = new System.Drawing.Point(505, 81);
+            this.pRight.Location = new System.Drawing.Point(507, 81);
             this.pRight.Name = "pRight";
             this.pRight.Size = new System.Drawing.Size(25, 50);
             this.pRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -166,7 +166,7 @@
             // 
             this.cbbTrain.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTrain.FormattingEnabled = true;
-            this.cbbTrain.Location = new System.Drawing.Point(203, 43);
+            this.cbbTrain.Location = new System.Drawing.Point(205, 43);
             this.cbbTrain.Name = "cbbTrain";
             this.cbbTrain.Size = new System.Drawing.Size(138, 27);
             this.cbbTrain.TabIndex = 6;
@@ -178,7 +178,7 @@
             this.bBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBack.Location = new System.Drawing.Point(770, 537);
+            this.bBack.Location = new System.Drawing.Point(772, 537);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(170, 40);
             this.bBack.TabIndex = 4;
@@ -191,7 +191,7 @@
             this.bBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBook.Location = new System.Drawing.Point(575, 537);
+            this.bBook.Location = new System.Drawing.Point(577, 537);
             this.bBook.Name = "bBook";
             this.bBook.Size = new System.Drawing.Size(170, 40);
             this.bBook.TabIndex = 3;
@@ -202,7 +202,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 173);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 173);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
@@ -215,7 +215,7 @@
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(203, 53);
+            this.pictureBox4.Location = new System.Drawing.Point(205, 53);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(138, 114);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

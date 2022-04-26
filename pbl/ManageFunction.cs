@@ -100,24 +100,34 @@ namespace pbl
                 dr = dt.Rows[i];
                 s += "Ga đi: " + dr[1] + "\n";
                 s += "Ga đến: " + dr[2] + "\n";
-                s += "Thời gian khởi hành: " + dr[3] + "\n";
-                s += "Thời gian đến: " + dr[4] + "\n";
+                s += "Thời gian khởi hành:\n" + dr[3] + "\n";
+                s += "Thời gian đến:\n" + dr[4] + "\n";
                 result += s;
             }
             return result;
         }
-        public DataTable GetSchedule(string UserName, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
+        public DataTable GetSchedule(string UserName, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, bool hasInputDep, bool hasInputDes)
         {
+            string dep, des;
+            if (hasInputDep)   dep = $"= '{DepartureTime}'";
+            else    dep = $"between '{DepartureTime + " 0:0"}' and '{DepartureTime + " 23:59"}'";
+            if (hasInputDes)   des = $"= '{ArrivalTime}'";
+            else des = $"between '{ArrivalTime + " 0:0"}' and '{ArrivalTime + " 23:59"}'";
             string query = "select SCHEDULE.* from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
                 "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
-                $"where Username = '{UserName}' and Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}'";
+                $"where Username = '{UserName}' and Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime {dep} and ArrivalTime {des}";
             return db.GetRecord(query, null);
         }
-        public DataTable GetSchedule(string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
+        public DataTable GetSchedule(string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, bool hasInputDep, bool hasInputDes)
         {
+            string dep, des;
+            if (hasInputDep) dep = $"= '{DepartureTime}'";
+            else dep = $"between '{DepartureTime + " 0:0"}' and '{DepartureTime + " 23:59"}'";
+            if (hasInputDes) des = $"= '{ArrivalTime}'";
+            else des = $"between '{ArrivalTime + " 0:0"}' and '{ArrivalTime + " 23:59"}'";
             string query = "select SCHEDULE.* from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
                 "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
-                $"where Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}'";
+                $"where Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime {dep} and ArrivalTime {des}";
             return db.GetRecord(query, null);
         }
         public DataTable GetDepartureTime(string UserName)

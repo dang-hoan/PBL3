@@ -142,6 +142,7 @@
             this.bBook.TabIndex = 109;
             this.bBook.Text = "Đặt vé";
             this.bBook.UseVisualStyleBackColor = false;
+            this.bBook.Click += new System.EventHandler(this.bBook_Click);
             // 
             // dataGridView1
             // 

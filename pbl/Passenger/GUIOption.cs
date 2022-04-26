@@ -13,7 +13,7 @@ namespace pbl
     public partial class GUIOption : Form
     {
         ManageFunction man = new ManageFunction();
-        public delegate void MyDel(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime);
+        public delegate void MyDel(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime, bool hasInputDep, bool hasInputDes);
         public MyDel d { get; set; }
         public GUIOption()
         {
@@ -38,27 +38,43 @@ namespace pbl
                 cbbMinuteDep.Items.Add(i);
                 cbbMinuteDes.Items.Add(i);
             }
+            dateDep.Text = "";
+            dateDes.Text = "";
         }
 
         private void bAccept_Click(object sender, EventArgs e)
         {
-            if(cbbDep.Text == "" || cbbDes.Text == "" || !rbOne.Checked && !rbRound.Checked)
+            bool hasInputDep = false;
+            bool hasInputDes = false;
+            if(cbbDep.Text == "" || cbbDes.Text == "" || !rbOne.Checked && !rbRound.Checked || dateDep.Text == "" || dateDes.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập đủ thông tin yêu cầu!");
                 return;
             }
             string DepTime, DesTime;
-            DepTime = dateDep.Value.ToString("yyyy/MM/dd ") + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            DesTime = dateDes.Value.ToString("yyyy/MM/dd ") + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
-            if (cbbHourDep.Text == "" || cbbMinuteDep.Text == "")
+            DepTime = dateDep.Value.ToString("yyyy/MM/dd");
+            DesTime = dateDes.Value.ToString("yyyy/MM/dd");
+            if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
             {
-                DepTime = dateDep.Value.ToString("yyyy/MM/dd ");
+                DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
+                hasInputDep = true;
             }
-            if(cbbHourDes.Text == "" || cbbMinuteDes.Text == "")
+            else if (cbbHourDep.Text != "")
             {
-                DesTime = dateDes.Value.ToString("yyyy/MM/dd ");
+                DepTime += " " + cbbHourDep.Text + ":" + "0";
+                hasInputDep = true;
             }
-            d(cbbDep.Text, cbbDes.Text, rbOne.Checked || !rbRound.Checked, DepTime, DesTime);
+            if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
+            {
+                DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
+                hasInputDes = true;
+            }
+            else if (cbbHourDes.Text != "")
+            {
+                DesTime += " " + cbbHourDes.Text + ":" + "0";
+                hasInputDes = true;
+            }
+            d(cbbDep.Text, cbbDes.Text, rbOne.Checked || !rbRound.Checked, DepTime, DesTime, hasInputDep, hasInputDes);
             this.Close();
         }
 
