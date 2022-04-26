@@ -75,7 +75,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(813, 259);
+            this.dataGridView1.Size = new System.Drawing.Size(813, 331);
             this.dataGridView1.TabIndex = 53;
             // 
             // bShow
@@ -83,7 +83,7 @@
             this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bShow.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShow.Location = new System.Drawing.Point(780, 521);
+            this.bShow.Location = new System.Drawing.Point(780, 594);
             this.bShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bShow.Name = "bShow";
             this.bShow.Size = new System.Drawing.Size(84, 35);
@@ -97,7 +97,7 @@
             this.pSave.BackColor = System.Drawing.Color.Green;
             this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
-            this.pSave.Location = new System.Drawing.Point(51, 525);
+            this.pSave.Location = new System.Drawing.Point(51, 599);
             this.pSave.Name = "pSave";
             this.pSave.Size = new System.Drawing.Size(53, 31);
             this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -277,7 +277,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 571);
+            this.ClientSize = new System.Drawing.Size(918, 645);
             this.Controls.Add(this.cbbDes);
             this.Controls.Add(this.cbbDep);
             this.Controls.Add(this.label8);

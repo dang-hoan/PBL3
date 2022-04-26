@@ -55,7 +55,7 @@
             this.panel_Content.Controls.Add(this.dataGridView1);
             this.panel_Content.Location = new System.Drawing.Point(3, 2);
             this.panel_Content.Name = "panel_Content";
-            this.panel_Content.Size = new System.Drawing.Size(1086, 692);
+            this.panel_Content.Size = new System.Drawing.Size(1093, 692);
             this.panel_Content.TabIndex = 0;
             // 
             // bShow
@@ -76,7 +76,7 @@
             this.pSave.BackColor = System.Drawing.Color.Green;
             this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
-            this.pSave.Location = new System.Drawing.Point(978, 640);
+            this.pSave.Location = new System.Drawing.Point(983, 640);
             this.pSave.Name = "pSave";
             this.pSave.Size = new System.Drawing.Size(53, 31);
             this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -133,7 +133,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 136);
+            this.dataGridView1.Location = new System.Drawing.Point(56, 143);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 693);
+            this.ClientSize = new System.Drawing.Size(1098, 693);
             this.Controls.Add(this.panel_Content);
             this.Name = "GUITicket";
             this.Text = "GUITicket";

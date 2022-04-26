@@ -63,7 +63,7 @@
             this.panel_Content.BackColor = System.Drawing.Color.White;
             this.panel_Content.Location = new System.Drawing.Point(183, 4);
             this.panel_Content.Name = "panel_Content";
-            this.panel_Content.Size = new System.Drawing.Size(916, 625);
+            this.panel_Content.Size = new System.Drawing.Size(912, 640);
             this.panel_Content.TabIndex = 0;
             // 
             // label1
@@ -85,7 +85,7 @@
             this.panel1.Controls.Add(this.bList);
             this.panel1.Location = new System.Drawing.Point(1, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(181, 626);
+            this.panel1.Size = new System.Drawing.Size(181, 640);
             this.panel1.TabIndex = 0;
             // 
             // GUIPrivateSchedule
@@ -93,7 +93,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1102, 632);
+            this.ClientSize = new System.Drawing.Size(1098, 645);
             this.Controls.Add(this.panel_Content);
             this.Controls.Add(this.panel1);
             this.Name = "GUIPrivateSchedule";

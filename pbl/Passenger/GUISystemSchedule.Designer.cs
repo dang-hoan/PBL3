@@ -64,7 +64,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.Blue;
-            this.label11.Location = new System.Drawing.Point(289, 23);
+            this.label11.Location = new System.Drawing.Point(288, 33);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(855, 20);
             this.label11.TabIndex = 111;
@@ -74,7 +74,7 @@
             // cbbDes
             // 
             this.cbbDes.FormattingEnabled = true;
-            this.cbbDes.Location = new System.Drawing.Point(21, 167);
+            this.cbbDes.Location = new System.Drawing.Point(22, 208);
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(234, 28);
             this.cbbDes.TabIndex = 102;
@@ -82,7 +82,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 136);
+            this.label2.Location = new System.Drawing.Point(21, 177);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 85;
@@ -91,7 +91,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 380);
+            this.label4.Location = new System.Drawing.Point(24, 421);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 20);
             this.label4.TabIndex = 87;
@@ -99,7 +99,7 @@
             // 
             // dateDes
             // 
-            this.dateDes.Location = new System.Drawing.Point(23, 411);
+            this.dateDes.Location = new System.Drawing.Point(24, 452);
             this.dateDes.Name = "dateDes";
             this.dateDes.Size = new System.Drawing.Size(234, 26);
             this.dateDes.TabIndex = 91;
@@ -108,7 +108,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(162, 512);
+            this.label8.Location = new System.Drawing.Point(158, 553);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(15, 19);
             this.label8.TabIndex = 100;
@@ -117,7 +117,7 @@
             // cbbHourDes
             // 
             this.cbbHourDes.FormattingEnabled = true;
-            this.cbbHourDes.Location = new System.Drawing.Point(110, 509);
+            this.cbbHourDes.Location = new System.Drawing.Point(106, 550);
             this.cbbHourDes.Name = "cbbHourDes";
             this.cbbHourDes.Size = new System.Drawing.Size(49, 28);
             this.cbbHourDes.TabIndex = 97;
@@ -125,7 +125,7 @@
             // cbbMinuteDes
             // 
             this.cbbMinuteDes.FormattingEnabled = true;
-            this.cbbMinuteDes.Location = new System.Drawing.Point(177, 509);
+            this.cbbMinuteDes.Location = new System.Drawing.Point(173, 550);
             this.cbbMinuteDes.Name = "cbbMinuteDes";
             this.cbbMinuteDes.Size = new System.Drawing.Size(49, 28);
             this.cbbMinuteDes.TabIndex = 99;
@@ -135,10 +135,10 @@
             this.bBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bBook.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBook.Location = new System.Drawing.Point(1000, 592);
+            this.bBook.Location = new System.Drawing.Point(970, 601);
             this.bBook.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bBook.Name = "bBook";
-            this.bBook.Size = new System.Drawing.Size(84, 35);
+            this.bBook.Size = new System.Drawing.Size(102, 35);
             this.bBook.TabIndex = 109;
             this.bBook.Text = "Đặt vé";
             this.bBook.UseVisualStyleBackColor = false;
@@ -146,20 +146,20 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(313, 61);
+            this.dataGridView1.Location = new System.Drawing.Point(312, 71);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(771, 510);
+            this.dataGridView1.Size = new System.Drawing.Size(760, 522);
             this.dataGridView1.TabIndex = 107;
             // 
             // cbbDep
             // 
             this.cbbDep.FormattingEnabled = true;
-            this.cbbDep.Location = new System.Drawing.Point(21, 96);
+            this.cbbDep.Location = new System.Drawing.Point(22, 137);
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(234, 28);
             this.cbbDep.TabIndex = 101;
@@ -168,7 +168,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(162, 467);
+            this.label7.Location = new System.Drawing.Point(158, 508);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 19);
             this.label7.TabIndex = 96;
@@ -179,7 +179,7 @@
             this.pSave.BackColor = System.Drawing.Color.Green;
             this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
-            this.pSave.Location = new System.Drawing.Point(313, 596);
+            this.pSave.Location = new System.Drawing.Point(312, 605);
             this.pSave.Name = "pSave";
             this.pSave.Size = new System.Drawing.Size(53, 31);
             this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -189,7 +189,7 @@
             // cbbMinuteDep
             // 
             this.cbbMinuteDep.FormattingEnabled = true;
-            this.cbbMinuteDep.Location = new System.Drawing.Point(177, 464);
+            this.cbbMinuteDep.Location = new System.Drawing.Point(173, 505);
             this.cbbMinuteDep.Name = "cbbMinuteDep";
             this.cbbMinuteDep.Size = new System.Drawing.Size(49, 28);
             this.cbbMinuteDep.TabIndex = 95;
@@ -199,10 +199,10 @@
             this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bShow.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShow.Location = new System.Drawing.Point(900, 590);
+            this.bShow.Location = new System.Drawing.Point(876, 601);
             this.bShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bShow.Name = "bShow";
-            this.bShow.Size = new System.Drawing.Size(84, 35);
+            this.bShow.Size = new System.Drawing.Size(95, 35);
             this.bShow.TabIndex = 106;
             this.bShow.Text = "Hiển thị";
             this.bShow.UseVisualStyleBackColor = false;
@@ -210,7 +210,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 467);
+            this.label6.Location = new System.Drawing.Point(28, 508);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 20);
             this.label6.TabIndex = 94;
@@ -241,13 +241,13 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 626);
+            this.panel1.Size = new System.Drawing.Size(280, 640);
             this.panel1.TabIndex = 110;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(27, 512);
+            this.label9.Location = new System.Drawing.Point(28, 553);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 20);
             this.label9.TabIndex = 98;
@@ -256,7 +256,7 @@
             // rbRound
             // 
             this.rbRound.AutoSize = true;
-            this.rbRound.Location = new System.Drawing.Point(36, 269);
+            this.rbRound.Location = new System.Drawing.Point(37, 310);
             this.rbRound.Name = "rbRound";
             this.rbRound.Size = new System.Drawing.Size(87, 24);
             this.rbRound.TabIndex = 89;
@@ -267,7 +267,7 @@
             // cbbHourDep
             // 
             this.cbbHourDep.FormattingEnabled = true;
-            this.cbbHourDep.Location = new System.Drawing.Point(110, 464);
+            this.cbbHourDep.Location = new System.Drawing.Point(106, 505);
             this.cbbHourDep.Name = "cbbHourDep";
             this.cbbHourDep.Size = new System.Drawing.Size(49, 28);
             this.cbbHourDep.TabIndex = 93;
@@ -275,7 +275,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 209);
+            this.label5.Location = new System.Drawing.Point(21, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 20);
             this.label5.TabIndex = 92;
@@ -283,26 +283,26 @@
             // 
             // dateDep
             // 
-            this.dateDep.Location = new System.Drawing.Point(20, 338);
+            this.dateDep.Location = new System.Drawing.Point(21, 379);
             this.dateDep.Name = "dateDep";
-            this.dateDep.Size = new System.Drawing.Size(234, 26);
+            this.dateDep.Size = new System.Drawing.Size(237, 26);
             this.dateDep.TabIndex = 90;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(9, 30);
+            this.label1.Location = new System.Drawing.Point(62, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 24);
+            this.label1.Size = new System.Drawing.Size(151, 79);
             this.label1.TabIndex = 82;
-            this.label1.Text = "Lọc theo:";
+            this.label1.Text = "TÌM KIẾM LỊCH TRÌNH";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rbOne
             // 
             this.rbOne.AutoSize = true;
-            this.rbOne.Location = new System.Drawing.Point(36, 239);
+            this.rbOne.Location = new System.Drawing.Point(37, 280);
             this.rbOne.Name = "rbOne";
             this.rbOne.Size = new System.Drawing.Size(103, 24);
             this.rbOne.TabIndex = 88;
@@ -313,7 +313,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 67);
+            this.label10.Location = new System.Drawing.Point(21, 108);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 20);
             this.label10.TabIndex = 84;
@@ -322,7 +322,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 309);
+            this.label3.Location = new System.Drawing.Point(21, 350);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 20);
             this.label3.TabIndex = 86;
@@ -332,7 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 632);
+            this.ClientSize = new System.Drawing.Size(1098, 644);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.bBook);
             this.Controls.Add(this.dataGridView1);

@@ -37,7 +37,7 @@
             // 
             this.panel_Main.Location = new System.Drawing.Point(1, 0);
             this.panel_Main.Name = "panel_Main";
-            this.panel_Main.Size = new System.Drawing.Size(1098, 642);
+            this.panel_Main.Size = new System.Drawing.Size(1116, 642);
             this.panel_Main.TabIndex = 0;
             // 
             // bPrivate
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 691);
+            this.ClientSize = new System.Drawing.Size(1120, 691);
             this.Controls.Add(this.bSystem);
             this.Controls.Add(this.bPrivate);
             this.Controls.Add(this.panel_Main);

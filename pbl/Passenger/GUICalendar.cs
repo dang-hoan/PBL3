@@ -26,7 +26,7 @@ namespace pbl
         private void setLabel()
         {
             int size = 50;
-            int X = 80, Y = 75;
+            int X = 30, Y = 75;
             for (int i = 0; i < 31; i++)
             {
                 label[i] = new Label();
