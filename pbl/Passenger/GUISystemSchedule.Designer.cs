@@ -43,7 +43,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pSave = new System.Windows.Forms.PictureBox();
             this.cbbMinuteDep = new System.Windows.Forms.ComboBox();
-            this.bShow = new System.Windows.Forms.Button();
+            this.bSearch = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             this.rbOne = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.bShowAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             this.panel1.SuspendLayout();
@@ -91,7 +92,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 421);
+            this.label4.Location = new System.Drawing.Point(22, 383);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 20);
             this.label4.TabIndex = 87;
@@ -99,7 +100,7 @@
             // 
             // dateDes
             // 
-            this.dateDes.Location = new System.Drawing.Point(24, 452);
+            this.dateDes.Location = new System.Drawing.Point(22, 414);
             this.dateDes.Name = "dateDes";
             this.dateDes.Size = new System.Drawing.Size(234, 26);
             this.dateDes.TabIndex = 91;
@@ -108,7 +109,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(158, 553);
+            this.label8.Location = new System.Drawing.Point(156, 515);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(15, 19);
             this.label8.TabIndex = 100;
@@ -117,7 +118,7 @@
             // cbbHourDes
             // 
             this.cbbHourDes.FormattingEnabled = true;
-            this.cbbHourDes.Location = new System.Drawing.Point(106, 550);
+            this.cbbHourDes.Location = new System.Drawing.Point(104, 512);
             this.cbbHourDes.Name = "cbbHourDes";
             this.cbbHourDes.Size = new System.Drawing.Size(49, 28);
             this.cbbHourDes.TabIndex = 97;
@@ -125,7 +126,7 @@
             // cbbMinuteDes
             // 
             this.cbbMinuteDes.FormattingEnabled = true;
-            this.cbbMinuteDes.Location = new System.Drawing.Point(173, 550);
+            this.cbbMinuteDes.Location = new System.Drawing.Point(171, 512);
             this.cbbMinuteDes.Name = "cbbMinuteDes";
             this.cbbMinuteDes.Size = new System.Drawing.Size(49, 28);
             this.cbbMinuteDes.TabIndex = 99;
@@ -169,7 +170,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(158, 508);
+            this.label7.Location = new System.Drawing.Point(156, 470);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 19);
             this.label7.TabIndex = 96;
@@ -190,28 +191,29 @@
             // cbbMinuteDep
             // 
             this.cbbMinuteDep.FormattingEnabled = true;
-            this.cbbMinuteDep.Location = new System.Drawing.Point(173, 505);
+            this.cbbMinuteDep.Location = new System.Drawing.Point(171, 467);
             this.cbbMinuteDep.Name = "cbbMinuteDep";
             this.cbbMinuteDep.Size = new System.Drawing.Size(49, 28);
             this.cbbMinuteDep.TabIndex = 95;
             // 
-            // bShow
+            // bSearch
             // 
-            this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bShow.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShow.Location = new System.Drawing.Point(876, 601);
-            this.bShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bShow.Name = "bShow";
-            this.bShow.Size = new System.Drawing.Size(95, 35);
-            this.bShow.TabIndex = 106;
-            this.bShow.Text = "Hiển thị";
-            this.bShow.UseVisualStyleBackColor = false;
+            this.bSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bSearch.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSearch.Location = new System.Drawing.Point(85, 577);
+            this.bSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bSearch.Name = "bSearch";
+            this.bSearch.Size = new System.Drawing.Size(95, 35);
+            this.bSearch.TabIndex = 106;
+            this.bSearch.Text = "Tìm kiếm";
+            this.bSearch.UseVisualStyleBackColor = false;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 508);
+            this.label6.Location = new System.Drawing.Point(26, 470);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 20);
             this.label6.TabIndex = 94;
@@ -225,6 +227,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.dateDes);
             this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.bSearch);
             this.panel1.Controls.Add(this.cbbHourDes);
             this.panel1.Controls.Add(this.cbbMinuteDes);
             this.panel1.Controls.Add(this.label9);
@@ -248,7 +251,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 553);
+            this.label9.Location = new System.Drawing.Point(26, 515);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 20);
             this.label9.TabIndex = 98;
@@ -257,7 +260,7 @@
             // rbRound
             // 
             this.rbRound.AutoSize = true;
-            this.rbRound.Location = new System.Drawing.Point(37, 310);
+            this.rbRound.Location = new System.Drawing.Point(162, 280);
             this.rbRound.Name = "rbRound";
             this.rbRound.Size = new System.Drawing.Size(87, 24);
             this.rbRound.TabIndex = 89;
@@ -268,7 +271,7 @@
             // cbbHourDep
             // 
             this.cbbHourDep.FormattingEnabled = true;
-            this.cbbHourDep.Location = new System.Drawing.Point(106, 505);
+            this.cbbHourDep.Location = new System.Drawing.Point(104, 467);
             this.cbbHourDep.Name = "cbbHourDep";
             this.cbbHourDep.Size = new System.Drawing.Size(49, 28);
             this.cbbHourDep.TabIndex = 93;
@@ -284,7 +287,7 @@
             // 
             // dateDep
             // 
-            this.dateDep.Location = new System.Drawing.Point(21, 379);
+            this.dateDep.Location = new System.Drawing.Point(19, 341);
             this.dateDep.Name = "dateDep";
             this.dateDep.Size = new System.Drawing.Size(237, 26);
             this.dateDep.TabIndex = 90;
@@ -303,7 +306,7 @@
             // rbOne
             // 
             this.rbOne.AutoSize = true;
-            this.rbOne.Location = new System.Drawing.Point(37, 280);
+            this.rbOne.Location = new System.Drawing.Point(32, 280);
             this.rbOne.Name = "rbOne";
             this.rbOne.Size = new System.Drawing.Size(103, 24);
             this.rbOne.TabIndex = 88;
@@ -323,22 +326,36 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 350);
+            this.label3.Location = new System.Drawing.Point(19, 312);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 20);
             this.label3.TabIndex = 86;
             this.label3.Text = "Thời gian đi:";
+            // 
+            // bShowAll
+            // 
+            this.bShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bShowAll.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShowAll.Location = new System.Drawing.Point(849, 601);
+            this.bShowAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bShowAll.Name = "bShowAll";
+            this.bShowAll.Size = new System.Drawing.Size(115, 35);
+            this.bShowAll.TabIndex = 112;
+            this.bShowAll.Text = "Xem tất cả";
+            this.bShowAll.UseVisualStyleBackColor = false;
+            this.bShowAll.Click += new System.EventHandler(this.bShowAll_Click);
             // 
             // GUISystemSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 644);
+            this.Controls.Add(this.bShowAll);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.bBook);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pSave);
-            this.Controls.Add(this.bShow);
             this.Controls.Add(this.panel1);
             this.Name = "GUISystemSchedule";
             this.Text = "GUISystemSchedule";
@@ -367,7 +384,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pSave;
         private System.Windows.Forms.ComboBox cbbMinuteDep;
-        private System.Windows.Forms.Button bShow;
+        private System.Windows.Forms.Button bSearch;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;
@@ -379,5 +396,6 @@
         private System.Windows.Forms.RadioButton rbOne;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button bShowAll;
     }
 }

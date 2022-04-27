@@ -43,6 +43,7 @@
             // bPrivate
             // 
             this.bPrivate.BackColor = System.Drawing.Color.Gray;
+            this.bPrivate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bPrivate.Location = new System.Drawing.Point(1, 644);
             this.bPrivate.Name = "bPrivate";
             this.bPrivate.Size = new System.Drawing.Size(158, 35);
@@ -53,6 +54,7 @@
             // 
             // bSystem
             // 
+            this.bSystem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSystem.Location = new System.Drawing.Point(156, 644);
             this.bSystem.Name = "bSystem";
             this.bSystem.Size = new System.Drawing.Size(169, 35);

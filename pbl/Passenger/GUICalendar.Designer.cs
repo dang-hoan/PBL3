@@ -61,6 +61,7 @@
             // 
             // cbbYear
             // 
+            this.cbbYear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbbYear.FormattingEnabled = true;
             this.cbbYear.Location = new System.Drawing.Point(297, 59);
             this.cbbYear.Name = "cbbYear";
@@ -69,6 +70,7 @@
             // 
             // cbbMonth
             // 
+            this.cbbMonth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbbMonth.FormattingEnabled = true;
             this.cbbMonth.Location = new System.Drawing.Point(94, 58);
             this.cbbMonth.Name = "cbbMonth";
@@ -110,6 +112,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(441, 54);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 34);

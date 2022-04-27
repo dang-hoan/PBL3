@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace pbl
 {
     public partial class Form1 : Form
@@ -100,13 +99,13 @@ namespace pbl
 
         private void lbkhachhang_Click(object sender, EventArgs e)
         {
-            ShowForm(new FormPassenger());
+            ShowForm(new Passenger());
         }
        
 
         private void lkhachhang_Click(object sender, EventArgs e)
         {
-            ShowForm(new FormPassenger());
+            ShowForm(new Passenger());
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

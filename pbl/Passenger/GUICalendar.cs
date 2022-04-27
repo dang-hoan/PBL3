@@ -50,6 +50,7 @@ namespace pbl
                 label[i].Click += new EventHandler(label_Click);
                 label[i].MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
                 label[i].MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
+                label[i].Cursor = Cursors.Hand;
 
                 this.Controls.Add(label[i]);
             }
@@ -97,6 +98,11 @@ namespace pbl
         private int[] numberDayOf = new int[12] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         private void ChangeMonthYear(object sender, EventArgs e)
         {
+            if(cbbYear.Text == "" || cbbMonth.Text == "")
+            {
+                MessageBox.Show("Hãy nhập đủ năm tháng!");
+                return;
+            }
             panel_Detail.Visible = false;
             DataTable dt = man.GetDepartureTime(GUI.userName);
             DateTime key;

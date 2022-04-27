@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIDetailSchedule));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bShow = new System.Windows.Forms.Button();
+            this.bShowAll = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
@@ -52,6 +52,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbbDep = new System.Windows.Forms.ComboBox();
             this.cbbDes = new System.Windows.Forms.ComboBox();
+            this.bSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             this.SuspendLayout();
@@ -73,24 +74,26 @@
             this.dataGridView1.Location = new System.Drawing.Point(51, 255);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(813, 331);
             this.dataGridView1.TabIndex = 53;
             // 
-            // bShow
+            // bShowAll
             // 
-            this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bShow.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShow.Location = new System.Drawing.Point(780, 594);
-            this.bShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.bShow.Name = "bShow";
-            this.bShow.Size = new System.Drawing.Size(84, 35);
-            this.bShow.TabIndex = 44;
-            this.bShow.Text = "Hiển thị";
-            this.bShow.UseVisualStyleBackColor = false;
-            this.bShow.Click += new System.EventHandler(this.bShow_Click);
+            this.bShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bShowAll.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShowAll.Location = new System.Drawing.Point(739, 594);
+            this.bShowAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bShowAll.Name = "bShowAll";
+            this.bShowAll.Size = new System.Drawing.Size(125, 35);
+            this.bShowAll.TabIndex = 44;
+            this.bShowAll.Text = "Xem tất cả";
+            this.bShowAll.UseVisualStyleBackColor = false;
+            this.bShowAll.Click += new System.EventHandler(this.bShowAll_Click);
             // 
             // pSave
             // 
@@ -273,11 +276,26 @@
             this.cbbDes.TabIndex = 78;
             this.cbbDes.SelectedIndexChanged += new System.EventHandler(this.cbbDes_SelectedIndexChanged);
             // 
+            // bSearch
+            // 
+            this.bSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bSearch.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSearch.Location = new System.Drawing.Point(749, 197);
+            this.bSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bSearch.Name = "bSearch";
+            this.bSearch.Size = new System.Drawing.Size(84, 35);
+            this.bSearch.TabIndex = 79;
+            this.bSearch.Text = "Tìm kiếm";
+            this.bSearch.UseVisualStyleBackColor = false;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
+            // 
             // GUIDetailSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 645);
+            this.Controls.Add(this.bSearch);
             this.Controls.Add(this.cbbDes);
             this.Controls.Add(this.cbbDep);
             this.Controls.Add(this.label8);
@@ -300,7 +318,7 @@
             this.Controls.Add(this.pSave);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.bShow);
+            this.Controls.Add(this.bShowAll);
             this.Name = "GUIDetailSchedule";
             this.Text = "Schedule";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -313,7 +331,7 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button bShow;
+        private System.Windows.Forms.Button bShowAll;
         private System.Windows.Forms.PictureBox pSave;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbbMinuteDes;
@@ -334,5 +352,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbbDep;
         private System.Windows.Forms.ComboBox cbbDes;
+        private System.Windows.Forms.Button bSearch;
     }
 }

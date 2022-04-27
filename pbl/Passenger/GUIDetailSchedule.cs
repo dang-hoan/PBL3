@@ -41,7 +41,23 @@ namespace pbl
             dateDep.Text = "";
             dateDes.Text = "";
         }
-        private void bShow_Click(object sender, EventArgs e)
+
+        private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbDes.Items.Remove(cbbDep.Text);
+        }
+
+        private void cbbDes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbDep.Items.Remove(cbbDes.Text);
+        }
+
+        private void bShowAll_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = man.GetSchedule(GUI.userName);
+        }
+
+        private void bSearch_Click(object sender, EventArgs e)
         {
             bool hasInputDep = false;
             bool hasInputDes = false;
@@ -68,17 +84,7 @@ namespace pbl
                 DesTime += " " + cbbHourDes.Text + ":" + "0";
                 hasInputDes = true;
             }
-            dataGridView1.DataSource = man.GetSchedule(GUI.userName, cbbDep.Text, cbbDes.Text, rbOne.Checked||!rbRound.Checked, DepTime, DesTime, hasInputDep, hasInputDes);
-        }
-
-        private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbbDes.Items.Remove(cbbDep.Text);
-        }
-
-        private void cbbDes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbbDep.Items.Remove(cbbDes.Text);
+            dataGridView1.DataSource = man.GetSchedule(GUI.userName, cbbDep.Text, cbbDes.Text, rbOne.Checked || !rbRound.Checked, DepTime, DesTime, hasInputDep, hasInputDes);
         }
     }
 }

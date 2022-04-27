@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIBook));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bShow = new System.Windows.Forms.Button();
+            this.bShowAll = new System.Windows.Forms.Button();
+            this.bSearch = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
             this.labelBooked = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,7 +55,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.bShow);
+            this.panel1.Controls.Add(this.bShowAll);
+            this.panel1.Controls.Add(this.bSearch);
             this.panel1.Controls.Add(this.pSave);
             this.panel1.Controls.Add(this.labelBooked);
             this.panel1.Controls.Add(this.label5);
@@ -72,18 +74,31 @@
             this.panel1.Size = new System.Drawing.Size(973, 611);
             this.panel1.TabIndex = 0;
             // 
-            // bShow
+            // bShowAll
             // 
-            this.bShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShow.Location = new System.Drawing.Point(377, 537);
-            this.bShow.Name = "bShow";
-            this.bShow.Size = new System.Drawing.Size(170, 40);
-            this.bShow.TabIndex = 59;
-            this.bShow.Text = "Hiển thị";
-            this.bShow.UseVisualStyleBackColor = false;
-            this.bShow.Click += new System.EventHandler(this.bShow_Click);
+            this.bShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShowAll.Location = new System.Drawing.Point(568, 537);
+            this.bShowAll.Name = "bShowAll";
+            this.bShowAll.Size = new System.Drawing.Size(129, 40);
+            this.bShowAll.TabIndex = 60;
+            this.bShowAll.Text = "Xem tất cả";
+            this.bShowAll.UseVisualStyleBackColor = false;
+            this.bShowAll.Click += new System.EventHandler(this.bShowAll_Click);
+            // 
+            // bSearch
+            // 
+            this.bSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSearch.Location = new System.Drawing.Point(827, 98);
+            this.bSearch.Name = "bSearch";
+            this.bSearch.Size = new System.Drawing.Size(115, 40);
+            this.bSearch.TabIndex = 59;
+            this.bSearch.Text = "Tìm kiếm";
+            this.bSearch.UseVisualStyleBackColor = false;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // pSave
             // 
@@ -178,9 +193,9 @@
             this.bBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBack.Location = new System.Drawing.Point(772, 537);
+            this.bBack.Location = new System.Drawing.Point(828, 537);
             this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(170, 40);
+            this.bBack.Size = new System.Drawing.Size(114, 40);
             this.bBack.TabIndex = 4;
             this.bBack.Text = "Quay lại";
             this.bBack.UseVisualStyleBackColor = false;
@@ -191,9 +206,9 @@
             this.bBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBook.Location = new System.Drawing.Point(577, 537);
+            this.bBook.Location = new System.Drawing.Point(703, 537);
             this.bBook.Name = "bBook";
-            this.bBook.Size = new System.Drawing.Size(170, 40);
+            this.bBook.Size = new System.Drawing.Size(119, 40);
             this.bBook.TabIndex = 3;
             this.bBook.Text = "Đặt vé";
             this.bBook.UseVisualStyleBackColor = false;
@@ -257,6 +272,7 @@
         private System.Windows.Forms.PictureBox pRight;
         private System.Windows.Forms.Label labelBooked;
         private System.Windows.Forms.PictureBox pSave;
-        private System.Windows.Forms.Button bShow;
+        private System.Windows.Forms.Button bSearch;
+        private System.Windows.Forms.Button bShowAll;
     }
 }

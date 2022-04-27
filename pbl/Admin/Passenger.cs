@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace pbl
 {
-    public partial class FormPassenger : Form
+    public partial class Passenger : Form
     {
-        public FormPassenger()
+        public Passenger()
         {
             InitializeComponent();
         }

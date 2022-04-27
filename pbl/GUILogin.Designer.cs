@@ -77,6 +77,7 @@
             // 
             this.linkRegister.AutoSize = true;
             this.linkRegister.BackColor = System.Drawing.Color.Transparent;
+            this.linkRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkRegister.LinkColor = System.Drawing.Color.White;
             this.linkRegister.Location = new System.Drawing.Point(272, 588);
             this.linkRegister.Name = "linkRegister";
@@ -90,6 +91,7 @@
             // 
             this.linkForget.AutoSize = true;
             this.linkForget.BackColor = System.Drawing.Color.Transparent;
+            this.linkForget.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkForget.ForeColor = System.Drawing.Color.Red;
             this.linkForget.LinkColor = System.Drawing.Color.White;
             this.linkForget.Location = new System.Drawing.Point(319, 551);
@@ -102,6 +104,7 @@
             // 
             // btdangnhap
             // 
+            this.btdangnhap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btdangnhap.Location = new System.Drawing.Point(172, 481);
             this.btdangnhap.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btdangnhap.Name = "btdangnhap";
@@ -166,7 +169,7 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // Formlogin
+            // GUILogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -175,7 +178,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Name = "Formlogin";
+            this.Name = "GUILogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG NHẬP";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Formlogin_KeyDown);

@@ -116,11 +116,11 @@
     <Compile Include="Admin\note.Designer.cs">
       <DependentUpon>note.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\FormPassenger.cs">
+    <Compile Include="Admin\Passenger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\FormPassenger.Designer.cs">
-      <DependentUpon>FormPassenger.cs</DependentUpon>
+    <Compile Include="Admin\Passenger.Designer.cs">
+      <DependentUpon>Passenger.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\Schedule.cs">
       <SubType>Form</SubType>
@@ -286,6 +286,7 @@
     <Compile Include="GUIRegister.Designer.cs">
       <DependentUpon>GUIRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="objSCHEDULE.cs" />
     <EmbeddedResource Include="Employee\addkhachhang.resx">
       <DependentUpon>addkhachhang.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,8 +314,8 @@
     <EmbeddedResource Include="Admin\note.resx">
       <DependentUpon>note.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\FormPassenger.resx">
-      <DependentUpon>FormPassenger.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\Passenger.resx">
+      <DependentUpon>Passenger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>

@@ -39,6 +39,7 @@
             // bList
             // 
             this.bList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bList.Location = new System.Drawing.Point(3, 167);
             this.bList.Name = "bList";
             this.bList.Size = new System.Drawing.Size(178, 62);
@@ -50,6 +51,7 @@
             // bCalendar
             // 
             this.bCalendar.BackColor = System.Drawing.Color.Green;
+            this.bCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bCalendar.Location = new System.Drawing.Point(3, 91);
             this.bCalendar.Name = "bCalendar";
             this.bCalendar.Size = new System.Drawing.Size(178, 59);

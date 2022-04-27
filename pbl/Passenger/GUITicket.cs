@@ -14,7 +14,8 @@ namespace pbl
     {
         ManageFunction man = new ManageFunction();
         private string Departure, Destination, DepartureTime, DestinationTime;
-        private bool Type;
+        private bool Type, hasInputDep, hasInputDes;
+        private bool clickSchedule = false;
         public GUITicket()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace pbl
                 cbbTrain.Items.Add(dr[0]);
             }
         }
+
         private void Get(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime, bool hasInputDep, bool hasInputDes)
         {
             this.Departure = Departure;
@@ -36,6 +38,8 @@ namespace pbl
             this.Type = Type;
             this.DepartureTime = DepartureTime;
             this.DestinationTime = DestinationTime;
+            this.hasInputDep = hasInputDep;
+            this.hasInputDes = hasInputDes;
         }
         private void bCancel_Click(object sender, EventArgs e)
         {
@@ -55,18 +59,25 @@ namespace pbl
         }
         private void Reload()
         {
-            dataGridView1.DataSource = man.GetTicket(GUI.userName, Departure, Destination, Type, DepartureTime, DestinationTime, cbbTrain.SelectedIndex, "");
+            if (clickSchedule)
+                dataGridView1.DataSource = man.GetTicket(GUI.userName, Departure, Destination, Type, DepartureTime, DestinationTime, cbbTrain.SelectedIndex, "", hasInputDep, hasInputDes);
+            //else
+            //    dataGridView1.DataSource = man.GetTicket(cbbTrain.SelectedIndex);
         }
         private void Schedule_Click(object sender, EventArgs e)
         {
+            clickSchedule = true;
             GUIOption option = new GUIOption();
             option.d += new GUIOption.MyDel(Get);
             option.Show();
         }
-
-        private void bShow_Click(object sender, EventArgs e)
+        private void bSearch_Click(object sender, EventArgs e)
         {
             Reload();
+        }
+        private void bShowAll_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = man.GetAllTicket(GUI.userName);
         }
     }
 }

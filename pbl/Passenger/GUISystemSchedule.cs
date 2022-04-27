@@ -17,6 +17,7 @@ namespace pbl
         {
             InitializeComponent();
             Init();
+            dataGridView1.DataSource = man.GetSchedule();
         }
         private void Init()
         {
@@ -39,7 +40,56 @@ namespace pbl
             dateDep.Text = "";
             dateDes.Text = "";
         }
-        private void bShow_Click(object sender, EventArgs e)
+
+        private void bBook_Click(object sender, EventArgs e)
+        {
+            //List<objSCHEDULE> list = new List<objSCHEDULE>();
+            //if (dataGridView1.SelectedRows.Count >= 1)
+            //{
+            //    foreach(DataGridViewRow dr in dataGridView1.SelectedRows)
+            //    {
+            //        objSCHEDULE obj = new objSCHEDULE()
+            //        {
+            //            ScheduleID = dr.Cells["ScheduleID"].Value.ToString(),
+            //            Departure = dr.Cells["Departure"].Value.ToString(),
+            //            Destination = dr.Cells["Destionation"].Value.ToString(),
+            //            DepartureTime = Convert.ToDateTime(dr.Cells["DepartureTime"].Value.ToString()),
+            //            ArrivalTime = Convert.ToDateTime(dr.Cells["ArrivalTime"].Value.ToString())
+            //        };
+            //        list.Add(obj);
+            //    }
+            //    GUIBook book = new GUIBook();
+            //    book.Show();
+            //}
+            if(dataGridView1.SelectedRows.Count == 1)
+            {
+                DataGridViewRow dr = dataGridView1.SelectedRows[0];
+                GUIBook book = new GUIBook(dr.Cells["Departure"].Value.ToString(), dr.Cells["Destination"].Value.ToString(), ((DateTime)dr.Cells["DepartureTime"].Value).ToString("yyyy/MM/dd HH:mm:ss"), ((DateTime)dr.Cells["ArrivalTime"].Value).ToString("yyyy/MM/dd HH:mm:ss"));
+                book.Show();
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
+            }
+
+        }
+
+        private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbDes.Items.Remove(cbbDep.Text);
+        }
+
+        private void cbbDes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbDep.Items.Remove(cbbDes.Text);
+        }
+
+        private void bShowAll_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = man.GetSchedule();
+        }
+
+        private void bSearch_Click(object sender, EventArgs e)
         {
             bool hasInputDep = false;
             bool hasInputDes = false;
@@ -67,30 +117,6 @@ namespace pbl
                 hasInputDes = true;
             }
             dataGridView1.DataSource = man.GetSchedule(cbbDep.Text, cbbDes.Text, rbOne.Checked || !rbRound.Checked, DepTime, DesTime, hasInputDep, hasInputDes);
-        }
-
-        private void bBook_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count >= 1)
-            {
-                GUIBook book = new GUIBook();
-                book.Show();
-            }
-            else
-            {
-                MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
-            }
-
-        }
-
-        private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbbDes.Items.Remove(cbbDep.Text);
-        }
-
-        private void cbbDes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbbDep.Items.Remove(cbbDes.Text);
         }
     }
 }
