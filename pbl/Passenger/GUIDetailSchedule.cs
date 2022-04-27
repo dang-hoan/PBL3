@@ -44,12 +44,44 @@ namespace pbl
 
         private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbbDes.Items.Remove(cbbDep.Text);
+            DataTable dt = man.GetStation(GUI.userName);
+            cbbDes.Items.Clear();
+            if (cbbDep.Text != "")
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDes.Items.Add(dr[1]);
+                }
+                cbbDes.Items.Remove(cbbDep.SelectedItem);
+            }
+            else
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDes.Items.Add(dr[1]);
+                }
+            }
         }
 
         private void cbbDes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbbDep.Items.Remove(cbbDes.Text);
+            DataTable dt = man.GetStation(GUI.userName);
+            cbbDep.Items.Clear();
+            if (cbbDes.Text != "")
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDep.Items.Add(dr[0]);
+                }
+                cbbDep.Items.Remove(cbbDes.SelectedItem);
+            }
+            else
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDep.Items.Add(dr[0]);
+                }
+            }
         }
 
         private void bShowAll_Click(object sender, EventArgs e)
@@ -85,6 +117,48 @@ namespace pbl
                 hasInputDes = true;
             }
             dataGridView1.DataSource = man.GetSchedule(GUI.userName, cbbDep.Text, cbbDes.Text, rbOne.Checked || !rbRound.Checked, DepTime, DesTime, hasInputDep, hasInputDes);
+        }
+
+        private void cbbDep_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = man.GetStation(GUI.userName);
+            cbbDes.Items.Clear();
+            if (cbbDep.Text != "")
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDes.Items.Add(dr[1]);
+                }
+                cbbDes.Items.Remove(cbbDep.SelectedItem);
+            }
+            else
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDes.Items.Add(dr[1]);
+                }
+            }
+        }
+
+        private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = man.GetStation(GUI.userName);
+            cbbDep.Items.Clear();
+            if (cbbDes.Text != "")
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDep.Items.Add(dr[0]);
+                }
+                cbbDep.Items.Remove(cbbDes.SelectedItem);
+            }
+            else
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDep.Items.Add(dr[0]);
+                }
+            }
         }
     }
 }

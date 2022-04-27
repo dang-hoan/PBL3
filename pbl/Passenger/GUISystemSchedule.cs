@@ -21,11 +21,11 @@ namespace pbl
         }
         private void Init()
         {
-            DataTable dt = man.GetSchedule();
+            DataTable dt = man.GetStation();
             foreach (DataRow dr in dt.Rows)
             {
-                cbbDep.Items.Add(dr[1].ToString());
-                cbbDes.Items.Add(dr[2].ToString());
+                cbbDep.Items.Add(dr[0]);
+                cbbDes.Items.Add(dr[1]);
             }
             for (int i = 0; i <= 23; i++)
             {
@@ -72,16 +72,6 @@ namespace pbl
 
         }
 
-        private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbbDes.Items.Remove(cbbDep.Text);
-        }
-
-        private void cbbDes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbbDep.Items.Remove(cbbDes.Text);
-        }
-
         private void bShowAll_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = man.GetSchedule();
@@ -116,10 +106,46 @@ namespace pbl
             }
             dataGridView1.DataSource = man.GetSchedule(cbbDep.Text, cbbDes.Text, rbOne.Checked || !rbRound.Checked, DepTime, DesTime, hasInputDep, hasInputDes);
         }
-
-        private void cbbDep_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cbbDep_TextChanged(object sender, EventArgs e)
         {
+            DataTable dt = man.GetStation();
+            cbbDes.Items.Clear();
+            if (cbbDep.Text != "")
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDes.Items.Add(dr[1]);
+                }
+                cbbDes.Items.Remove(cbbDep.SelectedItem);
+            }
+            else
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDes.Items.Add(dr[1]);
+                }
+            }
+        }
 
+        private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = man.GetStation();
+            cbbDep.Items.Clear();
+            if (cbbDes.Text != "")
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDep.Items.Add(dr[0]);
+                }
+                cbbDep.Items.Remove(cbbDes.SelectedItem);
+            }
+            else
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cbbDep.Items.Add(dr[0]);
+                }
+            }
         }
     }
 }

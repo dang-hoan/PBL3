@@ -85,7 +85,7 @@ namespace pbl
             if (hasSchedule[Convert.ToInt32(label.Text) - 1])
             {
                 label.BackColor = Color.Green;
-                labelContent.Text = man.GetSchedule(label.Text, cbbMonth.Text, cbbYear.Text);
+                labelContent.Text = man.GetSchedule(GUI.userName, label.Text, cbbMonth.Text, cbbYear.Text);
                 panel_Detail.Visible = true;
             }
             else
@@ -151,6 +151,14 @@ namespace pbl
         private void GUICalendar_Click(object sender, EventArgs e)
         {
             panel_Detail.Visible = false;
+        }
+
+        private void GUICalendar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                ChangeMonthYear(sender, e);
+            }
         }
     }
 }

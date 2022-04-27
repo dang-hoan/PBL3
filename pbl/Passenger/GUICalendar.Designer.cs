@@ -115,7 +115,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(467, 51);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 34);
+            this.button1.Size = new System.Drawing.Size(82, 40);
             this.button1.TabIndex = 46;
             this.button1.Text = "Hiển thị";
             this.button1.UseVisualStyleBackColor = false;
@@ -135,6 +135,7 @@
             this.Name = "GUICalendar";
             this.Text = "Calendar";
             this.Click += new System.EventHandler(this.GUICalendar_Click);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GUICalendar_KeyDown);
             this.panel_Detail.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

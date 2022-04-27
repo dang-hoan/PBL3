@@ -79,6 +79,7 @@
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(234, 28);
             this.cbbDes.TabIndex = 102;
+            this.cbbDes.TextChanged += new System.EventHandler(this.cbbDes_TextChanged);
             // 
             // label2
             // 
@@ -100,9 +101,11 @@
             // 
             // dateDes
             // 
-            this.dateDes.Location = new System.Drawing.Point(19, 415);
+            this.dateDes.CustomFormat = "dd/MM/yyyy";
+            this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDes.Location = new System.Drawing.Point(20, 415);
             this.dateDes.Name = "dateDes";
-            this.dateDes.Size = new System.Drawing.Size(237, 26);
+            this.dateDes.Size = new System.Drawing.Size(236, 26);
             this.dateDes.TabIndex = 91;
             // 
             // label8
@@ -166,7 +169,7 @@
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(234, 28);
             this.cbbDep.TabIndex = 101;
-            this.cbbDep.SelectedIndexChanged += new System.EventHandler(this.cbbDep_SelectedIndexChanged_1);
+            this.cbbDep.TextChanged += new System.EventHandler(this.cbbDep_TextChanged);
             // 
             // label7
             // 
@@ -289,9 +292,11 @@
             // 
             // dateDep
             // 
-            this.dateDep.Location = new System.Drawing.Point(19, 341);
+            this.dateDep.CustomFormat = "dd/MM/yyyy";
+            this.dateDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDep.Location = new System.Drawing.Point(20, 341);
             this.dateDep.Name = "dateDep";
-            this.dateDep.Size = new System.Drawing.Size(237, 26);
+            this.dateDep.Size = new System.Drawing.Size(236, 26);
             this.dateDep.TabIndex = 90;
             // 
             // label1

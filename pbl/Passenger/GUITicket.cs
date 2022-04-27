@@ -24,7 +24,7 @@ namespace pbl
         }
         private void Init()
         {
-            DataTable dt = man.GetTrain().DefaultView.ToTable(true, "TrainName");
+            DataTable dt = man.GetTrain(GUI.userName).DefaultView.ToTable(true, "TrainName");
             foreach (DataRow dr in dt.Rows)
             {
                 cbbTrain.Items.Add(dr[0]);
@@ -40,6 +40,12 @@ namespace pbl
             this.DestinationTime = DestinationTime;
             this.hasInputDep = hasInputDep;
             this.hasInputDes = hasInputDes;
+            cbbTrain.Items.Clear();
+            DataTable dt = man.GetTrain(GUI.userName, Departure, Destination, Type, DepartureTime, DestinationTime, hasInputDep, hasInputDes).DefaultView.ToTable(true, "TrainName");
+            foreach(DataRow dr in dt.Rows)
+            {
+                cbbTrain.Items.Add(dr[0]);
+            }
         }
         private void bCancel_Click(object sender, EventArgs e)
         {
@@ -53,7 +59,7 @@ namespace pbl
                         man.SetTicket(i.Cells["TicketID"].Value.ToString(), GUI.userName, false);
                     }
                     MessageBox.Show("Đã huỷ những vé bạn chọn!");
-                    Reload();
+                    dataGridView1.DataSource = man.GetAllTicket(GUI.userName);
                 }
             }
         }

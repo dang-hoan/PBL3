@@ -91,7 +91,7 @@ namespace pbl
         private void bSearch_Click(object sender, EventArgs e)
         {
             labelBooked.Text = man.GetNumberBooked(cbbTrain.SelectedIndex, Departure, Destination, Type, DepartureTime, ArrivalTime).ToString();
-            Reload();
+            dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime, cbbTrain.SelectedIndex, labelCarriage.Text);
         }
 
         private void bShowAll_Click(object sender, EventArgs e)
