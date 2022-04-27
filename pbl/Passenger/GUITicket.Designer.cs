@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUITicket));
             this.panel_Content = new System.Windows.Forms.Panel();
+            this.bShowAll = new System.Windows.Forms.Button();
             this.bSearch = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
             this.cbbTrain = new System.Windows.Forms.ComboBox();
@@ -37,7 +38,6 @@
             this.labelSchedule = new System.Windows.Forms.Label();
             this.pOption = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bShowAll = new System.Windows.Forms.Button();
             this.panel_Content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).BeginInit();
@@ -59,6 +59,19 @@
             this.panel_Content.Name = "panel_Content";
             this.panel_Content.Size = new System.Drawing.Size(1093, 692);
             this.panel_Content.TabIndex = 0;
+            // 
+            // bShowAll
+            // 
+            this.bShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShowAll.Location = new System.Drawing.Point(751, 622);
+            this.bShowAll.Name = "bShowAll";
+            this.bShowAll.Size = new System.Drawing.Size(139, 40);
+            this.bShowAll.TabIndex = 60;
+            this.bShowAll.Text = "Xem tất cả";
+            this.bShowAll.UseVisualStyleBackColor = false;
+            this.bShowAll.Click += new System.EventHandler(this.bShowAll_Click);
             // 
             // bSearch
             // 
@@ -135,6 +148,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(54, 116);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -145,19 +159,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(980, 490);
             this.dataGridView1.TabIndex = 37;
-            // 
-            // bShowAll
-            // 
-            this.bShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShowAll.Location = new System.Drawing.Point(751, 622);
-            this.bShowAll.Name = "bShowAll";
-            this.bShowAll.Size = new System.Drawing.Size(139, 40);
-            this.bShowAll.TabIndex = 60;
-            this.bShowAll.Text = "Xem tất cả";
-            this.bShowAll.UseVisualStyleBackColor = false;
-            this.bShowAll.Click += new System.EventHandler(this.bShowAll_Click);
             // 
             // GUITicket
             // 

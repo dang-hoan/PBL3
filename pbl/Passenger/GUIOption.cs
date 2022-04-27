@@ -13,14 +13,40 @@ namespace pbl
     public partial class GUIOption : Form
     {
         ManageFunction man = new ManageFunction();
+        DateTimePicker dateDep = new DateTimePicker(); 
+        DateTimePicker dateDes = new DateTimePicker();
         public delegate void MyDel(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime, bool hasInputDep, bool hasInputDes);
         public MyDel d { get; set; }
-        public GUIOption()
+        private void Date(string s, ref string date, ref string hour, ref string minute)
+        {
+            for(int i=0; i<s.Length; i++)
+            {
+                if (s[i] != ' ') date += s[i];
+                else
+                {
+                    for(int j = i + 1; j < s.Length; j++)
+                    {
+                        if(s[j] != ':') hour += s[j];
+                        else
+                        {
+                            for(int k = j + 1; k < s.Length; k++) minute += s[k];
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        public GUIOption(string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
         {
             InitializeComponent();
-            Init();
+            cbbDep.Text = Departure;
+            cbbDes.Text = Destination;
+            if (Type) rbOne.Checked = true;
+            else rbRound.Checked = true;
+            Init(DepartureTime, ArrivalTime);           
         }
-        private void Init()
+        private void Init(string DepartureTime, string ArrivalTime)
         {
             DataTable dt = man.GetStation();
             foreach(DataRow dr in dt.Rows)
@@ -38,19 +64,30 @@ namespace pbl
                 cbbMinuteDep.Items.Add(i);
                 cbbMinuteDes.Items.Add(i);
             }
-            dateDep.Text = "";
-            dateDes.Text = "";
-        }
 
+            //Khởi tạo thuộc tính DateTimePicker dateDep và dateDes
+            dateDep.Size = new Size(157, 26);
+            dateDep.TabIndex = 25;
+            dateDep.Parent = this;
+            dateDep.Location = new Point(85, 82);
+
+            dateDes.Size = new Size(157, 26);
+            dateDes.TabIndex = 26;
+            dateDes.Parent = this;
+            dateDes.Location = new Point(344, 80);
+
+            string dep = "", hourDep = "", minuteDep = "";
+            Date(DepartureTime, ref dep, ref hourDep, ref minuteDep);
+            if (dep != "") dateDep.Value = Convert.ToDateTime(dep);
+            cbbHourDep.Text = hourDep; cbbMinuteDep.Text = minuteDep;
+            string des = "", hourDes = "", minuteDes = "";
+            Date(ArrivalTime, ref des, ref hourDes, ref minuteDes);
+            if (des != "") dateDes.Value = Convert.ToDateTime(des); cbbHourDes.Text = hourDes; cbbMinuteDes.Text = minuteDes;
+        }
         private void bAccept_Click(object sender, EventArgs e)
         {
             bool hasInputDep = false;
             bool hasInputDes = false;
-            if(cbbDep.Text == "" || cbbDes.Text == "" || !rbOne.Checked && !rbRound.Checked || dateDep.Text == "" || dateDes.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập đủ thông tin yêu cầu!");
-                return;
-            }
             string DepTime, DesTime;
             DepTime = dateDep.Value.ToString("yyyy/MM/dd");
             DesTime = dateDes.Value.ToString("yyyy/MM/dd");

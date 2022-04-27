@@ -21,11 +21,11 @@ namespace pbl
         }
         private void Init()
         {
-            DataTable dt = man.GetStation(GUI.userName);
+            DataTable dt = man.GetSchedule();
             foreach (DataRow dr in dt.Rows)
             {
-                cbbDep.Items.Add(dr[0].ToString());
-                cbbDes.Items.Add(dr[1].ToString());
+                cbbDep.Items.Add(dr[1].ToString());
+                cbbDes.Items.Add(dr[2].ToString());
             }
             for (int i = 0; i <= 23; i++)
             {
@@ -37,8 +37,6 @@ namespace pbl
                 cbbMinuteDep.Items.Add(i);
                 cbbMinuteDes.Items.Add(i);
             }
-            dateDep.Text = "";
-            dateDes.Text = "";
         }
 
         private void bBook_Click(object sender, EventArgs e)
@@ -117,6 +115,11 @@ namespace pbl
                 hasInputDes = true;
             }
             dataGridView1.DataSource = man.GetSchedule(cbbDep.Text, cbbDes.Text, rbOne.Checked || !rbRound.Checked, DepTime, DesTime, hasInputDep, hasInputDes);
+        }
+
+        private void cbbDep_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,8 +31,6 @@
             this.bCancel = new System.Windows.Forms.Button();
             this.bAccept = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateDes = new System.Windows.Forms.DateTimePicker();
-            this.dateDep = new System.Windows.Forms.DateTimePicker();
             this.rbRound = new System.Windows.Forms.RadioButton();
             this.rbOne = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
@@ -80,20 +78,6 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Hình thức";
             // 
-            // dateDes
-            // 
-            this.dateDes.Location = new System.Drawing.Point(516, 127);
-            this.dateDes.Name = "dateDes";
-            this.dateDes.Size = new System.Drawing.Size(234, 26);
-            this.dateDes.TabIndex = 26;
-            // 
-            // dateDep
-            // 
-            this.dateDep.Location = new System.Drawing.Point(128, 126);
-            this.dateDep.Name = "dateDep";
-            this.dateDep.Size = new System.Drawing.Size(234, 26);
-            this.dateDep.TabIndex = 25;
-            // 
             // rbRound
             // 
             this.rbRound.AutoSize = true;
@@ -128,7 +112,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 132);
+            this.label3.Location = new System.Drawing.Point(33, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 20);
             this.label3.TabIndex = 19;
@@ -256,8 +240,6 @@
             this.Controls.Add(this.bCancel);
             this.Controls.Add(this.bAccept);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateDes);
-            this.Controls.Add(this.dateDep);
             this.Controls.Add(this.rbRound);
             this.Controls.Add(this.rbOne);
             this.Controls.Add(this.label4);
@@ -276,8 +258,6 @@
         private System.Windows.Forms.Button bCancel;
         private System.Windows.Forms.Button bAccept;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateDes;
-        private System.Windows.Forms.DateTimePicker dateDep;
         private System.Windows.Forms.RadioButton rbRound;
         private System.Windows.Forms.RadioButton rbOne;
         private System.Windows.Forms.Label label4;

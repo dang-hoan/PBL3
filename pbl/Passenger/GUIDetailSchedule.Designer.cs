@@ -70,6 +70,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(51, 255);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -284,7 +285,7 @@
             this.bSearch.Location = new System.Drawing.Point(749, 197);
             this.bSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(84, 35);
+            this.bSearch.Size = new System.Drawing.Size(84, 40);
             this.bSearch.TabIndex = 79;
             this.bSearch.Text = "Tìm kiếm";
             this.bSearch.UseVisualStyleBackColor = false;

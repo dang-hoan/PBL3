@@ -100,9 +100,9 @@
             // 
             // dateDes
             // 
-            this.dateDes.Location = new System.Drawing.Point(22, 414);
+            this.dateDes.Location = new System.Drawing.Point(19, 415);
             this.dateDes.Name = "dateDes";
-            this.dateDes.Size = new System.Drawing.Size(234, 26);
+            this.dateDes.Size = new System.Drawing.Size(237, 26);
             this.dateDes.TabIndex = 91;
             // 
             // label8
@@ -147,6 +147,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(312, 71);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -165,6 +166,7 @@
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(234, 28);
             this.cbbDep.TabIndex = 101;
+            this.cbbDep.SelectedIndexChanged += new System.EventHandler(this.cbbDep_SelectedIndexChanged_1);
             // 
             // label7
             // 

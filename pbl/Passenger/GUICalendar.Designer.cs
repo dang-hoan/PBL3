@@ -43,7 +43,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(247, 62);
+            this.label2.Location = new System.Drawing.Point(273, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 19);
             this.label2.TabIndex = 13;
@@ -53,7 +53,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 59);
+            this.label1.Location = new System.Drawing.Point(56, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 19);
             this.label1.TabIndex = 16;
@@ -63,7 +63,7 @@
             // 
             this.cbbYear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbbYear.FormattingEnabled = true;
-            this.cbbYear.Location = new System.Drawing.Point(297, 59);
+            this.cbbYear.Location = new System.Drawing.Point(323, 56);
             this.cbbYear.Name = "cbbYear";
             this.cbbYear.Size = new System.Drawing.Size(121, 28);
             this.cbbYear.TabIndex = 18;
@@ -72,7 +72,7 @@
             // 
             this.cbbMonth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbbMonth.FormattingEnabled = true;
-            this.cbbMonth.Location = new System.Drawing.Point(94, 58);
+            this.cbbMonth.Location = new System.Drawing.Point(120, 55);
             this.cbbMonth.Name = "cbbMonth";
             this.cbbMonth.Size = new System.Drawing.Size(121, 28);
             this.cbbMonth.TabIndex = 17;
@@ -82,9 +82,9 @@
             this.panel_Detail.BackColor = System.Drawing.Color.LightGray;
             this.panel_Detail.Controls.Add(this.labelContent);
             this.panel_Detail.Controls.Add(this.labelTitle);
-            this.panel_Detail.Location = new System.Drawing.Point(572, 2);
+            this.panel_Detail.Location = new System.Drawing.Point(599, 2);
             this.panel_Detail.Name = "panel_Detail";
-            this.panel_Detail.Size = new System.Drawing.Size(345, 640);
+            this.panel_Detail.Size = new System.Drawing.Size(318, 640);
             this.panel_Detail.TabIndex = 45;
             // 
             // labelContent
@@ -92,9 +92,9 @@
             this.labelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelContent.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelContent.ForeColor = System.Drawing.Color.Black;
-            this.labelContent.Location = new System.Drawing.Point(21, 118);
+            this.labelContent.Location = new System.Drawing.Point(20, 105);
             this.labelContent.Name = "labelContent";
-            this.labelContent.Size = new System.Drawing.Size(302, 473);
+            this.labelContent.Size = new System.Drawing.Size(277, 473);
             this.labelContent.TabIndex = 43;
             this.labelContent.Text = "Đây là nội dung...";
             // 
@@ -113,7 +113,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(441, 54);
+            this.button1.Location = new System.Drawing.Point(467, 51);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 34);
             this.button1.TabIndex = 46;

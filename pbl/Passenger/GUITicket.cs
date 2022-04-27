@@ -13,8 +13,8 @@ namespace pbl
     public partial class GUITicket : Form
     {
         ManageFunction man = new ManageFunction();
-        private string Departure, Destination, DepartureTime, DestinationTime;
-        private bool Type, hasInputDep, hasInputDes;
+        private string Departure = "", Destination = "", DepartureTime = "", DestinationTime = "";
+        private bool Type = true, hasInputDep, hasInputDes;
         private bool clickSchedule = false;
         public GUITicket()
         {
@@ -61,13 +61,13 @@ namespace pbl
         {
             if (clickSchedule)
                 dataGridView1.DataSource = man.GetTicket(GUI.userName, Departure, Destination, Type, DepartureTime, DestinationTime, cbbTrain.SelectedIndex, "", hasInputDep, hasInputDes);
-            //else
-            //    dataGridView1.DataSource = man.GetTicket(cbbTrain.SelectedIndex);
+            else
+                dataGridView1.DataSource = man.GetTicket(GUI.userName, cbbTrain.SelectedIndex);
         }
         private void Schedule_Click(object sender, EventArgs e)
         {
             clickSchedule = true;
-            GUIOption option = new GUIOption();
+            GUIOption option = new GUIOption(Departure, Destination, Type, DepartureTime, DestinationTime);
             option.d += new GUIOption.MyDel(Get);
             option.Show();
         }

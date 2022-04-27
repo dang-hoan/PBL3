@@ -22,17 +22,17 @@ namespace pbl
         public GUIBook(string Departure, string Destination, string DepartureTime, string ArrivalTime)
         {
             InitializeComponent();
-            Init();
             //this.schedule = list;
             this.Departure = Departure;
             this.Destination = Destination;
             this.DepartureTime = DepartureTime;
             this.ArrivalTime = ArrivalTime;
+            Init();
             dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime);
         }
         private void Init()
         {
-            DataTable dt = man.GetTrain().DefaultView.ToTable(true, "TrainName");
+            DataTable dt = man.GetTrain(Departure, Destination, Type, DepartureTime, ArrivalTime).DefaultView.ToTable(true, "TrainName");
             foreach (DataRow dr in dt.Rows)
             {
                 cbbTrain.Items.Add(dr[0]);
@@ -48,16 +48,16 @@ namespace pbl
             {
                 for(int i = 0; i < dataGridView1.SelectedRows.Count; i++){
                     DataGridViewRow dt = dataGridView1.SelectedRows[i];
-                    if (dt.Cells["Booked"].Value.ToString() == "true")
+                    if (dt.Cells["Booked"].Value.ToString().Equals("True"))
                     {
                         MessageBox.Show("Vé có mã là " + dt.Cells["TicketID"].Value.ToString() +" đã có người đặt!");
                     }
                     else
                     {
                         man.SetTicket(dt.Cells["TicketID"].Value.ToString(), GUI.userName, true);
+                        MessageBox.Show("Đã đặt thành công những vé bạn chọn!");
                     }
                 }
-                MessageBox.Show("Đã đặt thành công những vé bạn chọn!");
                 Reload();
             }
         }
@@ -115,7 +115,7 @@ namespace pbl
         }
         private void Reload()
         {
-            dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime, cbbTrain.SelectedIndex, labelCarriage.Text);
+            dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime);
         }
 
         private void pRight_MouseMove(object sender, EventArgs e)
