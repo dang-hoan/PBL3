@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace pbl
+namespace pbl.DTO
 {
-    public class People
+    public class PEOPLE
     {
         public string Username { get; set; }
         public string Name { get; set; }
@@ -17,6 +17,5 @@ namespace pbl
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Position { get; set; }
-        
     }
 }

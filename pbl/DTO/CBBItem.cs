@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace pbl
 {
-    public class CBBitem
+    public class CBBItem
     {
         public int Value { get; set; }
         public string Text { get; set; }

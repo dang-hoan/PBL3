@@ -33,6 +33,7 @@ namespace pbl
         private void Init()
         {
             DataTable dt = man.GetTrain(Departure, Destination, Type, DepartureTime, ArrivalTime).DefaultView.ToTable(true, "TrainName");
+            cbbTrain.Items.Add("Tất cả");
             foreach (DataRow dr in dt.Rows)
             {
                 cbbTrain.Items.Add(dr[0]);
@@ -68,8 +69,10 @@ namespace pbl
         }
 
         private void cbbTrain_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            numberOfCarriages = Convert.ToInt32(man.GetNumberOfCarriages(cbbTrain.SelectedIndex));
+        {
+            string TrainName = "";
+            if(cbbTrain.Text != "Chọn một tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
+            numberOfCarriages = Convert.ToInt32(man.GetNumberOfCarriages(TrainName));
         }
         private void ChangeLocation(Label lab)
         {
@@ -90,8 +93,10 @@ namespace pbl
 
         private void bSearch_Click(object sender, EventArgs e)
         {
-            labelBooked.Text = man.GetNumberBooked(cbbTrain.SelectedIndex, Departure, Destination, Type, DepartureTime, ArrivalTime).ToString();
-            dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime, cbbTrain.SelectedIndex, labelCarriage.Text);
+            string TrainName = "";
+            if(cbbTrain.Text != "Chọn một tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
+            labelBooked.Text = man.GetNumberBooked(TrainName, Departure, Destination, Type, DepartureTime, ArrivalTime).ToString();
+            dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime, TrainName, labelCarriage.Text);
         }
 
         private void bShowAll_Click(object sender, EventArgs e)

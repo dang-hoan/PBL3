@@ -10,8 +10,26 @@ namespace pbl
 {
     public class DBHelper
     {
+        private static DBHelper _Instance;
+        public static DBHelper Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    //Hoan
+                    _Instance = new DBHelper(@"Data Source=DESKTOP-DKTP37G\CSDL;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
+                    //Đức
+                    //_Instance = new DBHelper(@"");
+                    //Phong
+                    //_Instance = new DBHelper(@"Data Source=DESKTOP-5LQORUF;Initial Catalog=PBL3;Integrated Security=True");
+                }
+                return _Instance;
+            }
+            private set { }
+        }
         private SqlConnection cnn;
-        public DBHelper(string s)
+        private DBHelper(string s)
         {
             cnn = new SqlConnection(s);
         }
@@ -23,7 +41,7 @@ namespace pbl
             cnn.Close();
             return count;
         }
-        public int ExcuteDB(string query, SqlParameter p)
+        public int ExecuteDB(string query, SqlParameter p)
         {
             SqlCommand cmd = new SqlCommand(query, cnn);
             if(p != null) cmd.Parameters.Add(p);

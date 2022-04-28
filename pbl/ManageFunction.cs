@@ -115,9 +115,9 @@ namespace pbl
         public DataTable GetSchedule(string UserName, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, bool hasInputDep, bool hasInputDes)
         {
             string dep, des;
-            if (hasInputDep)   dep = $"= '{DepartureTime}'";
-            else    dep = $"between '{DepartureTime + " 0:0"}' and '{DepartureTime + " 23:59"}'";
-            if (hasInputDes)   des = $"= '{ArrivalTime}'";
+            if (hasInputDep) dep = $"= '{DepartureTime}'";
+            else dep = $"between '{DepartureTime + " 0:0"}' and '{DepartureTime + " 23:59"}'";
+            if (hasInputDes) des = $"= '{ArrivalTime}'";
             else des = $"between '{ArrivalTime + " 0:0"}' and '{ArrivalTime + " 23:59"}'";
             string query = "select distinct SCHEDULE.* from SCHEDULE inner join TRAIN on SCHEDULE.ScheduleID = TRAIN.ScheduleID " +
                 "inner join TICKET on TRAIN.TrainID = TICKET.TrainID inner join PEOPLE on TICKET.CustomerUN = PEOPLE.Username " +
@@ -149,9 +149,9 @@ namespace pbl
             return db.GetRecord(query, null);
         }
         private char[] Carriages = new char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-        public DataTable GetTicket(string UserName, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, int TrainID, string Carriages, bool hasInputDep, bool hasInputDes)
+        public DataTable GetTicket(string UserName, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, string TrainName, string Carriages, bool hasInputDep, bool hasInputDes)
         {
-            string cari, trainID;
+            string cari, train = "";
             if (Carriages == "") cari = "%";
             else cari = this.Carriages[Convert.ToInt32(Carriages) - 1] + "%";
             string dep, des;
@@ -159,18 +159,19 @@ namespace pbl
             else dep = $"between '{DepartureTime + " 0:0"}' and '{DepartureTime + " 23:59"}'";
             if (hasInputDes) des = $"= '{ArrivalTime}'";
             else des = $"between '{ArrivalTime + " 0:0"}' and '{ArrivalTime + " 23:59"}'";
-            if (TrainID == -1) trainID = "";
-            else trainID = $" TRAIN.TrainID = '{TrainID + 1}' and";
+            if (TrainName != "") train = $" TrainName = '{TrainName}' and";
             string query = "select TRAIN.ScheduleID, TRAIN.TrainID, TrainName, TicketID, SeatNo, TicketPrice, Departure, Destination, DepartureTime, ArrivalTime from PEOPLE inner join TICKET on PEOPLE.Username = TICKET.CustomerUN inner join TRAIN on TICKET.TrainID = TRAIN.TrainID" +
                 " inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where " +
                 $" Departure like N'{Departure + "%"}' and Destination like N'{Destination + "%"}' and DepartureTime {dep} and ArrivalTime {des} and" +
-                $"{trainID} SeatNo like '{cari}' and TICKET.CustomerUN = '{UserName}'";
+                $"{train} SeatNo like '{cari}' and TICKET.CustomerUN = '{UserName}'";
             return db.GetRecord(query, null);
         }
-        public DataTable GetTicket(string UserName, int TrainID)
+        public DataTable GetTicket(string UserName, string TrainName)
         {
+            string train = "";
+            if (TrainName != "") train = $" and TrainName = '{TrainName}'";
             string query = $"select TRAIN.ScheduleID, TRAIN.TrainID, TrainName, TicketID, SeatNo, TicketPrice, Departure, Destination, DepartureTime, ArrivalTime from PEOPLE inner join TICKET on PEOPLE.Username = TICKET.CustomerUN inner join TRAIN on TICKET.TrainID = TRAIN.TrainID" +
-                           $" inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where Username = '{UserName}' and Ticket.TrainID = '{TrainID + 1}'";
+                           $" inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where Username = '{UserName}'{train}";
             return db.GetRecord(query, null);
         }
         public DataTable GetTicket(string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
@@ -180,17 +181,18 @@ namespace pbl
                 $" Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}'";
             return db.GetRecord(query, null);
         }
-        public DataTable GetTicket(string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, int TrainID, string Carriages)
+        public DataTable GetTicket(string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime, string TrainName, string Carriages)
         {
             string cari;
             if (Carriages == "") cari = "%";
             else cari = this.Carriages[Convert.ToInt32(Carriages) - 1] + "%";
-            string trainID = "";
-            if(TrainID != -1) trainID = $"TRAIN.TrainID = '{TrainID + 1}' and ";
+            string train = "";
+            if (TrainName != "") train = $"TrainName = '{TrainName}' and ";
             string query = "select TRAIN.ScheduleID, TicketID, TrainName, SeatNo, Departure, Destination, DepartureTime, ArrivalTime, TicketPrice, Booked, Name from PEOPLE right outer join TICKET on PEOPLE.Username = TICKET.CustomerUN inner join TRAIN on TICKET.TrainID = TRAIN.TrainID" +
                 " inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where " +
                 $" Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}' and" +
-                $" {trainID} SeatNo like '{cari}'";
+                $" {train} SeatNo like '{cari}'";
+            MessageBox.Show(query);
             return db.GetRecord(query, null);
         }
         public void SetTicket(string TicketID, string UserName, bool type)
@@ -236,18 +238,22 @@ namespace pbl
                 $" TICKET.CustomerUN = '{UserName}'";
             return db.GetRecord(query, null);
         }
-        public string GetNumberOfCarriages(int TrainID)
+        public string GetNumberOfCarriages(string TrainName)
         {
-            string query = "select NumberOfCarriages from TRAIN where TrainID = '" + (TrainID + 1) + "'";
+            if (TrainName == "")
+                return "25";
+            string query = "select NumberOfCarriages from TRAIN where TrainName = '" + TrainName + "'";
             string dt = db.GetRecord(query, null).Rows[0][0].ToString();
             return dt;
         }
-        public int GetNumberBooked(int TrainID, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
+        public int GetNumberBooked(string TrainName, string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
         {
+            string train = "";
+            if (TrainName == "") train = $" and TrainName = '{TrainName}'";
             string query = "select Booked from TICKET inner join TRAIN on TICKET.TrainID = TRAIN.TrainID" +
                 " inner join SCHEDULE on TRAIN.ScheduleID = SCHEDULE.ScheduleID where " +
-                $" Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}' and" +
-                $" TRAIN.TrainID = '{TrainID + 1}'";
+                $" Departure like N'{Departure}%' and Destination like N'{Destination}%' and DepartureTime = '{DepartureTime}' and ArrivalTime = '{ArrivalTime}'" +
+                $"{train}";
             DataTable dt = db.GetRecord(query, null);
             int count = 0;
             foreach (DataRow dr in dt.Rows)

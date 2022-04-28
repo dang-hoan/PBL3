@@ -62,328 +62,330 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee\addve.cs">
+    <Compile Include="BLL\BLLTRAIN.cs" />
+    <Compile Include="DAL\DALTRAIN.cs" />
+    <Compile Include="DTO\PEOPLE.cs" />
+    <Compile Include="View\Employee\addve.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\addve.Designer.cs">
+    <Compile Include="View\Employee\addve.Designer.cs">
       <DependentUpon>addve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee\addlichtrinh.cs">
+    <Compile Include="View\Employee\addlichtrinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\addlichtrinh.Designer.cs">
+    <Compile Include="View\Employee\addlichtrinh.Designer.cs">
       <DependentUpon>addlichtrinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee\addkhachhang.cs">
+    <Compile Include="View\Employee\addkhachhang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\addkhachhang.Designer.cs">
+    <Compile Include="View\Employee\addkhachhang.Designer.cs">
       <DependentUpon>addkhachhang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee\datve.cs">
+    <Compile Include="View\Employee\datve.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\datve.Designer.cs">
+    <Compile Include="View\Employee\datve.Designer.cs">
       <DependentUpon>datve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AddForm.cs">
+    <Compile Include="View\Admin\AddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\AddForm.Designer.cs">
+    <Compile Include="View\Admin\AddForm.Designer.cs">
       <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\addschedule.cs">
+    <Compile Include="View\Admin\addschedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\addschedule.Designer.cs">
+    <Compile Include="View\Admin\addschedule.Designer.cs">
       <DependentUpon>addschedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\employee.cs">
+    <Compile Include="View\Admin\employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\employee.Designer.cs">
+    <Compile Include="View\Admin\employee.Designer.cs">
       <DependentUpon>employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Form1.cs">
+    <Compile Include="View\Admin\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Form1.Designer.cs">
+    <Compile Include="View\Admin\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\note.cs">
+    <Compile Include="View\Admin\note.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\note.Designer.cs">
+    <Compile Include="View\Admin\note.Designer.cs">
       <DependentUpon>note.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Passenger.cs">
+    <Compile Include="View\Admin\Passenger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Passenger.Designer.cs">
+    <Compile Include="View\Admin\Passenger.Designer.cs">
       <DependentUpon>Passenger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Schedule.cs">
+    <Compile Include="View\Admin\Schedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Schedule.Designer.cs">
+    <Compile Include="View\Admin\Schedule.Designer.cs">
       <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee\chat.cs">
+    <Compile Include="View\Employee\chat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\chat.Designer.cs">
+    <Compile Include="View\Employee\chat.Designer.cs">
       <DependentUpon>chat.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBHelper.cs" />
-    <Compile Include="Employee\employchinh.cs">
+    <Compile Include="DAL\DBHelper.cs" />
+    <Compile Include="View\Employee\employchinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\employchinh.Designer.cs">
+    <Compile Include="View\Employee\employchinh.Designer.cs">
       <DependentUpon>employchinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee\qlve.cs">
+    <Compile Include="View\Employee\qlve.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\qlve.Designer.cs">
+    <Compile Include="View\Employee\qlve.Designer.cs">
       <DependentUpon>qlve.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILogin.cs">
+    <Compile Include="View\GUILogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILogin.Designer.cs">
+    <Compile Include="View\GUILogin.Designer.cs">
       <DependentUpon>GUILogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee\khachhang.cs">
+    <Compile Include="View\Employee\khachhang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\khachhang.Designer.cs">
+    <Compile Include="View\Employee\khachhang.Designer.cs">
       <DependentUpon>khachhang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUISystemSchedule.cs">
+    <Compile Include="View\Passenger\GUISystemSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUISystemSchedule.Designer.cs">
+    <Compile Include="View\Passenger\GUISystemSchedule.Designer.cs">
       <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageFunction.cs" />
-    <Compile Include="Passenger\Form3.cs">
+    <Compile Include="View\Passenger\Form3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\Form3.Designer.cs">
+    <Compile Include="View\Passenger\Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUICalendar.cs">
+    <Compile Include="View\Passenger\GUICalendar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUICalendar.Designer.cs">
+    <Compile Include="View\Passenger\GUICalendar.Designer.cs">
       <DependentUpon>GUICalendar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\Form2.cs">
+    <Compile Include="View\Passenger\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\Form2.Designer.cs">
+    <Compile Include="View\Passenger\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIForget.cs">
+    <Compile Include="View\GUIForget.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIForget.Designer.cs">
+    <Compile Include="View\GUIForget.Designer.cs">
       <DependentUpon>GUIForget.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIPersonal.cs">
+    <Compile Include="View\GUIPersonal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIPersonal.Designer.cs">
+    <Compile Include="View\GUIPersonal.Designer.cs">
       <DependentUpon>GUIPersonal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUIFeedback.cs">
+    <Compile Include="View\Passenger\GUIFeedback.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUIFeedback.Designer.cs">
+    <Compile Include="View\Passenger\GUIFeedback.Designer.cs">
       <DependentUpon>GUIFeedback.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUIHelp.cs">
+    <Compile Include="View\Passenger\GUIHelp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUIHelp.Designer.cs">
+    <Compile Include="View\Passenger\GUIHelp.Designer.cs">
       <DependentUpon>GUIHelp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUIPrivateSchedule.cs">
+    <Compile Include="View\Passenger\GUIPrivateSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUIPrivateSchedule.Designer.cs">
+    <Compile Include="View\Passenger\GUIPrivateSchedule.Designer.cs">
       <DependentUpon>GUIPrivateSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUINotification.cs">
+    <Compile Include="View\Passenger\GUINotification.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUINotification.Designer.cs">
+    <Compile Include="View\Passenger\GUINotification.Designer.cs">
       <DependentUpon>GUINotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUISetting.cs">
+    <Compile Include="View\Passenger\GUISetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUISetting.Designer.cs">
+    <Compile Include="View\Passenger\GUISetting.Designer.cs">
       <DependentUpon>GUISetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUITicket.cs">
+    <Compile Include="View\Passenger\GUITicket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUITicket.Designer.cs">
+    <Compile Include="View\Passenger\GUITicket.Designer.cs">
       <DependentUpon>GUITicket.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUIDetailSchedule.cs">
+    <Compile Include="View\Passenger\GUIDetailSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUIDetailSchedule.Designer.cs">
+    <Compile Include="View\Passenger\GUIDetailSchedule.Designer.cs">
       <DependentUpon>GUIDetailSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUIBook.cs">
+    <Compile Include="View\Passenger\GUIBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUIBook.Designer.cs">
+    <Compile Include="View\Passenger\GUIBook.Designer.cs">
       <DependentUpon>GUIBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUIChat.cs">
+    <Compile Include="View\Passenger\GUIChat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUIChat.Designer.cs">
+    <Compile Include="View\Passenger\GUIChat.Designer.cs">
       <DependentUpon>GUIChat.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUI.cs">
+    <Compile Include="View\Passenger\GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUI.Designer.cs">
+    <Compile Include="View\Passenger\GUI.Designer.cs">
       <DependentUpon>GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\GUIOption.cs">
+    <Compile Include="View\Passenger\GUIOption.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUIOption.Designer.cs">
+    <Compile Include="View\Passenger\GUIOption.Designer.cs">
       <DependentUpon>GUIOption.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger\HandlerMyInterfaces.cs" />
-    <Compile Include="Passenger\GUISchedule.cs">
+    <Compile Include="View\Passenger\HandlerMyInterfaces.cs" />
+    <Compile Include="View\Passenger\GUISchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Passenger\GUISchedule.Designer.cs">
+    <Compile Include="View\Passenger\GUISchedule.Designer.cs">
       <DependentUpon>GUISchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="People.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CBBitem.cs" />
-    <Compile Include="Employee\lichtrinh.cs">
+    <Compile Include="DTO\CBBitem.cs" />
+    <Compile Include="View\Employee\lichtrinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\lichtrinh.Designer.cs">
+    <Compile Include="View\Employee\lichtrinh.Designer.cs">
       <DependentUpon>lichtrinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIRegister.cs">
+    <Compile Include="View\GUIRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIRegister.Designer.cs">
+    <Compile Include="View\GUIRegister.Designer.cs">
       <DependentUpon>GUIRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="objSCHEDULE.cs" />
-    <EmbeddedResource Include="Employee\addkhachhang.resx">
+    <EmbeddedResource Include="View\Employee\addkhachhang.resx">
       <DependentUpon>addkhachhang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee\addlichtrinh.resx">
+    <EmbeddedResource Include="View\Employee\addlichtrinh.resx">
       <DependentUpon>addlichtrinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee\addve.resx">
+    <EmbeddedResource Include="View\Employee\addve.resx">
       <DependentUpon>addve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee\datve.resx">
+    <EmbeddedResource Include="View\Employee\datve.resx">
       <DependentUpon>datve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\AddForm.resx">
+    <EmbeddedResource Include="View\Admin\AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\addschedule.resx">
+    <EmbeddedResource Include="View\Admin\addschedule.resx">
       <DependentUpon>addschedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\employee.resx">
+    <EmbeddedResource Include="View\Admin\employee.resx">
       <DependentUpon>employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Form1.resx">
+    <EmbeddedResource Include="View\Admin\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\note.resx">
+    <EmbeddedResource Include="View\Admin\note.resx">
       <DependentUpon>note.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Passenger.resx">
+    <EmbeddedResource Include="View\Admin\Passenger.resx">
       <DependentUpon>Passenger.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Schedule.resx">
+    <EmbeddedResource Include="View\Admin\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee\chat.resx">
+    <EmbeddedResource Include="View\Employee\chat.resx">
       <DependentUpon>chat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee\employchinh.resx">
+    <EmbeddedResource Include="View\Employee\employchinh.resx">
       <DependentUpon>employchinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILogin.resx">
+    <EmbeddedResource Include="View\GUILogin.resx">
       <DependentUpon>GUILogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee\khachhang.resx">
+    <EmbeddedResource Include="View\Employee\khachhang.resx">
       <DependentUpon>khachhang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUISystemSchedule.resx">
+    <EmbeddedResource Include="View\Passenger\GUISystemSchedule.resx">
       <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\Form3.resx">
+    <EmbeddedResource Include="View\Passenger\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUICalendar.resx">
+    <EmbeddedResource Include="View\Passenger\GUICalendar.resx">
       <DependentUpon>GUICalendar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\Form2.resx">
+    <EmbeddedResource Include="View\Passenger\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIForget.resx">
+    <EmbeddedResource Include="View\GUIForget.resx">
       <DependentUpon>GUIForget.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIPersonal.resx">
+    <EmbeddedResource Include="View\GUIPersonal.resx">
       <DependentUpon>GUIPersonal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUIFeedback.resx">
+    <EmbeddedResource Include="View\Passenger\GUIFeedback.resx">
       <DependentUpon>GUIFeedback.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUIHelp.resx">
+    <EmbeddedResource Include="View\Passenger\GUIHelp.resx">
       <DependentUpon>GUIHelp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUIPrivateSchedule.resx">
+    <EmbeddedResource Include="View\Passenger\GUIPrivateSchedule.resx">
       <DependentUpon>GUIPrivateSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUINotification.resx">
+    <EmbeddedResource Include="View\Passenger\GUINotification.resx">
       <DependentUpon>GUINotification.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUISetting.resx">
+    <EmbeddedResource Include="View\Passenger\GUISetting.resx">
       <DependentUpon>GUISetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUITicket.resx">
+    <EmbeddedResource Include="View\Passenger\GUITicket.resx">
       <DependentUpon>GUITicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUIDetailSchedule.resx">
+    <EmbeddedResource Include="View\Passenger\GUIDetailSchedule.resx">
       <DependentUpon>GUIDetailSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUIBook.resx">
+    <EmbeddedResource Include="View\Passenger\GUIBook.resx">
       <DependentUpon>GUIBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUIChat.resx">
+    <EmbeddedResource Include="View\Passenger\GUIChat.resx">
       <DependentUpon>GUIChat.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUI.resx">
+    <EmbeddedResource Include="View\Passenger\GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUIOption.resx">
+    <EmbeddedResource Include="View\Passenger\GUIOption.resx">
       <DependentUpon>GUIOption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Passenger\GUISchedule.resx">
+    <EmbeddedResource Include="View\Passenger\GUISchedule.resx">
       <DependentUpon>GUISchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -395,7 +397,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Employee\lichtrinh.resx">
+    <EmbeddedResource Include="View\Employee\lichtrinh.resx">
       <DependentUpon>lichtrinh.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -424,70 +426,71 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pArrow.Image.bmp" />
+    <None Include="View\Resources\pArrow.Image.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\align-justify.png" />
+    <None Include="View\Resources\align-justify.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bell.png" />
+    <None Include="View\Resources\bell.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\calendar.png" />
+    <None Include="View\Resources\calendar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\caret-down.png" />
+    <None Include="View\Resources\caret-down.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\comment.png" />
+    <None Include="View\Resources\comment.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\home.png" />
+    <None Include="View\Resources\home.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\interrogation %281%29.png" />
+    <None Include="View\Resources\interrogation %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\R %281%29.jpg" />
+    <None Include="View\Resources\R %281%29.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\settings-gears.png" />
+    <None Include="View\Resources\settings-gears.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ticket.png" />
+    <None Include="View\Resources\ticket.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\thumbs-up.png" />
+    <None Include="View\Resources\thumbs-up.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play.png" />
+    <None Include="View\Resources\play.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\play1.png" />
+    <None Include="View\Resources\play1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\train-logo.png" />
+    <None Include="View\Resources\train-logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\clip.png" />
+    <None Include="View\Resources\clip.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\man-user.png" />
+    <None Include="View\Resources\man-user.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\search.png" />
+    <None Include="View\Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\send.png" />
+    <None Include="View\Resources\send.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\download.png" />
+    <None Include="View\Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\settings-sliders.png" />
+    <None Include="View\Resources\settings-sliders.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\picture.png" />
+    <None Include="View\Resources\picture.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

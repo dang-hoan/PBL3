@@ -25,6 +25,7 @@ namespace pbl
         private void Init()
         {
             DataTable dt = man.GetTrain(GUI.userName).DefaultView.ToTable(true, "TrainName");
+            cbbTrain.Items.Add("Tất cả");
             foreach (DataRow dr in dt.Rows)
             {
                 cbbTrain.Items.Add(dr[0]);
@@ -65,10 +66,12 @@ namespace pbl
         }
         private void Reload()
         {
+            string TrainName = "";
+            if(cbbTrain.Text != "Tìm theo tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
             if (clickSchedule)
-                dataGridView1.DataSource = man.GetTicket(GUI.userName, Departure, Destination, Type, DepartureTime, DestinationTime, cbbTrain.SelectedIndex, "", hasInputDep, hasInputDes);
+                dataGridView1.DataSource = man.GetTicket(GUI.userName, Departure, Destination, Type, DepartureTime, DestinationTime, TrainName, "", hasInputDep, hasInputDes);
             else
-                dataGridView1.DataSource = man.GetTicket(GUI.userName, cbbTrain.SelectedIndex);
+                dataGridView1.DataSource = man.GetTicket(GUI.userName, TrainName);
         }
         private void Schedule_Click(object sender, EventArgs e)
         {
