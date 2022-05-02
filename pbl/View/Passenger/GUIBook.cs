@@ -7,37 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
+using pbl.DTO;
 
 namespace pbl
 {
     public partial class GUIBook : Form
     {
-        ManageFunction man = new ManageFunction();
         int numberOfCarriages = 25;
         Image imageLeft1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1) - Copy.png"), imageRight1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1).png");
         Image imageLeft2 = (Image)new Bitmap(@"C:\PBL3\picture\play1.png"), imageRight2 = (Image)new Bitmap(@"C:\PBL3\picture\play.png");
-        private string Departure, Destination, DepartureTime, ArrivalTime;
-        private bool Type;
-        //List<objSCHEDULE> schedule;
-        public GUIBook(string Departure, string Destination, string DepartureTime, string ArrivalTime)
+        private List<string> list = null;
+        public GUIBook(List<string> list)
         {
             InitializeComponent();
-            //this.schedule = list;
-            this.Departure = Departure;
-            this.Destination = Destination;
-            this.DepartureTime = DepartureTime;
-            this.ArrivalTime = ArrivalTime;
+            this.list = list;
             Init();
-            dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime);
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(list);
         }
         private void Init()
         {
-            DataTable dt = man.GetTrain(Departure, Destination, Type, DepartureTime, ArrivalTime).DefaultView.ToTable(true, "TrainName");
             cbbTrain.Items.Add("Tất cả");
-            foreach (DataRow dr in dt.Rows)
-            {
-                cbbTrain.Items.Add(dr[0]);
-            }
+            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(list).Distinct().ToArray());
             pLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(pLeft_MouseMove);
             pLeft.MouseLeave += new System.EventHandler(pLeft_MouseLeave);
             pRight.MouseMove += new System.Windows.Forms.MouseEventHandler(pRight_MouseMove);
@@ -55,7 +46,7 @@ namespace pbl
                     }
                     else
                     {
-                        man.SetTicket(dt.Cells["TicketID"].Value.ToString(), GUI.userName, true);
+                        BLLTRAIN.Instance.SetTicket(dt.Cells["TicketID"].Value.ToString(), GUILogin.userName, true);
                         MessageBox.Show("Đã đặt thành công những vé bạn chọn!");
                     }
                 }
@@ -72,7 +63,7 @@ namespace pbl
         {
             string TrainName = "";
             if(cbbTrain.Text != "Chọn một tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
-            numberOfCarriages = Convert.ToInt32(man.GetNumberOfCarriages(TrainName));
+            numberOfCarriages = BLLTRAIN.Instance.GetNumberOfCarriages(TrainName);
         }
         private void ChangeLocation(Label lab)
         {
@@ -93,15 +84,12 @@ namespace pbl
 
         private void bSearch_Click(object sender, EventArgs e)
         {
-            string TrainName = "";
-            if(cbbTrain.Text != "Chọn một tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
-            labelBooked.Text = man.GetNumberBooked(TrainName, Departure, Destination, Type, DepartureTime, ArrivalTime).ToString();
-            dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime, TrainName, labelCarriage.Text);
+            Reload();
         }
 
         private void bShowAll_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime);
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(list);
         }
 
         private void pRight_Click(object sender, EventArgs e)
@@ -120,7 +108,11 @@ namespace pbl
         }
         private void Reload()
         {
-            dataGridView1.DataSource = man.GetTicket(Departure, Destination, Type, DepartureTime, ArrivalTime);
+            string TrainName = ""; int booked = 0, unbooked = 0;
+            if (cbbTrain.Text != "Chọn một tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(list, TrainName, Convert.ToInt32(labelCarriage.Text), ref booked, ref unbooked);
+            labelBooked.Text = booked.ToString();
+            labelUnbooked.Text = unbooked.ToString();
         }
 
         private void pRight_MouseMove(object sender, EventArgs e)

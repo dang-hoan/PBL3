@@ -7,25 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
 
 namespace pbl
 {
     public partial class GUI : Form
     {
         private Form login;
-        public static string userName;
         private Form form = null;
         private HandlerMyInterfaces handler = new HandlerMyInterfaces(Color.FromArgb(0, 192, 0), Color.FromArgb(0, 140, 0), Color.Green);
-        private ManageFunction man = new ManageFunction();
         public GUI(Form login, string userName)
         {
             InitializeComponent();
             this.Size = new Size(750, 528);
-            ShowForm(CreatForm());
-            this.login = login;
-            GUI.userName = userName;
-            labelName.Text = man.GetName(userName);
+            labelName.Text = BLLTRAIN.Instance.GetName(userName);
+            ShowForm(CreatForm());            
             AddHandler();
+            this.login = login;
         }        
         private Form CreatForm()
         {
@@ -201,11 +199,6 @@ namespace pbl
         {
             this.Close();
             login.Show();
-        }
-
-        private void panel_User_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void panel_Content_Click(object sender, EventArgs e)

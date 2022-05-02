@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace pbl.DTO
 {
-    internal class LOGIN
+    public class POSITION
     {
+        public string PositionID { get; set; }
+        public string Position { get; set; }
     }
 }

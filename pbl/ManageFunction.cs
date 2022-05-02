@@ -24,14 +24,14 @@ namespace pbl
             dt = db.GetRecord(query, null);
             foreach (DataRow i in dt.Rows)
             {
-                if (i["Username"].ToString().Equals(userName) && i["PassWord"].ToString().Equals(passWord))
+                if (i["Username"].ToString().Equals(userName) && i["Password"].ToString().Equals(passWord))
                 {
                     string query2 = "select Position from POSITION inner join PEOPLE on POSITION.PositionID = PEOPLE.PositionID " +
                         "where Username = '" + i["Username"].ToString() + "'";
                     DataTable dt2 = db.GetRecord(query2, null);
-                    if (dt2.Rows[0]["Position"].Equals("Giám đốc"))
+                    if (dt2.Rows[0]["Position"].ToString().Equals("Giám đốc"))
                         return 1;
-                    else if (dt2.Rows[0]["Position"].Equals("Nhân viên"))
+                    else if (dt2.Rows[0]["Position"].ToString().Equals("Nhân viên"))
                         return 2;
                     else return 3;
                 }
@@ -46,7 +46,7 @@ namespace pbl
         public bool setPass(string UserName, string passWord, string newPass)
         {
             string query2 = $"update LOGIN set PassWord = '{newPass}' where Username = '{UserName}' and PassWord = '{passWord}'";
-            if (db.ExcuteDB(query2, null) != -1) return true;
+            if (db.ExecuteDB(query2, null) != -1) return true;
             else return false;
         }
         public void setInfo(string UserName, string Name, bool Gender, string BirthDay, string Address, string IDCard, string Email, string Phone)
@@ -60,7 +60,7 @@ namespace pbl
                 $", Email = '{Email}'" +
                 $", Phone = '{Phone}'" +
                 $" where Username = '{UserName}'";
-            db.ExcuteDB(query, null);
+            db.ExecuteDB(query, null);
         }
 
 
@@ -212,7 +212,7 @@ namespace pbl
                     "CustomerUN = NULL " +
                     "where TicketID = '" + TicketID + "'";
             }
-            db.ExcuteDB(query, null);
+            db.ExecuteDB(query, null);
         }
         public DataTable GetTrain(string UserName)
         {
@@ -276,7 +276,7 @@ namespace pbl
         public void Addnv(string Username, string Name, bool Gender, DateTime BirthDay, string Address, string IDCard, string Email, string Phone, string PositionID)
         {
             string query = $"INSERT INTO  PEOPLE VALUES ('{Username}',N'{Name}','{Gender}','{BirthDay}','{Address}','{IDCard}','{Email}','{Phone}','{PositionID}') ";
-            db.ExcuteDB(query, null);
+            db.ExecuteDB(query, null);
             //GetAllNV();
         }
 

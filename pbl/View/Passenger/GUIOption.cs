@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
+using pbl.DTO;
 
 namespace pbl
 {
@@ -15,7 +17,7 @@ namespace pbl
         ManageFunction man = new ManageFunction();
         DateTimePicker dateDep = new DateTimePicker(); 
         DateTimePicker dateDes = new DateTimePicker();
-        public delegate void MyDel(string Departure, string Destination, bool Type, string DepartureTime, string DestinationTime, bool hasInputDep, bool hasInputDes);
+        public delegate void MyDel(SCHEDULE s);
         public MyDel d { get; set; }
         private void Date(string s, ref string date, ref string hour, ref string minute)
         {
@@ -37,24 +39,27 @@ namespace pbl
                 }
             }
         }
-        public GUIOption(string Departure, string Destination, bool Type, string DepartureTime, string ArrivalTime)
+        public GUIOption(SCHEDULE s)
         {
             InitializeComponent();
-            cbbDep.Text = Departure;
-            cbbDes.Text = Destination;
-            if (Type) rbOne.Checked = true;
-            else rbRound.Checked = true;
-            Init(DepartureTime, ArrivalTime);           
+            cbbDep.Text = s.Departure;
+            cbbDes.Text = s.Destination;
+            Init(s.DepartureTime.ToString(), s.ArrivalTime.ToString());
         }
         private void Init(string DepartureTime, string ArrivalTime)
         {
-            DataTable dt = man.GetStation(GUI.userName);
-            foreach(DataRow dr in dt.Rows)
+            List<string> listDep = new List<string>();
+            List<string> listDes = new List<string>();
+            BLLTRAIN.Instance.GetStation(GUILogin.userName, ref listDep, ref listDes);
+            foreach (string s in listDep.Distinct())
             {
-                cbbDep.Items.Add(dr[0]);
-                cbbDes.Items.Add(dr[1]);
+                cbbDep.Items.Add(s);
             }
-            for(int i = 0; i < 24; i++)
+            foreach (string s in listDes.Distinct())
+            {
+                cbbDes.Items.Add(s);
+            }
+            for (int i = 0; i < 24; i++)
             {
                 cbbHourDep.Items.Add(i);
                 cbbHourDes.Items.Add(i);
@@ -86,87 +91,73 @@ namespace pbl
             cbbHourDep.Text = hourDep; cbbMinuteDep.Text = minuteDep;
             string des = "", hourDes = "", minuteDes = "";
             Date(ArrivalTime, ref des, ref hourDes, ref minuteDes);
-            if (des != "") dateDes.Value = Convert.ToDateTime(des); cbbHourDes.Text = hourDes; cbbMinuteDes.Text = minuteDes;
+            if (des != "") dateDes.Value = Convert.ToDateTime(des);
+            cbbHourDes.Text = hourDes; cbbMinuteDes.Text = minuteDes;
         }
         private void bAccept_Click(object sender, EventArgs e)
         {
-            bool hasInputDep = false;
-            bool hasInputDes = false;
             string DepTime, DesTime;
-            DepTime = dateDep.Value.ToString("yyyy/MM/dd");
-            DesTime = dateDes.Value.ToString("yyyy/MM/dd");
+            DepTime = dateDep.Value.ToString("d/M/yyyy");
+            DesTime = dateDes.Value.ToString("d/M/yyyy");
             if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
             {
                 DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-                hasInputDep = true;
-            }
-            else if (cbbHourDep.Text != "")
-            {
-                DepTime += " " + cbbHourDep.Text + ":" + "0";
-                hasInputDep = true;
             }
             if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
             {
                 DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
-                hasInputDes = true;
             }
-            else if (cbbHourDes.Text != "")
+            SCHEDULE s = new SCHEDULE
             {
-                DesTime += " " + cbbHourDes.Text + ":" + "0";
-                hasInputDes = true;
-            }
-            d(cbbDep.Text, cbbDes.Text, rbOne.Checked || !rbRound.Checked, DepTime, DesTime, hasInputDep, hasInputDes);
+                ScheduleID = "",
+                Departure = cbbDep.Text,
+                Destination = cbbDes.Text,
+                DepartureTime = DepTime,
+                ArrivalTime = DesTime
+            };
+            d(s);
             this.Close();
         }
-
         private void bCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataTable dt = man.GetStation(GUI.userName);
-        }
-
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
-            DataTable dt = man.GetStation(GUI.userName);
             cbbDes.Items.Clear();
             if (cbbDep.Text != "")
             {
-                foreach (DataRow dr in dt.Rows)
+                foreach (string s in BLLTRAIN.Instance.GetDestination(GUILogin.userName).Distinct())
                 {
-                    cbbDes.Items.Add(dr[1]);
+                    cbbDes.Items.Add(s);
                 }
-                cbbDes.Items.Remove(cbbDep.SelectedItem);
+                cbbDes.Items.Remove(cbbDep.Text);
             }
             else
             {
-                foreach (DataRow dr in dt.Rows)
+                foreach (string s in BLLTRAIN.Instance.GetDestination(GUILogin.userName).Distinct())
                 {
-                    cbbDes.Items.Add(dr[1]);
+                    cbbDes.Items.Add(s);
                 }
             }
         }
 
         private void cbbDes_TextChanged(object sender, EventArgs e)
         {
-            DataTable dt = man.GetStation(GUI.userName);
             cbbDep.Items.Clear();
             if (cbbDes.Text != "")
             {
-                foreach (DataRow dr in dt.Rows)
+                foreach (string s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName).Distinct())
                 {
-                    cbbDep.Items.Add(dr[0]);
+                    cbbDep.Items.Add(s);
                 }
                 cbbDep.Items.Remove(cbbDes.SelectedItem);
             }
             else
             {
-                foreach (DataRow dr in dt.Rows)
+                foreach (string s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName).Distinct())
                 {
-                    cbbDep.Items.Add(dr[0]);
+                    cbbDep.Items.Add(s);
                 }
             }
         }

@@ -44,6 +44,8 @@
             this.bBook = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.labelUnbooked = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pLeft)).BeginInit();
@@ -55,6 +57,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.labelUnbooked);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.bShowAll);
             this.panel1.Controls.Add(this.bSearch);
             this.panel1.Controls.Add(this.pSave);
@@ -117,7 +121,7 @@
             this.labelBooked.AutoSize = true;
             this.labelBooked.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBooked.ForeColor = System.Drawing.Color.Red;
-            this.labelBooked.Location = new System.Drawing.Point(659, 70);
+            this.labelBooked.Location = new System.Drawing.Point(507, 65);
             this.labelBooked.Name = "labelBooked";
             this.labelBooked.Size = new System.Drawing.Size(61, 68);
             this.labelBooked.TabIndex = 13;
@@ -127,17 +131,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(605, 49);
+            this.label5.Location = new System.Drawing.Point(481, 44);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 19);
+            this.label5.Size = new System.Drawing.Size(108, 19);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Số vé đã bán của tàu";
+            this.label5.Text = "Số vé đã bán";
             // 
             // labelCarriage
             // 
             this.labelCarriage.AutoSize = true;
             this.labelCarriage.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCarriage.Location = new System.Drawing.Point(455, 83);
+            this.labelCarriage.Location = new System.Drawing.Point(338, 80);
             this.labelCarriage.Name = "labelCarriage";
             this.labelCarriage.Size = new System.Drawing.Size(36, 40);
             this.labelCarriage.TabIndex = 10;
@@ -147,7 +151,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(434, 49);
+            this.label2.Location = new System.Drawing.Point(317, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 19);
             this.label2.TabIndex = 9;
@@ -157,7 +161,7 @@
             // 
             this.pLeft.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pLeft.Image = ((System.Drawing.Image)(resources.GetObject("pLeft.Image")));
-            this.pLeft.Location = new System.Drawing.Point(412, 81);
+            this.pLeft.Location = new System.Drawing.Point(295, 78);
             this.pLeft.Name = "pLeft";
             this.pLeft.Size = new System.Drawing.Size(25, 50);
             this.pLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -169,7 +173,7 @@
             // 
             this.pRight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pRight.Image = ((System.Drawing.Image)(resources.GetObject("pRight.Image")));
-            this.pRight.Location = new System.Drawing.Point(507, 81);
+            this.pRight.Location = new System.Drawing.Point(390, 78);
             this.pRight.Name = "pRight";
             this.pRight.Size = new System.Drawing.Size(25, 50);
             this.pRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -181,7 +185,7 @@
             // 
             this.cbbTrain.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTrain.FormattingEnabled = true;
-            this.cbbTrain.Location = new System.Drawing.Point(205, 43);
+            this.cbbTrain.Location = new System.Drawing.Point(88, 40);
             this.cbbTrain.Name = "cbbTrain";
             this.cbbTrain.Size = new System.Drawing.Size(138, 27);
             this.cbbTrain.TabIndex = 6;
@@ -231,12 +235,33 @@
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(205, 53);
+            this.pictureBox4.Location = new System.Drawing.Point(88, 50);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(138, 114);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
+            // 
+            // labelUnbooked
+            // 
+            this.labelUnbooked.AutoSize = true;
+            this.labelUnbooked.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUnbooked.ForeColor = System.Drawing.Color.Red;
+            this.labelUnbooked.Location = new System.Drawing.Point(667, 65);
+            this.labelUnbooked.Name = "labelUnbooked";
+            this.labelUnbooked.Size = new System.Drawing.Size(61, 68);
+            this.labelUnbooked.TabIndex = 62;
+            this.labelUnbooked.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(631, 43);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(129, 19);
+            this.label6.TabIndex = 61;
+            this.label6.Text = "Số vé chưa bán";
             // 
             // GUIBook
             // 
@@ -275,5 +300,7 @@
         private System.Windows.Forms.PictureBox pSave;
         private System.Windows.Forms.Button bSearch;
         private System.Windows.Forms.Button bShowAll;
+        private System.Windows.Forms.Label labelUnbooked;
+        private System.Windows.Forms.Label label6;
     }
 }

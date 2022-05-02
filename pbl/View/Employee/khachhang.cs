@@ -20,7 +20,7 @@ namespace pbl
         }
         public void show(int id, string txt)
         {
-     
+
             string q = "";
             if (id == 0)
             {
@@ -28,14 +28,14 @@ namespace pbl
             }
             else
                 q = "select ID,Name,Gender,Birthday,Email,Phone,POSITION.Position from PEOPLE inner join POSITION on PEOPLE.PositionID = POSITION.PositionID where PEOPLE.PositionID = " + id + "and Name like '%" + txt + "%'";
-       
-            dataGridView1.DataSource = db.GetRecord(q,null);
+
+            dataGridView1.DataSource = db.GetRecord(q, null);
         }
-       
+
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void butdel_Click(object sender, EventArgs e)
@@ -46,14 +46,14 @@ namespace pbl
             {
                 string MSSV = Convert.ToString(r.Cells["MSSV"].Value);
                 string q = "delete from SV where MSSV ='" + MSSV + "'";
-                db.ExcuteDB(q,null);
+                db.ExecuteDB(q, null);
 
             }
             show(0, "");
         }
-       private void buttimkiem_Click(object sender, EventArgs e)
+        private void buttimkiem_Click(object sender, EventArgs e)
         {
-         
+
             show(0, txtsearch.Text);
         }
     }

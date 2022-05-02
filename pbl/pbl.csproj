@@ -64,7 +64,14 @@
   <ItemGroup>
     <Compile Include="BLL\BLLTRAIN.cs" />
     <Compile Include="DAL\DALTRAIN.cs" />
+    <Compile Include="DTO\PEOPLE_View.cs" />
     <Compile Include="DTO\PEOPLE.cs" />
+    <Compile Include="DTO\POSITION.cs" />
+    <Compile Include="DTO\SCHEDULE.cs" />
+    <Compile Include="DTO\TICKET_User_View.cs" />
+    <Compile Include="DTO\TICKET_View.cs" />
+    <Compile Include="DTO\TRAIN.cs" />
+    <Compile Include="DTO\TICKET.cs" />
     <Compile Include="View\Employee\addve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,7 +281,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DTO\CBBitem.cs" />
+    <Compile Include="DTO\CBBItem.cs" />
     <Compile Include="View\Employee\lichtrinh.cs">
       <SubType>Form</SubType>
     </Compile>
