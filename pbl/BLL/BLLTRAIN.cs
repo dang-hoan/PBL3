@@ -65,31 +65,32 @@ namespace pbl.BLL
                     {
                         foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
                         {
-                            if(ti.Booked == false)
+                            if (ti.TrainID.Equals(t.TrainID))
                             {
-                                result.Add(new TICKET_View
+                                if (ti.Booked == false)
                                 {
-                                    ScheduleID = t.ScheduleID,
-                                    TrainID = t.TrainID,
-                                    TrainName = t.TrainName,
-                                    TicketID = ti.TicketID,
-                                    SeatNo = ti.SeatNo,
-                                    TicketPrice = ti.TicketPrice,
-                                    Departure = s.Departure,
-                                    Destination = s.Destination,
-                                    DepartureTime = s.DepartureTime,
-                                    ArrivalTime = s.ArrivalTime,
-                                    Booked = ti.Booked,
-                                    OwnUsername = "",
-                                    OwnName = ""
-                                });
-                                continue;
-                            }
-                            foreach (PEOPLE p in DALTRAIN.Instance.GetAllPEOPLE())
-                            {
-                                if (p.Username.Equals(ti.CustomerUN))
+                                    result.Add(new TICKET_View
+                                    {
+                                        ScheduleID = t.ScheduleID,
+                                        TrainID = t.TrainID,
+                                        TrainName = t.TrainName,
+                                        TicketID = ti.TicketID,
+                                        SeatNo = ti.SeatNo,
+                                        TicketPrice = ti.TicketPrice,
+                                        Departure = s.Departure,
+                                        Destination = s.Destination,
+                                        DepartureTime = s.DepartureTime,
+                                        ArrivalTime = s.ArrivalTime,
+                                        Booked = ti.Booked,
+                                        OwnUsername = "",
+                                        OwnName = ""
+                                    });
+                                    continue;
+                                }
+                                foreach (PEOPLE p in DALTRAIN.Instance.GetAllPEOPLE())
                                 {
-                                    if (ti.TrainID.Equals(t.TrainID))
+                                    if (p.Username.Equals(ti.CustomerUN))
+                                    {
                                         result.Add(new TICKET_View
                                         {
                                             ScheduleID = t.ScheduleID,
@@ -106,10 +107,10 @@ namespace pbl.BLL
                                             OwnUsername = p.Username,
                                             OwnName = p.Name
                                         });
-                                    break;
+                                        break;
+                                    }
                                 }
                             }
-
                         }
                     }
                 }
@@ -485,7 +486,7 @@ namespace pbl.BLL
                                     result += "Ga đi: " + s.Departure + "\n";
                                     result += "Ga đến: " + s.Destination + "\n";
                                     result += "Thời gian khởi hành:\n" + s.DepartureTime + "\n";
-                                    result += "Thời gian đến:\n" + s.ArrivalTime;
+                                    result += "Thời gian đến:\n" + s.ArrivalTime + "\n";
                                     UngetSchedule = false;
                                     break;
                                 }
