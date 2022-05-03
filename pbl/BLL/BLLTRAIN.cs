@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//3 loop able: list<SCHEDULE>, list<PEOPLE>, list<POSITION>
 namespace pbl.BLL
 {
     public class BLLTRAIN
@@ -64,6 +65,26 @@ namespace pbl.BLL
                     {
                         foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
                         {
+                            if(ti.Booked == false)
+                            {
+                                result.Add(new TICKET_View
+                                {
+                                    ScheduleID = t.ScheduleID,
+                                    TrainID = t.TrainID,
+                                    TrainName = t.TrainName,
+                                    TicketID = ti.TicketID,
+                                    SeatNo = ti.SeatNo,
+                                    TicketPrice = ti.TicketPrice,
+                                    Departure = s.Departure,
+                                    Destination = s.Destination,
+                                    DepartureTime = s.DepartureTime,
+                                    ArrivalTime = s.ArrivalTime,
+                                    Booked = ti.Booked,
+                                    OwnUsername = "",
+                                    OwnName = ""
+                                });
+                                continue;
+                            }
                             foreach (PEOPLE p in DALTRAIN.Instance.GetAllPEOPLE())
                             {
                                 if (p.Username.Equals(ti.CustomerUN))
