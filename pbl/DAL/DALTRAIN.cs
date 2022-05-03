@@ -46,12 +46,12 @@ namespace pbl.DAL
         public int UpdatePEOPLE(PEOPLE p)
         {
             return DBHelper.Instance.ExecuteDB("update PEOPLE set " +
-                $"Name = N'{p.Name}' " +
-                $"Gender = '{((p.Gender.Equals("Nam"))?true:false)}' " +
-                $"BirthDay = '{p.BirthDay.ToString("yyyy/MM/dd HH:mm:ss")}' " +
-                $"Address = N'{p.Address}' " +
-                $"IDCard = '{p.IDCard}' " +
-                $"Email = '{p.Email}' " +
+                $"Name = N'{p.Name}', " +
+                $"Gender = '{((p.Gender.Equals("Nam"))?true:false)}', " +
+                $"BirthDay = '{p.BirthDay.ToString("yyyy/MM/dd HH:mm:ss")}', " +
+                $"Address = N'{p.Address}', " +
+                $"IDCard = '{p.IDCard}', " +
+                $"Email = '{p.Email}', " +
                 $"Phone = '{p.Phone}' " +
                 $"where Username = '{p.Username}'", null);
         }
