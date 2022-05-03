@@ -94,8 +94,8 @@ namespace pbl
         private void bSearch_Click(object sender, EventArgs e)
         {
             string DepTime, DesTime;
-            DepTime = dateDep.Value.ToString("d/m/yyyy");
-            DesTime = dateDes.Value.ToString("d/m/yyyy");
+            DepTime = dateDep.Value.ToString("d/M/yyyy");
+            DesTime = dateDes.Value.ToString("d/M/yyyy");
             if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
             {
                 DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;

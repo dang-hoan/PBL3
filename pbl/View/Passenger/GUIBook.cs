@@ -47,7 +47,7 @@ namespace pbl
                     else
                     {
                         BLLTRAIN.Instance.SetTicket(dt.Cells["TicketID"].Value.ToString(), GUILogin.userName, true);
-                        MessageBox.Show("Đã đặt thành công những vé bạn chọn!");
+                        MessageBox.Show($"Đã đặt thành công vé có mã {dt.Cells["TicketID"].Value.ToString()}!");
                     }
                 }
                 Reload();
