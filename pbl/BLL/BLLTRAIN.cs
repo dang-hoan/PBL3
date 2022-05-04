@@ -379,46 +379,84 @@ namespace pbl.BLL
                 }
             }
         }
-        public List<string> GetDeparture(string userName)
+        public List<string> GetDeparture(string userName, string Destination)
         {
             List<string> result = new List<string>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
+            if(Destination != "")
+                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
                 {
-                    if (t.ScheduleID.Equals(s.ScheduleID))
+                    if(s.Destination.Equals(Destination))
+                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
                     {
-                        foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
+                        if (t.ScheduleID.Equals(s.ScheduleID))
                         {
-                            if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
+                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
                             {
-                                result.Add(s.Departure);
+                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
+                                {
+                                    result.Add(s.Departure);
+                                }
                             }
                         }
                     }
                 }
-            }
+            else
+                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
+                {
+                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
+                    {
+                        if (t.ScheduleID.Equals(s.ScheduleID))
+                        {
+                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
+                            {
+                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
+                                {
+                                    result.Add(s.Departure);
+                                }
+                            }
+                        }
+                    }
+                }
             return result;
         }
-        public List<string> GetDestination(string userName)
+        public List<string> GetDestination(string userName, string Departure)
         {
             List<string> result = new List<string>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
+            if(Departure != "")
+                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
                 {
-                    if (t.ScheduleID.Equals(s.ScheduleID))
+                    if (s.Departure.Equals(Departure))
+                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
                     {
-                        foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
+                        if (t.ScheduleID.Equals(s.ScheduleID))
                         {
-                            if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
+                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
                             {
-                                result.Add(s.Destination);
+                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
+                                {
+                                    result.Add(s.Destination);
+                                }
                             }
                         }
                     }
                 }
-            }
+            else
+                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
+                {
+                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
+                    {
+                        if (t.ScheduleID.Equals(s.ScheduleID))
+                        {
+                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
+                            {
+                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
+                                {
+                                    result.Add(s.Destination);
+                                }
+                            }
+                        }
+                    }
+                }
             return result;
         }
         public void GetStation(ref List<string> cbbDep, ref List<string> cbbDes)
@@ -429,22 +467,36 @@ namespace pbl.BLL
                 cbbDes.Add(s.Destination);
             }
         }
-        public List<string> GetDeparture()
+        public List<string> GetDeparture(string Destination)
         {
             List<string> result = new List<string>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                result.Add(s.Departure);
-            }
+            if(Destination != "")
+                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
+                {
+                    if(s.Destination.Equals(Destination))
+                        result.Add(s.Departure);
+                }
+            else
+                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
+                {
+                    result.Add(s.Departure);
+                }
             return result;
         }
-        public List<string> GetDestination()
+        public List<string> GetDestination(string Departure)
         {
             List<string> result = new List<string>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                result.Add(s.Destination);
-            }
+            if(Departure != "")
+                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
+                {
+                    if (s.Departure.Equals(Departure))
+                        result.Add(s.Destination);
+                }
+            else
+                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
+                {
+                    result.Add(s.Destination);
+                }
             return result;
         }
         public List<SCHEDULE> GetSchedule(string userName)
