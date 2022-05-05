@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
+using pbl.DTO;
 
 namespace pbl
 {
     public partial class GUICalendar : Form
     {
-        ManageFunction man = new ManageFunction();
         Label[] label = new Label[31];
         HandlerMyInterfaces handler = new HandlerMyInterfaces(Color.Silver, Color.DarkGray, Color.Gray);
         HandlerMyInterfaces handler2 = new HandlerMyInterfaces(Color.FromArgb(0, 192, 0), Color.FromArgb(0, 170, 0), Color.Green);
@@ -85,7 +86,7 @@ namespace pbl
             if (hasSchedule[Convert.ToInt32(label.Text) - 1])
             {
                 label.BackColor = Color.Green;
-                labelContent.Text = man.GetSchedule(GUI.userName, label.Text, cbbMonth.Text, cbbYear.Text);
+                labelContent.Text = BLLTRAIN.Instance.GetSchedule(GUILogin.userName, label.Text, cbbMonth.Text, cbbYear.Text);
                 panel_Detail.Visible = true;
             }
             else
@@ -104,8 +105,6 @@ namespace pbl
                 return;
             }
             panel_Detail.Visible = false;
-            DataTable dt = man.GetDepartureTime(GUI.userName);
-            DateTime key;
 
             int year = Convert.ToInt32(cbbYear.Text);
             if (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)) numberDayOf[1] = 29;
@@ -130,20 +129,16 @@ namespace pbl
                 hasSchedule[i] = false;
                 label[i].BackColor = Color.Silver;
             }
-            foreach(DataRow i in dt.Rows)
+            foreach(int i in BLLTRAIN.Instance.GetDayOfDepartureTime(cbbMonth.Text, cbbYear.Text, GUILogin.userName))
             {
-                key = (DateTime)i[0];
-                if (key.Month.ToString().Equals(cbbMonth.Text) && key.Year.ToString().Equals(cbbYear.Text))
+                if (!hasSchedule[i - 1])
                 {
-                    if (!hasSchedule[key.Day - 1])
-                    {
-                        label[key.Day - 1].BackColor = Color.FromArgb(0, 192, 0);
-                        label[key.Day - 1].MouseMove -= new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
-                        label[key.Day - 1].MouseLeave -= new System.EventHandler(handler.Controls_MouseLeave);
-                        label[key.Day - 1].MouseMove += new System.Windows.Forms.MouseEventHandler(handler2.Controls_MouseMove);
-                        label[key.Day - 1].MouseLeave += new System.EventHandler(handler2.Controls_MouseLeave);
-                        hasSchedule[key.Day - 1] = true;
-                    }
+                    label[i - 1].BackColor = Color.FromArgb(0, 192, 0);
+                    label[i - 1].MouseMove -= new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+                    label[i - 1].MouseLeave -= new System.EventHandler(handler.Controls_MouseLeave);
+                    label[i - 1].MouseMove += new System.Windows.Forms.MouseEventHandler(handler2.Controls_MouseMove);
+                    label[i - 1].MouseLeave += new System.EventHandler(handler2.Controls_MouseLeave);
+                    hasSchedule[i - 1] = true;
                 }
             }
         }

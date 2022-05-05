@@ -86,7 +86,6 @@
             this.panel_User.Name = "panel_User";
             this.panel_User.Size = new System.Drawing.Size(245, 316);
             this.panel_User.TabIndex = 5;
-            this.panel_User.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_User_Paint);
             // 
             // labelLogOut
             // 

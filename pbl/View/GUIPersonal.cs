@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
+using pbl.DTO;
 
 namespace pbl
 {
     public partial class GUIPersonal : Form
     {
-        ManageFunction man = new ManageFunction();
         public GUIPersonal()
         {
             InitializeComponent();
@@ -20,12 +21,11 @@ namespace pbl
         }
         private void GUI()
         {
-            DataTable dt = man.getInfo(GUILogin.userName);
-
+            PEOPLE_View p = BLLTRAIN.Instance.GetPEOPLEViewByUsername(GUILogin.userName)[0];
             //infor
-            txtUsername.Text = dt.Rows[0][0].ToString();
-            txtName.Text = dt.Rows[0][1].ToString();
-            if (Convert.ToBoolean(dt.Rows[0][2].ToString()))
+            txtUsername.Text = p.Username;
+            txtName.Text = p.Name;
+            if (p.Gender.Equals("Nam"))
             {
                 rbMale.Checked = true;
             }
@@ -33,12 +33,12 @@ namespace pbl
             {
                 rbFemale.Checked = true;
             }
-            txtBirthDay.Value = Convert.ToDateTime(dt.Rows[0][3].ToString());
-            txtAddress.Text = dt.Rows[0][4].ToString();
-            txtIDCard.Text = dt.Rows[0][5].ToString();
-            txtEmail.Text = dt.Rows[0][6].ToString();
-            txtPhone.Text = dt.Rows[0][7].ToString();
-            txtPosition.Text = dt.Rows[0][9].ToString();
+            txtBirthDay.Value = p.BirthDay;
+            txtAddress.Text = p.Address;
+            txtIDCard.Text = p.IDCard;
+            txtEmail.Text = p.Email;
+            txtPhone.Text = p.Phone;
+            txtPosition.Text = p.Position;
         }
         private void bEditPass_Click(object sender, EventArgs e)
         {
@@ -57,7 +57,7 @@ namespace pbl
             {
                 MessageBox.Show("Mật khẩu cũ không đúng!");
             }
-            else if (man.setPass(GUILogin.userName, txtOld.Text, txtNew.Text))
+            else if (BLLTRAIN.Instance.UpdatePass(GUILogin.userName, txtOld.Text, txtNew.Text) == 1)
             {
                 MessageBox.Show("Đổi mật khẩu thành công!");
                 txtOld.Text = "";
@@ -87,16 +87,28 @@ namespace pbl
 
         private void bSaveInfor_Click(object sender, EventArgs e)
         {
-            man.setInfo(GUILogin.userName, txtName.Text, rbMale.Checked || !rbFemale.Checked, txtBirthDay.Value.ToString("yyyy/MM/dd"), txtAddress.Text, txtIDCard.Text, txtEmail.Text, txtPhone.Text);
-            MessageBox.Show("Chỉnh sửa thông tin thành công!");
-            txtName.Enabled = false;
-            rbMale.Enabled = false;
-            rbFemale.Enabled = false;
-            txtBirthDay.Enabled = false;
-            txtAddress.Enabled = false;
-            txtIDCard.Enabled = false;
-            txtEmail.Enabled = false;
-            txtPhone.Enabled = false;
+            if(BLLTRAIN.Instance.UpdatePEOPLE(new PEOPLE
+            {
+                Username = GUILogin.userName,
+                Name = txtName.Text,
+                Gender = rbMale.Checked ? "Nam" : "Nữ",
+                BirthDay = txtBirthDay.Value,
+                Address = txtAddress.Text,
+                IDCard = txtIDCard.Text,
+                Email = txtEmail.Text,
+                Phone = txtPhone.Text
+            }) == 1)
+            {
+                MessageBox.Show("Chỉnh sửa thông tin thành công!");
+                txtName.Enabled = false;
+                rbMale.Enabled = false;
+                rbFemale.Enabled = false;
+                txtBirthDay.Enabled = false;
+                txtAddress.Enabled = false;
+                txtIDCard.Enabled = false;
+                txtEmail.Enabled = false;
+                txtPhone.Enabled = false;
+            }
         }
     }
 }

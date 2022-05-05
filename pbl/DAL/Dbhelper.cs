@@ -29,7 +29,7 @@ namespace pbl
             private set { }
         }
         private SqlConnection cnn;
-        private DBHelper(string s)
+        public DBHelper(string s)
         {
             cnn = new SqlConnection(s);
         }

@@ -47,10 +47,5 @@ namespace pbl
             ChangeColor(bSystem);
             ShowForm(new GUISystemSchedule());
         }
-
-        private void GUISchedule_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

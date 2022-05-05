@@ -24,14 +24,14 @@ namespace pbl
             dt = db.GetRecord(query, null);
             foreach (DataRow i in dt.Rows)
             {
-                if (i["Username"].ToString().Equals(userName) && i["PassWord"].ToString().Equals(passWord))
+                if (i["Username"].ToString().Equals(userName) && i["Password"].ToString().Equals(passWord))
                 {
                     string query2 = "select Position from POSITION inner join PEOPLE on POSITION.PositionID = PEOPLE.PositionID " +
                         "where Username = '" + i["Username"].ToString() + "'";
                     DataTable dt2 = db.GetRecord(query2, null);
-                    if (dt2.Rows[0]["Position"].Equals("Giám đốc"))
+                    if (dt2.Rows[0]["Position"].ToString().Equals("Giám đốc"))
                         return 1;
-                    else if (dt2.Rows[0]["Position"].Equals("Nhân viên"))
+                    else if (dt2.Rows[0]["Position"].ToString().Equals("Nhân viên"))
                         return 2;
                     else return 3;
                 }

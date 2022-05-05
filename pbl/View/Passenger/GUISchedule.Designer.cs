@@ -73,7 +73,6 @@
             this.Controls.Add(this.panel_Main);
             this.Name = "GUISchedule";
             this.Text = "MainSchedule";
-            this.Load += new System.EventHandler(this.GUISchedule_Load);
             this.ResumeLayout(false);
 
         }

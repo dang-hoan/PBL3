@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pbl.DTO
 {
-    public class PEOPLE
+    public class PEOPLE_View
     {
         public string Username { get; set; }
         public string Name { get; set; }
@@ -16,6 +16,6 @@ namespace pbl.DTO
         public string IDCard { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string PositionID { get; set; }
+        public string Position { get; set; }
     }
 }

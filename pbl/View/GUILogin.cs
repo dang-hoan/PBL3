@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
 
 namespace pbl
 {
     public partial class GUILogin : Form
     {
-        ManageFunction man = new ManageFunction();
         public static string userName;
         public GUILogin()
         {
@@ -35,32 +35,32 @@ namespace pbl
                 labelNotify.ForeColor = Color.White;
                 return;
             }
-            int result = man.checkAccount(txtusername.Text, txtpass.Text);
+            string result = BLLTRAIN.Instance.CheckAccount(txtusername.Text, txtpass.Text);
             switch (result)
             {
-                case 0:
+                case "Không tồn tại":
                     {
                         labelNotify.Text = "*Tên đăng nhập hoặc mật khẩu không đúng!";
                         labelNotify.Location = new Point(panel1.Location.X + 40, btdangnhap.Location.Y - 20);
                         labelNotify.BackColor = Color.Transparent;
                         labelNotify.ForeColor = Color.White;
-                        break;
+                        return;
                     }
-                case 1:
+                case "Giám đốc":
                     {
                         Form1 f = new Form1(this);
                         f.Show();
                         this.Hide();
                         break;
                     }
-                case 2:
+                case "Nhân viên":
                     {
                         Employeechinh f = new Employeechinh(this);
                         f.Show();
                         this.Hide();
                         break;
                     }
-                case 3:
+                case "Khách hàng":
                     {
                         GUI g = new GUI(this, txtusername.Text);
                         g.Show();
