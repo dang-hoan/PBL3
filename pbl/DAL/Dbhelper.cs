@@ -18,11 +18,11 @@ namespace pbl
                 if (_Instance == null)
                 {
                     //Hoan
-                    _Instance = new DBHelper(@"Data Source=DESKTOP-DKTP37G\CSDL;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
+                    // _Instance = new DBHelper(@"Data Source=DESKTOP-DKTP37G\CSDL;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
                     //Đức
                     //_Instance = new DBHelper(@"");
                     //Phong
-                    //_Instance = new DBHelper(@"Data Source=DESKTOP-5LQORUF;Initial Catalog=PBL3;Integrated Security=True");
+                    _Instance = new DBHelper(@"Data Source=DESKTOP-59M8QSM\SQLEXPRESS;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
                 }
                 return _Instance;
             }

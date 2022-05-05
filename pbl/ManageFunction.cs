@@ -12,11 +12,11 @@ namespace pbl
     public class ManageFunction
     {
         //Hoan
-        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-DKTP37G\CSDL;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
+       // private DBHelper db = new DBHelper(@"Data Source=DESKTOP-DKTP37G\CSDL;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
         //Đức
         //private DBHelper db = new DBHelper(@"");
         //Phong
-        //private DBHelper db = new DBHelper(@"Data Source=DESKTOP-5LQORUF;Initial Catalog=PBL3;Integrated Security=True");
+        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-59M8QSM\SQLEXPRESS;Initial Catalog=PBL3;User ID=Nhom4;Password=12345678");
         public int checkAccount(string userName, string passWord)
         {
             DataTable dt = new DataTable();
@@ -46,7 +46,7 @@ namespace pbl
         public bool setPass(string UserName, string passWord, string newPass)
         {
             string query2 = $"update LOGIN set PassWord = '{newPass}' where Username = '{UserName}' and PassWord = '{passWord}'";
-            if (db.ExcuteDB(query2, null) != -1) return true;
+            if (db.ExecuteDB(query2, null) != -1) return true;
             else return false;
         }
         public void setInfo(string UserName, string Name, bool Gender, string BirthDay, string Address, string IDCard, string Email, string Phone)
@@ -60,7 +60,7 @@ namespace pbl
                 $", Email = '{Email}'" +
                 $", Phone = '{Phone}'" +
                 $" where Username = '{UserName}'";
-            db.ExcuteDB(query, null);
+            db.ExecuteDB(query, null);
         }
 
 
@@ -212,7 +212,7 @@ namespace pbl
                     "CustomerUN = NULL " +
                     "where TicketID = '" + TicketID + "'";
             }
-            db.ExcuteDB(query, null);
+            db.ExecuteDB(query, null);
         }
         public DataTable GetTrain(string UserName)
         {
@@ -276,7 +276,7 @@ namespace pbl
         public void Addnv(string Username, string Name, bool Gender, DateTime BirthDay, string Address, string IDCard, string Email, string Phone, string PositionID)
         {
             string query = $"INSERT INTO  PEOPLE VALUES ('{Username}',N'{Name}','{Gender}','{BirthDay}','{Address}','{IDCard}','{Email}','{Phone}','{PositionID}') ";
-            db.ExcuteDB(query, null);
+            db.ExecuteDB(query, null);
             //GetAllNV();
         }
 

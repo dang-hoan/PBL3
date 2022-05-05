@@ -8,12 +8,13 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.DAL;
 
 namespace pbl
 {
     public partial class khachhang : Form
     {
-        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-5LQORUF;Initial Catalog=PBL3;Integrated Security=True");
+        //private DBHelper db = new DBHelper(@"Data Source=DESKTOP-5LQORUF;Initial Catalog=PBL3;Integrated Security=True");
         public khachhang()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace pbl
             else
                 q = "select ID,Name,Gender,Birthday,Email,Phone,POSITION.Position from PEOPLE inner join POSITION on PEOPLE.PositionID = POSITION.PositionID where PEOPLE.PositionID = " + id + "and Name like '%" + txt + "%'";
        
-            dataGridView1.DataSource = db.GetRecord(q,null);
+           // dataGridView1.DataSource = db.GetRecord(q,null);
         }
        
 
@@ -46,7 +47,7 @@ namespace pbl
             {
                 string MSSV = Convert.ToString(r.Cells["MSSV"].Value);
                 string q = "delete from SV where MSSV ='" + MSSV + "'";
-                db.ExcuteDB(q,null);
+               // db.ExcuteDB(q,null);
 
             }
             show(0, "");
