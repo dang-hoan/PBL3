@@ -36,9 +36,10 @@ namespace pbl
                 return;
             }
             string result = BLLTRAIN.Instance.CheckAccount(txtusername.Text, txtpass.Text);
+            
             switch (result)
             {
-                case "Không tồn tại":
+                case "null":
                     {
                         labelNotify.Text = "*Tên đăng nhập hoặc mật khẩu không đúng!";
                         labelNotify.Location = new Point(panel1.Location.X + 40, btdangnhap.Location.Y - 20);

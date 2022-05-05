@@ -41,12 +41,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.butthem = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.butcancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label9
@@ -164,15 +165,15 @@
             this.label10.TabIndex = 102;
             this.label10.Text = "Ga đi";
             // 
-            // button4
+            // butthem
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(658, 250);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 100;
-            this.button4.Text = "thêm ";
-            this.button4.UseVisualStyleBackColor = true;
+            this.butthem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butthem.Location = new System.Drawing.Point(644, 250);
+            this.butthem.Name = "butthem";
+            this.butthem.Size = new System.Drawing.Size(89, 30);
+            this.butthem.TabIndex = 100;
+            this.butthem.Text = "Thêm";
+            this.butthem.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -219,11 +220,22 @@
             this.comboBox2.Size = new System.Drawing.Size(65, 24);
             this.comboBox2.TabIndex = 120;
             // 
+            // butcancel
+            // 
+            this.butcancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butcancel.Location = new System.Drawing.Point(516, 250);
+            this.butcancel.Name = "butcancel";
+            this.butcancel.Size = new System.Drawing.Size(89, 30);
+            this.butcancel.TabIndex = 123;
+            this.butcancel.Text = "Hủy";
+            this.butcancel.UseVisualStyleBackColor = true;
+            // 
             // addve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.butcancel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.comboBox2);
@@ -242,7 +254,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.butthem);
             this.Name = "addve";
             this.Text = "addve";
             this.ResumeLayout(false);
@@ -264,11 +276,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button butthem;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button butcancel;
     }
 }

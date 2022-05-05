@@ -8,53 +8,35 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
 
 namespace pbl
 {
     public partial class khachhang : Form
     {
-        private DBHelper db = new DBHelper(@"Data Source=DESKTOP-5LQORUF;Initial Catalog=PBL3;Integrated Security=True");
+        //private DBHelper db = new DBHelper(@"Data Source=DESKTOP-5LQORUF;Initial Catalog=PBL3;Integrated Security=True");
         public khachhang()
         {
             InitializeComponent();
+            cbbshow.Items.Add(new CBBItem { Value = 0, Text = "All" });
+            cbbshow.Items.AddRange(BLLpeople.instance.GetCBBs().ToArray());
         }
-        public void show(int id, string txt)
+        PBL3 db = new PBL3();
+        public void show(string username)
         {
-
-            string q = "";
-            if (id == 0)
-            {
-                q = "select ID,Name,Gender,Birthday,Email,Phone,POSITION.Position from PEOPLE inner join POSITION on PEOPLE.PositionID = POSITION.PositionID where Name like '%" + txt + "%'";
-            }
-            else
-                q = "select ID,Name,Gender,Birthday,Email,Phone,POSITION.Position from PEOPLE inner join POSITION on PEOPLE.PositionID = POSITION.PositionID where PEOPLE.PositionID = " + id + "and Name like '%" + txt + "%'";
-
-            dataGridView1.DataSource = db.GetRecord(q, null);
+            dataGridView1.DataSource = BLLpeople.instance.GetSVByIDLop(username);
         }
-
-
-        private void btAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void butdel_Click(object sender, EventArgs e)
         {
-            DataGridViewSelectedRowCollection row = dataGridView1.SelectedRows;
-
-            foreach (DataGridViewRow r in row)
+            if ( dataGridView1.SelectedRows.Count > 0 )
             {
-                string MSSV = Convert.ToString(r.Cells["MSSV"].Value);
-                string q = "delete from SV where MSSV ='" + MSSV + "'";
-                db.ExecuteDB(q, null);
-
+                foreach(DataGridView row in dataGridView1.SelectedRows)
+                {
+                   
+                    BLLpeople.instance.delperson(row.Cells["Username"].Value.Tostring());
+                }
+                show("");
             }
-            show(0, "");
-        }
-        private void buttimkiem_Click(object sender, EventArgs e)
-        {
-
-            show(0, txtsearch.Text);
         }
     }
 }

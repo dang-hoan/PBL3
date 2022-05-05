@@ -132,3 +132,4 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
 C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
+C:\PBL3\pbl\obj\Debug\pbl.Employee.qlve.resources
