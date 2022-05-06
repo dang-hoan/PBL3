@@ -32,17 +32,15 @@ namespace pbl.BLL
         public string CheckAccount(string Username, string Password)
         {
             PBL3 db = new PBL3();
-            var ketqua = from u in db.LOGINs
-                         where u.Username == Username && u.PassWord == Password
-                         select u.Username;
             foreach(LOGIN log in db.LOGINs)
             {
                 if(log.Username.Equals(Username) && log.PassWord.Equals(Password))
                 {
-                    return from pos in db.POSITIONs
-                           join peo in db.PEOPLE
-                           where pos.PositionID.Equals(peo.PositionID)
-                           select pos.Position;
+                    var result = from pos in db.POSITIONs
+                                 join peo in db.PEOPLE on pos.PositionID equals peo.PositionID
+                                 where peo.Username.Equals(Username)
+                                 select pos.Position;
+                    return result.FirstOrDefault();
                 }
             }
             return "Không tồn tại";
