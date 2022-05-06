@@ -11,7 +11,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PEOPLE">
-      <EntityTypeMapping TypeName="PBL3Model.Person">
+      <EntityTypeMapping TypeName="PBL3Model.PEOPLE">
         <MappingFragment StoreEntitySet="PEOPLE">
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -29,7 +29,7 @@
       <EntityTypeMapping TypeName="PBL3Model.POSITION">
         <MappingFragment StoreEntitySet="POSITION">
           <ScalarProperty Name="PositionID" ColumnName="PositionID" />
-          <ScalarProperty Name="Position1" ColumnName="Position" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

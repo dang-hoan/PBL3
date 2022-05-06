@@ -19,21 +19,21 @@ namespace pbl
         {
             InitializeComponent();
             cbbshow.Items.Add(new CBBItem { Value = 0, Text = "All" });
-            cbbshow.Items.AddRange(BLLpeople.instance.GetCBBs().ToArray());
+            cbbshow.Items.AddRange(BLLTRAIN.Instance.GetCBBs().ToArray());
         }
         PBL3 db = new PBL3();
         public void show(string username)
         {
-            dataGridView1.DataSource = BLLpeople.instance.GetSVByIDLop(username);
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetSVByIDLop(username);
         }
         private void butdel_Click(object sender, EventArgs e)
         {
             if ( dataGridView1.SelectedRows.Count > 0 )
             {
-                foreach(DataGridView row in dataGridView1.SelectedRows)
+                foreach(DataGridViewRow row in dataGridView1.SelectedRows)
                 {
                    
-                    BLLpeople.instance.delperson(row.Cells["Username"].Value.Tostring());
+                    BLLTRAIN.Instance.delperson(row.Cells["Username"].Value.ToString());
                 }
                 show("");
             }

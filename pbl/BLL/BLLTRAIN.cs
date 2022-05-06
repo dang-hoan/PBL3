@@ -124,94 +124,46 @@ namespace pbl.BLL
         public List<TICKET_View> GetAllTICKETView()
         {
             PBL3 db = new PBL3();
-            List<TICKET_View> result = new List<TICKET_View>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                {
-                    if (t.ScheduleID.Equals(s.ScheduleID))
-                    {
-                        foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                        {
-                            if (ti.TrainID.Equals(t.TrainID))
-                            {
-                                if (ti.Booked == false)
-                                {
-                                    result.Add(new TICKET_View
-                                    {
-                                        ScheduleID = t.ScheduleID,
-                                        TrainID = t.TrainID,
-                                        TrainName = t.TrainName,
-                                        TicketID = ti.TicketID,
-                                        SeatNo = ti.SeatNo,
-                                        TicketPrice = ti.TicketPrice,
-                                        Departure = s.Departure,
-                                        Destination = s.Destination,
-                                        DepartureTime = s.DepartureTime,
-                                        ArrivalTime = s.ArrivalTime,
-                                        Booked = ti.Booked,
-                                        OwnUsername = "",
-                                        OwnName = ""
-                                    });
-                                    continue;
-                                }
-                                foreach (PEOPLE p in DALTRAIN.Instance.GetAllPEOPLE())
-                                {
-                                    if (p.Username.Equals(ti.CustomerUN))
-                                    {
-                                        result.Add(new TICKET_View
-                                        {
-                                            ScheduleID = t.ScheduleID,
-                                            TrainID = t.TrainID,
-                                            TrainName = t.TrainName,
-                                            TicketID = ti.TicketID,
-                                            SeatNo = ti.SeatNo,
-                                            TicketPrice = ti.TicketPrice,
-                                            Departure = s.Departure,
-                                            Destination = s.Destination,
-                                            DepartureTime = s.DepartureTime,
-                                            ArrivalTime = s.ArrivalTime,
-                                            Booked = ti.Booked,
-                                            OwnUsername = p.Username,
-                                            OwnName = p.Name
-                                        });
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return result;
+            var result = from SCHEDULE sch in db.SCHEDULEs
+                       join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                       join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                       join PEOPLE peo in db.PEOPLE on tic.CustomerUN equals peo.Username
+                       select new TICKET_View
+                       {
+                           ScheduleID = tra.ScheduleID,
+                           TrainID = tra.TrainID,
+                           TrainName = tra.TrainName,
+                           TicketID = tic.TicketID,
+                           SeatNo = tic.SeatNo,
+                           TicketPrice = tic.TicketPrice.ToString(),
+                           Departure = sch.Departure,
+                           Destination = sch.Destination,
+                           DepartureTime = sch.DepartureTime.ToString(),
+                           ArrivalTime = sch.ArrivalTime.ToString(),
+                           Booked = (bool)tic.Booked,
+                           OwnUsername = tic.CustomerUN,
+                           OwnName = peo.Name
+                       };
+            return result.ToList();
         }
         public List<PEOPLE_View> GetAllPEOPLEView()
         {
             PBL3 db = new PBL3();
-            List<PEOPLE_View> result = new List<PEOPLE_View>();
-            foreach (PEOPLE p in DALTRAIN.Instance.GetAllPEOPLE())
-            {
-                foreach (POSITION po in DALTRAIN.Instance.GetAllPOSITION())
-                {
-                    if (po.PositionID.Equals(p.PositionID))
-                    {
-                        result.Add(new PEOPLE_View
-                        {
-                            Username = p.Username,
-                            Name = p.Name,
-                            Gender = p.Gender,
-                            BirthDay = p.BirthDay,
-                            Address = p.Address,
-                            IDCard = p.IDCard,
-                            Email = p.Email,
-                            Phone = p.Phone,
-                            Position = po.Position
-                        });
-                        break;
-                    }
-                }
-            }
-            return result;
+            var result = from PEOPLE peo in db.PEOPLE
+                         join POSITION pos in db.POSITIONs on peo.PositionID equals pos.PositionID
+                         select new PEOPLE_View
+                         {
+                             Username = peo.Username,
+                             Name = peo.Name,
+                             Gender = ((bool)peo.Gender)?"Nam":"Nữ",
+                             BirthDay = (DateTime)peo.BirthDay,
+                             Address = peo.Address,
+                             IDCard = peo.IDCard,
+                             Email = peo.Email,
+                             Phone = peo.Phone,
+                             Position = pos.Position
+                         };
+            return result.ToList();
         }
         public List<PEOPLE_View> GetPEOPLEViewByUsername(string Username)
         {
@@ -239,73 +191,62 @@ namespace pbl.BLL
         public string GetName(string Username)
         {
             PBL3 db = new PBL3();
-            foreach (PEOPLE p in DALTRAIN.Instance.GetAllPEOPLE())
-            {
-                if (p.Username.Equals(Username)) return p.Name;
-            }
-            return "";
+            var result = from peo in db.PEOPLE
+                         where peo.Username.Equals(Username)
+                         select peo.Name;
+            return result.FirstOrDefault();
         }
         public List<TICKET_User_View> GetTicket(string userName)
         {
             PBL3 db = new PBL3();
-            List<TICKET_User_View> result = new List<TICKET_User_View>();
-            foreach (TICKET_View t in BLLTRAIN.Instance.GetAllTICKETView())
-            {
-                if (t.OwnUsername.Equals(userName)) result.Add(new TICKET_User_View
-                {
-                    ScheduleID = t.ScheduleID,
-                    TrainID = t.TrainID,
-                    TrainName = t.TrainName,
-                    TicketID = t.TicketID,
-                    SeatNo = t.SeatNo,
-                    TicketPrice = t.TicketPrice,
-                    Departure = t.Departure,
-                    Destination = t.Destination,
-                    DepartureTime = t.DepartureTime,
-                    ArrivalTime = t.ArrivalTime
-                });
-            }
-            return result;
+            var result = from SCHEDULE sch in db.SCHEDULEs
+                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                         join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                         join PEOPLE peo in db.PEOPLE on tic.CustomerUN equals peo.Username
+                         where tic.CustomerUN.Equals(userName)
+                         select new TICKET_User_View
+                         {
+                             ScheduleID = tra.ScheduleID,
+                             TrainID = tra.TrainID,
+                             TrainName = tra.TrainName,
+                             TicketID = tic.TicketID,
+                             SeatNo = tic.SeatNo,
+                             TicketPrice = tic.TicketPrice.ToString(),
+                             Departure = sch.Departure,
+                             Destination = sch.Destination,
+                             DepartureTime = sch.DepartureTime.ToString(),
+                             ArrivalTime = sch.ArrivalTime.ToString()
+                         };
+            return result.ToList();
         }
-        public List<TICKET_User_View> GetTicket(SCHEDULE schedule, string userName, string TrainName)
+        public List<TICKET_User_View> GetTicket(SCHEDULE_View schedule, string userName, string TrainName)
         {
             PBL3 db = new PBL3();
             bool Dep = false, Des = false, Train = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
             if (TrainName == "") Train = true;
-            List<TICKET_User_View> result = new List<TICKET_User_View>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                if ((Dep || s.Departure.Equals(schedule.Departure)) && (Des || s.Destination.Equals(schedule.Destination))
-                    && s.DepartureTime.Contains(schedule.DepartureTime) && s.ArrivalTime.Contains(schedule.ArrivalTime))
-                {
-                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                    {
-                        if (t.ScheduleID.Equals(s.ScheduleID) && (Train || t.TrainName.Equals(TrainName)))
-                        {
-                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                            {
-                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName)) result.Add(new TICKET_User_View
-                                {
-                                    ScheduleID = t.ScheduleID,
-                                    TrainID = t.TrainID,
-                                    TrainName = t.TrainName,
-                                    TicketID = ti.TicketID,
-                                    SeatNo = ti.SeatNo,
-                                    TicketPrice = ti.TicketPrice,
-                                    Departure = s.Departure,
-                                    Destination = s.Destination,
-                                    DepartureTime = s.DepartureTime,
-                                    ArrivalTime = s.ArrivalTime
-                                });
-                            }
-                        }
-                    }
-
-                }
-            }
-            return result;
+            var result = from SCHEDULE sch in db.SCHEDULEs
+                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                         join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
+                               && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
+                               && sch.ArrivalTime.ToString("d/M/yyyy H:m:s").Contains(schedule.ArrivalTime)
+                               && (Train || tra.TrainName.Equals(TrainName)) && tic.CustomerUN.Equals(userName)
+                         select new TICKET_User_View
+                         {
+                             ScheduleID = tra.ScheduleID,
+                             TrainID = tra.TrainID,
+                             TrainName = tra.TrainName,
+                             TicketID = tic.TicketID,
+                             SeatNo = tic.SeatNo,
+                             TicketPrice = tic.TicketPrice.ToString(),
+                             Departure = sch.Departure,
+                             Destination = sch.Destination,
+                             DepartureTime = sch.DepartureTime.ToString(),
+                             ArrivalTime = sch.ArrivalTime.ToString()
+                         };
+            return result.ToList();
         }
         public List<TICKET_View> GetTicket(List<string> list)
         {
@@ -346,45 +287,27 @@ namespace pbl.BLL
         public List<string> GetTrain(string userName)
         {
             PBL3 db = new PBL3();
-            List<string> result = new List<string>();
-            foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-            {
-                foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                {
-                    if (ti.TrainID.Equals(t.TrainID))
-                    {
-                        if (ti.CustomerUN.Equals(userName)) result.Add(t.TrainName);
-                        else break;
-                    }
-                }
-            }
-            return result;
+            var result = from tra in db.TRAINs
+                         join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                         where tic.CustomerUN.Equals(userName)
+                         select tra.TrainName;
+            return result.ToList();
         }
-        public List<string> GetTrain(SCHEDULE schedule, string userName)
+        public List<string> GetTrain(SCHEDULE_View schedule, string userName)
         {
             PBL3 db = new PBL3();
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            List<string> result = new List<string>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                if ((Dep || s.Departure.Equals(schedule.Departure)) && (Des || s.Destination.Equals(schedule.Destination))
-                    && s.DepartureTime.Contains(schedule.DepartureTime) && s.ArrivalTime.Contains(schedule.ArrivalTime))
-                {
-                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                    {
-                        if (t.ScheduleID.Equals(s.ScheduleID))
-                        {
-                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                            {
-                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName)) result.Add(t.TrainName);
-                            }
-                        }
-                    }
-                }
-            }
-            return result;
+            var result = from SCHEDULE sch in db.SCHEDULEs
+                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                         join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
+                               && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
+                               && sch.ArrivalTime.ToString("d/M/yyyy H:m:s").Contains(schedule.ArrivalTime)
+                               && tic.CustomerUN.Equals(userName)
+                         select tra.TrainName;
+            return result.ToList();
         }
         public List<string> GetTrain(List<string> list)
         {
@@ -392,7 +315,7 @@ namespace pbl.BLL
             List<string> result = new List<string>();
             foreach (string id in list)
             {
-                foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
+                foreach (TRAIN t in db.TRAINs)
                 {
                     if (t.ScheduleID.Equals(id))
                     {
@@ -405,19 +328,23 @@ namespace pbl.BLL
         public void SetTicket(string TicketID, string userName, bool booked)
         {
             PBL3 db = new PBL3();
-            DALTRAIN.Instance.SetTicket(TicketID, userName, booked);
+            TICKET tic = db.TICKETs.Find(TicketID);
+            tic.CustomerUN = userName;
+            tic.Booked = booked;
+            db.SaveChanges();
         }
         public int GetNumberOfCarriages(string TrainName)
         {
             PBL3 db = new PBL3();
+            int result = 25;
             if (TrainName == "")
-                return 25;
-            foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
+                return result; 
+            foreach (TRAIN t in db.TRAINs)
             {
                 if (t.TrainName.Equals(TrainName))
-                    return t.NumberOfCarriages;
+                    result = t.NumberOfCarriages;
             }
-            return 25;
+            return result;
         }
         public int GetNumberBooked(List<string> list, string TrainName)
         {
@@ -427,11 +354,11 @@ namespace pbl.BLL
             if (TrainName == "") Train = true;
             foreach (string id in list)
             {
-                foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
+                foreach (TRAIN t in db.TRAINs)
                 {
                     if (t.ScheduleID.Equals(id) && (Train || t.TrainName.Equals(TrainName)))
                     {
-                        foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
+                        foreach (TICKET ti in db.TICKETs)
                         {
                             if (ti.TrainID.Equals(t.TrainID) && ti.Booked == true) result++;
                         }
@@ -443,167 +370,88 @@ namespace pbl.BLL
         public void GetStation(string userName, ref List<string> cbbDep, ref List<string> cbbDes)
         {
             PBL3 db = new PBL3();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                {
-                    if (t.ScheduleID.Equals(s.ScheduleID))
-                    {
-                        foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                        {
-                            if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
-                            {
-                                cbbDep.Add(s.Departure);
-                                cbbDes.Add(s.Destination);
-                            }
-                        }
-                    }
-                }
-            }
+            cbbDep = (from sch in db.SCHEDULEs
+                     join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                     join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                     where tic.CustomerUN.Equals(userName)
+                     select sch.Departure).ToList();
+            cbbDes = (from sch in db.SCHEDULEs
+                     join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                     join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                     where tic.CustomerUN.Equals(userName)
+                     select sch.Destination).ToList();
         }
         public List<string> GetDeparture(string userName, string Destination)
         {
             PBL3 db = new PBL3();
-            List<string> result = new List<string>();
-            if (Destination != "")
-                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-                {
-                    if (s.Destination.Equals(Destination))
-                        foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                        {
-                            if (t.ScheduleID.Equals(s.ScheduleID))
-                            {
-                                foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                                {
-                                    if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
-                                    {
-                                        result.Add(s.Departure);
-                                    }
-                                }
-                            }
-                        }
-                }
+            if(Destination != "")
+                return (from sch in db.SCHEDULEs
+                       join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                       join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                       where tic.CustomerUN.Equals(userName) && sch.Destination.Equals(Destination)
+                       select sch.Departure).ToList();
             else
-                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-                {
-                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                    {
-                        if (t.ScheduleID.Equals(s.ScheduleID))
-                        {
-                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                            {
-                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
-                                {
-                                    result.Add(s.Departure);
-                                }
-                            }
-                        }
-                    }
-                }
-            return result;
+                return (from sch in db.SCHEDULEs
+                        join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                        join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                        where tic.CustomerUN.Equals(userName)
+                        select sch.Departure).ToList();
         }
         public List<string> GetDestination(string userName, string Departure)
         {
             PBL3 db = new PBL3();
-            List<string> result = new List<string>();
             if (Departure != "")
-                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-                {
-                    if (s.Departure.Equals(Departure))
-                        foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                        {
-                            if (t.ScheduleID.Equals(s.ScheduleID))
-                            {
-                                foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                                {
-                                    if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
-                                    {
-                                        result.Add(s.Destination);
-                                    }
-                                }
-                            }
-                        }
-                }
+                return (from sch in db.SCHEDULEs
+                        join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                        join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                        where tic.CustomerUN.Equals(userName) && sch.Departure.Equals(Departure)
+                        select sch.Destination).ToList();
             else
-                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-                {
-                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                    {
-                        if (t.ScheduleID.Equals(s.ScheduleID))
-                        {
-                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                            {
-                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
-                                {
-                                    result.Add(s.Destination);
-                                }
-                            }
-                        }
-                    }
-                }
-            return result;
+                return (from sch in db.SCHEDULEs
+                        join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                        join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                        where tic.CustomerUN.Equals(userName)
+                        select sch.Destination).ToList();
         }
         public void GetStation(ref List<string> cbbDep, ref List<string> cbbDes)
         {
             PBL3 db = new PBL3();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                cbbDep.Add(s.Departure);
-                cbbDes.Add(s.Destination);
-            }
+            cbbDep = (from sch in db.SCHEDULEs
+                      select sch.Departure).ToList();
+            cbbDes = (from sch in db.SCHEDULEs
+                      select sch.Destination).ToList();
         }
         public List<string> GetDeparture(string Destination)
         {
             PBL3 db = new PBL3();
-            List<string> result = new List<string>();
             if (Destination != "")
-                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-                {
-                    if (s.Destination.Equals(Destination))
-                        result.Add(s.Departure);
-                }
+                return (from sch in db.SCHEDULEs
+                        where sch.Destination.Equals(Destination)
+                        select sch.Departure).ToList();
             else
-                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-                {
-                    result.Add(s.Departure);
-                }
-            return result;
+                return (from sch in db.SCHEDULEs
+                        select sch.Departure).ToList();
         }
         public List<string> GetDestination(string Departure)
         {
             PBL3 db = new PBL3();
-            List<string> result = new List<string>();
             if (Departure != "")
-                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-                {
-                    if (s.Departure.Equals(Departure))
-                        result.Add(s.Destination);
-                }
+                return (from sch in db.SCHEDULEs
+                        where sch.Departure.Equals(Departure)
+                        select sch.Destination).ToList();
             else
-                foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-                {
-                    result.Add(s.Destination);
-                }
-            return result;
+                return (from sch in db.SCHEDULEs
+                        select sch.Destination).ToList();
         }
         public List<SCHEDULE> GetSchedule(string userName)
         {
             PBL3 db = new PBL3();
-            List<SCHEDULE> result = new List<SCHEDULE>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                {
-                    if (t.ScheduleID.Equals(s.ScheduleID))
-                    {
-                        foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                        {
-                            if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName)) result.Add(s);
-                        }
-                    }
-                }
-            }
-            return result;
+            var result = from sch in db.SCHEDULEs
+                         join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                         join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                         where tic.CustomerUN.Equals(userName)
+                         select sch;
+            return result.ToList();
         }
         public string GetSchedule(string userName, string day, string month, string year)
         {
@@ -611,15 +459,15 @@ namespace pbl.BLL
             string result = "";
             string date = day + "/" + month + "/" + year;
             bool UngetSchedule = true;
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
+            foreach (SCHEDULE s in db.SCHEDULEs)
             {
-                if (s.DepartureTime.Contains(date))
+                if (s.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(date))
                 {
-                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
+                    foreach (TRAIN t in db.TRAINs)
                     {
                         if (t.ScheduleID.Equals(s.ScheduleID))
                         {
-                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
+                            foreach (TICKET ti in db.TICKETs)
                             {
                                 if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName))
                                 {
@@ -644,76 +492,51 @@ namespace pbl.BLL
             }
             return result;
         }
-        public List<SCHEDULE> GetSchedule(SCHEDULE schedule, string userName)
+        public List<SCHEDULE> GetSchedule(SCHEDULE_View schedule, string userName)
         {
             PBL3 db = new PBL3();
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            List<SCHEDULE> result = new List<SCHEDULE>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                if ((Dep || s.Departure.Equals(schedule.Departure)) && (Des || s.Destination.Equals(schedule.Destination))
-                    && s.DepartureTime.Contains(schedule.DepartureTime) && s.ArrivalTime.Contains(schedule.ArrivalTime))
-                {
-                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                    {
-                        if (t.ScheduleID.Equals(s.ScheduleID))
-                        {
-                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                            {
-                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName)) result.Add(s);
-                            }
-                        }
-                    }
-                }
-            }
-            return result;
+            var result = from SCHEDULE sch in db.SCHEDULEs
+                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                         join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
+                               && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
+                               && sch.ArrivalTime.ToString("d/M/yyyy H:m:s").Contains(schedule.ArrivalTime)
+                               && tic.CustomerUN.Equals(userName)
+                         select sch;
+            return result.ToList();
         }
         public List<SCHEDULE> GetSchedule()
         {
             PBL3 db = new PBL3();
-            return DALTRAIN.Instance.GetAllSCHEDULE();
+            return (from sch in db.SCHEDULEs
+                   select sch).ToList();
         }
-        public List<SCHEDULE> GetSchedule(SCHEDULE schedule)
+        public List<SCHEDULE> GetSchedule(SCHEDULE_View schedule)
         {
             PBL3 db = new PBL3();
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            List<SCHEDULE> result = new List<SCHEDULE>();
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                if ((Dep || s.Departure.Equals(schedule.Departure)) && (Des || s.Destination.Equals(schedule.Destination))
-                    && s.DepartureTime.Contains(schedule.DepartureTime) && s.ArrivalTime.Contains(schedule.ArrivalTime))
-                {
-                    result.Add(s);
-                }
-            }
-            return result;
+            var result = from SCHEDULE sch in db.SCHEDULEs
+                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
+                               && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
+                               && sch.ArrivalTime.ToString("d/M/yyyy H:m:s").Contains(schedule.ArrivalTime)
+                         select sch;
+            return result.ToList();
         }
         public List<int> GetDayOfDepartureTime(string month, string year, string userName)
         {
             PBL3 db = new PBL3();
-            List<int> result = new List<int>();
             string date = month + "/" + year;
-            foreach (SCHEDULE s in DALTRAIN.Instance.GetAllSCHEDULE())
-            {
-                if (s.DepartureTime.Contains(date))
-                {
-                    foreach (TRAIN t in DALTRAIN.Instance.GetAllTRAIN())
-                    {
-                        if (t.ScheduleID.Equals(s.ScheduleID))
-                        {
-                            foreach (TICKET ti in DALTRAIN.Instance.GetAllTICKET())
-                            {
-                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN.Equals(userName)) result.Add(Convert.ToDateTime(s.DepartureTime).Day);
-                            }
-                        }
-                    }
-                }
-            }
-            return result;
+            var result = from sch in db.SCHEDULEs
+                         join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                         join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                         where sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(date) && tic.CustomerUN.Equals(userName)
+                         select sch.DepartureTime.Day;
+            return result.ToList();
         }
     }
 }

@@ -13,12 +13,10 @@ namespace pbl
 {
     public partial class employee : Form
     {
-       
-        ManageFunction man = new ManageFunction();
         public employee()
         {
             InitializeComponent();
-            dtgridemploy.DataSource = man.GetAllNV();
+            //dtgridemploy.DataSource = man.GetAllNV();
         }
         Form f = null;
         //tao form moi tren form cu
@@ -38,7 +36,7 @@ namespace pbl
         {
             AddForm add = new AddForm();
             add.Show();
-            man.GetAllNV();
+            //man.GetAllNV();
         }
 
         private void button2_Click(object sender, EventArgs e)

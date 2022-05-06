@@ -72,6 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BLLTRAIN.cs" />
+    <Compile Include="DTO\PEOPLE_View.cs" />
+    <Compile Include="DTO\SCHEDULE_View.cs" />
+    <Compile Include="DTO\TICKET_User_View.cs" />
+    <Compile Include="DTO\TICKET_View.cs" />
     <Compile Include="LOGIN.cs">
       <DependentUpon>Pbl.tt</DependentUpon>
     </Compile>
@@ -90,7 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Pbl.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Person.cs">
+    <Compile Include="PEOPLE.cs">
       <DependentUpon>Pbl.tt</DependentUpon>
     </Compile>
     <Compile Include="POSITION.cs">
@@ -213,7 +217,6 @@
     <Compile Include="View\Passenger\GUISystemSchedule.Designer.cs">
       <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageFunction.cs" />
     <Compile Include="View\Passenger\Form3.cs">
       <SubType>Form</SubType>
     </Compile>
