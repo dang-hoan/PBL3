@@ -35,7 +35,17 @@ namespace pbl.BLL
             var ketqua = from u in db.LOGINs
                          where u.Username == Username && u.PassWord == Password
                          select u.Username;
-            return ketqua.ToString();
+            foreach(LOGIN log in db.LOGINs)
+            {
+                if(log.Username.Equals(Username) && log.PassWord.Equals(Password))
+                {
+                    return from pos in db.POSITIONs
+                           join peo in db.PEOPLE
+                           where pos.PositionID.Equals(peo.PositionID)
+                           select pos.Position;
+                }
+            }
+            return "Không tồn tại";
         }
         public List<CBBItem> GetCBBs()
         {
