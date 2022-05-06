@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.themlt = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.butsua = new System.Windows.Forms.Button();
+            this.butsearch = new System.Windows.Forms.Button();
+            this.butthem = new System.Windows.Forms.Button();
+            this.butdat = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbbMinuteDep = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.butshow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,45 +59,47 @@
             this.dataGridView1.Size = new System.Drawing.Size(723, 207);
             this.dataGridView1.TabIndex = 100;
             // 
-            // button4
+            // butsua
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(495, 403);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 35);
-            this.button4.TabIndex = 99;
-            this.button4.Text = "Sửa vé";
-            this.button4.UseVisualStyleBackColor = true;
+            this.butsua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butsua.Location = new System.Drawing.Point(495, 403);
+            this.butsua.Name = "butsua";
+            this.butsua.Size = new System.Drawing.Size(97, 35);
+            this.butsua.TabIndex = 99;
+            this.butsua.Text = "Sửa vé";
+            this.butsua.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // butsearch
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(678, 112);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 35);
-            this.button3.TabIndex = 98;
-            this.button3.Text = "Tìm kiếm";
-            this.button3.UseVisualStyleBackColor = true;
+            this.butsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butsearch.Location = new System.Drawing.Point(678, 112);
+            this.butsearch.Name = "butsearch";
+            this.butsearch.Size = new System.Drawing.Size(87, 35);
+            this.butsearch.TabIndex = 98;
+            this.butsearch.Text = "Tìm kiếm";
+            this.butsearch.UseVisualStyleBackColor = true;
+            this.butsearch.Click += new System.EventHandler(this.butsearch_Click);
             // 
-            // themlt
+            // butthem
             // 
-            this.themlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.themlt.Location = new System.Drawing.Point(244, 403);
-            this.themlt.Name = "themlt";
-            this.themlt.Size = new System.Drawing.Size(148, 35);
-            this.themlt.TabIndex = 97;
-            this.themlt.Text = "Thêm vé mới";
-            this.themlt.UseVisualStyleBackColor = true;
+            this.butthem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butthem.Location = new System.Drawing.Point(244, 403);
+            this.butthem.Name = "butthem";
+            this.butthem.Size = new System.Drawing.Size(148, 35);
+            this.butthem.TabIndex = 97;
+            this.butthem.Text = "Thêm vé mới";
+            this.butthem.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // butdat
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(42, 403);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 35);
-            this.button1.TabIndex = 117;
-            this.button1.Text = "Đặt vé";
-            this.button1.UseVisualStyleBackColor = true;
+            this.butdat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butdat.Location = new System.Drawing.Point(42, 403);
+            this.butdat.Name = "butdat";
+            this.butdat.Size = new System.Drawing.Size(132, 35);
+            this.butdat.TabIndex = 117;
+            this.butdat.Text = "Đặt vé";
+            this.butdat.UseVisualStyleBackColor = true;
+            this.butdat.Click += new System.EventHandler(this.butdat_Click);
             // 
             // label10
             // 
@@ -111,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(381, 25);
+            this.label2.Location = new System.Drawing.Point(459, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 16);
             this.label2.TabIndex = 102;
@@ -129,7 +131,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(368, 78);
+            this.label4.Location = new System.Drawing.Point(446, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 16);
             this.label4.TabIndex = 104;
@@ -145,7 +147,7 @@
             // 
             // txtDes
             // 
-            this.txtDes.Location = new System.Drawing.Point(477, 25);
+            this.txtDes.Location = new System.Drawing.Point(555, 25);
             this.txtDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDes.Name = "txtDes";
             this.txtDes.Size = new System.Drawing.Size(208, 22);
@@ -161,7 +163,7 @@
             // 
             // dateDes
             // 
-            this.dateDes.Location = new System.Drawing.Point(479, 73);
+            this.dateDes.Location = new System.Drawing.Point(557, 73);
             this.dateDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateDes.Name = "dateDes";
             this.dateDes.Size = new System.Drawing.Size(208, 22);
@@ -173,7 +175,7 @@
             this.cbbHourDep.Location = new System.Drawing.Point(124, 110);
             this.cbbHourDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbHourDep.Name = "cbbHourDep";
-            this.cbbHourDep.Size = new System.Drawing.Size(44, 24);
+            this.cbbHourDep.Size = new System.Drawing.Size(70, 24);
             this.cbbHourDep.TabIndex = 109;
             // 
             // label6
@@ -188,39 +190,40 @@
             // cbbMinuteDep
             // 
             this.cbbMinuteDep.FormattingEnabled = true;
-            this.cbbMinuteDep.Location = new System.Drawing.Point(183, 110);
+            this.cbbMinuteDep.Location = new System.Drawing.Point(234, 112);
             this.cbbMinuteDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbMinuteDep.Name = "cbbMinuteDep";
-            this.cbbMinuteDep.Size = new System.Drawing.Size(44, 24);
+            this.cbbMinuteDep.Size = new System.Drawing.Size(59, 24);
             this.cbbMinuteDep.TabIndex = 111;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(170, 112);
+            this.label7.Location = new System.Drawing.Point(200, 115);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(11, 16);
             this.label7.TabIndex = 112;
             this.label7.Text = ":";
             // 
-            // button2
+            // butshow
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(660, 403);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 35);
-            this.button2.TabIndex = 118;
-            this.button2.Text = "Xóa  vé";
-            this.button2.UseVisualStyleBackColor = true;
+            this.butshow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butshow.Location = new System.Drawing.Point(660, 403);
+            this.butshow.Name = "butshow";
+            this.butshow.Size = new System.Drawing.Size(95, 35);
+            this.butshow.TabIndex = 118;
+            this.butshow.Text = "Xóa  vé";
+            this.butshow.UseVisualStyleBackColor = true;
+            this.butshow.Click += new System.EventHandler(this.butshow_Click);
             // 
             // qlve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.butshow);
+            this.Controls.Add(this.butdat);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbbMinuteDep);
             this.Controls.Add(this.label6);
@@ -234,9 +237,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.themlt);
+            this.Controls.Add(this.butsua);
+            this.Controls.Add(this.butsearch);
+            this.Controls.Add(this.butthem);
             this.Name = "qlve";
             this.Text = "ticket";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -247,10 +250,10 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button themlt;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button butsua;
+        private System.Windows.Forms.Button butsearch;
+        private System.Windows.Forms.Button butthem;
+        private System.Windows.Forms.Button butdat;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -263,6 +266,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbbMinuteDep;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button butshow;
     }
 }

@@ -8,16 +8,53 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
+using pbl.DTO;
 
-namespace pbl
+namespace pbl.View
 {
     public partial class addkhachhang : Form
     {
-        public addkhachhang()
+        public delegate void Mydel(string username);
+        public Mydel d;
+        public string username { get; set; }
+        public addkhachhang(string s)
         {
+           username = s;
             InitializeComponent();
+            GUI();
         }
-
+        public void GUI()
+        {
+            if (BLLpeople.instance.check(username))
+            {
+                PEOPLE p = BLLpeople.instance.GetuserByusername(username);
+                txtuser.Text = p.Username.ToString();
+                txtuser.Enabled = false;
+                txtname.Text = p.Name.ToString();
+                date.Value = Convert.ToDateTime(p.BirthDay);
+                txtdiachi.Text = p.Address.ToString();
+                txtgamil.Text = p.Email.ToString();
+                txtidcard.Text = p.IDCard.ToString();
+            }
+        }
+        private void butOK_Click_1(object sender, EventArgs e)
+        {
+            PEOPLE s = new PEOPLE()
+            {
+                Username = txtuser.Text,
+                Name = txtname.Text,
+                Gender = (rdinam.Checked == true) ? true : false,
+                BirthDay = date.Value,
+                Phone = txtsdt.Text,
+                Address = txtdiachi.Text,
+                Email= txtgamil.Text,
+                IDCard = txtidcard.Text,
+            };
+            BLLpeople.instance.Execute(s);
+            d("");
+            this.Close();
+        }
 
     }
 }

@@ -1,5 +1,5 @@
-﻿namespace pbl
-{
+﻿namespace pbl.View
+{ 
     partial class khachhang
     {
         /// <summary>
@@ -57,6 +57,7 @@
             this.butsua.TabIndex = 14;
             this.butsua.Text = "SỬA";
             this.butsua.UseVisualStyleBackColor = false;
+            this.butsua.Click += new System.EventHandler(this.butsua_Click);
             // 
             // btAdd
             // 
@@ -67,6 +68,7 @@
             this.btAdd.TabIndex = 13;
             this.btAdd.Text = "THÊM";
             this.btAdd.UseVisualStyleBackColor = false;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // butshow
             // 
