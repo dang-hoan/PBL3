@@ -71,7 +71,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\BLLpeople.cs" />
     <Compile Include="BLL\BLLTRAIN.cs" />
     <Compile Include="LOGIN.cs">
       <DependentUpon>Pbl.tt</DependentUpon>
