@@ -12,10 +12,10 @@ namespace pbl
     using System;
     using System.Collections.Generic;
     
-    public partial class Person
+    public partial class PEOPLE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Person()
+        public PEOPLE()
         {
             this.LOGINs = new HashSet<LOGIN>();
             this.TICKETs = new HashSet<TICKET>();

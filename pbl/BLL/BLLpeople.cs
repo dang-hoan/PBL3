@@ -27,10 +27,39 @@ namespace pbl.BLL
             {
             }
         PBL3 db = new PBL3();
+        public bool check(string username)
+        {
+            foreach (PEOPLE i in db.PEOPLE)
+            {
+                if (i.Username == username) return true;
+            }
+            return false;
+        }
+        public void Execute(PEOPLE s)
+        {
+            if (!check(s.Username))
+            {
+                db.PEOPLE.Add(s);
+                db.SaveChanges();
+            }
+            else
+            {
+                PEOPLE temp = db.PEOPLE.Find(s.Username);
+                temp.Name = s.Name;
+                temp.Gender = s.Gender;
+                temp.BirthDay = s.BirthDay;
+                temp.Phone = s.Phone;
+                temp.Address = s.Address;
+                temp.IDCard = s.IDCard;
+                temp.Email = s.Email;
+                db.SaveChanges();
+            }
+
+        }
         public List<CBBItem> GetCBBs()
         {
             List<CBBItem> data = new List<CBBItem>();
-            foreach (Person i in db.PEOPLE)
+            foreach (PEOPLE i in db.PEOPLE)
             {
                 data.Add(new CBBItem
                 {
@@ -44,22 +73,13 @@ namespace pbl.BLL
         }
         public void delperson(string username)
         {
-            Person s = db.PEOPLE.Find(username);
+            PEOPLE s = db.PEOPLE.Find(username);
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
-        public List<Person>  GetSVByIDLop(string username )
+        public PEOPLE GetuserByusername(string username )
         {
-            List<Person> data = new List<Person>();
-            if (username == "")
-            {
-                data = db.PEOPLE.ToList();
-            }
-            else
-            {
-                data = db.PEOPLE.Where(p => p.Username == username).Select(p => p).ToList();
-            }
-            return data;
+            return db.PEOPLE.Find(username);
 
         }
 

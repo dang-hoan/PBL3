@@ -17,13 +17,13 @@ namespace pbl
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public POSITION()
         {
-            this.PEOPLE = new HashSet<Person>();
+            this.PEOPLE = new HashSet<PEOPLE>();
         }
     
         public string PositionID { get; set; }
-        public string Position1 { get; set; }
+        public string Position { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Person> PEOPLE { get; set; }
+        public virtual ICollection<PEOPLE> PEOPLE { get; set; }
     }
 }
