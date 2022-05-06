@@ -27,7 +27,7 @@ namespace pbl
         public string DriverUN { get; set; }
         public string ScheduleID { get; set; }
     
-        public virtual Person Person { get; set; }
+        public virtual PEOPLE Person { get; set; }
         public virtual SCHEDULE SCHEDULE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TICKET> TICKETs { get; set; }

@@ -18,6 +18,6 @@ namespace pbl
         public string Username { get; set; }
         public string PassWord { get; set; }
     
-        public virtual Person Person { get; set; }
+        public virtual PEOPLE Person { get; set; }
     }
 }

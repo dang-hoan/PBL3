@@ -21,7 +21,7 @@ namespace pbl
         public Nullable<bool> Booked { get; set; }
         public string CustomerUN { get; set; }
     
-        public virtual Person Person { get; set; }
+        public virtual PEOPLE Person { get; set; }
         public virtual TRAIN TRAIN { get; set; }
     }
 }

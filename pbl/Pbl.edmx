@@ -219,7 +219,7 @@
           <Property Name="PassWord" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK__LOGIN__Username__29572725" FromRole="LOGIN" ToRole="PEOPLE" />
         </EntityType>
-        <EntityType Name="Person">
+        <EntityType Name="PEOPLE">
           <Key>
             <PropertyRef Name="Username" />
           </Key>
@@ -242,7 +242,7 @@
             <PropertyRef Name="PositionID" />
           </Key>
           <Property Name="PositionID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Position1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="PEOPLE" Relationship="Self.FK__PEOPLE__Position__267ABA7A" FromRole="POSITION" ToRole="PEOPLE" />
         </EntityType>
         <EntityType Name="SCHEDULE">
@@ -303,7 +303,7 @@
           <NavigationProperty Name="TICKET_MANAGER" Relationship="Self.FK__TICKET_MA__Train__37A5467C" FromRole="TRAIN" ToRole="TICKET_MANAGER" />
         </EntityType>
         <Association Name="FK__LOGIN__Username__29572725">
-          <End Role="PEOPLE" Type="Self.Person" Multiplicity="1" />
+          <End Role="PEOPLE" Type="PBL3Model.PEOPLE" Multiplicity="1" />
           <End Role="LOGIN" Type="Self.LOGIN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEOPLE">
@@ -316,7 +316,7 @@
         </Association>
         <Association Name="FK__PEOPLE__Position__267ABA7A">
           <End Role="POSITION" Type="Self.POSITION" Multiplicity="0..1" />
-          <End Role="PEOPLE" Type="Self.Person" Multiplicity="*" />
+          <End Role="PEOPLE" Type="PBL3Model.PEOPLE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="POSITION">
               <PropertyRef Name="PositionID" />
@@ -327,7 +327,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__TICKET__Customer__34C8D9D1">
-          <End Role="PEOPLE" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="PEOPLE" Type="PBL3Model.PEOPLE" Multiplicity="0..1" />
           <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEOPLE">
@@ -339,7 +339,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__TRAIN__DriverUN__300424B4">
-          <End Role="PEOPLE" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="PEOPLE" Type="PBL3Model.PEOPLE" Multiplicity="0..1" />
           <End Role="TRAIN" Type="Self.TRAIN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEOPLE">
@@ -388,7 +388,7 @@
         </Association>
         <EntityContainer Name="PBL3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LOGINs" EntityType="Self.LOGIN" />
-          <EntitySet Name="PEOPLE" EntityType="Self.Person" />
+          <EntitySet Name="PEOPLE" EntityType="PBL3Model.PEOPLE" />
           <EntitySet Name="POSITIONs" EntityType="Self.POSITION" />
           <EntitySet Name="SCHEDULEs" EntityType="Self.SCHEDULE" />
           <EntitySet Name="STATIONs" EntityType="Self.STATION" />
@@ -440,7 +440,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PEOPLE">
-            <EntityTypeMapping TypeName="PBL3Model.Person">
+            <EntityTypeMapping TypeName="PBL3Model.PEOPLE">
               <MappingFragment StoreEntitySet="PEOPLE">
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -458,7 +458,7 @@
             <EntityTypeMapping TypeName="PBL3Model.POSITION">
               <MappingFragment StoreEntitySet="POSITION">
                 <ScalarProperty Name="PositionID" ColumnName="PositionID" />
-                <ScalarProperty Name="Position1" ColumnName="Position" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
