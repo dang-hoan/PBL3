@@ -88,15 +88,27 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
 
         }
-        public int UpdatePEOPLE(PEOPLE p)
+        public void UpdatePEOPLE(PEOPLE p)
         {
             PBL3 db = new PBL3();
-            return DALTRAIN.Instance.UpdatePEOPLE(p);
+            PEOPLE peo = db.PEOPLE.Find(p.Username);
+            peo.Name = p.Name;
+            peo.Gender = p.Gender;
+            peo.BirthDay = p.BirthDay;
+            peo.Address = p.Address;
+            peo.IDCard = p.IDCard;
+            peo.Email = p.Email;
+            peo.Phone = p.Phone;
+            db.SaveChanges();
         }
-        public int UpdatePass(string userName, string oldPassword, string newPassword)
+        public bool UpdatePass(string userName, string oldPassword, string newPassword)
         {
             PBL3 db = new PBL3();
-            return DALTRAIN.Instance.UpdatePass(userName, oldPassword, newPassword);
+            LOGIN log = db.LOGINs.Find(userName, oldPassword);
+            if(log == null) return false;
+            log.PassWord = newPassword;
+            db.SaveChanges();
+            return true;
         }
         public void Delete()
         {
