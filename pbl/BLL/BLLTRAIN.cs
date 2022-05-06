@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
+using pbl.DTO;
 
 //3 loop able: list<SCHEDULE>, list<PEOPLE>, list<POSITION>
 namespace pbl.BLL
@@ -39,7 +41,7 @@ namespace pbl.BLL
         {
             PBL3 db = new PBL3();
             List<CBBItem> data = new List<CBBItem>();
-            foreach (Person i in db.PEOPLE)
+            foreach (PEOPLE i in db.PEOPLE)
             {
                 data.Add(new CBBItem
                 {
@@ -54,14 +56,14 @@ namespace pbl.BLL
         public void delperson(string username)
         {
             PBL3 db = new PBL3();
-            Person s = db.PEOPLE.Find(username);
+            PEOPLE s = db.PEOPLE.Find(username);
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
-        public List<Person> GetSVByIDLop(string username)
+        public List<PEOPLE> GetSVByIDLop(string username)
         {
             PBL3 db = new PBL3();
-            List<Person> data = new List<Person>();
+            List<PEOPLE> data = new List<PEOPLE>();
             if (username == "")
             {
                 data = db.PEOPLE.ToList();
