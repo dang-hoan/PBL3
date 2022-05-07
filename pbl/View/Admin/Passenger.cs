@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pbl.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace pbl
         public Passenger()
         {
             InitializeComponent();
+            showpass("333");
+        }
+
+        private void btsearch_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = BLLpeople.instance.searchP(txtsearch.Text);
+        }
+        public void showpass(string PositionId)
+        {
+            dataGridView1.DataSource = BLLpeople.instance.getallnv(PositionId);
         }
     }
 }

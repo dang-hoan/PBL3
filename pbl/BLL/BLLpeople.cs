@@ -77,11 +77,32 @@ namespace pbl.BLL
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
+        public List<PEOPLE> searchP(string text)
+        {
+            var result = from p in db.PEOPLE where  p.Name.Contains(text)   select p;
+            return result.ToList();
+        }
         public PEOPLE GetuserByusername(string username )
         {
             return db.PEOPLE.Find(username);
 
         }
-
+        public List<PEOPLE> getallnv(string PositionId)
+        {
+            List<PEOPLE> list = new List<PEOPLE>();
+            list = db.PEOPLE.Where(p => p.PositionID == PositionId).Select(p => p).ToList();
+            return list;
+        }
+        public List<PEOPLE> sort()
+        {
+            List<PEOPLE> list = new List<PEOPLE>();
+           
+            
+                var result = from p in db.PEOPLE orderby p.Name select p;
+                list = result.ToList();
+            
+            
+            return list;
+        }
     }
 }

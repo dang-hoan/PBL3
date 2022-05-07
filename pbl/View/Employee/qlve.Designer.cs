@@ -215,7 +215,7 @@
             this.butshow.TabIndex = 118;
             this.butshow.Text = "Xóa  vé";
             this.butshow.UseVisualStyleBackColor = true;
-            this.butshow.Click += new System.EventHandler(this.butshow_Click);
+           
             // 
             // qlve
             // 
