@@ -14,10 +14,9 @@ namespace pbl
 {
     public partial class GUIOption : Form
     {
-        ManageFunction man = new ManageFunction();
         DateTimePicker dateDep = new DateTimePicker(); 
         DateTimePicker dateDes = new DateTimePicker();
-        public delegate void MyDel(SCHEDULE s);
+        public delegate void MyDel(SCHEDULE_View s);
         public MyDel d { get; set; }
         private void Date(string s, ref string date, ref string hour, ref string minute)
         {
@@ -39,12 +38,12 @@ namespace pbl
                 }
             }
         }
-        public GUIOption(SCHEDULE s)
+        public GUIOption(SCHEDULE_View s)
         {
             InitializeComponent();
             cbbDep.Text = s.Departure;
             cbbDes.Text = s.Destination;
-            Init(s.DepartureTime.ToString(), s.ArrivalTime.ToString());
+            Init(s.DepartureTime, s.ArrivalTime);
         }
         private void Init(string DepartureTime, string ArrivalTime)
         {
@@ -107,7 +106,7 @@ namespace pbl
             {
                 DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
             }
-            SCHEDULE s = new SCHEDULE
+            SCHEDULE_View s = new SCHEDULE_View
             {
                 ScheduleID = "",
                 Departure = cbbDep.Text,

@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PBL3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LOGIN">
+    <Key>
+      <PropertyRef Name="IDlogin" />
+    </Key>
+    <Property Name="IDlogin" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PassWord" Type="varchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEOPLE">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="BirthDay" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="IDCard" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="PositionID" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="POSITION">
+    <Key>
+      <PropertyRef Name="PositionID" />
+    </Key>
+    <Property Name="PositionID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SCHEDULE">
+    <Key>
+      <PropertyRef Name="ScheduleID" />
+    </Key>
+    <Property Name="ScheduleID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Departure" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Destination" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepartureTime" Type="datetime" Nullable="false" />
+    <Property Name="ArrivalTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STATION">
+    <Key>
+      <PropertyRef Name="StationID" />
+    </Key>
+    <Property Name="StationID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="StationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TICKET">
+    <Key>
+      <PropertyRef Name="TicketID" />
+    </Key>
+    <Property Name="TicketID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TrainID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SeatNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TicketPrice" Type="money" Nullable="false" />
+    <Property Name="Booked" Type="bit" />
+    <Property Name="CustomerUN" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TICKET_MANAGER">
+    <Key>
+      <PropertyRef Name="TicketManagerID" />
+    </Key>
+    <Property Name="TicketManagerID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TrainID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TotalTickets" Type="int" Nullable="false" />
+    <Property Name="BookedTickets" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TRAIN">
+    <Key>
+      <PropertyRef Name="TrainID" />
+    </Key>
+    <Property Name="TrainID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TrainName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NumberOfCarriages" Type="int" Nullable="false" />
+    <Property Name="DriverUN" Type="varchar" MaxLength="20" />
+    <Property Name="ScheduleID" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__LOGIN__Username__29572725">
+    <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="1" />
+    <End Role="LOGIN" Type="Self.LOGIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEOPLE">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="LOGIN">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEOPLE__Position__267ABA7A">
+    <End Role="POSITION" Type="Self.POSITION" Multiplicity="0..1" />
+    <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POSITION">
+        <PropertyRef Name="PositionID" />
+      </Principal>
+      <Dependent Role="PEOPLE">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TICKET__Customer__34C8D9D1">
+    <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="0..1" />
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEOPLE">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="CustomerUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TICKET__TrainID__33D4B598">
+    <End Role="TRAIN" Type="Self.TRAIN" Multiplicity="1" />
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAIN">
+        <PropertyRef Name="TrainID" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="TrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TICKET_MA__Train__37A5467C">
+    <End Role="TRAIN" Type="Self.TRAIN" Multiplicity="1" />
+    <End Role="TICKET_MANAGER" Type="Self.TICKET_MANAGER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAIN">
+        <PropertyRef Name="TrainID" />
+      </Principal>
+      <Dependent Role="TICKET_MANAGER">
+        <PropertyRef Name="TrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRAIN__DriverUN__300424B4">
+    <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="0..1" />
+    <End Role="TRAIN" Type="Self.TRAIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEOPLE">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="TRAIN">
+        <PropertyRef Name="DriverUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRAIN__ScheduleI__30F848ED">
+    <End Role="SCHEDULE" Type="Self.SCHEDULE" Multiplicity="0..1" />
+    <End Role="TRAIN" Type="Self.TRAIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SCHEDULE">
+        <PropertyRef Name="ScheduleID" />
+      </Principal>
+      <Dependent Role="TRAIN">
+        <PropertyRef Name="ScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PBL3ModelStoreContainer">
+    <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEOPLE" EntityType="Self.PEOPLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="POSITION" EntityType="Self.POSITION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SCHEDULE" EntityType="Self.SCHEDULE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STATION" EntityType="Self.STATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TICKET_MANAGER" EntityType="Self.TICKET_MANAGER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRAIN" EntityType="Self.TRAIN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__LOGIN__Username__29572725" Association="Self.FK__LOGIN__Username__29572725">
+      <End Role="PEOPLE" EntitySet="PEOPLE" />
+      <End Role="LOGIN" EntitySet="LOGIN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEOPLE__Position__267ABA7A" Association="Self.FK__PEOPLE__Position__267ABA7A">
+      <End Role="POSITION" EntitySet="POSITION" />
+      <End Role="PEOPLE" EntitySet="PEOPLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TICKET__Customer__34C8D9D1" Association="Self.FK__TICKET__Customer__34C8D9D1">
+      <End Role="PEOPLE" EntitySet="PEOPLE" />
+      <End Role="TICKET" EntitySet="TICKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TICKET__TrainID__33D4B598" Association="Self.FK__TICKET__TrainID__33D4B598">
+      <End Role="TRAIN" EntitySet="TRAIN" />
+      <End Role="TICKET" EntitySet="TICKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TICKET_MA__Train__37A5467C" Association="Self.FK__TICKET_MA__Train__37A5467C">
+      <End Role="TRAIN" EntitySet="TRAIN" />
+      <End Role="TICKET_MANAGER" EntitySet="TICKET_MANAGER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRAIN__DriverUN__300424B4" Association="Self.FK__TRAIN__DriverUN__300424B4">
+      <End Role="PEOPLE" EntitySet="PEOPLE" />
+      <End Role="TRAIN" EntitySet="TRAIN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRAIN__ScheduleI__30F848ED" Association="Self.FK__TRAIN__ScheduleI__30F848ED">
+      <End Role="SCHEDULE" EntitySet="SCHEDULE" />
+      <End Role="TRAIN" EntitySet="TRAIN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

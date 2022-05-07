@@ -48,9 +48,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,16 +71,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BLLpeople.cs" />
+    <Compile Include="BLL\BLLTicket.cs" />
     <Compile Include="BLL\BLLTRAIN.cs" />
-    <Compile Include="DAL\DALTRAIN.cs" />
     <Compile Include="DTO\PEOPLE_View.cs" />
-    <Compile Include="DTO\PEOPLE.cs" />
-    <Compile Include="DTO\POSITION.cs" />
-    <Compile Include="DTO\SCHEDULE.cs" />
+    <Compile Include="DTO\SCHEDULE_View.cs" />
     <Compile Include="DTO\TICKET_User_View.cs" />
     <Compile Include="DTO\TICKET_View.cs" />
-    <Compile Include="DTO\TRAIN.cs" />
-    <Compile Include="DTO\TICKET.cs" />
+    <Compile Include="LOGIN.cs">
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PBL3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PBL3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PBL3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PEOPLE.cs">
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POSITION.cs">
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SCHEDULE.cs">
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STATION.cs">
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TICKET.cs">
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TICKET_MANAGER.cs">
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRAIN.cs">
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
     <Compile Include="View\Employee\addve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,7 +189,6 @@
     <Compile Include="View\Employee\chat.Designer.cs">
       <DependentUpon>chat.cs</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DBHelper.cs" />
     <Compile Include="View\Employee\employchinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,7 +219,6 @@
     <Compile Include="View\Passenger\GUISystemSchedule.Designer.cs">
       <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageFunction.cs" />
     <Compile Include="View\Passenger\Form3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,6 +376,9 @@
     <EmbeddedResource Include="View\Employee\employchinh.resx">
       <DependentUpon>employchinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Employee\qlve.resx">
+      <DependentUpon>qlve.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GUILogin.resx">
       <DependentUpon>GUILogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,6 +453,15 @@
     <EmbeddedResource Include="View\Employee\lichtrinh.resx">
       <DependentUpon>lichtrinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="PBL3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PBL3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="PBL3.edmx.diagram">
+      <DependentUpon>PBL3.edmx</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -416,9 +471,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -498,6 +550,20 @@
   <ItemGroup>
     <None Include="View\Resources\picture.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PBL3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PBL3.Context.cs</LastGenOutput>
+      <DependentUpon>PBL3.edmx</DependentUpon>
+    </Content>
+    <Content Include="PBL3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PBL3.edmx</DependentUpon>
+      <LastGenOutput>PBL3.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

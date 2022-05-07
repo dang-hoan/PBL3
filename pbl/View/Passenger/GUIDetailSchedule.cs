@@ -82,7 +82,7 @@ namespace pbl
             {
                 DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
             }
-            SCHEDULE s = new SCHEDULE
+            SCHEDULE_View s = new SCHEDULE_View
             {
                 ScheduleID = "",
                 Departure = cbbDep.Text,

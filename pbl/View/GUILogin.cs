@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
+using pbl.View.Employee;
 
 namespace pbl
 {
@@ -36,9 +37,10 @@ namespace pbl
                 return;
             }
             string result = BLLTRAIN.Instance.CheckAccount(txtusername.Text, txtpass.Text);
+            
             switch (result)
             {
-                case "Không tồn tại":
+                case "null":
                     {
                         labelNotify.Text = "*Tên đăng nhập hoặc mật khẩu không đúng!";
                         labelNotify.Location = new Point(panel1.Location.X + 40, btdangnhap.Location.Y - 20);

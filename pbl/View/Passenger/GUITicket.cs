@@ -14,7 +14,7 @@ namespace pbl
 {
     public partial class GUITicket : Form
     {
-        private SCHEDULE schedule = new SCHEDULE
+        private SCHEDULE_View schedule = new SCHEDULE_View
         {
             ScheduleID = "",
             Departure = "",
@@ -34,7 +34,7 @@ namespace pbl
             cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(GUILogin.userName).Distinct().ToArray());
         }
 
-        private void Get(SCHEDULE s)
+        private void Get(SCHEDULE_View s)
         {
             schedule.Departure = s.Departure;
             schedule.Destination = s.Destination;

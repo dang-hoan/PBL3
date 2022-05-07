@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace pbl
+namespace pbl.View.Employee
 {
     public partial class Employeechinh : Form
     {

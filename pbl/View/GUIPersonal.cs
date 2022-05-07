@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
 using pbl.DTO;
+using pbl.View;
 
 namespace pbl
 {
@@ -57,7 +58,7 @@ namespace pbl
             {
                 MessageBox.Show("Mật khẩu cũ không đúng!");
             }
-            else if (BLLTRAIN.Instance.UpdatePass(GUILogin.userName, txtOld.Text, txtNew.Text) == 1)
+            else if (BLLTRAIN.Instance.UpdatePass(GUILogin.userName, txtOld.Text, txtNew.Text))
             {
                 MessageBox.Show("Đổi mật khẩu thành công!");
                 txtOld.Text = "";
@@ -87,28 +88,26 @@ namespace pbl
 
         private void bSaveInfor_Click(object sender, EventArgs e)
         {
-            if(BLLTRAIN.Instance.UpdatePEOPLE(new PEOPLE
+            BLLTRAIN.Instance.UpdatePEOPLE(new PEOPLE
             {
                 Username = GUILogin.userName,
                 Name = txtName.Text,
-                Gender = rbMale.Checked ? "Nam" : "Nữ",
+                Gender = rbMale.Checked || !rbFemale.Checked,
                 BirthDay = txtBirthDay.Value,
                 Address = txtAddress.Text,
                 IDCard = txtIDCard.Text,
                 Email = txtEmail.Text,
                 Phone = txtPhone.Text
-            }) == 1)
-            {
-                MessageBox.Show("Chỉnh sửa thông tin thành công!");
-                txtName.Enabled = false;
-                rbMale.Enabled = false;
-                rbFemale.Enabled = false;
-                txtBirthDay.Enabled = false;
-                txtAddress.Enabled = false;
-                txtIDCard.Enabled = false;
-                txtEmail.Enabled = false;
-                txtPhone.Enabled = false;
-            }
+            });
+            MessageBox.Show("Chỉnh sửa thông tin thành công!");
+            txtName.Enabled = false;
+            rbMale.Enabled = false;
+            rbFemale.Enabled = false;
+            txtBirthDay.Enabled = false;
+            txtAddress.Enabled = false;
+            txtIDCard.Enabled = false;
+            txtEmail.Enabled = false;
+            txtPhone.Enabled = false;
         }
     }
 }
