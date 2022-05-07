@@ -18,7 +18,7 @@ namespace pbl
         {
             InitializeComponent();
             Init();
-            dataGridView1.DataSource = new List<SCHEDULE>(BLLTRAIN.Instance.GetSchedule(GUILogin.userName).Distinct());
+            dataGridView1.DataSource = new List<SCHEDULE_View>(BLLTRAIN.Instance.GetSchedule(GUILogin.userName).Distinct());
         }
 
         private void Init()
@@ -66,7 +66,7 @@ namespace pbl
 
         private void bShowAll_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = new List<SCHEDULE>(BLLTRAIN.Instance.GetSchedule(GUILogin.userName).Distinct());
+            dataGridView1.DataSource = new List<SCHEDULE_View>(BLLTRAIN.Instance.GetSchedule(GUILogin.userName).Distinct());
         }
 
         private void bSearch_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace pbl
                 DepartureTime = DepTime,
                 ArrivalTime = DesTime
             };
-            dataGridView1.DataSource = new List<SCHEDULE>(BLLTRAIN.Instance.GetSchedule(s, GUILogin.userName).Distinct());
+            dataGridView1.DataSource = new List<SCHEDULE_View>(BLLTRAIN.Instance.GetSchedule(s, GUILogin.userName).Distinct());
         }
         private void cbbHour_Leave(object sender, EventArgs e)
         {

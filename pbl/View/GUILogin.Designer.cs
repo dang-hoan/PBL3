@@ -142,19 +142,17 @@
             // 
             this.txtpass.Location = new System.Drawing.Point(115, 399);
             this.txtpass.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtpass.Multiline = true;
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
-            this.txtpass.Size = new System.Drawing.Size(294, 32);
+            this.txtpass.Size = new System.Drawing.Size(294, 26);
             this.txtpass.TabIndex = 3;
             // 
             // txtusername
             // 
             this.txtusername.Location = new System.Drawing.Point(115, 324);
             this.txtusername.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtusername.Multiline = true;
             this.txtusername.Name = "txtusername";
-            this.txtusername.Size = new System.Drawing.Size(294, 32);
+            this.txtusername.Size = new System.Drawing.Size(294, 26);
             this.txtusername.TabIndex = 2;
             // 
             // pictureBox2
