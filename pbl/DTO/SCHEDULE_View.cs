@@ -13,6 +13,5 @@ namespace pbl.DTO
         public string Destination { get; set; }
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }
-
     }
 }
