@@ -29,6 +29,43 @@ namespace pbl.BLL
         {
 
         }
+        public bool check(string username)
+        {
+            PBL3 db = new PBL3();
+            foreach (PEOPLE i in db.PEOPLE)
+            {
+                if (i.Username == username) return true;
+            }
+            return false;
+        }
+        public void Execute(PEOPLE s)
+        {
+            PBL3 db = new PBL3();
+            if (!check(s.Username))
+            {
+                db.PEOPLE.Add(s);
+                db.SaveChanges();
+            }
+            else
+            {
+                PEOPLE temp = db.PEOPLE.Find(s.Username);
+                temp.Name = s.Name;
+                temp.Gender = s.Gender;
+                temp.BirthDay = s.BirthDay;
+                temp.Phone = s.Phone;
+                temp.Address = s.Address;
+                temp.IDCard = s.IDCard;
+                temp.Email = s.Email;
+                db.SaveChanges();
+            }
+
+        }
+        public PEOPLE GetuserByusername(string username)
+        {
+            PBL3 db = new PBL3();
+            return db.PEOPLE.Find(username);
+
+        }
         public string CheckAccount(string Username, string Password)
         {
             PBL3 db = new PBL3();

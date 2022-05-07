@@ -21,7 +21,7 @@ namespace pbl.View
         {
             InitializeComponent();
             cbbshow.Items.Add(new CBBItem { Value = 0, Text = "All" });
-            cbbshow.Items.AddRange(BLLTRAIN.Instance.GetCBBs().ToArray());
+            cbbshow.Items.AddRange(BLLpeople.instance.GetCBBs().ToArray());
         }
         PBL3 db = new PBL3();
         public void show(string username)
