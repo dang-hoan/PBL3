@@ -16,7 +16,7 @@ namespace pbl
     public partial class PBL3 : DbContext
     {
         public PBL3()
-            : base("name=PBL3-Phong")
+            : base("name=PBL3-Hoan")
         {
         }
     
