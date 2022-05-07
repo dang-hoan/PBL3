@@ -1,4 +1,4 @@
-﻿namespace pbl
+﻿namespace pbl.View.Employee
 {
     partial class Employeechinh
     {

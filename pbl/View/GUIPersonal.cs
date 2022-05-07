@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
 using pbl.DTO;
+using pbl.View;
 
 namespace pbl
 {

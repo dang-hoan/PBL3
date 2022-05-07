@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PBL3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LOGIN">
+    <Key>
+      <PropertyRef Name="IDlogin" />
+    </Key>
+    <Property Name="IDlogin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PassWord" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Person" Relationship="Self.FK__LOGIN__Username__29572725" FromRole="LOGIN" ToRole="PEOPLE" />
+  </EntityType>
+  <EntityType Name="PEOPLE">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="Boolean" />
+    <Property Name="BirthDay" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IDCard" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PositionID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LOGINs" Relationship="Self.FK__LOGIN__Username__29572725" FromRole="PEOPLE" ToRole="LOGIN" />
+    <NavigationProperty Name="POSITION" Relationship="Self.FK__PEOPLE__Position__267ABA7A" FromRole="PEOPLE" ToRole="POSITION" />
+    <NavigationProperty Name="TICKETs" Relationship="Self.FK__TICKET__Customer__34C8D9D1" FromRole="PEOPLE" ToRole="TICKET" />
+    <NavigationProperty Name="TRAINs" Relationship="Self.FK__TRAIN__DriverUN__300424B4" FromRole="PEOPLE" ToRole="TRAIN" />
+  </EntityType>
+  <EntityType Name="POSITION">
+    <Key>
+      <PropertyRef Name="PositionID" />
+    </Key>
+    <Property Name="PositionID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PEOPLE" Relationship="Self.FK__PEOPLE__Position__267ABA7A" FromRole="POSITION" ToRole="PEOPLE" />
+  </EntityType>
+  <EntityType Name="SCHEDULE">
+    <Key>
+      <PropertyRef Name="ScheduleID" />
+    </Key>
+    <Property Name="ScheduleID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Departure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartureTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ArrivalTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TRAINs" Relationship="Self.FK__TRAIN__ScheduleI__30F848ED" FromRole="SCHEDULE" ToRole="TRAIN" />
+  </EntityType>
+  <EntityType Name="STATION">
+    <Key>
+      <PropertyRef Name="StationID" />
+    </Key>
+    <Property Name="StationID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TICKET">
+    <Key>
+      <PropertyRef Name="TicketID" />
+    </Key>
+    <Property Name="TicketID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TrainID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SeatNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TicketPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Booked" Type="Boolean" />
+    <Property Name="CustomerUN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Person" Relationship="Self.FK__TICKET__Customer__34C8D9D1" FromRole="TICKET" ToRole="PEOPLE" />
+    <NavigationProperty Name="TRAIN" Relationship="Self.FK__TICKET__TrainID__33D4B598" FromRole="TICKET" ToRole="TRAIN" />
+  </EntityType>
+  <EntityType Name="TICKET_MANAGER">
+    <Key>
+      <PropertyRef Name="TicketManagerID" />
+    </Key>
+    <Property Name="TicketManagerID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TrainID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TotalTickets" Type="Int32" Nullable="false" />
+    <Property Name="BookedTickets" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TRAIN" Relationship="Self.FK__TICKET_MA__Train__37A5467C" FromRole="TICKET_MANAGER" ToRole="TRAIN" />
+  </EntityType>
+  <EntityType Name="TRAIN">
+    <Key>
+      <PropertyRef Name="TrainID" />
+    </Key>
+    <Property Name="TrainID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TrainName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumberOfCarriages" Type="Int32" Nullable="false" />
+    <Property Name="DriverUN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ScheduleID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Person" Relationship="Self.FK__TRAIN__DriverUN__300424B4" FromRole="TRAIN" ToRole="PEOPLE" />
+    <NavigationProperty Name="SCHEDULE" Relationship="Self.FK__TRAIN__ScheduleI__30F848ED" FromRole="TRAIN" ToRole="SCHEDULE" />
+    <NavigationProperty Name="TICKETs" Relationship="Self.FK__TICKET__TrainID__33D4B598" FromRole="TRAIN" ToRole="TICKET" />
+    <NavigationProperty Name="TICKET_MANAGER" Relationship="Self.FK__TICKET_MA__Train__37A5467C" FromRole="TRAIN" ToRole="TICKET_MANAGER" />
+  </EntityType>
+  <Association Name="FK__LOGIN__Username__29572725">
+    <End Role="PEOPLE" Type="PBL3Model.PEOPLE" Multiplicity="1" />
+    <End Role="LOGIN" Type="Self.LOGIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEOPLE">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="LOGIN">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEOPLE__Position__267ABA7A">
+    <End Role="POSITION" Type="Self.POSITION" Multiplicity="0..1" />
+    <End Role="PEOPLE" Type="PBL3Model.PEOPLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POSITION">
+        <PropertyRef Name="PositionID" />
+      </Principal>
+      <Dependent Role="PEOPLE">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TICKET__Customer__34C8D9D1">
+    <End Role="PEOPLE" Type="PBL3Model.PEOPLE" Multiplicity="0..1" />
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEOPLE">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="CustomerUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRAIN__DriverUN__300424B4">
+    <End Role="PEOPLE" Type="PBL3Model.PEOPLE" Multiplicity="0..1" />
+    <End Role="TRAIN" Type="Self.TRAIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEOPLE">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="TRAIN">
+        <PropertyRef Name="DriverUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRAIN__ScheduleI__30F848ED">
+    <End Role="SCHEDULE" Type="Self.SCHEDULE" Multiplicity="0..1" />
+    <End Role="TRAIN" Type="Self.TRAIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SCHEDULE">
+        <PropertyRef Name="ScheduleID" />
+      </Principal>
+      <Dependent Role="TRAIN">
+        <PropertyRef Name="ScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TICKET__TrainID__33D4B598">
+    <End Role="TRAIN" Type="Self.TRAIN" Multiplicity="1" />
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAIN">
+        <PropertyRef Name="TrainID" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="TrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TICKET_MA__Train__37A5467C">
+    <End Role="TRAIN" Type="Self.TRAIN" Multiplicity="1" />
+    <End Role="TICKET_MANAGER" Type="Self.TICKET_MANAGER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAIN">
+        <PropertyRef Name="TrainID" />
+      </Principal>
+      <Dependent Role="TICKET_MANAGER">
+        <PropertyRef Name="TrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PBL3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LOGINs" EntityType="Self.LOGIN" />
+    <EntitySet Name="PEOPLE" EntityType="PBL3Model.PEOPLE" />
+    <EntitySet Name="POSITIONs" EntityType="Self.POSITION" />
+    <EntitySet Name="SCHEDULEs" EntityType="Self.SCHEDULE" />
+    <EntitySet Name="STATIONs" EntityType="Self.STATION" />
+    <EntitySet Name="TICKETs" EntityType="Self.TICKET" />
+    <EntitySet Name="TICKET_MANAGER" EntityType="Self.TICKET_MANAGER" />
+    <EntitySet Name="TRAINs" EntityType="Self.TRAIN" />
+    <AssociationSet Name="FK__LOGIN__Username__29572725" Association="Self.FK__LOGIN__Username__29572725">
+      <End Role="PEOPLE" EntitySet="PEOPLE" />
+      <End Role="LOGIN" EntitySet="LOGINs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEOPLE__Position__267ABA7A" Association="Self.FK__PEOPLE__Position__267ABA7A">
+      <End Role="POSITION" EntitySet="POSITIONs" />
+      <End Role="PEOPLE" EntitySet="PEOPLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TICKET__Customer__34C8D9D1" Association="Self.FK__TICKET__Customer__34C8D9D1">
+      <End Role="PEOPLE" EntitySet="PEOPLE" />
+      <End Role="TICKET" EntitySet="TICKETs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRAIN__DriverUN__300424B4" Association="Self.FK__TRAIN__DriverUN__300424B4">
+      <End Role="PEOPLE" EntitySet="PEOPLE" />
+      <End Role="TRAIN" EntitySet="TRAINs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRAIN__ScheduleI__30F848ED" Association="Self.FK__TRAIN__ScheduleI__30F848ED">
+      <End Role="SCHEDULE" EntitySet="SCHEDULEs" />
+      <End Role="TRAIN" EntitySet="TRAINs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TICKET__TrainID__33D4B598" Association="Self.FK__TICKET__TrainID__33D4B598">
+      <End Role="TRAIN" EntitySet="TRAINs" />
+      <End Role="TICKET" EntitySet="TICKETs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TICKET_MA__Train__37A5467C" Association="Self.FK__TICKET_MA__Train__37A5467C">
+      <End Role="TRAIN" EntitySet="TRAINs" />
+      <End Role="TICKET_MANAGER" EntitySet="TICKET_MANAGER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
