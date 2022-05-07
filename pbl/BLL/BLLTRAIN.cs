@@ -141,11 +141,16 @@ namespace pbl.BLL
         public bool UpdatePass(string userName, string oldPassword, string newPassword)
         {
             PBL3 db = new PBL3();
-            LOGIN log = db.LOGINs.Find(userName, oldPassword);
-            if(log == null) return false;
-            log.PassWord = newPassword;
-            db.SaveChanges();
-            return true;
+            LOGIN l = (from log in db.LOGINs
+                        where log.Username.Equals(userName) && log.PassWord.Equals(oldPassword)
+                        select log).FirstOrDefault();
+            if (l == null) return false;
+            else
+            {
+                l.PassWord = newPassword;
+                db.SaveChanges();
+                return true;
+            }
         }
         public void Delete()
         {
@@ -504,7 +509,7 @@ namespace pbl.BLL
                              DepartureTime = sch.DepartureTime.ToString(),
                              ArrivalTime = sch.ArrivalTime.ToString()
                          };
-            return result.ToList();
+            return result.ToList().GroupBy(s => s.ScheduleID).Select(g => g.First()).ToList();
         }
         public string GetSchedule(string userName, string day, string month, string year)
         {
@@ -566,7 +571,7 @@ namespace pbl.BLL
                              DepartureTime = sch.DepartureTime.ToString(),
                              ArrivalTime = sch.ArrivalTime.ToString()
                          };
-            return result.ToList();
+            return result.ToList().GroupBy(s => s.ScheduleID).Select(g => g.First()).ToList();
         }
         public List<SCHEDULE_View> GetSchedule()
         {
