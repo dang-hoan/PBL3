@@ -75,6 +75,7 @@
     <Compile Include="BLL\BLLTicket.cs" />
     <Compile Include="BLL\BLLTRAIN.cs" />
     <Compile Include="DTO\PEOPLE_View.cs" />
+    <Compile Include="DTO\Schedule.cs" />
     <Compile Include="DTO\SCHEDULE_View.cs" />
     <Compile Include="DTO\TICKET_User_View.cs" />
     <Compile Include="DTO\TICKET_View.cs" />

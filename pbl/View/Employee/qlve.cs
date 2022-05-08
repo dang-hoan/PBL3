@@ -28,10 +28,7 @@ namespace pbl.Employee
 
         }
 
-        private void butshow_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void butsearch_Click(object sender, EventArgs e)
         {
