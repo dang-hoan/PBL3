@@ -152,6 +152,49 @@ namespace pbl.BLL
                 return true;
             }
         }
+        public void UpdatePassByForget(string userName, string newPassword)
+        {
+            PBL3 db = new PBL3();
+            LOGIN l = (from log in db.LOGINs
+                        where log.Username.Equals(userName)
+                        select log).FirstOrDefault();
+            l.PassWord = newPassword;
+            db.SaveChanges();
+        }
+        public bool CheckSecurity(string userName, string question, string answer)
+        {
+            PBL3 db = new PBL3();
+            SECURITY s = (from sec in db.SECURITies
+                          where sec.OwnUN.Equals(userName) && sec.Question.Equals(question) && sec.Answer.Equals(answer)
+                          select sec).FirstOrDefault();
+            if(s == null) return false;
+            return true;
+        }
+        public List<string> GetQuestionSecurity(string userName)
+        {
+            PBL3 db = new PBL3();
+            var result = from sec in db.SECURITies
+                         where sec.OwnUN.Equals(userName)
+                         select sec.Question;
+            return result.ToList();
+        }
+        public string GetAnswerSecurity(string userName, string question)
+        {
+            PBL3 db = new PBL3();
+            var result = from sec in db.SECURITies
+                         where sec.OwnUN.Equals(userName) && sec.Question.Equals(question)
+                         select sec.Answer;
+            return result.ToList().FirstOrDefault();
+        }
+        public void UpdateSecurity(string userName, string question, string newAnswer)
+        {
+            PBL3 db = new PBL3();
+            SECURITY s = (from sec in db.SECURITies
+                          where sec.OwnUN.Equals(userName) && sec.Question.Equals(question)
+                          select sec).FirstOrDefault();
+            s.Answer = newAnswer;
+            db.SaveChanges();
+        }
         public void Delete()
         {
             PBL3 db = new PBL3();
@@ -464,6 +507,38 @@ namespace pbl.BLL
                         where tic.CustomerUN == userName
                         select sch.Destination).ToList();
         }
+        //public List<string> GetDeparture2(string userName, string Departure)
+        //{
+        //    PBL3 db = new PBL3();
+        //    if (Departure != "")
+        //        return (from sch in db.SCHEDULEs.ToList()
+        //                join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+        //                join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+        //                where tic.CustomerUN == userName && sch.Departure.Contains(Departure)
+        //                select sch.Departure).ToList();
+        //    else
+        //        return (from sch in db.SCHEDULEs.ToList()
+        //                join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+        //                join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+        //                where tic.CustomerUN == userName
+        //                select sch.Departure).ToList();
+        //}
+        //public List<string> GetDestination2(string userName, string Destination)
+        //{
+        //    PBL3 db = new PBL3();
+        //    if (Destination != "")
+        //        return (from sch in db.SCHEDULEs.ToList()
+        //                join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+        //                join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+        //                where tic.CustomerUN == userName && sch.Destination.Contains(Destination)
+        //                select sch.Destination).ToList();
+        //    else
+        //        return (from sch in db.SCHEDULEs.ToList()
+        //                join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+        //                join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+        //                where tic.CustomerUN == userName
+        //                select sch.Destination).ToList();
+        //}
         public void GetStation(ref List<string> cbbDep, ref List<string> cbbDes)
         {
             PBL3 db = new PBL3();

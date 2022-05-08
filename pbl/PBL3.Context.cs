@@ -16,7 +16,7 @@ namespace pbl
     public partial class PBL3 : DbContext
     {
         public PBL3()
-            : base("name=PBL3-Hoan")
+            : base("name=PBL3")
         {
         }
     
@@ -33,5 +33,6 @@ namespace pbl
         public virtual DbSet<TICKET> TICKETs { get; set; }
         public virtual DbSet<TICKET_MANAGER> TICKET_MANAGER { get; set; }
         public virtual DbSet<TRAIN> TRAINs { get; set; }
+        public virtual DbSet<SECURITY> SECURITies { get; set; }
     }
 }

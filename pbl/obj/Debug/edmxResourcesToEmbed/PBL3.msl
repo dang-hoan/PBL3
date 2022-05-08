@@ -87,5 +87,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SECURITies">
+      <EntityTypeMapping TypeName="PBL3Model.SECURITY">
+        <MappingFragment StoreEntitySet="SECURITY">
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="OwnUN" ColumnName="OwnUN" />
+          <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
