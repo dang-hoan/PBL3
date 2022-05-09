@@ -123,6 +123,8 @@ namespace pbl
         }
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
+            //cbbDep.Items.Clear();
+            //cbbDep.Items.AddRange(BLLTRAIN.Instance.GetDeparture2(GUILogin.userName, cbbDep.Text).Distinct().ToArray());
             cbbDes.Items.Clear();
             foreach (string s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, cbbDep.Text).Distinct())
             {
@@ -132,6 +134,8 @@ namespace pbl
 
         private void cbbDes_TextChanged(object sender, EventArgs e)
         {
+            //cbbDes.Items.Clear();
+            //cbbDes.Items.AddRange(BLLTRAIN.Instance.GetDestination2(GUILogin.userName, cbbDes.Text).Distinct().ToArray());
             cbbDep.Items.Clear();
             foreach (string s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, cbbDes.Text).Distinct())
             {

@@ -28,7 +28,8 @@ namespace pbl
        
         private void btdangnhap_Click_1(object sender, EventArgs e)
         {
-            if(txtusername.Text == "" || txtpass.Text == "")
+            userName = txtusername.Text;
+            if (txtusername.Text == "" || txtpass.Text == "")
             {
                 labelNotify.Text = "*Thông tin đăng nhập chưa đủ!";
                 labelNotify.Location = new Point(panel1.Location.X + 90, btdangnhap.Location.Y - 20);
@@ -70,13 +71,13 @@ namespace pbl
                         break;
                     }
             }
-            userName = txtusername.Text;
             txtusername.Text = "";
             txtpass.Text = "";
         }
 
         private void linkForget_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            userName = txtusername.Text;
             this.Hide();
             txtpass.Text = "";
             GUIForget Forget = new GUIForget(this);
@@ -92,6 +93,7 @@ namespace pbl
         {
             if(e.KeyCode == Keys.Enter)
             {
+                e.SuppressKeyPress = true;
                 btdangnhap_Click_1(sender, e);
             }
         }

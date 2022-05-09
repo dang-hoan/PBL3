@@ -60,7 +60,12 @@ CREATE TABLE TICKET_MANAGER(
 	TotalTickets int not null,
 	BookedTickets int not null,
 )
-
+CREATE TABLE SECURITY(
+	SecurityID varchar(10) primary key not null,
+	OwnUN varchar(20) foreign key (OwnUN) references PEOPLE,
+	Question nvarchar(50) not null,
+	Answer nvarchar(50) not null
+)
 
 
 

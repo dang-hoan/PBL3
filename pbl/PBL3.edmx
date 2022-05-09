@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PBL3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PBL3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="LOGIN">
           <Key>
             <PropertyRef Name="IDlogin" />
@@ -43,6 +43,15 @@
           <Property Name="Destination" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DepartureTime" Type="datetime" Nullable="false" />
           <Property Name="ArrivalTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SECURITY">
+          <Key>
+            <PropertyRef Name="SecurityID" />
+          </Key>
+          <Property Name="SecurityID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="OwnUN" Type="varchar" MaxLength="20" />
+          <Property Name="Question" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Answer" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="STATION">
           <Key>
@@ -104,6 +113,18 @@
             </Principal>
             <Dependent Role="PEOPLE">
               <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SECURITY__OwnUN__49C3F6B7">
+          <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="0..1" />
+          <End Role="SECURITY" Type="Self.SECURITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEOPLE">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="SECURITY">
+              <PropertyRef Name="OwnUN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -172,6 +193,7 @@
           <EntitySet Name="PEOPLE" EntityType="Self.PEOPLE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="POSITION" EntityType="Self.POSITION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SCHEDULE" EntityType="Self.SCHEDULE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SECURITY" EntityType="Self.SECURITY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STATION" EntityType="Self.STATION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TICKET_MANAGER" EntityType="Self.TICKET_MANAGER" Schema="dbo" store:Type="Tables" />
@@ -183,6 +205,10 @@
           <AssociationSet Name="FK__PEOPLE__Position__267ABA7A" Association="Self.FK__PEOPLE__Position__267ABA7A">
             <End Role="POSITION" EntitySet="POSITION" />
             <End Role="PEOPLE" EntitySet="PEOPLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SECURITY__OwnUN__49C3F6B7" Association="Self.FK__SECURITY__OwnUN__49C3F6B7">
+            <End Role="PEOPLE" EntitySet="PEOPLE" />
+            <End Role="SECURITY" EntitySet="SECURITY" />
           </AssociationSet>
           <AssociationSet Name="FK__TICKET__Customer__34C8D9D1" Association="Self.FK__TICKET__Customer__34C8D9D1">
             <End Role="PEOPLE" EntitySet="PEOPLE" />
@@ -205,8 +231,7 @@
             <End Role="TRAIN" EntitySet="TRAIN" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PBL3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -236,6 +261,7 @@
           <NavigationProperty Name="POSITION" Relationship="Self.FK__PEOPLE__Position__267ABA7A" FromRole="PEOPLE" ToRole="POSITION" />
           <NavigationProperty Name="TICKETs" Relationship="Self.FK__TICKET__Customer__34C8D9D1" FromRole="PEOPLE" ToRole="TICKET" />
           <NavigationProperty Name="TRAINs" Relationship="Self.FK__TRAIN__DriverUN__300424B4" FromRole="PEOPLE" ToRole="TRAIN" />
+          <NavigationProperty Name="SECURITies" Relationship="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" FromRole="PEOPLE" ToRole="SECURITY" />
         </EntityType>
         <EntityType Name="POSITION">
           <Key>
@@ -423,7 +449,34 @@
             <End Role="TRAIN" EntitySet="TRAINs" />
             <End Role="TICKET_MANAGER" EntitySet="TICKET_MANAGER" />
           </AssociationSet>
+          <EntitySet Name="SECURITies" EntityType="PBL3Model.SECURITY" />
+          <AssociationSet Name="FK__SECURITY__OwnUN__49C3F6B7" Association="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7">
+            <End Role="PEOPLE" EntitySet="PEOPLE" />
+            <End Role="SECURITY" EntitySet="SECURITies" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SECURITY">
+          <Key>
+            <PropertyRef Name="SecurityID" />
+          </Key>
+          <Property Name="SecurityID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OwnUN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Question" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Answer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Person" Relationship="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" FromRole="SECURITY" ToRole="PEOPLE" />
+        </EntityType>
+        <Association Name="FK__SECURITY__OwnUN__49C3F6B7">
+          <End Type="PBL3Model.PEOPLE" Role="PEOPLE" Multiplicity="0..1" />
+          <End Type="PBL3Model.SECURITY" Role="SECURITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEOPLE">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="SECURITY">
+              <PropertyRef Name="OwnUN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -513,6 +566,16 @@
                 <ScalarProperty Name="NumberOfCarriages" ColumnName="NumberOfCarriages" />
                 <ScalarProperty Name="DriverUN" ColumnName="DriverUN" />
                 <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SECURITies">
+            <EntityTypeMapping TypeName="PBL3Model.SECURITY">
+              <MappingFragment StoreEntitySet="SECURITY">
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="OwnUN" ColumnName="OwnUN" />
+                <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

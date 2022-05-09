@@ -138,3 +138,4 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.CopyComplete
 C:\PBL3\pbl\obj\Debug\pbl.View.addkhachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.khachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Employee.Employeechinh.resources
+C:\PBL3\pbl\obj\Debug\pbl.GUIChangePass.resources

@@ -30,16 +30,6 @@ namespace pbl.View
         PBL3 db = new PBL3();
         public void show(string username)
         {
-            string q = "";
-           /* if (id == 0)
-            {
-                q = "select ID,Name,Gender,Birthday,Email,Phone,POSITION.Position from PEOPLE inner join POSITION on PEOPLE.PositionID = POSITION.PositionID where Name like '%" + txt + "%'";
-            }
-            else
-                q = "select ID,Name,Gender,Birthday,Email,Phone,POSITION.Position from PEOPLE inner join POSITION on PEOPLE.PositionID = POSITION.PositionID where PEOPLE.PositionID = " + id + "and Name like '%" + txt + "%'";
-*/
-           
-
             dataGridView1.DataSource = BLLpeople.instance.GetuserByusername(username);
         }
         private void butdel_Click(object sender, EventArgs e)

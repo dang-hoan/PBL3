@@ -40,6 +40,7 @@ namespace pbl
             txtEmail.Text = p.Email;
             txtPhone.Text = p.Phone;
             txtPosition.Text = p.Position;
+            cbbQuestion.Items.AddRange(BLLTRAIN.Instance.GetQuestionSecurity(GUILogin.userName).ToArray());
         }
         private void bEditPass_Click(object sender, EventArgs e)
         {
@@ -146,6 +147,30 @@ namespace pbl
             txtIDCard.Enabled = false;
             txtEmail.Enabled = false;
             txtPhone.Enabled = false;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bEditSecurity_Click(object sender, EventArgs e)
+        {
+            cbbQuestion.Enabled = true;
+            txtAnswer.Enabled = true;
+        }
+
+        private void bSaveSecurity_Click(object sender, EventArgs e)
+        {
+            BLLTRAIN.Instance.UpdateSecurity(GUILogin.userName, cbbQuestion.Text, txtAnswer.Text);
+            MessageBox.Show("Đã đổi thành công câu trả lời bảo mật của bạn!");
+            cbbQuestion.Enabled = false;
+            txtAnswer.Enabled = false;
+        }
+
+        private void cbbQuestion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, cbbQuestion.Text);
         }
     }
 }

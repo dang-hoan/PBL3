@@ -33,5 +33,6 @@ namespace pbl
         public virtual DbSet<TICKET> TICKETs { get; set; }
         public virtual DbSet<TICKET_MANAGER> TICKET_MANAGER { get; set; }
         public virtual DbSet<TRAIN> TRAINs { get; set; }
+        public virtual DbSet<SECURITY> SECURITies { get; set; }
     }
 }
