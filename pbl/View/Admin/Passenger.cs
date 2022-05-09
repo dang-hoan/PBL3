@@ -21,7 +21,7 @@ namespace pbl
 
         private void btsearch_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BLLpeople.instance.searchP(txtsearch.Text);
+            dataGridView1.DataSource = BLLpeople.instance.searchem(txtsearch.Text);
         }
         public void showpass(string PositionId)
         {

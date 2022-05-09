@@ -74,6 +74,7 @@
     <Compile Include="BLL\BLLpeople.cs" />
     <Compile Include="BLL\BLLTicket.cs" />
     <Compile Include="BLL\BLLTRAIN.cs" />
+    <Compile Include="DTO\employeeview.cs" />
     <Compile Include="DTO\PEOPLE_View.cs" />
     <Compile Include="DTO\Schedule.cs" />
     <Compile Include="DTO\SCHEDULE_View.cs" />
