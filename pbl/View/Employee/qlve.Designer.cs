@@ -199,6 +199,7 @@
             // 
             // butxoave
             // 
+<<<<<<< HEAD
             this.butxoave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butxoave.Location = new System.Drawing.Point(728, 441);
             this.butxoave.Name = "butxoave";
@@ -272,6 +273,16 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(70, 24);
             this.comboBox2.TabIndex = 125;
+=======
+            this.butshow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butshow.Location = new System.Drawing.Point(660, 403);
+            this.butshow.Name = "butshow";
+            this.butshow.Size = new System.Drawing.Size(95, 35);
+            this.butshow.TabIndex = 118;
+            this.butshow.Text = "Xóa  vé";
+            this.butshow.UseVisualStyleBackColor = true;
+           
+>>>>>>> 341ff11a28855dbf20a7362c630a6610b37e642a
             // 
             // qlve
             // 

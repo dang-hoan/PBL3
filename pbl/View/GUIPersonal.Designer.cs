@@ -61,15 +61,23 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbbQuestion = new System.Windows.Forms.ComboBox();
+            this.bSaveSecurity = new System.Windows.Forms.Button();
+            this.bEditSecurity = new System.Windows.Forms.Button();
+            this.txtAnswer = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtConfirm
             // 
             this.txtConfirm.Enabled = false;
-            this.txtConfirm.Location = new System.Drawing.Point(203, 179);
+            this.txtConfirm.Location = new System.Drawing.Point(220, 146);
             this.txtConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.PasswordChar = '*';
@@ -79,7 +87,7 @@
             // txtNew
             // 
             this.txtNew.Enabled = false;
-            this.txtNew.Location = new System.Drawing.Point(203, 119);
+            this.txtNew.Location = new System.Drawing.Point(220, 95);
             this.txtNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNew.Name = "txtNew";
             this.txtNew.PasswordChar = '*';
@@ -89,7 +97,7 @@
             // txtOld
             // 
             this.txtOld.Enabled = false;
-            this.txtOld.Location = new System.Drawing.Point(203, 61);
+            this.txtOld.Location = new System.Drawing.Point(220, 42);
             this.txtOld.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOld.Name = "txtOld";
             this.txtOld.PasswordChar = '*';
@@ -100,7 +108,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(6, 180);
+            this.label9.Location = new System.Drawing.Point(23, 147);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(181, 25);
             this.label9.TabIndex = 2;
@@ -110,7 +118,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(6, 119);
+            this.label8.Location = new System.Drawing.Point(23, 100);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(129, 25);
             this.label8.TabIndex = 1;
@@ -120,7 +128,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(8, 61);
+            this.label7.Location = new System.Drawing.Point(25, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 25);
             this.label7.TabIndex = 0;
@@ -131,7 +139,7 @@
             this.bSaveInfor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSaveInfor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSaveInfor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bSaveInfor.Location = new System.Drawing.Point(357, 521);
+            this.bSaveInfor.Location = new System.Drawing.Point(358, 548);
             this.bSaveInfor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bSaveInfor.Name = "bSaveInfor";
             this.bSaveInfor.Size = new System.Drawing.Size(115, 37);
@@ -145,7 +153,7 @@
             this.bEditInfor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bEditInfor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEditInfor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bEditInfor.Location = new System.Drawing.Point(106, 521);
+            this.bEditInfor.Location = new System.Drawing.Point(107, 548);
             this.bEditInfor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bEditInfor.Name = "bEditInfor";
             this.bEditInfor.Size = new System.Drawing.Size(139, 37);
@@ -159,7 +167,7 @@
             this.rbFemale.AutoSize = true;
             this.rbFemale.Enabled = false;
             this.rbFemale.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rbFemale.Location = new System.Drawing.Point(411, 142);
+            this.rbFemale.Location = new System.Drawing.Point(412, 169);
             this.rbFemale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(62, 29);
@@ -173,7 +181,7 @@
             this.rbMale.AutoSize = true;
             this.rbMale.Enabled = false;
             this.rbMale.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rbMale.Location = new System.Drawing.Point(259, 145);
+            this.rbMale.Location = new System.Drawing.Point(260, 172);
             this.rbMale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(78, 29);
@@ -185,7 +193,7 @@
             // txtEmail
             // 
             this.txtEmail.Enabled = false;
-            this.txtEmail.Location = new System.Drawing.Point(245, 348);
+            this.txtEmail.Location = new System.Drawing.Point(246, 375);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(306, 30);
@@ -194,7 +202,7 @@
             // txtPhone
             // 
             this.txtPhone.Enabled = false;
-            this.txtPhone.Location = new System.Drawing.Point(245, 399);
+            this.txtPhone.Location = new System.Drawing.Point(246, 426);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(306, 30);
@@ -205,7 +213,7 @@
             this.bSavePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSavePass.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSavePass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bSavePass.Location = new System.Drawing.Point(212, 257);
+            this.bSavePass.Location = new System.Drawing.Point(229, 195);
             this.bSavePass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bSavePass.Name = "bSavePass";
             this.bSavePass.Size = new System.Drawing.Size(115, 37);
@@ -219,7 +227,7 @@
             this.bEditPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bEditPass.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEditPass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bEditPass.Location = new System.Drawing.Point(32, 257);
+            this.bEditPass.Location = new System.Drawing.Point(49, 195);
             this.bEditPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bEditPass.Name = "bEditPass";
             this.bEditPass.Size = new System.Drawing.Size(139, 37);
@@ -239,11 +247,11 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox2.Location = new System.Drawing.Point(35, 349);
+            this.groupBox2.Location = new System.Drawing.Point(35, 433);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(411, 328);
+            this.groupBox2.Size = new System.Drawing.Size(411, 244);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mật khẩu";
@@ -251,7 +259,7 @@
             // txtPosition
             // 
             this.txtPosition.Enabled = false;
-            this.txtPosition.Location = new System.Drawing.Point(245, 450);
+            this.txtPosition.Location = new System.Drawing.Point(246, 477);
             this.txtPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(306, 30);
@@ -260,7 +268,7 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(245, 88);
+            this.txtName.Location = new System.Drawing.Point(246, 115);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(306, 30);
@@ -269,7 +277,7 @@
             // txtUsername
             // 
             this.txtUsername.Enabled = false;
-            this.txtUsername.Location = new System.Drawing.Point(245, 40);
+            this.txtUsername.Location = new System.Drawing.Point(246, 67);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(306, 30);
@@ -280,7 +288,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(44, 45);
+            this.label1.Location = new System.Drawing.Point(45, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 25);
             this.label1.TabIndex = 0;
@@ -291,7 +299,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(44, 454);
+            this.label6.Location = new System.Drawing.Point(45, 481);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 25);
             this.label6.TabIndex = 5;
@@ -302,7 +310,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(44, 93);
+            this.label2.Location = new System.Drawing.Point(45, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 25);
             this.label2.TabIndex = 1;
@@ -313,7 +321,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(44, 406);
+            this.label5.Location = new System.Drawing.Point(45, 433);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 25);
             this.label5.TabIndex = 4;
@@ -324,7 +332,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(44, 142);
+            this.label3.Location = new System.Drawing.Point(45, 169);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 25);
             this.label3.TabIndex = 2;
@@ -335,7 +343,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(44, 348);
+            this.label4.Location = new System.Drawing.Point(45, 375);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 25);
             this.label4.TabIndex = 3;
@@ -365,11 +373,11 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(464, 85);
+            this.groupBox1.Location = new System.Drawing.Point(464, 42);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(607, 592);
+            this.groupBox1.Size = new System.Drawing.Size(607, 635);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
@@ -377,7 +385,7 @@
             // txtBirthDay
             // 
             this.txtBirthDay.Enabled = false;
-            this.txtBirthDay.Location = new System.Drawing.Point(245, 192);
+            this.txtBirthDay.Location = new System.Drawing.Point(246, 219);
             this.txtBirthDay.Name = "txtBirthDay";
             this.txtBirthDay.Size = new System.Drawing.Size(306, 30);
             this.txtBirthDay.TabIndex = 21;
@@ -385,7 +393,7 @@
             // txtIDCard
             // 
             this.txtIDCard.Enabled = false;
-            this.txtIDCard.Location = new System.Drawing.Point(245, 300);
+            this.txtIDCard.Location = new System.Drawing.Point(246, 327);
             this.txtIDCard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(306, 30);
@@ -396,7 +404,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(44, 300);
+            this.label12.Location = new System.Drawing.Point(45, 327);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(182, 25);
             this.label12.TabIndex = 19;
@@ -405,7 +413,7 @@
             // txtAddress
             // 
             this.txtAddress.Enabled = false;
-            this.txtAddress.Location = new System.Drawing.Point(245, 250);
+            this.txtAddress.Location = new System.Drawing.Point(246, 277);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(306, 30);
@@ -416,7 +424,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(44, 250);
+            this.label11.Location = new System.Drawing.Point(45, 277);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(71, 25);
             this.label11.TabIndex = 17;
@@ -427,7 +435,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(44, 192);
+            this.label10.Location = new System.Drawing.Point(45, 219);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 25);
             this.label10.TabIndex = 15;
@@ -437,12 +445,99 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(150, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(162, 26);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 214);
+            this.pictureBox1.Size = new System.Drawing.Size(155, 113);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbbQuestion);
+            this.groupBox3.Controls.Add(this.bSaveSecurity);
+            this.groupBox3.Controls.Add(this.bEditSecurity);
+            this.groupBox3.Controls.Add(this.txtAnswer);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupBox3.Location = new System.Drawing.Point(35, 162);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(411, 263);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Bảo mật";
+            // 
+            // cbbQuestion
+            // 
+            this.cbbQuestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbQuestion.Enabled = false;
+            this.cbbQuestion.FormattingEnabled = true;
+            this.cbbQuestion.Location = new System.Drawing.Point(98, 41);
+            this.cbbQuestion.Name = "cbbQuestion";
+            this.cbbQuestion.Size = new System.Drawing.Size(307, 33);
+            this.cbbQuestion.TabIndex = 15;
+            this.cbbQuestion.SelectedIndexChanged += new System.EventHandler(this.cbbQuestion_SelectedIndexChanged);
+            // 
+            // bSaveSecurity
+            // 
+            this.bSaveSecurity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bSaveSecurity.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSaveSecurity.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.bSaveSecurity.Location = new System.Drawing.Point(229, 216);
+            this.bSaveSecurity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bSaveSecurity.Name = "bSaveSecurity";
+            this.bSaveSecurity.Size = new System.Drawing.Size(115, 37);
+            this.bSaveSecurity.TabIndex = 7;
+            this.bSaveSecurity.Text = "Lưu";
+            this.bSaveSecurity.UseVisualStyleBackColor = false;
+            this.bSaveSecurity.Click += new System.EventHandler(this.bSaveSecurity_Click);
+            // 
+            // bEditSecurity
+            // 
+            this.bEditSecurity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bEditSecurity.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bEditSecurity.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.bEditSecurity.Location = new System.Drawing.Point(49, 216);
+            this.bEditSecurity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bEditSecurity.Name = "bEditSecurity";
+            this.bEditSecurity.Size = new System.Drawing.Size(139, 37);
+            this.bEditSecurity.TabIndex = 6;
+            this.bEditSecurity.Text = "Chỉnh sửa";
+            this.bEditSecurity.UseVisualStyleBackColor = false;
+            this.bEditSecurity.Click += new System.EventHandler(this.bEditSecurity_Click);
+            // 
+            // txtAnswer
+            // 
+            this.txtAnswer.Enabled = false;
+            this.txtAnswer.Location = new System.Drawing.Point(98, 85);
+            this.txtAnswer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAnswer.Multiline = true;
+            this.txtAnswer.Name = "txtAnswer";
+            this.txtAnswer.Size = new System.Drawing.Size(307, 112);
+            this.txtAnswer.TabIndex = 4;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(20, 85);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(66, 25);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Trả lời";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label15.Location = new System.Drawing.Point(20, 44);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(80, 25);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Câu hỏi";
             // 
             // GUIPersonal
             // 
@@ -450,6 +545,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1098, 711);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -460,6 +556,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -497,5 +595,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker txtBirthDay;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button bSaveSecurity;
+        private System.Windows.Forms.Button bEditSecurity;
+        private System.Windows.Forms.TextBox txtAnswer;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cbbQuestion;
     }
 }

@@ -135,6 +135,10 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.CopyComplete
 C:\PBL3\pbl\obj\Debug\pbl.View.addkhachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.khachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Employee.Employeechinh.resources
+<<<<<<< HEAD
 C:\PBL3\pbl\obj\Debug\pbl.View.qlve.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.addve.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.lichtrinh.resources
+=======
+C:\PBL3\pbl\obj\Debug\pbl.GUIChangePass.resources
+>>>>>>> 341ff11a28855dbf20a7362c630a6610b37e642a

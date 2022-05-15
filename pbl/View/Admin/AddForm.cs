@@ -14,16 +14,67 @@ namespace pbl
     
     public partial class AddForm : Form
     {
-        public AddForm()
+        public delegate void Mydel(string usern);
+        public Mydel d;
+        public string usern{ get; set; }
+        public AddForm(string s)
         {
+            usern = s;
             InitializeComponent();
+           
+            GUI();
+        }
+        
+        public void GUI()
+        {
+            if (BLLpeople.instance.check(usern))
+            {
+                txtusername.Text = BLLpeople.instance.GetuserByusername(usern).Username.ToString();
+                bool check = Convert.ToBoolean(BLLpeople.instance.GetuserByusername(usern).Gender);
+                txtusername.Enabled = false;
+                txtname.Text = BLLpeople.instance.GetuserByusername(usern).Name.ToString();
+                date.Value = Convert.ToDateTime(BLLpeople.instance.GetuserByusername(usern).BirthDay);
+                address.Text = BLLpeople.instance.GetuserByusername(usern).Address.ToString();
+                gmail.Text = BLLpeople.instance.GetuserByusername(usern).Email.ToString();
+                idcard.Text = BLLpeople.instance.GetuserByusername(usern).IDCard.ToString();
+                positionid.Text = BLLpeople.instance.GetuserByusername(usern).PositionID.ToString();
+                phone.Text = BLLpeople.instance.GetuserByusername(usern).Phone.ToString();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //BLLTRAIN.Instance.Addnv(username.Text, txtname.Text, male.Checked || !female.Checked, date.Value, address.Text, idcard.Text, gmail.Text, phone.Text, positionid.Text);
+            string p=" ";
+            if (positionid.Text == "Nhân viên")
+            {
+                p = "222";
+            }
+            else if(positionid.Text == "Giám đốc")
+            {
+                p = "111";
+            }
+            else if (positionid.Text == "Khách hàng")
+            {
+                p = "333";            
+            }
+                PEOPLE s = new PEOPLE()
+            {
+                Username =txtusername.Text,
+                Name = txtname.Text,
+                Gender = (male.Checked == true) ? true : false,
+                BirthDay = date.Value,
+                Phone = phone.Text,
+                Address = address.Text,
+                Email = gmail.Text,
+                IDCard = idcard.Text,
+                PositionID=p,
+            };
+          BLLpeople.instance.Execute(s);
+            
+            d("");
+
             this.Close();
-           
+
         }
 
        

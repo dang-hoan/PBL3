@@ -44,11 +44,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.username = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.idcard = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtusername = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -212,9 +212,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.Controls.Add(this.txtusername);
             this.groupBox1.Controls.Add(this.idcard);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.username);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.positionid);
             this.groupBox1.Controls.Add(this.address);
@@ -240,6 +240,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
             // 
+            // idcard
+            // 
+            this.idcard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idcard.Location = new System.Drawing.Point(897, 212);
+            this.idcard.Margin = new System.Windows.Forms.Padding(4);
+            this.idcard.Name = "idcard";
+            this.idcard.Size = new System.Drawing.Size(138, 26);
+            this.idcard.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(804, 218);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 20);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "ID card";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(470, 218);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "username";
+            // 
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.Black;
@@ -251,41 +278,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label8
+            // txtusername
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(470, 218);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 20);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "username";
-            // 
-            // username
-            // 
-            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(590, 212);
-            this.username.Margin = new System.Windows.Forms.Padding(4);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(138, 26);
-            this.username.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(804, 218);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 20);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "ID card";
-            // 
-            // idcard
-            // 
-            this.idcard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idcard.Location = new System.Drawing.Point(897, 212);
-            this.idcard.Margin = new System.Windows.Forms.Padding(4);
-            this.idcard.Name = "idcard";
-            this.idcard.Size = new System.Drawing.Size(138, 26);
-            this.idcard.TabIndex = 19;
+            this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtusername.Location = new System.Drawing.Point(590, 212);
+            this.txtusername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtusername.Name = "txtusername";
+            this.txtusername.Size = new System.Drawing.Size(138, 26);
+            this.txtusername.TabIndex = 20;
             // 
             // AddForm
             // 
@@ -301,6 +301,7 @@
             this.Name = "AddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddForm";
+           
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -329,5 +330,6 @@
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.TextBox idcard;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtusername;
     }
 }

@@ -70,7 +70,7 @@ namespace pbl.BLL
         public void delticket(string ticketid)
         {
             TICKET s = db.TICKETs.Find(ticketid);
-            db.TICKETs.Remove(s);
+            db.TICKETs.ToList().Remove(s);
             db.SaveChanges();
         }
         public TICKET Getticketbyticketid(string ticketid)

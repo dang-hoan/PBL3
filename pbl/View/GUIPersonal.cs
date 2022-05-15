@@ -40,6 +40,7 @@ namespace pbl
             txtEmail.Text = p.Email;
             txtPhone.Text = p.Phone;
             txtPosition.Text = p.Position;
+            cbbQuestion.Items.AddRange(BLLTRAIN.Instance.GetQuestionSecurity(GUILogin.userName).ToArray());
         }
         private void bEditPass_Click(object sender, EventArgs e)
         {
@@ -73,6 +74,14 @@ namespace pbl
                 MessageBox.Show("Mật khẩu cũ không đúng!");
             }
         }
+        private bool CheckNumber(string txt)
+        {
+            foreach (char i in txt)
+            {
+                if (i < 48 || i > 57) return false;
+            }
+            return true;
+        }
 
         private void bEditInfor_Click(object sender, EventArgs e)
         {
@@ -88,6 +97,36 @@ namespace pbl
 
         private void bSaveInfor_Click(object sender, EventArgs e)
         {
+            if (!CheckNumber(txtIDCard.Text))
+            {
+                MessageBox.Show("Số căn cước công dân phải có dạng số!");
+                return;
+            }
+            if (!CheckNumber(txtPhone.Text))
+            {
+                MessageBox.Show("Số điện thoại phải có dạng số!");
+                return;
+            }
+            if (txtIDCard.Text.Length > 12)
+            {
+                MessageBox.Show("Số căn cước công dân chỉ có 12 chữ số!");
+                return;
+            }
+            if (txtIDCard.Text.Length < 12)
+            {
+                MessageBox.Show("Số căn cước công dân phải đủ 12 chữ số!");
+                return;
+            }
+            if (txtPhone.Text.Length > 10)
+            {
+                MessageBox.Show("Số điện thoại chỉ có 10 chữ số!");
+                return;
+            }
+            if (txtPhone.Text.Length < 10)
+            {
+                MessageBox.Show("Số điện thoại phải đủ 10 chữ số!");
+                return;
+            }
             BLLTRAIN.Instance.UpdatePEOPLE(new PEOPLE
             {
                 Username = GUILogin.userName,
@@ -108,6 +147,30 @@ namespace pbl
             txtIDCard.Enabled = false;
             txtEmail.Enabled = false;
             txtPhone.Enabled = false;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bEditSecurity_Click(object sender, EventArgs e)
+        {
+            cbbQuestion.Enabled = true;
+            txtAnswer.Enabled = true;
+        }
+
+        private void bSaveSecurity_Click(object sender, EventArgs e)
+        {
+            BLLTRAIN.Instance.UpdateSecurity(GUILogin.userName, cbbQuestion.Text, txtAnswer.Text);
+            MessageBox.Show("Đã đổi thành công câu trả lời bảo mật của bạn!");
+            cbbQuestion.Enabled = false;
+            txtAnswer.Enabled = false;
+        }
+
+        private void cbbQuestion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, cbbQuestion.Text);
         }
     }
 }

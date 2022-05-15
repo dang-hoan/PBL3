@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgridemploy = new System.Windows.Forms.DataGridView();
-            this.txttimkiem = new System.Windows.Forms.TextBox();
+            this.txtsearch = new System.Windows.Forms.TextBox();
             this.bttimkiem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btsort = new System.Windows.Forms.Button();
+            this.btxoa = new System.Windows.Forms.Button();
+            this.btsua = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -56,21 +58,48 @@
             // 
             // dtgridemploy
             // 
-            this.dtgridemploy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgridemploy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgridemploy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgridemploy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgridemploy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgridemploy.ColumnHeadersHeight = 30;
+            this.dtgridemploy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtgridemploy.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgridemploy.Location = new System.Drawing.Point(0, 0);
             this.dtgridemploy.Name = "dtgridemploy";
+            this.dtgridemploy.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Aqua;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgridemploy.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgridemploy.RowHeadersVisible = false;
             this.dtgridemploy.RowHeadersWidth = 51;
             this.dtgridemploy.RowTemplate.Height = 24;
+            this.dtgridemploy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgridemploy.Size = new System.Drawing.Size(834, 461);
             this.dtgridemploy.TabIndex = 0;
+            this.dtgridemploy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridemploy_CellClick);
             // 
-            // txttimkiem
+            // txtsearch
             // 
-            this.txttimkiem.Location = new System.Drawing.Point(549, 14);
-            this.txttimkiem.Multiline = true;
-            this.txttimkiem.Name = "txttimkiem";
-            this.txttimkiem.Size = new System.Drawing.Size(142, 33);
-            this.txttimkiem.TabIndex = 5;
+            this.txtsearch.Location = new System.Drawing.Point(549, 14);
+            this.txtsearch.Multiline = true;
+            this.txtsearch.Name = "txtsearch";
+            this.txtsearch.Size = new System.Drawing.Size(142, 33);
+            this.txtsearch.TabIndex = 5;
             // 
             // bttimkiem
             // 
@@ -86,49 +115,50 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.btsort);
+            this.panel2.Controls.Add(this.btxoa);
+            this.panel2.Controls.Add(this.btsua);
             this.panel2.Controls.Add(this.btAdd);
             this.panel2.Controls.Add(this.bttimkiem);
-            this.panel2.Controls.Add(this.txttimkiem);
+            this.panel2.Controls.Add(this.txtsearch);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Location = new System.Drawing.Point(0, -2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(971, 694);
             this.panel2.TabIndex = 1;
             // 
-            // button2
+            // btsort
             // 
-            this.button2.BackColor = System.Drawing.Color.Cyan;
-            this.button2.Location = new System.Drawing.Point(803, 590);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 33);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Thoát";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btsort.BackColor = System.Drawing.Color.Aqua;
+            this.btsort.Location = new System.Drawing.Point(693, 590);
+            this.btsort.Name = "btsort";
+            this.btsort.Size = new System.Drawing.Size(145, 33);
+            this.btsort.TabIndex = 10;
+            this.btsort.Text = "SẮP XẾP";
+            this.btsort.UseVisualStyleBackColor = false;
+            this.btsort.Click += new System.EventHandler(this.btsort_Click);
             // 
-            // button7
+            // btxoa
             // 
-            this.button7.BackColor = System.Drawing.Color.Aqua;
-            this.button7.Location = new System.Drawing.Point(589, 590);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(147, 33);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "XÓA";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btxoa.BackColor = System.Drawing.Color.Aqua;
+            this.btxoa.Location = new System.Drawing.Point(453, 590);
+            this.btxoa.Name = "btxoa";
+            this.btxoa.Size = new System.Drawing.Size(147, 33);
+            this.btxoa.TabIndex = 9;
+            this.btxoa.Text = "XÓA";
+            this.btxoa.UseVisualStyleBackColor = false;
+            this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
             // 
-            // button6
+            // btsua
             // 
-            this.button6.BackColor = System.Drawing.Color.Aqua;
-            this.button6.Location = new System.Drawing.Point(322, 590);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(147, 33);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "SỬA";
-            this.button6.UseVisualStyleBackColor = false;
-         
+            this.btsua.BackColor = System.Drawing.Color.Aqua;
+            this.btsua.Location = new System.Drawing.Point(249, 590);
+            this.btsua.Name = "btsua";
+            this.btsua.Size = new System.Drawing.Size(147, 33);
+            this.btsua.TabIndex = 8;
+            this.btsua.Text = "SỬA";
+            this.btsua.UseVisualStyleBackColor = false;
+            this.btsua.Click += new System.EventHandler(this.btsua_Click);
             // 
             // btAdd
             // 
@@ -162,13 +192,13 @@
         #endregion
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txttimkiem;
+        private System.Windows.Forms.TextBox txtsearch;
         private System.Windows.Forms.Button bttimkiem;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btxoa;
+        private System.Windows.Forms.Button btsua;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.DataGridView dtgridemploy;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btsort;
     }
 }

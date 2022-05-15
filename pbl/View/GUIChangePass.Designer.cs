@@ -1,6 +1,6 @@
 ﻿namespace pbl
 {
-    partial class GUIForget
+    partial class GUIChangePass
     {
         /// <summary>
         /// Required designer variable.
@@ -28,29 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIForget));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIChangePass));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtNewPass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbbQuestion = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.bAgree = new System.Windows.Forms.Button();
             this.bBack = new System.Windows.Forms.Button();
-            this.txtAnswer = new System.Windows.Forms.TextBox();
+            this.txtConfirmPass = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(40, 52);
+            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(40, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(399, 56);
             this.label1.TabIndex = 0;
-            this.label1.Text = "*Nhập tên đăng nhập và trả lời câu hỏi bảo mật để chúng tôi đặt lại mật khẩu cho " +
-    "bạn!";
+            this.label1.Text = "*Nhập mật khẩu mới";
             // 
             // label2
             // 
@@ -58,21 +55,20 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(40, 111);
+            this.label2.Location = new System.Drawing.Point(44, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 19);
+            this.label2.Size = new System.Drawing.Size(111, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Tên đăng nhập";
+            this.label2.Text = "Mật khẩu mới";
             // 
-            // txtUsername
+            // txtNewPass
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(199, 111);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(306, 26);
-            this.txtUsername.TabIndex = 2;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
-            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
+            this.txtNewPass.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPass.Location = new System.Drawing.Point(219, 73);
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.PasswordChar = '*';
+            this.txtNewPass.Size = new System.Drawing.Size(290, 26);
+            this.txtNewPass.TabIndex = 2;
             // 
             // label3
             // 
@@ -80,39 +76,17 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(40, 176);
+            this.label3.Location = new System.Drawing.Point(44, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 19);
+            this.label3.Size = new System.Drawing.Size(155, 19);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Câu hỏi bảo mật";
-            // 
-            // cbbQuestion
-            // 
-            this.cbbQuestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbQuestion.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbQuestion.FormattingEnabled = true;
-            this.cbbQuestion.Location = new System.Drawing.Point(199, 173);
-            this.cbbQuestion.Name = "cbbQuestion";
-            this.cbbQuestion.Size = new System.Drawing.Size(306, 26);
-            this.cbbQuestion.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(40, 246);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 19);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Trả lời";
+            this.label3.Text = "Xác nhận mật khẩu";
             // 
             // bAgree
             // 
             this.bAgree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bAgree.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAgree.Location = new System.Drawing.Point(245, 422);
+            this.bAgree.Location = new System.Drawing.Point(177, 183);
             this.bAgree.Name = "bAgree";
             this.bAgree.Size = new System.Drawing.Size(84, 36);
             this.bAgree.TabIndex = 7;
@@ -124,7 +98,7 @@
             // 
             this.bBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bBack.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBack.Location = new System.Drawing.Point(374, 422);
+            this.bBack.Location = new System.Drawing.Point(306, 183);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(84, 36);
             this.bBack.TabIndex = 8;
@@ -132,34 +106,33 @@
             this.bBack.UseVisualStyleBackColor = false;
             this.bBack.Click += new System.EventHandler(this.bBack_Click);
             // 
-            // txtAnswer
+            // txtConfirmPass
             // 
-            this.txtAnswer.Location = new System.Drawing.Point(199, 242);
-            this.txtAnswer.Multiline = true;
-            this.txtAnswer.Name = "txtAnswer";
-            this.txtAnswer.Size = new System.Drawing.Size(306, 156);
-            this.txtAnswer.TabIndex = 9;
+            this.txtConfirmPass.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPass.Location = new System.Drawing.Point(219, 121);
+            this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.PasswordChar = '*';
+            this.txtConfirmPass.Size = new System.Drawing.Size(290, 26);
+            this.txtConfirmPass.TabIndex = 9;
             // 
-            // GUIForget
+            // GUIChangePass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(574, 492);
-            this.Controls.Add(this.txtAnswer);
+            this.ClientSize = new System.Drawing.Size(574, 242);
+            this.Controls.Add(this.txtConfirmPass);
             this.Controls.Add(this.bBack);
             this.Controls.Add(this.bAgree);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cbbQuestion);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtNewPass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
-            this.Name = "GUIForget";
+            this.Name = "GUIChangePass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GUIForget";
+            this.Text = "GUIChangePass";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,12 +142,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtNewPass;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbbQuestion;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button bAgree;
         private System.Windows.Forms.Button bBack;
-        private System.Windows.Forms.TextBox txtAnswer;
+        private System.Windows.Forms.TextBox txtConfirmPass;
     }
 }

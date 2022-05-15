@@ -76,7 +76,13 @@ namespace pbl.View
             }    
         }
 
+<<<<<<< HEAD
         private void butxoave_Click(object sender, EventArgs e)
+=======
+        
+
+        private void butsearch_Click(object sender, EventArgs e)
+>>>>>>> 341ff11a28855dbf20a7362c630a6610b37e642a
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
