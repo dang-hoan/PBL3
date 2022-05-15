@@ -20,7 +20,7 @@ namespace pbl.View
         public string username { get; set; }
         public addkhachhang(string s)
         {
-           username = s;
+            username = s;
             InitializeComponent();
             GUI();
         }
@@ -32,13 +32,13 @@ namespace pbl.View
                 txtuser.Text = p.Username.ToString();
                 txtuser.Enabled = false;
                 txtname.Text = p.Name.ToString();
-                date.Value = Convert.ToDateTime(p.BirthDay);
+                date.Value = Convert.ToDateTime(BLLpeople.instance.GetuserByusername(username).BirthDay);
                 txtdiachi.Text = p.Address.ToString();
                 txtgamil.Text = p.Email.ToString();
                 txtidcard.Text = p.IDCard.ToString();
             }
         }
-        private void butOK_Click_1(object sender, EventArgs e)
+    private void butok_Click(object sender, EventArgs e)
         {
             PEOPLE s = new PEOPLE()
             {
@@ -48,13 +48,19 @@ namespace pbl.View
                 BirthDay = date.Value,
                 Phone = txtsdt.Text,
                 Address = txtdiachi.Text,
-                Email= txtgamil.Text,
+                Email = txtgamil.Text,
                 IDCard = txtidcard.Text,
+                PositionID ="124"
             };
             BLLpeople.instance.Execute(s);
             d("");
             this.Close();
         }
 
+        private void buthuy_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
+
 }

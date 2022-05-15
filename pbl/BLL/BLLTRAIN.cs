@@ -82,44 +82,7 @@ namespace pbl.BLL
             }
             return "Không tồn tại";
         }
-        public List<CBBItem> GetCBBs()
-        {
-            PBL3 db = new PBL3();
-            List<CBBItem> data = new List<CBBItem>();
-            foreach (PEOPLE i in db.PEOPLE)
-            {
-                data.Add(new CBBItem
-                {
-                    Value = int.Parse(i.Username.ToString()),
-                    Text = i.Name
 
-                });
-
-            }
-            return data;
-        }
-        public void delperson(string username)
-        {
-            PBL3 db = new PBL3();
-            PEOPLE s = db.PEOPLE.Find(username);
-            db.PEOPLE.Remove(s);
-            db.SaveChanges();
-        }
-        public List<PEOPLE> GetSVByIDLop(string username)
-        {
-            PBL3 db = new PBL3();
-            List<PEOPLE> data = new List<PEOPLE>();
-            if (username == "")
-            {
-                data = db.PEOPLE.ToList();
-            }
-            else
-            {
-                data = db.PEOPLE.Where(p => p.Username == username).Select(p => p).ToList();
-            }
-            return data;
-
-        }
         public void Add()
         {
             PBL3 db = new PBL3();
@@ -170,7 +133,7 @@ namespace pbl.BLL
                            ScheduleID = tra.ScheduleID,
                            TrainID = tra.TrainID,
                            TrainName = tra.TrainName,
-                           TicketID = tic.TicketID,
+                           TicketIDs = tic.TicketID,
                            SeatNo = tic.SeatNo,
                            TicketPrice = tic.TicketPrice.ToString(),
                            Departure = sch.Departure,
@@ -192,7 +155,7 @@ namespace pbl.BLL
                          {
                              Username = peo.Username,
                              Name = peo.Name,
-                             Gender = ((bool)peo.Gender)?"Nam":"Nữ",
+                             Gender = ((bool)peo.Gender) ? "Nam" : "Nữ",
                              BirthDay = (DateTime)peo.BirthDay,
                              Address = peo.Address,
                              IDCard = peo.IDCard,
@@ -563,6 +526,13 @@ namespace pbl.BLL
                                && sch.ArrivalTime.ToString("d/M/yyyy H:m:s").Contains(schedule.ArrivalTime)
                          select sch;
             return result.ToList();
+        }
+        public void delschedule(string scheduleid)
+        {
+            PBL3 db = new PBL3();
+            SCHEDULE s = db.SCHEDULEs.Find(scheduleid);
+            db.SCHEDULEs.Remove(s);
+            db.SaveChanges();
         }
         public List<int> GetDayOfDepartureTime(string month, string year, string userName)
         {

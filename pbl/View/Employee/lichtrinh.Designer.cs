@@ -1,4 +1,4 @@
-﻿namespace pbl
+﻿namespace pbl.View
 {
     partial class lichtrinh
     {
@@ -31,30 +31,35 @@
             this.themlt = new System.Windows.Forms.Button();
             this.butsua = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.butmuave = new System.Windows.Forms.Button();
+            this.butdelte = new System.Windows.Forms.Button();
+            this.butall = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
+            this.cbbHourDes = new System.Windows.Forms.ComboBox();
+            this.bSearch = new System.Windows.Forms.Button();
+            this.cbbDep = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbbMinuteDep = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateDep = new System.Windows.Forms.DateTimePicker();
+            this.dateDes = new System.Windows.Forms.DateTimePicker();
+            this.cbbHourDep = new System.Windows.Forms.ComboBox();
+            this.cbbDes = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // themlt
             // 
             this.themlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.themlt.Location = new System.Drawing.Point(248, 430);
+            this.themlt.Location = new System.Drawing.Point(406, 441);
             this.themlt.Name = "themlt";
-            this.themlt.Size = new System.Drawing.Size(148, 33);
+            this.themlt.Size = new System.Drawing.Size(128, 33);
             this.themlt.TabIndex = 8;
             this.themlt.Text = "Thêm lịch trình";
             this.themlt.UseVisualStyleBackColor = true;
@@ -63,9 +68,9 @@
             // butsua
             // 
             this.butsua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butsua.Location = new System.Drawing.Point(461, 430);
+            this.butsua.Location = new System.Drawing.Point(567, 441);
             this.butsua.Name = "butsua";
-            this.butsua.Size = new System.Drawing.Size(146, 33);
+            this.butsua.Size = new System.Drawing.Size(126, 33);
             this.butsua.TabIndex = 11;
             this.butsua.Text = "Sửa lịch trình";
             this.butsua.UseVisualStyleBackColor = true;
@@ -73,167 +78,232 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(81, 173);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 173);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(720, 239);
+            this.dataGridView1.Size = new System.Drawing.Size(842, 239);
             this.dataGridView1.TabIndex = 77;
             // 
-            // button1
+            // butmuave
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(80, 430);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 33);
-            this.button1.TabIndex = 97;
-            this.button1.Text = "mua  vé";
-            this.button1.UseVisualStyleBackColor = true;
+            this.butmuave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butmuave.Location = new System.Drawing.Point(79, 441);
+            this.butmuave.Name = "butmuave";
+            this.butmuave.Size = new System.Drawing.Size(130, 33);
+            this.butmuave.TabIndex = 97;
+            this.butmuave.Text = "mua  vé";
+            this.butmuave.UseVisualStyleBackColor = true;
             // 
-            // comboBox4
+            // butdelte
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(135, 127);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(58, 24);
-            this.comboBox4.TabIndex = 110;
+            this.butdelte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butdelte.Location = new System.Drawing.Point(740, 441);
+            this.butdelte.Name = "butdelte";
+            this.butdelte.Size = new System.Drawing.Size(117, 33);
+            this.butdelte.TabIndex = 111;
+            this.butdelte.Text = "xóa lịch trình";
+            this.butdelte.UseVisualStyleBackColor = true;
+            this.butdelte.Click += new System.EventHandler(this.butdelte_Click);
             // 
-            // comboBox3
+            // butall
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(216, 127);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(67, 24);
-            this.comboBox3.TabIndex = 109;
+            this.butall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butall.Location = new System.Drawing.Point(251, 441);
+            this.butall.Name = "butall";
+            this.butall.Size = new System.Drawing.Size(128, 33);
+            this.butall.TabIndex = 112;
+            this.butall.Text = "Xem tất cả";
+            this.butall.UseVisualStyleBackColor = true;
+            this.butall.Click += new System.EventHandler(this.butall_Click);
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(199, 130);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(11, 16);
-            this.label6.TabIndex = 108;
-            this.label6.Text = ":";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(662, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(11, 16);
+            this.label7.TabIndex = 123;
+            this.label7.Text = ":";
             // 
-            // label5
+            // label10
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(78, 130);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 16);
-            this.label5.TabIndex = 107;
-            this.label5.Text = "GIỜ ĐI :";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox1.Location = new System.Drawing.Point(655, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 22);
-            this.textBox1.TabIndex = 106;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(608, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 16);
-            this.label4.TabIndex = 105;
-            this.label4.Text = "TÀU :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(78, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
-            this.label3.TabIndex = 104;
-            this.label3.Text = "GA ĐI :";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 16);
+            this.label10.TabIndex = 114;
+            this.label10.Text = "Ga đi:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(330, 73);
+            this.label2.Location = new System.Drawing.Point(17, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 16);
-            this.label2.TabIndex = 103;
-            this.label2.Text = "GA ĐẾN :";
+            this.label2.Size = new System.Drawing.Size(54, 16);
+            this.label2.TabIndex = 115;
+            this.label2.Text = "Ga đến:";
             // 
-            // label1
+            // cbbMinuteDes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(330, 127);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
-            this.label1.TabIndex = 102;
-            this.label1.Text = "NGÀY ĐI :";
+            this.cbbMinuteDes.FormattingEnabled = true;
+            this.cbbMinuteDes.Location = new System.Drawing.Point(676, 106);
+            this.cbbMinuteDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbMinuteDes.Name = "cbbMinuteDes";
+            this.cbbMinuteDes.Size = new System.Drawing.Size(44, 24);
+            this.cbbMinuteDes.TabIndex = 126;
             // 
-            // button2
+            // cbbHourDes
             // 
-            this.button2.BackColor = System.Drawing.Color.RosyBrown;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(720, 116);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 38);
-            this.button2.TabIndex = 101;
-            this.button2.Text = "TÌM KIẾM";
-            this.button2.UseVisualStyleBackColor = false;
+            this.cbbHourDes.FormattingEnabled = true;
+            this.cbbHourDes.Location = new System.Drawing.Point(616, 106);
+            this.cbbHourDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbHourDes.Name = "cbbHourDes";
+            this.cbbHourDes.Size = new System.Drawing.Size(44, 24);
+            this.cbbHourDes.TabIndex = 124;
             // 
-            // dateTimePicker1
+            // bSearch
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(415, 125);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(240, 22);
-            this.dateTimePicker1.TabIndex = 100;
+            this.bSearch.BackColor = System.Drawing.Color.White;
+            this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bSearch.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSearch.Location = new System.Drawing.Point(778, 75);
+            this.bSearch.Name = "bSearch";
+            this.bSearch.Size = new System.Drawing.Size(84, 49);
+            this.bSearch.TabIndex = 130;
+            this.bSearch.Text = "Tìm kiếm";
+            this.bSearch.UseVisualStyleBackColor = false;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
-            // comboBox2
+            // cbbDep
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(415, 70);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 99;
+            this.cbbDep.FormattingEnabled = true;
+            this.cbbDep.Location = new System.Drawing.Point(18, 51);
+            this.cbbDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbDep.Name = "cbbDep";
+            this.cbbDep.Size = new System.Drawing.Size(208, 24);
+            this.cbbDep.TabIndex = 128;
             // 
-            // comboBox1
+            // label9
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(135, 70);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(148, 24);
-            this.comboBox1.TabIndex = 98;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(547, 108);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 16);
+            this.label9.TabIndex = 125;
+            this.label9.Text = "Giờ đến:";
             // 
-            // button3
+            // cbbMinuteDep
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(665, 430);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 33);
-            this.button3.TabIndex = 111;
-            this.button3.Text = "xóa lịch trình";
-            this.button3.UseVisualStyleBackColor = true;
+            this.cbbMinuteDep.FormattingEnabled = true;
+            this.cbbMinuteDep.Location = new System.Drawing.Point(676, 47);
+            this.cbbMinuteDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbMinuteDep.Name = "cbbMinuteDep";
+            this.cbbMinuteDep.Size = new System.Drawing.Size(44, 24);
+            this.cbbMinuteDep.TabIndex = 122;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(547, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 16);
+            this.label6.TabIndex = 121;
+            this.label6.Text = "Giờ đi:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(272, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(92, 16);
+            this.label4.TabIndex = 117;
+            this.label4.Text = "Thời gian đến:";
+            // 
+            // dateDep
+            // 
+            this.dateDep.CustomFormat = "dd/MM/yyyy";
+            this.dateDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDep.Location = new System.Drawing.Point(271, 49);
+            this.dateDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateDep.Name = "dateDep";
+            this.dateDep.Size = new System.Drawing.Size(210, 22);
+            this.dateDep.TabIndex = 118;
+            // 
+            // dateDes
+            // 
+            this.dateDes.CustomFormat = "dd/MM/yyyy";
+            this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDes.Location = new System.Drawing.Point(271, 108);
+            this.dateDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateDes.Name = "dateDes";
+            this.dateDes.Size = new System.Drawing.Size(210, 22);
+            this.dateDes.TabIndex = 119;
+            // 
+            // cbbHourDep
+            // 
+            this.cbbHourDep.FormattingEnabled = true;
+            this.cbbHourDep.Location = new System.Drawing.Point(616, 47);
+            this.cbbHourDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbHourDep.Name = "cbbHourDep";
+            this.cbbHourDep.Size = new System.Drawing.Size(44, 24);
+            this.cbbHourDep.TabIndex = 120;
+            // 
+            // cbbDes
+            // 
+            this.cbbDes.FormattingEnabled = true;
+            this.cbbDes.Location = new System.Drawing.Point(18, 110);
+            this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbDes.Name = "cbbDes";
+            this.cbbDes.Size = new System.Drawing.Size(208, 24);
+            this.cbbDes.TabIndex = 129;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(270, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 16);
+            this.label3.TabIndex = 116;
+            this.label3.Text = "Thời gian đi:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(662, 108);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(11, 16);
+            this.label8.TabIndex = 127;
+            this.label8.Text = ":";
             // 
             // lichtrinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(979, 533);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(915, 533);
+            this.Controls.Add(this.cbbDes);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dateDes);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.bSearch);
+            this.Controls.Add(this.cbbHourDes);
+            this.Controls.Add(this.cbbMinuteDes);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.cbbDep);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cbbMinuteDep);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cbbHourDep);
+            this.Controls.Add(this.dateDep);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.butall);
+            this.Controls.Add(this.butdelte);
+            this.Controls.Add(this.butmuave);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.butsua);
             this.Controls.Add(this.themlt);
@@ -249,20 +319,25 @@
         private System.Windows.Forms.Button themlt;
         private System.Windows.Forms.Button butsua;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button butmuave;
+        private System.Windows.Forms.Button butdelte;
+        private System.Windows.Forms.Button butall;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cbbMinuteDes;
+        private System.Windows.Forms.ComboBox cbbHourDes;
+        private System.Windows.Forms.Button bSearch;
+        private System.Windows.Forms.ComboBox cbbDep;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbbMinuteDep;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dateDep;
+        private System.Windows.Forms.DateTimePicker dateDes;
+        private System.Windows.Forms.ComboBox cbbHourDep;
+        private System.Windows.Forms.ComboBox cbbDes;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
     }
 }
