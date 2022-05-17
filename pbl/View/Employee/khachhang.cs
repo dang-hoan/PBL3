@@ -30,12 +30,8 @@ namespace pbl.View
         }
         public void show(string username)
         {
-<<<<<<< HEAD
-     
         dataGridView1.DataSource = BLLpeople.instance.getppbylist(username);
-=======
-            dataGridView1.DataSource = BLLpeople.instance.GetuserByusername(username);
->>>>>>> 341ff11a28855dbf20a7362c630a6610b37e642a
+
         }
         private void butdel_Click(object sender, EventArgs e)
         {

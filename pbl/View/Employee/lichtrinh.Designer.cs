@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.themlt = new System.Windows.Forms.Button();
-            this.butsua = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.butmuave = new System.Windows.Forms.Button();
             this.butdelte = new System.Windows.Forms.Button();
@@ -57,23 +56,13 @@
             // themlt
             // 
             this.themlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.themlt.Location = new System.Drawing.Point(406, 441);
+            this.themlt.Location = new System.Drawing.Point(512, 441);
             this.themlt.Name = "themlt";
             this.themlt.Size = new System.Drawing.Size(128, 33);
             this.themlt.TabIndex = 8;
             this.themlt.Text = "Thêm lịch trình";
             this.themlt.UseVisualStyleBackColor = true;
-            this.themlt.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // butsua
-            // 
-            this.butsua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butsua.Location = new System.Drawing.Point(567, 441);
-            this.butsua.Name = "butsua";
-            this.butsua.Size = new System.Drawing.Size(126, 33);
-            this.butsua.TabIndex = 11;
-            this.butsua.Text = "Sửa lịch trình";
-            this.butsua.UseVisualStyleBackColor = true;
+            this.themlt.Click += new System.EventHandler(this.themlt_Click);
             // 
             // dataGridView1
             // 
@@ -109,7 +98,7 @@
             // butall
             // 
             this.butall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butall.Location = new System.Drawing.Point(251, 441);
+            this.butall.Location = new System.Drawing.Point(298, 441);
             this.butall.Name = "butall";
             this.butall.Size = new System.Drawing.Size(128, 33);
             this.butall.TabIndex = 112;
@@ -174,7 +163,6 @@
             this.bSearch.TabIndex = 130;
             this.bSearch.Text = "Tìm kiếm";
             this.bSearch.UseVisualStyleBackColor = false;
-            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // cbbDep
             // 
@@ -305,7 +293,6 @@
             this.Controls.Add(this.butdelte);
             this.Controls.Add(this.butmuave);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.butsua);
             this.Controls.Add(this.themlt);
             this.Name = "lichtrinh";
             this.Text = "Form1";
@@ -317,7 +304,6 @@
 
         #endregion
         private System.Windows.Forms.Button themlt;
-        private System.Windows.Forms.Button butsua;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button butmuave;
         private System.Windows.Forms.Button butdelte;

@@ -12,6 +12,8 @@ namespace pbl
 {
     public partial class addlichtrinh : Form
     {
+        public delegate void Mydel(string username);
+        public Mydel d;
         public addlichtrinh()
         {
             InitializeComponent();
