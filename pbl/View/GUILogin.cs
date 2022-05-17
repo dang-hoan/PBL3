@@ -38,7 +38,6 @@ namespace pbl
                 return;
             }
             string result = BLLTRAIN.Instance.CheckAccount(txtusername.Text, txtpass.Text);
-            
             switch (result)
             {
                 case "Không tồn tại":
