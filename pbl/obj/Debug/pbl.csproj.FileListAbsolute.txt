@@ -94,7 +94,6 @@ C:\PBL3\pbl\bin\Debug\pbl.pdb
 C:\PBL3\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
 C:\PBL3\pbl\obj\Debug\pbl.addlichtrinh.resources
-C:\PBL3\pbl\obj\Debug\pbl.addve.resources
 C:\PBL3\pbl\obj\Debug\pbl.datve.resources
 C:\PBL3\pbl\obj\Debug\pbl.AddForm.resources
 C:\PBL3\pbl\obj\Debug\pbl.Admin.addschedule.resources
@@ -124,12 +123,10 @@ C:\PBL3\pbl\obj\Debug\pbl.GUI.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIOption.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUISchedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.Properties.Resources.resources
-C:\PBL3\pbl\obj\Debug\pbl.lichtrinh.resources
 C:\PBL3\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
 C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
-C:\PBL3\pbl\obj\Debug\pbl.Employee.qlve.resources
 C:\PBL3\pbl\bin\Debug\EntityFramework.dll
 C:\PBL3\pbl\bin\Debug\EntityFramework.SqlServer.dll
 C:\PBL3\pbl\bin\Debug\EntityFramework.xml
@@ -138,4 +135,10 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.CopyComplete
 C:\PBL3\pbl\obj\Debug\pbl.View.addkhachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.khachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Employee.Employeechinh.resources
+<<<<<<< HEAD
+C:\PBL3\pbl\obj\Debug\pbl.View.qlve.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.addve.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.lichtrinh.resources
+=======
 C:\PBL3\pbl\obj\Debug\pbl.GUIChangePass.resources
+>>>>>>> 341ff11a28855dbf20a7362c630a6610b37e642a

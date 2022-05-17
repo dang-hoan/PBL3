@@ -22,12 +22,12 @@ namespace pbl
         {
             
             InitializeComponent();
-            showw("111");
+            showw("222");
         }
         Form f = null;
         public void showw(string Pos)
         {
-            Pos = "111";
+            Pos = "222";
             dtgridemploy.DataSource = BLLpeople.instance.getallnv(Pos);
         }
         //tao form moi tren form cu
@@ -93,6 +93,29 @@ namespace pbl
         private void btsort_Click(object sender, EventArgs e)
         {
             dtgridemploy.DataSource = BLLpeople.instance.sort();
+        }
+
+        private void dtgridemploy_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            DataGridViewRow d = dtgridemploy.Rows[e.RowIndex];
+
+            string Name = d.Cells["Name"].Value.ToString();
+            string Gender = d.Cells["Gender"].Value.ToString();
+            string Address = d.Cells["Address"].Value.ToString();
+            string Email = d.Cells["Email"].Value.ToString();
+            string Phone = d.Cells["Phone"].Value.ToString();
+            string IDCard = d.Cells["IDCard"].Value.ToString();
+            string Possition = d.Cells["Position"].Value.ToString();
+            MessageBox.Show("HỌ VÀ TÊN :  " + Name+"\n"
+                           +"ĐỊA CHỈ :    " + Address+ "\n"
+                           +"EMAIL :      " + Email + "\n"
+                           +"SĐT :        " + Phone+"\n"
+                           +"IDCARD :     " + IDCard +"\n"
+                           +"POSITION :   " + Possition +"\n",
+                           "Thông tin nhân viên "
+
+                           );
         }
     }
 }

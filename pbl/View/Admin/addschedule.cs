@@ -32,8 +32,8 @@ namespace pbl.Admin
                 DepartureTime = datengaydi.Value,
                 ArrivalTime = datengayden.Value,
             };
-                
 
+           // BLLTRAIN.Instance.Execute(s);
             d("");
             this.Close();
         }

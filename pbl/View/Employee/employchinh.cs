@@ -55,7 +55,7 @@ namespace pbl.View.Employee
 
         private void ve_Click(object sender, EventArgs e)
         {
-            showform(new lichtrinh());
+            showform(new qlve());
         }
 
         private void lichtrinh_Click(object sender, EventArgs e)
@@ -65,8 +65,9 @@ namespace pbl.View.Employee
 
         private void home_Click(object sender, EventArgs e)
         {
+          
+            showform(CreatForm());
 
-           
         }
 
         private void pOther_Click(object sender, EventArgs e)

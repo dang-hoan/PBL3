@@ -7,19 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.BLL;
+using pbl.DTO;
 
-namespace pbl
+namespace pbl.View
 {
     public partial class addve : Form
     {
-        public addve()
+        public delegate void Mydel(string tiketid);
+        public Mydel d;
+        public string tiketid { get; set; }
+        public addve(string s)
         {
             InitializeComponent();
+            tiketid = s;
+            GUI();
         }
-
-        private void label7_Click(object sender, EventArgs e)
+        public void GUI()
         {
-
+            if (BLLTicket.instance.check(tiketid))
+            {
+                PEOPLE p = BLLpeople.instance.GetuserByusername(tiketid);
+                txtDep.Text = p.Username.ToString();
+               
+            }
         }
+       
     }
 }

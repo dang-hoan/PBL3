@@ -44,10 +44,10 @@
             this.txtsdt = new System.Windows.Forms.TextBox();
             this.txtgamil = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.date = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
             this.buthuy = new System.Windows.Forms.Button();
-            this.date = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             this.butok.TabIndex = 19;
             this.butok.Text = "Lưu";
             this.butok.UseVisualStyleBackColor = true;
+            this.butok.Click += new System.EventHandler(this.butok_Click);
             // 
             // groupBox1
             // 
@@ -186,6 +187,7 @@
             this.label5.Size = new System.Drawing.Size(76, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Địa chỉ : ";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -237,6 +239,15 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Giới tính : ";
             // 
+            // date
+            // 
+            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date.Location = new System.Drawing.Point(124, 124);
+            this.date.Margin = new System.Windows.Forms.Padding(4);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(167, 26);
+            this.date.TabIndex = 12;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -266,15 +277,7 @@
             this.buthuy.TabIndex = 20;
             this.buthuy.Text = "Huy";
             this.buthuy.UseVisualStyleBackColor = true;
-            // 
-            // date
-            // 
-            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.Location = new System.Drawing.Point(124, 124);
-            this.date.Margin = new System.Windows.Forms.Padding(4);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(167, 26);
-            this.date.TabIndex = 12;
+            this.buthuy.Click += new System.EventHandler(this.buthuy_Click);
             // 
             // addkhachhang
             // 

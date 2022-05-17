@@ -44,7 +44,20 @@ namespace pbl
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PEOPLE s = new PEOPLE()
+            string p=" ";
+            if (positionid.Text == "Nhân viên")
+            {
+                p = "222";
+            }
+            else if(positionid.Text == "Giám đốc")
+            {
+                p = "111";
+            }
+            else if (positionid.Text == "Khách hàng")
+            {
+                p = "333";            
+            }
+                PEOPLE s = new PEOPLE()
             {
                 Username =txtusername.Text,
                 Name = txtname.Text,
@@ -54,9 +67,9 @@ namespace pbl
                 Address = address.Text,
                 Email = gmail.Text,
                 IDCard = idcard.Text,
-                PositionID=positionid.Text,
+                PositionID=p,
             };
-            BLLpeople.instance.Execute(s);
+          BLLpeople.instance.Execute(s);
             
             d("");
 

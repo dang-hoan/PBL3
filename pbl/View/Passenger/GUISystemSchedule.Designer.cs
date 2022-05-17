@@ -285,7 +285,6 @@
             this.dateDep.Name = "dateDep";
             this.dateDep.Size = new System.Drawing.Size(210, 22);
             this.dateDep.TabIndex = 90;
-            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

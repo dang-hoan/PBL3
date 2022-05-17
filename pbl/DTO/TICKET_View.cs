@@ -11,7 +11,7 @@ namespace pbl.DTO
         public string ScheduleID { get; set; }
         public string TrainID { get; set; }
         public string TrainName { get; set; }
-        public string TicketID { get; set; }
+        public string TicketIDs { get; set; }
         public string SeatNo { get; set; }
         public string TicketPrice { get; set; }
         public string Departure { get; set; }

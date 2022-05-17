@@ -82,44 +82,7 @@ namespace pbl.BLL
             }
             return "Không tồn tại";
         }
-        public List<CBBItem> GetCBBs()
-        {
-            PBL3 db = new PBL3();
-            List<CBBItem> data = new List<CBBItem>();
-            foreach (PEOPLE i in db.PEOPLE)
-            {
-                data.Add(new CBBItem
-                {
-                    Value = int.Parse(i.Username.ToString()),
-                    Text = i.Name
 
-                });
-
-            }
-            return data;
-        }
-        public void delperson(string username)
-        {
-            PBL3 db = new PBL3();
-            PEOPLE s = db.PEOPLE.Find(username);
-            db.PEOPLE.Remove(s);
-            db.SaveChanges();
-        }
-        public List<PEOPLE> GetSVByIDLop(string username)
-        {
-            PBL3 db = new PBL3();
-            List<PEOPLE> data = new List<PEOPLE>();
-            if (username == "")
-            {
-                data = db.PEOPLE.ToList();
-            }
-            else
-            {
-                data = db.PEOPLE.Where(p => p.Username == username).Select(p => p).ToList();
-            }
-            return data;
-
-        }
         public void Add()
         {
             PBL3 db = new PBL3();
@@ -209,6 +172,27 @@ namespace pbl.BLL
         public List<TICKET_View> GetAllTICKETView()
         {
             PBL3 db = new PBL3();
+<<<<<<< HEAD
+            var result = from SCHEDULE sch in db.SCHEDULEs
+                       join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                       join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                       join PEOPLE peo in db.PEOPLE on tic.CustomerUN equals peo.Username
+                       select new TICKET_View
+                       {
+                           ScheduleID = tra.ScheduleID,
+                           TrainID = tra.TrainID,
+                           TrainName = tra.TrainName,
+                           TicketIDs = tic.TicketID,
+                           SeatNo = tic.SeatNo,
+                           TicketPrice = tic.TicketPrice.ToString(),
+                           Departure = sch.Departure,
+                           Destination = sch.Destination,
+                           DepartureTime = sch.DepartureTime.ToString(),
+                           ArrivalTime = sch.ArrivalTime.ToString(),
+                           Booked = (bool)tic.Booked,
+                           OwnUsername = tic.CustomerUN,
+                           OwnName = peo.Name
+=======
             var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
                          join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
                          join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
@@ -229,6 +213,7 @@ namespace pbl.BLL
                              Booked = (bool)tic.Booked,
                              OwnUsername = (ticpeo == null)? "" : tic.CustomerUN,
                              OwnName = (ticpeo == null) ? "" : ticpeo.Name
+>>>>>>> 341ff11a28855dbf20a7362c630a6610b37e642a
                        };
             return result.ToList();
         }
@@ -241,7 +226,7 @@ namespace pbl.BLL
                          {
                              Username = peo.Username,
                              Name = peo.Name,
-                             Gender = ((bool)peo.Gender)?"Nam":"Nữ",
+                             Gender = ((bool)peo.Gender) ? "Nam" : "Nữ",
                              BirthDay = (DateTime)peo.BirthDay,
                              Address = peo.Address,
                              IDCard = peo.IDCard,
@@ -680,6 +665,13 @@ namespace pbl.BLL
                              ArrivalTime = sch.ArrivalTime.ToString()
                          };
             return result.ToList();
+        }
+        public void delschedule(string scheduleid)
+        {
+            PBL3 db = new PBL3();
+            SCHEDULE s = db.SCHEDULEs.Find(scheduleid);
+            db.SCHEDULEs.Remove(s);
+            db.SaveChanges();
         }
         public List<int> GetDayOfDepartureTime(string month, string year, string userName)
         {
