@@ -156,6 +156,10 @@ namespace pbl
 
         private void bEditSecurity_Click(object sender, EventArgs e)
         {
+            if(cbbQuestion.Text != "")
+            {
+                txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, cbbQuestion.Text);
+            }
             cbbQuestion.Enabled = true;
             txtAnswer.Enabled = true;
         }
@@ -164,6 +168,7 @@ namespace pbl
         {
             BLLTRAIN.Instance.UpdateSecurity(GUILogin.userName, cbbQuestion.Text, txtAnswer.Text);
             MessageBox.Show("Đã đổi thành công câu trả lời bảo mật của bạn!");
+            txtAnswer.Text = "";
             cbbQuestion.Enabled = false;
             txtAnswer.Enabled = false;
         }
