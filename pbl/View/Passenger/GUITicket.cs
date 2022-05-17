@@ -83,5 +83,10 @@ namespace pbl
         {
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName);
         }
+        public int[] numberChar = new int[10] { 14, 10, 25, 8, 14, 25, 25, 25, 30, 30 };
+        private void pSave_Click(object sender, EventArgs e)
+        {
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar);
+        }
     }
 }

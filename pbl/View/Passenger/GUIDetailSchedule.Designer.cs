@@ -104,6 +104,7 @@
             this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pSave.TabIndex = 57;
             this.pSave.TabStop = false;
+            this.pSave.Click += new System.EventHandler(this.pSave_Click);
             // 
             // label8
             // 

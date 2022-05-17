@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,53 @@ namespace pbl.BLL
         {
 
         }
+        //Đọc ghi file
+        private string Edit(string s, int total)
+        {
+            int x = (total - s.Length)/2;
+            string result = "", temp = "";
+            for (int i = 0; i < x; i++) temp += ' ';
+            result += temp + s + temp;
+            if ((total - s.Length) % 2 == 1) result += ' ';
+            return result;
+        }
+        public void Print(DataGridView dataGridView1, int[] numberChar)
+        {
+            string path = null;
+            OpenFileDialog o = new OpenFileDialog();
+            o.InitialDirectory = "c:\\";
+            //o.Multiselect = true;
+            //o.Filter = " Doc|*.docx | Text(*.txt)|*.txt | All files (*.*)|*.*";
+            o.Filter = " Text(*.txt)|*.txt";
+            o.FilterIndex = 3;
+
+            DialogResult r = o.ShowDialog();
+            if (r == DialogResult.Cancel) return;
+            path = o.FileName;
+            int sum = 0;
+            foreach (int i in numberChar) sum += i;
+
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
+                sw.WriteLine();
+                for (int i = 0; i < dataGridView1.Columns.Count; i++) sw.Write("|" + Edit(dataGridView1.Columns[i].Name, numberChar[i]));
+                sw.Write("|\n");
+                foreach (DataGridViewRow dr in dataGridView1.Rows)
+                {
+                    for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
+                    sw.WriteLine();
+                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                    {
+                        sw.Write("|" + Edit(dr.Cells[i].Value.ToString(), numberChar[i]));
+                    }
+                    sw.Write("|\n");
+                }
+                for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
+                MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
+            }
+        }
+        //Chung
         public bool check(string username)
         {
             PBL3 db = new PBL3();

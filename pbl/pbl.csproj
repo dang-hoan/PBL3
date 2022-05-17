@@ -224,6 +224,7 @@
     <Compile Include="View\Employee\khachhang.Designer.cs">
       <DependentUpon>khachhang.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Passenger\Class1.cs" />
     <Compile Include="View\Passenger\GUISystemSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -578,6 +579,17 @@
       <DependentUpon>PBL3.edmx</DependentUpon>
       <LastGenOutput>PBL3.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
