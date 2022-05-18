@@ -15,14 +15,14 @@ namespace pbl.View
     public partial class Employeechinh : Form
     {
         private Form login;
-        public Employeechinh(Form login,  string userName)
+        public Employeechinh(Form login)
         {
             InitializeComponent();
             this.login = login;
             this.Size = new Size(750, 528);
             this.CenterToScreen();
             showform(CreatForm());
-            ten.Text = BLLTRAIN.Instance.GetName(userName);
+         //   ten.Text = BLLTRAIN.Instance.GetName(userName);
             this.login = login;
 
         }
@@ -78,12 +78,12 @@ namespace pbl.View
         {
             if (panel_Other.Visible)
             {
-                pOther.BackColor = Color.FromArgb(0, 192, 0);
+                panel_Other.BackColor = Color.FromArgb(0, 192, 0);
                 panel_Other.Visible = false;
             }
             else
             {
-                pOther.BackColor = Color.Green;
+                panel_Other.BackColor = Color.Green;
                 panel_Other.Visible = true;
             }
         }

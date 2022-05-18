@@ -44,7 +44,7 @@ namespace pbl.BLL
                              ScheduleID = tra.ScheduleID,
                              TrainID = tra.TrainID,
                              TrainName = tra.TrainName,
-                             TicketIDs = tic.TicketID,
+                             TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
                              TicketPrice = tic.TicketPrice.ToString(),
                              Departure = sch.Departure,
@@ -83,12 +83,12 @@ namespace pbl.BLL
             }
             return false;
         }
-        public void delticket(string ticketid)
-        {
-            TICKET s = db.TICKETs.Find(ticketid);
-            db.TICKETs.ToList().Remove(s);
-            db.SaveChanges();
-        }
+        //public void delticket(string ticketid)
+        //{
+        //    TICKET s = db.TICKETs.Find(ticketid);
+        //    db.TICKETs.ToList().Remove(s);
+        //    db.SaveChanges();
+        //}
         public TICKET Getticketbyticketid(string ticketid)
         {
             return db.TICKETs.Find(ticketid);

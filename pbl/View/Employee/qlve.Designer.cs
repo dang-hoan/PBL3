@@ -216,7 +216,6 @@
             this.butxoave.TabIndex = 118;
             this.butxoave.Text = "Xóa  vé";
             this.butxoave.UseVisualStyleBackColor = false;
-            this.butxoave.Click += new System.EventHandler(this.butxoave_Click);
             // 
             // cbbDep
             // 
@@ -300,6 +299,7 @@
             this.label5.Size = new System.Drawing.Size(91, 16);
             this.label5.TabIndex = 129;
             this.label5.Text = "Trạng Thái vé";
+
             // 
             // qlve
             // 

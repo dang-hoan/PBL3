@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
-using pbl.View.Employee;
+using pbl.View;
 
 namespace pbl
 {
@@ -38,7 +38,6 @@ namespace pbl
                 return;
             }
             string result = BLLTRAIN.Instance.CheckAccount(txtusername.Text, txtpass.Text);
-            
             switch (result)
             {
                 case "Không tồn tại":

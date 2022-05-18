@@ -100,30 +100,42 @@ namespace pbl.View
             if (dataGridView1.SelectedRows.Count >= 1)
             {
                 foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
-                {
-                    list.Add(dr.Cells["ScheduleID"].Value.ToString());
-                }
-                datve f = new datve(list);
-                f.Show();
-            }
-            else
-            {
-                MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
-            }
-        }
+                { }
 
-        private void butxoave_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count >0)
-            {
-                foreach(DataGridViewRow dr in dataGridView1.SelectedRows)
-                {
-                    BLLTicket.instance.delticket(dr.Cells["ticketid"].Value.ToString());
-
-                }
-                show("");
+               
             }    
         }
+
+        //private void butxoave_Click(object sender, EventArgs e)
+        //{
+        //    List<string> list = new List<string>();
+        //    if (dataGridView1.SelectedRows.Count > 0)
+        //    {
+        //        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+        //        {
+        //            list.Add(row.Cells["ScheduleID"].Value.ToString());
+        //        }
+        //        datve f = new datve(list);
+        //        f.Show();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
+        //    }
+        //}
+
+        //private void butxoave_Click(object sender, EventArgs e)
+        //{
+        //    if (dataGridView1.SelectedRows.Count >0)
+        //    {
+        //        foreach(DataGridViewRow dr in dataGridView1.SelectedRows)
+        //        {
+        //            BLLTicket.instance.delticket(dr.Cells["ticketid"].Value.ToString());
+
+        //        }
+        //        show("");
+        //    }    
+        //}
 
 
 

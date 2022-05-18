@@ -98,7 +98,11 @@ C:\PBL3\pbl\bin\Debug\EntityFramework.SqlServer.xml
 C:\PBL3\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
 C:\PBL3\pbl\obj\Debug\pbl.View.addkhachhang.resources
+<<<<<<< HEAD
 C:\PBL3\pbl\obj\Debug\pbl.View.addlichtrinh.resources
+=======
+C:\PBL3\pbl\obj\Debug\pbl.addlichtrinh.resources
+>>>>>>> 5d75c87449fdf7acb4f6778e17b178d60db52bbc
 C:\PBL3\pbl\obj\Debug\pbl.View.addve.resources
 C:\PBL3\pbl\obj\Debug\pbl.datve.resources
 C:\PBL3\pbl\obj\Debug\pbl.AddForm.resources
@@ -141,3 +145,4 @@ C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
 C:\PBL3\pbl\obj\Debug\pbl.View.datve.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Employeechinh.resources
+C:\PBL3\pbl\obj\Debug\pbl.csproj.ResolveComReference.cache
