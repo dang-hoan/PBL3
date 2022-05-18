@@ -17,37 +17,64 @@ namespace pbl.View
         public qlve()
         {
             InitializeComponent();
+            gui();
         }
         PBL3 db = new PBL3();
+        public void gui()
+        {
+            List<string> listDep = new List<string>();
+            List<string> listDes = new List<string>();
+            BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
+            foreach (string s in listDep.Distinct())
+            {
+                cbbDep.Items.Add(s);
+            }
+            foreach (string s in listDes.Distinct())
+            {
+                cbbDes.Items.Add(s);
+            }
+            for (int i = 0; i <= 23; i++)
+            {
+                cbbHourDep.Items.Add(i);
+                cbbHourDes.Items.Add(i);
+            }
+            for (int i = 0; i <= 59; i++)
+            {
+                cbbMinuteDep.Items.Add(i);
+                cbbMinuteDes.Items.Add(i);
+            }
+            cbbook.Items.Add("đã đặt ");
+            cbbook.Items.Add("còn trống");
+        }
         public void show(string ticketid)
         {
-           // dataGridView1.DataSource = BLLTicket.instance.getticketbylist(ticketid);
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetAllTICKETView();
         }
        
       
         private void butsearch_Click(object sender, EventArgs e)
         {
-            //string DepTime, DesTime,book;
-           
-            //DesTime = dateDes.Value.ToString("d/M/yyyy");
-            //DepTime = dateDep.Value.ToString("d/M/yyyy");
-            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-            //{
-            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            //}
-            //if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
-            //{
-            //    DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
-            //}
-            //SCHEDULE_View s = new SCHEDULE_View()
-            //{
-            //    Departure = cbbgadi.Text,
-            //    Destination = cbbgaden.Text,
-            //    DepartureTime = DepTime,
-            //    ArrivalTime = DesTime,
-              
-            // };
-            //dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
+            string DepTime, DesTime, book;
+            book = cbbook.Text;
+            DesTime = dateDes.Value.ToString("d/M/yyyy");
+            DepTime = dateDep.Value.ToString("d/M/yyyy");
+            if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
+            {
+                DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
+            }
+            if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
+            {
+                DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
+            }
+           TICKET_View s = new TICKET_View()
+            {
+                Departure = cbbDep.Text,
+                Destination = cbbDes.Text,
+                DepartureTime = DepTime,
+                ArrivalTime = DesTime,
+               
+            }; 
+            dataGridView1.DataSource = BLLTicket.instance.getticketbylist(s,book);
         }
 
         private void butthem_Click(object sender, EventArgs e)
@@ -69,32 +96,51 @@ namespace pbl.View
         }
         private void butdat_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.SelectedRows.Count > 0)
+            List<string> list = new List<string>();
+            if (dataGridView1.SelectedRows.Count >= 1)
             {
-                datve f  = new datve();
-                f.Show();
-            }    
-        }
-
-<<<<<<< HEAD
-        private void butxoave_Click(object sender, EventArgs e)
-=======
-        
-
-        private void butsearch_Click(object sender, EventArgs e)
->>>>>>> 341ff11a28855dbf20a7362c630a6610b37e642a
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
                 {
-
-                    BLLTicket.instance.delticket(row.Cells["TicketID"].Value.ToString());
+                    list.Add(dr.Cells["ScheduleID"].Value.ToString());
                 }
-                show("");
+                datve f = new datve(list);
+                f.Show();
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
             }
         }
 
-        
+        private void butxoave_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count >0)
+            {
+                foreach(DataGridViewRow dr in dataGridView1.SelectedRows)
+                {
+                    BLLTicket.instance.delticket(dr.Cells["ticketid"].Value.ToString());
+
+                }
+                show("");
+            }    
+        }
+
+
+
+
+        //private void butsearch_Click(object sender, EventArgs e)
+        //{
+        //    if (dataGridView1.SelectedRows.Count > 0)
+        //    {
+        //        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+        //        {
+
+        //            BLLTicket.instance.delticket(row.Cells["TicketID"].Value.ToString());
+        //        }
+        //        show("");
+        //    }
+        //}
+
+
     }
 }

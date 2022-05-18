@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using pbl.DTO;
 
 namespace pbl.BLL
@@ -57,23 +58,39 @@ namespace pbl.BLL
             }
 
         }
+        public void Execute2(LOGIN s)
+        {
+            if (!check(s.Username))
+            {
+                db.LOGINs.Add(s);
+                db.SaveChanges();
+            }  
+            else
+            {
+                LOGIN dn = new LOGIN();
+                dn = db.LOGINs.Where(p => p.Username != s.Username).Single(); 
+               
+                dn.Username = s.Username;
+                dn.PassWord = s.PassWord;
+            }    
+        }
         public List<CBBItem> GetCBBs(string txt)
         {
-            List<CBBItem> data = new List<CBBItem>();
-            foreach (PEOPLE i in db.PEOPLE)
+        List<CBBItem> data = new List<CBBItem>();
+        foreach (PEOPLE i in db.PEOPLE)
+        {
+            if (i.PositionID == "124")
             {
-                if (i.PositionID == "124")
-                {
-                    if (i.Name.Contains(txt))
-                        data.Add(new CBBItem
-                        {
-                            Value = i.Username,
-                            Text = i.Name
+                if (i.Name.Contains(txt))
+                    data.Add(new CBBItem
+                    {
+                        Value = i.Username,
+                        Text = i.Name
 
-                        });
-                }
+                    });
             }
-            return data;
+        }
+        return data;
         }
         public List<PEOPLE_View> getppbylist(string username)
         {
@@ -86,8 +103,8 @@ namespace pbl.BLL
                     IDCard = i.IDCard,
                     Name = i.Name,
                     Username = i.Username,
-                  //  Gender = ((bool)i.Gender) ? "Nam" : "Nữ",
-                   // BirthDay = i.BirthDay,
+                    Gender = ((bool)i.Gender) ? "Nam" : "Nữ",
+                    BirthDay = i.BirthDay.Value,
                     Address = i.Address,
                     Email = i.Email,
                     Phone = i.Phone,
@@ -111,7 +128,13 @@ namespace pbl.BLL
         }
         public void delperson(string username)
         {
+            
+            MessageBox.Show(username);
             PEOPLE s = db.PEOPLE.Find(username);
+            LOGIN dn = new LOGIN();
+                dn = db.LOGINs.Where(p => p.Username == username).Single();
+           
+            db.LOGINs.Remove(dn);
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }

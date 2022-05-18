@@ -77,9 +77,16 @@ namespace pbl.View
 
         private void themlt_Click(object sender, EventArgs e)
         {
-            addlichtrinh f = new addlichtrinh(" ");
+            addlichtrinh f = new addlichtrinh("");
             f.Show();
-            f.d = new addkhachhang.Mydel(show);
+
         }
+
+        //private void themlt_Click(object sender, EventArgs e)
+        //{
+        //    addlichtrinh f = new addlichtrinh(" ");
+        //    f.Show();
+        //    f.d = new addkhachhang.Mydel(show);
+        //}
     }
 }

@@ -39,7 +39,6 @@ namespace pbl.View
             {
                 foreach(DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                   
                     BLLpeople.instance.delperson(row.Cells["Username"].Value.ToString());
                 }
                 show("");

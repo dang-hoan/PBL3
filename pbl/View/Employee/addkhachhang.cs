@@ -15,6 +15,7 @@ namespace pbl.View
 {
     public partial class addkhachhang : Form
     {
+        string user;
         public delegate void Mydel(string username);
         public Mydel d;
         public string username { get; set; }
@@ -23,6 +24,7 @@ namespace pbl.View
             username = s;
             InitializeComponent();
             GUI();
+            user = username;
         }
         public void GUI()
         {
@@ -36,23 +38,63 @@ namespace pbl.View
                 txtdiachi.Text = p.Address.ToString();
                 txtgamil.Text = p.Email.ToString();
                 txtidcard.Text = p.IDCard.ToString();
+               
             }
         }
     private void butok_Click(object sender, EventArgs e)
         {
-            PEOPLE s = new PEOPLE()
+            if (user == txtuser.Text)
             {
-                Username = txtuser.Text,
-                Name = txtname.Text,
-                Gender = (rdinam.Checked == true) ? true : false,
-                BirthDay = date.Value,
-                Phone = txtsdt.Text,
-                Address = txtdiachi.Text,
-                Email = txtgamil.Text,
-                IDCard = txtidcard.Text,
-                PositionID ="124"
-            };
-            BLLpeople.instance.Execute(s);
+                PEOPLE s = new PEOPLE
+                {
+
+                    Username = txtuser.Text,
+                    Name = txtname.Text,
+                    Gender = (rdinam.Checked == true) ? true : false,
+                    BirthDay = date.Value,
+                    Phone = txtsdt.Text,
+                    Address = txtdiachi.Text,
+                    Email = txtgamil.Text,
+                    IDCard = txtidcard.Text,
+                    PositionID = "124"
+                };
+
+                LOGIN dn = new LOGIN()
+                {
+                    Username = txtuser.Text,
+                    PassWord = txtpass.Text,
+                };
+                BLLpeople.instance.Execute(s);
+
+                BLLpeople.instance.Execute2(dn);
+            }
+            else
+            if (BLLpeople.instance.check(txtuser.Text))
+            {
+                PEOPLE s = new PEOPLE
+                { 
+
+                    Username = txtuser.Text,
+                    Name = txtname.Text,
+                    Gender = (rdinam.Checked == true) ? true : false,
+                    BirthDay = date.Value,
+                    Phone = txtsdt.Text,
+                    Address = txtdiachi.Text,
+                    Email = txtgamil.Text,
+                    IDCard = txtidcard.Text,
+                    PositionID ="124"
+                };
+               
+                LOGIN dn = new LOGIN()
+                {   
+                            Username=txtuser.Text,
+                            PassWord = txtpass.Text,
+                };
+                BLLpeople.instance.Execute(s);
+
+                    BLLpeople.instance.Execute2(dn);
+            }
+ ;
             d("");
             this.Close();
         }
@@ -60,6 +102,11 @@ namespace pbl.View
         private void buthuy_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

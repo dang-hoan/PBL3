@@ -39,7 +39,7 @@
             // 
             // butdel
             // 
-            this.butdel.BackColor = System.Drawing.Color.Aqua;
+            this.butdel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butdel.Location = new System.Drawing.Point(639, 439);
             this.butdel.Name = "butdel";
             this.butdel.Size = new System.Drawing.Size(147, 40);
@@ -50,7 +50,7 @@
             // 
             // butsua
             // 
-            this.butsua.BackColor = System.Drawing.Color.Aqua;
+            this.butsua.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butsua.Location = new System.Drawing.Point(370, 439);
             this.butsua.Name = "butsua";
             this.butsua.Size = new System.Drawing.Size(147, 40);
@@ -61,7 +61,7 @@
             // 
             // btAdd
             // 
-            this.btAdd.BackColor = System.Drawing.Color.Aqua;
+            this.btAdd.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btAdd.Location = new System.Drawing.Point(70, 439);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(147, 40);
@@ -72,7 +72,7 @@
             // 
             // butshow
             // 
-            this.butshow.BackColor = System.Drawing.Color.Aqua;
+            this.butshow.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butshow.Location = new System.Drawing.Point(695, 26);
             this.butshow.Name = "butshow";
             this.butshow.Size = new System.Drawing.Size(147, 43);
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(915, 533);
             this.Controls.Add(this.cbbshow);
             this.Controls.Add(this.dataGridView1);

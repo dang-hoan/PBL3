@@ -52,6 +52,8 @@
             this.txtseat = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label9
@@ -268,11 +270,30 @@
             this.comboBox3.Size = new System.Drawing.Size(200, 24);
             this.comboBox3.TabIndex = 128;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(555, 74);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 22);
+            this.textBox1.TabIndex = 130;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(423, 80);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 16);
+            this.label11.TabIndex = 129;
+            this.label11.Text = "ScheduleID";
+            // 
             // addve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.txtseat);
             this.Controls.Add(this.label8);
@@ -329,5 +350,7 @@
         private System.Windows.Forms.TextBox txtseat;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label11;
     }
 }

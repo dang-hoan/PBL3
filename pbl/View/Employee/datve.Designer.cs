@@ -1,4 +1,4 @@
-﻿namespace pbl
+﻿namespace pbl.View
 {
     partial class datve
     {
@@ -100,21 +100,23 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(572, 415);
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Location = new System.Drawing.Point(552, 400);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(95, 38);
             this.button1.TabIndex = 7;
             this.button1.Text = "Đặt vé";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(666, 415);
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Location = new System.Drawing.Point(682, 400);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(94, 38);
             this.button2.TabIndex = 8;
             this.button2.Text = "Hủy";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -167,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbbgaden);

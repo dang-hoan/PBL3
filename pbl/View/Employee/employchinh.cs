@@ -7,19 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.DTO;
+using pbl.BLL; 
 
-namespace pbl.View.Employee
+namespace pbl.View
 {
     public partial class Employeechinh : Form
     {
         private Form login;
-        public Employeechinh(Form login)
+        public Employeechinh(Form login,  string userName)
         {
             InitializeComponent();
             this.login = login;
             this.Size = new Size(750, 528);
             this.CenterToScreen();
             showform(CreatForm());
+            ten.Text = BLLTRAIN.Instance.GetName(userName);
+            this.login = login;
 
         }
         private Form CreatForm()
@@ -109,6 +113,11 @@ namespace pbl.View.Employee
         {
             this.Close();
             login.Show();
+        }
+        private void setting(object sender, EventArgs e)
+        {
+
+            showform(new GUISetting());
         }
     }
 }

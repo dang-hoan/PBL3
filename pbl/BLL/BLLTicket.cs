@@ -27,37 +27,53 @@ namespace pbl.BLL
         {
         }
         PBL3 db = new PBL3();
-        //public List<TICKET_View> getticketbylist(TICKET_View s)
-        //{
-        //    List<TICKET_View> data = new List<TICKET_View>();
-        //    foreach (TICKET i in Getticketbyticketid(ticketid))
-        //    {
-        //         data.Add(new TICKET_View
-        //         {
-        //             TicketID = i.TicketID,
-        //             TrainID = i.TrainID,
-        //             SeatNo = i.SeatNo,
-        //             TicketPrice = i.TicketPrice.ToString(),
-        //             Booked = i.Booked.Value,
+        
+        public List<TICKET_View> getticketbylist(TICKET_View s, string book)
+        {
+            bool Dep = false, Des = false;
+            if (s.Departure == "") Dep = true;
+            if (s.Destination == "") Des = true;
+            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
+                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+                         where (Dep || sch.Departure.Equals(s.Departure)) && (Des || sch.Destination.Equals(s.Destination))
+                               && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(s.DepartureTime)
+                               && sch.ArrivalTime.ToString("d/M/yyyy H:m:s").Contains(s.ArrivalTime)
+                         select new TICKET_View
+                         {
+                             ScheduleID = tra.ScheduleID,
+                             TrainID = tra.TrainID,
+                             TrainName = tra.TrainName,
+                             TicketIDs = tic.TicketID,
+                             SeatNo = tic.SeatNo,
+                             TicketPrice = tic.TicketPrice.ToString(),
+                             Departure = sch.Departure,
+                             Destination = sch.Destination,
+                             DepartureTime = sch.DepartureTime.ToString(),
+                             ArrivalTime = sch.ArrivalTime.ToString()
+                         };
+            return result.ToList();
+        }
+        public void delticket(string ticketid )
+        {
+            TICKET s= db.TICKETs.Find(ticketid);
+            db.TICKETs.Remove(s);
+            db.SaveChanges();
 
-
-        //         });
-        //    }
-        //    return data;
-        //}
-        //public List<TICKET> GettiketBytiketid(string tiketid)
-        //{
-        //    List<TICKET> data = new List<TICKET>();
-        //    if (tiketid == "")
-        //    {
-        //        data = db.TICKETs.ToList();
-        //    }
-        //    else
-        //    {
-        //        data = db.TICKETs.Where(p => (p.TicketID == tiketid)).Select(p => p).ToList();
-        //    }
-        //    return data;
-        //}
+        }    
+        public List<TICKET> GettiketBytiketid(string tiketid)
+        {
+            List<TICKET> data = new List<TICKET>();
+            if (tiketid == "")
+            {
+                data = db.TICKETs.ToList();
+            }
+            else
+            {
+                data = db.TICKETs.Where(p => (p.TicketID == tiketid)).Select(p => p).ToList();
+            }
+            return data;
+        }
 
         public bool check(string ticketid)
         {

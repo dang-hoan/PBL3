@@ -172,7 +172,7 @@ namespace pbl.BLL
         public List<TICKET_View> GetAllTICKETView()
         {
             PBL3 db = new PBL3();
-<<<<<<< HEAD
+
             var result = from SCHEDULE sch in db.SCHEDULEs
                        join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
                        join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
@@ -192,28 +192,7 @@ namespace pbl.BLL
                            Booked = (bool)tic.Booked,
                            OwnUsername = tic.CustomerUN,
                            OwnName = peo.Name
-=======
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         join PEOPLE peo in db.PEOPLE on tic.CustomerUN equals peo.Username into TIC_PEO_Group
-                         from ticpeo in TIC_PEO_Group.DefaultIfEmpty()
-                         select new TICKET_View
-                         {
-                             ScheduleID = tra.ScheduleID,
-                             TrainID = tra.TrainID,
-                             TrainName = tra.TrainName,
-                             TicketID = tic.TicketID,
-                             SeatNo = tic.SeatNo,
-                             TicketPrice = tic.TicketPrice.ToString(),
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString(),
-                             Booked = (bool)tic.Booked,
-                             OwnUsername = (ticpeo == null)? "" : tic.CustomerUN,
-                             OwnName = (ticpeo == null) ? "" : ticpeo.Name
->>>>>>> 341ff11a28855dbf20a7362c630a6610b37e642a
+
                        };
             return result.ToList();
         }

@@ -1,4 +1,4 @@
-﻿namespace pbl
+﻿namespace pbl.View
 {
     partial class addlichtrinh
     {
@@ -30,6 +30,7 @@
         {
             this.bTOK = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
@@ -48,7 +49,6 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             this.bTOK.TabIndex = 3;
             this.bTOK.Text = "Add";
             this.bTOK.UseVisualStyleBackColor = true;
+            this.bTOK.Click += new System.EventHandler(this.bTOK_Click);
             // 
             // panel1
             // 
@@ -86,6 +87,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(523, 332);
             this.panel1.TabIndex = 2;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(118, 272);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(253, 24);
+            this.comboBox7.TabIndex = 37;
             // 
             // label9
             // 
@@ -240,14 +249,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Huy";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(118, 272);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(253, 24);
-            this.comboBox7.TabIndex = 37;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // addlichtrinh
             // 
