@@ -1,4 +1,4 @@
-USE [PBL3]
+USE [PBL3(1)]
 CREATE TABLE POSITION(
 	PositionID varchar(10) primary key not null,
 	Position nvarchar(50) not null
@@ -17,7 +17,7 @@ CREATE TABLE PEOPLE(
 )
 
 CREATE TABLE LOGIN(
-	IDlogin varchar(10) primary key not null,
+	IDlogin int primary key not null Identity(1,1),
 	Username varchar(20) not null foreign key (Username) references PEOPLE,
 	PassWord varchar(12) not null
 )
@@ -66,6 +66,3 @@ CREATE TABLE SECURITY(
 	Question nvarchar(50) not null,
 	Answer nvarchar(50) not null
 )
-
-
-

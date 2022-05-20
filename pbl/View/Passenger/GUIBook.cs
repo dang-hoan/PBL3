@@ -114,6 +114,16 @@ namespace pbl
             labelBooked.Text = booked.ToString();
             labelUnbooked.Text = unbooked.ToString();
         }
+        public int[] numberChar = new int[13] { 14, 10, 25, 8, 14, 25, 25, 25, 30, 30, 8, 20, 40 };
+        private void pSave_Click(object sender, EventArgs e)
+        {
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar);
+        }
+
+        private void labelCarriage_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void pRight_MouseMove(object sender, EventArgs e)
         {

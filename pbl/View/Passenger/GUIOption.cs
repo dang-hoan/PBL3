@@ -38,12 +38,15 @@ namespace pbl
                 }
             }
         }
-        public GUIOption(SCHEDULE_View s)
+        public GUIOption(SCHEDULE_View s, string devDay, string devHour, string devMinute)
         {
             InitializeComponent();
             cbbDep.Text = s.Departure;
             cbbDes.Text = s.Destination;
             Init(s.DepartureTime, s.ArrivalTime);
+            this.devDay.Text = devDay;
+            this.devHour.Text = devHour;
+            this.devMinute.Text = devMinute;
         }
         private void Init(string DepartureTime, string ArrivalTime)
         {

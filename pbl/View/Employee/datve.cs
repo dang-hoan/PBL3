@@ -7,37 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pbl.DTO;
+using pbl.BLL;
 
-namespace pbl
+namespace pbl.View
 {
     public partial class datve : Form
     {
-        public datve()
+
+        public delegate void mydel();
+        public mydel d;
+        string ticketid { get; set; }
+
+
+        public datve(string s )
         {
             InitializeComponent();
+            ticketid = s;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

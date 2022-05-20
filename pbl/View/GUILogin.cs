@@ -8,8 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
+<<<<<<< HEAD
 using pbl.View.Admin;
 using pbl.View.Employee;
+=======
+using pbl.View;
+>>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
 
 namespace pbl
 {
@@ -39,7 +43,6 @@ namespace pbl
                 return;
             }
             string result = BLLTRAIN.Instance.CheckAccount(txtusername.Text, txtpass.Text);
-            
             switch (result)
             {
                 case "Không tồn tại":

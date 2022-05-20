@@ -54,10 +54,12 @@ namespace pbl.BLL
                 temp.Address = s.Address;
                 temp.IDCard = s.IDCard;
                 temp.Email = s.Email;
+                temp.PositionID = "124";
                 db.SaveChanges();
             }
 
         }
+<<<<<<< HEAD
         public void Execute2(LOGIN l)
         {
             
@@ -67,23 +69,85 @@ namespace pbl.BLL
         
 
         public List<CBBItem> GetCBBs()
+=======
+        public void Execute2(LOGIN s)
+>>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
         {
-            List<CBBItem> data = new List<CBBItem>();
-            foreach (PEOPLE i in db.PEOPLE)
+            if (!check(s.Username))
             {
-                data.Add(new CBBItem
+                db.LOGINs.Add(s);
+                db.SaveChanges();
+            }  
+            else
+            {
+                LOGIN dn = new LOGIN();
+                dn = db.LOGINs.Where(p => p.Username != s.Username).Single(); 
+               
+                dn.Username = s.Username;
+                dn.PassWord = s.PassWord;
+            }    
+        }
+        public List<CBBItem> GetCBBs(string txt)
+        {
+        List<CBBItem> data = new List<CBBItem>();
+        foreach (PEOPLE i in db.PEOPLE)
+        {
+            if (i.PositionID == "124")
+            {
+                if (i.Name.Contains(txt))
+                    data.Add(new CBBItem
+                    {
+                        Value = i.Username,
+                        Text = i.Name
+
+                    });
+            }
+        }
+        return data;
+        }
+        public List<PEOPLE_View> getppbylist(string username)
+        {
+            List<PEOPLE_View> data = new List<PEOPLE_View>();
+            foreach(PEOPLE i in GetPPByUsername(username))
+            {
+
+                data.Add(new PEOPLE_View
                 {
-                    Value = int.Parse(i.Username.ToString()),
-                    Text = i.Name
-
-                });
-
+                    IDCard = i.IDCard,
+                    Name = i.Name,
+                    Username = i.Username,
+                    Gender = ((bool)i.Gender) ? "Nam" : "Nữ",
+                    BirthDay = i.BirthDay.Value,
+                    Address = i.Address,
+                    Email = i.Email,
+                    Phone = i.Phone,
+                    Position = i.PositionID,
+                }) ;
+            }
+                return data;
+        }
+        public List<PEOPLE> GetPPByUsername(string username)
+        {
+            List<PEOPLE> data = new List<PEOPLE>();
+            if (username == "")
+            {
+                data = db.PEOPLE.Where(p => (p.PositionID=="124")).Select(p => p).ToList();
+            }
+            else
+            {
+                data = db.PEOPLE.Where(p => (p.Username== username)&&(p.PositionID=="124")).Select(p => p).ToList();
             }
             return data;
         }
         public void delperson(string username)
         {
+            
+            MessageBox.Show(username);
             PEOPLE s = db.PEOPLE.Find(username);
+            LOGIN dn = new LOGIN();
+                dn = db.LOGINs.Where(p => p.Username == username).Single();
+           
+            db.LOGINs.Remove(dn);
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }

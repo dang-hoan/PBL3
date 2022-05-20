@@ -145,5 +145,10 @@ namespace pbl
                 MessageBox.Show("Ga bạn nhập không tồn tại hoặc không phù hợp với lịch trình!");
             }
         }
+        public int[] numberChar = new int[5] { 14, 25, 25, 30, 30 };
+        private void pSave_Click(object sender, EventArgs e)
+        {
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar);
+        }
     }
 }
