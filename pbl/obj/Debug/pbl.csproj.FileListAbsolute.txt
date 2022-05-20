@@ -105,9 +105,7 @@ C:\PBL3\pbl\obj\Debug\pbl.View.datve.resources
 C:\PBL3\pbl\obj\Debug\pbl.AddForm.resources
 C:\PBL3\pbl\obj\Debug\pbl.Admin.addschedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.employee.resources
-C:\PBL3\pbl\obj\Debug\pbl.Form1.resources
 C:\PBL3\pbl\obj\Debug\pbl.note.resources
-C:\PBL3\pbl\obj\Debug\pbl.Passenger.resources
 C:\PBL3\pbl\obj\Debug\pbl.Schedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.chat.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Employeechinh.resources
@@ -140,13 +138,9 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.CopyComplete
 C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
-<<<<<<< HEAD
-C:\PBL3\pbl\obj\Debug\pbl.Employee.qlve.resources
-C:\PBL3\pbl\obj\Debug\pbl.View.Employee.Employeechinh.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Mainform.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.delsche.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.searchsche.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.addnv.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.delnv.resources
-=======
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Passenger.resources

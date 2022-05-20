@@ -1,4 +1,4 @@
-﻿namespace pbl
+﻿namespace pbl.View.Admin
 {
     partial class Passenger
     {

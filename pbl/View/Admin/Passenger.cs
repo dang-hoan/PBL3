@@ -8,8 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace pbl
+namespace pbl.View.Admin
 {
     public partial class Passenger : Form
     {

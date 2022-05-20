@@ -38,9 +38,7 @@
             this.idcard = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.positionid = new System.Windows.Forms.TextBox();
             this.address = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.female = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.male = new System.Windows.Forms.RadioButton();
@@ -88,9 +86,7 @@
             this.groupBox1.Controls.Add(this.idcard);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.positionid);
             this.groupBox1.Controls.Add(this.address);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.female);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.male);
@@ -181,15 +177,6 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Username";
             // 
-            // positionid
-            // 
-            this.positionid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.positionid.Location = new System.Drawing.Point(458, 119);
-            this.positionid.Margin = new System.Windows.Forms.Padding(4);
-            this.positionid.Name = "positionid";
-            this.positionid.Size = new System.Drawing.Size(188, 27);
-            this.positionid.TabIndex = 9;
-            // 
             // address
             // 
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,17 +185,6 @@
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(188, 27);
             this.address.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(355, 119);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Chức vụ : ";
             // 
             // female
             // 
@@ -369,9 +345,7 @@
         private System.Windows.Forms.TextBox idcard;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox positionid;
         private System.Windows.Forms.TextBox address;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton female;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton male;

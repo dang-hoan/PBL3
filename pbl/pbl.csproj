@@ -194,12 +194,6 @@
     <Compile Include="View\Admin\employee.Designer.cs">
       <DependentUpon>employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Admin\note.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -414,9 +408,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\employee.resx">
       <DependentUpon>employee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\note.resx">
       <DependentUpon>note.cs</DependentUpon>

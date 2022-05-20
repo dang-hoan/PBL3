@@ -14,9 +14,9 @@ namespace pbl.View.Admin
 {
     public partial class addnv : Form
     {
-        /*public delegate void Mydel(string usern);
+        public delegate void Mydel(string usern);
         public Mydel d;
-        public string usern { get; set; }*/
+        public string usern { get; set; }
         public addnv()
         {
             
@@ -50,23 +50,7 @@ namespace pbl.View.Admin
         }*/
         private void btok_Click(object sender, EventArgs e)
         {
-            string p = " ";
-            if (positionid.Text == "Nhân viên")
-            {
-                p = "222";
-            }
-            else if (positionid.Text == "Giám đốc")
-            {
-                p = "111";
-            }
-            else if (positionid.Text == "Khách hàng")
-            {
-                p = "333";
-            }
-           // if(usern == txtname.Text)
-           // {
-
-//}
+            
             PEOPLE s = new PEOPLE()
             {
                 Username = txtusername.Text,
@@ -77,20 +61,20 @@ namespace pbl.View.Admin
                 Address = address.Text,
                 Email = gmail.Text,
                 IDCard = idcard.Text,
-                PositionID = p,
+                PositionID = "222",
             };
             LOGIN l = new LOGIN()
             {
-                IDlogin = 100,
+             
                 PassWord = txtpass.Text,
                 Username = txtusername.Text,
             };
             BLLpeople.instance.Execute(s);
             BLLpeople.instance.Execute2(l);
             shownv();
-           // d("");
+            //d("");
 
-            this.Close();
+            //this.Close();
         }
     }
 }

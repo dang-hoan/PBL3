@@ -46,6 +46,9 @@ namespace pbl.BLL
             }
             else
             {
+                string p = (from POSITION pos in db.POSITIONs
+                            where pos.Position.Equals("Nhân viên")
+                            select pos.PositionID).FirstOrDefault();
                 PEOPLE temp = db.PEOPLE.Find(s.Username);
                 temp.Name = s.Name;
                 temp.Gender = s.Gender;
@@ -54,7 +57,7 @@ namespace pbl.BLL
                 temp.Address = s.Address;
                 temp.IDCard = s.IDCard;
                 temp.Email = s.Email;
-                temp.PositionID = "124";
+                temp.PositionID = p;
                 db.SaveChanges();
             }
 
@@ -70,23 +73,7 @@ namespace pbl.BLL
 
         
 
-        public void Execute2(LOGIN s)
-
-        {
-            if (!check(s.Username))
-            {
-                db.LOGINs.Add(s);
-                db.SaveChanges();
-            }  
-            else
-            {
-                LOGIN dn = new LOGIN();
-                dn = db.LOGINs.Where(p => p.Username != s.Username).Single(); 
-               
-                dn.Username = s.Username;
-                dn.PassWord = s.PassWord;
-            }    
-        }
+         
         public List<CBBItem> GetCBBs(string txt)
         {
         List<CBBItem> data = new List<CBBItem>();
