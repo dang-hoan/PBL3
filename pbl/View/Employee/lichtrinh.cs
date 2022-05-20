@@ -82,6 +82,25 @@ namespace pbl.View
 
         }
 
+        private void butmuave_Click(object sender, EventArgs e)
+        {
+            List<string> list = new List<string>();
+            if (dataGridView1.SelectedRows.Count >= 1)
+            {
+                foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
+                {
+                    list.Add(dr.Cells["ScheduleID"].Value.ToString());
+                }
+                GUIBook book = new GUIBook(list);
+                book.Show();
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
+            }
+        }
+
+
         //private void themlt_Click(object sender, EventArgs e)
         //{
         //    addlichtrinh f = new addlichtrinh(" ");

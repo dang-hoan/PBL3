@@ -93,8 +93,7 @@ namespace pbl.View
                 BLLpeople.instance.Execute(s);
 
                     BLLpeople.instance.Execute2(dn);
-            }
- ;
+            };
             d("");
             this.Close();
         }
@@ -105,6 +104,11 @@ namespace pbl.View
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

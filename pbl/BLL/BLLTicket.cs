@@ -28,9 +28,9 @@ namespace pbl.BLL
         }
         PBL3 db = new PBL3();
         
-        public List<TICKET_View> getticketbylist(TICKET_View s, string book)
+        public List<TICKET_View> getticketbylist(TICKET_View s, bool book)
         {
-            bool Dep = false, Des = false;
+            bool Dep = false, Des = false, booked = book;
             if (s.Departure == "") Dep = true;
             if (s.Destination == "") Des = true;
             var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
@@ -50,7 +50,7 @@ namespace pbl.BLL
                              Departure = sch.Departure,
                              Destination = sch.Destination,
                              DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString()
+                             ArrivalTime = sch.ArrivalTime.ToString(),
                          };
             return result.ToList();
         }

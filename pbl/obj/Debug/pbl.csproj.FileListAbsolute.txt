@@ -97,14 +97,11 @@ C:\PBL3\pbl\bin\Debug\EntityFramework.xml
 C:\PBL3\pbl\bin\Debug\EntityFramework.SqlServer.xml
 C:\PBL3\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
+C:\PBL3\pbl\obj\Debug\pbl.csproj.ResolveComReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.View.addkhachhang.resources
-<<<<<<< HEAD
 C:\PBL3\pbl\obj\Debug\pbl.View.addlichtrinh.resources
-=======
-C:\PBL3\pbl\obj\Debug\pbl.addlichtrinh.resources
->>>>>>> 5d75c87449fdf7acb4f6778e17b178d60db52bbc
 C:\PBL3\pbl\obj\Debug\pbl.View.addve.resources
-C:\PBL3\pbl\obj\Debug\pbl.datve.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.datve.resources
 C:\PBL3\pbl\obj\Debug\pbl.AddForm.resources
 C:\PBL3\pbl\obj\Debug\pbl.Admin.addschedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.employee.resources
@@ -113,7 +110,7 @@ C:\PBL3\pbl\obj\Debug\pbl.note.resources
 C:\PBL3\pbl\obj\Debug\pbl.Passenger.resources
 C:\PBL3\pbl\obj\Debug\pbl.Schedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.chat.resources
-C:\PBL3\pbl\obj\Debug\pbl.View.Employee.Employeechinh.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.Employeechinh.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.qlve.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIChangePass.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUILogin.resources
@@ -143,6 +140,3 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.CopyComplete
 C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
-C:\PBL3\pbl\obj\Debug\pbl.View.datve.resources
-C:\PBL3\pbl\obj\Debug\pbl.View.Employeechinh.resources
-C:\PBL3\pbl\obj\Debug\pbl.csproj.ResolveComReference.cache

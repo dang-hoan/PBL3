@@ -24,35 +24,53 @@ namespace pbl.View
         }
         public void GUI()
         {
-           
-                //Schedule p = BLLTRAIN.Instance.Get(username);
-                //txtuser.Text = p.Username.ToString();
-                //txtuser.Enabled = false;
-                //txtname.Text = p.Name.ToString();
-                //date.Value = Convert.ToDateTime(BLLpeople.instance.GetuserByusername(username).BirthDay);
-                //txtdiachi.Text = p.Address.ToString();
-                //txtgamil.Text = p.Email.ToString();
-                //txtidcard.Text = p.IDCard.ToString();
-           
+            List<string> listDep = new List<string>();
+            List<string> listDes = new List<string>();
+            BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
+            foreach (string s in listDep.Distinct())
+            {
+                cbbDep.Items.Add(s);
+            }
+            foreach (string s in listDes.Distinct())
+            {
+                cbbDes.Items.Add(s);
+            }
+            for (int i = 0; i <= 23; i++)
+            {
+                hourdep.Items.Add(i);
+               hourdes.Items.Add(i);
+            }
+            for (int i = 0; i <= 59; i++)
+            {
+                cbbMinuteDes.Items.Add(i);
+                cbbMinuteDep.Items.Add(i);
+            }
+
         }
 
         private void bTOK_Click(object sender, EventArgs e)
         {
-            //PEOPLE s = new PEOPLE()
-            ////{
-            ////    Username = txtuser.Text,
-            ////    Name = txtname.Text,
-            ////    Gender = (rdinam.Checked == true) ? true : false,
-            ////    BirthDay = date.Value,
-            ////    Phone = txtsdt.Text,
-            ////    Address = txtdiachi.Text,
-            ////    Email = txtgamil.Text,
-            ////    IDCard = txtidcard.Text,
-            ////    PositionID = "124"
-            //};
-            //BLLpeople.instance.Execute(s);
-            //d("");
-            //this.Close();
+            DateTime dep, des;
+
+            des = daydes.Value;
+            dep = daydep.Value;
+            if (BLLTRAIN.Instance.checksch(schedule.Text))
+            {
+                SCHEDULE s = new SCHEDULE
+                {
+
+                    ScheduleID    =   schedule.Text,
+                    Departure     =   cbbDep.Text,
+                    Destination   =   cbbDes.Text,
+                    DepartureTime = dep,
+                    ArrivalTime   = des,
+
+                };
+
+                BLLTRAIN.Instance.Execute(s);
+            };
+            d("");
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

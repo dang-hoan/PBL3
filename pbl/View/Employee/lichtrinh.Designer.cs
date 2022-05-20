@@ -72,7 +72,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 239);
+            this.dataGridView1.Size = new System.Drawing.Size(842, 262);
             this.dataGridView1.TabIndex = 77;
             // 
             // butmuave
@@ -85,6 +85,7 @@
             this.butmuave.TabIndex = 97;
             this.butmuave.Text = "mua  vé";
             this.butmuave.UseVisualStyleBackColor = false;
+            this.butmuave.Click += new System.EventHandler(this.butmuave_Click);
             // 
             // butdelte
             // 

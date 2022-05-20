@@ -88,6 +88,7 @@
             this.butsearch.TabIndex = 98;
             this.butsearch.Text = "Tìm kiếm";
             this.butsearch.UseVisualStyleBackColor = false;
+            this.butsearch.Click += new System.EventHandler(this.butsearch_Click_1);
             // 
             // butthem
             // 
@@ -216,6 +217,7 @@
             this.butxoave.TabIndex = 118;
             this.butxoave.Text = "Xóa  vé";
             this.butxoave.UseVisualStyleBackColor = false;
+            this.butxoave.Click += new System.EventHandler(this.butxoave_Click);
             // 
             // cbbDep
             // 
@@ -244,6 +246,7 @@
             this.process1.StartInfo.StandardOutputEncoding = null;
             this.process1.StartInfo.UserName = "";
             this.process1.SynchronizingObject = this;
+            this.process1.Exited += new System.EventHandler(this.process1_Exited);
             // 
             // label9
             // 
@@ -299,7 +302,6 @@
             this.label5.Size = new System.Drawing.Size(91, 16);
             this.label5.TabIndex = 129;
             this.label5.Text = "Trạng Thái vé";
-
             // 
             // qlve
             // 

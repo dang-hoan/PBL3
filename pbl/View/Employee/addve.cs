@@ -22,16 +22,26 @@ namespace pbl.View
             InitializeComponent();
             tiketid = s;
             GUI();
+
         }
         public void GUI()
         {
-            if (BLLTicket.instance.check(tiketid))
+            List<string> listDep = new List<string>();
+            List<string> listDes = new List<string>();
+            BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
+            foreach (string s in listDep.Distinct())
             {
-                PEOPLE p = BLLpeople.instance.GetuserByusername(tiketid);
-                txtDep.Text = p.Username.ToString();
-               
+                cbbdep.Items.Add(s);
+            }
+            foreach (string s in listDes.Distinct())
+            {
+                cbbdes.Items.Add(s);
             }
         }
-       
+
+        private void butthem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

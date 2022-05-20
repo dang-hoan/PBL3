@@ -108,6 +108,16 @@ namespace pbl.BLL
             }
 
         }
+        public void Execute(SCHEDULE s)
+        {
+            PBL3 db = new PBL3();
+            SCHEDULE temp = db.SCHEDULEs.Find(s.ScheduleID);
+            temp.ScheduleID = s.ScheduleID; 
+            temp.Departure = s.Departure;
+            temp.Destination = s.Destination;
+            temp.DepartureTime = s.DepartureTime;
+            temp.Destination = s.Destination;
+        }
         public PEOPLE GetuserByusername(string username)
         {
             PBL3 db = new PBL3();
@@ -580,6 +590,15 @@ namespace pbl.BLL
             else
                 return (from sch in db.SCHEDULEs.ToList()
                         select sch.Destination).ToList();
+        }
+        public bool checksch(string scheduleid)
+        {
+            PBL3 db = new PBL3();
+            foreach (SCHEDULE i in db.SCHEDULEs)
+            {
+                if (i.ScheduleID == scheduleid) return true;
+            }
+            return false;
         }
         public List<SCHEDULE_View> GetSchedule(string userName)
         {

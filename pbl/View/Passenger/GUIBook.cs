@@ -120,6 +120,11 @@ namespace pbl
             BLLTRAIN.Instance.Print(dataGridView1, numberChar);
         }
 
+        private void labelCarriage_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void pRight_MouseMove(object sender, EventArgs e)
         {
             pRight.Image = imageRight2;

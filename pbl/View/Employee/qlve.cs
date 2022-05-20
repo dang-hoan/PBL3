@@ -55,7 +55,15 @@ namespace pbl.View
         private void butsearch_Click(object sender, EventArgs e)
         {
             string DepTime, DesTime, book;
+            bool booked;
             book = cbbook.Text;
+            if (book == "đã đặt ")
+                booked = true;
+            else
+            {
+                booked = true;
+            }
+            
             DesTime = dateDes.Value.ToString("d/M/yyyy");
             DepTime = dateDep.Value.ToString("d/M/yyyy");
             if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
@@ -74,7 +82,7 @@ namespace pbl.View
                 ArrivalTime = DesTime,
                
             }; 
-            dataGridView1.DataSource = BLLTicket.instance.getticketbylist(s,book);
+            dataGridView1.DataSource = BLLTicket.instance.getticketbylist(s,booked);
         }
 
         private void butthem_Click(object sender, EventArgs e)
@@ -100,11 +108,37 @@ namespace pbl.View
             if (dataGridView1.SelectedRows.Count >= 1)
             {
                 foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
-                { }
+                {
+                    list.Add(dr.Cells["ScheduleID"].Value.ToString());
+                }
+                GUIBook book = new GUIBook(list);
+                book.Show();
+            }
+        }
 
-               
+        private void process1_Exited(object sender, EventArgs e)
+        {
+
+        }
+
+        private void butxoave_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count >0)
+            {
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                {
+                    BLLTicket.instance.delticket(row.Cells["ticketid"].Value.ToString());
+                }
+                show("");
             }    
         }
+
+        private void butsearch_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
 
         //private void butxoave_Click(object sender, EventArgs e)
         //{

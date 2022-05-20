@@ -17,15 +17,18 @@ namespace pbl.View
 
         public delegate void mydel();
         public mydel d;
-        string scheduleid { get; set; }
+        string ticketid { get; set; }
 
 
-        public datve(string s)
+        public datve(string s )
         {
             InitializeComponent();
-            scheduleid = s;
+            ticketid = s;
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
