@@ -44,11 +44,18 @@
             this.cbbHourDes = new System.Windows.Forms.ComboBox();
             this.cbbDep = new System.Windows.Forms.ComboBox();
             this.cbbDes = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.devDay = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.devHour = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.devMinute = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // bCancel
             // 
-            this.bCancel.Location = new System.Drawing.Point(440, 202);
+            this.bCancel.Location = new System.Drawing.Point(442, 243);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(90, 32);
             this.bCancel.TabIndex = 30;
@@ -58,7 +65,7 @@
             // 
             // bAccept
             // 
-            this.bAccept.Location = new System.Drawing.Point(209, 202);
+            this.bAccept.Location = new System.Drawing.Point(211, 243);
             this.bAccept.Name = "bAccept";
             this.bAccept.Size = new System.Drawing.Size(104, 32);
             this.bAccept.TabIndex = 29;
@@ -196,11 +203,78 @@
             this.cbbDes.TextChanged += new System.EventHandler(this.cbbDes_TextChanged);
             this.cbbDes.Leave += new System.EventHandler(this.cbbStation_Leave);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(33, 194);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 20);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Độ lệch thời gian";
+            // 
+            // devDay
+            // 
+            this.devDay.FormattingEnabled = true;
+            this.devDay.Location = new System.Drawing.Point(211, 191);
+            this.devDay.Name = "devDay";
+            this.devDay.Size = new System.Drawing.Size(49, 28);
+            this.devDay.TabIndex = 43;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(266, 194);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 20);
+            this.label10.TabIndex = 44;
+            this.label10.Text = "ngày";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(394, 194);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(30, 20);
+            this.label11.TabIndex = 46;
+            this.label11.Text = "giờ";
+            // 
+            // devHour
+            // 
+            this.devHour.FormattingEnabled = true;
+            this.devHour.Location = new System.Drawing.Point(339, 191);
+            this.devHour.Name = "devHour";
+            this.devHour.Size = new System.Drawing.Size(49, 28);
+            this.devHour.TabIndex = 45;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(507, 194);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 20);
+            this.label12.TabIndex = 48;
+            this.label12.Text = "phút";
+            // 
+            // devMinute
+            // 
+            this.devMinute.FormattingEnabled = true;
+            this.devMinute.Location = new System.Drawing.Point(452, 191);
+            this.devMinute.Name = "devMinute";
+            this.devMinute.Size = new System.Drawing.Size(49, 28);
+            this.devMinute.TabIndex = 47;
+            // 
             // GUIOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 258);
+            this.ClientSize = new System.Drawing.Size(793, 302);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.devMinute);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.devHour);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.devDay);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cbbDes);
             this.Controls.Add(this.cbbDep);
             this.Controls.Add(this.label8);
@@ -242,5 +316,12 @@
         private System.Windows.Forms.ComboBox cbbHourDes;
         private System.Windows.Forms.ComboBox cbbDep;
         private System.Windows.Forms.ComboBox cbbDes;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox devDay;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox devHour;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox devMinute;
     }
 }
