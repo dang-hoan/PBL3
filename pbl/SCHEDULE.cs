@@ -23,8 +23,8 @@ namespace pbl
         public string ScheduleID { get; set; }
         public string Departure { get; set; }
         public string Destination { get; set; }
-        public System.DateTime DepartureTime { get; set; }
-        public System.DateTime ArrivalTime { get; set; }
+        public DateTime DepartureTime { get; set; }
+        public DateTime ArrivalTime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRAIN> TRAINs { get; set; }

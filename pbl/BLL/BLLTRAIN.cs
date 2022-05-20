@@ -322,7 +322,7 @@ namespace pbl.BLL
                              TicketPrice = tic.TicketPrice.ToString(),
                              Departure = sch.Departure,
                              Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
+                             DepartureTime = sch.DepartureTime.ToString("dd/MM/yyyy HH:mm:ss"),
                              ArrivalTime = sch.ArrivalTime.ToString()
                          };
             return result.ToList();

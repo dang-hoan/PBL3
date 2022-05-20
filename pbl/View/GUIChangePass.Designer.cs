@@ -68,7 +68,7 @@
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.PasswordChar = '*';
             this.txtNewPass.Size = new System.Drawing.Size(290, 26);
-            this.txtNewPass.TabIndex = 2;
+            this.txtNewPass.TabIndex = 1;
             // 
             // label3
             // 
@@ -89,7 +89,7 @@
             this.bAgree.Location = new System.Drawing.Point(177, 183);
             this.bAgree.Name = "bAgree";
             this.bAgree.Size = new System.Drawing.Size(84, 36);
-            this.bAgree.TabIndex = 7;
+            this.bAgree.TabIndex = 3;
             this.bAgree.Text = "Đồng ý";
             this.bAgree.UseVisualStyleBackColor = false;
             this.bAgree.Click += new System.EventHandler(this.bAgree_Click);
@@ -101,7 +101,7 @@
             this.bBack.Location = new System.Drawing.Point(306, 183);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(84, 36);
-            this.bBack.TabIndex = 8;
+            this.bBack.TabIndex = 4;
             this.bBack.Text = "Quay lại";
             this.bBack.UseVisualStyleBackColor = false;
             this.bBack.Click += new System.EventHandler(this.bBack_Click);
@@ -113,7 +113,7 @@
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.PasswordChar = '*';
             this.txtConfirmPass.Size = new System.Drawing.Size(290, 26);
-            this.txtConfirmPass.TabIndex = 9;
+            this.txtConfirmPass.TabIndex = 2;
             // 
             // GUIChangePass
             // 

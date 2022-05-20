@@ -78,7 +78,7 @@
             this.bSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.Location = new System.Drawing.Point(896, 43);
+            this.bSearch.Location = new System.Drawing.Point(896, 45);
             this.bSearch.Name = "bSearch";
             this.bSearch.Size = new System.Drawing.Size(139, 40);
             this.bSearch.TabIndex = 59;
@@ -150,6 +150,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(54, 116);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
