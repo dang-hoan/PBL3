@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="IDlogin" />
     </Key>
-    <Property Name="IDlogin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDlogin" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="PassWord" Type="varchar" MaxLength="12" Nullable="false" />
   </EntityType>

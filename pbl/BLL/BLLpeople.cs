@@ -59,7 +59,7 @@ namespace pbl.BLL
             }
 
         }
-<<<<<<< HEAD
+
         public void Execute2(LOGIN l)
         {
             
@@ -68,10 +68,10 @@ namespace pbl.BLL
         }
         
 
-        public List<CBBItem> GetCBBs()
-=======
+        
+
         public void Execute2(LOGIN s)
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+
         {
             if (!check(s.Username))
             {

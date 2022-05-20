@@ -8,12 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
-<<<<<<< HEAD
-using pbl.View.Admin;
-using pbl.View.Employee;
-=======
 using pbl.View;
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+using pbl.View.Admin;
+
+
 
 namespace pbl
 {

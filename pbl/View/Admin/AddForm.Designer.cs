@@ -49,11 +49,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-<<<<<<< HEAD
+
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-=======
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -90,11 +89,8 @@
             this.address.Location = new System.Drawing.Point(458, 75);
             this.address.Margin = new System.Windows.Forms.Padding(4);
             this.address.Name = "address";
-<<<<<<< HEAD
-            this.address.Size = new System.Drawing.Size(188, 26);
-=======
-            this.address.Size = new System.Drawing.Size(297, 30);
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+    this.address.Size = new System.Drawing.Size(297, 30);
+
             this.address.TabIndex = 13;
             // 
             // date
@@ -103,11 +99,9 @@
             this.date.Location = new System.Drawing.Point(461, 37);
             this.date.Margin = new System.Windows.Forms.Padding(4);
             this.date.Name = "date";
-<<<<<<< HEAD
-            this.date.Size = new System.Drawing.Size(185, 26);
-=======
+
             this.date.Size = new System.Drawing.Size(297, 30);
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+
             this.date.TabIndex = 12;
             // 
             // gmail
@@ -116,11 +110,9 @@
             this.gmail.Location = new System.Drawing.Point(133, 116);
             this.gmail.Margin = new System.Windows.Forms.Padding(4);
             this.gmail.Name = "gmail";
-<<<<<<< HEAD
-            this.gmail.Size = new System.Drawing.Size(190, 26);
-=======
+
             this.gmail.Size = new System.Drawing.Size(249, 30);
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+
             this.gmail.TabIndex = 11;
             // 
             // phone
@@ -129,11 +121,9 @@
             this.phone.Location = new System.Drawing.Point(133, 157);
             this.phone.Margin = new System.Windows.Forms.Padding(4);
             this.phone.Name = "phone";
-<<<<<<< HEAD
-            this.phone.Size = new System.Drawing.Size(190, 26);
-=======
-            this.phone.Size = new System.Drawing.Size(249, 30);
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+
+    this.phone.Size = new System.Drawing.Size(249, 30);
+
             this.phone.TabIndex = 10;
             // 
             // positionid
@@ -151,11 +141,9 @@
             this.txtname.Location = new System.Drawing.Point(133, 37);
             this.txtname.Margin = new System.Windows.Forms.Padding(4);
             this.txtname.Name = "txtname";
-<<<<<<< HEAD
-            this.txtname.Size = new System.Drawing.Size(179, 26);
-=======
+
             this.txtname.Size = new System.Drawing.Size(249, 30);
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+
             this.txtname.TabIndex = 8;
             // 
             // label7
@@ -270,30 +258,25 @@
             // txtusername
             // 
             this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.txtusername.Location = new System.Drawing.Point(458, 157);
-            this.txtusername.Margin = new System.Windows.Forms.Padding(4);
-            this.txtusername.Name = "txtusername";
-            this.txtusername.Size = new System.Drawing.Size(138, 26);
-=======
+
+
             this.txtusername.Location = new System.Drawing.Point(590, 212);
             this.txtusername.Margin = new System.Windows.Forms.Padding(4);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(138, 30);
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+
             this.txtusername.TabIndex = 20;
             // 
             // idcard
-            // 
             this.idcard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idcard.Location = new System.Drawing.Point(133, 197);
             this.idcard.Margin = new System.Windows.Forms.Padding(4);
             this.idcard.Name = "idcard";
-<<<<<<< HEAD
+
             this.idcard.Size = new System.Drawing.Size(190, 26);
-=======
+
             this.idcard.Size = new System.Drawing.Size(138, 30);
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+
             this.idcard.TabIndex = 19;
             // 
             // label9
@@ -325,7 +308,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-<<<<<<< HEAD
+
             // label10
             // 
             this.label10.AutoSize = true;
@@ -347,8 +330,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(878, 225);
             this.dataGridView1.TabIndex = 21;
             // 
-=======
->>>>>>> 643586ea9114d6f5643112566bedfa894c478dbc
+
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
