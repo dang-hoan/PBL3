@@ -71,7 +71,7 @@ namespace pbl
         }
         private void Schedule_Click(object sender, EventArgs e)
         {
-            GUIOption option = new GUIOption(schedule);
+            GUIOption option = new GUIOption(schedule, "", "", "");
             option.d += new GUIOption.MyDel(Get);
             option.Show();
         }
