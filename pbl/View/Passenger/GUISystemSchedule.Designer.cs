@@ -102,6 +102,7 @@
             // 
             this.dateDes.CustomFormat = "dd/MM/yyyy";
             this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+
             this.dateDes.Location = new System.Drawing.Point(22, 391);
             this.dateDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateDes.Name = "dateDes";

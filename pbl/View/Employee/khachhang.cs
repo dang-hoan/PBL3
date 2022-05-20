@@ -30,7 +30,8 @@ namespace pbl.View
         }
         public void show(string username)
         {
-            dataGridView1.DataSource = BLLpeople.instance.getppbylist(username);
+        dataGridView1.DataSource = BLLpeople.instance.getppbylist(username);
+
         }
         private void butdel_Click(object sender, EventArgs e)
         {
@@ -38,7 +39,6 @@ namespace pbl.View
             {
                 foreach(DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                   
                     BLLpeople.instance.delperson(row.Cells["Username"].Value.ToString());
                 }
                 show("");

@@ -18,17 +18,17 @@ namespace pbl.View
         {
             InitializeComponent();
         }
-    private void button1_Click(object sender, EventArgs e)
-        {
-            datve f = new datve();
-            f.Show();
-        }
+    
 
         private void butsearch_Click(object sender, EventArgs e)
         {
             string DepTime, DesTime;
-
-            DesTime = dateDes.Value.ToString("d/M/yyyy");
+            DateTime dep, des;
+            dep= dateDep.Value;
+            des = dateDes.Value;
+            int  HourDep = Convert.ToInt32(cbbHourDep.SelectedItem.ToString()); ;
+            int  hourdes = Convert.ToInt32(cbbHourDes.SelectedItem.ToString()); ;
+           DesTime = dateDes.Value.ToString("d/M/yyyy");
             DepTime = dateDep.Value.ToString("d/M/yyyy");
             if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
             {
@@ -38,25 +38,27 @@ namespace pbl.View
             {
                 DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
             }
-            SCHEDULE_View s = new SCHEDULE_View()
-            {
-                Departure = cbbDep.Text,
-                Destination = cbbDes.Text,
-                DepartureTime = DepTime,
-                ArrivalTime = DesTime,
+            if (DateTime.Compare(dep, des) > 0)
+            { MessageBox.Show("vui lòng nhập ngày đi phải là ngày trước "); }
+            else if (DateTime.Compare(dep, des) == 0)
+            { if(HourDep < hourdes)
+                    MessageBox.Show("vui lòng nhập giờ đi phải là trước giờ đến ");
+            }    
+            else {
+                SCHEDULE_View s = new SCHEDULE_View()
+                {
+                    Departure = cbbDep.Text,
+                    Destination = cbbDes.Text,
+                    DepartureTime = DepTime,
+                    ArrivalTime = DesTime,
+                };
 
-            };
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
+               
+            }
         }
-
-        private void bSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void butall_Click(object sender, EventArgs e)
         {
-
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
         }
 
@@ -67,10 +69,43 @@ namespace pbl.View
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
 
-                    BLLpeople.instance.delperson(row.Cells["Username"].Value.ToString());
+                    BLLTRAIN.Instance.delschedule(row.Cells["scheduleid"].Value.ToString());
                 }
             }
 
         }
+
+        private void themlt_Click(object sender, EventArgs e)
+        {
+            addlichtrinh f = new addlichtrinh("");
+            f.Show();
+
+        }
+
+        private void butmuave_Click(object sender, EventArgs e)
+        {
+            List<string> list = new List<string>();
+            if (dataGridView1.SelectedRows.Count >= 1)
+            {
+                foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
+                {
+                    list.Add(dr.Cells["ScheduleID"].Value.ToString());
+                }
+                GUIBook book = new GUIBook(list);
+                book.Show();
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
+            }
+        }
+
+
+        //private void themlt_Click(object sender, EventArgs e)
+        //{
+        //    addlichtrinh f = new addlichtrinh(" ");
+        //    f.Show();
+        //    f.d = new addkhachhang.Mydel(show);
+        //}
     }
 }

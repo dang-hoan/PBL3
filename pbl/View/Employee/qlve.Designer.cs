@@ -44,20 +44,22 @@
             this.cbbMinuteDep = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.butxoave = new System.Windows.Forms.Button();
-            this.cbbgadi = new System.Windows.Forms.ComboBox();
-            this.cbbgaden = new System.Windows.Forms.ComboBox();
+            this.cbbDep = new System.Windows.Forms.ComboBox();
+            this.cbbDes = new System.Windows.Forms.ComboBox();
             this.process1 = new System.Diagnostics.Process();
             this.label9 = new System.Windows.Forms.Label();
+            this.cbbHourDes = new System.Windows.Forms.ComboBox();
+            this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbbook = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 164);
+            this.dataGridView1.Location = new System.Drawing.Point(32, 206);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -66,52 +68,56 @@
             // 
             // butsua
             // 
+            this.butsua.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butsua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butsua.Location = new System.Drawing.Point(563, 441);
+            this.butsua.Location = new System.Drawing.Point(550, 469);
             this.butsua.Name = "butsua";
             this.butsua.Size = new System.Drawing.Size(97, 35);
             this.butsua.TabIndex = 99;
             this.butsua.Text = "Sửa vé";
-            this.butsua.UseVisualStyleBackColor = true;
+            this.butsua.UseVisualStyleBackColor = false;
             this.butsua.Click += new System.EventHandler(this.butsua_Click);
             // 
             // butsearch
             // 
+            this.butsearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butsearch.Location = new System.Drawing.Point(782, 44);
+            this.butsearch.Location = new System.Drawing.Point(760, 67);
             this.butsearch.Name = "butsearch";
             this.butsearch.Size = new System.Drawing.Size(87, 35);
             this.butsearch.TabIndex = 98;
             this.butsearch.Text = "Tìm kiếm";
-            this.butsearch.UseVisualStyleBackColor = true;
-            this.butsearch.Click += new System.EventHandler(this.butsearch_Click);
+            this.butsearch.UseVisualStyleBackColor = false;
+            this.butsearch.Click += new System.EventHandler(this.butsearch_Click_1);
             // 
             // butthem
             // 
+            this.butthem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butthem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butthem.Location = new System.Drawing.Point(312, 441);
+            this.butthem.Location = new System.Drawing.Point(266, 469);
             this.butthem.Name = "butthem";
             this.butthem.Size = new System.Drawing.Size(148, 35);
             this.butthem.TabIndex = 97;
             this.butthem.Text = "Thêm vé mới";
-            this.butthem.UseVisualStyleBackColor = true;
+            this.butthem.UseVisualStyleBackColor = false;
             this.butthem.Click += new System.EventHandler(this.butthem_Click);
             // 
             // butdat
             // 
+            this.butdat.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butdat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butdat.Location = new System.Drawing.Point(110, 441);
+            this.butdat.Location = new System.Drawing.Point(44, 469);
             this.butdat.Name = "butdat";
             this.butdat.Size = new System.Drawing.Size(132, 35);
             this.butdat.TabIndex = 117;
             this.butdat.Text = "Đặt vé";
-            this.butdat.UseVisualStyleBackColor = true;
+            this.butdat.UseVisualStyleBackColor = false;
             this.butdat.Click += new System.EventHandler(this.butdat_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(43, 21);
+            this.label10.Location = new System.Drawing.Point(43, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 16);
             this.label10.TabIndex = 101;
@@ -146,7 +152,9 @@
             // 
             // dateDep
             // 
-            this.dateDep.Location = new System.Drawing.Point(142, 68);
+            this.dateDep.CustomFormat = "dd/MM/yyyy";
+            this.dateDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDep.Location = new System.Drawing.Point(174, 67);
             this.dateDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateDep.Name = "dateDep";
             this.dateDep.Size = new System.Drawing.Size(200, 22);
@@ -154,6 +162,8 @@
             // 
             // dateDes
             // 
+            this.dateDes.CustomFormat = "dd/MM/yyyy";
+            this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateDes.Location = new System.Drawing.Point(510, 68);
             this.dateDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateDes.Name = "dateDes";
@@ -163,7 +173,7 @@
             // cbbHourDep
             // 
             this.cbbHourDep.FormattingEnabled = true;
-            this.cbbHourDep.Location = new System.Drawing.Point(142, 109);
+            this.cbbHourDep.Location = new System.Drawing.Point(174, 108);
             this.cbbHourDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbHourDep.Name = "cbbHourDep";
             this.cbbHourDep.Size = new System.Drawing.Size(70, 24);
@@ -181,7 +191,7 @@
             // cbbMinuteDep
             // 
             this.cbbMinuteDep.FormattingEnabled = true;
-            this.cbbMinuteDep.Location = new System.Drawing.Point(234, 109);
+            this.cbbMinuteDep.Location = new System.Drawing.Point(266, 108);
             this.cbbMinuteDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbMinuteDep.Name = "cbbMinuteDep";
             this.cbbMinuteDep.Size = new System.Drawing.Size(59, 24);
@@ -191,7 +201,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(218, 117);
+            this.label7.Location = new System.Drawing.Point(250, 116);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(11, 16);
             this.label7.TabIndex = 112;
@@ -199,32 +209,33 @@
             // 
             // butxoave
             // 
+            this.butxoave.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butxoave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butxoave.Location = new System.Drawing.Point(728, 441);
+            this.butxoave.Location = new System.Drawing.Point(760, 469);
             this.butxoave.Name = "butxoave";
             this.butxoave.Size = new System.Drawing.Size(95, 35);
             this.butxoave.TabIndex = 118;
             this.butxoave.Text = "Xóa  vé";
-            this.butxoave.UseVisualStyleBackColor = true;
+            this.butxoave.UseVisualStyleBackColor = false;
             this.butxoave.Click += new System.EventHandler(this.butxoave_Click);
             // 
-            // cbbgadi
+            // cbbDep
             // 
-            this.cbbgadi.FormattingEnabled = true;
-            this.cbbgadi.Location = new System.Drawing.Point(142, 18);
-            this.cbbgadi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbbgadi.Name = "cbbgadi";
-            this.cbbgadi.Size = new System.Drawing.Size(200, 24);
-            this.cbbgadi.TabIndex = 119;
+            this.cbbDep.FormattingEnabled = true;
+            this.cbbDep.Location = new System.Drawing.Point(174, 20);
+            this.cbbDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbDep.Name = "cbbDep";
+            this.cbbDep.Size = new System.Drawing.Size(200, 24);
+            this.cbbDep.TabIndex = 119;
             // 
-            // cbbgaden
+            // cbbDes
             // 
-            this.cbbgaden.FormattingEnabled = true;
-            this.cbbgaden.Location = new System.Drawing.Point(510, 20);
-            this.cbbgaden.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbbgaden.Name = "cbbgaden";
-            this.cbbgaden.Size = new System.Drawing.Size(208, 24);
-            this.cbbgaden.TabIndex = 120;
+            this.cbbDes.FormattingEnabled = true;
+            this.cbbDes.Location = new System.Drawing.Point(510, 20);
+            this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbDes.Name = "cbbDes";
+            this.cbbDes.Size = new System.Drawing.Size(208, 24);
+            this.cbbDes.TabIndex = 120;
             // 
             // process1
             // 
@@ -235,6 +246,7 @@
             this.process1.StartInfo.StandardOutputEncoding = null;
             this.process1.StartInfo.UserName = "";
             this.process1.SynchronizingObject = this;
+            this.process1.Exited += new System.EventHandler(this.process1_Exited);
             // 
             // label9
             // 
@@ -244,6 +256,24 @@
             this.label9.Size = new System.Drawing.Size(57, 16);
             this.label9.TabIndex = 124;
             this.label9.Text = "Giờ đến:";
+            // 
+            // cbbHourDes
+            // 
+            this.cbbHourDes.FormattingEnabled = true;
+            this.cbbHourDes.Location = new System.Drawing.Point(510, 117);
+            this.cbbHourDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbHourDes.Name = "cbbHourDes";
+            this.cbbHourDes.Size = new System.Drawing.Size(70, 24);
+            this.cbbHourDes.TabIndex = 125;
+            // 
+            // cbbMinuteDes
+            // 
+            this.cbbMinuteDes.FormattingEnabled = true;
+            this.cbbMinuteDes.Location = new System.Drawing.Point(602, 117);
+            this.cbbMinuteDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbMinuteDes.Name = "cbbMinuteDes";
+            this.cbbMinuteDes.Size = new System.Drawing.Size(59, 24);
+            this.cbbMinuteDes.TabIndex = 126;
             // 
             // label1
             // 
@@ -255,35 +285,38 @@
             this.label1.TabIndex = 127;
             this.label1.Text = ":";
             // 
-            // comboBox1
+            // cbbook
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(602, 117);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(59, 24);
-            this.comboBox1.TabIndex = 126;
+            this.cbbook.FormattingEnabled = true;
+            this.cbbook.Location = new System.Drawing.Point(174, 151);
+            this.cbbook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbook.Name = "cbbook";
+            this.cbbook.Size = new System.Drawing.Size(208, 24);
+            this.cbbook.TabIndex = 130;
             // 
-            // comboBox2
+            // label5
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(510, 117);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(70, 24);
-            this.comboBox2.TabIndex = 125;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(41, 152);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 16);
+            this.label5.TabIndex = 129;
+            this.label5.Text = "Trạng Thái vé";
             // 
             // qlve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(915, 533);
+            this.Controls.Add(this.cbbook);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbbMinuteDes);
+            this.Controls.Add(this.cbbHourDes);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.cbbgaden);
-            this.Controls.Add(this.cbbgadi);
+            this.Controls.Add(this.cbbDes);
+            this.Controls.Add(this.cbbDep);
             this.Controls.Add(this.butxoave);
             this.Controls.Add(this.butdat);
             this.Controls.Add(this.label7);
@@ -325,12 +358,14 @@
         private System.Windows.Forms.ComboBox cbbMinuteDep;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button butxoave;
-        private System.Windows.Forms.ComboBox cbbgadi;
-        private System.Windows.Forms.ComboBox cbbgaden;
+        private System.Windows.Forms.ComboBox cbbDep;
+        private System.Windows.Forms.ComboBox cbbDes;
         private System.Diagnostics.Process process1;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbbMinuteDes;
+        private System.Windows.Forms.ComboBox cbbHourDes;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbbook;
+        private System.Windows.Forms.Label label5;
     }
 }

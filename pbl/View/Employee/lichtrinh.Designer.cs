@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.themlt = new System.Windows.Forms.Button();
-            this.butsua = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.butmuave = new System.Windows.Forms.Button();
             this.butdelte = new System.Windows.Forms.Button();
@@ -56,24 +55,15 @@
             // 
             // themlt
             // 
+            this.themlt.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.themlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.themlt.Location = new System.Drawing.Point(406, 441);
+            this.themlt.Location = new System.Drawing.Point(512, 441);
             this.themlt.Name = "themlt";
             this.themlt.Size = new System.Drawing.Size(128, 33);
             this.themlt.TabIndex = 8;
             this.themlt.Text = "Thêm lịch trình";
-            this.themlt.UseVisualStyleBackColor = true;
-            this.themlt.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // butsua
-            // 
-            this.butsua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butsua.Location = new System.Drawing.Point(567, 441);
-            this.butsua.Name = "butsua";
-            this.butsua.Size = new System.Drawing.Size(126, 33);
-            this.butsua.TabIndex = 11;
-            this.butsua.Text = "Sửa lịch trình";
-            this.butsua.UseVisualStyleBackColor = true;
+            this.themlt.UseVisualStyleBackColor = false;
+            this.themlt.Click += new System.EventHandler(this.themlt_Click);
             // 
             // dataGridView1
             // 
@@ -82,39 +72,43 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 239);
+            this.dataGridView1.Size = new System.Drawing.Size(842, 262);
             this.dataGridView1.TabIndex = 77;
             // 
             // butmuave
             // 
+            this.butmuave.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butmuave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butmuave.Location = new System.Drawing.Point(79, 441);
             this.butmuave.Name = "butmuave";
             this.butmuave.Size = new System.Drawing.Size(130, 33);
             this.butmuave.TabIndex = 97;
             this.butmuave.Text = "mua  vé";
-            this.butmuave.UseVisualStyleBackColor = true;
+            this.butmuave.UseVisualStyleBackColor = false;
+            this.butmuave.Click += new System.EventHandler(this.butmuave_Click);
             // 
             // butdelte
             // 
+            this.butdelte.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butdelte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butdelte.Location = new System.Drawing.Point(740, 441);
+            this.butdelte.Location = new System.Drawing.Point(745, 441);
             this.butdelte.Name = "butdelte";
             this.butdelte.Size = new System.Drawing.Size(117, 33);
             this.butdelte.TabIndex = 111;
             this.butdelte.Text = "xóa lịch trình";
-            this.butdelte.UseVisualStyleBackColor = true;
+            this.butdelte.UseVisualStyleBackColor = false;
             this.butdelte.Click += new System.EventHandler(this.butdelte_Click);
             // 
             // butall
             // 
+            this.butall.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butall.Location = new System.Drawing.Point(251, 441);
+            this.butall.Location = new System.Drawing.Point(298, 441);
             this.butall.Name = "butall";
             this.butall.Size = new System.Drawing.Size(128, 33);
             this.butall.TabIndex = 112;
             this.butall.Text = "Xem tất cả";
-            this.butall.UseVisualStyleBackColor = true;
+            this.butall.UseVisualStyleBackColor = false;
             this.butall.Click += new System.EventHandler(this.butall_Click);
             // 
             // label7
@@ -165,7 +159,7 @@
             // 
             // bSearch
             // 
-            this.bSearch.BackColor = System.Drawing.Color.White;
+            this.bSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSearch.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSearch.Location = new System.Drawing.Point(778, 75);
@@ -174,7 +168,6 @@
             this.bSearch.TabIndex = 130;
             this.bSearch.Text = "Tìm kiếm";
             this.bSearch.UseVisualStyleBackColor = false;
-            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // cbbDep
             // 
@@ -282,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(915, 533);
             this.Controls.Add(this.cbbDes);
             this.Controls.Add(this.label2);
@@ -305,7 +298,6 @@
             this.Controls.Add(this.butdelte);
             this.Controls.Add(this.butmuave);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.butsua);
             this.Controls.Add(this.themlt);
             this.Name = "lichtrinh";
             this.Text = "Form1";
@@ -317,7 +309,6 @@
 
         #endregion
         private System.Windows.Forms.Button themlt;
-        private System.Windows.Forms.Button butsua;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button butmuave;
         private System.Windows.Forms.Button butdelte;
