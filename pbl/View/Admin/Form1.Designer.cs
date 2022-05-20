@@ -281,6 +281,7 @@
             this.pnkhachhang.Name = "pnkhachhang";
             this.pnkhachhang.Size = new System.Drawing.Size(256, 83);
             this.pnkhachhang.TabIndex = 3;
+            this.pnkhachhang.Paint += new System.Windows.Forms.PaintEventHandler(this.pnkhachhang_Paint);
             // 
             // lbkhachhang
             // 
@@ -301,6 +302,7 @@
             this.pnqlnv.Name = "pnqlnv";
             this.pnqlnv.Size = new System.Drawing.Size(253, 82);
             this.pnqlnv.TabIndex = 2;
+            this.pnqlnv.Paint += new System.Windows.Forms.PaintEventHandler(this.pnqlnv_Paint);
             // 
             // lbqlnv
             // 

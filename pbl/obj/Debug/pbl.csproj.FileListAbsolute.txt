@@ -139,3 +139,8 @@ C:\PBL3\pbl\obj\Debug\pbl.View.addkhachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.khachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Employee.Employeechinh.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIChangePass.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Mainform.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.Admin.delsche.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.Admin.searchsche.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.Admin.addnv.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.Admin.delnv.resources

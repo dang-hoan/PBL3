@@ -35,22 +35,7 @@ namespace pbl
             a.d = new addschedule.Mydel(showsche);
 
         }
-        //tim kiem
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string DepTime, DesTime;
-            DesTime = thoigianden.Value.ToString("d/M/yyyy");
-            DepTime = thoigiandi.Value.ToString("d/M/yyyy");
-            
-            SCHEDULE_View s = new SCHEDULE_View
-            {
-                ScheduleID = "",
-                Departure = cbbgadi.Text,
-                Destination = cbbgaden.Text,
-                DepartureTime = DepTime,
-                ArrivalTime = DesTime
-            };
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
-        }
+        
+        
     }
 }

@@ -122,6 +122,36 @@
     <Compile Include="TRAIN.cs">
       <DependentUpon>PBL3.tt</DependentUpon>
     </Compile>
+    <Compile Include="View\Admin\addnv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\addnv.Designer.cs">
+      <DependentUpon>addnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\delnv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\delnv.Designer.cs">
+      <DependentUpon>delnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\delsche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\delsche.Designer.cs">
+      <DependentUpon>delsche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\Mainform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\Mainform.Designer.cs">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\searchsche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\searchsche.Designer.cs">
+      <DependentUpon>searchsche.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Employee\addve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +378,21 @@
     <Compile Include="View\GUIRegister.Designer.cs">
       <DependentUpon>GUIRegister.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Admin\addnv.resx">
+      <DependentUpon>addnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\delnv.resx">
+      <DependentUpon>delnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\delsche.resx">
+      <DependentUpon>delsche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\Mainform.resx">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\searchsche.resx">
+      <DependentUpon>searchsche.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\addkhachhang.resx">
       <DependentUpon>addkhachhang.cs</DependentUpon>
     </EmbeddedResource>

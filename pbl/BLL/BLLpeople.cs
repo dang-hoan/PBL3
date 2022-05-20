@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using pbl.DTO;
 
 namespace pbl.BLL
@@ -35,6 +36,7 @@ namespace pbl.BLL
             }
             return false;
         }
+        
         public void Execute(PEOPLE s)
         {
             if (!check(s.Username))
@@ -56,6 +58,14 @@ namespace pbl.BLL
             }
 
         }
+        public void Execute2(LOGIN l)
+        {
+            
+                db.LOGINs.Add(l);
+                db.SaveChanges();
+        }
+        
+
         public List<CBBItem> GetCBBs()
         {
             List<CBBItem> data = new List<CBBItem>();
@@ -77,6 +87,12 @@ namespace pbl.BLL
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
+        public void delnv(string IDCard)
+        {
+            PEOPLE s = db.PEOPLE.Find(IDCard);
+            db.PEOPLE.Remove(s);
+            db.SaveChanges();
+        }
         public List<PEOPLE> searchP(string text)
         {
             var result = from p in db.PEOPLE where  p.Name.Contains(text)  && p.PositionID == "222"  select p;
@@ -84,32 +100,51 @@ namespace pbl.BLL
         }
         public List<PEOPLE> searchem(string text)
         {
-            var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == "333" select p;
-            return result.ToList();
+            if(text == "")
+            {
+                 MessageBox.Show("Vui lòng nhập tên khách hàng cần tìm !", "Thông báo");
+                return null;
+            }
+            else
+            {
+                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == "333" select p;
+                if(result.Count() == 0 )
+                {
+                    MessageBox.Show("Không có khách hàng có tên bạn muốn tìm trong hệ thống !", "Thông báo");
+                    
+                }
+               
+                 return result.ToList();
+              
+               
+            }
+           
         }
         public PEOPLE GetuserByusername(string username )
         {
             return db.PEOPLE.Find(username);
 
         }
-        public List<employeeview> getallnv(string PositionId)
+      
+        public List<PEOPLE_View> getallnv(string PositionId)
         {
-            List<employeeview> list = new List<employeeview>();
+            List<PEOPLE_View> list = new List<PEOPLE_View>();
             var l2 = from PEOPLE p in db.PEOPLE.ToList()
                      join POSITION pos in db.POSITIONs on p.PositionID equals pos.PositionID
                      where p.PositionID == PositionId
-                     select new employeeview
-                     {
+                     select new PEOPLE_View
+                     {   
+                         Username = p.Username,
                          Name = p.Name,
-                         Gender=p.Gender.ToString(),
-                         BirthDay=p.BirthDay.Value,
-                         Address=p.Address,
-                         Email=p.Email,
-                            Phone=p.Phone,
-                            IDCard=p.IDCard,
-                            Position=pos.Position
+                         Gender = ((bool)p.Gender) ?  "Nam" : "Nu",
+                         BirthDay = p.BirthDay.Value,
+                         Address = p.Address,
+                         Email = p.Email,
+                         Phone = p.Phone,
+                         IDCard = p.IDCard,
+                         Position = pos.Position
                      };
-          /*  list = db.PEOPLE.Where(p => p.PositionID == PositionId).Select(p => p).ToList();*/
+            /*  list = db.PEOPLE.Where(p => p.PositionID == PositionId).Select(p => p).ToList();*/
 
             return l2.ToList();
         }

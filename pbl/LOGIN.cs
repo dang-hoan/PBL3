@@ -14,7 +14,7 @@ namespace pbl
     
     public partial class LOGIN
     {
-        public string IDlogin { get; set; }
+        public int IDlogin { get; set; }
         public string Username { get; set; }
         public string PassWord { get; set; }
     

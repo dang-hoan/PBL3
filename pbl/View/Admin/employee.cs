@@ -30,27 +30,9 @@ namespace pbl
             Pos = "222";
             dtgridemploy.DataSource = BLLpeople.instance.getallnv(Pos);
         }
-        //tao form moi tren form cu
-        private void ShowForm(Form subForm)
-        {
-            if (f != null) f.Close();
-            f = subForm;
-            
-            subForm.TopLevel = false;
-            subForm.FormBorderStyle = FormBorderStyle.None;
-            subForm.Dock = DockStyle.Fill;
-            panel1.Controls.Add(subForm);
-            panel1.Tag = subForm;
-            subForm.Show();
-        }
-        private void btAdd_Click(object sender, EventArgs e)
-        {
-            AddForm f = new AddForm("");
-            f.Show();
-            f.d = new AddForm.Mydel(showw);
-           
-
-        }
+        
+        
+       
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -59,7 +41,7 @@ namespace pbl
 
         private void bttimkiem_Click(object sender, EventArgs e)
         {
-            dtgridemploy.DataSource = BLLpeople.instance.searchP(txtsearch.Text);
+           // dtgridemploy.DataSource = BLLpeople.instance.searchP(txtsearch.Text);
         }
 
         private void btsua_Click(object sender, EventArgs e)
@@ -68,9 +50,9 @@ namespace pbl
             {
 
                 string mssv = dtgridemploy.SelectedRows[0].Cells["Username"].Value.ToString();
-                AddForm f = new AddForm(mssv);
+                //AddForm f = new AddForm(mssv);
                 f.Show();
-                f.d = new AddForm.Mydel(showw);
+              // f.d = new AddForm.Mydel(showw);
 
             }
           

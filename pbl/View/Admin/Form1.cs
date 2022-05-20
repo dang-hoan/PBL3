@@ -118,5 +118,15 @@ namespace pbl
         {
             ShowForm(new note());
         }
+
+        private void pnkhachhang_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnqlnv_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
