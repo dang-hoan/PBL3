@@ -30,7 +30,7 @@ namespace pbl.Admin
                 Departure = cbbgadi.Text,
                 Destination = cbbgaden.Text,
                 DepartureTime = datengaydi.Value,
-                ArrivalTime = datengayden.Value,
+                
             };
 
            // BLLTRAIN.Instance.Execute(s);

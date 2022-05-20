@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
 using pbl.View;
+using pbl.View.Admin;
+
+
 
 namespace pbl
 {
@@ -50,7 +53,8 @@ namespace pbl
                     }
                 case "Giám đốc":
                     {
-                        Form1 f = new Form1(this);
+                        //Form1 f = new Form1(this);
+                        Mainform f = new Mainform(this);
                         f.Show();
                         this.Hide();
                         break;

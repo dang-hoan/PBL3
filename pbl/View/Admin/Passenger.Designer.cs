@@ -1,4 +1,4 @@
-﻿namespace pbl
+﻿namespace pbl.View.Admin
 {
     partial class Passenger
     {
@@ -43,6 +43,7 @@
             this.txtsearch.Size = new System.Drawing.Size(212, 34);
             this.txtsearch.TabIndex = 0;
             this.txtsearch.Text = "Nhập tên hoặc sdt khách hàng";
+            this.txtsearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtsearch_MouseClick);
             // 
             // btsearch
             // 

@@ -17,9 +17,9 @@ namespace pbl
         public delegate void Mydel(string usern);
         public Mydel d;
         public string usern{ get; set; }
-        public AddForm(string s)
+        public AddForm()
         {
-            usern = s;
+            
             InitializeComponent();
            
             GUI();

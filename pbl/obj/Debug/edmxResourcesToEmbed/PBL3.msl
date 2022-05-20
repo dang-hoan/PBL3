@@ -1,15 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="PBL3">
-    <EntitySetMapping Name="LOGINs">
-      <EntityTypeMapping TypeName="PBL3Model.LOGIN">
-        <MappingFragment StoreEntitySet="LOGIN">
-          <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PEOPLE">
       <EntityTypeMapping TypeName="PBL3Model.PEOPLE">
         <MappingFragment StoreEntitySet="PEOPLE">
@@ -94,6 +85,15 @@
           <ScalarProperty Name="Question" ColumnName="Question" />
           <ScalarProperty Name="OwnUN" ColumnName="OwnUN" />
           <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOGINs">
+      <EntityTypeMapping TypeName="PBL3Model.LOGIN">
+        <MappingFragment StoreEntitySet="LOGIN">
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
