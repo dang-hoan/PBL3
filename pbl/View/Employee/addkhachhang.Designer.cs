@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.butok = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtidcard = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtdiachi = new System.Windows.Forms.TextBox();
@@ -47,10 +52,12 @@
             this.txtname = new System.Windows.Forms.TextBox();
             this.buthuy = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtuser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +76,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtidcard);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtdiachi);
@@ -93,14 +104,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
             // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(545, 124);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(33, 22);
+            this.textBox1.TabIndex = 26;
+            this.textBox1.Text = "+84";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.ImageKey = "(none)";
+            this.label11.Location = new System.Drawing.Point(539, 157);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 16);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "*bắt buộc*";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.ImageKey = "(none)";
+            this.label12.Location = new System.Drawing.Point(121, 70);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 16);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "*bắt buộc*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.ImageKey = "(none)";
+            this.label9.Location = new System.Drawing.Point(542, 70);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 16);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "label9";
+            // 
             // txtidcard
             // 
             this.txtidcard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtidcard.Location = new System.Drawing.Point(542, 36);
             this.txtidcard.Margin = new System.Windows.Forms.Padding(4);
             this.txtidcard.Name = "txtidcard";
-            this.txtidcard.Size = new System.Drawing.Size(167, 26);
+            this.txtidcard.Size = new System.Drawing.Size(245, 26);
             this.txtidcard.TabIndex = 21;
+            this.txtidcard.TextChanged += new System.EventHandler(this.txtidcard_TextChanged);
+            this.txtidcard.Leave += new System.EventHandler(this.txtidcard_Leave);
             // 
             // label8
             // 
@@ -195,11 +252,12 @@
             // txtsdt
             // 
             this.txtsdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsdt.Location = new System.Drawing.Point(542, 127);
+            this.txtsdt.Location = new System.Drawing.Point(585, 121);
             this.txtsdt.Margin = new System.Windows.Forms.Padding(4);
             this.txtsdt.Name = "txtsdt";
-            this.txtsdt.Size = new System.Drawing.Size(124, 26);
+            this.txtsdt.Size = new System.Drawing.Size(202, 26);
             this.txtsdt.TabIndex = 10;
+            this.txtsdt.TextChanged += new System.EventHandler(this.txtsdt_TextChanged);
             // 
             // txtgamil
             // 
@@ -261,11 +319,11 @@
             this.buthuy.TabIndex = 20;
             this.buthuy.Text = "Hủy";
             this.buthuy.UseVisualStyleBackColor = true;
-            this.buthuy.Click += new System.EventHandler(this.buthuy_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.MintCream;
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtuser);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtpass);
@@ -276,7 +334,18 @@
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin đăng nhập ";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.White;
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.ImageKey = "(none)";
+            this.label13.Location = new System.Drawing.Point(101, 70);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 16);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "*bắt buộc*";
             // 
             // txtuser
             // 
@@ -286,6 +355,7 @@
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(176, 26);
             this.txtuser.TabIndex = 27;
+            this.txtuser.TextChanged += new System.EventHandler(this.txtuser_TextChanged);
             // 
             // label7
             // 
@@ -304,8 +374,11 @@
             this.txtpass.Location = new System.Drawing.Point(104, 124);
             this.txtpass.Margin = new System.Windows.Forms.Padding(4);
             this.txtpass.Name = "txtpass";
+            this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(167, 26);
             this.txtpass.TabIndex = 25;
+            this.txtpass.Text = "******";
+            this.txtpass.Click += new System.EventHandler(this.txtpass_Click);
             // 
             // label10
             // 
@@ -318,6 +391,12 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Password : ";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // addkhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -328,6 +407,7 @@
             this.Controls.Add(this.buthuy);
             this.Controls.Add(this.butok);
             this.Controls.Add(this.groupBox1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "addkhachhang";
             this.Text = "Personal information";
@@ -364,5 +444,11 @@
         private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.TextBox txtuser;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

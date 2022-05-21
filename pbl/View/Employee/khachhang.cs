@@ -25,8 +25,10 @@ namespace pbl.View
         {
             InitializeComponent();
 
-            cbbshow.Items.Add(new CBBItem { Value = "", Text = "All" });
+            //cbbshow.Items.Add(new CBBItem { Value = "", Text = "All" });
+            cbbshow.Text = "All";
             cbbshow.Items.AddRange(BLLpeople.instance.GetCBBs("").ToArray());
+             show("");
         }
         public void show(string username)
         {
@@ -68,8 +70,14 @@ namespace pbl.View
 
         private void butshow_Click(object sender, EventArgs e)
         {
-            string username = ((CBBItem)cbbshow.SelectedItem).Value;
-            show(username);
+            if (cbbshow.Text == "All")
+                show("");
+            else
+            {
+                string username = ((CBBItem)cbbshow.SelectedItem).Value;
+                show(username);
+            }
+            cbbshow.Text = "All";
         }
 
         private void khachhang_TextChanged(object sender, EventArgs e)

@@ -60,19 +60,9 @@ namespace pbl.BLL
         }
         public void Execute2(LOGIN s)
         {
-            if (!check(s.Username))
-            {
                 db.LOGINs.Add(s);
                 db.SaveChanges();
-            }  
-            else
-            {
-                LOGIN dn = new LOGIN();
-                dn = db.LOGINs.Where(p => p.Username != s.Username).Single(); 
-               
-                dn.Username = s.Username;
-                dn.PassWord = s.PassWord;
-            }    
+              
         }
         public List<CBBItem> GetCBBs(string txt)
         {

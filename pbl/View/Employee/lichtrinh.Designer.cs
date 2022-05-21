@@ -33,23 +33,15 @@
             this.butmuave = new System.Windows.Forms.Button();
             this.butdelte = new System.Windows.Forms.Button();
             this.butall = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
-            this.cbbHourDes = new System.Windows.Forms.ComboBox();
             this.bSearch = new System.Windows.Forms.Button();
             this.cbbDep = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbbMinuteDep = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateDep = new System.Windows.Forms.DateTimePicker();
             this.dateDes = new System.Windows.Forms.DateTimePicker();
-            this.cbbHourDep = new System.Windows.Forms.ComboBox();
             this.cbbDes = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +59,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(20, 173);
             this.dataGridView1.Name = "dataGridView1";
@@ -111,16 +104,6 @@
             this.butall.UseVisualStyleBackColor = false;
             this.butall.Click += new System.EventHandler(this.butall_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(662, 49);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(11, 16);
-            this.label7.TabIndex = 123;
-            this.label7.Text = ":";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -139,35 +122,18 @@
             this.label2.TabIndex = 115;
             this.label2.Text = "Ga đến:";
             // 
-            // cbbMinuteDes
-            // 
-            this.cbbMinuteDes.FormattingEnabled = true;
-            this.cbbMinuteDes.Location = new System.Drawing.Point(676, 106);
-            this.cbbMinuteDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbbMinuteDes.Name = "cbbMinuteDes";
-            this.cbbMinuteDes.Size = new System.Drawing.Size(44, 24);
-            this.cbbMinuteDes.TabIndex = 126;
-            // 
-            // cbbHourDes
-            // 
-            this.cbbHourDes.FormattingEnabled = true;
-            this.cbbHourDes.Location = new System.Drawing.Point(616, 106);
-            this.cbbHourDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbbHourDes.Name = "cbbHourDes";
-            this.cbbHourDes.Size = new System.Drawing.Size(44, 24);
-            this.cbbHourDes.TabIndex = 124;
-            // 
             // bSearch
             // 
             this.bSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSearch.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.Location = new System.Drawing.Point(778, 75);
+            this.bSearch.Location = new System.Drawing.Point(778, 81);
             this.bSearch.Name = "bSearch";
             this.bSearch.Size = new System.Drawing.Size(84, 49);
             this.bSearch.TabIndex = 130;
             this.bSearch.Text = "Tìm kiếm";
             this.bSearch.UseVisualStyleBackColor = false;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // cbbDep
             // 
@@ -178,37 +144,10 @@
             this.cbbDep.Size = new System.Drawing.Size(208, 24);
             this.cbbDep.TabIndex = 128;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(547, 108);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 16);
-            this.label9.TabIndex = 125;
-            this.label9.Text = "Giờ đến:";
-            // 
-            // cbbMinuteDep
-            // 
-            this.cbbMinuteDep.FormattingEnabled = true;
-            this.cbbMinuteDep.Location = new System.Drawing.Point(676, 47);
-            this.cbbMinuteDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbbMinuteDep.Name = "cbbMinuteDep";
-            this.cbbMinuteDep.Size = new System.Drawing.Size(44, 24);
-            this.cbbMinuteDep.TabIndex = 122;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(547, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 16);
-            this.label6.TabIndex = 121;
-            this.label6.Text = "Giờ đi:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(272, 83);
+            this.label4.Location = new System.Drawing.Point(442, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 16);
             this.label4.TabIndex = 117;
@@ -218,7 +157,7 @@
             // 
             this.dateDep.CustomFormat = "dd/MM/yyyy";
             this.dateDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDep.Location = new System.Drawing.Point(271, 49);
+            this.dateDep.Location = new System.Drawing.Point(441, 53);
             this.dateDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateDep.Name = "dateDep";
             this.dateDep.Size = new System.Drawing.Size(210, 22);
@@ -228,20 +167,11 @@
             // 
             this.dateDes.CustomFormat = "dd/MM/yyyy";
             this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDes.Location = new System.Drawing.Point(271, 108);
+            this.dateDes.Location = new System.Drawing.Point(441, 112);
             this.dateDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateDes.Name = "dateDes";
             this.dateDes.Size = new System.Drawing.Size(210, 22);
             this.dateDes.TabIndex = 119;
-            // 
-            // cbbHourDep
-            // 
-            this.cbbHourDep.FormattingEnabled = true;
-            this.cbbHourDep.Location = new System.Drawing.Point(616, 47);
-            this.cbbHourDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbbHourDep.Name = "cbbHourDep";
-            this.cbbHourDep.Size = new System.Drawing.Size(44, 24);
-            this.cbbHourDep.TabIndex = 120;
             // 
             // cbbDes
             // 
@@ -255,21 +185,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(270, 26);
+            this.label3.Location = new System.Drawing.Point(440, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 16);
             this.label3.TabIndex = 116;
             this.label3.Text = "Thời gian đi:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(662, 108);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(11, 16);
-            this.label8.TabIndex = 127;
-            this.label8.Text = ":";
             // 
             // lichtrinh
             // 
@@ -281,16 +201,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateDes);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.bSearch);
-            this.Controls.Add(this.cbbHourDes);
-            this.Controls.Add(this.cbbMinuteDes);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.cbbDep);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.cbbMinuteDep);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbbHourDep);
             this.Controls.Add(this.dateDep);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
@@ -300,7 +212,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.themlt);
             this.Name = "lichtrinh";
-            this.Text = "Form1";
+            this.Text = "Lich Trinh";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -313,22 +225,14 @@
         private System.Windows.Forms.Button butmuave;
         private System.Windows.Forms.Button butdelte;
         private System.Windows.Forms.Button butall;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbbMinuteDes;
-        private System.Windows.Forms.ComboBox cbbHourDes;
         private System.Windows.Forms.Button bSearch;
         private System.Windows.Forms.ComboBox cbbDep;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbbMinuteDep;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateDep;
         private System.Windows.Forms.DateTimePicker dateDes;
-        private System.Windows.Forms.ComboBox cbbHourDep;
         private System.Windows.Forms.ComboBox cbbDes;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
     }
 }

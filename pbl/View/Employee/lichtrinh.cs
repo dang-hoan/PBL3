@@ -17,8 +17,32 @@ namespace pbl.View
         public lichtrinh()
         {
             InitializeComponent();
+            gui();
         }
-    
+        public void gui()
+        {
+            List<string> listDep = new List<string>();
+            List<string> listDes = new List<string>();
+            BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
+            foreach (string s in listDep.Distinct())
+            {
+                cbbDep.Items.Add(s);
+            }
+            foreach (string s in listDes.Distinct())
+            {
+                cbbDes.Items.Add(s);
+            }
+            for (int i = 0; i <= 23; i++)
+            {
+                cbbHourDep.Items.Add(i);
+                cbbHourDes.Items.Add(i);
+            }
+            for (int i = 0; i <= 59; i++)
+            {
+                cbbMinuteDep.Items.Add(i);
+                cbbMinuteDes.Items.Add(i);
+            }
+        }
 
         private void butsearch_Click(object sender, EventArgs e)
         {
@@ -98,6 +122,11 @@ namespace pbl.View
             {
                 MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
             }
+        }
+
+        private void bSearch_Click(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -31,86 +31,128 @@ namespace pbl.View
             if (BLLpeople.instance.check(username))
             {
                 PEOPLE p = BLLpeople.instance.GetuserByusername(username);
-                txtuser.Text = p.Username.ToString();
+                txtuser.Text = p.Username;
                 txtuser.Enabled = false;
-                txtname.Text = p.Name.ToString();
-                date.Value = Convert.ToDateTime(BLLpeople.instance.GetuserByusername(username).BirthDay);
-                txtdiachi.Text = p.Address.ToString();
-                txtgamil.Text = p.Email.ToString();
-                txtidcard.Text = p.IDCard.ToString();
+                txtname.Text = p.Name;
+                if (p.Gender == true) rdinam.Checked = true;
+                else rdinu.Checked = true;
+                date.Text = p.BirthDay.ToString();
+                txtsdt.Text = p.Phone.Remove(0, 1);
+                txtdiachi.Text = p.Address;
+                txtgamil.Text = p.Email;
+                txtidcard.Text = p.IDCard;
                
             }
         }
     private void butok_Click(object sender, EventArgs e)
         {
-            if (user == txtuser.Text)
+            if ((txtidcard.Text == "") || (txtname.Text == "") || (txtsdt.Text == "") || (txtuser.Text == ""))
             {
-                PEOPLE s = new PEOPLE
-                {
-
-                    Username = txtuser.Text,
-                    Name = txtname.Text,
-                    Gender = (rdinam.Checked == true) ? true : false,
-                    BirthDay = date.Value,
-                    Phone = txtsdt.Text,
-                    Address = txtdiachi.Text,
-                    Email = txtgamil.Text,
-                    IDCard = txtidcard.Text,
-                    PositionID = "124"
-                };
-
-                LOGIN dn = new LOGIN()
-                {
-                    Username = txtuser.Text,
-                    PassWord = txtpass.Text,
-                };
-                BLLpeople.instance.Execute(s);
-
-                BLLpeople.instance.Execute2(dn);
+                MessageBox.Show("bạn chưa nhập đủ dư liệu bắt buộc ");
             }
-            else
-            if (BLLpeople.instance.check(txtuser.Text))
-            {
-                PEOPLE s = new PEOPLE
-                { 
 
-                    Username = txtuser.Text,
-                    Name = txtname.Text,
-                    Gender = (rdinam.Checked == true) ? true : false,
-                    BirthDay = date.Value,
-                    Phone = txtsdt.Text,
-                    Address = txtdiachi.Text,
-                    Email = txtgamil.Text,
-                    IDCard = txtidcard.Text,
-                    PositionID ="124"
-                };
-               
-                LOGIN dn = new LOGIN()
-                {   
-                            Username=txtuser.Text,
-                            PassWord = txtpass.Text,
-                };
-                BLLpeople.instance.Execute(s);
+            else
+            {
+                if (user == txtuser.Text)
+                {
+                    PEOPLE s = new PEOPLE
+                    {
+
+                        Username = txtuser.Text,
+                        Name = txtname.Text,
+                        Gender = (rdinam.Checked == true) ? true : false,
+                        BirthDay = date.Value,
+                        Phone = "0" + txtsdt.Text,
+                        Address = txtdiachi.Text,
+                        Email = txtgamil.Text,
+                        IDCard = txtidcard.Text,
+                        PositionID = "124"
+                    };
+
+                    LOGIN dn = new LOGIN()
+                    {
+                        Username = txtuser.Text,
+                        PassWord = txtpass.Text,
+                    };
+                    BLLpeople.instance.Execute(s);
 
                     BLLpeople.instance.Execute2(dn);
-            };
-            d("");
-            this.Close();
+                    d("");
+                    this.Close();
+                }
+                else
+                    if (BLLpeople.instance.check(txtuser.Text))
+                    MessageBox.Show("username của không hợp lệ ");
+                else
+                if (!(BLLpeople.instance.check(txtuser.Text)))
+                {
+                    PEOPLE s = new PEOPLE
+                    {
+
+                        Username = txtuser.Text,
+                        Name = txtname.Text,
+                        Gender = (rdinam.Checked == true) ? true : false,
+                        BirthDay = date.Value,
+                        Phone = "0" + txtsdt.Text,
+                        Address = txtdiachi.Text,
+                        Email = txtgamil.Text,
+                        IDCard = txtidcard.Text,
+                        PositionID = "124"
+                    };
+
+                    LOGIN dn = new LOGIN()
+                    {
+                        Username = txtuser.Text,
+                        PassWord = txtpass.Text,
+                    };
+                    BLLpeople.instance.Execute(s);
+
+                    BLLpeople.instance.Execute2(dn);
+                    d("");
+                    this.Close();
+                };
+              
+            }
         }
 
-        private void buthuy_Click(object sender, EventArgs e)
+
+        private void txtidcard_Leave(object sender, EventArgs e)
         {
-            this.Dispose();
+            if (txtidcard.Text.Length!=12)
+            {
+                MessageBox.Show("id card chi duoc dung 12 chu so ");
+             };
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void txtidcard_TextChanged(object sender, EventArgs e)
+        {
+            if (txtidcard.Text.Length != 12)
+            {
+                label9.Text = "nhap chua du 12 chu so ";
+            }
+            else
+            {
+                label9.Text = "nhap da du  12 chu so ";
+            }
+        }
+
+        private void txtsdt_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+
+        private void txtuser_TextChanged(object sender, EventArgs e)
         {
 
+            if (!(BLLpeople.instance.check(txtuser.Text)))
+                label13.Text = ("username hợp lệ ");
+            else
+                label13.Text = ("username không hợp lệ ");
+        }
+        private void txtpass_Click(object sender, EventArgs e)
+        {
+            txtpass.Text = "";
         }
     }
 

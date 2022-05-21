@@ -30,12 +30,8 @@
         {
             this.bTOK = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.daydes = new System.Windows.Forms.DateTimePicker();
-            this.hourdes = new System.Windows.Forms.ComboBox();
-            this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.schedule = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.hourdep = new System.Windows.Forms.ComboBox();
             this.cbbMinuteDep = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,8 +43,12 @@
             this.cbbDes = new System.Windows.Forms.ComboBox();
             this.cbbDep = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.schedule = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
+            this.hourdes = new System.Windows.Forms.ComboBox();
+            this.daydes = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,58 +88,21 @@
             this.panel1.Size = new System.Drawing.Size(556, 371);
             this.panel1.TabIndex = 2;
             // 
-            // label9
+            // schedule
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(37, 209);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 16);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "NGÀY ĐẾN :";
+            this.schedule.Location = new System.Drawing.Point(188, 15);
+            this.schedule.Name = "schedule";
+            this.schedule.Size = new System.Drawing.Size(253, 22);
+            this.schedule.TabIndex = 40;
             // 
-            // daydes
+            // label10
             // 
-            this.daydes.CustomFormat = "dd/MM/yyyy";
-            this.daydes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.daydes.Location = new System.Drawing.Point(188, 203);
-            this.daydes.Name = "daydes";
-            this.daydes.Size = new System.Drawing.Size(253, 22);
-            this.daydes.TabIndex = 35;
-            // 
-            // hourdes
-            // 
-            this.hourdes.FormattingEnabled = true;
-            this.hourdes.Location = new System.Drawing.Point(188, 304);
-            this.hourdes.Name = "hourdes";
-            this.hourdes.Size = new System.Drawing.Size(105, 24);
-            this.hourdes.TabIndex = 34;
-            // 
-            // cbbMinuteDes
-            // 
-            this.cbbMinuteDes.FormattingEnabled = true;
-            this.cbbMinuteDes.Location = new System.Drawing.Point(355, 304);
-            this.cbbMinuteDes.Name = "cbbMinuteDes";
-            this.cbbMinuteDes.Size = new System.Drawing.Size(86, 24);
-            this.cbbMinuteDes.TabIndex = 33;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(317, 307);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(11, 16);
-            this.label7.TabIndex = 32;
-            this.label7.Text = ":";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 313);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 16);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "GIỜ ĐẾN :";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(37, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 16);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "ScheduleID:";
             // 
             // hourdep
             // 
@@ -238,21 +201,58 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label10
+            // label8
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(37, 16);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 16);
-            this.label10.TabIndex = 39;
-            this.label10.Text = "ScheduleID:";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(37, 313);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 16);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "GIỜ ĐẾN :";
             // 
-            // schedule
+            // label7
             // 
-            this.schedule.Location = new System.Drawing.Point(188, 15);
-            this.schedule.Name = "schedule";
-            this.schedule.Size = new System.Drawing.Size(253, 22);
-            this.schedule.TabIndex = 40;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(317, 307);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(11, 16);
+            this.label7.TabIndex = 32;
+            this.label7.Text = ":";
+            // 
+            // cbbMinuteDes
+            // 
+            this.cbbMinuteDes.FormattingEnabled = true;
+            this.cbbMinuteDes.Location = new System.Drawing.Point(355, 304);
+            this.cbbMinuteDes.Name = "cbbMinuteDes";
+            this.cbbMinuteDes.Size = new System.Drawing.Size(86, 24);
+            this.cbbMinuteDes.TabIndex = 33;
+            // 
+            // hourdes
+            // 
+            this.hourdes.FormattingEnabled = true;
+            this.hourdes.Location = new System.Drawing.Point(188, 304);
+            this.hourdes.Name = "hourdes";
+            this.hourdes.Size = new System.Drawing.Size(105, 24);
+            this.hourdes.TabIndex = 34;
+            // 
+            // daydes
+            // 
+            this.daydes.CustomFormat = "dd/MM/yyyy";
+            this.daydes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.daydes.Location = new System.Drawing.Point(188, 203);
+            this.daydes.Name = "daydes";
+            this.daydes.Size = new System.Drawing.Size(253, 22);
+            this.daydes.TabIndex = 35;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(37, 209);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 16);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "NGÀY ĐẾN :";
             // 
             // addlichtrinh
             // 
@@ -285,14 +285,14 @@
         private System.Windows.Forms.DateTimePicker daydep;
         private System.Windows.Forms.ComboBox cbbDes;
         private System.Windows.Forms.ComboBox cbbDep;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox schedule;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker daydes;
         private System.Windows.Forms.ComboBox hourdes;
         private System.Windows.Forms.ComboBox cbbMinuteDes;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox schedule;
     }
 }

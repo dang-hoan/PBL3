@@ -699,7 +699,7 @@ namespace pbl.BLL
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
             var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
+                         where (Dep || sch.Departure.Equals(schedule.Departure)) || (Des || sch.Destination.Equals(schedule.Destination))
                                && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
                                && sch.ArrivalTime.ToString("d/M/yyyy H:m:s").Contains(schedule.ArrivalTime)
                          select new SCHEDULE_View
