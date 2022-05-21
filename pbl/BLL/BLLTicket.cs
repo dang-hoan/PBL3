@@ -37,8 +37,8 @@ namespace pbl.BLL
                          join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
                          join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
                          where (Dep || sch.Departure.Equals(s.Departure)) && (Des || sch.Destination.Equals(s.Destination))
-                               && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(s.DepartureTime)
-                               && sch.ArrivalTime.ToString("d/M/yyyy H:m:s").Contains(s.ArrivalTime)
+                               && sch.DepartureTime.ToString("dd/MM/yyyy H:m:s").Contains(s.DepartureTime)
+                               && sch.ArrivalTime.ToString("dd/MM/yyyy H:m:s").Contains(s.ArrivalTime)
                          select new TICKET_View
                          {
                              ScheduleID = tra.ScheduleID,

@@ -71,9 +71,38 @@ namespace pbl
 
         private void bSearch_Click(object sender, EventArgs e)
         {
+            int comp = string.Compare(dateDep.Value.ToString("yyyy/MM/dd"), dateDes.Value.ToString("yyyy/MM/dd"));
+            if (comp > 0)
+            {
+                MessageBox.Show("Ngày đến phải lớn hơn ngày đi!");
+                return;
+            }
+            else
+            {
+                if (comp == 0)
+                {
+                    if (cbbHourDep.Text != "" && cbbHourDes.Text != "" && cbbMinuteDep.Text != "" && cbbMinuteDes.Text != "")
+                    {
+                        int a = Convert.ToInt32(cbbHourDep.Text);
+                        int b = Convert.ToInt32(cbbHourDes.Text);
+                        int c = Convert.ToInt32(cbbMinuteDep.Text);
+                        int d = Convert.ToInt32(cbbMinuteDes.Text);
+                        if (a > b)
+                        {
+                            MessageBox.Show("Thời gian đến phải lớn hơn thời gian đi!");
+                            return;
+                        }
+                        else if (a == b && c > d)
+                        {
+                            MessageBox.Show("Thời gian đến phải lớn hơn thời gian đi!");
+                            return;
+                        }
+                    }
+                }
+            }
             string DepTime, DesTime;
-            DepTime = dateDep.Value.ToString("d/M/yyyy");
-            DesTime = dateDes.Value.ToString("d/M/yyyy");
+            DepTime = dateDep.Value.ToString("dd/MM/yyyy");
+            DesTime = dateDes.Value.ToString("dd/MM/yyyy");
             if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
             {
                 DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;

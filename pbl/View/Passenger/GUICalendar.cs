@@ -61,7 +61,7 @@ namespace pbl
         {
             for (int i = 1; i <= 12; i++) cbbMonth.Items.Add(i);
             int now = DateTime.Now.Year;
-            for (int i = now - 200; i <= now + 200; i++) cbbYear.Items.Add(i);
+            for (int i = now - 100; i <= now + 100; i++) cbbYear.Items.Add(i);
         }
         private bool[] hasSchedule = new bool[31];
         private void label_Click(object sender, EventArgs e)

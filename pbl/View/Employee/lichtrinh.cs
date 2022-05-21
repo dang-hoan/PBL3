@@ -70,8 +70,8 @@ namespace pbl.View
             des = dateDes.Value;
             int HourDep = (cbbHourDep.Text == "")? 0 : Convert.ToInt32(cbbHourDep.Text);
             int hourdes = (cbbHourDes.Text == "")? 0 : Convert.ToInt32(cbbHourDes.Text);
-            DesTime = dateDes.Value.ToString("d/M/yyyy");
-            DepTime = dateDep.Value.ToString("d/M/yyyy");
+            DesTime = dateDes.Value.ToString("dd/MM/yyyy");
+            DepTime = dateDep.Value.ToString("dd/MM/yyyy");
             if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
             {
                 DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;

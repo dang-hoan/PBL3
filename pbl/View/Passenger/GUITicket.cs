@@ -19,9 +19,10 @@ namespace pbl
             ScheduleID = "",
             Departure = "",
             Destination = "",
-            DepartureTime = DateTime.Now.ToString("d/M/yyyy"),
-            ArrivalTime = DateTime.Now.ToString("d/M/yyyy")
+            DepartureTime = DateTime.Now.ToString("dd/MM/yyyy H:m:s"),
+            ArrivalTime = DateTime.Now.ToString("dd/MM/yyyy H:m:s")
         };
+        private string devDay, devHour, devMinute;
         public GUITicket()
         {
             InitializeComponent();
@@ -67,7 +68,7 @@ namespace pbl
         {
             string TrainName = "";
             if(cbbTrain.Text != "Tìm theo tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(schedule, GUILogin.userName, TrainName);
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(schedule, GUILogin.userName, TrainName, devDay, devHour, devMinute);
         }
         private void Schedule_Click(object sender, EventArgs e)
         {

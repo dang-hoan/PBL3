@@ -64,8 +64,8 @@ namespace pbl.View
                 booked = true;
             }
             
-            DesTime = dateDes.Value.ToString("d/M/yyyy");
-            DepTime = dateDep.Value.ToString("d/M/yyyy");
+            DesTime = dateDes.Value.ToString("dd/MM/yyyy");
+            DepTime = dateDep.Value.ToString("dd/MM/yyyy");
             if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
             {
                 DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;

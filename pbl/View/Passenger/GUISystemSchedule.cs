@@ -18,6 +18,10 @@ namespace pbl
         {
             InitializeComponent();
             Init();
+            dateDep.MinDate = DateTime.Now.AddDays(-1); ;
+            dateDep.MaxDate = DateTime.Now.AddYears(100);
+            dateDes.MinDate = DateTime.Now.AddDays(-1); ;
+            dateDes.MaxDate = DateTime.Now.AddYears(100);
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
         }
         private void Init()
@@ -67,9 +71,38 @@ namespace pbl
         }
         private void bSearch_Click(object sender, EventArgs e)
         {
+            int comp = string.Compare(dateDep.Value.ToString("yyyy/MM/dd"), dateDes.Value.ToString("yyyy/MM/dd"));
+            if (comp > 0)
+            {
+                MessageBox.Show("Ngày đến phải lớn hơn ngày đi!");
+                return;
+            }
+            else
+            {
+                if (comp == 0)
+                {
+                    if (cbbHourDep.Text != "" && cbbHourDes.Text != "" && cbbMinuteDep.Text != "" && cbbMinuteDes.Text != "")
+                    {
+                        int a = Convert.ToInt32(cbbHourDep.Text);
+                        int b = Convert.ToInt32(cbbHourDes.Text);
+                        int c = Convert.ToInt32(cbbMinuteDep.Text);
+                        int d = Convert.ToInt32(cbbMinuteDes.Text);
+                        if (a > b)
+                        {
+                            MessageBox.Show("Thời gian đến phải lớn hơn thời gian đi!");
+                            return;
+                        }
+                        else if(a == b && c > d)
+                        {
+                            MessageBox.Show("Thời gian đến phải lớn hơn thời gian đi!");
+                            return;
+                        }
+                    }
+                }
+            }
             string DepTime, DesTime;
-            DepTime = dateDep.Value.ToString("d/M/yyyy");
-            DesTime = dateDes.Value.ToString("d/M/yyyy");
+            DepTime = dateDep.Value.ToString("dd/MM/yyyy");
+            DesTime = dateDes.Value.ToString("dd/MM/yyyy");
             if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
             {
                 DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
@@ -87,6 +120,7 @@ namespace pbl
                 ArrivalTime = DesTime
             };
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
+            
         }
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
@@ -161,6 +195,17 @@ namespace pbl
         private void pSave_Click(object sender, EventArgs e)
         {
             BLLTRAIN.Instance.Print(dataGridView1, numberChar);
+        }
+        private void Date_Leave(object sender, EventArgs e)
+        {
+            string Time;
+            Time = ((DateTimePicker)sender).Value.ToString("yyyy/MM/dd");
+            if (string.Compare(Time, DateTime.Now.ToString("yyyy/MM/dd")) < 0)
+            {
+                MessageBox.Show("Lịch trình phải có ngày bắt đầu từ ngày hiện tại!");
+                ((DateTimePicker)sender).Value = DateTime.Now;
+                return;
+            }
         }
     }
 }

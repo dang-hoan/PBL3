@@ -102,12 +102,12 @@
             // 
             this.dateDes.CustomFormat = "dd/MM/yyyy";
             this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-
             this.dateDes.Location = new System.Drawing.Point(22, 391);
             this.dateDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateDes.Name = "dateDes";
             this.dateDes.Size = new System.Drawing.Size(236, 26);
             this.dateDes.TabIndex = 91;
+            this.dateDes.Leave += new System.EventHandler(this.Date_Leave);
             // 
             // label8
             // 
@@ -156,6 +156,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(312, 71);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -290,6 +292,7 @@
             this.dateDep.Name = "dateDep";
             this.dateDep.Size = new System.Drawing.Size(236, 26);
             this.dateDep.TabIndex = 90;
+            this.dateDep.Leave += new System.EventHandler(this.Date_Leave);
             // 
             // label1
             // 
