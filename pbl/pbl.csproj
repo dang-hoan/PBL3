@@ -250,12 +250,6 @@
       <DependentUpon>khachhang.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Passenger\Class1.cs" />
-    <Compile Include="View\Passenger\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Passenger\GUISystemSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,12 +315,6 @@
     </Compile>
     <Compile Include="View\Passenger\GUISetting.Designer.cs">
       <DependentUpon>GUISetting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Passenger\ticket_copy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\ticket_copy.Designer.cs">
-      <DependentUpon>ticket_copy.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Passenger\GUITicket.cs">
       <SubType>Form</SubType>
@@ -449,9 +437,6 @@
     <EmbeddedResource Include="View\Employee\khachhang.resx">
       <DependentUpon>khachhang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUISystemSchedule.resx">
       <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </EmbeddedResource>
@@ -484,9 +469,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUISetting.resx">
       <DependentUpon>GUISetting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\ticket_copy.resx">
-      <DependentUpon>ticket_copy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUITicket.resx">
       <DependentUpon>GUITicket.cs</DependentUpon>

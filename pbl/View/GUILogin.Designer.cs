@@ -73,7 +73,7 @@
             this.cbViewPass.Location = new System.Drawing.Point(256, 415);
             this.cbViewPass.Name = "cbViewPass";
             this.cbViewPass.Size = new System.Drawing.Size(159, 24);
-            this.cbViewPass.TabIndex = 1;
+            this.cbViewPass.TabIndex = 3;
             this.cbViewPass.Text = "Hiển thị mật khẩu";
             this.cbViewPass.UseVisualStyleBackColor = false;
             this.cbViewPass.CheckedChanged += new System.EventHandler(this.cbViewPass_CheckedChanged);
@@ -97,7 +97,7 @@
             this.linkRegister.Location = new System.Drawing.Point(272, 588);
             this.linkRegister.Name = "linkRegister";
             this.linkRegister.Size = new System.Drawing.Size(174, 20);
-            this.linkRegister.TabIndex = 8;
+            this.linkRegister.TabIndex = 6;
             this.linkRegister.TabStop = true;
             this.linkRegister.Text = "Đăng ký tài khoản mới?";
             this.linkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegister_LinkClicked);
@@ -112,7 +112,7 @@
             this.linkForget.Location = new System.Drawing.Point(319, 551);
             this.linkForget.Name = "linkForget";
             this.linkForget.Size = new System.Drawing.Size(127, 20);
-            this.linkForget.TabIndex = 7;
+            this.linkForget.TabIndex = 5;
             this.linkForget.TabStop = true;
             this.linkForget.Text = "Quên mật khẩu?";
             this.linkForget.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForget_LinkClicked);
@@ -124,7 +124,7 @@
             this.btdangnhap.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btdangnhap.Name = "btdangnhap";
             this.btdangnhap.Size = new System.Drawing.Size(146, 42);
-            this.btdangnhap.TabIndex = 6;
+            this.btdangnhap.TabIndex = 4;
             this.btdangnhap.Text = "Đăng nhập";
             this.btdangnhap.UseVisualStyleBackColor = true;
             this.btdangnhap.Click += new System.EventHandler(this.btdangnhap_Click_1);
@@ -160,7 +160,7 @@
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(294, 26);
-            this.txtpass.TabIndex = 3;
+            this.txtpass.TabIndex = 2;
             // 
             // txtusername
             // 
@@ -168,7 +168,7 @@
             this.txtusername.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(294, 26);
-            this.txtusername.TabIndex = 2;
+            this.txtusername.TabIndex = 1;
             // 
             // pictureBox2
             // 

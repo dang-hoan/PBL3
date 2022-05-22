@@ -112,7 +112,6 @@ C:\PBL3\pbl\obj\Debug\pbl.View.qlve.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIChangePass.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUILogin.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.khachhang.resources
-C:\PBL3\pbl\obj\Debug\pbl.View.Form1.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUISystemSchedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.Form3.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUICalendar.resources
@@ -124,7 +123,6 @@ C:\PBL3\pbl\obj\Debug\pbl.GUIHelp.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIPrivateSchedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUINotification.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUISetting.resources
-C:\PBL3\pbl\obj\Debug\pbl.View.ticket_copy.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUITicket.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIDetailSchedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIBook.resources

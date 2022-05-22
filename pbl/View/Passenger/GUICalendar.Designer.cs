@@ -67,6 +67,7 @@
             this.cbbYear.Name = "cbbYear";
             this.cbbYear.Size = new System.Drawing.Size(121, 28);
             this.cbbYear.TabIndex = 18;
+            this.cbbYear.Leave += new System.EventHandler(this.cbbYear_Leave);
             // 
             // cbbMonth
             // 
@@ -76,6 +77,7 @@
             this.cbbMonth.Name = "cbbMonth";
             this.cbbMonth.Size = new System.Drawing.Size(121, 28);
             this.cbbMonth.TabIndex = 17;
+            this.cbbMonth.Leave += new System.EventHandler(this.cbbMonth_Leave);
             // 
             // panel_Detail
             // 

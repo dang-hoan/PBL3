@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
@@ -29,6 +30,7 @@ namespace pbl
         {
             InitializeComponent();
             Init();
+            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("nl");
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName);
         }
         private void Init()

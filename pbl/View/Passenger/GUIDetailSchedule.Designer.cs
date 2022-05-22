@@ -33,23 +33,21 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bShowAll = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbbHourDes = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbbMinuteDep = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbbHourDep = new System.Windows.Forms.ComboBox();
-            this.dateDes = new System.Windows.Forms.DateTimePicker();
-            this.dateDep = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cbbDep = new System.Windows.Forms.ComboBox();
             this.cbbDes = new System.Windows.Forms.ComboBox();
             this.bSearch = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateFromDep = new System.Windows.Forms.DateTimePicker();
+            this.dateFromDes = new System.Windows.Forms.DateTimePicker();
+            this.dateToDep = new System.Windows.Forms.DateTimePicker();
+            this.dateToDes = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             this.SuspendLayout();
@@ -108,120 +106,10 @@
             this.pSave.TabStop = false;
             this.pSave.Click += new System.EventHandler(this.pSave_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(657, 191);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(15, 19);
-            this.label8.TabIndex = 76;
-            this.label8.Text = ":";
-            // 
-            // cbbMinuteDes
-            // 
-            this.cbbMinuteDes.FormattingEnabled = true;
-            this.cbbMinuteDes.Location = new System.Drawing.Point(672, 188);
-            this.cbbMinuteDes.Name = "cbbMinuteDes";
-            this.cbbMinuteDes.Size = new System.Drawing.Size(49, 28);
-            this.cbbMinuteDes.TabIndex = 75;
-            this.cbbMinuteDes.Leave += new System.EventHandler(this.cbbMinute_Leave);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(496, 194);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 20);
-            this.label9.TabIndex = 74;
-            this.label9.Text = "Giờ đến";
-            // 
-            // cbbHourDes
-            // 
-            this.cbbHourDes.FormattingEnabled = true;
-            this.cbbHourDes.Location = new System.Drawing.Point(605, 188);
-            this.cbbHourDes.Name = "cbbHourDes";
-            this.cbbHourDes.Size = new System.Drawing.Size(49, 28);
-            this.cbbHourDes.TabIndex = 73;
-            this.cbbHourDes.Leave += new System.EventHandler(this.cbbHour_Leave);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(229, 191);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 19);
-            this.label7.TabIndex = 72;
-            this.label7.Text = ":";
-            // 
-            // cbbMinuteDep
-            // 
-            this.cbbMinuteDep.FormattingEnabled = true;
-            this.cbbMinuteDep.Location = new System.Drawing.Point(244, 188);
-            this.cbbMinuteDep.Name = "cbbMinuteDep";
-            this.cbbMinuteDep.Size = new System.Drawing.Size(49, 28);
-            this.cbbMinuteDep.TabIndex = 71;
-            this.cbbMinuteDep.Leave += new System.EventHandler(this.cbbMinute_Leave);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(82, 191);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 20);
-            this.label6.TabIndex = 70;
-            this.label6.Text = "Giờ đi";
-            // 
-            // cbbHourDep
-            // 
-            this.cbbHourDep.FormattingEnabled = true;
-            this.cbbHourDep.Location = new System.Drawing.Point(177, 188);
-            this.cbbHourDep.Name = "cbbHourDep";
-            this.cbbHourDep.Size = new System.Drawing.Size(49, 28);
-            this.cbbHourDep.TabIndex = 69;
-            this.cbbHourDep.Leave += new System.EventHandler(this.cbbHour_Leave);
-            // 
-            // dateDes
-            // 
-            this.dateDes.CustomFormat = "dd/MM/yyyy";
-            this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDes.Location = new System.Drawing.Point(604, 137);
-            this.dateDes.Name = "dateDes";
-            this.dateDes.Size = new System.Drawing.Size(234, 26);
-            this.dateDes.TabIndex = 67;
-            // 
-            // dateDep
-            // 
-            this.dateDep.CustomFormat = "dd/MM/yyyy";
-            this.dateDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDep.Location = new System.Drawing.Point(177, 136);
-            this.dateDep.Name = "dateDep";
-            this.dateDep.Size = new System.Drawing.Size(234, 26);
-            this.dateDep.TabIndex = 66;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(494, 141);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 20);
-            this.label4.TabIndex = 61;
-            this.label4.Text = "Thời gian đến";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(82, 142);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
-            this.label3.TabIndex = 60;
-            this.label3.Text = "Thời gian đi";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(494, 84);
+            this.label2.Location = new System.Drawing.Point(456, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 20);
             this.label2.TabIndex = 59;
@@ -249,7 +137,7 @@
             // cbbDes
             // 
             this.cbbDes.FormattingEnabled = true;
-            this.cbbDes.Location = new System.Drawing.Point(604, 81);
+            this.cbbDes.Location = new System.Drawing.Point(566, 81);
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(234, 28);
             this.cbbDes.TabIndex = 78;
@@ -261,7 +149,7 @@
             this.bSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSearch.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.Location = new System.Drawing.Point(754, 184);
+            this.bSearch.Location = new System.Drawing.Point(751, 170);
             this.bSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bSearch.Name = "bSearch";
             this.bSearch.Size = new System.Drawing.Size(84, 40);
@@ -270,26 +158,114 @@
             this.bSearch.UseVisualStyleBackColor = false;
             this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(457, 180);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 20);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "Đến:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(175, 180);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 20);
+            this.label8.TabIndex = 86;
+            this.label8.Text = "Từ:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(457, 131);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 20);
+            this.label6.TabIndex = 85;
+            this.label6.Text = "Đến:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(175, 131);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 20);
+            this.label5.TabIndex = 84;
+            this.label5.Text = "Từ:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(83, 180);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 20);
+            this.label4.TabIndex = 83;
+            this.label4.Text = "Ngày đến:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(83, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.TabIndex = 82;
+            this.label3.Text = "Ngày đi:";
+            // 
+            // dateFromDep
+            // 
+            this.dateFromDep.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateFromDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFromDep.Location = new System.Drawing.Point(212, 131);
+            this.dateFromDep.Name = "dateFromDep";
+            this.dateFromDep.Size = new System.Drawing.Size(207, 26);
+            this.dateFromDep.TabIndex = 88;
+            // 
+            // dateFromDes
+            // 
+            this.dateFromDes.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateFromDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFromDes.Location = new System.Drawing.Point(212, 175);
+            this.dateFromDes.Name = "dateFromDes";
+            this.dateFromDes.Size = new System.Drawing.Size(207, 26);
+            this.dateFromDes.TabIndex = 89;
+            // 
+            // dateToDep
+            // 
+            this.dateToDep.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateToDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateToDep.Location = new System.Drawing.Point(506, 131);
+            this.dateToDep.Name = "dateToDep";
+            this.dateToDep.Size = new System.Drawing.Size(207, 26);
+            this.dateToDep.TabIndex = 90;
+            // 
+            // dateToDes
+            // 
+            this.dateToDes.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateToDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateToDes.Location = new System.Drawing.Point(506, 174);
+            this.dateToDes.Name = "dateToDes";
+            this.dateToDes.Size = new System.Drawing.Size(207, 26);
+            this.dateToDes.TabIndex = 91;
+            // 
             // GUIDetailSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 645);
+            this.Controls.Add(this.dateToDes);
+            this.Controls.Add(this.dateToDep);
+            this.Controls.Add(this.dateFromDes);
+            this.Controls.Add(this.dateFromDep);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.bSearch);
             this.Controls.Add(this.cbbDes);
             this.Controls.Add(this.cbbDep);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.cbbMinuteDes);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.cbbHourDes);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.cbbMinuteDep);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbbHourDep);
-            this.Controls.Add(this.dateDes);
-            this.Controls.Add(this.dateDep);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pSave);
@@ -310,22 +286,20 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button bShowAll;
         private System.Windows.Forms.PictureBox pSave;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cbbMinuteDes;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbbHourDes;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbbMinuteDep;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbbHourDep;
-        private System.Windows.Forms.DateTimePicker dateDes;
-        private System.Windows.Forms.DateTimePicker dateDep;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbbDep;
         private System.Windows.Forms.ComboBox cbbDes;
         private System.Windows.Forms.Button bSearch;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateFromDep;
+        private System.Windows.Forms.DateTimePicker dateFromDes;
+        private System.Windows.Forms.DateTimePicker dateToDep;
+        private System.Windows.Forms.DateTimePicker dateToDes;
     }
 }

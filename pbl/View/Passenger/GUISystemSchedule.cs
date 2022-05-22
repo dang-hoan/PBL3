@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
@@ -18,10 +19,15 @@ namespace pbl
         {
             InitializeComponent();
             Init();
-            dateDep.MinDate = DateTime.Now.AddDays(-1); ;
-            dateDep.MaxDate = DateTime.Now.AddYears(100);
-            dateDes.MinDate = DateTime.Now.AddDays(-1); ;
-            dateDes.MaxDate = DateTime.Now.AddYears(100);
+            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("nl");
+            dateFromDep.MinDate = DateTime.Now;
+            dateFromDep.MaxDate = DateTime.Now.AddYears(100);
+            dateToDep.MinDate = DateTime.Now;
+            dateToDep.MaxDate = DateTime.Now.AddYears(100);
+            dateFromDes.MinDate = DateTime.Now;
+            dateFromDes.MaxDate = DateTime.Now.AddYears(100);
+            dateToDes.MinDate = DateTime.Now;
+            dateToDes.MaxDate = DateTime.Now.AddYears(100);
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
         }
         private void Init()
@@ -36,16 +42,6 @@ namespace pbl
             foreach (string s in listDes.Distinct())
             {
                 cbbDes.Items.Add(s);
-            }
-            for (int i = 0; i <= 23; i++)
-            {
-                cbbHourDep.Items.Add(i);
-                cbbHourDes.Items.Add(i);
-            }
-            for (int i = 0; i <= 59; i++)
-            {
-                cbbMinuteDep.Items.Add(i);
-                cbbMinuteDes.Items.Add(i);
             }
         }
         private void bBook_Click(object sender, EventArgs e)
@@ -71,53 +67,34 @@ namespace pbl
         }
         private void bSearch_Click(object sender, EventArgs e)
         {
-            int comp = string.Compare(dateDep.Value.ToString("yyyy/MM/dd"), dateDes.Value.ToString("yyyy/MM/dd"));
-            if (comp > 0)
+            int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
+            int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
+            if (comp > 0 || comp2 > 0)
             {
-                MessageBox.Show("Ngày đến phải lớn hơn ngày đi!");
+                if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian đến phải lớn hơn mốc thời gian từ (trong cả ngày đi và ngày đến)!");
+                else if (comp > 0) MessageBox.Show("Mốc thời gian đến phải lớn hơn mốc thời gian từ (trong ngày đi)!");
+                else MessageBox.Show("Mốc thời gian đến phải lớn hơn mốc thời gian từ (trong ngày đến)!");
                 return;
             }
-            else
+            string date1 = dateFromDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date2 = dateToDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date3 = dateFromDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string date4 = dateToDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(date1, now) < 0 || string.Compare(date2, now) < 0 || string.Compare(date3, now) < 0 || string.Compare(date4, now) < 0)
             {
-                if (comp == 0)
-                {
-                    if (cbbHourDep.Text != "" && cbbHourDes.Text != "" && cbbMinuteDep.Text != "" && cbbMinuteDes.Text != "")
-                    {
-                        int a = Convert.ToInt32(cbbHourDep.Text);
-                        int b = Convert.ToInt32(cbbHourDes.Text);
-                        int c = Convert.ToInt32(cbbMinuteDep.Text);
-                        int d = Convert.ToInt32(cbbMinuteDes.Text);
-                        if (a > b)
-                        {
-                            MessageBox.Show("Thời gian đến phải lớn hơn thời gian đi!");
-                            return;
-                        }
-                        else if(a == b && c > d)
-                        {
-                            MessageBox.Show("Thời gian đến phải lớn hơn thời gian đi!");
-                            return;
-                        }
-                    }
-                }
+                MessageBox.Show("Lịch trình phải có thời gian bắt đầu từ thời điểm hiện tại!");
+                return;
             }
-            string DepTime, DesTime;
-            DepTime = dateDep.Value.ToString("dd/MM/yyyy");
-            DesTime = dateDes.Value.ToString("dd/MM/yyyy");
-            if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-            {
-                DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            }
-            if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
-            {
-                DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
-            }
-            SCHEDULE_View s = new SCHEDULE_View
+            SCHEDULE_BLL s = new SCHEDULE_BLL
             {
                 ScheduleID = "",
                 Departure = cbbDep.Text,
                 Destination = cbbDes.Text,
-                DepartureTime = DepTime,
-                ArrivalTime = DesTime
+                FromDepartureTime = dateFromDep.Value,
+                ToDepartureTime = dateToDep.Value,
+                FromArrivalTime = dateFromDes.Value,
+                ToArrivalTime = dateToDes.Value
             };
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
             
@@ -136,43 +113,6 @@ namespace pbl
             foreach (string s in BLLTRAIN.Instance.GetDeparture(cbbDes.Text).Distinct())
             {
                 cbbDep.Items.Add(s);
-            }
-        }
-        private void cbbHour_Leave(object sender, EventArgs e)
-        {
-            if (((ComboBox)sender).Text != "")
-            {
-                int temp;
-                bool check = int.TryParse(((ComboBox)sender).Text, out temp);
-
-                if (!check)
-                {
-                    ((ComboBox)sender).Text = "";
-                    MessageBox.Show("Giờ bạn nhập không phải là số!");
-                }
-                else if (temp < 0 || temp > 23)
-                {
-                    ((ComboBox)sender).Text = "";
-                    MessageBox.Show("Giờ bạn nhập nằm ngoài phạm vi hợp lệ (0 - 23)!");
-                }
-            }
-        }
-        private void cbbMinute_Leave(object sender, EventArgs e)
-        {
-            if (((ComboBox)sender).Text != "")
-            {
-                int temp;
-                bool check = int.TryParse(((ComboBox)sender).Text, out temp);
-                if (!check)
-                {
-                    ((ComboBox)sender).Text = "";
-                    MessageBox.Show("Phút bạn nhập không phải là số!");
-                }
-                else if (temp < 0 || temp > 59)
-                {
-                    ((ComboBox)sender).Text = "";
-                    MessageBox.Show("Phút bạn nhập nằm ngoài phạm vi hợp lệ (0 - 59)!");
-                }
             }
         }
         private void cbbStation_Leave(object sender, EventArgs e)
@@ -195,17 +135,6 @@ namespace pbl
         private void pSave_Click(object sender, EventArgs e)
         {
             BLLTRAIN.Instance.Print(dataGridView1, numberChar);
-        }
-        private void Date_Leave(object sender, EventArgs e)
-        {
-            string Time;
-            Time = ((DateTimePicker)sender).Value.ToString("yyyy/MM/dd");
-            if (string.Compare(Time, DateTime.Now.ToString("yyyy/MM/dd")) < 0)
-            {
-                MessageBox.Show("Lịch trình phải có ngày bắt đầu từ ngày hiện tại!");
-                ((DateTimePicker)sender).Value = DateTime.Now;
-                return;
-            }
         }
     }
 }
