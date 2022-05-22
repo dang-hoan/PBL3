@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUILogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbViewPass = new System.Windows.Forms.CheckBox();
             this.labelNotify = new System.Windows.Forms.Label();
             this.linkRegister = new System.Windows.Forms.LinkLabel();
             this.linkForget = new System.Windows.Forms.LinkLabel();
@@ -48,6 +49,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.cbViewPass);
             this.panel1.Controls.Add(this.labelNotify);
             this.panel1.Controls.Add(this.linkRegister);
             this.panel1.Controls.Add(this.linkForget);
@@ -62,6 +64,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(483, 637);
             this.panel1.TabIndex = 0;
+            // 
+            // cbViewPass
+            // 
+            this.cbViewPass.AutoSize = true;
+            this.cbViewPass.BackColor = System.Drawing.Color.Transparent;
+            this.cbViewPass.ForeColor = System.Drawing.Color.White;
+            this.cbViewPass.Location = new System.Drawing.Point(256, 415);
+            this.cbViewPass.Name = "cbViewPass";
+            this.cbViewPass.Size = new System.Drawing.Size(159, 24);
+            this.cbViewPass.TabIndex = 1;
+            this.cbViewPass.Text = "Hiển thị mật khẩu";
+            this.cbViewPass.UseVisualStyleBackColor = false;
+            this.cbViewPass.CheckedChanged += new System.EventHandler(this.cbViewPass_CheckedChanged);
             // 
             // labelNotify
             // 
@@ -118,7 +133,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(33, 386);
+            this.pictureBox4.Location = new System.Drawing.Point(33, 368);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(48, 51);
@@ -140,7 +155,7 @@
             // 
             // txtpass
             // 
-            this.txtpass.Location = new System.Drawing.Point(115, 399);
+            this.txtpass.Location = new System.Drawing.Point(115, 381);
             this.txtpass.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
@@ -201,5 +216,6 @@
         private System.Windows.Forms.LinkLabel linkRegister;
         private System.Windows.Forms.LinkLabel linkForget;
         private System.Windows.Forms.Label labelNotify;
+        private System.Windows.Forms.CheckBox cbViewPass;
     }
 }

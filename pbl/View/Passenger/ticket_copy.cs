@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using pbl.BLL;
 using pbl.DTO;
 
-namespace pbl
+namespace pbl.View
 {
-    public partial class GUITicket : Form
+    public partial class ticket_copy : Form
     {
         private bool NoScheduleClick = true;
         private SCHEDULE_BLL schedule = new SCHEDULE_BLL
@@ -25,7 +25,7 @@ namespace pbl
             FromArrivalTime = DateTime.Now,
             ToArrivalTime = DateTime.Now,
         };
-        public GUITicket()
+        public ticket_copy()
         {
             InitializeComponent();
             Init();
@@ -71,16 +71,16 @@ namespace pbl
         private void Reload()
         {
             string TrainName = "";
-            if (cbbTrain.Text != "Tìm theo tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
-            if (NoScheduleClick)
+            if(cbbTrain.Text != "Tìm theo tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
+            if(NoScheduleClick)
                 dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName, TrainName);
             else
                 dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(schedule, GUILogin.userName, TrainName);
         }
         private void Schedule_Click(object sender, EventArgs e)
         {
-            GUIOption option = new GUIOption(schedule);
-            option.d += new GUIOption.MyDel(Get);
+            Form1 option = new Form1(schedule);
+            option.d += new Form1.MyDel(Get);
             option.Show();
             NoScheduleClick = false;
         }

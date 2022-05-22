@@ -100,5 +100,11 @@ namespace pbl
                 btdangnhap_Click_1(sender, e);
             }
         }
+
+        private void cbViewPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbViewPass.Checked) txtpass.PasswordChar = '\0';
+            else txtpass.PasswordChar = '*';
+        }
     }
 }

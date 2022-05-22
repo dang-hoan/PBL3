@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
 
-namespace pbl
+namespace pbl.View
 {
     public partial class GUI : Form
     {
