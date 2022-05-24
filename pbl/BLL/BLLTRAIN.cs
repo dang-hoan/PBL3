@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
 using pbl.DTO;
+using COMExcel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
+using System.Drawing;
 
 //3 loop able: list<SCHEDULE>, list<PEOPLE>, list<POSITION>
 namespace pbl.BLL
@@ -31,6 +34,7 @@ namespace pbl.BLL
         {
 
         }
+        private char[] carriage = new char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
         //Đọc ghi file
         private string Edit(string s, int total)
         {
@@ -41,41 +45,189 @@ namespace pbl.BLL
             if ((total - s.Length) % 2 == 1) result += ' ';
             return result;
         }
+        public void AddListTicket(string TrainID, int NumberOfCarriages, string TicketPrice)
+        {
+            PBL3 db = new PBL3();
+            List<char> seatnumber = new List<char>(NumberOfCarriages);
+            float max = (float)(1 + (NumberOfCarriages-1)*0.1);
+            for(int i = 0; i < NumberOfCarriages; i++)
+            {
+                seatnumber.Add(carriage[i]);
+            }
+            for (int i = 0; i < NumberOfCarriages; i++)
+            {
+                for (int j = 1; j <= 25; j++)
+                {
+                    db.TICKETs.Add(new TICKET
+                    {
+                        TrainID = TrainID,
+                        SeatNo = carriage[i] + j.ToString(),
+                        TicketPrice = (decimal)(Convert.ToInt32(TicketPrice) * (max - 0.1 * (i - 1))),
+                        Booked = false,
+                        CustomerUN = ""
+                    });
+                }
+            }
+        }
         public void Print(DataGridView dataGridView1, int[] numberChar)
         {
             string path = null;
             OpenFileDialog o = new OpenFileDialog();
             o.InitialDirectory = "c:\\";
             //o.Multiselect = true;
-            //o.Filter = " Doc|*.docx | Text(*.txt)|*.txt | All files (*.*)|*.*";
-            o.Filter = " Text(*.txt)|*.txt";
+            o.Filter = "Doc files|*.docx|Text files(*.txt)|*.txt|Excel files|*.xls|Excel files|*.xlsx|All files(*.*)|*.*";
             o.FilterIndex = 3;
 
-            DialogResult r = o.ShowDialog();
-            if (r == DialogResult.Cancel) return;
+            DialogResult dialog = o.ShowDialog();
+            if (dialog == DialogResult.Cancel) return;
             path = o.FileName;
-            int sum = 0;
-            foreach (int i in numberChar) sum += i;
-
-            using (StreamWriter sw = new StreamWriter(path))
+            switch (Path.GetExtension(o.FileName))
             {
-                for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
-                sw.WriteLine();
-                for (int i = 0; i < dataGridView1.Columns.Count; i++) sw.Write("|" + Edit(dataGridView1.Columns[i].Name, numberChar[i]));
-                sw.Write("|\n");
-                foreach (DataGridViewRow dr in dataGridView1.Rows)
-                {
-                    for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
-                    sw.WriteLine();
-                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                case ".docx":
                     {
-                        sw.Write("|" + Edit(dr.Cells[i].Value.ToString(), numberChar[i]));
+                        break;
                     }
-                    sw.Write("|\n");
-                }
-                for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
-                MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
+                case ".txt":
+                    {
+                        int sum = 0;
+                        foreach (int i in numberChar) sum += i;
+
+                        using (StreamWriter sw = new StreamWriter(path))
+                        {
+                            for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
+                            sw.WriteLine();
+                            for (int i = 0; i < dataGridView1.Columns.Count; i++) sw.Write("|" + Edit(dataGridView1.Columns[i].Name, numberChar[i]));
+                            sw.Write("|\n");
+                            foreach (DataGridViewRow dr in dataGridView1.Rows)
+                            {
+                                for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
+                                sw.WriteLine();
+                                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                                {
+                                    sw.Write("|" + Edit(dr.Cells[i].Value.ToString(), numberChar[i]));
+                                }
+                                sw.Write("|\n");
+                            }
+                            for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
+                            MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
+                        }
+                        break;
+                    }
+                case ".xls":
+                case ".xlsx":
+                    {
+                        // Khởi động chtr Excell
+                        COMExcel.Application exApp = new COMExcel.Application();
+
+                        //// Thêm file temp xls
+                        //Workbook exBook = exApp.Workbooks.Add(
+                        //          COMExcel.XlWBATemplate.xlWBATWorksheet);
+
+                        // Mở 1 file temp xlsx
+                        object misValue = System.Reflection.Missing.Value;
+                        Workbook exBook = exApp.Workbooks.Add(misValue);
+                        // Lấy sheet 1.
+                        Worksheet exSheet = (Worksheet)exBook.Worksheets[1];
+                        exSheet.Activate();
+                        exSheet.Name = "Export Data Sheet";
+
+                        //Ghi dữ liệu
+                        //Ghi tiêu đề
+                        Range r_Header = exSheet.get_Range("A1", carriage[dataGridView1.Columns.Count].ToString() + "1");
+                        r_Header.Merge();
+                        r_Header.Font.Size = 18;
+                        r_Header.Font.Name = "Times New Roman";
+                        r_Header.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        r_Header.Value2 = "Dữ liệu DataGridView";
+                        //Tô màu cho tiêu đề
+                        r_Header.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
+                        r_Header.Font.Bold = true;
+                        r_Header.Font.Color = ColorTranslator.ToOle(System.Drawing.Color.Black);
+
+                        //Tạo các tên cột
+                        //Tạo Ô Số Thứ Tự (STT)
+                        Range r_STT = exSheet.Cells[2, 1];//Cột A dòng 2
+                        r_STT.Font.Size = 14;
+                        r_STT.Font.Bold = true;
+                        r_STT.Font.Name = "Times New Roman";
+                        r_STT.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        r_STT.Value2 = "STT";
+                        //Tạo các tên cột còn lại theo bảng DataGridView
+                        List<dynamic> arrColumn = new List<dynamic>();
+                        foreach (DataGridViewColumn dc in dataGridView1.Columns)
+                        {
+                            arrColumn.Add(dc.Name.ToString());
+                        }
+                        Range column = exSheet.get_Range("B2", carriage[dataGridView1.Columns.Count].ToString() + "2");
+                        column.Font.Size = 14;
+                        column.Font.Bold = true;
+                        column.Font.Name = "Times New Roman";
+                        column.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        column.Value2 = arrColumn.ToArray();
+                        column.ColumnWidth = 25;
+
+                        //Ghi dữ liệu
+                        int stt = 0;
+                        int row = 2;
+                        foreach (DataGridViewRow dr in dataGridView1.Rows)
+                        {
+                            stt++;
+                            row++;
+                            List<dynamic> arr = new List<dynamic>();
+                            arr.Add(stt);
+                            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                            {
+                                arr.Add(dr.Cells[i].Value.ToString());
+                            }
+                            Range rowData = exSheet.get_Range("A" + row, carriage[dataGridView1.Columns.Count].ToString() + row);//Lấy dòng thứ row ra để đổ dữ liệu
+                            rowData.Font.Size = 12;
+                            rowData.Font.Name = "Times New Roman";
+                            rowData.Value2 = arr.ToArray();
+                            rowData.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        }
+                        MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
+
+                        //// Hiển thị chương trình excel
+                        //exApp.Visible = true;
+
+                        ////Ghi ra 1 khối
+                        //COMExcel.Range r = (COMExcel.Range)exSheet.get_Range("A1", "A4");
+                        //r.Value2 = "my value";
+                        //r.Columns.AutoFit();
+
+                        // Ẩn chương trình
+                        //exApp.Visible = false;
+
+                        // Save file
+                        exBook.SaveAs(path);
+
+                        // Đóng chương trình
+                        exBook.Close(true, misValue, misValue);
+                        // Thoát và thu hồi bộ nhớ cho COM
+                        exApp.Quit();
+                        releaseObject(exSheet);
+                        releaseObject(exBook);
+                        releaseObject(exApp);
+                        break;
+                    }
             }
+        }
+
+        //Hàm thu hồi bộ nhớ cho COM Excel
+        private static void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                obj = null;
+            }
+            finally
+            { GC.Collect(); }
         }
         //Chung
         public bool check(string username)
@@ -426,8 +578,7 @@ namespace pbl.BLL
                 }
             }
             return result;
-        }
-        private char[] carriage = new char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+        }        
         public List<TICKET_View> GetTicket(List<string> list, string TrainName, int carriage, ref int booked, ref int unbooked)
         {
             PBL3 db = new PBL3();
