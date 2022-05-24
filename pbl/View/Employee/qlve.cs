@@ -18,8 +18,10 @@ namespace pbl.View
         {
             InitializeComponent();
             gui();
+
         }
         PBL3 db = new PBL3();
+        
         public void gui()
         {
             List<string> listDep = new List<string>();
@@ -33,61 +35,58 @@ namespace pbl.View
             {
                 cbbDes.Items.Add(s);
             }
-            for (int i = 0; i <= 23; i++)
-            {
-                cbbHourDep.Items.Add(i);
-                cbbHourDes.Items.Add(i);
-            }
-            for (int i = 0; i <= 59; i++)
-            {
-                cbbMinuteDep.Items.Add(i);
-                cbbMinuteDes.Items.Add(i);
-            }
+            //for (int i = 0; i <= 23; i++)
+            //{
+            //    cbbHourDep.Items.Add(i);
+            //}
+            //for (int i = 0; i <= 59; i++)
+            //{
+            //    cbbMinuteDep.Items.Add(i);
+            //}
+
             cbbook.Items.Add("đã đặt ");
             cbbook.Items.Add("còn trống");
+              cbbook.Items.Add("full ");
         }
         public void show(string ticketid)
         {
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetAllTICKETView();
+            dataGridView1.DataSource = BLLTicket.instance.Getticketbyticketid(ticketid);
         }
-       
-      
         private void butsearch_Click(object sender, EventArgs e)
         {
-            string DepTime, DesTime, book;
+            string DepTime, DesTime,book;
+            DateTime dep;
+          //  dep = dateDep.Value;
             bool booked;
             book = cbbook.Text;
             if (book == "đã đặt ")
                 booked = true;
             else
             {
-                booked = true;
+                booked = false;
             }
-            
-            DesTime = dateDes.Value.ToString("d/M/yyyy");
-            DepTime = dateDep.Value.ToString("d/M/yyyy");
-            if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-            {
-                DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            }
-            if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
-            {
-                DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
-            }
-           TICKET_View s = new TICKET_View()
+            //DepTime = dateDep.ToString();
+          
+            //DepTime = dateDep.Value.ToString("d/M/yyyy");
+            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
+            //{
+            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
+            //}
+           
+           SCHEDULE_View schedule = new SCHEDULE_View()
             {
                 Departure = cbbDep.Text,
                 Destination = cbbDes.Text,
-                DepartureTime = DepTime,
-                ArrivalTime = DesTime,
-               
-            }; 
-            dataGridView1.DataSource = BLLTicket.instance.getticketbylist(s,booked);
+             //   DepartureTime = DepTime,
+     
+            };
+
+            dataGridView1.DataSource = BLLTicket.instance.getticketbylist(schedule,booked);
         }
 
         private void butthem_Click(object sender, EventArgs e)
         {
-            addve f = new addve(" ");
+            addve f = new addve("");
             f.Show();
             f.d = new addve.Mydel(show);
         }
@@ -133,7 +132,23 @@ namespace pbl.View
             }    
         }
 
-        private void butsearch_Click_1(object sender, EventArgs e)
+        //private void cbbHourDep_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (string.Compare(cbbHourDep.Text,"24")> 0)
+        //    {
+        //        cbbHourDep.Text = "23";
+        //    }    
+        //}
+
+        //private void cbbMinuteDep_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (string.Compare(cbbMinuteDep.Text, "60") > 0)
+        //    {
+        //        cbbHourDep.Text = "59";
+        //    }
+        //}
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

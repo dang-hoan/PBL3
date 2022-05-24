@@ -80,9 +80,7 @@
     <Compile Include="DTO\SCHEDULE_View.cs" />
     <Compile Include="DTO\TICKET_User_View.cs" />
     <Compile Include="DTO\TICKET_View.cs" />
-    <Compile Include="LOGIN.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DTO\Train_View.cs" />
     <Compile Include="PBL3.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,29 +96,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PBL3.edmx</DependentUpon>
     </Compile>
-    <Compile Include="PEOPLE.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
+    <Compile Include="View\Employee\addtrain.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POSITION.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
+    <Compile Include="View\Employee\addtrain.Designer.cs">
+      <DependentUpon>addtrain.cs</DependentUpon>
     </Compile>
-    <Compile Include="SCHEDULE.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
+    <Compile Include="View\Admin\addnv.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SECURITY.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
+    <Compile Include="View\Admin\addnv.Designer.cs">
+      <DependentUpon>addnv.cs</DependentUpon>
     </Compile>
-    <Compile Include="STATION.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
+    <Compile Include="View\Admin\delnv.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TICKET.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
+    <Compile Include="View\Admin\delnv.Designer.cs">
+      <DependentUpon>delnv.cs</DependentUpon>
     </Compile>
-    <Compile Include="TICKET_MANAGER.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
+    <Compile Include="View\Admin\delsche.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TRAIN.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
+    <Compile Include="View\Admin\delsche.Designer.cs">
+      <DependentUpon>delsche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\Mainform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\Mainform.Designer.cs">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\searchsche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\searchsche.Designer.cs">
+      <DependentUpon>searchsche.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Employee\addve.cs">
       <SubType>Form</SubType>
@@ -164,12 +174,6 @@
     <Compile Include="View\Admin\employee.Designer.cs">
       <DependentUpon>employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Admin\note.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +210,12 @@
     <Compile Include="View\Employee\qlve.Designer.cs">
       <DependentUpon>qlve.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Employee\train.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Employee\train.Designer.cs">
+      <DependentUpon>train.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GUIChangePass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +233,12 @@
     </Compile>
     <Compile Include="View\Employee\khachhang.Designer.cs">
       <DependentUpon>khachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Employee\lichtrinadd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Employee\lichtrinadd.Designer.cs">
+      <DependentUpon>lichtrinadd.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Passenger\Class1.cs" />
     <Compile Include="View\Passenger\GUISystemSchedule.cs">
@@ -349,6 +365,30 @@
     <Compile Include="View\GUIRegister.Designer.cs">
       <DependentUpon>GUIRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Employee\trainve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Employee\trainve.Designer.cs">
+      <DependentUpon>trainve.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Employee\addtrain.resx">
+      <DependentUpon>addtrain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\addnv.resx">
+      <DependentUpon>addnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\delnv.resx">
+      <DependentUpon>delnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\delsche.resx">
+      <DependentUpon>delsche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\Mainform.resx">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\searchsche.resx">
+      <DependentUpon>searchsche.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\addkhachhang.resx">
       <DependentUpon>addkhachhang.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,9 +410,6 @@
     <EmbeddedResource Include="View\Admin\employee.resx">
       <DependentUpon>employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\note.resx">
       <DependentUpon>note.cs</DependentUpon>
     </EmbeddedResource>
@@ -388,8 +425,14 @@
     <EmbeddedResource Include="View\Employee\employchinh.resx">
       <DependentUpon>employchinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Employee\lichtrinadd.resx">
+      <DependentUpon>lichtrinadd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\qlve.resx">
       <DependentUpon>qlve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Employee\train.resx">
+      <DependentUpon>train.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GUIChangePass.resx">
       <DependentUpon>GUIChangePass.cs</DependentUpon>
@@ -467,6 +510,9 @@
     </Compile>
     <EmbeddedResource Include="View\Employee\lichtrinh.resx">
       <DependentUpon>lichtrinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Employee\trainve.resx">
+      <DependentUpon>trainve.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="PBL3.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

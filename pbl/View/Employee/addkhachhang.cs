@@ -15,7 +15,7 @@ namespace pbl.View
 {
     public partial class addkhachhang : Form
     {
-        string user;
+        string user,pass;
         public delegate void Mydel(string username);
         public Mydel d;
         public string username { get; set; }
@@ -41,7 +41,9 @@ namespace pbl.View
                 txtdiachi.Text = p.Address;
                 txtgamil.Text = p.Email;
                 txtidcard.Text = p.IDCard;
-               
+                LOGIN g = BLLpeople.instance.Getloginbyloginid(username);
+                txtpass.Text = g.PassWord;
+                pass = txtpass.Text;
             }
         }
     private void butok_Click(object sender, EventArgs e)
@@ -70,13 +72,15 @@ namespace pbl.View
                     };
 
                     LOGIN dn = new LOGIN()
-                    {
-                        Username = txtuser.Text,
+                    {   Username = txtuser.Text,
                         PassWord = txtpass.Text,
                     };
                     BLLpeople.instance.Execute(s);
-
-                    BLLpeople.instance.Execute2(dn);
+                    if (pass != txtpass.Text)
+                    {
+                        BLLpeople.instance.Execute2(dn);
+                        MessageBox.Show("ban da doi mk thanh cong !");
+                    }
                     d("");
                     this.Close();
                 }
@@ -148,6 +152,7 @@ namespace pbl.View
             if (!(BLLpeople.instance.check(txtuser.Text)))
                 label13.Text = ("username hợp lệ ");
             else
+                if(BLLpeople.instance.check(user))
                 label13.Text = ("username không hợp lệ ");
         }
         private void txtpass_Click(object sender, EventArgs e)

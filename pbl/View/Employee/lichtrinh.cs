@@ -32,58 +32,24 @@ namespace pbl.View
             {
                 cbbDes.Items.Add(s);
             }
-            for (int i = 0; i <= 23; i++)
-            {
-                cbbHourDep.Items.Add(i);
-                cbbHourDes.Items.Add(i);
-            }
-            for (int i = 0; i <= 59; i++)
-            {
-                cbbMinuteDep.Items.Add(i);
-                cbbMinuteDes.Items.Add(i);
-            }
+            //for (int i = 0; i <= 23; i++)
+            //{
+            //    cbbHourDep.Items.Add(i);
+            //    cbbHourDes.Items.Add(i);
+            //}
+            //for (int i = 0; i <= 59; i++)
+            //{
+            //    cbbMinuteDep.Items.Add(i);
+            //    cbbMinuteDes.Items.Add(i);
+            //}
         }
-
-        private void butsearch_Click(object sender, EventArgs e)
+       public void show ()
         {
-            string DepTime, DesTime;
-            DateTime dep, des;
-            dep= dateDep.Value;
-            des = dateDes.Value;
-            int  HourDep = Convert.ToInt32(cbbHourDep.SelectedItem.ToString()); ;
-            int  hourdes = Convert.ToInt32(cbbHourDes.SelectedItem.ToString()); ;
-           DesTime = dateDes.Value.ToString("d/M/yyyy");
-            DepTime = dateDep.Value.ToString("d/M/yyyy");
-            if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-            {
-                DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            }
-            if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
-            {
-                DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
-            }
-            if (DateTime.Compare(dep, des) > 0)
-            { MessageBox.Show("vui lòng nhập ngày đi phải là ngày trước "); }
-            else if (DateTime.Compare(dep, des) == 0)
-            { if(HourDep < hourdes)
-                    MessageBox.Show("vui lòng nhập giờ đi phải là trước giờ đến ");
-            }    
-            else {
-                SCHEDULE_View s = new SCHEDULE_View()
-                {
-                    Departure = cbbDep.Text,
-                    Destination = cbbDes.Text,
-                    DepartureTime = DepTime,
-                    ArrivalTime = DesTime,
-                };
-
-                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
-               
-            }
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
         }
         private void butall_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
+            show();
         }
 
         private void butdelte_Click(object sender, EventArgs e)
@@ -93,48 +59,58 @@ namespace pbl.View
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
 
-                    BLLTRAIN.Instance.delschedule(row.Cells["scheduleid"].Value.ToString());
+                    BLLTRAIN.Instance.delschedule(row.Cells["ScheduleID"].Value.ToString());
                 }
             }
-
+            show();
         }
 
         private void themlt_Click(object sender, EventArgs e)
         {
             addlichtrinh f = new addlichtrinh("");
+           
+            f.d = new addlichtrinh.Mydel(show);
             f.Show();
-
         }
 
-        private void butmuave_Click(object sender, EventArgs e)
-        {
-            List<string> list = new List<string>();
-            if (dataGridView1.SelectedRows.Count >= 1)
-            {
-                foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
-                {
-                    list.Add(dr.Cells["ScheduleID"].Value.ToString());
-                }
-                GUIBook book = new GUIBook(list);
-                book.Show();
-            }
-            else
-            {
-                MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
-            }
-        }
-
+    
         private void bSearch_Click(object sender, EventArgs e)
         {
 
+            string DepTime, DesTime;
+            DateTime dep, des;
+           
+            //DepTime = dateDep.Value.ToString("d/M/yyyy");
+            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
+            //{
+            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
+            //}
+           
+         //   else
+            {
+                SCHEDULE_View s = new SCHEDULE_View()
+                {
+                    Departure = cbbDep.Text,
+                    Destination = cbbDes.Text,
+                   // DepartureTime = DepTime,
+                };
+
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
+               
+            }
         }
 
-
-        //private void themlt_Click(object sender, EventArgs e)
-        //{
-        //    addlichtrinh f = new addlichtrinh(" ");
-        //    f.Show();
-        //    f.d = new addkhachhang.Mydel(show);
-        //}
+        private void buttrain_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string scheduleid = dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString();
+                addtrain f = new addtrain(scheduleid);
+                f.Show();
+            }
+            else
+            MessageBox.Show(" vui lòng chọn một lịch trình!");
+            
+        }
     }
 }

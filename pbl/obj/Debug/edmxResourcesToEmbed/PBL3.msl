@@ -1,15 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="PBL3">
-    <EntitySetMapping Name="LOGINs">
-      <EntityTypeMapping TypeName="PBL3Model.LOGIN">
-        <MappingFragment StoreEntitySet="LOGIN">
-          <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PEOPLE">
       <EntityTypeMapping TypeName="PBL3Model.PEOPLE">
         <MappingFragment StoreEntitySet="PEOPLE">
@@ -54,18 +45,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TICKETs">
-      <EntityTypeMapping TypeName="PBL3Model.TICKET">
-        <MappingFragment StoreEntitySet="TICKET">
-          <ScalarProperty Name="TicketID" ColumnName="TicketID" />
-          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
-          <ScalarProperty Name="SeatNo" ColumnName="SeatNo" />
-          <ScalarProperty Name="TicketPrice" ColumnName="TicketPrice" />
-          <ScalarProperty Name="Booked" ColumnName="Booked" />
-          <ScalarProperty Name="CustomerUN" ColumnName="CustomerUN" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TICKET_MANAGER">
       <EntityTypeMapping TypeName="PBL3Model.TICKET_MANAGER">
         <MappingFragment StoreEntitySet="TICKET_MANAGER">
@@ -76,17 +55,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TRAINs">
-      <EntityTypeMapping TypeName="PBL3Model.TRAIN">
-        <MappingFragment StoreEntitySet="TRAIN">
-          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
-          <ScalarProperty Name="TrainName" ColumnName="TrainName" />
-          <ScalarProperty Name="NumberOfCarriages" ColumnName="NumberOfCarriages" />
-          <ScalarProperty Name="DriverUN" ColumnName="DriverUN" />
-          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="SECURITies">
       <EntityTypeMapping TypeName="PBL3Model.SECURITY">
         <MappingFragment StoreEntitySet="SECURITY">
@@ -94,6 +62,49 @@
           <ScalarProperty Name="Question" ColumnName="Question" />
           <ScalarProperty Name="OwnUN" ColumnName="OwnUN" />
           <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOGINs">
+      <EntityTypeMapping TypeName="PBL3Model.LOGIN">
+        <MappingFragment StoreEntitySet="LOGIN">
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKETs">
+      <EntityTypeMapping TypeName="PBL3Model.TICKET">
+        <MappingFragment StoreEntitySet="TICKET">
+          <ScalarProperty Name="CustomerUN" ColumnName="CustomerUN" />
+          <ScalarProperty Name="Booked" ColumnName="Booked" />
+          <ScalarProperty Name="TicketPrice" ColumnName="TicketPrice" />
+          <ScalarProperty Name="SeatNo" ColumnName="SeatNo" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRAINs">
+      <EntityTypeMapping TypeName="PBL3Model.TRAIN">
+        <MappingFragment StoreEntitySet="TRAIN">
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="DriverUN" ColumnName="DriverUN" />
+          <ScalarProperty Name="NumberOfCarriages" ColumnName="NumberOfCarriages" />
+          <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PBL3Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

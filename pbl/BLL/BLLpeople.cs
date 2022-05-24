@@ -36,6 +36,7 @@ namespace pbl.BLL
             }
             return false;
         }
+        
         public void Execute(PEOPLE s)
         {
             if (!check(s.Username))
@@ -45,6 +46,9 @@ namespace pbl.BLL
             }
             else
             {
+                string p = (from POSITION pos in db.POSITIONs
+                            where pos.Position.Equals("Khách hàng")
+                            select pos.PositionID).FirstOrDefault();
                 PEOPLE temp = db.PEOPLE.Find(s.Username);
                 temp.Name = s.Name;
                 temp.Gender = s.Gender;
@@ -53,17 +57,24 @@ namespace pbl.BLL
                 temp.Address = s.Address;
                 temp.IDCard = s.IDCard;
                 temp.Email = s.Email;
-                temp.PositionID = "124";
+                temp.PositionID = p;
                 db.SaveChanges();
             }
 
         }
+
         public void Execute2(LOGIN s)
         {
+
                 db.LOGINs.Add(s);
                 db.SaveChanges();
-              
+
         }
+        
+
+        
+
+         
         public List<CBBItem> GetCBBs(string txt)
         {
         List<CBBItem> data = new List<CBBItem>();
@@ -125,6 +136,13 @@ namespace pbl.BLL
                 dn = db.LOGINs.Where(p => p.Username == username).Single();
            
             db.LOGINs.Remove(dn);
+            db.SaveChanges();
+            db.PEOPLE.Remove(s);
+            db.SaveChanges();
+        }
+        public void delnv(string IDCard)
+        {
+            PEOPLE s = db.PEOPLE.Find(IDCard);
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
@@ -135,32 +153,59 @@ namespace pbl.BLL
         }
         public List<PEOPLE> searchem(string text)
         {
-            var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == "333" select p;
-            return result.ToList();
+            if(text == "")
+            {
+                 MessageBox.Show("Vui lòng nhập tên khách hàng cần tìm !", "Thông báo");
+                return null;
+            }
+            else
+            {
+                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == "333" select p;
+                if(result.Count() == 0 )
+                {
+                    MessageBox.Show("Không có khách hàng có tên bạn muốn tìm trong hệ thống !", "Thông báo");
+                    
+                }
+               
+                 return result.ToList();
+              
+               
+            }
+           
+        }
+        public LOGIN Getloginbyloginid(string username)
+        {
+            LOGIN dn = new LOGIN();
+            dn = db.LOGINs.Where(p => p.Username == username).Single();
+
+            return dn;
+
         }
         public PEOPLE GetuserByusername(string username )
         {
             return db.PEOPLE.Find(username);
 
         }
-        public List<employeeview> getallnv(string PositionId)
+      
+        public List<PEOPLE_View> getallnv(string PositionId)
         {
-            List<employeeview> list = new List<employeeview>();
+            List<PEOPLE_View> list = new List<PEOPLE_View>();
             var l2 = from PEOPLE p in db.PEOPLE.ToList()
                      join POSITION pos in db.POSITIONs on p.PositionID equals pos.PositionID
                      where p.PositionID == PositionId
-                     select new employeeview
-                     {
+                     select new PEOPLE_View
+                     {   
+                         Username = p.Username,
                          Name = p.Name,
-                         Gender=p.Gender.ToString(),
-                         BirthDay=p.BirthDay.Value,
-                         Address=p.Address,
-                         Email=p.Email,
-                            Phone=p.Phone,
-                            IDCard=p.IDCard,
-                            Position=pos.Position
+                         Gender = ((bool)p.Gender) ?  "Nam" : "Nu",
+                         BirthDay = p.BirthDay.Value,
+                         Address = p.Address,
+                         Email = p.Email,
+                         Phone = p.Phone,
+                         IDCard = p.IDCard,
+                         Position = pos.Position
                      };
-          /*  list = db.PEOPLE.Where(p => p.PositionID == PositionId).Select(p => p).ToList();*/
+            /*  list = db.PEOPLE.Where(p => p.PositionID == PositionId).Select(p => p).ToList();*/
 
             return l2.ToList();
         }

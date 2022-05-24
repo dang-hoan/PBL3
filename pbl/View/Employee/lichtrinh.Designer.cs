@@ -30,18 +30,14 @@
         {
             this.themlt = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.butmuave = new System.Windows.Forms.Button();
             this.butdelte = new System.Windows.Forms.Button();
             this.butall = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.bSearch = new System.Windows.Forms.Button();
             this.cbbDep = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateDep = new System.Windows.Forms.DateTimePicker();
-            this.dateDes = new System.Windows.Forms.DateTimePicker();
             this.cbbDes = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.buttrain = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +45,7 @@
             // 
             this.themlt.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.themlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.themlt.Location = new System.Drawing.Point(512, 441);
+            this.themlt.Location = new System.Drawing.Point(517, 459);
             this.themlt.Name = "themlt";
             this.themlt.Size = new System.Drawing.Size(128, 33);
             this.themlt.TabIndex = 8;
@@ -61,30 +57,18 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 173);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 123);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 262);
+            this.dataGridView1.Size = new System.Drawing.Size(842, 312);
             this.dataGridView1.TabIndex = 77;
-            // 
-            // butmuave
-            // 
-            this.butmuave.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.butmuave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butmuave.Location = new System.Drawing.Point(79, 441);
-            this.butmuave.Name = "butmuave";
-            this.butmuave.Size = new System.Drawing.Size(130, 33);
-            this.butmuave.TabIndex = 97;
-            this.butmuave.Text = "mua  vé";
-            this.butmuave.UseVisualStyleBackColor = false;
-            this.butmuave.Click += new System.EventHandler(this.butmuave_Click);
             // 
             // butdelte
             // 
             this.butdelte.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butdelte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butdelte.Location = new System.Drawing.Point(745, 441);
+            this.butdelte.Location = new System.Drawing.Point(745, 459);
             this.butdelte.Name = "butdelte";
             this.butdelte.Size = new System.Drawing.Size(117, 33);
             this.butdelte.TabIndex = 111;
@@ -96,7 +80,7 @@
             // 
             this.butall.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butall.Location = new System.Drawing.Point(298, 441);
+            this.butall.Location = new System.Drawing.Point(284, 459);
             this.butall.Name = "butall";
             this.butall.Size = new System.Drawing.Size(128, 33);
             this.butall.TabIndex = 112;
@@ -116,7 +100,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 86);
+            this.label2.Location = new System.Drawing.Point(331, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 115;
@@ -127,7 +111,8 @@
             this.bSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSearch.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.Location = new System.Drawing.Point(778, 81);
+            this.bSearch.Location = new System.Drawing.Point(778, 51);
+            this.bSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bSearch.Name = "bSearch";
             this.bSearch.Size = new System.Drawing.Size(84, 49);
             this.bSearch.TabIndex = 130;
@@ -144,52 +129,26 @@
             this.cbbDep.Size = new System.Drawing.Size(208, 24);
             this.cbbDep.TabIndex = 128;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(442, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 16);
-            this.label4.TabIndex = 117;
-            this.label4.Text = "Thời gian đến:";
-            // 
-            // dateDep
-            // 
-            this.dateDep.CustomFormat = "dd/MM/yyyy";
-            this.dateDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDep.Location = new System.Drawing.Point(441, 53);
-            this.dateDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateDep.Name = "dateDep";
-            this.dateDep.Size = new System.Drawing.Size(210, 22);
-            this.dateDep.TabIndex = 118;
-            // 
-            // dateDes
-            // 
-            this.dateDes.CustomFormat = "dd/MM/yyyy";
-            this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDes.Location = new System.Drawing.Point(441, 112);
-            this.dateDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateDes.Name = "dateDes";
-            this.dateDes.Size = new System.Drawing.Size(210, 22);
-            this.dateDes.TabIndex = 119;
-            // 
             // cbbDes
             // 
             this.cbbDes.FormattingEnabled = true;
-            this.cbbDes.Location = new System.Drawing.Point(18, 110);
+            this.cbbDes.Location = new System.Drawing.Point(332, 51);
             this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(208, 24);
             this.cbbDes.TabIndex = 129;
             // 
-            // label3
+            // buttrain
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(440, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 16);
-            this.label3.TabIndex = 116;
-            this.label3.Text = "Thời gian đi:";
+            this.buttrain.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttrain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttrain.Location = new System.Drawing.Point(20, 459);
+            this.buttrain.Name = "buttrain";
+            this.buttrain.Size = new System.Drawing.Size(130, 33);
+            this.buttrain.TabIndex = 135;
+            this.buttrain.Text = "Thêm chuyến tàu";
+            this.buttrain.UseVisualStyleBackColor = false;
+            this.buttrain.Click += new System.EventHandler(this.buttrain_Click);
             // 
             // lichtrinh
             // 
@@ -197,18 +156,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(915, 533);
+            this.Controls.Add(this.buttrain);
             this.Controls.Add(this.cbbDes);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateDes);
             this.Controls.Add(this.bSearch);
             this.Controls.Add(this.cbbDep);
-            this.Controls.Add(this.dateDep);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.butall);
             this.Controls.Add(this.butdelte);
-            this.Controls.Add(this.butmuave);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.themlt);
             this.Name = "lichtrinh";
@@ -222,17 +177,13 @@
         #endregion
         private System.Windows.Forms.Button themlt;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button butmuave;
         private System.Windows.Forms.Button butdelte;
         private System.Windows.Forms.Button butall;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bSearch;
         private System.Windows.Forms.ComboBox cbbDep;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateDep;
-        private System.Windows.Forms.DateTimePicker dateDes;
         private System.Windows.Forms.ComboBox cbbDes;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttrain;
     }
 }

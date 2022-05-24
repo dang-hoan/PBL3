@@ -30,8 +30,14 @@
         {
             this.bTOK = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.hourdes = new System.Windows.Forms.ComboBox();
+            this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.schedule = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.daydes = new System.Windows.Forms.DateTimePicker();
             this.hourdep = new System.Windows.Forms.ComboBox();
             this.cbbMinuteDep = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,12 +49,6 @@
             this.cbbDes = new System.Windows.Forms.ComboBox();
             this.cbbDep = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbbMinuteDes = new System.Windows.Forms.ComboBox();
-            this.hourdes = new System.Windows.Forms.ComboBox();
-            this.daydes = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,14 +65,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.schedule);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.daydes);
             this.panel1.Controls.Add(this.hourdes);
             this.panel1.Controls.Add(this.cbbMinuteDes);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.schedule);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.daydes);
             this.panel1.Controls.Add(this.hourdep);
             this.panel1.Controls.Add(this.cbbMinuteDep);
             this.panel1.Controls.Add(this.label6);
@@ -87,6 +87,41 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(556, 371);
             this.panel1.TabIndex = 2;
+            // 
+            // hourdes
+            // 
+            this.hourdes.FormattingEnabled = true;
+            this.hourdes.Location = new System.Drawing.Point(188, 310);
+            this.hourdes.Name = "hourdes";
+            this.hourdes.Size = new System.Drawing.Size(105, 24);
+            this.hourdes.TabIndex = 44;
+            // 
+            // cbbMinuteDes
+            // 
+            this.cbbMinuteDes.FormattingEnabled = true;
+            this.cbbMinuteDes.Location = new System.Drawing.Point(355, 310);
+            this.cbbMinuteDes.Name = "cbbMinuteDes";
+            this.cbbMinuteDes.Size = new System.Drawing.Size(86, 24);
+            this.cbbMinuteDes.TabIndex = 43;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(317, 313);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(11, 16);
+            this.label7.TabIndex = 42;
+            this.label7.Text = ":";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(37, 319);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 16);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "GIỜ ĐẾN :";
             // 
             // schedule
             // 
@@ -104,6 +139,24 @@
             this.label10.TabIndex = 39;
             this.label10.Text = "ScheduleID:";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(37, 209);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 16);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "NGÀY ĐẾN :";
+            // 
+            // daydes
+            // 
+            this.daydes.CustomFormat = "dd/MM/yyyy";
+            this.daydes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.daydes.Location = new System.Drawing.Point(188, 203);
+            this.daydes.Name = "daydes";
+            this.daydes.Size = new System.Drawing.Size(253, 22);
+            this.daydes.TabIndex = 35;
+            // 
             // hourdep
             // 
             this.hourdep.FormattingEnabled = true;
@@ -111,6 +164,7 @@
             this.hourdep.Name = "hourdep";
             this.hourdep.Size = new System.Drawing.Size(105, 24);
             this.hourdep.TabIndex = 30;
+            this.hourdep.SelectedIndexChanged += new System.EventHandler(this.hourdep_SelectedIndexChanged);
             // 
             // cbbMinuteDep
             // 
@@ -200,59 +254,6 @@
             this.button1.Text = "Huy";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 313);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 16);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "GIỜ ĐẾN :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(317, 307);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(11, 16);
-            this.label7.TabIndex = 32;
-            this.label7.Text = ":";
-            // 
-            // cbbMinuteDes
-            // 
-            this.cbbMinuteDes.FormattingEnabled = true;
-            this.cbbMinuteDes.Location = new System.Drawing.Point(355, 304);
-            this.cbbMinuteDes.Name = "cbbMinuteDes";
-            this.cbbMinuteDes.Size = new System.Drawing.Size(86, 24);
-            this.cbbMinuteDes.TabIndex = 33;
-            // 
-            // hourdes
-            // 
-            this.hourdes.FormattingEnabled = true;
-            this.hourdes.Location = new System.Drawing.Point(188, 304);
-            this.hourdes.Name = "hourdes";
-            this.hourdes.Size = new System.Drawing.Size(105, 24);
-            this.hourdes.TabIndex = 34;
-            // 
-            // daydes
-            // 
-            this.daydes.CustomFormat = "dd/MM/yyyy";
-            this.daydes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.daydes.Location = new System.Drawing.Point(188, 203);
-            this.daydes.Name = "daydes";
-            this.daydes.Size = new System.Drawing.Size(253, 22);
-            this.daydes.TabIndex = 35;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(37, 209);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 16);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "NGÀY ĐẾN :";
             // 
             // addlichtrinh
             // 

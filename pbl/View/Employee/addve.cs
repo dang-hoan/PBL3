@@ -14,32 +14,79 @@ namespace pbl.View
 {
     public partial class addve : Form
     {
-        public delegate void Mydel(string tiketid);
+        public delegate void Mydel(string trainid);
         public Mydel d;
-        public string tiketid { get; set; }
+        public string trainid { get; set; }
+        string kiemtra = "";
         public addve(string s)
         {
             InitializeComponent();
-            tiketid = s;
+            trainid = s;
+            kiemtra=s;
             GUI();
+            intit();
 
         }
-        public void GUI()
+        public void thamchieu(string trainid)
         {
-            List<string> listDep = new List<string>();
-            List<string> listDes = new List<string>();
-            BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
-            foreach (string s in listDep.Distinct())
+            txttrainid.Text = trainid;
+        }
+        public void intit()
+        {
+       
+            foreach (Train_View i in BLLTRAIN.Instance.GetTrain2(trainid))
             {
-                cbbdep.Items.Add(s);
+                txtschedule.Text= i.ScheduleID;
+                txtschedule.Enabled = false;
+                txttrainid.Text = i.TrainID;
+                txttrainid.Enabled = false;
+                txtname.Text = i.TrainName;
+                txtname.Enabled = false;
+                txtsotau.Text = i.NumberOfCarriages;
+                int num = Convert.ToInt32(i.NumberOfCarriages);
+                txtma.Text=num.ToString();
+                txtsotau.Enabled = false;
             }
-            foreach (string s in listDes.Distinct())
+        }
+        public void GUI()
+        { 
+            for (int i = 0; i <= 25; i++)
             {
-                cbbdes.Items.Add(s);
+                cbbseat.Items.Add(i.ToString());
             }
+
         }
 
         private void butthem_Click(object sender, EventArgs e)
+        { 
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addve_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pChat_Click(object sender, EventArgs e)
+        {if (kiemtra == "")
+            {
+                trainve s = new trainve();
+                s.Show();
+                this.Close();
+            }
+            else MessageBox.Show("ban da chon 1 lich trinh trc do");
+        }
+
+        private void txtgiave_TextChanged(object sender, EventArgs e)
         {
 
         }

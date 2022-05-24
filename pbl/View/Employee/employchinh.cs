@@ -119,5 +119,10 @@ namespace pbl.View
 
             showform(new GUISetting());
         }
+
+        private void pChat_Click(object sender, EventArgs e)
+        {
+            showform(new train());
+        }
     }
 }
