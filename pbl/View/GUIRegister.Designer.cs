@@ -57,7 +57,6 @@
             // 
             // txtBirthDay
             // 
-            this.txtBirthDay.Enabled = false;
             this.txtBirthDay.Location = new System.Drawing.Point(254, 337);
             this.txtBirthDay.Name = "txtBirthDay";
             this.txtBirthDay.Size = new System.Drawing.Size(306, 26);
@@ -65,7 +64,6 @@
             // 
             // txtIDCard
             // 
-            this.txtIDCard.Enabled = false;
             this.txtIDCard.Location = new System.Drawing.Point(254, 445);
             this.txtIDCard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIDCard.Name = "txtIDCard";
@@ -85,7 +83,6 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Enabled = false;
             this.txtAddress.Location = new System.Drawing.Point(254, 395);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
@@ -117,7 +114,6 @@
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
-            this.rbFemale.Enabled = false;
             this.rbFemale.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.rbFemale.Location = new System.Drawing.Point(420, 287);
             this.rbFemale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -131,20 +127,17 @@
             // rbMale
             // 
             this.rbMale.AutoSize = true;
-            this.rbMale.Enabled = false;
             this.rbMale.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.rbMale.Location = new System.Drawing.Point(268, 290);
             this.rbMale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(67, 24);
             this.rbMale.TabIndex = 33;
-            this.rbMale.TabStop = true;
             this.rbMale.Text = "Nam";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
             // txtEmail
             // 
-            this.txtEmail.Enabled = false;
             this.txtEmail.Location = new System.Drawing.Point(254, 493);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmail.Name = "txtEmail";
@@ -153,7 +146,6 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Enabled = false;
             this.txtPhone.Location = new System.Drawing.Point(254, 544);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPhone.Name = "txtPhone";
@@ -162,7 +154,6 @@
             // 
             // txtName
             // 
-            this.txtName.Enabled = false;
             this.txtName.Location = new System.Drawing.Point(254, 238);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
@@ -171,7 +162,6 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Enabled = false;
             this.txtUsername.Location = new System.Drawing.Point(254, 69);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
@@ -247,7 +237,6 @@
             // 
             // txtPass
             // 
-            this.txtPass.Enabled = false;
             this.txtPass.Location = new System.Drawing.Point(254, 117);
             this.txtPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPass.Name = "txtPass";
@@ -281,7 +270,6 @@
             // 
             // txtConfirmPass
             // 
-            this.txtConfirmPass.Enabled = false;
             this.txtConfirmPass.Location = new System.Drawing.Point(254, 174);
             this.txtConfirmPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtConfirmPass.Name = "txtConfirmPass";
@@ -296,9 +284,9 @@
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label8.Location = new System.Drawing.Point(51, 173);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 25);
+            this.label8.Size = new System.Drawing.Size(168, 25);
             this.label8.TabIndex = 45;
-            this.label8.Text = "Mật khẩu";
+            this.label8.Text = "Nhập lại mật khẩu";
             // 
             // bBack
             // 
@@ -355,6 +343,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Name = "GUIRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG KÝ TÀI KHOẢN";
             this.ResumeLayout(false);
             this.PerformLayout();

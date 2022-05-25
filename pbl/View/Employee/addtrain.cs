@@ -16,8 +16,8 @@ namespace pbl.View
     {
         public delegate void Mydel();
         public Mydel d { get; set; }
-        public string trainid = "", scheduleid = "";
-        public addtrain(string s)
+        public int trainid, scheduleid;
+        public addtrain(int s)
         {
             InitializeComponent();
             trainid = s;
@@ -31,7 +31,7 @@ namespace pbl.View
         {
             foreach (SCHEDULE i in BLLTRAIN.Instance.GetScheduleid(trainid))
             {
-                schedule.Text = i.ScheduleID;
+                schedule.Text = i.ScheduleID.ToString();
                 schedule.Enabled = false;
                 cbbDep.Text = i.Departure;
                 cbbDep.Enabled = false;
@@ -74,7 +74,7 @@ namespace pbl.View
             {
                 TRAIN s = new TRAIN
                 {
-                    ScheduleID = schedule.Text,
+                    ScheduleID = Convert.ToInt32(schedule.Text),
                     TrainName = txtname.Text,
                     NumberOfCarriages = int.Parse(txtsotoa.Text),
                     DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
@@ -87,18 +87,18 @@ namespace pbl.View
 
            
         }
-        private void getScheduleID(string scheduleid)
+        private void getScheduleID(int scheduleid)
         {
             foreach (SCHEDULE i in BLLTRAIN.Instance.GetScheduleid(scheduleid))
             {
-                schedule.Text = i.ScheduleID;
+                schedule.Text = i.ScheduleID.ToString();
                 cbbDep.Text = i.Departure;
                 cbbDes.Text = i.Destination;
             }
         }
         private void lich_trinh_Click(object sender, EventArgs e)
         {
-            if (trainid == "")
+            if (trainid == -1)
             {
                 lichtrinadd f = new lichtrinadd();
                 f.Show();

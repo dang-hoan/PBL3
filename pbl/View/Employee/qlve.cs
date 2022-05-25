@@ -54,24 +54,14 @@ namespace pbl.View
         }
         private void butsearch_Click(object sender, EventArgs e)
         {
-            string DepTime, DesTime,book;
-            DateTime dep;
-          //  dep = dateDep.Value;
             bool booked;
-            book = cbbook.Text;
+            string book = cbbook.Text;
             if (book == "đã đặt ")
                 booked = true;
             else
             {
                 booked = false;
             }
-            //DepTime = dateDep.ToString();
-          
-            //DepTime = dateDep.Value.ToString("d/M/yyyy");
-            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-            //{
-            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            //}
            
            SCHEDULE_View schedule = new SCHEDULE_View()
 

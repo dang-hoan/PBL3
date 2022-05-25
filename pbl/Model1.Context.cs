@@ -13,10 +13,10 @@ namespace pbl
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PBL3 : DbContext
+    public partial class PBL3: DbContext
     {
         public PBL3()
-            : base("name=PBL3")
+            : base("name=PBL3-Hoan")
         {
         }
     

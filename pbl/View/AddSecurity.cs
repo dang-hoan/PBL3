@@ -51,7 +51,8 @@ namespace pbl
         }
         private void GetAnswer()
         {
-            foreach(SECURITY sec in Sec)
+            if (cbbQuestion2.SelectedItem != null)
+            foreach (SECURITY sec in Sec)
             {
                 if(sec.SecurityID == ((CBBSecurity)cbbQuestion2.SelectedItem).Value)
                 {
@@ -82,6 +83,8 @@ namespace pbl
             }
             MessageBox.Show("Lưu câu hỏi bảo mật thành công!");
             txtAnswer2.Text = "";
+            cbbQuestion2.Enabled = false;
+            txtAnswer2.Enabled = false;
         }
 
         private void bAccept_Click(object sender, EventArgs e)

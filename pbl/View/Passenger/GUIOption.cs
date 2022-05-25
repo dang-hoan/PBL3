@@ -87,7 +87,7 @@ namespace pbl
             }
             SCHEDULE_BLL s = new SCHEDULE_BLL
             {
-                ScheduleID = "",
+                ScheduleID = -1,
                 Departure = cbbDep.Text,
                 Destination = cbbDes.Text,
                 FromDepartureTime = dateFromDep.Value,

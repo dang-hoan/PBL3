@@ -8,7 +8,7 @@ namespace pbl.DTO
 {
     public class TICKET_View
     {
-        public string ScheduleID { get; set; }
+        public int ScheduleID { get; set; }
         public string TrainID { get; set; }
         public string TrainName { get; set; }
         public int TicketID { get; set; }

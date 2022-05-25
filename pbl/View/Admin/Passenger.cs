@@ -15,7 +15,7 @@ namespace pbl.View.Admin
         public Passenger()
         {
             InitializeComponent();
-            showpass("333");
+            showpass(333);
         }
         public void deltxt()
         {
@@ -27,7 +27,7 @@ namespace pbl.View.Admin
         {
             dataGridView1.DataSource = BLLpeople.instance.searchem(txtsearch.Text);
         }
-        public void showpass(string PositionId)
+        public void showpass(int PositionId)
         {
             dataGridView1.DataSource = BLLpeople.instance.getallnv(PositionId);
         }

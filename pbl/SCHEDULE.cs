@@ -20,7 +20,7 @@ namespace pbl
             this.TRAINs = new HashSet<TRAIN>();
         }
     
-        public string ScheduleID { get; set; }
+        public int ScheduleID { get; set; }
         public string Departure { get; set; }
         public string Destination { get; set; }
         public System.DateTime DepartureTime { get; set; }

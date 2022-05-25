@@ -40,7 +40,17 @@ namespace pbl
                 MessageBox.Show("Tên đăng nhập đã tồn tại! Vui lòng chọn tên khác!");
                 return;
             }
-            //BLLpeople.instance.add
+            BLLTRAIN.Instance.AddPASSENGER(new PEOPLE {
+                Username = txtUsername.Text,
+                Name = txtName.Text,
+                Gender = rbMale.Checked || !rbFemale.Checked,
+                BirthDay = txtBirthDay.Value,
+                Address = txtAddress.Text,
+                IDCard = txtIDCard.Text,
+                Email = txtEmail.Text,
+                Phone = txtPhone.Text
+            });
+            BLLTRAIN.Instance.AddLOGIN(new LOGIN { Username = txtUsername.Text, PassWord = txtPass.Text });
             MessageBox.Show("Đăng ký tài khoản thành công!");
             this.Close();
             login.Show();

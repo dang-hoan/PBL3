@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1eb9e33810744004a3ca4de838cb8792" Name="Diagram1">
+      <Diagram DiagramId="a0829c631fb3457489646093b7d9178c" Name="Diagram1">
         <EntityTypeShape EntityType="PBL3.LOGIN" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PBL3.PEOPLE" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PBL3.POSITION" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="PBL3.TRAIN" Width="1.5" PointX="8.25" PointY="1.625" IsExpanded="true" />
         <AssociationConnector Association="PBL3.FK__LOGIN__Username__29572725" ManuallyRouted="false" />
         <AssociationConnector Association="PBL3.FK__PEOPLE__Position__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="PBL3.FK__SECURITY__OwnUN__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="PBL3.FK__SECURITY__OwnUN__49C3F6B7" ManuallyRouted="false" />
         <AssociationConnector Association="PBL3.FK__TICKET__Customer__34C8D9D1" ManuallyRouted="false" />
         <AssociationConnector Association="PBL3.FK__TRAIN__DriverUN__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="PBL3.FK__TRAIN__ScheduleI__30F848ED" ManuallyRouted="false" />

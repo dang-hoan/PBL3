@@ -36,6 +36,15 @@ namespace pbl.BLL
             }
             return false;
         }
+        public bool check2(string username)
+        {
+            PBL3 db = new PBL3();
+            foreach (LOGIN i in db.LOGINs)
+            {
+                if (i.Username == username) return true;
+            }
+            return false;
+        }
         
         public void Execute(PEOPLE s)
         {
@@ -46,7 +55,7 @@ namespace pbl.BLL
             }
             else
             {
-                string p = (from POSITION pos in db.POSITIONs
+                int p = (from POSITION pos in db.POSITIONs
                             where pos.Position.Equals("Khách hàng")
                             select pos.PositionID).FirstOrDefault();
                 PEOPLE temp = db.PEOPLE.Find(s.Username);
@@ -65,7 +74,7 @@ namespace pbl.BLL
 
         public void Execute2(LOGIN s)
         {
-            if (!check(s.Username))
+            if (!check2(s.Username))
             {
                 db.LOGINs.Add(s);
                 db.SaveChanges();
@@ -96,7 +105,7 @@ namespace pbl.BLL
         List<CBBItem> data = new List<CBBItem>();
         foreach (PEOPLE i in db.PEOPLE)
         {
-            if (i.PositionID == "124")
+            if (i.PositionID == 124)
             {
                 if (i.Name.Contains(txt))
                     data.Add(new CBBItem
@@ -112,7 +121,7 @@ namespace pbl.BLL
         public List<PEOPLE_View> getppbylist(string username)
         {
             List<PEOPLE_View> data = new List<PEOPLE_View>();
-            foreach(PEOPLE i in GetPPByUsername(username))
+            foreach(PEOPLE_View i in GetPPByUsername(username))
             {
 
                 data.Add(new PEOPLE_View
@@ -120,26 +129,55 @@ namespace pbl.BLL
                     IDCard = i.IDCard,
                     Name = i.Name,
                     Username = i.Username,
-                    Gender = ((bool)i.Gender) ? "Nam" : "Nữ",
-                    BirthDay = i.BirthDay.Value,
+                    Gender = i.Gender,
+                    BirthDay = i.BirthDay,
                     Address = i.Address,
                     Email = i.Email,
                     Phone = i.Phone,
-                    Position = i.PositionID,
+                    Position = i.Position,
                 }) ;
             }
                 return data;
         }
-        public List<PEOPLE> GetPPByUsername(string username)
+        public List<PEOPLE_View> GetPPByUsername(string username)
         {
-            List<PEOPLE> data = new List<PEOPLE>();
+            List<PEOPLE_View> data = new List<PEOPLE_View>();
             if (username == "")
             {
-                data = db.PEOPLE.Where(p => (p.PositionID=="124")).Select(p => p).ToList();
+
+                data = (from peo in db.PEOPLE
+                       join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
+                       where pos.PositionID == 124
+                       select new PEOPLE_View
+                       {
+                           Username = peo.Username,
+                           Name = peo.Name,
+                           Gender = ((bool)peo.Gender)?"Nam":"Nữ",
+                           BirthDay = peo.BirthDay,
+                           Address = peo.Address,
+                           IDCard = peo.IDCard,
+                           Email = peo.Email,
+                           Phone = peo.Phone,
+                           Position = pos.Position
+                       }).ToList();
             }
             else
             {
-                data = db.PEOPLE.Where(p => (p.Username== username)&&(p.PositionID=="124")).Select(p => p).ToList();
+                data = (from peo in db.PEOPLE
+                        join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
+                        where peo.Username == username && pos.PositionID == 124
+                        select new PEOPLE_View
+                        {
+                            Username = peo.Username,
+                            Name = peo.Name,
+                            Gender = ((bool)peo.Gender) ? "Nam" : "Nữ",
+                            BirthDay = peo.BirthDay,
+                            Address = peo.Address,
+                            IDCard = peo.IDCard,
+                            Email = peo.Email,
+                            Phone = peo.Phone,
+                            Position = pos.Position
+                        }).ToList();
             }
             return data;
         }
@@ -164,7 +202,7 @@ namespace pbl.BLL
         }
         public List<PEOPLE> searchP(string text)
         {
-            var result = from p in db.PEOPLE where  p.Name.Contains(text)  && p.PositionID == "222"  select p;
+            var result = from p in db.PEOPLE where  p.Name.Contains(text)  && p.PositionID == 222  select p;
             return result.ToList();
         }
         public List<PEOPLE> searchem(string text)
@@ -176,7 +214,7 @@ namespace pbl.BLL
             }
             else
             {
-                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == "333" select p;
+                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == 333 select p;
                 if(result.Count() == 0 )
                 {
                     MessageBox.Show("Không có khách hàng có tên bạn muốn tìm trong hệ thống !", "Thông báo");
@@ -203,7 +241,7 @@ namespace pbl.BLL
 
         }
       
-        public List<PEOPLE_View> getallnv(string PositionId)
+        public List<PEOPLE_View> getallnv(int PositionId)
         {
             List<PEOPLE_View> list = new List<PEOPLE_View>();
             var l2 = from PEOPLE p in db.PEOPLE.ToList()
@@ -214,7 +252,7 @@ namespace pbl.BLL
                          Username = p.Username,
                          Name = p.Name,
                          Gender = ((bool)p.Gender) ?  "Nam" : "Nu",
-                         BirthDay = p.BirthDay.Value,
+                         BirthDay = p.BirthDay,
                          Address = p.Address,
                          Email = p.Email,
                          Phone = p.Phone,
@@ -229,7 +267,7 @@ namespace pbl.BLL
         {
             List<PEOPLE> list = new List<PEOPLE>();
              
-                var result = from p in db.PEOPLE where p.PositionID == "222" orderby p.Name  select p;
+                var result = from p in db.PEOPLE where p.PositionID == 222 orderby p.Name  select p;
                 list = result.ToList();                        
             return list;
         }

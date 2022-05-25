@@ -59,7 +59,7 @@ namespace pbl.View
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
 
-                    BLLTRAIN.Instance.delschedule(row.Cells["ScheduleID"].Value.ToString());
+                    BLLTRAIN.Instance.delschedule(Convert.ToInt32(row.Cells["ScheduleID"].Value.ToString()));
                 }
             }
             show();
@@ -76,63 +76,21 @@ namespace pbl.View
     
         private void bSearch_Click(object sender, EventArgs e)
         {
-
-            string DepTime, DesTime;
-            DateTime dep, des;
-//<<<<<<< HEAD
-           
-//            //DepTime = dateDep.Value.ToString("d/M/yyyy");
-//            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-//            //{
-//            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-//            //}
-           
-//         //   else
-//=======
-//            dep = dateDep.Value;
-//            des = dateDes.Value;
-//            int HourDep = (cbbHourDep.Text == "")? 0 : Convert.ToInt32(cbbHourDep.Text);
-//            int hourdes = (cbbHourDes.Text == "")? 0 : Convert.ToInt32(cbbHourDes.Text);
-//            DesTime = dateDes.Value.ToString("dd/MM/yyyy");
-//            DepTime = dateDep.Value.ToString("dd/MM/yyyy");
-//            if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-//            {
-//                DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-//            }
-//            if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
-//            {
-//                DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
-//            }
-//            int comp = string.Compare(dep.ToString("dd/MM/yyyy"), des.ToString("dd/MM/yyyy"));
-//            if (comp > 0)
-//            {
-//                MessageBox.Show("Ngày đến phải sau ngày đi!"); 
-//            }
-//            else if (comp == 0)
-//            {
-//                if (HourDep > hourdes)
-//                    MessageBox.Show("Thời gian đến phải sau thời gian đi!");
-//            }
-//            else
-//>>>>>>> 17fe53d13b4b7954edbc1bee6df0822c370df0a8
+            SCHEDULE_View s = new SCHEDULE_View()
             {
-                SCHEDULE_View s = new SCHEDULE_View()
-                {
-                    Departure = cbbDep.Text,
-                    Destination = cbbDes.Text,
-                   // DepartureTime = DepTime,
-                };
+                Departure = cbbDep.Text,
+                Destination = cbbDes.Text,
+                // DepartureTime = DepTime,
+            };
 
-                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
-               
-            }
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
         }
 
         private void buttrain_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                string scheduleid = dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString();
+                int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString());
                 addtrain f = new addtrain(scheduleid);
                 f.Show();
             }

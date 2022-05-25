@@ -14,7 +14,7 @@ namespace pbl.View
 {
     public partial class lichtrinadd : Form
     {
-        public delegate void MyDel(string scheduleid);
+        public delegate void MyDel(int scheduleid);
         public MyDel d;
         public lichtrinadd()
         {
@@ -48,7 +48,7 @@ namespace pbl.View
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                string scheduleid = dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString();
+                int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString());
                 d(scheduleid);
                 this.Close();
             }
@@ -59,27 +59,14 @@ namespace pbl.View
 
         private void bSearch_Click(object sender, EventArgs e)
         {
-            string DepTime, DesTime;
-            DateTime dep, des;
-
-            //DepTime = dateDep.Value.ToString("d/M/yyyy");
-            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-            //{
-            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            //}
-
-            //   else
+            SCHEDULE_View s = new SCHEDULE_View()
             {
-                SCHEDULE_View s = new SCHEDULE_View()
-                {
-                    Departure = cbbDep.Text,
-                    Destination = cbbDes.Text,
-                    // DepartureTime = DepTime,
-                };
+                Departure = cbbDep.Text,
+                Destination = cbbDes.Text,
+                // DepartureTime = DepTime,
+            };
 
-                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
-
-            }
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
         }
     }
 }

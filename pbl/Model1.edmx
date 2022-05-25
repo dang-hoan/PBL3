@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PBL3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PBL3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="LOGIN">
           <Key>
             <PropertyRef Name="IDlogin" />
@@ -25,20 +25,20 @@
           <Property Name="IDCard" Type="char" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="Phone" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="PositionID" Type="varchar" MaxLength="10" />
+          <Property Name="PositionID" Type="int" />
         </EntityType>
         <EntityType Name="POSITION">
           <Key>
             <PropertyRef Name="PositionID" />
           </Key>
-          <Property Name="PositionID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PositionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Position" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="SCHEDULE">
           <Key>
             <PropertyRef Name="ScheduleID" />
           </Key>
-          <Property Name="ScheduleID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Departure" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Destination" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DepartureTime" Type="datetime" Nullable="false" />
@@ -57,7 +57,7 @@
           <Key>
             <PropertyRef Name="StationID" />
           </Key>
-          <Property Name="StationID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StationName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="State" Type="nvarchar" MaxLength="50" />
@@ -77,7 +77,7 @@
           <Key>
             <PropertyRef Name="TicketManagerID" />
           </Key>
-          <Property Name="TicketManagerID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TicketManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TrainID" Type="int" Nullable="false" />
           <Property Name="TotalTickets" Type="int" Nullable="false" />
           <Property Name="BookedTickets" Type="int" Nullable="false" />
@@ -90,10 +90,20 @@
           <Property Name="TrainName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NumberOfCarriages" Type="int" Nullable="false" />
           <Property Name="DriverUN" Type="varchar" MaxLength="20" />
-          <Property Name="ScheduleID" Type="varchar" MaxLength="10" />
-          <Property Name="BasicPrice" Type="money" />
-          <Property Name="State" Type="bit" />
+          <Property Name="ScheduleID" Type="int" />
         </EntityType>
+        <Association Name="FK__LOGIN__Username__29572725">
+          <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="1" />
+          <End Role="LOGIN" Type="Self.LOGIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEOPLE">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="LOGIN">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__PEOPLE__Position__267ABA7A">
           <End Role="POSITION" Type="Self.POSITION" Multiplicity="0..1" />
           <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="*" />
@@ -106,7 +116,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SECURITY__OwnUN__5CD6CB2B">
+        <Association Name="FK__SECURITY__OwnUN__49C3F6B7">
           <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="0..1" />
           <End Role="SECURITY" Type="Self.SECURITY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -188,11 +198,15 @@
           <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TICKET_MANAGER" EntityType="Self.TICKET_MANAGER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRAIN" EntityType="Self.TRAIN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__LOGIN__Username__29572725" Association="Self.FK__LOGIN__Username__29572725">
+            <End Role="PEOPLE" EntitySet="PEOPLE" />
+            <End Role="LOGIN" EntitySet="LOGIN" />
+          </AssociationSet>
           <AssociationSet Name="FK__PEOPLE__Position__267ABA7A" Association="Self.FK__PEOPLE__Position__267ABA7A">
             <End Role="POSITION" EntitySet="POSITION" />
             <End Role="PEOPLE" EntitySet="PEOPLE" />
           </AssociationSet>
-          <AssociationSet Name="FK__SECURITY__OwnUN__5CD6CB2B" Association="Self.FK__SECURITY__OwnUN__5CD6CB2B">
+          <AssociationSet Name="FK__SECURITY__OwnUN__49C3F6B7" Association="Self.FK__SECURITY__OwnUN__49C3F6B7">
             <End Role="PEOPLE" EntitySet="PEOPLE" />
             <End Role="SECURITY" EntitySet="SECURITY" />
           </AssociationSet>
@@ -217,7 +231,8 @@
             <End Role="TRAIN" EntitySet="TRAIN" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PBL3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -242,23 +257,18 @@
           <Property Name="IDCard" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="PositionID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PositionID" Type="Int32" />
           <NavigationProperty Name="LOGINs" Relationship="Self.FK__LOGIN__Username__29572725" FromRole="PEOPLE" ToRole="LOGIN" />
           <NavigationProperty Name="POSITION" Relationship="Self.FK__PEOPLE__Position__267ABA7A" FromRole="PEOPLE" ToRole="POSITION" />
-          <NavigationProperty Name="SECURITies" Relationship="Self.FK__SECURITY__OwnUN__5CD6CB2B" FromRole="PEOPLE" ToRole="SECURITY" />
+          <NavigationProperty Name="SECURITies" Relationship="Self.FK__SECURITY__OwnUN__49C3F6B7" FromRole="PEOPLE" ToRole="SECURITY" />
           <NavigationProperty Name="TICKETs" Relationship="Self.FK__TICKET__Customer__34C8D9D1" FromRole="PEOPLE" ToRole="TICKET" />
           <NavigationProperty Name="TRAINs" Relationship="Self.FK__TRAIN__DriverUN__300424B4" FromRole="PEOPLE" ToRole="TRAIN" />
-<<<<<<< HEAD
-          <NavigationProperty Name="LOGINs" Relationship="PBL3Model.FK__LOGIN__Username__29572725" FromRole="PEOPLE" ToRole="LOGIN" />
-          <NavigationProperty Name="SECURITies" Relationship="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" FromRole="PEOPLE" ToRole="SECURITY" />
-=======
->>>>>>> 2dfe5b6754472c076d2eddadde6ebbce4b86ca80
         </EntityType>
         <EntityType Name="POSITION">
           <Key>
             <PropertyRef Name="PositionID" />
           </Key>
-          <Property Name="PositionID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PositionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="PEOPLE" Relationship="Self.FK__PEOPLE__Position__267ABA7A" FromRole="POSITION" ToRole="PEOPLE" />
         </EntityType>
@@ -266,7 +276,7 @@
           <Key>
             <PropertyRef Name="ScheduleID" />
           </Key>
-          <Property Name="ScheduleID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Departure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DepartureTime" Type="DateTime" Nullable="false" Precision="3" />
@@ -277,17 +287,17 @@
           <Key>
             <PropertyRef Name="SecurityID" />
           </Key>
-          <Property Name="SecurityID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SecurityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OwnUN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Question" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Person" Relationship="Self.FK__SECURITY__OwnUN__5CD6CB2B" FromRole="SECURITY" ToRole="PEOPLE" />
+          <NavigationProperty Name="Person" Relationship="Self.FK__SECURITY__OwnUN__49C3F6B7" FromRole="SECURITY" ToRole="PEOPLE" />
         </EntityType>
         <EntityType Name="STATION">
           <Key>
             <PropertyRef Name="StationID" />
           </Key>
-          <Property Name="StationID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -309,7 +319,7 @@
           <Key>
             <PropertyRef Name="TicketManagerID" />
           </Key>
-          <Property Name="TicketManagerID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TicketManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TrainID" Type="Int32" Nullable="false" />
           <Property Name="TotalTickets" Type="Int32" Nullable="false" />
           <Property Name="BookedTickets" Type="Int32" Nullable="false" />
@@ -323,13 +333,11 @@
           <Property Name="TrainName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NumberOfCarriages" Type="Int32" Nullable="false" />
           <Property Name="DriverUN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ScheduleID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleID" Type="Int32" />
           <NavigationProperty Name="Person" Relationship="Self.FK__TRAIN__DriverUN__300424B4" FromRole="TRAIN" ToRole="PEOPLE" />
           <NavigationProperty Name="SCHEDULE" Relationship="Self.FK__TRAIN__ScheduleI__30F848ED" FromRole="TRAIN" ToRole="SCHEDULE" />
           <NavigationProperty Name="TICKETs" Relationship="Self.FK__TICKET__TrainID__33D4B598" FromRole="TRAIN" ToRole="TICKET" />
           <NavigationProperty Name="TICKET_MANAGER" Relationship="Self.FK__TICKET_MA__Train__37A5467C" FromRole="TRAIN" ToRole="TICKET_MANAGER" />
-          <Property Name="BasicPrice" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="State" Type="Boolean" />
         </EntityType>
         <Association Name="FK__LOGIN__Username__29572725">
           <End Role="PEOPLE" Type="PBL3.PEOPLE" Multiplicity="1" />
@@ -355,7 +363,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SECURITY__OwnUN__5CD6CB2B">
+        <Association Name="FK__SECURITY__OwnUN__49C3F6B7">
           <End Role="PEOPLE" Type="PBL3.PEOPLE" Multiplicity="0..1" />
           <End Role="SECURITY" Type="Self.SECURITY" Multiplicity="*" />
           <ReferentialConstraint>
@@ -427,7 +435,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PBL32" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PBL3Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LOGINs" EntityType="Self.LOGIN" />
           <EntitySet Name="PEOPLE" EntityType="PBL3.PEOPLE" />
           <EntitySet Name="POSITIONs" EntityType="Self.POSITION" />
@@ -445,7 +453,7 @@
             <End Role="POSITION" EntitySet="POSITIONs" />
             <End Role="PEOPLE" EntitySet="PEOPLE" />
           </AssociationSet>
-          <AssociationSet Name="FK__SECURITY__OwnUN__5CD6CB2B" Association="Self.FK__SECURITY__OwnUN__5CD6CB2B">
+          <AssociationSet Name="FK__SECURITY__OwnUN__49C3F6B7" Association="Self.FK__SECURITY__OwnUN__49C3F6B7">
             <End Role="PEOPLE" EntitySet="PEOPLE" />
             <End Role="SECURITY" EntitySet="SECURITies" />
           </AssociationSet>
@@ -469,70 +477,13 @@
             <End Role="TRAIN" EntitySet="TRAINs" />
             <End Role="TICKET_MANAGER" EntitySet="TICKET_MANAGER" />
           </AssociationSet>
-<<<<<<< HEAD
-          <EntitySet Name="LOGINs" EntityType="PBL3Model.LOGIN" />
-          <AssociationSet Name="FK__LOGIN__Username__29572725" Association="PBL3Model.FK__LOGIN__Username__29572725">
-            <End Role="PEOPLE" EntitySet="PEOPLE" />
-            <End Role="LOGIN" EntitySet="LOGINs" />
-          </AssociationSet>
-          <EntitySet Name="SECURITies" EntityType="PBL3Model.SECURITY" />
-          <AssociationSet Name="FK__SECURITY__OwnUN__49C3F6B7" Association="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7">
-            <End Role="PEOPLE" EntitySet="PEOPLE" />
-            <End Role="SECURITY" EntitySet="SECURITies" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="LOGIN">
-          <Key>
-            <PropertyRef Name="IDlogin" />
-          </Key>
-          <Property Name="IDlogin" Type="Int32" Nullable="false" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Person" Relationship="PBL3Model.FK__LOGIN__Username__29572725" FromRole="LOGIN" ToRole="PEOPLE" />
-        </EntityType>
-        <Association Name="FK__LOGIN__Username__29572725">
-          <End Type="PBL3Model.PEOPLE" Role="PEOPLE" Multiplicity="1" />
-          <End Type="PBL3Model.LOGIN" Role="LOGIN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PEOPLE">
-              <PropertyRef Name="Username" />
-            </Principal>
-            <Dependent Role="LOGIN">
-              <PropertyRef Name="Username" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="SECURITY">
-          <Key>
-            <PropertyRef Name="SecurityID" />
-          </Key>
-          <Property Name="SecurityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OwnUN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Question" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Answer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Person" Relationship="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" FromRole="SECURITY" ToRole="PEOPLE" />
-        </EntityType>
-        <Association Name="FK__SECURITY__OwnUN__49C3F6B7">
-          <End Type="PBL3Model.PEOPLE" Role="PEOPLE" Multiplicity="0..1" />
-          <End Type="PBL3Model.SECURITY" Role="SECURITY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PEOPLE">
-              <PropertyRef Name="Username" />
-            </Principal>
-            <Dependent Role="SECURITY">
-              <PropertyRef Name="OwnUN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-=======
-        </EntityContainer>
->>>>>>> 2dfe5b6754472c076d2eddadde6ebbce4b86ca80
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PBL3StoreContainer" CdmEntityContainer="PBL32">
+        <EntityContainerMapping StorageEntityContainer="PBL3StoreContainer" CdmEntityContainer="PBL3Entities">
           <EntitySetMapping Name="LOGINs">
             <EntityTypeMapping TypeName="PBL3.LOGIN">
               <MappingFragment StoreEntitySet="LOGIN">
@@ -621,8 +572,6 @@
           <EntitySetMapping Name="TRAINs">
             <EntityTypeMapping TypeName="PBL3.TRAIN">
               <MappingFragment StoreEntitySet="TRAIN">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="BasicPrice" ColumnName="BasicPrice" />
                 <ScalarProperty Name="TrainID" ColumnName="TrainID" />
                 <ScalarProperty Name="TrainName" ColumnName="TrainName" />
                 <ScalarProperty Name="NumberOfCarriages" ColumnName="NumberOfCarriages" />
@@ -631,28 +580,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-<<<<<<< HEAD
-          <EntitySetMapping Name="LOGINs">
-            <EntityTypeMapping TypeName="PBL3Model.LOGIN">
-              <MappingFragment StoreEntitySet="LOGIN">
-                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SECURITies">
-            <EntityTypeMapping TypeName="PBL3Model.SECURITY">
-              <MappingFragment StoreEntitySet="SECURITY">
-                <ScalarProperty Name="Answer" ColumnName="Answer" />
-                <ScalarProperty Name="Question" ColumnName="Question" />
-                <ScalarProperty Name="OwnUN" ColumnName="OwnUN" />
-                <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-=======
->>>>>>> 2dfe5b6754472c076d2eddadde6ebbce4b86ca80
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

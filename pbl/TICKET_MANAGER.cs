@@ -14,7 +14,7 @@ namespace pbl
     
     public partial class TICKET_MANAGER
     {
-        public string TicketManagerID { get; set; }
+        public int TicketManagerID { get; set; }
         public int TrainID { get; set; }
         public int TotalTickets { get; set; }
         public int BookedTickets { get; set; }

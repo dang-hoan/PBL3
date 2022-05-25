@@ -44,20 +44,20 @@ namespace pbl
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string p=" ";
+            int p = -1;
             if (positionid.Text == "Nhân viên")
             {
-                p = "222";
+                p = 222;
             }
             else if(positionid.Text == "Giám đốc")
             {
-                p = "111";
+                p = 111;
             }
             else if (positionid.Text == "Khách hàng")
             {
-                p = "333";            
+                p = 333;            
             }
-                PEOPLE s = new PEOPLE()
+            PEOPLE s = new PEOPLE()
             {
                 Username =txtusername.Text,
                 Name = txtname.Text,

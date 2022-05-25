@@ -21,7 +21,7 @@ namespace pbl.View.Admin
         public void shownv()
         {
 
-            dataGridView1.DataSource = BLLpeople.instance.getallnv("222");
+            dataGridView1.DataSource = BLLpeople.instance.getallnv(222);
         }
 
         private void btxoa_Click(object sender, EventArgs e)

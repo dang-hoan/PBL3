@@ -18,7 +18,7 @@ namespace pbl
         private bool NoScheduleClick = true;
         private SCHEDULE_BLL schedule = new SCHEDULE_BLL
         {
-            ScheduleID = "",
+            ScheduleID = -1,
             Departure = "",
             Destination = "",
             FromDepartureTime = DateTime.Now,

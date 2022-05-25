@@ -75,7 +75,7 @@ namespace pbl.BLL
 
                          select new TICKET_View
                          {
-                             ScheduleID = tra.ScheduleID,
+                             ScheduleID = (int)tra.ScheduleID,
                              TrainID = tra.TrainID.ToString(),
                              TrainName = tra.TrainName,
                              TicketID = tic.TicketID,
@@ -134,7 +134,7 @@ namespace pbl.BLL
                         join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
                         select new TICKET_View
                         {
-                            ScheduleID = tra.ScheduleID,
+                            ScheduleID = (int)tra.ScheduleID,
                             TrainID = tra.TrainID.ToString(),
                             TrainName = tra.TrainName,
                             TicketID = tic.TicketID,

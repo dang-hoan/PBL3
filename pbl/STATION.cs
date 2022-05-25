@@ -14,7 +14,7 @@ namespace pbl
     
     public partial class STATION
     {
-        public string StationID { get; set; }
+        public int StationID { get; set; }
         public string StationName { get; set; }
         public string Address { get; set; }
         public string State { get; set; }

@@ -25,13 +25,13 @@ namespace pbl
     
         public string Username { get; set; }
         public string Name { get; set; }
-        public Nullable<bool> Gender { get; set; }
-        public Nullable<System.DateTime> BirthDay { get; set; }
+        public bool Gender { get; set; }
+        public DateTime BirthDay { get; set; }
         public string Address { get; set; }
         public string IDCard { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string PositionID { get; set; }
+        public Nullable<int> PositionID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LOGIN> LOGINs { get; set; }

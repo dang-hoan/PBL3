@@ -74,11 +74,8 @@
     <Compile Include="BLL\BLLpeople.cs" />
     <Compile Include="BLL\BLLTicket.cs" />
     <Compile Include="BLL\BLLTRAIN.cs" />
-<<<<<<< HEAD
     <Compile Include="DTO\CBBSecurity.cs" />
-=======
     <Compile Include="DTO\CBBpeople.cs" />
->>>>>>> 2dfe5b6754472c076d2eddadde6ebbce4b86ca80
     <Compile Include="DTO\employeeview.cs" />
     <Compile Include="DTO\PEOPLE_View.cs" />
     <Compile Include="DTO\Schedule.cs" />
@@ -86,7 +83,48 @@
     <Compile Include="DTO\SCHEDULE_View.cs" />
     <Compile Include="DTO\TICKET_User_View.cs" />
     <Compile Include="DTO\TICKET_View.cs" />
-<<<<<<< HEAD
+    <Compile Include="LOGIN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PEOPLE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POSITION.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SCHEDULE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SECURITY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STATION.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TICKET.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TICKET_MANAGER.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRAIN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="View\AddSecurity.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,51 +137,7 @@
     <Compile Include="View\InputPass.Designer.cs">
       <DependentUpon>InputPass.cs</DependentUpon>
     </Compile>
-=======
     <Compile Include="DTO\Train_View.cs" />
->>>>>>> 2dfe5b6754472c076d2eddadde6ebbce4b86ca80
-    <Compile Include="LOGIN.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PBL3.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PBL3.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PBL3.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PBL3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PBL3.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="PEOPLE.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="POSITION.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SCHEDULE.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SECURITY.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="STATION.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TICKET.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TICKET_MANAGER.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TRAIN.cs">
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
     <Compile Include="View\Employee\addtrain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -413,13 +407,12 @@
     <Compile Include="View\GUIRegister.Designer.cs">
       <DependentUpon>GUIRegister.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <EmbeddedResource Include="View\AddSecurity.resx">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\InputPass.resx">
       <DependentUpon>InputPass.cs</DependentUpon>
-=======
+    </EmbeddedResource>
     <Compile Include="View\Employee\trainve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,7 +421,6 @@
     </Compile>
     <EmbeddedResource Include="View\Employee\addtrain.resx">
       <DependentUpon>addtrain.cs</DependentUpon>
->>>>>>> 2dfe5b6754472c076d2eddadde6ebbce4b86ca80
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\addnv.resx">
       <DependentUpon>addnv.cs</DependentUpon>
@@ -574,14 +566,14 @@
       <DependentUpon>trainve.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
-    <EntityDeploy Include="PBL3.edmx">
+    <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PBL3.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="packages.config" />
-    <None Include="PBL3.edmx.diagram">
-      <DependentUpon>PBL3.edmx</DependentUpon>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -685,20 +677,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PBL3.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PBL3.Context.cs</LastGenOutput>
-      <DependentUpon>PBL3.edmx</DependentUpon>
-    </Content>
-    <Content Include="PBL3.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PBL3.edmx</DependentUpon>
-      <LastGenOutput>PBL3.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-<<<<<<< HEAD
-=======
-  <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -727,6 +705,17 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
->>>>>>> 7c0010bd161f40f5bbe8e4957f10869345003198
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -73,7 +73,7 @@ namespace pbl.View
         {  int id = Convert.ToInt32(trainid);
             foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(id))
             {
-                txtschedule.Text = i.ScheduleID;
+                txtschedule.Text = i.ScheduleID.ToString();
                 txttrainid.Text = i.TrainID.ToString();
                 txtname.Text = i.TrainName;
                 txtsotau.Text = i.NumberOfCarriages.ToString();

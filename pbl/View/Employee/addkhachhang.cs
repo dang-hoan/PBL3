@@ -69,7 +69,7 @@ namespace pbl.View
                         Address = txtdiachi.Text,
                         Email = txtgamil.Text,
                         IDCard = txtidcard.Text,
-                        PositionID = "124"
+                        PositionID = 124
                     };
 
                     LOGIN dn = new LOGIN()
@@ -102,7 +102,7 @@ namespace pbl.View
                         Address = txtdiachi.Text,
                         Email = txtgamil.Text,
                         IDCard = txtidcard.Text,
-                        PositionID = "124"
+                        PositionID = 124
                     };
 
                     LOGIN dn = new LOGIN()

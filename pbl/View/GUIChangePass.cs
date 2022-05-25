@@ -61,7 +61,7 @@ namespace pbl
             else
             {
                 txtNewPass.PasswordChar = '*';
-                txtConfirmPass.PasswordChar = '\0';
+                txtConfirmPass.PasswordChar = '*';
             }
         }
 

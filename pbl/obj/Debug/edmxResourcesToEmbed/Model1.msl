@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="PBL3">
+  <EntityContainerMapping StorageEntityContainer="PBL3StoreContainer" CdmEntityContainer="PBL3Entities">
     <EntitySetMapping Name="LOGINs">
-      <EntityTypeMapping TypeName="PBL3Model.LOGIN">
+      <EntityTypeMapping TypeName="PBL3.LOGIN">
         <MappingFragment StoreEntitySet="LOGIN">
           <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -11,7 +11,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PEOPLE">
-      <EntityTypeMapping TypeName="PBL3Model.PEOPLE">
+      <EntityTypeMapping TypeName="PBL3.PEOPLE">
         <MappingFragment StoreEntitySet="PEOPLE">
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -26,7 +26,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="POSITIONs">
-      <EntityTypeMapping TypeName="PBL3Model.POSITION">
+      <EntityTypeMapping TypeName="PBL3.POSITION">
         <MappingFragment StoreEntitySet="POSITION">
           <ScalarProperty Name="PositionID" ColumnName="PositionID" />
           <ScalarProperty Name="Position" ColumnName="Position" />
@@ -34,7 +34,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SCHEDULEs">
-      <EntityTypeMapping TypeName="PBL3Model.SCHEDULE">
+      <EntityTypeMapping TypeName="PBL3.SCHEDULE">
         <MappingFragment StoreEntitySet="SCHEDULE">
           <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
           <ScalarProperty Name="Departure" ColumnName="Departure" />
@@ -44,8 +44,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SECURITies">
+      <EntityTypeMapping TypeName="PBL3.SECURITY">
+        <MappingFragment StoreEntitySet="SECURITY">
+          <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
+          <ScalarProperty Name="OwnUN" ColumnName="OwnUN" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="STATIONs">
-      <EntityTypeMapping TypeName="PBL3Model.STATION">
+      <EntityTypeMapping TypeName="PBL3.STATION">
         <MappingFragment StoreEntitySet="STATION">
           <ScalarProperty Name="StationID" ColumnName="StationID" />
           <ScalarProperty Name="StationName" ColumnName="StationName" />
@@ -55,7 +65,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TICKETs">
-      <EntityTypeMapping TypeName="PBL3Model.TICKET">
+      <EntityTypeMapping TypeName="PBL3.TICKET">
         <MappingFragment StoreEntitySet="TICKET">
           <ScalarProperty Name="TicketID" ColumnName="TicketID" />
           <ScalarProperty Name="TrainID" ColumnName="TrainID" />
@@ -67,7 +77,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TICKET_MANAGER">
-      <EntityTypeMapping TypeName="PBL3Model.TICKET_MANAGER">
+      <EntityTypeMapping TypeName="PBL3.TICKET_MANAGER">
         <MappingFragment StoreEntitySet="TICKET_MANAGER">
           <ScalarProperty Name="TicketManagerID" ColumnName="TicketManagerID" />
           <ScalarProperty Name="TrainID" ColumnName="TrainID" />
@@ -77,7 +87,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TRAINs">
-      <EntityTypeMapping TypeName="PBL3Model.TRAIN">
+      <EntityTypeMapping TypeName="PBL3.TRAIN">
         <MappingFragment StoreEntitySet="TRAIN">
           <ScalarProperty Name="TrainID" ColumnName="TrainID" />
           <ScalarProperty Name="TrainName" ColumnName="TrainName" />

@@ -20,7 +20,7 @@ namespace pbl
             this.PEOPLE = new HashSet<PEOPLE>();
         }
     
-        public string PositionID { get; set; }
+        public int PositionID { get; set; }
         public string Position { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -25,10 +25,10 @@ namespace pbl
         public string TrainName { get; set; }
         public int NumberOfCarriages { get; set; }
         public string DriverUN { get; set; }
-        public string ScheduleID { get; set; }
-        public Nullable<decimal> BasicPrice { get; set; }
-        public Nullable<bool> State { get; set; }
-    
+        public Nullable<int> ScheduleID { get; set; }
+
+        public decimal BasicPrice { get; set; }
+        public string State { get; set; }
         public virtual PEOPLE Person { get; set; }
         public virtual SCHEDULE SCHEDULE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

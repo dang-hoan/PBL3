@@ -185,7 +185,8 @@ namespace pbl
         }
         private void bEditSecurity_Click(object sender, EventArgs e)
         {
-            txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value);
+            if(cbbQuestion.Text != "")
+                txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value);
             InputPass input = new InputPass();
             input.GetConfirmPass = new InputPass.MyDel(GetConfirmPass);
             input.ShowDialog();

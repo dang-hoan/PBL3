@@ -77,14 +77,14 @@ namespace pbl.View
                     MessageBox.Show("Thời gian đến phải sau thời gian đi!");
             }
             else
-            if (!BLLTRAIN.Instance.checksch(schedule.Text))
+            if (!BLLTRAIN.Instance.checksch(Convert.ToInt32(schedule.Text)))
             {
                 SCHEDULE s = new SCHEDULE
                 {
 
-                    ScheduleID    =   schedule.Text,
-                    Departure     =   cbbDep.Text,
-                    Destination   =   cbbDes.Text,
+                    ScheduleID    = Convert.ToInt32(schedule.Text),
+                    Departure     = cbbDep.Text,
+                    Destination   = cbbDes.Text,
                     DepartureTime = dep,
                     ArrivalTime   = des,
 
@@ -111,7 +111,7 @@ namespace pbl.View
 
         private void schedule_TextChanged(object sender, EventArgs e)
         {
-            if(BLLTRAIN.Instance.checksch(schedule.Text))
+            if(BLLTRAIN.Instance.checksch(Convert.ToInt32(schedule.Text)))
             { string s= "*";
                 schedule.ForeColor = Color.Red;
                 schedule.Text = schedule.Text + "    *";

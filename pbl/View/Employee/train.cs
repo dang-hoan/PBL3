@@ -39,26 +39,17 @@ namespace pbl.View
 
         private void bSearch_Click(object sender, EventArgs e)
         {
-            string DepTime, DesTime;
-            DateTime dep, des;
-
-            //DepTime = dateDep.Value.ToString("d/M/yyyy");
-            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-            //{
-            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            //}
-
                 SCHEDULE_View s = new SCHEDULE_View()
                 {
                     Departure = cbbDep.Text,
                     Destination = cbbDes.Text,
                     //DepartureTime = DepTime,
                 };
-                string scheduleid = "";
+                int scheduleid = 0;
                 foreach (SCHEDULE_View i in BLLTRAIN.Instance.GetSchedule2(s))
                 {
                     scheduleid = i.ScheduleID;
-                    MessageBox.Show(scheduleid);
+                    MessageBox.Show(scheduleid.ToString());
                 }
                dataGridView1.DataSource = BLLTRAIN.Instance.GetTrain2(scheduleid);
        
@@ -67,7 +58,7 @@ namespace pbl.View
 
         private void buttrain_Click(object sender, EventArgs e)
         {
-            addtrain f = new addtrain("");
+            addtrain f = new addtrain(0);
             f.Show();
             f.d = new addtrain.Mydel(show);
 
@@ -105,7 +96,7 @@ namespace pbl.View
 
         private void butdelte_Click(object sender, EventArgs e)
         { 
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0) { }
         }
     }
 }

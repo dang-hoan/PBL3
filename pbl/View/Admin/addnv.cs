@@ -27,7 +27,7 @@ namespace pbl.View.Admin
         public void shownv()
         {
             
-            dtgaddnv.DataSource = BLLpeople.instance.getallnv("222");
+            dtgaddnv.DataSource = BLLpeople.instance.getallnv(222);
         }
         /*public void GUI()
         {
@@ -61,7 +61,7 @@ namespace pbl.View.Admin
                 Address = address.Text,
                 Email = gmail.Text,
                 IDCard = idcard.Text,
-                PositionID = "222",
+                PositionID = 222,
             };
             LOGIN l = new LOGIN()
             {

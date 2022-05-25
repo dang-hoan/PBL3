@@ -89,7 +89,9 @@ namespace pbl
 
         private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            GUIRegister reg = new GUIRegister(this);
+            reg.Show();
+            this.Hide();
         }
 
         private void Formlogin_KeyDown(object sender, KeyEventArgs e)
