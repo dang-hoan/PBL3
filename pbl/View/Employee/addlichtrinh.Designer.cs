@@ -129,6 +129,7 @@
             this.schedule.Name = "schedule";
             this.schedule.Size = new System.Drawing.Size(253, 22);
             this.schedule.TabIndex = 40;
+            this.schedule.TextChanged += new System.EventHandler(this.schedule_TextChanged);
             // 
             // label10
             // 

@@ -18,7 +18,7 @@ namespace pbl.DTO
         public string Destination { get; set; }
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }
-        public bool Booked { get; set; }
+        public string Booked { get; set; }
         public string OwnUsername { get; set; }
         public string OwnName { get; set; }
 

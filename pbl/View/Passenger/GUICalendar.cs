@@ -61,7 +61,7 @@ namespace pbl
         {
             for (int i = 1; i <= 12; i++) cbbMonth.Items.Add(i);
             int now = DateTime.Now.Year;
-            for (int i = now - 200; i <= now + 200; i++) cbbYear.Items.Add(i);
+            for (int i = now - 100; i <= now + 100; i++) cbbYear.Items.Add(i);
         }
         private bool[] hasSchedule = new bool[31];
         private void label_Click(object sender, EventArgs e)
@@ -153,6 +153,59 @@ namespace pbl
             if(e.KeyCode == Keys.Enter)
             {
                 ChangeMonthYear(sender, e);
+            }
+        }
+        private bool CheckNumber(string txt)
+        {
+            foreach (char i in txt)
+            {
+                if (i < 48 || i > 57) return false;
+            }
+            return true;
+        }
+        private void cbbMonth_Leave(object sender, EventArgs e)
+        {
+            ComboBox temp = ((ComboBox)sender);
+            if(temp.Text != "")
+            {
+                if (!CheckNumber(temp.Text)){
+                    MessageBox.Show("Tháng phải là 1 số (1-12)!");
+                    temp.Text = "";
+                    return;
+                }
+                foreach(int i in temp.Items)
+                {
+                    if(string.Compare(i.ToString(), temp.Text) == 0)
+                    {
+                        return;
+                    }
+                }
+                MessageBox.Show("Tháng bạn nhập không nằm trong phạm vi hợp lệ (1-12)!");
+                temp.Text = "";
+            }
+        }
+
+        private void cbbYear_Leave(object sender, EventArgs e)
+        {
+            ComboBox temp = ((ComboBox)sender);
+            if(temp.Text != "")
+            {
+                if (!CheckNumber(temp.Text))
+                {
+                    MessageBox.Show("Năm phải là 1 số (ví dụ: 2022)!");
+                    temp.Text = "";
+                    return;
+                }
+                foreach (int i in temp.Items)
+                {
+                    if (string.Compare(i.ToString(), temp.Text) == 0)
+                    {
+                        return;
+                    }
+                }
+                MessageBox.Show("Năm bạn nhập không nằm ngoài phạm vi năm có lịch trình!");
+                temp.Text = "";
+
             }
         }
     }

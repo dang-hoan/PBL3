@@ -74,6 +74,7 @@ namespace pbl.View
             //}
            
            SCHEDULE_View schedule = new SCHEDULE_View()
+
             {
                 Departure = cbbDep.Text,
                 Destination = cbbDes.Text,
@@ -89,17 +90,6 @@ namespace pbl.View
             addve f = new addve("");
             f.Show();
             f.d = new addve.Mydel(show);
-        }
-
-        private void butsua_Click(object sender, EventArgs e)
-        {
-           if(dataGridView1.SelectedRows.Count > 0)
-            {
-                string ticketid = dataGridView1.SelectedRows[0].Cells["TicketID"].Value.ToString();
-                addve f = new addve(ticketid);
-                f.Show();
-                f.d = new addve.Mydel(show);
-            }    
         }
         private void butdat_Click(object sender, EventArgs e)
         {
@@ -151,6 +141,30 @@ namespace pbl.View
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void butmuave_Click(object sender, EventArgs e)
+        {
+            List<string> list = new List<string>();
+            if (dataGridView1.SelectedRows.Count >= 1)
+            {
+                
+                foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
+                {
+                    if (dr.Cells["Booked"].ToString() == "chưa đặt")
+                    {
+                        list.Add(dr.Cells["ScheduleID"].Value.ToString());
+                        GUIBook book = new GUIBook(list);
+                        book.Show();
+                    }
+                    else { MessageBox.Show("ve đã được đặt"); }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetAllTICKETView();
         }
 
 

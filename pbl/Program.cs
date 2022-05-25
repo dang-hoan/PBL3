@@ -18,6 +18,15 @@ namespace pbl
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GUILogin());
+            //Application.Run(new pbl.View.Passenger.Form1(new DTO.SCHEDULE_BLL
+            //{
+            //    Departure = "",
+            //    Destination = "",
+            //    FromDepartureTime = DateTime.Now,
+            //    ToDepartureTime = DateTime.Now,
+            //    FromArrivalTime = DateTime.Now,
+            //    ToArrivalTime = DateTime.Now,
+            //}));
         }
     }
 }

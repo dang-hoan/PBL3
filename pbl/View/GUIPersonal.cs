@@ -19,6 +19,7 @@ namespace pbl
         {
             InitializeComponent();
             GUI();
+            txtBirthDay.MaxDate = DateTime.Now;
         }
         private void GUI()
         {

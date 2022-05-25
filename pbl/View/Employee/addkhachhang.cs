@@ -15,7 +15,7 @@ namespace pbl.View
 {
     public partial class addkhachhang : Form
     {
-        string user,pass;
+        string user, pass;
         public delegate void Mydel(string username);
         public Mydel d;
         public string username { get; set; }
@@ -46,7 +46,7 @@ namespace pbl.View
                 pass = txtpass.Text;
             }
         }
-    private void butok_Click(object sender, EventArgs e)
+        private void butok_Click(object sender, EventArgs e)
         {
             if ((txtidcard.Text == "") || (txtname.Text == "") || (txtsdt.Text == "") || (txtuser.Text == ""))
             {
@@ -57,6 +57,7 @@ namespace pbl.View
             {
                 if (user == txtuser.Text)
                 {
+                    MessageBox.Show("..");
                     PEOPLE s = new PEOPLE
                     {
 
@@ -72,7 +73,8 @@ namespace pbl.View
                     };
 
                     LOGIN dn = new LOGIN()
-                    {   Username = txtuser.Text,
+                    {
+                        Username = txtuser.Text,
                         PassWord = txtpass.Text,
                     };
                     BLLpeople.instance.Execute(s);
@@ -88,7 +90,6 @@ namespace pbl.View
                     if (BLLpeople.instance.check(txtuser.Text))
                     MessageBox.Show("username của không hợp lệ ");
                 else
-                if (!(BLLpeople.instance.check(txtuser.Text)))
                 {
                     PEOPLE s = new PEOPLE
                     {
@@ -109,23 +110,23 @@ namespace pbl.View
                         Username = txtuser.Text,
                         PassWord = txtpass.Text,
                     };
-                    BLLpeople.instance.Execute(s);
 
                     BLLpeople.instance.Execute2(dn);
+                    BLLpeople.instance.Execute(s);
                     d("");
                     this.Close();
                 };
-              
+
             }
         }
 
 
         private void txtidcard_Leave(object sender, EventArgs e)
         {
-            if (txtidcard.Text.Length!=12)
+            if (txtidcard.Text.Length != 12)
             {
                 MessageBox.Show("id card chi duoc dung 12 chu so ");
-             };
+            };
         }
 
         private void txtidcard_TextChanged(object sender, EventArgs e)
@@ -152,9 +153,15 @@ namespace pbl.View
             if (!(BLLpeople.instance.check(txtuser.Text)))
                 label13.Text = ("username hợp lệ ");
             else
-                if(BLLpeople.instance.check(user))
+                if (BLLpeople.instance.check(user))
                 label13.Text = ("username không hợp lệ ");
         }
+
+        private void buthuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void txtpass_Click(object sender, EventArgs e)
         {
             txtpass.Text = "";

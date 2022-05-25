@@ -16,7 +16,7 @@ namespace pbl.View
     {
         public delegate void Mydel();
         public Mydel d { get; set; }
-        string trainid ="";
+        public string trainid = "", scheduleid = "";
         public addtrain(string s)
         {
             InitializeComponent();
@@ -38,6 +38,11 @@ namespace pbl.View
                 cbbDes.Text = i.Destination;
                 cbbDes.Enabled = false;
             }
+            List<string> name = new List<string>();
+            foreach (CBBpeople s in BLLTRAIN.Instance.GetAllCBBPeople())
+            {
+                cbblaixe.Items.Add(s);
+            }
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -57,12 +62,11 @@ namespace pbl.View
 
         private void bTOK_Click(object sender, EventArgs e)
         {
-            if (trainid == "")
+            if (schedule.Text == "")
             {
                 MessageBox.Show("chon mot lich trinh truoc khi ok!");
             }
-
-            if ((txtid.Text == "") || (txtname.Text == "") || (txtsotoa.Text == "") || (txtlaixe.Text == "")||(schedule.Text==""))
+            if ( (txtname.Text == "") || (txtsotoa.Text == "") || (cbblaixe.Text == "")||(schedule.Text==""))
             {
                 MessageBox.Show("bạn chưa nhập đủ dư liệu bắt buộc ");
             }
@@ -70,37 +74,39 @@ namespace pbl.View
             {
                 TRAIN s = new TRAIN
                 {
-
                     ScheduleID = schedule.Text,
                     TrainName = txtname.Text,
-                    TrainID = txtid.Text,
                     NumberOfCarriages = int.Parse(txtsotoa.Text),
-                    DriverUN = txtlaixe.Text,
-
+                    DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
+                    BasicPrice = decimal.Parse(txtgiagoc.Text),
                 };
                 BLLTRAIN.Instance.Executetrain(s);
-                MessageBox.Show("OK");
                 d();
                 this.Close();
             }
 
            
         }
-
+        private void getScheduleID(string scheduleid)
+        {
+            foreach (SCHEDULE i in BLLTRAIN.Instance.GetScheduleid(scheduleid))
+            {
+                schedule.Text = i.ScheduleID;
+                cbbDep.Text = i.Departure;
+                cbbDes.Text = i.Destination;
+            }
+        }
         private void lich_trinh_Click(object sender, EventArgs e)
         {
             if (trainid == "")
             {
                 lichtrinadd f = new lichtrinadd();
                 f.Show();
+                f.d = new lichtrinadd.MyDel(getScheduleID);
             }
             else MessageBox.Show("da chon lich trinh truoc do!");
         }
 
-        private void txtid_TextChanged(object sender, EventArgs e)
-        {
-            if (!(BLLTRAIN.Instance.checktrain(txtid.Text)))
-                txtid.ForeColor = Color.Red;
-        }
+     
     }
 }

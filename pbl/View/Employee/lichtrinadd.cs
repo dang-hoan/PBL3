@@ -14,6 +14,8 @@ namespace pbl.View
 {
     public partial class lichtrinadd : Form
     {
+        public delegate void MyDel(string scheduleid);
+        public MyDel d;
         public lichtrinadd()
         {
             InitializeComponent();
@@ -47,8 +49,8 @@ namespace pbl.View
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 string scheduleid = dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString();
-                addtrain f = new addtrain(scheduleid);
-                f.Show();
+                d(scheduleid);
+                this.Close();
             }
             else
                 MessageBox.Show(" vui lòng chọn một lịch trình!");

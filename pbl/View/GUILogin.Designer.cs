@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUILogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbViewPass = new System.Windows.Forms.CheckBox();
             this.labelNotify = new System.Windows.Forms.Label();
             this.linkRegister = new System.Windows.Forms.LinkLabel();
             this.linkForget = new System.Windows.Forms.LinkLabel();
@@ -48,6 +49,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.cbViewPass);
             this.panel1.Controls.Add(this.labelNotify);
             this.panel1.Controls.Add(this.linkRegister);
             this.panel1.Controls.Add(this.linkForget);
@@ -62,6 +64,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(483, 637);
             this.panel1.TabIndex = 0;
+            // 
+            // cbViewPass
+            // 
+            this.cbViewPass.AutoSize = true;
+            this.cbViewPass.BackColor = System.Drawing.Color.Transparent;
+            this.cbViewPass.ForeColor = System.Drawing.Color.White;
+            this.cbViewPass.Location = new System.Drawing.Point(256, 415);
+            this.cbViewPass.Name = "cbViewPass";
+            this.cbViewPass.Size = new System.Drawing.Size(159, 24);
+            this.cbViewPass.TabIndex = 3;
+            this.cbViewPass.Text = "Hiển thị mật khẩu";
+            this.cbViewPass.UseVisualStyleBackColor = false;
+            this.cbViewPass.CheckedChanged += new System.EventHandler(this.cbViewPass_CheckedChanged);
             // 
             // labelNotify
             // 
@@ -82,7 +97,7 @@
             this.linkRegister.Location = new System.Drawing.Point(272, 588);
             this.linkRegister.Name = "linkRegister";
             this.linkRegister.Size = new System.Drawing.Size(174, 20);
-            this.linkRegister.TabIndex = 8;
+            this.linkRegister.TabIndex = 6;
             this.linkRegister.TabStop = true;
             this.linkRegister.Text = "Đăng ký tài khoản mới?";
             this.linkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegister_LinkClicked);
@@ -97,7 +112,7 @@
             this.linkForget.Location = new System.Drawing.Point(319, 551);
             this.linkForget.Name = "linkForget";
             this.linkForget.Size = new System.Drawing.Size(127, 20);
-            this.linkForget.TabIndex = 7;
+            this.linkForget.TabIndex = 5;
             this.linkForget.TabStop = true;
             this.linkForget.Text = "Quên mật khẩu?";
             this.linkForget.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForget_LinkClicked);
@@ -109,7 +124,7 @@
             this.btdangnhap.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btdangnhap.Name = "btdangnhap";
             this.btdangnhap.Size = new System.Drawing.Size(146, 42);
-            this.btdangnhap.TabIndex = 6;
+            this.btdangnhap.TabIndex = 4;
             this.btdangnhap.Text = "Đăng nhập";
             this.btdangnhap.UseVisualStyleBackColor = true;
             this.btdangnhap.Click += new System.EventHandler(this.btdangnhap_Click_1);
@@ -118,7 +133,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(33, 386);
+            this.pictureBox4.Location = new System.Drawing.Point(33, 368);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(48, 51);
@@ -140,12 +155,12 @@
             // 
             // txtpass
             // 
-            this.txtpass.Location = new System.Drawing.Point(115, 399);
+            this.txtpass.Location = new System.Drawing.Point(115, 381);
             this.txtpass.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(294, 26);
-            this.txtpass.TabIndex = 3;
+            this.txtpass.TabIndex = 2;
             // 
             // txtusername
             // 
@@ -153,7 +168,7 @@
             this.txtusername.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(294, 26);
-            this.txtusername.TabIndex = 2;
+            this.txtusername.TabIndex = 1;
             // 
             // pictureBox2
             // 
@@ -201,5 +216,6 @@
         private System.Windows.Forms.LinkLabel linkRegister;
         private System.Windows.Forms.LinkLabel linkForget;
         private System.Windows.Forms.Label labelNotify;
+        private System.Windows.Forms.CheckBox cbViewPass;
     }
 }

@@ -319,6 +319,7 @@
             this.buthuy.TabIndex = 20;
             this.buthuy.Text = "Hủy";
             this.buthuy.UseVisualStyleBackColor = true;
+            this.buthuy.Click += new System.EventHandler(this.buthuy_Click);
             // 
             // groupBox2
             // 

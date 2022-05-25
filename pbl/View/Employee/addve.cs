@@ -14,10 +14,12 @@ namespace pbl.View
 {
     public partial class addve : Form
     {
-        public delegate void Mydel(string trainid);
-        public Mydel d;
-        public string trainid { get; set; }
+        public delegate void Mydel(string s);
+        public Mydel d { get; set; }
+        public string trainid = "", scheduleid = "";
         string kiemtra = "";
+        int num;
+        decimal? giave;
         public addve(string s)
         {
             InitializeComponent();
@@ -33,20 +35,20 @@ namespace pbl.View
         }
         public void intit()
         {
-       
-            foreach (Train_View i in BLLTRAIN.Instance.GetTrain2(trainid))
-            {
-                txtschedule.Text= i.ScheduleID;
-                txtschedule.Enabled = false;
-                txttrainid.Text = i.TrainID;
+            gettrainid(trainid);
+            //foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(int.Parse(trainid)))
+            //{
+            //    txttrainid.Text = i.TrainID.ToString();
+            //    txtname.Text = i.TrainName;
+            //    txtschedule.Text = i.ScheduleID;
+            //    txtsotau.Text = i.NumberOfCarriages.ToString();
+
+            //}
+            txtschedule.Enabled = false;
                 txttrainid.Enabled = false;
-                txtname.Text = i.TrainName;
                 txtname.Enabled = false;
-                txtsotau.Text = i.NumberOfCarriages;
-                int num = Convert.ToInt32(i.NumberOfCarriages);
-                txtma.Text=num.ToString();
                 txtsotau.Enabled = false;
-            }
+            
         }
         public void GUI()
         { 
@@ -54,11 +56,61 @@ namespace pbl.View
             {
                 cbbseat.Items.Add(i.ToString());
             }
+          
 
+        }
+        private void txtgiave_TextChanged(object sender, EventArgs e)
+        {
+            if (cbbmave.Text != "")
+            {
+                decimal? heso = decimal.Parse(cbbmave.Text);
+                decimal? gia = (decimal)heso * giave;
+                txtgiave.Text = gia.ToString();
+            }
+        }
+
+        private void gettrainid(string trainid)
+        {  int id = Convert.ToInt32(trainid);
+            foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(id))
+            {
+                txtschedule.Text = i.ScheduleID;
+                txttrainid.Text = i.TrainID.ToString();
+                txtname.Text = i.TrainName;
+                txtsotau.Text = i.NumberOfCarriages.ToString();
+                num = i.NumberOfCarriages;
+                giave = i.BasicPrice;
+             
+            }
+            for (int i = 1; i <= num; i++)
+            {
+                cbbmave.Items.Add(i.ToString());
+            }
         }
 
         private void butthem_Click(object sender, EventArgs e)
-        { 
+        {
+            if (txttrainid.Text == "")
+            {
+                MessageBox.Show("chon mot lich trinh truoc khi ok!");
+            }
+            if ( (cbbseat.Text == "") || (cbbmave.Text == ""))
+            {
+                MessageBox.Show("bạn chưa nhập đủ dư liệu bắt buộc ");
+            }
+            else
+            {
+                TICKET s = new TICKET
+                {
+                    TrainID = int.Parse(txttrainid.Text),
+                    SeatNo = cbbmave.Text + cbbseat.Text,
+                    TicketPrice = decimal.Parse(txtgiave.Text),
+                    Booked = false
+
+                };
+                BLLTicket.instance.Execute(s);
+                d("");
+                this.Close();
+            }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,16 +129,23 @@ namespace pbl.View
         }
 
         private void pChat_Click(object sender, EventArgs e)
-        {if (kiemtra == "")
+        {
+            if (kiemtra == "")
             {
-                trainve s = new trainve();
-                s.Show();
-                this.Close();
+                trainve f = new trainve();
+                f.Show();
+                f.d = new trainve.mydel(gettrainid);
             }
-            else MessageBox.Show("ban da chon 1 lich trinh trc do");
+            else MessageBox.Show("da chon lich trinh truoc do!");
         }
 
-        private void txtgiave_TextChanged(object sender, EventArgs e)
+        private void cbbseat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+      
+        private void cbbmave_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -46,7 +46,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbbseat = new System.Windows.Forms.ComboBox();
-            this.txtma = new System.Windows.Forms.TextBox();
+            this.cbbmave = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pChat)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(423, 224);
+            this.label8.Location = new System.Drawing.Point(423, 213);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 16);
             this.label8.TabIndex = 126;
@@ -100,7 +100,7 @@
             // 
             // txtsotau
             // 
-            this.txtsotau.Location = new System.Drawing.Point(163, 218);
+            this.txtsotau.Location = new System.Drawing.Point(163, 213);
             this.txtsotau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtsotau.Name = "txtsotau";
             this.txtsotau.Size = new System.Drawing.Size(208, 22);
@@ -109,7 +109,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(31, 224);
+            this.label13.Location = new System.Drawing.Point(31, 213);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 16);
             this.label13.TabIndex = 133;
@@ -200,25 +200,27 @@
             // cbbseat
             // 
             this.cbbseat.FormattingEnabled = true;
-            this.cbbseat.Location = new System.Drawing.Point(531, 224);
+            this.cbbseat.Location = new System.Drawing.Point(531, 213);
             this.cbbseat.Name = "cbbseat";
             this.cbbseat.Size = new System.Drawing.Size(217, 24);
             this.cbbseat.TabIndex = 146;
+            this.cbbseat.SelectedIndexChanged += new System.EventHandler(this.cbbseat_SelectedIndexChanged);
             // 
-            // txtma
+            // cbbmave
             // 
-            this.txtma.AcceptsReturn = true;
-            this.txtma.Location = new System.Drawing.Point(494, 226);
-            this.txtma.Name = "txtma";
-            this.txtma.Size = new System.Drawing.Size(31, 22);
-            this.txtma.TabIndex = 147;
+            this.cbbmave.FormattingEnabled = true;
+            this.cbbmave.Location = new System.Drawing.Point(489, 213);
+            this.cbbmave.Name = "cbbmave";
+            this.cbbmave.Size = new System.Drawing.Size(36, 24);
+            this.cbbmave.TabIndex = 147;
+            this.cbbmave.SelectedIndexChanged += new System.EventHandler(this.cbbmave_SelectedIndexChanged);
             // 
             // addve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtma);
+            this.Controls.Add(this.cbbmave);
             this.Controls.Add(this.cbbseat);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtname);
@@ -263,6 +265,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbbseat;
-        private System.Windows.Forms.TextBox txtma;
+        private System.Windows.Forms.ComboBox cbbmave;
     }
 }

@@ -65,16 +65,32 @@ namespace pbl.BLL
 
         public void Execute2(LOGIN s)
         {
-
+            if (!check(s.Username))
+            {
                 db.LOGINs.Add(s);
                 db.SaveChanges();
+            }
+            else
+            {
+                foreach (LOGIN i in Getloginbyusername(s.Username))
+                {
+                    i.PassWord = s.PassWord;
+                }    
+            }    
 
         }
-        
 
-        
+        public List<LOGIN> Getloginbyusername(string username)
+        {
+            List<LOGIN> dn = new List<LOGIN>();
+            dn = db.LOGINs.Where(p => p.Username == username).Select(p => p).ToList();
 
-         
+            return dn.ToList();
+
+        }
+
+
+
         public List<CBBItem> GetCBBs(string txt)
         {
         List<CBBItem> data = new List<CBBItem>();

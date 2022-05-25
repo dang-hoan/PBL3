@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
@@ -14,18 +15,22 @@ namespace pbl
 {
     public partial class GUITicket : Form
     {
-        private SCHEDULE_View schedule = new SCHEDULE_View
+        private bool NoScheduleClick = true;
+        private SCHEDULE_BLL schedule = new SCHEDULE_BLL
         {
             ScheduleID = "",
             Departure = "",
             Destination = "",
-            DepartureTime = DateTime.Now.ToString("d/M/yyyy"),
-            ArrivalTime = DateTime.Now.ToString("d/M/yyyy")
+            FromDepartureTime = DateTime.Now,
+            ToDepartureTime = DateTime.Now,
+            FromArrivalTime = DateTime.Now,
+            ToArrivalTime = DateTime.Now,
         };
         public GUITicket()
         {
             InitializeComponent();
             Init();
+            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("nl");
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName);
         }
         private void Init()
@@ -34,12 +39,14 @@ namespace pbl
             cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(GUILogin.userName).Distinct().ToArray());
         }
 
-        private void Get(SCHEDULE_View s)
+        private void Get(SCHEDULE_BLL s)
         {
             schedule.Departure = s.Departure;
             schedule.Destination = s.Destination;
-            schedule.DepartureTime = s.DepartureTime;
-            schedule.ArrivalTime = s.ArrivalTime;
+            schedule.FromDepartureTime = s.FromDepartureTime;
+            schedule.ToDepartureTime = s.ToDepartureTime;
+            schedule.FromArrivalTime = s.FromArrivalTime;
+            schedule.ToArrivalTime = s.ToArrivalTime;
 
             cbbTrain.Items.Clear();
             cbbTrain.Items.Add("Tất cả");
@@ -66,14 +73,18 @@ namespace pbl
         private void Reload()
         {
             string TrainName = "";
-            if(cbbTrain.Text != "Tìm theo tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(schedule, GUILogin.userName, TrainName);
+            if (cbbTrain.Text != "Tìm theo tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
+            if (NoScheduleClick)
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName, TrainName);
+            else
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(schedule, GUILogin.userName, TrainName);
         }
         private void Schedule_Click(object sender, EventArgs e)
         {
-            GUIOption option = new GUIOption(schedule, "", "", "");
+            GUIOption option = new GUIOption(schedule);
             option.d += new GUIOption.MyDel(Get);
             option.Show();
+            NoScheduleClick = false;
         }
         private void bSearch_Click(object sender, EventArgs e)
         {

@@ -77,7 +77,7 @@ namespace pbl.View
                     MessageBox.Show("Thời gian đến phải sau thời gian đi!");
             }
             else
-            if (BLLTRAIN.Instance.checksch(schedule.Text))
+            if (!BLLTRAIN.Instance.checksch(schedule.Text))
             {
                 SCHEDULE s = new SCHEDULE
                 {
@@ -107,6 +107,16 @@ namespace pbl.View
         private void hourdep_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void schedule_TextChanged(object sender, EventArgs e)
+        {
+            if(BLLTRAIN.Instance.checksch(schedule.Text))
+            { string s= "*";
+                schedule.ForeColor = Color.Red;
+                schedule.Text = schedule.Text + "    *";
+            } 
+             
         }
     }
 }

@@ -40,6 +40,7 @@
             this.cbbook = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.butmuave = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,6 +166,19 @@
             this.butmuave.TabIndex = 131;
             this.butmuave.Text = "mua  vé";
             this.butmuave.UseVisualStyleBackColor = false;
+            this.butmuave.Click += new System.EventHandler(this.butmuave_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(701, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 44);
+            this.button1.TabIndex = 132;
+            this.button1.Text = "Xem Tất cả";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // qlve
             // 
@@ -172,6 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(915, 533);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.butmuave);
             this.Controls.Add(this.cbbook);
             this.Controls.Add(this.label5);
@@ -204,5 +219,6 @@
         private System.Windows.Forms.ComboBox cbbook;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button butmuave;
+        private System.Windows.Forms.Button button1;
     }
 }

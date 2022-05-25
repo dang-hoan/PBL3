@@ -91,14 +91,14 @@ namespace pbl.View
 
         private void butve_Click(object sender, EventArgs e)
         {
-
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                string traid = dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString();
-                addve f = new addve(traid);
-                f.Show();
+                string scheduleid = dataGridView1.SelectedRows[0].Cells["TrainID"].Value.ToString();
+                d(scheduleid);
                 this.Close();
             }
+            else
+                MessageBox.Show(" vui lòng chọn một lịch trình!");
 
         }
     }

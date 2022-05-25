@@ -42,19 +42,17 @@ namespace pbl.View
             string DepTime, DesTime;
             DateTime dep, des;
 
-            DepTime = dateDep.Value.ToString("d/M/yyyy");
-            if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-            {
-                DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            }
+            //DepTime = dateDep.Value.ToString("d/M/yyyy");
+            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
+            //{
+            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
+            //}
 
-            else
-            {
                 SCHEDULE_View s = new SCHEDULE_View()
                 {
                     Departure = cbbDep.Text,
                     Destination = cbbDes.Text,
-                    DepartureTime = DepTime,
+                    //DepartureTime = DepTime,
                 };
                 string scheduleid = "";
                 foreach (SCHEDULE_View i in BLLTRAIN.Instance.GetSchedule2(s))
@@ -65,7 +63,6 @@ namespace pbl.View
                dataGridView1.DataSource = BLLTRAIN.Instance.GetTrain2(scheduleid);
        
 
-            }
         }
 
         private void buttrain_Click(object sender, EventArgs e)
@@ -85,17 +82,30 @@ namespace pbl.View
         {
             dataGridView1.DataSource = BLLTRAIN.Instance.Getalltrain();
         }
+        public void show2(string s)
+        {
+            dataGridView1.DataSource = BLLTRAIN.Instance.Getalltrain();
+        }
 
         private void butve_Click(object sender, EventArgs e)
         {
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                string traid = dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString();
-                addve f = new addve(traid);
+                string trainid = dataGridView1.SelectedRows[0].Cells["TrainID"].Value.ToString();
+               addve f = new addve(trainid);
                 f.Show();
+                f.d = new addve.Mydel(show2);
+                MessageBox.Show("thêm thành công vé tàu mới ");
             }
+            else
+                MessageBox.Show(" vui lòng chọn một lịch trình!");
 
+        }
+
+        private void butdelte_Click(object sender, EventArgs e)
+        { 
+            if (dataGridView1.SelectedRows.Count > 0)
         }
     }
 }

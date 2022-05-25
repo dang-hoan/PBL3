@@ -79,14 +79,42 @@ namespace pbl.View
 
             string DepTime, DesTime;
             DateTime dep, des;
+//<<<<<<< HEAD
            
-            //DepTime = dateDep.Value.ToString("d/M/yyyy");
-            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
-            //{
-            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
-            //}
+//            //DepTime = dateDep.Value.ToString("d/M/yyyy");
+//            //if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
+//            //{
+//            //    DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
+//            //}
            
-         //   else
+//         //   else
+//=======
+//            dep = dateDep.Value;
+//            des = dateDes.Value;
+//            int HourDep = (cbbHourDep.Text == "")? 0 : Convert.ToInt32(cbbHourDep.Text);
+//            int hourdes = (cbbHourDes.Text == "")? 0 : Convert.ToInt32(cbbHourDes.Text);
+//            DesTime = dateDes.Value.ToString("dd/MM/yyyy");
+//            DepTime = dateDep.Value.ToString("dd/MM/yyyy");
+//            if (cbbHourDep.Text != "" && cbbMinuteDep.Text != "")
+//            {
+//                DepTime += " " + cbbHourDep.Text + ":" + cbbMinuteDep.Text;
+//            }
+//            if (cbbHourDes.Text != "" && cbbMinuteDes.Text != "")
+//            {
+//                DesTime += " " + cbbHourDes.Text + ":" + cbbMinuteDes.Text;
+//            }
+//            int comp = string.Compare(dep.ToString("dd/MM/yyyy"), des.ToString("dd/MM/yyyy"));
+//            if (comp > 0)
+//            {
+//                MessageBox.Show("Ngày đến phải sau ngày đi!"); 
+//            }
+//            else if (comp == 0)
+//            {
+//                if (HourDep > hourdes)
+//                    MessageBox.Show("Thời gian đến phải sau thời gian đi!");
+//            }
+//            else
+//>>>>>>> 17fe53d13b4b7954edbc1bee6df0822c370df0a8
             {
                 SCHEDULE_View s = new SCHEDULE_View()
                 {

@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addtrain));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtlaixe = new System.Windows.Forms.TextBox();
+            this.txtgiagoc = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbblaixe = new System.Windows.Forms.ComboBox();
             this.txtsotoa = new System.Windows.Forms.TextBox();
             this.txtname = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtid = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.schedule = new System.Windows.Forms.TextBox();
@@ -48,7 +48,6 @@
             this.lich_trinh = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.bTOK = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lich_trinh)).BeginInit();
             this.SuspendLayout();
@@ -56,13 +55,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtlaixe);
+            this.groupBox1.Controls.Add(this.txtgiagoc);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cbblaixe);
             this.groupBox1.Controls.Add(this.txtsotoa);
             this.groupBox1.Controls.Add(this.txtname);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txtid);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.schedule);
@@ -75,28 +73,45 @@
             this.groupBox1.Controls.Add(this.lich_trinh);
             this.groupBox1.Location = new System.Drawing.Point(50, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(639, 454);
+            this.groupBox1.Size = new System.Drawing.Size(639, 449);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "thêm chuyến tàu mới";
             // 
-            // txtlaixe
+            // txtgiagoc
             // 
-            this.txtlaixe.Location = new System.Drawing.Point(186, 399);
-            this.txtlaixe.Name = "txtlaixe";
-            this.txtlaixe.Size = new System.Drawing.Size(253, 22);
-            this.txtlaixe.TabIndex = 57;
+            this.txtgiagoc.Location = new System.Drawing.Point(243, 398);
+            this.txtgiagoc.Name = "txtgiagoc";
+            this.txtgiagoc.Size = new System.Drawing.Size(253, 22);
+            this.txtgiagoc.TabIndex = 59;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 398);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 16);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "basic price";
+            // 
+            // cbblaixe
+            // 
+            this.cbblaixe.FormattingEnabled = true;
+            this.cbblaixe.Location = new System.Drawing.Point(243, 356);
+            this.cbblaixe.Name = "cbblaixe";
+            this.cbblaixe.Size = new System.Drawing.Size(253, 24);
+            this.cbblaixe.TabIndex = 57;
             // 
             // txtsotoa
             // 
-            this.txtsotoa.Location = new System.Drawing.Point(186, 355);
+            this.txtsotoa.Location = new System.Drawing.Point(243, 309);
             this.txtsotoa.Name = "txtsotoa";
             this.txtsotoa.Size = new System.Drawing.Size(253, 22);
             this.txtsotoa.TabIndex = 56;
             // 
             // txtname
             // 
-            this.txtname.Location = new System.Drawing.Point(186, 306);
+            this.txtname.Location = new System.Drawing.Point(243, 260);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(253, 22);
             this.txtname.TabIndex = 55;
@@ -104,34 +119,17 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(39, 405);
+            this.label7.Location = new System.Drawing.Point(39, 359);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 16);
             this.label7.TabIndex = 54;
             this.label7.Text = "DriverUN";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // txtid
-            // 
-            this.txtid.Location = new System.Drawing.Point(190, 259);
-            this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(253, 22);
-            this.txtid.TabIndex = 52;
-            this.txtid.TextChanged += new System.EventHandler(this.txtid_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 260);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 16);
-            this.label4.TabIndex = 51;
-            this.label4.Text = "trainId";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 306);
+            this.label5.Location = new System.Drawing.Point(39, 260);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 16);
             this.label5.TabIndex = 50;
@@ -140,7 +138,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(39, 358);
+            this.label6.Location = new System.Drawing.Point(39, 312);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(127, 16);
             this.label6.TabIndex = 49;
@@ -239,15 +237,6 @@
             this.bTOK.UseVisualStyleBackColor = true;
             this.bTOK.Click += new System.EventHandler(this.bTOK_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(201, 284);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 16);
-            this.label8.TabIndex = 58;
-            this.label8.Text = "khong hop le ";
-            // 
             // addtrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -271,8 +260,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox lich_trinh;
-        private System.Windows.Forms.TextBox txtid;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox schedule;
@@ -282,11 +269,12 @@
         private System.Windows.Forms.ComboBox cbbDes;
         private System.Windows.Forms.ComboBox cbbDep;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtlaixe;
         private System.Windows.Forms.TextBox txtsotoa;
         private System.Windows.Forms.TextBox txtname;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bTOK;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbblaixe;
+        private System.Windows.Forms.TextBox txtgiagoc;
+        private System.Windows.Forms.Label label4;
     }
 }
