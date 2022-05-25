@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="PBL3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="PBL3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="LOGIN">
     <Key>
       <PropertyRef Name="IDlogin" />
@@ -61,8 +61,8 @@
     <Key>
       <PropertyRef Name="TicketID" />
     </Key>
-    <Property Name="TicketID" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TrainID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TicketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrainID" Type="int" Nullable="false" />
     <Property Name="SeatNo" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="TicketPrice" Type="money" Nullable="false" />
     <Property Name="Booked" Type="bit" />
@@ -73,7 +73,7 @@
       <PropertyRef Name="TicketManagerID" />
     </Key>
     <Property Name="TicketManagerID" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TrainID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TrainID" Type="int" Nullable="false" />
     <Property Name="TotalTickets" Type="int" Nullable="false" />
     <Property Name="BookedTickets" Type="int" Nullable="false" />
   </EntityType>
@@ -81,24 +81,14 @@
     <Key>
       <PropertyRef Name="TrainID" />
     </Key>
-    <Property Name="TrainID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TrainID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TrainName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NumberOfCarriages" Type="int" Nullable="false" />
     <Property Name="DriverUN" Type="varchar" MaxLength="20" />
     <Property Name="ScheduleID" Type="varchar" MaxLength="10" />
+    <Property Name="BasicPrice" Type="money" />
+    <Property Name="State" Type="bit" />
   </EntityType>
-  <Association Name="FK__LOGIN__Username__29572725">
-    <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="1" />
-    <End Role="LOGIN" Type="Self.LOGIN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PEOPLE">
-        <PropertyRef Name="Username" />
-      </Principal>
-      <Dependent Role="LOGIN">
-        <PropertyRef Name="Username" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__PEOPLE__Position__267ABA7A">
     <End Role="POSITION" Type="Self.POSITION" Multiplicity="0..1" />
     <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="*" />
@@ -111,7 +101,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SECURITY__OwnUN__49C3F6B7">
+  <Association Name="FK__SECURITY__OwnUN__5CD6CB2B">
     <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="0..1" />
     <End Role="SECURITY" Type="Self.SECURITY" Multiplicity="*" />
     <ReferentialConstraint>
@@ -183,7 +173,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="PBL3ModelStoreContainer">
+  <EntityContainer Name="PBL3StoreContainer">
     <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PEOPLE" EntityType="Self.PEOPLE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="POSITION" EntityType="Self.POSITION" Schema="dbo" store:Type="Tables" />
@@ -193,15 +183,11 @@
     <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TICKET_MANAGER" EntityType="Self.TICKET_MANAGER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TRAIN" EntityType="Self.TRAIN" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__LOGIN__Username__29572725" Association="Self.FK__LOGIN__Username__29572725">
-      <End Role="PEOPLE" EntitySet="PEOPLE" />
-      <End Role="LOGIN" EntitySet="LOGIN" />
-    </AssociationSet>
     <AssociationSet Name="FK__PEOPLE__Position__267ABA7A" Association="Self.FK__PEOPLE__Position__267ABA7A">
       <End Role="POSITION" EntitySet="POSITION" />
       <End Role="PEOPLE" EntitySet="PEOPLE" />
     </AssociationSet>
-    <AssociationSet Name="FK__SECURITY__OwnUN__49C3F6B7" Association="Self.FK__SECURITY__OwnUN__49C3F6B7">
+    <AssociationSet Name="FK__SECURITY__OwnUN__5CD6CB2B" Association="Self.FK__SECURITY__OwnUN__5CD6CB2B">
       <End Role="PEOPLE" EntitySet="PEOPLE" />
       <End Role="SECURITY" EntitySet="SECURITY" />
     </AssociationSet>

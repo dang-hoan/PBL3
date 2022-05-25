@@ -13,8 +13,8 @@ namespace pbl.View
 {
     public partial class addlichtrinh : Form
     {
-        public delegate void Mydel(string scheduleid);
-        public Mydel d;
+        public delegate void Mydel();
+        public Mydel d { get; set; }
         string scheduleid;
         public addlichtrinh(string s)
         {
@@ -50,11 +50,34 @@ namespace pbl.View
 
         private void bTOK_Click(object sender, EventArgs e)
         {
+           string DepTime, DesTime;
             DateTime dep, des;
-
-            des = daydes.Value;
             dep = daydep.Value;
-            if (BLLTRAIN.Instance.checksch(schedule.Text))
+            des = daydes.Value;
+            int HourDep = (hourdep.Text == "") ? 0 : Convert.ToInt32(hourdep.Text);
+            int Hourdes = (hourdes.Text == "") ? 0 : Convert.ToInt32(hourdes.Text);
+            DesTime = daydes.Value.ToString("d/M/yyyy");
+            DepTime = daydep.Value.ToString("d/M/yyyy");
+            if (cbbDep.Text != "" && cbbMinuteDep.Text != "")
+            {
+                DepTime += " " + hourdep.Text + ":" + cbbMinuteDep.Text;
+            }
+            if (cbbDes.Text != "" && cbbMinuteDes.Text != "")
+            {
+                DesTime += " " + hourdes.Text + ":" + cbbMinuteDes.Text;
+            }
+            int comp = string.Compare(dep.ToString("dd/MM/yyyy"), des.ToString("dd/MM/yyyy"));
+            if (comp > 0)
+            {
+                MessageBox.Show("Ngày đến phải sau ngày đi!");
+            }
+            else if (comp == 0)
+            {
+                if (HourDep > Hourdes)
+                    MessageBox.Show("Thời gian đến phải sau thời gian đi!");
+            }
+            else
+            if (!BLLTRAIN.Instance.checksch(schedule.Text))
             {
                 SCHEDULE s = new SCHEDULE
                 {
@@ -66,16 +89,34 @@ namespace pbl.View
                     ArrivalTime   = des,
 
                 };
-
+                
                 BLLTRAIN.Instance.Execute(s);
+                MessageBox.Show("OK");
+                d();
+                this.Close();
             };
-            d("");
-            this.Close();
+           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void hourdep_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void schedule_TextChanged(object sender, EventArgs e)
+        {
+            if(BLLTRAIN.Instance.checksch(schedule.Text))
+            { string s= "*";
+                schedule.ForeColor = Color.Red;
+                schedule.Text = schedule.Text + "    *";
+            } 
+             
         }
     }
 }

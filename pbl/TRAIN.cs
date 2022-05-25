@@ -21,11 +21,13 @@ namespace pbl
             this.TICKET_MANAGER = new HashSet<TICKET_MANAGER>();
         }
     
-        public string TrainID { get; set; }
+        public int TrainID { get; set; }
         public string TrainName { get; set; }
         public int NumberOfCarriages { get; set; }
         public string DriverUN { get; set; }
         public string ScheduleID { get; set; }
+        public Nullable<decimal> BasicPrice { get; set; }
+        public Nullable<bool> State { get; set; }
     
         public virtual PEOPLE Person { get; set; }
         public virtual SCHEDULE SCHEDULE { get; set; }

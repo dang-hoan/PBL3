@@ -65,7 +65,7 @@
             this.pnxuly.Controls.Add(this.panel_User);
             this.pnxuly.Location = new System.Drawing.Point(114, 51);
             this.pnxuly.Name = "pnxuly";
-            this.pnxuly.Size = new System.Drawing.Size(933, 580);
+            this.pnxuly.Size = new System.Drawing.Size(945, 577);
             this.pnxuly.TabIndex = 19;
             // 
             // panel_User
@@ -147,7 +147,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.panel1.Location = new System.Drawing.Point(12, 7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1050, 634);
+            this.panel1.Size = new System.Drawing.Size(1062, 634);
             this.panel1.TabIndex = 20;
             // 
             // pictureBox5
@@ -186,22 +186,25 @@
             // 
             // pChat
             // 
+            this.pChat.BackColor = System.Drawing.Color.DodgerBlue;
             this.pChat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pChat.Image = ((System.Drawing.Image)(resources.GetObject("pChat.Image")));
-            this.pChat.Location = new System.Drawing.Point(3, 356);
+            this.pChat.Location = new System.Drawing.Point(6, 325);
             this.pChat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pChat.Name = "pChat";
-            this.pChat.Size = new System.Drawing.Size(88, 43);
+            this.pChat.Size = new System.Drawing.Size(88, 72);
             this.pChat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pChat.TabIndex = 13;
             this.pChat.TabStop = false;
+            this.pChat.Click += new System.EventHandler(this.pChat_Click);
             // 
             // khachhang
             // 
+            this.khachhang.BackColor = System.Drawing.Color.DodgerBlue;
             this.khachhang.Image = ((System.Drawing.Image)(resources.GetObject("khachhang.Image")));
-            this.khachhang.Location = new System.Drawing.Point(6, 273);
+            this.khachhang.Location = new System.Drawing.Point(6, 70);
             this.khachhang.Name = "khachhang";
-            this.khachhang.Size = new System.Drawing.Size(88, 43);
+            this.khachhang.Size = new System.Drawing.Size(88, 72);
             this.khachhang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.khachhang.TabIndex = 5;
             this.khachhang.TabStop = false;
@@ -209,10 +212,11 @@
             // 
             // ve
             // 
+            this.ve.BackColor = System.Drawing.Color.Blue;
             this.ve.Image = ((System.Drawing.Image)(resources.GetObject("ve.Image")));
-            this.ve.Location = new System.Drawing.Point(3, 169);
+            this.ve.Location = new System.Drawing.Point(6, 448);
             this.ve.Name = "ve";
-            this.ve.Size = new System.Drawing.Size(88, 43);
+            this.ve.Size = new System.Drawing.Size(88, 72);
             this.ve.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ve.TabIndex = 3;
             this.ve.TabStop = false;
@@ -220,10 +224,11 @@
             // 
             // lichtrinh
             // 
+            this.lichtrinh.BackColor = System.Drawing.Color.DodgerBlue;
             this.lichtrinh.Image = ((System.Drawing.Image)(resources.GetObject("lichtrinh.Image")));
-            this.lichtrinh.Location = new System.Drawing.Point(6, 85);
+            this.lichtrinh.Location = new System.Drawing.Point(6, 197);
             this.lichtrinh.Name = "lichtrinh";
-            this.lichtrinh.Size = new System.Drawing.Size(88, 43);
+            this.lichtrinh.Size = new System.Drawing.Size(88, 72);
             this.lichtrinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.lichtrinh.TabIndex = 2;
             this.lichtrinh.TabStop = false;
@@ -231,6 +236,7 @@
             // 
             // home
             // 
+            this.home.BackColor = System.Drawing.Color.DodgerBlue;
             this.home.Image = ((System.Drawing.Image)(resources.GetObject("home.Image")));
             this.home.Location = new System.Drawing.Point(6, 4);
             this.home.Name = "home";
@@ -245,10 +251,10 @@
             this.panel_Other.AutoSize = true;
             this.panel_Other.BackColor = System.Drawing.Color.Cyan;
             this.panel_Other.Controls.Add(this.pChat);
+            this.panel_Other.Controls.Add(this.ve);
+            this.panel_Other.Controls.Add(this.khachhang);
             this.panel_Other.Controls.Add(this.home);
             this.panel_Other.Controls.Add(this.lichtrinh);
-            this.panel_Other.Controls.Add(this.khachhang);
-            this.panel_Other.Controls.Add(this.ve);
             this.panel_Other.Location = new System.Drawing.Point(12, 58);
             this.panel_Other.Name = "panel_Other";
             this.panel_Other.Size = new System.Drawing.Size(114, 577);

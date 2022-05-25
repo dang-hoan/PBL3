@@ -11,14 +11,14 @@ namespace pbl.DTO
         public string ScheduleID { get; set; }
         public string TrainID { get; set; }
         public string TrainName { get; set; }
-        public string TicketID { get; set; }
+        public int TicketID { get; set; }
         public string SeatNo { get; set; }
         public string TicketPrice { get; set; }
         public string Departure { get; set; }
         public string Destination { get; set; }
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }
-        public bool Booked { get; set; }
+        public string Booked { get; set; }
         public string OwnUsername { get; set; }
         public string OwnName { get; set; }
 

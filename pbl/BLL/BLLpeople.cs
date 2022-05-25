@@ -47,7 +47,7 @@ namespace pbl.BLL
             else
             {
                 string p = (from POSITION pos in db.POSITIONs
-                            where pos.Position.Equals("Nhân viên")
+                            where pos.Position.Equals("Khách hàng")
                             select pos.PositionID).FirstOrDefault();
                 PEOPLE temp = db.PEOPLE.Find(s.Username);
                 temp.Name = s.Name;
@@ -63,17 +63,34 @@ namespace pbl.BLL
 
         }
 
-        public void Execute2(LOGIN l)
+        public void Execute2(LOGIN s)
         {
-            
-                db.LOGINs.Add(l);
+            if (!check(s.Username))
+            {
+                db.LOGINs.Add(s);
                 db.SaveChanges();
+            }
+            else
+            {
+                foreach (LOGIN i in Getloginbyusername(s.Username))
+                {
+                    i.PassWord = s.PassWord;
+                }    
+            }    
+
         }
-        
 
-        
+        public List<LOGIN> Getloginbyusername(string username)
+        {
+            List<LOGIN> dn = new List<LOGIN>();
+            dn = db.LOGINs.Where(p => p.Username == username).Select(p => p).ToList();
 
-         
+            return dn.ToList();
+
+        }
+
+
+
         public List<CBBItem> GetCBBs(string txt)
         {
         List<CBBItem> data = new List<CBBItem>();
@@ -135,6 +152,7 @@ namespace pbl.BLL
                 dn = db.LOGINs.Where(p => p.Username == username).Single();
            
             db.LOGINs.Remove(dn);
+            db.SaveChanges();
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
@@ -170,6 +188,14 @@ namespace pbl.BLL
                
             }
            
+        }
+        public LOGIN Getloginbyloginid(string username)
+        {
+            LOGIN dn = new LOGIN();
+            dn = db.LOGINs.Where(p => p.Username == username).Single();
+
+            return dn;
+
         }
         public PEOPLE GetuserByusername(string username )
         {

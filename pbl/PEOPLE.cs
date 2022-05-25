@@ -17,10 +17,10 @@ namespace pbl
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PEOPLE()
         {
-            this.TICKETs = new HashSet<TICKET>();
-            this.TRAINs = new HashSet<TRAIN>();
             this.LOGINs = new HashSet<LOGIN>();
             this.SECURITies = new HashSet<SECURITY>();
+            this.TICKETs = new HashSet<TICKET>();
+            this.TRAINs = new HashSet<TRAIN>();
         }
     
         public string Username { get; set; }
@@ -33,14 +33,14 @@ namespace pbl
         public string Phone { get; set; }
         public string PositionID { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LOGIN> LOGINs { get; set; }
         public virtual POSITION POSITION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SECURITY> SECURITies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TICKET> TICKETs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRAIN> TRAINs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LOGIN> LOGINs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SECURITY> SECURITies { get; set; }
     }
 }

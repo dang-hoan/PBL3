@@ -14,8 +14,8 @@ namespace pbl
     
     public partial class TICKET
     {
-        public string TicketID { get; set; }
-        public string TrainID { get; set; }
+        public int TicketID { get; set; }
+        public int TrainID { get; set; }
         public string SeatNo { get; set; }
         public decimal TicketPrice { get; set; }
         public Nullable<bool> Booked { get; set; }
