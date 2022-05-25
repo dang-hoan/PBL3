@@ -332,7 +332,9 @@ namespace pbl.BLL
             LOGIN l = (from log in db.LOGINs
                         where log.Username.Equals(userName)
                         select log).FirstOrDefault();
+            if (l == null) MessageBox.Show("Null");
             l.PassWord = newPassword;
+            MessageBox.Show(l.Username + ", " + l.PassWord);
             db.SaveChanges();
         }
         public bool CheckSecurity(string userName, string question, string answer)
@@ -344,7 +346,15 @@ namespace pbl.BLL
             if(s == null) return false;
             return true;
         }
-        public List<string> GetQuestionSecurity(string userName)
+        public List<SECURITY> GetQuestionSecurity(string userName)
+        {
+            PBL3 db = new PBL3();
+            var result = from sec in db.SECURITies
+                         where sec.OwnUN.Equals(userName)
+                         select sec;
+            return result.ToList();
+        }
+        public List<string> GetQuestionSecurity2(string userName)
         {
             PBL3 db = new PBL3();
             var result = from sec in db.SECURITies
@@ -352,19 +362,25 @@ namespace pbl.BLL
                          select sec.Question;
             return result.ToList();
         }
-        public string GetAnswerSecurity(string userName, string question)
+        public string GetAnswerSecurity(string userName, int secID)
         {
             PBL3 db = new PBL3();
             var result = from sec in db.SECURITies
-                         where sec.OwnUN.Equals(userName) && sec.Question.Equals(question)
+                         where sec.OwnUN.Equals(userName) && sec.SecurityID == secID
                          select sec.Answer;
             return result.ToList().FirstOrDefault();
         }
-        public void UpdateSecurity(string userName, string question, string newAnswer)
+        public void AddSecurity(List<SECURITY> list)
+        {
+            PBL3 db = new PBL3();
+            db.SECURITies.AddRange(list.ToArray());
+            db.SaveChanges();
+        }
+        public void UpdateSecurity(string userName, int secID, string newAnswer)
         {
             PBL3 db = new PBL3();
             SECURITY s = (from sec in db.SECURITies
-                          where sec.OwnUN.Equals(userName) && sec.Question.Equals(question)
+                          where sec.OwnUN.Equals(userName) && sec.SecurityID == secID
                           select sec).FirstOrDefault();
             s.Answer = newAnswer;
             db.SaveChanges();
@@ -853,6 +869,7 @@ namespace pbl.BLL
             string result = "";
             string date = day + "-" + month + "-" + year;
             bool UngetSchedule = true;
+            int dem = 1;
             foreach (SCHEDULE s in db.SCHEDULEs.ToList())
             {
                 if (s.DepartureTime.ToString("d-M-yyyy H:m:s").Contains(date))
@@ -865,11 +882,11 @@ namespace pbl.BLL
                             {
                                 if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN == userName)
                                 {
-                                    result += "\n";
-                                    result += "Ga đi: " + s.Departure + "\n";
-                                    result += "Ga đến: " + s.Destination + "\n";
-                                    result += "Thời gian khởi hành:\n" + s.DepartureTime + "\n";
-                                    result += "Thời gian đến:\n" + s.ArrivalTime + "\n";
+                                    result += $"\n  Lịch trình {dem++}:\n";
+                                    result += "  Ga đi: " + s.Departure + "\n";
+                                    result += "  Ga đến: " + s.Destination + "\n";
+                                    result += "  Thời gian khởi hành:\n  " + s.DepartureTime + "\n";
+                                    result += "  Thời gian đến:\n  " + s.ArrivalTime + "\n";
                                     UngetSchedule = false;
                                     break;
                                 }

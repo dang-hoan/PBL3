@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
+using pbl.DTO;
 
 namespace pbl
 {
     public partial class GUIForget : Form
     {
-        Form login;
+        private Form login;
         public GUIForget(Form login)
         {
             InitializeComponent();
@@ -21,9 +22,9 @@ namespace pbl
             txtUsername.Text = GUILogin.userName;
         }
 
-        private void bAgree_Click(object sender, EventArgs e)
+        private void bContinue_Click(object sender, EventArgs e)
         {
-            if(BLLTRAIN.Instance.CheckSecurity(txtUsername.Text, cbbQuestion.Text, txtAnswer.Text))
+            if (BLLTRAIN.Instance.CheckSecurity(txtUsername.Text, cbbQuestion.Text.Substring(cbbQuestion.Text.IndexOf(".") + 2), txtAnswer.Text))
             {
                 GUIChangePass change = new GUIChangePass(login, this, txtUsername.Text);
                 this.Hide();
@@ -45,7 +46,11 @@ namespace pbl
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             cbbQuestion.Items.Clear();
-            cbbQuestion.Items.AddRange(BLLTRAIN.Instance.GetQuestionSecurity(txtUsername.Text).ToArray());
+            cbbQuestion.Items.AddRange(BLLTRAIN.Instance.GetQuestionSecurity2(txtUsername.Text).Distinct().ToArray());
+            for(int i = 0; i < cbbQuestion.Items.Count; i++)
+            {
+                cbbQuestion.Items[i] = i+1 + ". " + cbbQuestion.Items[i];
+            }
         }
 
         private void txtUsername_Leave(object sender, EventArgs e)

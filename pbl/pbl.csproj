@@ -74,6 +74,7 @@
     <Compile Include="BLL\BLLpeople.cs" />
     <Compile Include="BLL\BLLTicket.cs" />
     <Compile Include="BLL\BLLTRAIN.cs" />
+    <Compile Include="DTO\CBBSecurity.cs" />
     <Compile Include="DTO\employeeview.cs" />
     <Compile Include="DTO\PEOPLE_View.cs" />
     <Compile Include="DTO\Schedule.cs" />
@@ -81,6 +82,18 @@
     <Compile Include="DTO\SCHEDULE_View.cs" />
     <Compile Include="DTO\TICKET_User_View.cs" />
     <Compile Include="DTO\TICKET_View.cs" />
+    <Compile Include="View\AddSecurity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddSecurity.Designer.cs">
+      <DependentUpon>AddSecurity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\InputPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InputPass.Designer.cs">
+      <DependentUpon>InputPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="LOGIN.cs">
       <DependentUpon>PBL3.tt</DependentUpon>
     </Compile>
@@ -374,6 +387,12 @@
     <Compile Include="View\GUIRegister.Designer.cs">
       <DependentUpon>GUIRegister.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AddSecurity.resx">
+      <DependentUpon>AddSecurity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InputPass.resx">
+      <DependentUpon>InputPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\addnv.resx">
       <DependentUpon>addnv.cs</DependentUpon>
     </EmbeddedResource>
@@ -436,6 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\khachhang.resx">
       <DependentUpon>khachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GUIRegister.resx">
+      <DependentUpon>GUIRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUISystemSchedule.resx">
       <DependentUpon>GUISystemSchedule.cs</DependentUpon>

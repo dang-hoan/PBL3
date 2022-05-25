@@ -86,13 +86,15 @@ namespace pbl
             if (hasSchedule[Convert.ToInt32(label.Text) - 1])
             {
                 label.BackColor = Color.Green;
-                labelContent.Text = BLLTRAIN.Instance.GetSchedule(GUILogin.userName, label.Text, cbbMonth.Text, cbbYear.Text);
+                listBox1.Items.Clear();
+                listBox1.Items.AddRange(BLLTRAIN.Instance.GetSchedule(GUILogin.userName, label.Text, cbbMonth.Text, cbbYear.Text).Split('\n'));
                 panel_Detail.Visible = true;
             }
             else
             {
                 label.BackColor = Color.Gray;
-                labelContent.Text = $"\nNgày {label.Text}/{cbbMonth.Text}/{cbbYear.Text} bạn không có lịch trình";
+                listBox1.Items.Clear();
+                listBox1.Items.AddRange(($"\n  Ngày {label.Text}/{cbbMonth.Text}/{cbbYear.Text} bạn không" + "\n" + "có lịch trình!").Split('\n'));
                 panel_Detail.Visible = true;
             }
         }

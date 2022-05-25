@@ -62,6 +62,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pAdd = new System.Windows.Forms.PictureBox();
             this.cbbQuestion = new System.Windows.Forms.ComboBox();
             this.bSaveSecurity = new System.Windows.Forms.Button();
             this.bEditSecurity = new System.Windows.Forms.Button();
@@ -72,6 +73,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // txtConfirm
@@ -454,6 +456,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pAdd);
             this.groupBox3.Controls.Add(this.cbbQuestion);
             this.groupBox3.Controls.Add(this.bSaveSecurity);
             this.groupBox3.Controls.Add(this.bEditSecurity);
@@ -470,6 +473,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bảo mật";
             // 
+            // pAdd
+            // 
+            this.pAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pAdd.Image = ((System.Drawing.Image)(resources.GetObject("pAdd.Image")));
+            this.pAdd.Location = new System.Drawing.Point(384, 44);
+            this.pAdd.Name = "pAdd";
+            this.pAdd.Size = new System.Drawing.Size(27, 27);
+            this.pAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pAdd.TabIndex = 16;
+            this.pAdd.TabStop = false;
+            this.pAdd.Click += new System.EventHandler(this.pAdd_Click);
+            // 
             // cbbQuestion
             // 
             this.cbbQuestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -477,7 +492,7 @@
             this.cbbQuestion.FormattingEnabled = true;
             this.cbbQuestion.Location = new System.Drawing.Point(98, 41);
             this.cbbQuestion.Name = "cbbQuestion";
-            this.cbbQuestion.Size = new System.Drawing.Size(307, 33);
+            this.cbbQuestion.Size = new System.Drawing.Size(286, 33);
             this.cbbQuestion.TabIndex = 15;
             this.cbbQuestion.SelectedIndexChanged += new System.EventHandler(this.cbbQuestion_SelectedIndexChanged);
             // 
@@ -516,7 +531,7 @@
             this.txtAnswer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAnswer.Multiline = true;
             this.txtAnswer.Name = "txtAnswer";
-            this.txtAnswer.Size = new System.Drawing.Size(307, 112);
+            this.txtAnswer.Size = new System.Drawing.Size(286, 112);
             this.txtAnswer.TabIndex = 4;
             // 
             // label14
@@ -550,7 +565,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "GUIPersonal";
-            this.Text = "Personal information";
+            this.Text = "THÔNG TIN CÁ NHÂN";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -558,6 +573,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pAdd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -602,5 +618,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cbbQuestion;
+        private System.Windows.Forms.PictureBox pAdd;
     }
 }

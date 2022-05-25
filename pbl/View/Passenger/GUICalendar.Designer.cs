@@ -33,9 +33,9 @@
             this.cbbYear = new System.Windows.Forms.ComboBox();
             this.cbbMonth = new System.Windows.Forms.ComboBox();
             this.panel_Detail = new System.Windows.Forms.Panel();
-            this.labelContent = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel_Detail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,23 +82,12 @@
             // panel_Detail
             // 
             this.panel_Detail.BackColor = System.Drawing.Color.LightGray;
-            this.panel_Detail.Controls.Add(this.labelContent);
+            this.panel_Detail.Controls.Add(this.listBox1);
             this.panel_Detail.Controls.Add(this.labelTitle);
             this.panel_Detail.Location = new System.Drawing.Point(599, 2);
             this.panel_Detail.Name = "panel_Detail";
             this.panel_Detail.Size = new System.Drawing.Size(318, 640);
             this.panel_Detail.TabIndex = 45;
-            // 
-            // labelContent
-            // 
-            this.labelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelContent.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContent.ForeColor = System.Drawing.Color.Black;
-            this.labelContent.Location = new System.Drawing.Point(20, 105);
-            this.labelContent.Name = "labelContent";
-            this.labelContent.Size = new System.Drawing.Size(277, 473);
-            this.labelContent.TabIndex = 43;
-            this.labelContent.Text = "Đây là nội dung...";
             // 
             // labelTitle
             // 
@@ -122,6 +111,19 @@
             this.button1.Text = "Hiển thị";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.ChangeMonthYear);
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.LightGray;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
+            this.listBox1.ItemHeight = 22;
+            this.listBox1.Location = new System.Drawing.Point(28, 114);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listBox1.Size = new System.Drawing.Size(255, 466);
+            this.listBox1.TabIndex = 47;
             // 
             // GUICalendar
             // 
@@ -150,8 +152,8 @@
         private System.Windows.Forms.ComboBox cbbYear;
         private System.Windows.Forms.ComboBox cbbMonth;
         private System.Windows.Forms.Panel panel_Detail;
-        private System.Windows.Forms.Label labelContent;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

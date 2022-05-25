@@ -19,7 +19,7 @@
     <Property Name="Address" Type="nvarchar" MaxLength="100" />
     <Property Name="IDCard" Type="char" MaxLength="12" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="Phone" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Phone" Type="char" MaxLength="10" Nullable="false" />
     <Property Name="PositionID" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="POSITION">
@@ -43,7 +43,7 @@
     <Key>
       <PropertyRef Name="SecurityID" />
     </Key>
-    <Property Name="SecurityID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SecurityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OwnUN" Type="varchar" MaxLength="20" />
     <Property Name="Question" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Answer" Type="nvarchar" MaxLength="50" Nullable="false" />

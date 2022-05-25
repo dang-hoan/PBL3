@@ -78,6 +78,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="LOGINs">
+      <EntityTypeMapping TypeName="PBL3Model.LOGIN">
+        <MappingFragment StoreEntitySet="LOGIN">
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SECURITies">
       <EntityTypeMapping TypeName="PBL3Model.SECURITY">
         <MappingFragment StoreEntitySet="SECURITY">
@@ -85,15 +94,6 @@
           <ScalarProperty Name="Question" ColumnName="Question" />
           <ScalarProperty Name="OwnUN" ColumnName="OwnUN" />
           <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="LOGINs">
-      <EntityTypeMapping TypeName="PBL3Model.LOGIN">
-        <MappingFragment StoreEntitySet="LOGIN">
-          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

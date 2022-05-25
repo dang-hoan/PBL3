@@ -35,7 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbbQuestion = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.bAgree = new System.Windows.Forms.Button();
+            this.bContinue = new System.Windows.Forms.Button();
             this.bBack = new System.Windows.Forms.Button();
             this.txtAnswer = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -108,17 +108,17 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Trả lời";
             // 
-            // bAgree
+            // bContinue
             // 
-            this.bAgree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bAgree.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAgree.Location = new System.Drawing.Point(245, 422);
-            this.bAgree.Name = "bAgree";
-            this.bAgree.Size = new System.Drawing.Size(84, 36);
-            this.bAgree.TabIndex = 7;
-            this.bAgree.Text = "Đồng ý";
-            this.bAgree.UseVisualStyleBackColor = false;
-            this.bAgree.Click += new System.EventHandler(this.bAgree_Click);
+            this.bContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bContinue.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bContinue.Location = new System.Drawing.Point(245, 422);
+            this.bContinue.Name = "bContinue";
+            this.bContinue.Size = new System.Drawing.Size(84, 36);
+            this.bContinue.TabIndex = 7;
+            this.bContinue.Text = "Tiếp tục";
+            this.bContinue.UseVisualStyleBackColor = false;
+            this.bContinue.Click += new System.EventHandler(this.bContinue_Click);
             // 
             // bBack
             // 
@@ -149,7 +149,7 @@
             this.ClientSize = new System.Drawing.Size(574, 492);
             this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.bBack);
-            this.Controls.Add(this.bAgree);
+            this.Controls.Add(this.bContinue);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbbQuestion);
             this.Controls.Add(this.label3);
@@ -173,7 +173,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbbQuestion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button bAgree;
+        private System.Windows.Forms.Button bContinue;
         private System.Windows.Forms.Button bBack;
         private System.Windows.Forms.TextBox txtAnswer;
     }

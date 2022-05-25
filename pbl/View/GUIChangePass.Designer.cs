@@ -36,6 +36,7 @@
             this.bAgree = new System.Windows.Forms.Button();
             this.bBack = new System.Windows.Forms.Button();
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
+            this.cbViewPass = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -69,6 +70,7 @@
             this.txtNewPass.PasswordChar = '*';
             this.txtNewPass.Size = new System.Drawing.Size(290, 26);
             this.txtNewPass.TabIndex = 1;
+            this.txtNewPass.Leave += new System.EventHandler(this.txtNewPass_Leave);
             // 
             // label3
             // 
@@ -114,6 +116,20 @@
             this.txtConfirmPass.PasswordChar = '*';
             this.txtConfirmPass.Size = new System.Drawing.Size(290, 26);
             this.txtConfirmPass.TabIndex = 2;
+            this.txtConfirmPass.Leave += new System.EventHandler(this.txtConfirmPass_Leave);
+            // 
+            // cbViewPass
+            // 
+            this.cbViewPass.AutoSize = true;
+            this.cbViewPass.BackColor = System.Drawing.Color.Transparent;
+            this.cbViewPass.ForeColor = System.Drawing.Color.White;
+            this.cbViewPass.Location = new System.Drawing.Point(350, 153);
+            this.cbViewPass.Name = "cbViewPass";
+            this.cbViewPass.Size = new System.Drawing.Size(159, 24);
+            this.cbViewPass.TabIndex = 5;
+            this.cbViewPass.Text = "Hiển thị mật khẩu";
+            this.cbViewPass.UseVisualStyleBackColor = false;
+            this.cbViewPass.Click += new System.EventHandler(this.cbViewPass_Click);
             // 
             // GUIChangePass
             // 
@@ -122,6 +138,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(574, 242);
+            this.Controls.Add(this.cbViewPass);
             this.Controls.Add(this.txtConfirmPass);
             this.Controls.Add(this.bBack);
             this.Controls.Add(this.bAgree);
@@ -147,5 +164,6 @@
         private System.Windows.Forms.Button bAgree;
         private System.Windows.Forms.Button bBack;
         private System.Windows.Forms.TextBox txtConfirmPass;
+        private System.Windows.Forms.CheckBox cbViewPass;
     }
 }

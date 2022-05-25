@@ -18,10 +18,10 @@
         <AssociationConnector Association="PBL3Model.FK__TRAIN__ScheduleI__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="PBL3Model.FK__TICKET__TrainID__33D4B598" ManuallyRouted="false" />
         <AssociationConnector Association="PBL3Model.FK__TICKET_MA__Train__37A5467C" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="PBL3Model.SECURITY" Width="1.5" PointX="5.25" PointY="11.625" />
-        <AssociationConnector Association="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" />
         <EntityTypeShape EntityType="PBL3Model.LOGIN" Width="1.5" PointX="5.25" PointY="14.75" />
         <AssociationConnector Association="PBL3Model.FK__LOGIN__Username__29572725" />
+        <EntityTypeShape EntityType="PBL3Model.SECURITY" Width="1.5" PointX="5.25" PointY="11.625" />
+        <AssociationConnector Association="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

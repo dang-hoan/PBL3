@@ -24,7 +24,7 @@
           <Property Name="Address" Type="nvarchar" MaxLength="100" />
           <Property Name="IDCard" Type="char" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="Phone" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Phone" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="PositionID" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="POSITION">
@@ -48,7 +48,7 @@
           <Key>
             <PropertyRef Name="SecurityID" />
           </Key>
-          <Property Name="SecurityID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SecurityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OwnUN" Type="varchar" MaxLength="20" />
           <Property Name="Question" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Answer" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -246,13 +246,13 @@
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IDCard" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="PositionID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="POSITION" Relationship="Self.FK__PEOPLE__Position__267ABA7A" FromRole="PEOPLE" ToRole="POSITION" />
           <NavigationProperty Name="TICKETs" Relationship="Self.FK__TICKET__Customer__34C8D9D1" FromRole="PEOPLE" ToRole="TICKET" />
           <NavigationProperty Name="TRAINs" Relationship="Self.FK__TRAIN__DriverUN__300424B4" FromRole="PEOPLE" ToRole="TRAIN" />
-          <NavigationProperty Name="SECURITies" Relationship="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" FromRole="PEOPLE" ToRole="SECURITY" />
           <NavigationProperty Name="LOGINs" Relationship="PBL3Model.FK__LOGIN__Username__29572725" FromRole="PEOPLE" ToRole="LOGIN" />
+          <NavigationProperty Name="SECURITies" Relationship="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" FromRole="PEOPLE" ToRole="SECURITY" />
         </EntityType>
         <EntityType Name="POSITION">
           <Key>
@@ -423,39 +423,17 @@
             <End Role="TRAIN" EntitySet="TRAINs" />
             <End Role="TICKET_MANAGER" EntitySet="TICKET_MANAGER" />
           </AssociationSet>
-          <EntitySet Name="SECURITies" EntityType="PBL3Model.SECURITY" />
-          <AssociationSet Name="FK__SECURITY__OwnUN__49C3F6B7" Association="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7">
-            <End Role="PEOPLE" EntitySet="PEOPLE" />
-            <End Role="SECURITY" EntitySet="SECURITies" />
-          </AssociationSet>
           <EntitySet Name="LOGINs" EntityType="PBL3Model.LOGIN" />
           <AssociationSet Name="FK__LOGIN__Username__29572725" Association="PBL3Model.FK__LOGIN__Username__29572725">
             <End Role="PEOPLE" EntitySet="PEOPLE" />
             <End Role="LOGIN" EntitySet="LOGINs" />
           </AssociationSet>
+          <EntitySet Name="SECURITies" EntityType="PBL3Model.SECURITY" />
+          <AssociationSet Name="FK__SECURITY__OwnUN__49C3F6B7" Association="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7">
+            <End Role="PEOPLE" EntitySet="PEOPLE" />
+            <End Role="SECURITY" EntitySet="SECURITies" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="SECURITY">
-          <Key>
-            <PropertyRef Name="SecurityID" />
-          </Key>
-          <Property Name="SecurityID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="OwnUN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Question" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Answer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Person" Relationship="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" FromRole="SECURITY" ToRole="PEOPLE" />
-        </EntityType>
-        <Association Name="FK__SECURITY__OwnUN__49C3F6B7">
-          <End Type="PBL3Model.PEOPLE" Role="PEOPLE" Multiplicity="0..1" />
-          <End Type="PBL3Model.SECURITY" Role="SECURITY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PEOPLE">
-              <PropertyRef Name="Username" />
-            </Principal>
-            <Dependent Role="SECURITY">
-              <PropertyRef Name="OwnUN" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="LOGIN">
           <Key>
             <PropertyRef Name="IDlogin" />
@@ -474,6 +452,28 @@
             </Principal>
             <Dependent Role="LOGIN">
               <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SECURITY">
+          <Key>
+            <PropertyRef Name="SecurityID" />
+          </Key>
+          <Property Name="SecurityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OwnUN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Question" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Answer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Person" Relationship="PBL3Model.FK__SECURITY__OwnUN__49C3F6B7" FromRole="SECURITY" ToRole="PEOPLE" />
+        </EntityType>
+        <Association Name="FK__SECURITY__OwnUN__49C3F6B7">
+          <End Type="PBL3Model.PEOPLE" Role="PEOPLE" Multiplicity="0..1" />
+          <End Type="PBL3Model.SECURITY" Role="SECURITY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEOPLE">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="SECURITY">
+              <PropertyRef Name="OwnUN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -560,6 +560,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LOGINs">
+            <EntityTypeMapping TypeName="PBL3Model.LOGIN">
+              <MappingFragment StoreEntitySet="LOGIN">
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="SECURITies">
             <EntityTypeMapping TypeName="PBL3Model.SECURITY">
               <MappingFragment StoreEntitySet="SECURITY">
@@ -567,15 +576,6 @@
                 <ScalarProperty Name="Question" ColumnName="Question" />
                 <ScalarProperty Name="OwnUN" ColumnName="OwnUN" />
                 <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LOGINs">
-            <EntityTypeMapping TypeName="PBL3Model.LOGIN">
-              <MappingFragment StoreEntitySet="LOGIN">
-                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

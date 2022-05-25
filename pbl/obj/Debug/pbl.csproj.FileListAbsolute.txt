@@ -144,3 +144,6 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.CopyComplete
 C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
 C:\PBL3\pbl\obj\Debug\pbl.View.GUI.resources
+C:\PBL3\pbl\obj\Debug\pbl.GUIRegister.resources
+C:\PBL3\pbl\obj\Debug\pbl.InputPass.resources
+C:\PBL3\pbl\obj\Debug\pbl.AddSecurity.resources

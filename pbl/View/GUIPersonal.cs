@@ -41,7 +41,15 @@ namespace pbl
             txtEmail.Text = p.Email;
             txtPhone.Text = p.Phone;
             txtPosition.Text = p.Position;
-            cbbQuestion.Items.AddRange(BLLTRAIN.Instance.GetQuestionSecurity(GUILogin.userName).ToArray());
+            int num = 1;
+            foreach(SECURITY s in BLLTRAIN.Instance.GetQuestionSecurity(GUILogin.userName))
+            {
+                cbbQuestion.Items.Add(new CBBSecurity
+                {
+                    Value = s.SecurityID,
+                    Text = num++ + ". " + s.Question
+                });
+            }
         }
         private void bEditPass_Click(object sender, EventArgs e)
         {
@@ -128,6 +136,18 @@ namespace pbl
                 MessageBox.Show("Số điện thoại phải đủ 10 chữ số!");
                 return;
             }
+            InputPass input = new InputPass();
+            input.GetConfirmPass = new InputPass.MyDel(GetConfirmPass);
+            input.ShowDialog();
+            if (!Confirm)
+            {
+                MessageBox.Show("Mật khẩu xác nhận không đúng!");
+                return;
+            }
+            else
+            {
+                Confirm = false;
+            }
             BLLTRAIN.Instance.UpdatePEOPLE(new PEOPLE
             {
                 Username = GUILogin.userName,
@@ -154,12 +174,30 @@ namespace pbl
         {
 
         }
-
+        public bool Confirm = false;
+        private void GetConfirmPass(string ConfirmPass)
+        {
+            if (BLLTRAIN.Instance.CheckAccount(GUILogin.userName, ConfirmPass) == "Không tồn tại")
+            {
+                Confirm = false;
+            }
+            else Confirm = true;
+        }
         private void bEditSecurity_Click(object sender, EventArgs e)
         {
-            if(cbbQuestion.Text != "")
+            txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value);
+            InputPass input = new InputPass();
+            input.GetConfirmPass = new InputPass.MyDel(GetConfirmPass);
+            input.ShowDialog();
+            if (!Confirm)
             {
-                txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, cbbQuestion.Text);
+                MessageBox.Show("Mật khẩu xác nhận không đúng!");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Mật khẩu xác nhận chính xác!");
+                Confirm = false;
             }
             cbbQuestion.Enabled = true;
             txtAnswer.Enabled = true;
@@ -167,8 +205,11 @@ namespace pbl
 
         private void bSaveSecurity_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.UpdateSecurity(GUILogin.userName, cbbQuestion.Text, txtAnswer.Text);
-            MessageBox.Show("Đã đổi thành công câu trả lời bảo mật của bạn!");
+            if (cbbQuestion.Text != "")
+            {
+                BLLTRAIN.Instance.UpdateSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value, txtAnswer.Text);
+                MessageBox.Show("Đã đổi thành công câu trả lời bảo mật của bạn!");
+            }
             txtAnswer.Text = "";
             cbbQuestion.Enabled = false;
             txtAnswer.Enabled = false;
@@ -176,7 +217,27 @@ namespace pbl
 
         private void cbbQuestion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, cbbQuestion.Text);
+            txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value);
+        }
+        private void GetSecurity(List<SECURITY> list)
+        {
+            int num = 1;
+            if(list != null) BLLTRAIN.Instance.AddSecurity(list);
+            cbbQuestion.Items.Clear();
+            foreach (SECURITY s in BLLTRAIN.Instance.GetQuestionSecurity(GUILogin.userName))
+            {
+                cbbQuestion.Items.Add(new CBBSecurity
+                {
+                    Value = s.SecurityID,
+                    Text = num++ + ". " + s.Question
+                });
+            }
+        }
+        private void pAdd_Click(object sender, EventArgs e)
+        {
+            AddSecurity add = new AddSecurity();
+            add.GetSecurity = new AddSecurity.MyDel(GetSecurity);
+            add.ShowDialog();
         }
     }
 }

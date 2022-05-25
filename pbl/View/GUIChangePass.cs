@@ -30,10 +30,39 @@ namespace pbl
                 MessageBox.Show("Mật khẩu xác nhận không khớp với mật khẩu mới!");
                 return;
             }
+            if(txtConfirmPass.Text.Length > 12 || txtNewPass.Text.Length > 12)
+            {
+                MessageBox.Show("Mật khẩu không được quá 12 ký tự!");
+                return;
+            }
             BLLTRAIN.Instance.UpdatePassByForget(userName, txtNewPass.Text);
             MessageBox.Show("Đã thay đổi thành công mật khẩu của bạn!");
             this.Close();
             login.Show();
+        }
+
+        private void txtConfirmPass_Leave(object sender, EventArgs e)
+        {
+            if(txtConfirmPass.Text.Length > 12) MessageBox.Show("Mật khẩu không được quá 12 ký tự!");
+        }
+
+        private void txtNewPass_Leave(object sender, EventArgs e)
+        {
+            if (txtNewPass.Text.Length > 12) MessageBox.Show("Mật khẩu không được quá 12 ký tự!");
+        }
+
+        private void cbViewPass_Click(object sender, EventArgs e)
+        {
+            if (cbViewPass.Checked)
+            {
+                txtNewPass.PasswordChar = '\0';
+                txtConfirmPass.PasswordChar = '\0';
+            }
+            else
+            {
+                txtNewPass.PasswordChar = '*';
+                txtConfirmPass.PasswordChar = '\0';
+            }
         }
 
         private void bBack_Click(object sender, EventArgs e)
