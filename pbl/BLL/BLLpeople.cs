@@ -48,6 +48,9 @@ namespace pbl.BLL
         
         public void Execute(PEOPLE s)
         {
+            s.PositionID = (from POSITION pos in db.POSITIONs
+                     where pos.Position.Equals("Khách hàng")
+                     select pos.PositionID).FirstOrDefault();
             if (!check(s.Username))
             {
                 db.PEOPLE.Add(s);
@@ -55,9 +58,6 @@ namespace pbl.BLL
             }
             else
             {
-                int p = (from POSITION pos in db.POSITIONs
-                            where pos.Position.Equals("Khách hàng")
-                            select pos.PositionID).FirstOrDefault();
                 PEOPLE temp = db.PEOPLE.Find(s.Username);
                 temp.Name = s.Name;
                 temp.Gender = s.Gender;
@@ -66,7 +66,7 @@ namespace pbl.BLL
                 temp.Address = s.Address;
                 temp.IDCard = s.IDCard;
                 temp.Email = s.Email;
-                temp.PositionID = p;
+                temp.PositionID = s.PositionID;
                 db.SaveChanges();
             }
 
@@ -141,14 +141,17 @@ namespace pbl.BLL
         }
         public List<PEOPLE_View> GetPPByUsername(string username)
         {
+            int PositionID = (from pos in db.POSITIONs
+                              where pos.Position == "Khách hàng"
+                              select pos.PositionID).FirstOrDefault();
             List<PEOPLE_View> data = new List<PEOPLE_View>();
             if (username == "")
             {
 
                 data = (from peo in db.PEOPLE
                        join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
-                       where pos.PositionID == 124
-                       select new PEOPLE_View
+                       where pos.PositionID == PositionID
+                        select new PEOPLE_View
                        {
                            Username = peo.Username,
                            Name = peo.Name,
@@ -165,7 +168,7 @@ namespace pbl.BLL
             {
                 data = (from peo in db.PEOPLE
                         join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
-                        where peo.Username == username && pos.PositionID == 124
+                        where peo.Username == username && pos.PositionID == PositionID
                         select new PEOPLE_View
                         {
                             Username = peo.Username,

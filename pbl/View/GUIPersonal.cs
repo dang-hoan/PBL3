@@ -21,6 +21,19 @@ namespace pbl
             GUI();
             txtBirthDay.MaxDate = DateTime.Now;
         }
+        private void InitQuestion()
+        {
+            int num = 1;
+            cbbQuestion.Items.Clear();
+            foreach (SECURITY s in BLLTRAIN.Instance.GetQuestionSecurity(GUILogin.userName))
+            {
+                cbbQuestion.Items.Add(new CBBSecurity
+                {
+                    Value = s.SecurityID,
+                    Text = num++ + ". " + s.Question
+                });
+            }
+        }
         private void GUI()
         {
             PEOPLE_View p = BLLTRAIN.Instance.GetPEOPLEViewByUsername(GUILogin.userName)[0];
@@ -41,15 +54,7 @@ namespace pbl
             txtEmail.Text = p.Email;
             txtPhone.Text = p.Phone;
             txtPosition.Text = p.Position;
-            int num = 1;
-            foreach(SECURITY s in BLLTRAIN.Instance.GetQuestionSecurity(GUILogin.userName))
-            {
-                cbbQuestion.Items.Add(new CBBSecurity
-                {
-                    Value = s.SecurityID,
-                    Text = num++ + ". " + s.Question
-                });
-            }
+            InitQuestion();
         }
         private void bEditPass_Click(object sender, EventArgs e)
         {
@@ -60,6 +65,7 @@ namespace pbl
 
         private void bSavePass_Click(object sender, EventArgs e)
         {
+            if (txtOld.Enabled == false) return;
             if (!txtNew.Text.Equals(txtConfirm.Text))
             {
                 MessageBox.Show("Mật khẩu xác nhận và mật khẩu mới không khớp!");
@@ -106,6 +112,7 @@ namespace pbl
 
         private void bSaveInfor_Click(object sender, EventArgs e)
         {
+            if (txtName.Enabled == false) return;
             if (!CheckNumber(txtIDCard.Text))
             {
                 MessageBox.Show("Số căn cước công dân phải có dạng số!");
@@ -139,14 +146,15 @@ namespace pbl
             InputPass input = new InputPass();
             input.GetConfirmPass = new InputPass.MyDel(GetConfirmPass);
             input.ShowDialog();
-            if (!Confirm)
+            if (Confirm == 0) return;
+            if (Confirm == -1)
             {
                 MessageBox.Show("Mật khẩu xác nhận không đúng!");
                 return;
             }
             else
             {
-                Confirm = false;
+                Confirm = -1;
             }
             BLLTRAIN.Instance.UpdatePEOPLE(new PEOPLE
             {
@@ -174,23 +182,26 @@ namespace pbl
         {
 
         }
-        public bool Confirm = false;
-        private void GetConfirmPass(string ConfirmPass)
+        public int Confirm = 0;
+        private void GetConfirmPass(string ConfirmPass, bool Get)
         {
-            if (BLLTRAIN.Instance.CheckAccount(GUILogin.userName, ConfirmPass) == "Không tồn tại")
+            if(Get == false)
             {
-                Confirm = false;
+                Confirm = 0;
             }
-            else Confirm = true;
+            else if (BLLTRAIN.Instance.CheckAccount(GUILogin.userName, ConfirmPass) == "Không tồn tại")
+            {
+                Confirm = -1;
+            }
+            else Confirm = 1;
         }
         private void bEditSecurity_Click(object sender, EventArgs e)
         {
-            if(cbbQuestion.Text != "")
-                txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value);
             InputPass input = new InputPass();
             input.GetConfirmPass = new InputPass.MyDel(GetConfirmPass);
             input.ShowDialog();
-            if (!Confirm)
+            if (Confirm == 0) return;
+            if (Confirm == -1)
             {
                 MessageBox.Show("Mật khẩu xác nhận không đúng!");
                 return;
@@ -198,19 +209,25 @@ namespace pbl
             else
             {
                 MessageBox.Show("Mật khẩu xác nhận chính xác!");
-                Confirm = false;
+                Confirm = -1;
             }
+            if (cbbQuestion.Text != "")
+                txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value);
             cbbQuestion.Enabled = true;
             txtAnswer.Enabled = true;
         }
 
         private void bSaveSecurity_Click(object sender, EventArgs e)
         {
-            if (cbbQuestion.Text != "")
+            if (cbbQuestion.Text == "")
             {
-                BLLTRAIN.Instance.UpdateSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value, txtAnswer.Text);
-                MessageBox.Show("Đã đổi thành công câu trả lời bảo mật của bạn!");
+                cbbQuestion.Enabled = false;
+                txtAnswer.Enabled = false;
+                return;
             }
+            if (txtAnswer.Enabled == false) return;
+            BLLTRAIN.Instance.UpdateSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value, txtAnswer.Text);
+            MessageBox.Show("Đã đổi thành công câu trả lời bảo mật của bạn!");
             txtAnswer.Text = "";
             cbbQuestion.Enabled = false;
             txtAnswer.Enabled = false;
@@ -218,27 +235,56 @@ namespace pbl
 
         private void cbbQuestion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value);
+            if((CBBSecurity)cbbQuestion.SelectedItem != null)
+                txtAnswer.Text = BLLTRAIN.Instance.GetAnswerSecurity(GUILogin.userName, ((CBBSecurity)cbbQuestion.SelectedItem).Value);
         }
         private void GetSecurity(List<SECURITY> list)
         {
-            int num = 1;
             if(list != null) BLLTRAIN.Instance.AddSecurity(list);
-            cbbQuestion.Items.Clear();
-            foreach (SECURITY s in BLLTRAIN.Instance.GetQuestionSecurity(GUILogin.userName))
-            {
-                cbbQuestion.Items.Add(new CBBSecurity
-                {
-                    Value = s.SecurityID,
-                    Text = num++ + ". " + s.Question
-                });
-            }
+            InitQuestion();
         }
         private void pAdd_Click(object sender, EventArgs e)
         {
+            InputPass input = new InputPass();
+            input.GetConfirmPass = new InputPass.MyDel(GetConfirmPass);
+            input.ShowDialog();
+            if (Confirm == 0) return;
+            if (Confirm == -1)
+            {
+                MessageBox.Show("Mật khẩu xác nhận không đúng!");
+                return;
+            }
+            else
+            {
+                Confirm = -1;
+            }
             AddSecurity add = new AddSecurity();
             add.GetSecurity = new AddSecurity.MyDel(GetSecurity);
             add.ShowDialog();
+        }
+
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+            if (cbbQuestion.Enabled == false) return;
+            if (cbbQuestion.SelectedItem == null) return;
+            //InputPass input = new InputPass();
+            //input.GetConfirmPass = new InputPass.MyDel(GetConfirmPass);
+            //input.ShowDialog();
+            //if (Confirm == 0) return;
+            //if (Confirm == -1)
+            //{
+            //    MessageBox.Show("Mật khẩu xác nhận không đúng!");
+            //    return;
+            //}
+            //else
+            //{
+            //    Confirm = -1;
+            //}
+            BLLTRAIN.Instance.DelSecurity(((CBBSecurity)cbbQuestion.SelectedItem).Value);
+            MessageBox.Show("Đã xoá thành công câu hỏi bảo mật bạn chọn!");
+            cbbQuestion.SelectedItem = null;
+            txtAnswer.Text = "";
+            InitQuestion();
         }
     }
 }

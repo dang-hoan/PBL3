@@ -248,7 +248,7 @@ namespace pbl.BLL
             }
             return false;
         }
-        public void AddPASSENGER(PEOPLE s)
+        public void AddPassenger(PEOPLE s)
         {
             PBL3 db = new PBL3();
             s.PositionID = (from pos in db.POSITIONs
@@ -258,7 +258,7 @@ namespace pbl.BLL
             db.SaveChanges();
         }
 
-        public void AddLOGIN(LOGIN s)
+        public void AddLogin(LOGIN s)
         {
             PBL3 db = new PBL3();
             db.LOGINs.Add(s);
@@ -374,6 +374,13 @@ namespace pbl.BLL
         {
             PBL3 db = new PBL3();
             db.SECURITies.AddRange(list.ToArray());
+            db.SaveChanges();
+        }
+        public void DelSecurity(int SecurityID)
+        {
+            PBL3 db = new PBL3();
+            SECURITY s = db.SECURITies.Find(SecurityID);
+            db.SECURITies.Remove(s);
             db.SaveChanges();
         }
         public void UpdateSecurity(string userName, int secID, string newAnswer)

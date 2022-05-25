@@ -44,7 +44,6 @@
             this.pArrow = new System.Windows.Forms.PictureBox();
             this.pOther = new System.Windows.Forms.PictureBox();
             this.pTicket = new System.Windows.Forms.PictureBox();
-            this.pChat = new System.Windows.Forms.PictureBox();
             this.pSchedule = new System.Windows.Forms.PictureBox();
             this.pImage = new System.Windows.Forms.PictureBox();
             this.pHome = new System.Windows.Forms.PictureBox();
@@ -58,7 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOther)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTicket)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pChat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSchedule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pHome)).BeginInit();
@@ -225,7 +223,6 @@
             this.panel_Title.Controls.Add(this.pArrow);
             this.panel_Title.Controls.Add(this.pOther);
             this.panel_Title.Controls.Add(this.pTicket);
-            this.panel_Title.Controls.Add(this.pChat);
             this.panel_Title.Controls.Add(this.pSchedule);
             this.panel_Title.Controls.Add(this.pImage);
             this.panel_Title.Controls.Add(this.pHome);
@@ -288,19 +285,6 @@
             this.pTicket.TabStop = false;
             this.pTicket.Click += new System.EventHandler(this.pTicket_Click);
             // 
-            // pChat
-            // 
-            this.pChat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pChat.Image = ((System.Drawing.Image)(resources.GetObject("pChat.Image")));
-            this.pChat.Location = new System.Drawing.Point(295, 0);
-            this.pChat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pChat.Name = "pChat";
-            this.pChat.Size = new System.Drawing.Size(47, 58);
-            this.pChat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pChat.TabIndex = 3;
-            this.pChat.TabStop = false;
-            this.pChat.Click += new System.EventHandler(this.pChat_Click);
-            // 
             // pSchedule
             // 
             this.pSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -332,7 +316,7 @@
             this.pHome.BackColor = System.Drawing.Color.Green;
             this.pHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pHome.Image = ((System.Drawing.Image)(resources.GetObject("pHome.Image")));
-            this.pHome.Location = new System.Drawing.Point(186, 0);
+            this.pHome.Location = new System.Drawing.Point(289, 0);
             this.pHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pHome.Name = "pHome";
             this.pHome.Size = new System.Drawing.Size(47, 58);
@@ -374,7 +358,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pArrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOther)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTicket)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pChat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSchedule)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pHome)).EndInit();
@@ -389,7 +372,6 @@
         private System.Windows.Forms.PictureBox pHome;
         private System.Windows.Forms.PictureBox pOther;
         private System.Windows.Forms.PictureBox pTicket;
-        private System.Windows.Forms.PictureBox pChat;
         private System.Windows.Forms.PictureBox pSchedule;
         private System.Windows.Forms.PictureBox pImage;
         private System.Windows.Forms.PictureBox pNotify;

@@ -100,9 +100,11 @@
             this.Controls.Add(this.bAccept);
             this.Controls.Add(this.txtConfirmPass);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "InputPass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XÁC NHẬN DANH TÍNH";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InputPass_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,8 +29,14 @@ namespace pbl
 
         private void bAdd_Click(object sender, EventArgs e)
         {
+            if(txtQuestion1.Text == "" || txtAnswer1.Text == "")
+            {
+                MessageBox.Show("Để bảo đảm an toàn cho bạn, bạn không được phép tạo bộ câu hỏi bảo mật rỗng!");
+                return;
+            }
             Sec.Add(new SECURITY
             {
+                SecurityID = count++,
                 OwnUN = GUILogin.userName,
                 Question = txtQuestion1.Text,
                 Answer = txtAnswer1.Text
@@ -72,8 +78,14 @@ namespace pbl
 
         private void bSave_Click(object sender, EventArgs e)
         {
-            if (cbbQuestion2.Text == "") return;
-            foreach(SECURITY sec in Sec)
+            if (cbbQuestion2.Text == "")
+            {
+                cbbQuestion2.Enabled = false;
+                txtAnswer2.Enabled = false;
+                return;
+            }
+            if (cbbQuestion2.Enabled == false) return;
+            foreach (SECURITY sec in Sec)
             {
                 if(sec.SecurityID == ((CBBSecurity)cbbQuestion2.SelectedItem).Value)
                 {

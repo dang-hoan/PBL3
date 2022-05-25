@@ -12,7 +12,7 @@ namespace pbl
 {
     public partial class InputPass : Form
     {
-        public delegate void MyDel(string ConfirmPass);
+        public delegate void MyDel(string ConfirmPass, bool Get);
         public MyDel GetConfirmPass;
         public InputPass()
         {
@@ -21,12 +21,13 @@ namespace pbl
 
         private void bAccept_Click(object sender, EventArgs e)
         {
-            GetConfirmPass(txtConfirmPass.Text);
+            GetConfirmPass(txtConfirmPass.Text, true);
             this.Close();
         }
 
         private void bBack_Click(object sender, EventArgs e)
         {
+            GetConfirmPass(txtConfirmPass.Text, false);
             this.Close();
         }
 
@@ -34,6 +35,15 @@ namespace pbl
         {
             if (cbViewPass.Checked) txtConfirmPass.PasswordChar = '\0';
             else txtConfirmPass.PasswordChar = '*';
+        }
+
+        private void InputPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                bAccept_Click(sender, e);
+            }
         }
     }
 }

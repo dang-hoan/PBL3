@@ -50,7 +50,7 @@ namespace pbl.View
         {
             if ((txtidcard.Text == "") || (txtname.Text == "") || (txtsdt.Text == "") || (txtuser.Text == ""))
             {
-                MessageBox.Show("bạn chưa nhập đủ dư liệu bắt buộc ");
+                MessageBox.Show("bạn chưa nhập đủ dữ liệu bắt buộc ");
             }
 
             else
@@ -68,8 +68,7 @@ namespace pbl.View
                         Phone = "0" + txtsdt.Text,
                         Address = txtdiachi.Text,
                         Email = txtgamil.Text,
-                        IDCard = txtidcard.Text,
-                        PositionID = 124
+                        IDCard = txtidcard.Text
                     };
 
                     LOGIN dn = new LOGIN()
@@ -110,9 +109,8 @@ namespace pbl.View
                         Username = txtuser.Text,
                         PassWord = txtpass.Text,
                     };
-
-                    BLLpeople.instance.Execute2(dn);
                     BLLpeople.instance.Execute(s);
+                    BLLpeople.instance.Execute2(dn);
                     d("");
                     this.Close();
                 };

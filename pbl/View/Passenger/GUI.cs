@@ -44,7 +44,7 @@ namespace pbl.View
         {
             pOther.BackColor = Color.FromArgb(0, 192, 0);
             pHome.BackColor = Color.FromArgb(0, 192, 0);
-            pChat.BackColor = Color.FromArgb(0, 192, 0);
+            //pChat.BackColor = Color.FromArgb(0, 192, 0);
             pTicket.BackColor = Color.FromArgb(0, 192, 0);
             pSchedule.BackColor = Color.FromArgb(0, 192, 0);
             pNotify.BackColor = Color.FromArgb(0, 192, 0);
@@ -77,9 +77,9 @@ namespace pbl.View
             //pHome
             this.pHome.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
             this.pHome.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
-            //pChat
-            this.pChat.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
-            this.pChat.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
+            ////pChat
+            //this.pChat.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
+            //this.pChat.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //pTicket
             this.pTicket.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
             this.pTicket.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
@@ -163,8 +163,8 @@ namespace pbl.View
         }
         private void pChat_Click(object sender, EventArgs e)
         {
-            ChangeColor(pChat, null);
-            ShowForm(new GUIChat());
+            //ChangeColor(pChat, null);
+            //ShowForm(new GUIChat());
         }
         private void pTicket_Click(object sender, EventArgs e)
         {

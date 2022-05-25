@@ -62,6 +62,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.bDelete = new System.Windows.Forms.Button();
             this.pAdd = new System.Windows.Forms.PictureBox();
             this.cbbQuestion = new System.Windows.Forms.ComboBox();
             this.bSaveSecurity = new System.Windows.Forms.Button();
@@ -456,6 +457,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.bDelete);
             this.groupBox3.Controls.Add(this.pAdd);
             this.groupBox3.Controls.Add(this.cbbQuestion);
             this.groupBox3.Controls.Add(this.bSaveSecurity);
@@ -472,6 +474,20 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bảo mật";
+            // 
+            // bDelete
+            // 
+            this.bDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bDelete.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.bDelete.Location = new System.Drawing.Point(158, 207);
+            this.bDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bDelete.Name = "bDelete";
+            this.bDelete.Size = new System.Drawing.Size(115, 37);
+            this.bDelete.TabIndex = 17;
+            this.bDelete.Text = "Xoá";
+            this.bDelete.UseVisualStyleBackColor = false;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
             // 
             // pAdd
             // 
@@ -501,7 +517,7 @@
             this.bSaveSecurity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSaveSecurity.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSaveSecurity.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bSaveSecurity.Location = new System.Drawing.Point(229, 216);
+            this.bSaveSecurity.Location = new System.Drawing.Point(279, 207);
             this.bSaveSecurity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bSaveSecurity.Name = "bSaveSecurity";
             this.bSaveSecurity.Size = new System.Drawing.Size(115, 37);
@@ -515,7 +531,7 @@
             this.bEditSecurity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bEditSecurity.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEditSecurity.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bEditSecurity.Location = new System.Drawing.Point(49, 216);
+            this.bEditSecurity.Location = new System.Drawing.Point(13, 207);
             this.bEditSecurity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bEditSecurity.Name = "bEditSecurity";
             this.bEditSecurity.Size = new System.Drawing.Size(139, 37);
@@ -619,5 +635,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cbbQuestion;
         private System.Windows.Forms.PictureBox pAdd;
+        private System.Windows.Forms.Button bDelete;
     }
 }

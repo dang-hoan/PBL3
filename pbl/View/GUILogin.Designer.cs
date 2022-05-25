@@ -119,6 +119,7 @@
             // 
             // btdangnhap
             // 
+            this.btdangnhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btdangnhap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btdangnhap.Location = new System.Drawing.Point(172, 481);
             this.btdangnhap.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -126,7 +127,7 @@
             this.btdangnhap.Size = new System.Drawing.Size(146, 42);
             this.btdangnhap.TabIndex = 4;
             this.btdangnhap.Text = "Đăng nhập";
-            this.btdangnhap.UseVisualStyleBackColor = true;
+            this.btdangnhap.UseVisualStyleBackColor = false;
             this.btdangnhap.Click += new System.EventHandler(this.btdangnhap_Click_1);
             // 
             // pictureBox4
