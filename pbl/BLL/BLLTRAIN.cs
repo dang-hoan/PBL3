@@ -646,7 +646,7 @@ namespace pbl.BLL
                     NumberOfCarriages = i.NumberOfCarriages.ToString(),
                     DriverUN = i.DriverUN,
                     ScheduleID = (int)i.ScheduleID,
-                    BasicPrice = i.BasicPrice.ToString(),
+                    BasicPrice = i.BasicPrice,
                     State = i.State.ToString()
                 });
             }
@@ -1058,7 +1058,7 @@ namespace pbl.BLL
                         TrainName = tra.TrainName,
                         NumberOfCarriages = tra.NumberOfCarriages.ToString(),
                         DriverUN = tra.DriverUN.ToString(),
-                        BasicPrice = tra.BasicPrice.ToString(),
+                        BasicPrice = tra.BasicPrice,
                         State = tra.State.ToString(),
                     }).ToList();
         }

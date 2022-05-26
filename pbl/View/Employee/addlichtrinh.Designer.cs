@@ -54,9 +54,10 @@
             // 
             // bTOK
             // 
-            this.bTOK.Location = new System.Drawing.Point(455, 389);
+            this.bTOK.Location = new System.Drawing.Point(512, 486);
+            this.bTOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bTOK.Name = "bTOK";
-            this.bTOK.Size = new System.Drawing.Size(71, 33);
+            this.bTOK.Size = new System.Drawing.Size(80, 41);
             this.bTOK.TabIndex = 3;
             this.bTOK.Text = "Add";
             this.bTOK.UseVisualStyleBackColor = true;
@@ -83,69 +84,73 @@
             this.panel1.Controls.Add(this.daydep);
             this.panel1.Controls.Add(this.cbbDes);
             this.panel1.Controls.Add(this.cbbDep);
-            this.panel1.Location = new System.Drawing.Point(85, 12);
+            this.panel1.Location = new System.Drawing.Point(96, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(556, 371);
+            this.panel1.Size = new System.Drawing.Size(626, 464);
             this.panel1.TabIndex = 2;
             // 
             // hourdes
             // 
             this.hourdes.FormattingEnabled = true;
-            this.hourdes.Location = new System.Drawing.Point(188, 310);
+            this.hourdes.Location = new System.Drawing.Point(212, 388);
+            this.hourdes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.hourdes.Name = "hourdes";
-            this.hourdes.Size = new System.Drawing.Size(105, 24);
+            this.hourdes.Size = new System.Drawing.Size(118, 28);
             this.hourdes.TabIndex = 44;
             // 
             // cbbMinuteDes
             // 
             this.cbbMinuteDes.FormattingEnabled = true;
-            this.cbbMinuteDes.Location = new System.Drawing.Point(355, 310);
+            this.cbbMinuteDes.Location = new System.Drawing.Point(399, 388);
+            this.cbbMinuteDes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbMinuteDes.Name = "cbbMinuteDes";
-            this.cbbMinuteDes.Size = new System.Drawing.Size(86, 24);
+            this.cbbMinuteDes.Size = new System.Drawing.Size(96, 28);
             this.cbbMinuteDes.TabIndex = 43;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(317, 313);
+            this.label7.Location = new System.Drawing.Point(357, 391);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(11, 16);
+            this.label7.Size = new System.Drawing.Size(14, 20);
             this.label7.TabIndex = 42;
             this.label7.Text = ":";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 319);
+            this.label8.Location = new System.Drawing.Point(42, 399);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 16);
+            this.label8.Size = new System.Drawing.Size(85, 20);
             this.label8.TabIndex = 41;
             this.label8.Text = "GIỜ ĐẾN :";
             // 
             // schedule
             // 
-            this.schedule.Location = new System.Drawing.Point(188, 15);
+            this.schedule.Location = new System.Drawing.Point(212, 19);
+            this.schedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.schedule.Name = "schedule";
-            this.schedule.Size = new System.Drawing.Size(253, 22);
+            this.schedule.Size = new System.Drawing.Size(284, 26);
             this.schedule.TabIndex = 40;
             this.schedule.TextChanged += new System.EventHandler(this.schedule_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(37, 16);
+            this.label10.Location = new System.Drawing.Point(42, 20);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 16);
+            this.label10.Size = new System.Drawing.Size(97, 20);
             this.label10.TabIndex = 39;
             this.label10.Text = "ScheduleID:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(37, 209);
+            this.label9.Location = new System.Drawing.Point(42, 261);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 16);
+            this.label9.Size = new System.Drawing.Size(101, 20);
             this.label9.TabIndex = 36;
             this.label9.Text = "NGÀY ĐẾN :";
             // 
@@ -153,71 +158,74 @@
             // 
             this.daydes.CustomFormat = "dd/MM/yyyy";
             this.daydes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.daydes.Location = new System.Drawing.Point(188, 203);
+            this.daydes.Location = new System.Drawing.Point(212, 254);
+            this.daydes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.daydes.Name = "daydes";
-            this.daydes.Size = new System.Drawing.Size(253, 22);
+            this.daydes.Size = new System.Drawing.Size(284, 26);
             this.daydes.TabIndex = 35;
             // 
             // hourdep
             // 
             this.hourdep.FormattingEnabled = true;
-            this.hourdep.Location = new System.Drawing.Point(188, 257);
+            this.hourdep.Location = new System.Drawing.Point(212, 321);
+            this.hourdep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.hourdep.Name = "hourdep";
-            this.hourdep.Size = new System.Drawing.Size(105, 24);
+            this.hourdep.Size = new System.Drawing.Size(118, 28);
             this.hourdep.TabIndex = 30;
             this.hourdep.SelectedIndexChanged += new System.EventHandler(this.hourdep_SelectedIndexChanged);
             // 
             // cbbMinuteDep
             // 
             this.cbbMinuteDep.FormattingEnabled = true;
-            this.cbbMinuteDep.Location = new System.Drawing.Point(355, 257);
+            this.cbbMinuteDep.Location = new System.Drawing.Point(399, 321);
+            this.cbbMinuteDep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbMinuteDep.Name = "cbbMinuteDep";
-            this.cbbMinuteDep.Size = new System.Drawing.Size(86, 24);
+            this.cbbMinuteDep.Size = new System.Drawing.Size(96, 28);
             this.cbbMinuteDep.TabIndex = 29;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(317, 260);
+            this.label6.Location = new System.Drawing.Point(357, 325);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(11, 16);
+            this.label6.Size = new System.Drawing.Size(14, 20);
             this.label6.TabIndex = 28;
             this.label6.Text = ":";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 266);
+            this.label5.Location = new System.Drawing.Point(42, 332);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 16);
+            this.label5.Size = new System.Drawing.Size(68, 20);
             this.label5.TabIndex = 27;
             this.label5.Text = "GIỜ ĐI :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 62);
+            this.label3.Location = new System.Drawing.Point(42, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 24;
             this.label3.Text = "GA ĐI :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 114);
+            this.label2.Location = new System.Drawing.Point(42, 142);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 16);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 23;
             this.label2.Text = "GA ĐẾN :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 165);
+            this.label1.Location = new System.Drawing.Point(42, 206);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.Size = new System.Drawing.Size(84, 20);
             this.label1.TabIndex = 22;
             this.label1.Text = "NGÀY ĐI :";
             // 
@@ -225,32 +233,36 @@
             // 
             this.daydep.CustomFormat = "dd/MM/yyyy";
             this.daydep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.daydep.Location = new System.Drawing.Point(188, 159);
+            this.daydep.Location = new System.Drawing.Point(212, 199);
+            this.daydep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.daydep.Name = "daydep";
-            this.daydep.Size = new System.Drawing.Size(253, 22);
+            this.daydep.Size = new System.Drawing.Size(284, 26);
             this.daydep.TabIndex = 21;
             // 
             // cbbDes
             // 
             this.cbbDes.FormattingEnabled = true;
-            this.cbbDes.Location = new System.Drawing.Point(188, 113);
+            this.cbbDes.Location = new System.Drawing.Point(212, 141);
+            this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbDes.Name = "cbbDes";
-            this.cbbDes.Size = new System.Drawing.Size(253, 24);
+            this.cbbDes.Size = new System.Drawing.Size(284, 28);
             this.cbbDes.TabIndex = 20;
             // 
             // cbbDep
             // 
             this.cbbDep.FormattingEnabled = true;
-            this.cbbDep.Location = new System.Drawing.Point(188, 61);
+            this.cbbDep.Location = new System.Drawing.Point(212, 76);
+            this.cbbDep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbDep.Name = "cbbDep";
-            this.cbbDep.Size = new System.Drawing.Size(253, 24);
+            this.cbbDep.Size = new System.Drawing.Size(284, 28);
             this.cbbDep.TabIndex = 19;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(566, 389);
+            this.button1.Location = new System.Drawing.Point(637, 486);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
+            this.button1.Size = new System.Drawing.Size(84, 41);
             this.button1.TabIndex = 4;
             this.button1.Text = "Huy";
             this.button1.UseVisualStyleBackColor = true;
@@ -258,13 +270,14 @@
             // 
             // addlichtrinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(860, 562);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bTOK);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "addlichtrinh";
             this.Text = "addlichtrinh";
             this.panel1.ResumeLayout(false);

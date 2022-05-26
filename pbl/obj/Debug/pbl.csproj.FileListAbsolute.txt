@@ -106,7 +106,6 @@ C:\PBL3\pbl\obj\Debug\pbl.employee.resources
 C:\PBL3\pbl\obj\Debug\pbl.note.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Passenger.resources
 C:\PBL3\pbl\obj\Debug\pbl.Schedule.resources
-C:\PBL3\pbl\obj\Debug\pbl.chat.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Employeechinh.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.qlve.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIChangePass.resources

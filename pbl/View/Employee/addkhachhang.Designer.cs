@@ -48,7 +48,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtname = new System.Windows.Forms.TextBox();
             this.buthuy = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtname = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.Controls.Add(this.txtname);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label12);
@@ -93,12 +94,11 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.date);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtname);
             this.groupBox1.Location = new System.Drawing.Point(54, 109);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(976, 412);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox1.Size = new System.Drawing.Size(935, 412);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
@@ -119,7 +119,7 @@
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.ForeColor = System.Drawing.Color.Red;
             this.label11.ImageKey = "(none)";
-            this.label11.Location = new System.Drawing.Point(606, 196);
+            this.label11.Location = new System.Drawing.Point(602, 191);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 20);
             this.label11.TabIndex = 25;
@@ -131,7 +131,7 @@
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.ForeColor = System.Drawing.Color.Red;
             this.label12.ImageKey = "(none)";
-            this.label12.Location = new System.Drawing.Point(136, 88);
+            this.label12.Location = new System.Drawing.Point(132, 83);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 20);
             this.label12.TabIndex = 24;
@@ -142,7 +142,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.ImageKey = "(none)";
-            this.label9.Location = new System.Drawing.Point(610, 88);
+            this.label9.Location = new System.Drawing.Point(606, 83);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 20);
             this.label9.TabIndex = 22;
@@ -163,7 +163,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(474, 52);
+            this.label8.Location = new System.Drawing.Point(470, 47);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 25);
@@ -183,7 +183,7 @@
             // 
             this.rdinu.AutoSize = true;
             this.rdinu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdinu.Location = new System.Drawing.Point(243, 250);
+            this.rdinu.Location = new System.Drawing.Point(239, 245);
             this.rdinu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdinu.Name = "rdinu";
             this.rdinu.Size = new System.Drawing.Size(62, 29);
@@ -196,7 +196,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 52);
+            this.label1.Location = new System.Drawing.Point(13, 47);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 25);
@@ -207,7 +207,7 @@
             // 
             this.rdinam.AutoSize = true;
             this.rdinam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdinam.Location = new System.Drawing.Point(140, 250);
+            this.rdinam.Location = new System.Drawing.Point(136, 245);
             this.rdinam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdinam.Name = "rdinam";
             this.rdinam.Size = new System.Drawing.Size(78, 29);
@@ -220,7 +220,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(471, 250);
+            this.label5.Location = new System.Drawing.Point(467, 245);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 25);
@@ -231,7 +231,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 162);
+            this.label2.Location = new System.Drawing.Point(13, 157);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 25);
@@ -242,7 +242,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 351);
+            this.label3.Location = new System.Drawing.Point(13, 346);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 25);
@@ -265,14 +265,14 @@
             this.txtgamil.Location = new System.Drawing.Point(140, 348);
             this.txtgamil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtgamil.Name = "txtgamil";
-            this.txtgamil.Size = new System.Drawing.Size(187, 30);
+            this.txtgamil.Size = new System.Drawing.Size(266, 30);
             this.txtgamil.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(17, 250);
+            this.label6.Location = new System.Drawing.Point(13, 245);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 25);
@@ -287,28 +287,19 @@
             this.date.Location = new System.Drawing.Point(140, 162);
             this.date.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(187, 30);
+            this.date.Size = new System.Drawing.Size(266, 30);
             this.date.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(471, 162);
+            this.label4.Location = new System.Drawing.Point(467, 157);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "SDT : ";
-            // 
-            // txtname
-            // 
-            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtname.Location = new System.Drawing.Point(140, 49);
-            this.txtname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(187, 30);
-            this.txtname.TabIndex = 8;
             // 
             // buthuy
             // 
@@ -330,10 +321,10 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtpass);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(1084, 109);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Location = new System.Drawing.Point(1006, 109);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
             this.groupBox2.Size = new System.Drawing.Size(346, 412);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
@@ -345,7 +336,7 @@
             this.label13.BackColor = System.Drawing.Color.White;
             this.label13.ForeColor = System.Drawing.Color.Red;
             this.label13.ImageKey = "(none)";
-            this.label13.Location = new System.Drawing.Point(114, 88);
+            this.label13.Location = new System.Drawing.Point(111, 84);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 20);
             this.label13.TabIndex = 28;
@@ -365,7 +356,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 45);
+            this.label7.Location = new System.Drawing.Point(1, 41);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(118, 25);
@@ -388,19 +379,28 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(8, 155);
+            this.label10.Location = new System.Drawing.Point(5, 151);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(114, 25);
             this.label10.TabIndex = 18;
             this.label10.Text = "Password : ";
             // 
+            // txtname
+            // 
+            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtname.Location = new System.Drawing.Point(140, 52);
+            this.txtname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtname.Name = "txtname";
+            this.txtname.Size = new System.Drawing.Size(266, 30);
+            this.txtname.TabIndex = 27;
+            // 
             // addkhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
-            this.ClientSize = new System.Drawing.Size(1514, 742);
+            this.ClientSize = new System.Drawing.Size(1400, 742);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buthuy);
             this.Controls.Add(this.butok);
@@ -432,7 +432,6 @@
         private System.Windows.Forms.TextBox txtgamil;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtname;
         private System.Windows.Forms.Button buthuy;
         private System.Windows.Forms.TextBox txtidcard;
         private System.Windows.Forms.Label label8;
@@ -447,5 +446,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtname;
     }
 }

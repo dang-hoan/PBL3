@@ -45,9 +45,10 @@
             // 
             this.themlt.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.themlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.themlt.Location = new System.Drawing.Point(517, 459);
+            this.themlt.Location = new System.Drawing.Point(582, 574);
+            this.themlt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.themlt.Name = "themlt";
-            this.themlt.Size = new System.Drawing.Size(128, 33);
+            this.themlt.Size = new System.Drawing.Size(144, 41);
             this.themlt.TabIndex = 8;
             this.themlt.Text = "Thêm lịch trình";
             this.themlt.UseVisualStyleBackColor = false;
@@ -57,20 +58,24 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 123);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 154);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 312);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(947, 390);
             this.dataGridView1.TabIndex = 77;
             // 
             // butdelte
             // 
             this.butdelte.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butdelte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butdelte.Location = new System.Drawing.Point(745, 459);
+            this.butdelte.Location = new System.Drawing.Point(838, 574);
+            this.butdelte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butdelte.Name = "butdelte";
-            this.butdelte.Size = new System.Drawing.Size(117, 33);
+            this.butdelte.Size = new System.Drawing.Size(132, 41);
             this.butdelte.TabIndex = 111;
             this.butdelte.Text = "xóa lịch trình";
             this.butdelte.UseVisualStyleBackColor = false;
@@ -80,9 +85,10 @@
             // 
             this.butall.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butall.Location = new System.Drawing.Point(284, 459);
+            this.butall.Location = new System.Drawing.Point(320, 574);
+            this.butall.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butall.Name = "butall";
-            this.butall.Size = new System.Drawing.Size(128, 33);
+            this.butall.Size = new System.Drawing.Size(144, 41);
             this.butall.TabIndex = 112;
             this.butall.Text = "Xem tất cả";
             this.butall.UseVisualStyleBackColor = false;
@@ -91,18 +97,18 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 28);
+            this.label10.Location = new System.Drawing.Point(19, 35);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 16);
+            this.label10.Size = new System.Drawing.Size(51, 20);
             this.label10.TabIndex = 114;
             this.label10.Text = "Ga đi:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(331, 27);
+            this.label2.Location = new System.Drawing.Point(372, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 16);
+            this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 115;
             this.label2.Text = "Ga đến:";
             // 
@@ -111,10 +117,10 @@
             this.bSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSearch.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.Location = new System.Drawing.Point(778, 51);
+            this.bSearch.Location = new System.Drawing.Point(875, 64);
             this.bSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(84, 49);
+            this.bSearch.Size = new System.Drawing.Size(94, 61);
             this.bSearch.TabIndex = 130;
             this.bSearch.Text = "Tìm kiếm";
             this.bSearch.UseVisualStyleBackColor = false;
@@ -123,28 +129,29 @@
             // cbbDep
             // 
             this.cbbDep.FormattingEnabled = true;
-            this.cbbDep.Location = new System.Drawing.Point(18, 51);
+            this.cbbDep.Location = new System.Drawing.Point(20, 64);
             this.cbbDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbDep.Name = "cbbDep";
-            this.cbbDep.Size = new System.Drawing.Size(208, 24);
+            this.cbbDep.Size = new System.Drawing.Size(234, 28);
             this.cbbDep.TabIndex = 128;
             // 
             // cbbDes
             // 
             this.cbbDes.FormattingEnabled = true;
-            this.cbbDes.Location = new System.Drawing.Point(332, 51);
+            this.cbbDes.Location = new System.Drawing.Point(374, 64);
             this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbDes.Name = "cbbDes";
-            this.cbbDes.Size = new System.Drawing.Size(208, 24);
+            this.cbbDes.Size = new System.Drawing.Size(234, 28);
             this.cbbDes.TabIndex = 129;
             // 
             // buttrain
             // 
             this.buttrain.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttrain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttrain.Location = new System.Drawing.Point(20, 459);
+            this.buttrain.Location = new System.Drawing.Point(22, 574);
+            this.buttrain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttrain.Name = "buttrain";
-            this.buttrain.Size = new System.Drawing.Size(130, 33);
+            this.buttrain.Size = new System.Drawing.Size(146, 41);
             this.buttrain.TabIndex = 135;
             this.buttrain.Text = "Thêm chuyến tàu";
             this.buttrain.UseVisualStyleBackColor = false;
@@ -152,10 +159,10 @@
             // 
             // lichtrinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(915, 533);
+            this.ClientSize = new System.Drawing.Size(1029, 666);
             this.Controls.Add(this.buttrain);
             this.Controls.Add(this.cbbDes);
             this.Controls.Add(this.label2);
@@ -166,6 +173,7 @@
             this.Controls.Add(this.butdelte);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.themlt);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "lichtrinh";
             this.Text = "Lich Trinh";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

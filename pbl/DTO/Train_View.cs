@@ -13,7 +13,7 @@ namespace pbl.DTO
         public string NumberOfCarriages { get; set; }
         public string DriverUN { get; set; }
         public int ScheduleID { get; set; }
-        public int BasicPrice { get; set; }
+        public decimal BasicPrice { get; set; }
         public string State { get; set; }
     }
 } 
