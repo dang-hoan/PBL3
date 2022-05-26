@@ -77,7 +77,7 @@ namespace pbl.View
 
         private void butthem_Click(object sender, EventArgs e)
         {
-            addve f = new addve("");
+            addve f = new addve(-1);
             f.Show();
             f.d = new addve.Mydel(show);
         }

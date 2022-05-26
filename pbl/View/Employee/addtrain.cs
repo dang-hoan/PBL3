@@ -45,6 +45,7 @@ namespace pbl.View
             {
                 cbblaixe.Items.Add(s);
             }
+            if (schedule.Text != "") label1.Visible = false;
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -91,6 +92,7 @@ namespace pbl.View
         }
         private void getScheduleID(int scheduleid)
         {
+            label1.Visible = false;
             foreach (SCHEDULE i in BLLTRAIN.Instance.GetScheduleid(scheduleid))
             {
                 schedule.Text = i.ScheduleID.ToString();

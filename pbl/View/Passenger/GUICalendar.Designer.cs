@@ -33,9 +33,9 @@
             this.cbbYear = new System.Windows.Forms.ComboBox();
             this.cbbMonth = new System.Windows.Forms.ComboBox();
             this.panel_Detail = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel_Detail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +89,19 @@
             this.panel_Detail.Size = new System.Drawing.Size(318, 640);
             this.panel_Detail.TabIndex = 45;
             // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.LightGray;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
+            this.listBox1.ItemHeight = 22;
+            this.listBox1.Location = new System.Drawing.Point(28, 114);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listBox1.Size = new System.Drawing.Size(255, 466);
+            this.listBox1.TabIndex = 47;
+            // 
             // labelTitle
             // 
             this.labelTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,19 +125,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.ChangeMonthYear);
             // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.Color.LightGray;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 22;
-            this.listBox1.Location = new System.Drawing.Point(28, 114);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBox1.Size = new System.Drawing.Size(255, 466);
-            this.listBox1.TabIndex = 47;
-            // 
             // GUICalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -137,7 +137,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "GUICalendar";
-            this.Text = "Calendar";
+            this.Text = "LỊCH CÁ NHÂN";
             this.Click += new System.EventHandler(this.GUICalendar_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GUICalendar_KeyDown);
             this.panel_Detail.ResumeLayout(false);

@@ -173,7 +173,7 @@
             this.Controls.Add(this.label1);
             this.Name = "GUIOption";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Option";
+            this.Text = "TÌM LỊCH TRÌNH";
             this.ResumeLayout(false);
             this.PerformLayout();
 

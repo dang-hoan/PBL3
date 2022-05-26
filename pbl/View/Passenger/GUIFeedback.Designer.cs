@@ -107,7 +107,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelStar);
             this.Name = "GUIFeedback";
-            this.Text = "GUIFeedback";
+            this.Text = "PHẢN HỒI";
             this.ResumeLayout(false);
             this.PerformLayout();
 

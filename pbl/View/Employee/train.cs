@@ -22,6 +22,10 @@ namespace pbl.View
         }
         public void gui()
         {
+            dateFromDep.Value = DateTime.Now;
+            dateToDep.Value = DateTime.Now;
+            dateFromDes.Value = DateTime.Now;
+            dateToDes.Value = DateTime.Now;
             List<string> listDep = new List<string>();
             List<string> listDes = new List<string>();
             BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
@@ -39,21 +43,41 @@ namespace pbl.View
 
         private void bSearch_Click(object sender, EventArgs e)
         {
-                SCHEDULE_View s = new SCHEDULE_View()
-                {
-                    Departure = cbbDep.Text,
-                    Destination = cbbDes.Text,
-                    //DepartureTime = DepTime,
-                };
-                int scheduleid = 0;
-                foreach (SCHEDULE_View i in BLLTRAIN.Instance.GetSchedule2(s))
-                {
-                    scheduleid = i.ScheduleID;
-                    MessageBox.Show(scheduleid.ToString());
-                }
-               dataGridView1.DataSource = BLLTRAIN.Instance.GetTrain2(scheduleid);
-       
-
+            int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
+            int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
+            int comp3 = DateTime.Compare(dateFromDep.Value, dateToDes.Value);
+            if (comp > 0 || comp2 > 0)
+            {
+                if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong cả ngày đi và ngày đến)!");
+                else if (comp > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đi)!");
+                else MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đến)!");
+                return;
+            }
+            if (comp3 >= 0)
+            {
+                MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+            }
+            string date1 = dateFromDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date2 = dateToDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date3 = dateFromDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string date4 = dateToDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(date1, now) < 0 || string.Compare(date2, now) < 0 || string.Compare(date3, now) < 0 || string.Compare(date4, now) < 0)
+            {
+                MessageBox.Show("Lịch trình phải có thời gian bắt đầu từ thời điểm hiện tại!");
+                return;
+            }
+            SCHEDULE_BLL s = new SCHEDULE_BLL
+            {
+                ScheduleID = -1,
+                Departure = cbbDep.Text,
+                Destination = cbbDes.Text,
+                FromDepartureTime = dateFromDep.Value,
+                ToDepartureTime = dateToDep.Value,
+                FromArrivalTime = dateFromDes.Value,
+                ToArrivalTime = dateToDes.Value
+            };
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetTrain2(s);
         }
 
         private void buttrain_Click(object sender, EventArgs e)
@@ -83,7 +107,7 @@ namespace pbl.View
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                string trainid = dataGridView1.SelectedRows[0].Cells["TrainID"].Value.ToString();
+                int trainid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["TrainID"].Value.ToString());
                addve f = new addve(trainid);
                 f.Show();
                 f.d = new addve.Mydel(show2);

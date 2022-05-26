@@ -170,7 +170,7 @@
             this.ClientSize = new System.Drawing.Size(1098, 693);
             this.Controls.Add(this.panel_Content);
             this.Name = "GUITicket";
-            this.Text = "GUITicket";
+            this.Text = "VÉ CÁ NHÂN";
             this.panel_Content.ResumeLayout(false);
             this.panel_Content.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();

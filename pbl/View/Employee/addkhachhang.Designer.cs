@@ -30,6 +30,7 @@
         {
             this.butok = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtname = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtname = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             // butok
             // 
             this.butok.ForeColor = System.Drawing.Color.Black;
-            this.butok.Location = new System.Drawing.Point(918, 565);
+            this.butok.Location = new System.Drawing.Point(558, 490);
             this.butok.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butok.Name = "butok";
             this.butok.Size = new System.Drawing.Size(112, 40);
@@ -94,7 +94,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.date);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(54, 109);
+            this.groupBox1.Location = new System.Drawing.Point(23, 35);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
@@ -102,6 +102,15 @@
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
+            // 
+            // txtname
+            // 
+            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtname.Location = new System.Drawing.Point(140, 52);
+            this.txtname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtname.Name = "txtname";
+            this.txtname.Size = new System.Drawing.Size(266, 30);
+            this.txtname.TabIndex = 27;
             // 
             // textBox1
             // 
@@ -166,9 +175,9 @@
             this.label8.Location = new System.Drawing.Point(470, 47);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 25);
+            this.label8.Size = new System.Drawing.Size(107, 25);
             this.label8.TabIndex = 17;
-            this.label8.Text = "IDcard : ";
+            this.label8.Text = "Số CCCD:";
             // 
             // txtdiachi
             // 
@@ -297,14 +306,14 @@
             this.label4.Location = new System.Drawing.Point(467, 157);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 25);
+            this.label4.Size = new System.Drawing.Size(132, 25);
             this.label4.TabIndex = 3;
-            this.label4.Text = "SDT : ";
+            this.label4.Text = "Số điện thoại:";
             // 
             // buthuy
             // 
             this.buthuy.ForeColor = System.Drawing.Color.Black;
-            this.buthuy.Location = new System.Drawing.Point(1084, 565);
+            this.buthuy.Location = new System.Drawing.Point(724, 490);
             this.buthuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buthuy.Name = "buthuy";
             this.buthuy.Size = new System.Drawing.Size(112, 40);
@@ -321,11 +330,11 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtpass);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(1006, 109);
+            this.groupBox2.Location = new System.Drawing.Point(975, 35);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox2.Size = new System.Drawing.Size(346, 412);
+            this.groupBox2.Size = new System.Drawing.Size(376, 412);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin đăng nhập ";
@@ -336,7 +345,7 @@
             this.label13.BackColor = System.Drawing.Color.White;
             this.label13.ForeColor = System.Drawing.Color.Red;
             this.label13.ImageKey = "(none)";
-            this.label13.Location = new System.Drawing.Point(111, 84);
+            this.label13.Location = new System.Drawing.Point(6, 83);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 20);
             this.label13.TabIndex = 28;
@@ -345,7 +354,7 @@
             // txtuser
             // 
             this.txtuser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtuser.Location = new System.Drawing.Point(117, 45);
+            this.txtuser.Location = new System.Drawing.Point(154, 45);
             this.txtuser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(198, 30);
@@ -359,14 +368,14 @@
             this.label7.Location = new System.Drawing.Point(1, 41);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 25);
+            this.label7.Size = new System.Drawing.Size(151, 25);
             this.label7.TabIndex = 26;
-            this.label7.Text = "Username : ";
+            this.label7.Text = "Tên đăng nhập:";
             // 
             // txtpass
             // 
             this.txtpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpass.Location = new System.Drawing.Point(117, 155);
+            this.txtpass.Location = new System.Drawing.Point(154, 146);
             this.txtpass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
@@ -382,25 +391,16 @@
             this.label10.Location = new System.Drawing.Point(5, 151);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 25);
+            this.label10.Size = new System.Drawing.Size(99, 25);
             this.label10.TabIndex = 18;
-            this.label10.Text = "Password : ";
-            // 
-            // txtname
-            // 
-            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtname.Location = new System.Drawing.Point(140, 52);
-            this.txtname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(266, 30);
-            this.txtname.TabIndex = 27;
+            this.label10.Text = "Mật khẩu:";
             // 
             // addkhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
-            this.ClientSize = new System.Drawing.Size(1400, 742);
+            this.ClientSize = new System.Drawing.Size(1400, 553);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buthuy);
             this.Controls.Add(this.butok);
@@ -408,7 +408,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "addkhachhang";
-            this.Text = "Personal information";
+            this.Text = "THÊM KHÁCH HÀNG";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

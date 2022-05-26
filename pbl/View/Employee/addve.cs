@@ -16,11 +16,11 @@ namespace pbl.View
     {
         public delegate void Mydel(string s);
         public Mydel d { get; set; }
-        public string trainid = "", scheduleid = "";
-        string kiemtra = "";
+        public int trainid = -1, scheduleid = -1;
+        int kiemtra = -1;
         int num;
         decimal? giave;
-        public addve(string s)
+        public addve(int s)
         {
             InitializeComponent();
             trainid = s;
@@ -69,9 +69,10 @@ namespace pbl.View
             }
         }
 
-        private void gettrainid(string trainid)
-        {  int id = Convert.ToInt32(trainid);
-            foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(id))
+        private void gettrainid(int trainid)
+        {
+            label2.Visible = false;
+            foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(trainid))
             {
                 txtschedule.Text = i.ScheduleID.ToString();
                 txttrainid.Text = i.TrainID.ToString();
@@ -83,7 +84,7 @@ namespace pbl.View
             }
             for (int i = 1; i <= num; i++)
             {
-                cbbmave.Items.Add(i.ToString());
+                cbbmave.Items.Add(Convert.ToChar(i+48));
             }
         }
 
@@ -130,7 +131,7 @@ namespace pbl.View
 
         private void pChat_Click(object sender, EventArgs e)
         {
-            if (kiemtra == "")
+            if (kiemtra == -1)
             {
                 trainve f = new trainve();
                 f.Show();

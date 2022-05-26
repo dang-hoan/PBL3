@@ -632,24 +632,31 @@ namespace pbl.BLL
                          select tra.TrainName;
             return result.ToList();
         }
-        public List<Train_View> GetTrain2(int schedule)
+        public List<Train_View> GetTrain2(SCHEDULE_BLL schedule)
         {
             PBL3 db = new PBL3();
-            List<Train_View> data = new List<Train_View>();
-            foreach (TRAIN i in GettrainBytrainid(schedule))
+            schedule.FromDepartureTime = schedule.FromDepartureTime.AddSeconds(-schedule.FromDepartureTime.Second);
+            schedule.ToDepartureTime = schedule.ToDepartureTime.AddSeconds(-schedule.FromDepartureTime.Second + 59);
+            schedule.FromArrivalTime = schedule.FromArrivalTime.AddSeconds(-schedule.FromArrivalTime.Second);
+            schedule.ToArrivalTime = schedule.ToArrivalTime.AddSeconds(-schedule.ToArrivalTime.Second + 59);
+            bool Dep = false, Des = false;
+            if (schedule.Departure == "") Dep = true;
+            if (schedule.Destination == "") Des = true;
+            var data =  (from SCHEDULE sch in db.SCHEDULEs.ToList()
+                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
+                               && (DateTime.Compare(schedule.FromDepartureTime, sch.DepartureTime) <= 0 && DateTime.Compare(sch.DepartureTime, schedule.ToDepartureTime) <= 0)
+                               && (DateTime.Compare(schedule.FromArrivalTime, sch.ArrivalTime) <= 0 && DateTime.Compare(sch.ArrivalTime, schedule.ToArrivalTime) <= 0)
+            select new Train_View
             {
-
-                data.Add(new Train_View
-                {
-                    TrainID = i.TrainID,
-                    TrainName = i.TrainName,
-                    NumberOfCarriages = i.NumberOfCarriages.ToString(),
-                    DriverUN = i.DriverUN,
-                    ScheduleID = (int)i.ScheduleID,
-                    BasicPrice = i.BasicPrice,
-                    State = i.State.ToString()
-                });
-            }
+                TrainID = tra.TrainID,
+                TrainName = tra.TrainName,
+                NumberOfCarriages = tra.NumberOfCarriages,
+                DriverUN = tra.DriverUN,
+                ScheduleID = (int)tra.ScheduleID,
+                BasicPrice = tra.BasicPrice,
+                State = tra.State
+            }).ToList();
             return data;
         }
         public List<TRAIN> trainaddve(int trainid)
@@ -1025,6 +1032,7 @@ namespace pbl.BLL
         {
             PBL3 db = new PBL3();
             return (from sch in db.SCHEDULEs.ToList()
+                    where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0
                     select new SCHEDULE_View
                     {
                         ScheduleID = sch.ScheduleID,
@@ -1058,7 +1066,7 @@ namespace pbl.BLL
                         ScheduleID = (int)tra.ScheduleID,
                         TrainID = tra.TrainID,
                         TrainName = tra.TrainName,
-                        NumberOfCarriages = tra.NumberOfCarriages.ToString(),
+                        NumberOfCarriages = tra.NumberOfCarriages,
                         DriverUN = (tra.DriverUN != null)?tra.DriverUN.ToString():"Chưa có",
                         BasicPrice = tra.BasicPrice,
                         State = (tra.State != null)?tra.State.ToString():"",

@@ -347,7 +347,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đường sắt Việt Nam";
+            this.Text = "ĐƯỜNG SẮT VIỆT NAM";
             this.panel_Content.ResumeLayout(false);
             this.panel_User.ResumeLayout(false);
             this.panel_Other.ResumeLayout(false);

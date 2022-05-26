@@ -76,14 +76,41 @@ namespace pbl.View
     
         private void bSearch_Click(object sender, EventArgs e)
         {
-            SCHEDULE_View s = new SCHEDULE_View()
+            int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
+            int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
+            int comp3 = DateTime.Compare(dateFromDep.Value, dateToDes.Value);
+            if (comp > 0 || comp2 > 0)
             {
+                if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong cả ngày đi và ngày đến)!");
+                else if (comp > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đi)!");
+                else MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đến)!");
+                return;
+            }
+            if (comp3 >= 0)
+            {
+                MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+            }
+            string date1 = dateFromDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date2 = dateToDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date3 = dateFromDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string date4 = dateToDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(date1, now) < 0 || string.Compare(date2, now) < 0 || string.Compare(date3, now) < 0 || string.Compare(date4, now) < 0)
+            {
+                MessageBox.Show("Lịch trình phải có thời gian bắt đầu từ thời điểm hiện tại!");
+                return;
+            }
+            SCHEDULE_BLL s = new SCHEDULE_BLL
+            {
+                ScheduleID = -1,
                 Departure = cbbDep.Text,
                 Destination = cbbDes.Text,
-                // DepartureTime = DepTime,
+                FromDepartureTime = dateFromDep.Value,
+                ToDepartureTime = dateToDep.Value,
+                FromArrivalTime = dateFromDes.Value,
+                ToArrivalTime = dateToDes.Value
             };
-
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
         }
 
         private void buttrain_Click(object sender, EventArgs e)

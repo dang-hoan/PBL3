@@ -41,6 +41,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.butmuave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.dateToDes = new System.Windows.Forms.DateTimePicker();
+            this.dateToDep = new System.Windows.Forms.DateTimePicker();
+            this.dateFromDes = new System.Windows.Forms.DateTimePicker();
+            this.dateFromDep = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +157,7 @@
             // cbbook
             // 
             this.cbbook.FormattingEnabled = true;
-            this.cbbook.Location = new System.Drawing.Point(196, 98);
+            this.cbbook.Location = new System.Drawing.Point(196, 166);
             this.cbbook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbook.Name = "cbbook";
             this.cbbook.Size = new System.Drawing.Size(234, 28);
@@ -156,7 +166,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 99);
+            this.label5.Location = new System.Drawing.Point(46, 167);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 20);
             this.label5.TabIndex = 129;
@@ -188,12 +198,112 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dateToDes
+            // 
+            this.dateToDes.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateToDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateToDes.Location = new System.Drawing.Point(469, 115);
+            this.dateToDes.Name = "dateToDes";
+            this.dateToDes.Size = new System.Drawing.Size(207, 26);
+            this.dateToDes.TabIndex = 165;
+            // 
+            // dateToDep
+            // 
+            this.dateToDep.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateToDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateToDep.Location = new System.Drawing.Point(469, 72);
+            this.dateToDep.Name = "dateToDep";
+            this.dateToDep.Size = new System.Drawing.Size(207, 26);
+            this.dateToDep.TabIndex = 164;
+            // 
+            // dateFromDes
+            // 
+            this.dateFromDes.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateFromDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFromDes.Location = new System.Drawing.Point(175, 116);
+            this.dateFromDes.Name = "dateFromDes";
+            this.dateFromDes.Size = new System.Drawing.Size(207, 26);
+            this.dateFromDes.TabIndex = 163;
+            // 
+            // dateFromDep
+            // 
+            this.dateFromDep.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateFromDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFromDep.Location = new System.Drawing.Point(175, 72);
+            this.dateFromDep.Name = "dateFromDep";
+            this.dateFromDep.Size = new System.Drawing.Size(207, 26);
+            this.dateFromDep.TabIndex = 162;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(420, 121);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 20);
+            this.label7.TabIndex = 161;
+            this.label7.Text = "Đến:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(138, 121);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 20);
+            this.label8.TabIndex = 160;
+            this.label8.Text = "Từ:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(420, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 20);
+            this.label6.TabIndex = 159;
+            this.label6.Text = "Đến:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(138, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 20);
+            this.label1.TabIndex = 158;
+            this.label1.Text = "Từ:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(46, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 20);
+            this.label4.TabIndex = 157;
+            this.label4.Text = "Ngày đến:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(46, 72);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.TabIndex = 156;
+            this.label3.Text = "Ngày đi:";
+            // 
             // qlve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1029, 666);
+            this.Controls.Add(this.dateToDes);
+            this.Controls.Add(this.dateToDep);
+            this.Controls.Add(this.dateFromDes);
+            this.Controls.Add(this.dateFromDep);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.butmuave);
             this.Controls.Add(this.cbbook);
@@ -229,5 +339,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button butmuave;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateToDes;
+        private System.Windows.Forms.DateTimePicker dateToDep;
+        private System.Windows.Forms.DateTimePicker dateFromDes;
+        private System.Windows.Forms.DateTimePicker dateFromDep;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

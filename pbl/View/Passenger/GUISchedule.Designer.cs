@@ -72,7 +72,7 @@
             this.Controls.Add(this.bPrivate);
             this.Controls.Add(this.panel_Main);
             this.Name = "GUISchedule";
-            this.Text = "MainSchedule";
+            this.Text = "LỊCH TRÌNH TÀU CHẠY";
             this.ResumeLayout(false);
 
         }
