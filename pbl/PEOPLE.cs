@@ -17,9 +17,9 @@ namespace pbl
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PEOPLE()
         {
+            this.LOGINs = new HashSet<LOGIN>();
             this.SECURITies = new HashSet<SECURITY>();
             this.TICKETs = new HashSet<TICKET>();
-            this.LOGINs = new HashSet<LOGIN>();
             this.TRAINs = new HashSet<TRAIN>();
         }
     
@@ -33,13 +33,13 @@ namespace pbl
         public string Phone { get; set; }
         public Nullable<int> PositionID { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LOGIN> LOGINs { get; set; }
         public virtual POSITION POSITION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SECURITY> SECURITies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TICKET> TICKETs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LOGIN> LOGINs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRAIN> TRAINs { get; set; }
     }

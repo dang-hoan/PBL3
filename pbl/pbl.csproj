@@ -131,6 +131,12 @@
     <Compile Include="View\AddSecurity.Designer.cs">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Employee\doanhthu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Employee\doanhthu.Designer.cs">
+      <DependentUpon>doanhthu.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\InputPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,18 +155,6 @@
     </Compile>
     <Compile Include="View\Admin\addnv.Designer.cs">
       <DependentUpon>addnv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\delnv.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\delnv.Designer.cs">
-      <DependentUpon>delnv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\delsche.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\delsche.Designer.cs">
-      <DependentUpon>delsche.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\Mainform.cs">
       <SubType>Form</SubType>
@@ -197,12 +191,6 @@
     </Compile>
     <Compile Include="View\Employee\datve.Designer.cs">
       <DependentUpon>datve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\AddForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\AddForm.Designer.cs">
-      <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\addschedule.cs">
       <SubType>Form</SubType>
@@ -404,6 +392,9 @@
     <EmbeddedResource Include="View\AddSecurity.resx">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Employee\doanhthu.resx">
+      <DependentUpon>doanhthu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\InputPass.resx">
       <DependentUpon>InputPass.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,12 +409,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\addnv.resx">
       <DependentUpon>addnv.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\delnv.resx">
-      <DependentUpon>delnv.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\delsche.resx">
-      <DependentUpon>delsche.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\Mainform.resx">
       <DependentUpon>Mainform.cs</DependentUpon>
@@ -442,9 +427,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\datve.resx">
       <DependentUpon>datve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\AddForm.resx">
-      <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\addschedule.resx">
       <DependentUpon>addschedule.cs</DependentUpon>

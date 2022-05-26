@@ -440,7 +440,7 @@ namespace pbl.BLL
                              Username = peo.Username,
                              Name = peo.Name,
                              Gender = ((bool)peo.Gender) ? "Nam" : "Nữ",
-                             BirthDay = (peo.BirthDay == null) ? DateTime.Now : (DateTime)peo.BirthDay,
+                             BirthDay = (peo.BirthDay == null) ? DateTime.Now : peo.BirthDay,
                              Address = peo.Address,
                              IDCard = peo.IDCard,
                              Email = peo.Email,

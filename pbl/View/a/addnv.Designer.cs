@@ -31,6 +31,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtgaddnv = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gmaildk = new System.Windows.Forms.Label();
             this.namedk = new System.Windows.Forms.Label();
             this.userdk = new System.Windows.Forms.Label();
             this.passdk = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.gmaildkk = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgaddnv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +92,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.groupBox1.Controls.Add(this.gmaildkk);
+            this.groupBox1.Controls.Add(this.gmaildk);
             this.groupBox1.Controls.Add(this.namedk);
             this.groupBox1.Controls.Add(this.userdk);
             this.groupBox1.Controls.Add(this.passdk);
@@ -130,6 +130,14 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
+            // 
+            // gmaildk
+            // 
+            this.gmaildk.AutoSize = true;
+            this.gmaildk.Location = new System.Drawing.Point(130, 164);
+            this.gmaildk.Name = "gmaildk";
+            this.gmaildk.Size = new System.Drawing.Size(0, 16);
+            this.gmaildk.TabIndex = 34;
             // 
             // namedk
             // 
@@ -332,7 +340,7 @@
             // 
             this.male.AutoSize = true;
             this.male.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.male.Location = new System.Drawing.Point(133, 77);
+            this.male.Location = new System.Drawing.Point(133, 79);
             this.male.Margin = new System.Windows.Forms.Padding(4);
             this.male.Name = "male";
             this.male.Size = new System.Drawing.Size(65, 24);
@@ -391,7 +399,6 @@
             this.gmail.Name = "gmail";
             this.gmail.Size = new System.Drawing.Size(190, 27);
             this.gmail.TabIndex = 11;
-            this.gmail.TextChanged += new System.EventHandler(this.gmail_TextChanged);
             this.gmail.Leave += new System.EventHandler(this.gmail_Leave);
             // 
             // label6
@@ -468,14 +475,6 @@
             this.label16.TabIndex = 20;
             this.label16.Text = "Note : Những ô có (*) là thông tin bắt buộc!";
             // 
-            // gmaildkk
-            // 
-            this.gmaildkk.AutoSize = true;
-            this.gmaildkk.Location = new System.Drawing.Point(130, 164);
-            this.gmaildkk.Name = "gmaildkk";
-            this.gmaildkk.Size = new System.Drawing.Size(0, 16);
-            this.gmaildkk.TabIndex = 34;
-            // 
             // addnv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -532,9 +531,9 @@
         private System.Windows.Forms.Label idcarddk;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label gmaildk;
         private System.Windows.Forms.Label namedk;
         private System.Windows.Forms.Label userdk;
         private System.Windows.Forms.Label passdk;
-        private System.Windows.Forms.Label gmaildkk;
     }
 }

@@ -36,6 +36,7 @@
             this.btaddsche = new System.Windows.Forms.Button();
             this.btqllt = new System.Windows.Forms.Button();
             this.panelqlnv = new System.Windows.Forms.Panel();
+            this.btsearchnv = new System.Windows.Forms.Button();
             this.btupdatenv = new System.Windows.Forms.Button();
             this.btaddnv = new System.Windows.Forms.Button();
             this.btqlnv = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelmain = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.panelmenu.SuspendLayout();
             this.panelqllt.SuspendLayout();
             this.panelqlnv.SuspendLayout();
@@ -72,7 +72,7 @@
             this.button11.Dock = System.Windows.Forms.DockStyle.Top;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(0, 692);
+            this.button11.Location = new System.Drawing.Point(0, 694);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(309, 71);
             this.button11.TabIndex = 8;
@@ -88,7 +88,7 @@
             this.panelqllt.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelqllt.Location = new System.Drawing.Point(0, 559);
             this.panelqllt.Name = "panelqllt";
-            this.panelqllt.Size = new System.Drawing.Size(309, 133);
+            this.panelqllt.Size = new System.Drawing.Size(309, 135);
             this.panelqllt.TabIndex = 7;
             // 
             // btsearchsche
@@ -131,7 +131,7 @@
             // panelqlnv
             // 
             this.panelqlnv.BackColor = System.Drawing.Color.Silver;
-            this.panelqlnv.Controls.Add(this.button2);
+            this.panelqlnv.Controls.Add(this.btsearchnv);
             this.panelqlnv.Controls.Add(this.btupdatenv);
             this.panelqlnv.Controls.Add(this.btaddnv);
             this.panelqlnv.Dock = System.Windows.Forms.DockStyle.Top;
@@ -139,6 +139,19 @@
             this.panelqlnv.Name = "panelqlnv";
             this.panelqlnv.Size = new System.Drawing.Size(309, 205);
             this.panelqlnv.TabIndex = 5;
+            // 
+            // btsearchnv
+            // 
+            this.btsearchnv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btsearchnv.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btsearchnv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btsearchnv.Location = new System.Drawing.Point(0, 137);
+            this.btsearchnv.Name = "btsearchnv";
+            this.btsearchnv.Size = new System.Drawing.Size(309, 68);
+            this.btsearchnv.TabIndex = 4;
+            this.btsearchnv.Text = "Tìm kiếm nhân viên";
+            this.btsearchnv.UseVisualStyleBackColor = false;
+            this.btsearchnv.Click += new System.EventHandler(this.btsearchnv_Click);
             // 
             // btupdatenv
             // 
@@ -223,21 +236,6 @@
             this.panelmain.Size = new System.Drawing.Size(931, 637);
             this.panelmain.TabIndex = 2;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 137);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(309, 67);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Tìm kiếm nhân viên";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -272,6 +270,6 @@
         private System.Windows.Forms.Button btaddsche;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Panel panelmain;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btsearchnv;
     }
 }

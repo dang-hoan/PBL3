@@ -95,7 +95,10 @@ namespace pbl.View.Admin
             ShowForm(new searchsche());
         }
 
-       
+        private void btdelsche_Click(object sender, EventArgs e)
+        {
+            ShowForm(new delsche());
+        }
 
         private void btaddnv_Click(object sender, EventArgs e)
         {
@@ -109,9 +112,9 @@ namespace pbl.View.Admin
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btsearchnv_Click(object sender, EventArgs e)
         {
-
+            ShowForm(new searchnv());
         }
     }
 }

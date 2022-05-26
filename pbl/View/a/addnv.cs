@@ -14,7 +14,9 @@ namespace pbl.View.Admin
 {
     public partial class addnv : Form
     {
-       
+        public delegate void Mydel(string usern);
+        public Mydel d;
+        public string usern { get; set; }
         public addnv()
         {
 
@@ -27,7 +29,25 @@ namespace pbl.View.Admin
 
             dtgaddnv.DataSource = BLLpeople.instance.getallnv(222);
         }
-        
+        /*public void GUI()
+        {
+            if (BLLpeople.instance.check(usern))
+            {
+                PEOPLE p = BLLpeople.instance.GetuserByusername(usern);
+                txtusername.Text = p.Username;
+                
+                txtusername.Enabled = false;
+                txtname.Text = p.Name;
+                date.Text = p.BirthDay.ToString();
+                address.Text = p.Address;
+                gmail.Text = p.Email;
+                if(p.Gender == true ) male.Checked = true;
+                else female.Checked = true;
+                idcard.Text = p.IDCard;
+                positionid.Text = p.PositionID;
+                phone.Text = p.Phone;
+            }
+        }*/
         private void btok_Click(object sender, EventArgs e)
         {
 
@@ -52,7 +72,9 @@ namespace pbl.View.Admin
             BLLpeople.instance.Execute(s);
             BLLpeople.instance.Execute2(l);
             shownv();
-            
+            //d("");
+
+            //this.Close();
         }
 
         private void idcard_Leave(object sender, EventArgs e)
@@ -133,30 +155,6 @@ namespace pbl.View.Admin
             }
         }
 
-        private void gmail_TextChanged(object sender, EventArgs e)
-        {
-            int count = 0, xam = 0;
-            for(int i = 0; i < gmail.Text.Length; i++)
-            {
-                if (gmail.Text[i] == '.') count++;
-                if (gmail.Text[i] == '@') xam++;
-            }
-            if(count !=1 && xam !=1)
-            {
-                gmaildkk.Text = "Gmail không đúng định dạng !";
-            }
-            else 
-            {
-                gmaildkk.Text = "";
-            }
-            if(gmail.Text.Contains("@gmail.com"))
-            {
-                gmaildkk.Text = "Gmail không đúng định dạngq !";
-            }
-            else
-            {
-                gmaildkk.Text = "";
-            }
-        }
+        
     }
 }
