@@ -50,7 +50,12 @@ namespace pbl.View
         }
         public void show(string ticketid)
         {
-            dataGridView1.DataSource = BLLTicket.instance.Getticketbyticketid(ticketid);
+            if (ticketid == "")
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetAllTICKETView();
+            else
+            {
+                dataGridView1.DataSource = BLLTicket.instance.Getticketall(ticketid);
+            }
         }
         private void butsearch_Click(object sender, EventArgs e)
         {
@@ -106,7 +111,7 @@ namespace pbl.View
             {
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                    BLLTicket.instance.delticket(row.Cells["ticketid"].Value.ToString());
+                    BLLTicket.instance.delticket(Convert.ToInt32(row.Cells["ticketid"].Value.ToString()));
                 }
                 show("");
             }    
@@ -141,13 +146,14 @@ namespace pbl.View
                 
                 foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
                 {
-                    if (dr.Cells["Booked"].ToString() == "chưa đặt")
+                    
+                    if (dr.Cells["Booked"].Value.ToString() == "chưa đặt")
                     {
                         list.Add(dr.Cells["ScheduleID"].Value.ToString());
                         GUIBook book = new GUIBook(list);
                         book.Show();
                     }
-                    else { MessageBox.Show("ve đã được đặt"); }
+                    else { MessageBox.Show("ve co ma " + dr.Cells["ScheduleID"].Value.ToString()+"đã được đặt"); }
                 }
             }
         }

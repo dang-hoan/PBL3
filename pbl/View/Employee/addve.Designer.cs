@@ -90,7 +90,6 @@
             this.txtgiave.Name = "txtgiave";
             this.txtgiave.Size = new System.Drawing.Size(317, 26);
             this.txtgiave.TabIndex = 132;
-            this.txtgiave.TextChanged += new System.EventHandler(this.txtgiave_TextChanged);
             // 
             // label12
             // 
