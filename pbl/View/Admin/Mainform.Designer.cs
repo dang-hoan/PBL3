@@ -32,12 +32,10 @@
             this.panelmenu = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
             this.panelqllt = new System.Windows.Forms.Panel();
-            this.btdelsche = new System.Windows.Forms.Button();
             this.btsearchsche = new System.Windows.Forms.Button();
             this.btaddsche = new System.Windows.Forms.Button();
             this.btqllt = new System.Windows.Forms.Button();
             this.panelqlnv = new System.Windows.Forms.Panel();
-            this.btdelnv = new System.Windows.Forms.Button();
             this.btupdatenv = new System.Windows.Forms.Button();
             this.btaddnv = new System.Windows.Forms.Button();
             this.btqlnv = new System.Windows.Forms.Button();
@@ -45,6 +43,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelmain = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panelmenu.SuspendLayout();
             this.panelqllt.SuspendLayout();
             this.panelqlnv.SuspendLayout();
@@ -73,7 +72,7 @@
             this.button11.Dock = System.Windows.Forms.DockStyle.Top;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(0, 767);
+            this.button11.Location = new System.Drawing.Point(0, 692);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(309, 71);
             this.button11.TabIndex = 8;
@@ -84,26 +83,13 @@
             // panelqllt
             // 
             this.panelqllt.BackColor = System.Drawing.Color.Silver;
-            this.panelqllt.Controls.Add(this.btdelsche);
             this.panelqllt.Controls.Add(this.btsearchsche);
             this.panelqllt.Controls.Add(this.btaddsche);
             this.panelqllt.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelqllt.Location = new System.Drawing.Point(0, 559);
             this.panelqllt.Name = "panelqllt";
-            this.panelqllt.Size = new System.Drawing.Size(309, 208);
+            this.panelqllt.Size = new System.Drawing.Size(309, 133);
             this.panelqllt.TabIndex = 7;
-            // 
-            // btdelsche
-            // 
-            this.btdelsche.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btdelsche.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btdelsche.Location = new System.Drawing.Point(0, 133);
-            this.btdelsche.Name = "btdelsche";
-            this.btdelsche.Size = new System.Drawing.Size(309, 72);
-            this.btdelsche.TabIndex = 2;
-            this.btdelsche.Text = "Xóa lịch trình";
-            this.btdelsche.UseVisualStyleBackColor = false;
-            this.btdelsche.Click += new System.EventHandler(this.btdelsche_Click);
             // 
             // btsearchsche
             // 
@@ -145,7 +131,7 @@
             // panelqlnv
             // 
             this.panelqlnv.BackColor = System.Drawing.Color.Silver;
-            this.panelqlnv.Controls.Add(this.btdelnv);
+            this.panelqlnv.Controls.Add(this.button2);
             this.panelqlnv.Controls.Add(this.btupdatenv);
             this.panelqlnv.Controls.Add(this.btaddnv);
             this.panelqlnv.Dock = System.Windows.Forms.DockStyle.Top;
@@ -153,20 +139,6 @@
             this.panelqlnv.Name = "panelqlnv";
             this.panelqlnv.Size = new System.Drawing.Size(309, 205);
             this.panelqlnv.TabIndex = 5;
-            // 
-            // btdelnv
-            // 
-            this.btdelnv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btdelnv.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btdelnv.Image = ((System.Drawing.Image)(resources.GetObject("btdelnv.Image")));
-            this.btdelnv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btdelnv.Location = new System.Drawing.Point(0, 137);
-            this.btdelnv.Name = "btdelnv";
-            this.btdelnv.Size = new System.Drawing.Size(309, 68);
-            this.btdelnv.TabIndex = 4;
-            this.btdelnv.Text = "Xóa nhân viên";
-            this.btdelnv.UseVisualStyleBackColor = false;
-            this.btdelnv.Click += new System.EventHandler(this.btdelnv_Click);
             // 
             // btupdatenv
             // 
@@ -251,6 +223,21 @@
             this.panelmain.Size = new System.Drawing.Size(931, 637);
             this.panelmain.TabIndex = 2;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 137);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 3, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(309, 67);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Tìm kiếm nhân viên";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -275,17 +262,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelqlnv;
-        private System.Windows.Forms.Button btdelnv;
         private System.Windows.Forms.Button btupdatenv;
         private System.Windows.Forms.Button btaddnv;
         private System.Windows.Forms.Button btqlnv;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btqllt;
         private System.Windows.Forms.Panel panelqllt;
-        private System.Windows.Forms.Button btdelsche;
         private System.Windows.Forms.Button btsearchsche;
         private System.Windows.Forms.Button btaddsche;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Panel panelmain;
+        private System.Windows.Forms.Button button2;
     }
 }

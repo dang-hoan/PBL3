@@ -48,7 +48,7 @@ namespace pbl
             {
                 rbFemale.Checked = true;
             }
-            txtBirthDay.Value = p.BirthDay;
+            txtBirthDay.Value = (DateTime)p.BirthDay;
             txtAddress.Text = p.Address;
             txtIDCard.Text = p.IDCard;
             txtEmail.Text = p.Email;

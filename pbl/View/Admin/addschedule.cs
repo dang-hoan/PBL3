@@ -26,7 +26,7 @@ namespace pbl.Admin
 
             SCHEDULE s = new SCHEDULE()
             {
-                ScheduleID =Convert.ToInt32(txtid.Text),
+                
                 Departure = cbbgadi.Text,
                 Destination = cbbgaden.Text,
                 DepartureTime = datengaydi.Value,

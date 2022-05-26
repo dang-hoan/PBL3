@@ -60,7 +60,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(851, 332);
+            this.dataGridView1.Size = new System.Drawing.Size(851, 245);
             this.dataGridView1.TabIndex = 5;
             // 
             // panel1

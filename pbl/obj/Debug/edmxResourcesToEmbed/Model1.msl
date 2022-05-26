@@ -4,6 +4,7 @@
     <EntitySetMapping Name="LOGINs">
       <EntityTypeMapping TypeName="PBL3.LOGIN">
         <MappingFragment StoreEntitySet="LOGIN">
+          <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="PassWord" ColumnName="PassWord" />
@@ -89,6 +90,8 @@
     <EntitySetMapping Name="TRAINs">
       <EntityTypeMapping TypeName="PBL3.TRAIN">
         <MappingFragment StoreEntitySet="TRAIN">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="BasicPrice" ColumnName="BasicPrice" />
           <ScalarProperty Name="TrainID" ColumnName="TrainID" />
           <ScalarProperty Name="TrainName" ColumnName="TrainName" />
           <ScalarProperty Name="NumberOfCarriages" ColumnName="NumberOfCarriages" />

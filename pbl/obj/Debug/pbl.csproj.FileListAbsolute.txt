@@ -92,15 +92,12 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.ResolveComReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.addnv.resources
-C:\PBL3\pbl\obj\Debug\pbl.View.Admin.delnv.resources
-C:\PBL3\pbl\obj\Debug\pbl.View.Admin.delsche.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Mainform.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.searchsche.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.addkhachhang.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.addlichtrinh.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.addve.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.datve.resources
-C:\PBL3\pbl\obj\Debug\pbl.AddForm.resources
 C:\PBL3\pbl\obj\Debug\pbl.Admin.addschedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.employee.resources
 C:\PBL3\pbl\obj\Debug\pbl.note.resources
@@ -150,3 +147,4 @@ C:\PBL3\pbl\obj\Debug\pbl.View.GUI.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIRegister.resources
 C:\PBL3\pbl\obj\Debug\pbl.InputPass.resources
 C:\PBL3\pbl\obj\Debug\pbl.AddSecurity.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.Employee.doanhthu.resources
