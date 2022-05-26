@@ -17,6 +17,7 @@ namespace pbl
         public int IDlogin { get; set; }
         public string Username { get; set; }
         public string PassWord { get; set; }
+        public string State { get; set; }
     
         public virtual PEOPLE Person { get; set; }
     }

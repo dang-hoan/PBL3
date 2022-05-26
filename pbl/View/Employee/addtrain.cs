@@ -20,6 +20,8 @@ namespace pbl.View
         public addtrain(int s)
         {
             InitializeComponent();
+            if (schedule.Text != "") label1.Visible = false;
+            else label1.Visible = true;
             trainid = s;
             Init();
             schedule.Enabled = false;
@@ -39,7 +41,7 @@ namespace pbl.View
                 cbbDes.Enabled = false;
             }
             List<string> name = new List<string>();
-            foreach (CBBpeople s in BLLTRAIN.Instance.GetAllCBBPeople())
+            foreach (CBBpeople s in BLLTRAIN.Instance.GetAllCBBDriver())
             {
                 cbblaixe.Items.Add(s);
             }
@@ -96,6 +98,12 @@ namespace pbl.View
                 cbbDes.Text = i.Destination;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void lich_trinh_Click(object sender, EventArgs e)
         {
             if (trainid == -1)

@@ -92,6 +92,7 @@ namespace pbl.View
             {
                 int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString());
                 addtrain f = new addtrain(scheduleid);
+                f.d = new addtrain.Mydel(show);
                 f.Show();
             }
             else

@@ -7,6 +7,7 @@
     <Property Name="IDlogin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="PassWord" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="PEOPLE">
     <Key>
@@ -86,6 +87,8 @@
     <Property Name="NumberOfCarriages" Type="int" Nullable="false" />
     <Property Name="DriverUN" Type="varchar" MaxLength="20" />
     <Property Name="ScheduleID" Type="int" />
+    <Property Name="BasicPrice" Type="money" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK__LOGIN__Username__29572725">
     <End Role="PEOPLE" Type="Self.PEOPLE" Multiplicity="1" />

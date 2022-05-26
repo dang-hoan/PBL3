@@ -1,15 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PBL3StoreContainer" CdmEntityContainer="PBL3Entities">
-    <EntitySetMapping Name="LOGINs">
-      <EntityTypeMapping TypeName="PBL3.LOGIN">
-        <MappingFragment StoreEntitySet="LOGIN">
-          <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PEOPLE">
       <EntityTypeMapping TypeName="PBL3.PEOPLE">
         <MappingFragment StoreEntitySet="PEOPLE">
@@ -86,14 +77,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="LOGINs">
+      <EntityTypeMapping TypeName="PBL3.LOGIN">
+        <MappingFragment StoreEntitySet="LOGIN">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IDlogin" ColumnName="IDlogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TRAINs">
       <EntityTypeMapping TypeName="PBL3.TRAIN">
         <MappingFragment StoreEntitySet="TRAIN">
-          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
-          <ScalarProperty Name="TrainName" ColumnName="TrainName" />
-          <ScalarProperty Name="NumberOfCarriages" ColumnName="NumberOfCarriages" />
-          <ScalarProperty Name="DriverUN" ColumnName="DriverUN" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="BasicPrice" ColumnName="BasicPrice" />
           <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="DriverUN" ColumnName="DriverUN" />
+          <ScalarProperty Name="NumberOfCarriages" ColumnName="NumberOfCarriages" />
+          <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

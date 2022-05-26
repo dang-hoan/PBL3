@@ -56,8 +56,6 @@ namespace pbl.BLL
 
             db.TICKETs.Add(s);
             db.SaveChanges();
-          
-
         }
         public List<TICKET_View> getticketbylist(SCHEDULE_View schedule, bool book)
         {
@@ -70,7 +68,7 @@ namespace pbl.BLL
                          join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
 
                          join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
-                         where (( sch.Departure.Equals(schedule.Departure)) && ( sch.Destination.Equals(schedule.Destination)) || tic.Booked.Equals(booked))
+                         where ((Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination)) || tic.Booked.Equals(booked))
                          //where      sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
 
                          select new TICKET_View
