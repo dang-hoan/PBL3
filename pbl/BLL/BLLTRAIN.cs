@@ -859,14 +859,16 @@ namespace pbl.BLL
             cbbDes = (from sch in db.SCHEDULEs.ToList()
                       select sch.Destination).ToList();
         }
-        public List<CBBpeople> GetAllCBBPeople()
+        public List<CBBpeople> GetAllCBBDriver()
         {
             PBL3 db = new PBL3();
-            return (from i in db.PEOPLE.ToList()
+            return (from peo in db.PEOPLE.ToList()
+                    join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
+                    where pos.Position == "Lái tàu"
                     select new CBBpeople
                     {
-                        Value = i.Username,
-                        Text = i.Name
+                        Value = peo.Username,
+                        Text = peo.Name
                     }).ToList();
 
         }
@@ -1057,9 +1059,9 @@ namespace pbl.BLL
                         TrainID = tra.TrainID,
                         TrainName = tra.TrainName,
                         NumberOfCarriages = tra.NumberOfCarriages.ToString(),
-                        DriverUN = tra.DriverUN.ToString(),
+                        DriverUN = (tra.DriverUN != null)?tra.DriverUN.ToString():"Chưa có",
                         BasicPrice = tra.BasicPrice,
-                        State = tra.State.ToString(),
+                        State = (tra.State != null)?tra.State.ToString():"",
                     }).ToList();
         }
 
@@ -1110,14 +1112,14 @@ namespace pbl.BLL
         public List<SCHEDULE_View> GetSchedule2(SCHEDULE_View schedule)
         {
             PBL3 db = new PBL3();
-            //bool Dep = false, Des = false;
-            //if (schedule.Departure == "") Dep = true;
-            //if (schedule.Destination == "") Des = true;
+            bool Dep = false, Des = false;
+            if (schedule.Departure == "") Dep = true;
+            if (schedule.Destination == "") Des = true;
             //var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
             //             where (Dep || sch.Departure.Equals(schedule.Departure)) || (Des || sch.Destination.Equals(schedule.Destination))
             //                   && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
             var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         where ((sch.Departure.Equals(schedule.Departure)) && (sch.Destination.Equals(schedule.Destination)))
+                         where ((Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination)))
                          select new SCHEDULE_View
                          {
                              ScheduleID = sch.ScheduleID,

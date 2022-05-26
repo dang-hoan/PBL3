@@ -25,7 +25,6 @@ namespace pbl
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<LOGIN> LOGINs { get; set; }
         public virtual DbSet<PEOPLE> PEOPLE { get; set; }
         public virtual DbSet<POSITION> POSITIONs { get; set; }
         public virtual DbSet<SCHEDULE> SCHEDULEs { get; set; }
@@ -33,6 +32,7 @@ namespace pbl
         public virtual DbSet<STATION> STATIONs { get; set; }
         public virtual DbSet<TICKET> TICKETs { get; set; }
         public virtual DbSet<TICKET_MANAGER> TICKET_MANAGER { get; set; }
+        public virtual DbSet<LOGIN> LOGINs { get; set; }
         public virtual DbSet<TRAIN> TRAINs { get; set; }
     }
 }
