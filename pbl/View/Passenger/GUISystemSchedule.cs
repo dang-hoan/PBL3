@@ -46,12 +46,12 @@ namespace pbl
         }
         private void bBook_Click(object sender, EventArgs e)
         {
-            List<string> list = new List<string>();
+            List<int> list = new List<int>();
             if (dataGridView1.SelectedRows.Count >= 1)
             {
                 foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
                 {
-                    list.Add(dr.Cells["ScheduleID"].Value.ToString());
+                    list.Add(Convert.ToInt32(dr.Cells["ScheduleID"].Value.ToString()));
                 }
                 GUIBook book = new GUIBook(list);
                 book.Show();
@@ -139,7 +139,7 @@ namespace pbl
         public int[] numberChar = new int[5] { 14, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar);
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"");
         }
     }
 }

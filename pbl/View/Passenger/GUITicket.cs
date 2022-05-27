@@ -61,7 +61,7 @@ namespace pbl
                 {
                     foreach (DataGridViewRow i in dataGridView1.SelectedRows)
                     {
-                        BLLTRAIN.Instance.SetTicket(i.Cells["TicketID"].Value.ToString(), GUILogin.userName, false);
+                        BLLTRAIN.Instance.SetTicket(Convert.ToInt32(i.Cells["TicketID"].Value.ToString()), GUILogin.userName, false);
                     }
                     MessageBox.Show("Đã huỷ những vé bạn chọn!");
                     cbbTrain.Items.Clear();
@@ -97,7 +97,7 @@ namespace pbl
         public int[] numberChar = new int[10] { 14, 10, 25, 8, 14, 25, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar);
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"");
         }
     }
 }

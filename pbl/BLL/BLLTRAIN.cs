@@ -62,14 +62,14 @@ namespace pbl.BLL
                     {
                         TrainID = TrainID,
                         SeatNo = carriage[i] + j.ToString(),
-                        TicketPrice = (decimal)(Convert.ToInt32(TicketPrice) * (max - 0.1 * (i - 1))),
+                        TicketPrice = (decimal)(Convert.ToDouble(TicketPrice) * (max - 0.1 * (i - 1))),
                         Booked = false,
                         CustomerUN = ""
                     });
                 }
             }
         }
-        public void Print(DataGridView dataGridView1, int[] numberChar)
+        public void Print(DataGridView dataGridView1, int[] numberChar,string header)
         {
             string path = null;
             OpenFileDialog o = new OpenFileDialog();
@@ -138,7 +138,7 @@ namespace pbl.BLL
                         r_Header.Font.Size = 18;
                         r_Header.Font.Name = "Times New Roman";
                         r_Header.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                        r_Header.Value2 = "Dữ liệu DataGridView";
+                        r_Header.Value2 = header;
                         //Tô màu cho tiêu đề
                         r_Header.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
                         r_Header.Font.Bold = true;
@@ -429,11 +429,11 @@ namespace pbl.BLL
                          select new TICKET_View
                          {
                              ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID.ToString(),
+                             TrainID = tra.TrainID,
                              TrainName = tra.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
-                             TicketPrice = tic.TicketPrice.ToString(),
+                             TicketPrice = (double)tic.TicketPrice,
                              Departure = sch.Departure,
                              Destination = sch.Destination,
                              DepartureTime = sch.DepartureTime.ToString(),
@@ -484,7 +484,14 @@ namespace pbl.BLL
             }
             return data;
         }
+        public List<string> Getstation()
+        {
+            PBL3 db = new PBL3();
+            var result = from STATION sta in db.STATIONs.ToList()
+                         select sta.StationName;
+            return result.ToList();
 
+        }
         //Passenger
         public string GetName(string Username)
         {
@@ -516,6 +523,53 @@ namespace pbl.BLL
                              ArrivalTime = sch.ArrivalTime.ToString()
                          };
             return result.ToList();
+        }
+        public List<doanhthu_view> dthu(int month,int year)
+        {
+            PBL3 db = new PBL3();
+            int numberTicket = 0; double Totalmoney = 0;
+            List<doanhthu_view> list = new List<doanhthu_view>();
+            foreach(SCHEDULE s in db.SCHEDULEs)
+            {
+                if(s.DepartureTime.ToString("dd/MM/yyyy HH:mm:ss").Contains(month + "/" + year))
+                {
+                    foreach(TRAIN t in db.TRAINs)
+                    {
+                        numberTicket = 0;
+                         Totalmoney = 0;
+                        if (t.ScheduleID == s.ScheduleID)
+                        {
+                            foreach(TICKET ti in db.TICKETs)
+                            {
+                                if(ti.TrainID == t.TrainID)
+                                {
+                                    if(ti.Booked == true)
+                                    {
+                                        numberTicket++;
+                                        Totalmoney +=Convert.ToDouble(ti.TicketPrice);
+
+                                    }
+
+                                }
+                            }
+                            list.Add(new doanhthu_view
+                            {
+                                TrainID = t.TrainID,
+                                TrainName = t.TrainName,
+                                Depature = s.Departure,
+                                Destination=s.Destination,
+                                DepartureTime = s.DepartureTime,
+                               ArrivalTime=s.ArrivalTime,
+                               TotalTickets= numberTicket,
+                               Totalmoney=Totalmoney
+                            } );
+                        }
+                        
+                    }
+                }
+                
+            }
+            return list;
         }
         public List<TICKET_User_View> GetTicket(SCHEDULE_View schedule, string userName, string TrainName)
         {
@@ -602,32 +656,32 @@ namespace pbl.BLL
                          };
             return result.ToList();
         }
-        public List<TICKET_View> GetTicket(List<string> list)
+        public List<TICKET_View> GetTicket(List<int> list)
         {
             PBL3 db = new PBL3();
             List<TICKET_View> result = new List<TICKET_View>();
-            foreach (string id in list)
+            foreach (int id in list)
             {
                 foreach (TICKET_View t in BLLTRAIN.Instance.GetAllTICKETView())
                 {
-                    if (t.ScheduleID.Equals(id)) result.Add(t);
+                    if (t.ScheduleID == id) result.Add(t);
                 }
             }
             return result;
         }
       
-        public List<TICKET_View> GetTicket(List<string> list, string TrainName, int carriage, ref int booked, ref int unbooked)
+        public List<TICKET_View> GetTicket(List<int> list, string TrainName, int carriage, ref int booked, ref int unbooked)
         {
             PBL3 db = new PBL3();
             bool Train = false;
             if (TrainName == "") Train = true;
             List<TICKET_View> result = new List<TICKET_View>();
             int sum = 0;
-            foreach (string id in list)
+            foreach (int id in list)
             {
                 foreach (TICKET_View t in BLLTRAIN.Instance.GetAllTICKETView())
                 {
-                    if (t.ScheduleID.Equals(id) && (Train || t.TrainName.Equals(TrainName)))//2 tàu trùng tên
+                    if ((t.ScheduleID == id) && (Train || t.TrainName.Equals(TrainName)))//2 tàu trùng tên
                     {
                         sum++;
                         if (bool.Parse(t.Booked)) booked++;
@@ -741,15 +795,15 @@ namespace pbl.BLL
                          select tra.TrainName;
             return result.ToList();
         }
-        public List<string> GetTrain(List<string> list)
+        public List<string> GetTrain(List<int> list)
         {
             PBL3 db = new PBL3();
             List<string> result = new List<string>();
-            foreach (string id in list)
+            foreach (int id in list)
             {
                 foreach (TRAIN t in db.TRAINs)
                 {
-                    if (t.ScheduleID.Equals(id))
+                    if (t.ScheduleID == id)
                     {
                         result.Add(t.TrainName);
                     }
@@ -758,7 +812,7 @@ namespace pbl.BLL
             return result;
         }
 
-        public void SetTicket(string TicketID, string userName, bool booked)
+        public void SetTicket(int TicketID, string userName, bool booked)
         {
             PBL3 db = new PBL3();
             TICKET tic = db.TICKETs.Find(TicketID);
@@ -1097,6 +1151,19 @@ namespace pbl.BLL
             db.TRAINs.Add(s);
             db.SaveChanges();
 
+
+        }
+        public void delsche(int ScheduleID)
+        {
+            PBL3 db = new PBL3();
+            
+            SCHEDULE s = db.SCHEDULEs.Find(ScheduleID);
+            TRAIN t = new TRAIN();
+            t=db.TRAINs.Where(p => p.ScheduleID == ScheduleID).Single();
+            db.TRAINs.Remove(t);
+            db.SaveChanges();
+            db.SCHEDULEs.Remove(s);
+            db.SaveChanges();
 
         }
         public List<Train_View> Getalltrain()

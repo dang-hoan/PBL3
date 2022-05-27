@@ -44,6 +44,8 @@
             this.bSavePass = new System.Windows.Forms.Button();
             this.bEditPass = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labConfirm = new System.Windows.Forms.Label();
+            this.labNew = new System.Windows.Forms.Label();
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -54,6 +56,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labPhone = new System.Windows.Forms.Label();
+            this.labEmail = new System.Windows.Forms.Label();
+            this.labIDCard = new System.Windows.Forms.Label();
+            this.labBirthDay = new System.Windows.Forms.Label();
+            this.labName = new System.Windows.Forms.Label();
             this.txtBirthDay = new System.Windows.Forms.DateTimePicker();
             this.txtIDCard = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -80,7 +87,7 @@
             // txtConfirm
             // 
             this.txtConfirm.Enabled = false;
-            this.txtConfirm.Location = new System.Drawing.Point(220, 146);
+            this.txtConfirm.Location = new System.Drawing.Point(220, 137);
             this.txtConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.PasswordChar = '*';
@@ -90,7 +97,7 @@
             // txtNew
             // 
             this.txtNew.Enabled = false;
-            this.txtNew.Location = new System.Drawing.Point(220, 95);
+            this.txtNew.Location = new System.Drawing.Point(220, 86);
             this.txtNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNew.Name = "txtNew";
             this.txtNew.PasswordChar = '*';
@@ -100,7 +107,7 @@
             // txtOld
             // 
             this.txtOld.Enabled = false;
-            this.txtOld.Location = new System.Drawing.Point(220, 42);
+            this.txtOld.Location = new System.Drawing.Point(220, 33);
             this.txtOld.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOld.Name = "txtOld";
             this.txtOld.PasswordChar = '*';
@@ -111,7 +118,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(23, 147);
+            this.label9.Location = new System.Drawing.Point(23, 138);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(181, 25);
             this.label9.TabIndex = 2;
@@ -121,7 +128,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(23, 100);
+            this.label8.Location = new System.Drawing.Point(23, 91);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(129, 25);
             this.label8.TabIndex = 1;
@@ -131,7 +138,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(25, 42);
+            this.label7.Location = new System.Drawing.Point(25, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 25);
             this.label7.TabIndex = 0;
@@ -142,7 +149,7 @@
             this.bSaveInfor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bSaveInfor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSaveInfor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bSaveInfor.Location = new System.Drawing.Point(358, 548);
+            this.bSaveInfor.Location = new System.Drawing.Point(359, 586);
             this.bSaveInfor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bSaveInfor.Name = "bSaveInfor";
             this.bSaveInfor.Size = new System.Drawing.Size(115, 37);
@@ -156,7 +163,7 @@
             this.bEditInfor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bEditInfor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEditInfor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bEditInfor.Location = new System.Drawing.Point(107, 548);
+            this.bEditInfor.Location = new System.Drawing.Point(108, 586);
             this.bEditInfor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bEditInfor.Name = "bEditInfor";
             this.bEditInfor.Size = new System.Drawing.Size(139, 37);
@@ -170,7 +177,7 @@
             this.rbFemale.AutoSize = true;
             this.rbFemale.Enabled = false;
             this.rbFemale.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rbFemale.Location = new System.Drawing.Point(412, 169);
+            this.rbFemale.Location = new System.Drawing.Point(394, 169);
             this.rbFemale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(62, 29);
@@ -184,7 +191,7 @@
             this.rbMale.AutoSize = true;
             this.rbMale.Enabled = false;
             this.rbMale.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rbMale.Location = new System.Drawing.Point(260, 172);
+            this.rbMale.Location = new System.Drawing.Point(243, 169);
             this.rbMale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(78, 29);
@@ -196,7 +203,7 @@
             // txtEmail
             // 
             this.txtEmail.Enabled = false;
-            this.txtEmail.Location = new System.Drawing.Point(246, 375);
+            this.txtEmail.Location = new System.Drawing.Point(243, 400);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(306, 30);
@@ -205,7 +212,7 @@
             // txtPhone
             // 
             this.txtPhone.Enabled = false;
-            this.txtPhone.Location = new System.Drawing.Point(246, 426);
+            this.txtPhone.Location = new System.Drawing.Point(243, 461);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(306, 30);
@@ -241,7 +248,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.labConfirm);
             this.groupBox2.Controls.Add(this.bSavePass);
+            this.groupBox2.Controls.Add(this.labNew);
             this.groupBox2.Controls.Add(this.bEditPass);
             this.groupBox2.Controls.Add(this.txtConfirm);
             this.groupBox2.Controls.Add(this.txtNew);
@@ -259,10 +268,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mật khẩu";
             // 
+            // labConfirm
+            // 
+            this.labConfirm.AutoSize = true;
+            this.labConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labConfirm.ForeColor = System.Drawing.Color.Red;
+            this.labConfirm.Location = new System.Drawing.Point(216, 171);
+            this.labConfirm.Name = "labConfirm";
+            this.labConfirm.Size = new System.Drawing.Size(25, 20);
+            this.labConfirm.TabIndex = 32;
+            this.labConfirm.Text = "fw";
+            // 
+            // labNew
+            // 
+            this.labNew.AutoSize = true;
+            this.labNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNew.ForeColor = System.Drawing.Color.Red;
+            this.labNew.Location = new System.Drawing.Point(216, 119);
+            this.labNew.Name = "labNew";
+            this.labNew.Size = new System.Drawing.Size(25, 20);
+            this.labNew.TabIndex = 31;
+            this.labNew.Text = "fw";
+            // 
             // txtPosition
             // 
             this.txtPosition.Enabled = false;
-            this.txtPosition.Location = new System.Drawing.Point(246, 477);
+            this.txtPosition.Location = new System.Drawing.Point(243, 519);
             this.txtPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(306, 30);
@@ -271,16 +302,17 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(246, 115);
+            this.txtName.Location = new System.Drawing.Point(243, 111);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(306, 30);
             this.txtName.TabIndex = 7;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtUsername
             // 
             this.txtUsername.Enabled = false;
-            this.txtUsername.Location = new System.Drawing.Point(246, 67);
+            this.txtUsername.Location = new System.Drawing.Point(243, 51);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(306, 30);
@@ -291,7 +323,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(45, 72);
+            this.label1.Location = new System.Drawing.Point(42, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 25);
             this.label1.TabIndex = 0;
@@ -302,7 +334,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(45, 481);
+            this.label6.Location = new System.Drawing.Point(42, 523);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 25);
             this.label6.TabIndex = 5;
@@ -313,7 +345,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(45, 120);
+            this.label2.Location = new System.Drawing.Point(42, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 25);
             this.label2.TabIndex = 1;
@@ -324,7 +356,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(45, 433);
+            this.label5.Location = new System.Drawing.Point(42, 468);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 25);
             this.label5.TabIndex = 4;
@@ -335,7 +367,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(45, 169);
+            this.label3.Location = new System.Drawing.Point(40, 169);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 25);
             this.label3.TabIndex = 2;
@@ -346,7 +378,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(45, 375);
+            this.label4.Location = new System.Drawing.Point(42, 400);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 25);
             this.label4.TabIndex = 3;
@@ -354,6 +386,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labPhone);
+            this.groupBox1.Controls.Add(this.labEmail);
+            this.groupBox1.Controls.Add(this.labIDCard);
+            this.groupBox1.Controls.Add(this.labBirthDay);
+            this.groupBox1.Controls.Add(this.labName);
             this.groupBox1.Controls.Add(this.txtBirthDay);
             this.groupBox1.Controls.Add(this.txtIDCard);
             this.groupBox1.Controls.Add(this.label12);
@@ -385,18 +422,75 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
             // 
+            // labPhone
+            // 
+            this.labPhone.AutoSize = true;
+            this.labPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labPhone.ForeColor = System.Drawing.Color.Red;
+            this.labPhone.Location = new System.Drawing.Point(239, 497);
+            this.labPhone.Name = "labPhone";
+            this.labPhone.Size = new System.Drawing.Size(79, 20);
+            this.labPhone.TabIndex = 29;
+            this.labPhone.Text = "*Bắt buộc";
+            // 
+            // labEmail
+            // 
+            this.labEmail.AutoSize = true;
+            this.labEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labEmail.ForeColor = System.Drawing.Color.Red;
+            this.labEmail.Location = new System.Drawing.Point(239, 434);
+            this.labEmail.Name = "labEmail";
+            this.labEmail.Size = new System.Drawing.Size(79, 20);
+            this.labEmail.TabIndex = 28;
+            this.labEmail.Text = "*Bắt buộc";
+            this.labEmail.Click += new System.EventHandler(this.label22_Click);
+            // 
+            // labIDCard
+            // 
+            this.labIDCard.AutoSize = true;
+            this.labIDCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labIDCard.ForeColor = System.Drawing.Color.Red;
+            this.labIDCard.Location = new System.Drawing.Point(239, 376);
+            this.labIDCard.Name = "labIDCard";
+            this.labIDCard.Size = new System.Drawing.Size(79, 20);
+            this.labIDCard.TabIndex = 27;
+            this.labIDCard.Text = "*Bắt buộc";
+            // 
+            // labBirthDay
+            // 
+            this.labBirthDay.AutoSize = true;
+            this.labBirthDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labBirthDay.ForeColor = System.Drawing.Color.Red;
+            this.labBirthDay.Location = new System.Drawing.Point(239, 256);
+            this.labBirthDay.Name = "labBirthDay";
+            this.labBirthDay.Size = new System.Drawing.Size(291, 20);
+            this.labBirthDay.TabIndex = 25;
+            this.labBirthDay.Text = "*Ngày sinh mặc định là thời điểm hiện tại";
+            // 
+            // labName
+            // 
+            this.labName.AutoSize = true;
+            this.labName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labName.ForeColor = System.Drawing.Color.Red;
+            this.labName.Location = new System.Drawing.Point(239, 145);
+            this.labName.Name = "labName";
+            this.labName.Size = new System.Drawing.Size(25, 20);
+            this.labName.TabIndex = 23;
+            this.labName.Text = "fw";
+            // 
             // txtBirthDay
             // 
             this.txtBirthDay.Enabled = false;
-            this.txtBirthDay.Location = new System.Drawing.Point(246, 219);
+            this.txtBirthDay.Location = new System.Drawing.Point(243, 223);
             this.txtBirthDay.Name = "txtBirthDay";
             this.txtBirthDay.Size = new System.Drawing.Size(306, 30);
             this.txtBirthDay.TabIndex = 21;
+            this.txtBirthDay.FontChanged += new System.EventHandler(this.txtBirthDay_FontChanged);
             // 
             // txtIDCard
             // 
             this.txtIDCard.Enabled = false;
-            this.txtIDCard.Location = new System.Drawing.Point(246, 327);
+            this.txtIDCard.Location = new System.Drawing.Point(243, 343);
             this.txtIDCard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(306, 30);
@@ -407,7 +501,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(45, 327);
+            this.label12.Location = new System.Drawing.Point(42, 343);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(182, 25);
             this.label12.TabIndex = 19;
@@ -416,7 +510,7 @@
             // txtAddress
             // 
             this.txtAddress.Enabled = false;
-            this.txtAddress.Location = new System.Drawing.Point(246, 277);
+            this.txtAddress.Location = new System.Drawing.Point(243, 284);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(306, 30);
@@ -427,7 +521,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(45, 277);
+            this.label11.Location = new System.Drawing.Point(42, 284);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(71, 25);
             this.label11.TabIndex = 17;
@@ -438,7 +532,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(45, 219);
+            this.label10.Location = new System.Drawing.Point(42, 223);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 25);
             this.label10.TabIndex = 15;
@@ -636,5 +730,12 @@
         private System.Windows.Forms.ComboBox cbbQuestion;
         private System.Windows.Forms.PictureBox pAdd;
         private System.Windows.Forms.Button bDelete;
+        private System.Windows.Forms.Label labBirthDay;
+        private System.Windows.Forms.Label labName;
+        private System.Windows.Forms.Label labPhone;
+        private System.Windows.Forms.Label labEmail;
+        private System.Windows.Forms.Label labIDCard;
+        private System.Windows.Forms.Label labConfirm;
+        private System.Windows.Forms.Label labNew;
     }
 }

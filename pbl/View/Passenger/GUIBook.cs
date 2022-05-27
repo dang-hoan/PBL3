@@ -17,8 +17,8 @@ namespace pbl
         int numberOfCarriages = 25;
         Image imageLeft1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1) - Copy.png"), imageRight1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1).png");
         Image imageLeft2 = (Image)new Bitmap(@"C:\PBL3\picture\play1.png"), imageRight2 = (Image)new Bitmap(@"C:\PBL3\picture\play.png");
-        private List<string> list = null;
-        public GUIBook(List<string> list)
+        private List<int> list = null;
+        public GUIBook(List<int> list)
         {
             InitializeComponent();
             this.list = list;
@@ -46,7 +46,7 @@ namespace pbl
                     }
                     else
                     {
-                        BLLTRAIN.Instance.SetTicket(dt.Cells["TicketID"].Value.ToString(), GUILogin.userName, true);
+                        BLLTRAIN.Instance.SetTicket(Convert.ToInt32(dt.Cells["TicketID"].Value.ToString()), GUILogin.userName, true);
                         MessageBox.Show($"Đã đặt thành công vé có mã {dt.Cells["TicketID"].Value.ToString()}!");
                     }
                 }
@@ -117,7 +117,7 @@ namespace pbl
         public int[] numberChar = new int[13] { 14, 10, 25, 8, 14, 25, 25, 25, 30, 30, 8, 20, 40 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar);
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"");
         }
 
         private void labelCarriage_Click(object sender, EventArgs e)

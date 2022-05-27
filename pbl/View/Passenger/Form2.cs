@@ -41,5 +41,10 @@ namespace pbl
         {
             MessageBox.Show("Home!");
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

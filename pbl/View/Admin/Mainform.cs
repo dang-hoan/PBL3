@@ -1,5 +1,6 @@
 ﻿using pbl.Admin;
 using pbl.BLL;
+using pbl.View.Employee;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,7 @@ namespace pbl.View.Admin
             InitializeComponent();
             this.login = login;
             anpanel();
+            ShowForm(new note());
         }
         
         Form f = null;
@@ -105,13 +107,41 @@ namespace pbl.View.Admin
 
         private void btupdatenv_Click(object sender, EventArgs e)
         {
-            ShowForm(new addnv());
+            ShowForm(new updatenv());
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bttimkiemnv_Click(object sender, EventArgs e)
         {
 
+            ShowForm(new searchnv());
+        }
+
+        private void btdoanhthu_Click(object sender, EventArgs e)
+        {
+            ShowForm(new doanhthu());
+        }
+
+        private void btxoa_Click(object sender, EventArgs e)
+        {
+            ShowForm(new delsche());
+        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowForm(new note());
+        }
+
+        private void Mainform_Load(object sender, EventArgs e)
+        {
+           // this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            login.Show();
         }
     }
 }

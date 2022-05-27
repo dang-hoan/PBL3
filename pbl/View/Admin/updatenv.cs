@@ -1,5 +1,4 @@
 ﻿using pbl.BLL;
-using pbl.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,20 +11,16 @@ using System.Windows.Forms;
 
 namespace pbl.View.Admin
 {
-    public partial class addnv : Form
+    public partial class updatenv : Form
     {
-
-        public addnv()
+        public updatenv()
         {
-
             InitializeComponent();
             shownv();
-
         }
-
         public void shownv()
         {
-            BLLpeople.instance.Getpidnv();
+
             dtgaddnv.DataSource = BLLpeople.instance.getallnv(BLLpeople.instance.Getpidnv());
         }
 
@@ -81,32 +76,7 @@ namespace pbl.View.Admin
             }
         }
 
-        private void txtpass_Leave(object sender, EventArgs e)
-        {
-            if (txtpass.Text.Length == 0)
-            {
-                MessageBox.Show("Mật khẩu không được để rỗng !");
-            }
-            else if (txtpass.Text.Length < 9)
-            {
-                MessageBox.Show("Mật khẩu phải dài hơn 8 kí tự !");
-            }
-        }
-
-        private void txtpass_TextChanged(object sender, EventArgs e)
-        {
-            if (txtpass.Text.Length < 9)
-            {
-                passdk.Text = " Mật khẩu phải dài hơn 8 kí tự !";
-                txtpass.BackColor = Color.LightCoral;
-            }
-            else
-            {
-                passdk.Text = "";
-                txtpass.BackColor = Color.White;
-            }
-        }
-
+       
         private void gmail_TextChanged(object sender, EventArgs e)
         {
             int count = 0, xam = 0;
@@ -135,13 +105,10 @@ namespace pbl.View.Admin
 
         private void btok_Click(object sender, EventArgs e)
         {
-            if (txtname.Text == "" || txtusername.Text == "" || txtpass.Text == "" || idcard.Text == "" || gmail.Text == "")
+            if(gmaildkk.Text != "" ||idcarddk.Text != ""||txtname.Text =="")
             {
-                MessageBox.Show("Bạn chưa nhập đủ thông tin bắt buộc !");
-            }
-            else if ( usernamedk.Text != "")
-            {
-                MessageBox.Show("Tên đăng nhập đã tồn tại");
+
+                MessageBox.Show("Vui lòng nhập đủ thông tin bắt buộc!");
             }
             else
             {
@@ -155,56 +122,38 @@ namespace pbl.View.Admin
                     Address = address.Text,
                     Email = gmail.Text,
                     IDCard = idcard.Text,
-                    
-                };
-                LOGIN l = new LOGIN()
-                {
-                    State = "Đang làm",
-                    PassWord = txtpass.Text,
-                    Username = txtusername.Text,
+
                 };
                 BLLpeople.instance.Executenv(s);
-                BLLpeople.instance.Execute2(l);
                 shownv();
-                txtname.Text = "";
-                male.Checked = false;
-                female.Checked = false;
-                phone.Text = "";
-                address.Text = "";
-                gmail.Text = "";
-                idcard.Text = "";
-                date.Text = DateTime.Now.ToString();
-                txtusername.Text = "";
-                txtpass.Text = "";
             }
             
         }
 
-        private void phone_TextChanged(object sender, EventArgs e)
+        private void dtgaddnv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (phone.Text.Length < 10 || phone.Text.Length > 10)
+            DataGridViewRow row = this.dtgaddnv.Rows[e.RowIndex];
+            if(e.RowIndex >= 0)
             {
-                phonedk.Text = " Số điện thoại có 10-11 số !";
-                phone.BackColor = Color.LightCoral;
-            }
-            else
-            {
-                phonedk.Text = "";
-                phone.BackColor = Color.White;
-            }
-        }
+                txtname.Text = row.Cells[1].Value.ToString();
+                txtusername.Text = row.Cells[0].Value.ToString();
+                txtusername.Enabled = false;
+                if(row.Cells[2].Value.ToString() == "Nam")
+                {
+                    male.Checked = true;
 
-        private void txtusername_TextChanged(object sender, EventArgs e)
-        {
-            if(!BLLpeople.instance.check(txtusername.Text))
-            {
-                usernamedk.Text = "";
+                }
+                else
+                {
+                    female.Checked = true;
+                }
 
-            }
-            else
-            {
-                usernamedk.Text = "Tên đăng nhập đã tồn tại ";
-
+                gmail.Text = row.Cells[6].Value.ToString();
+                phone.Text = row.Cells[7].Value.ToString();
+                idcard.Text=row.Cells[5].Value.ToString();
+                date.Text=row.Cells[3].Value.ToString();
+                address.Text   = row.Cells[4].Value.ToString();
+                
             }
         }
     }

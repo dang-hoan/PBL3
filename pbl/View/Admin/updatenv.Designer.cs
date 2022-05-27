@@ -1,6 +1,6 @@
 ﻿namespace pbl.View.Admin
 {
-    partial class addnv
+    partial class updatenv
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtgaddnv = new System.Windows.Forms.DataGridView();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.usernamedk = new System.Windows.Forms.Label();
-            this.phonedk = new System.Windows.Forms.Label();
             this.btok = new System.Windows.Forms.Button();
             this.gmaildkk = new System.Windows.Forms.Label();
             this.namedk = new System.Windows.Forms.Label();
@@ -42,11 +38,8 @@
             this.idcarddk = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtpass = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtusername = new System.Windows.Forms.TextBox();
             this.idcard = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -64,41 +57,27 @@
             this.date = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgaddnv)).BeginInit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtgaddnv = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgaddnv)).BeginInit();
             this.SuspendLayout();
             // 
-            // label5
+            // label16
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(38, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(397, 46);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Welcome to DNtrain";
-            // 
-            // dtgaddnv
-            // 
-            this.dtgaddnv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgaddnv.Location = new System.Drawing.Point(35, 98);
-            this.dtgaddnv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtgaddnv.Name = "dtgaddnv";
-            this.dtgaddnv.ReadOnly = true;
-            this.dtgaddnv.RowHeadersWidth = 51;
-            this.dtgaddnv.RowTemplate.Height = 24;
-            this.dtgaddnv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgaddnv.Size = new System.Drawing.Size(957, 232);
-            this.dtgaddnv.TabIndex = 5;
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.White;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(33, 808);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(381, 25);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Note : Những ô có (*) là thông tin bắt buộc!";
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.usernamedk);
-            this.groupBox1.Controls.Add(this.phonedk);
             this.groupBox1.Controls.Add(this.btok);
             this.groupBox1.Controls.Add(this.gmaildkk);
             this.groupBox1.Controls.Add(this.namedk);
@@ -107,11 +86,8 @@
             this.groupBox1.Controls.Add(this.idcarddk);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtpass);
-            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtusername);
             this.groupBox1.Controls.Add(this.idcard);
             this.groupBox1.Controls.Add(this.label9);
@@ -129,38 +105,14 @@
             this.groupBox1.Controls.Add(this.date);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtname);
-            this.groupBox1.Location = new System.Drawing.Point(35, 378);
+            this.groupBox1.Location = new System.Drawing.Point(37, 388);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Size = new System.Drawing.Size(957, 404);
-            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(153, 71);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 20);
-            this.label7.TabIndex = 39;
-            // 
-            // usernamedk
-            // 
-            this.usernamedk.AutoSize = true;
-            this.usernamedk.Location = new System.Drawing.Point(595, 200);
-            this.usernamedk.Name = "usernamedk";
-            this.usernamedk.Size = new System.Drawing.Size(0, 20);
-            this.usernamedk.TabIndex = 38;
-            // 
-            // phonedk
-            // 
-            this.phonedk.AutoSize = true;
-            this.phonedk.Location = new System.Drawing.Point(146, 272);
-            this.phonedk.Name = "phonedk";
-            this.phonedk.Size = new System.Drawing.Size(0, 20);
-            this.phonedk.TabIndex = 37;
             // 
             // btok
             // 
@@ -237,18 +189,6 @@
             this.label18.TabIndex = 28;
             this.label18.Text = "*";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(497, 234);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(23, 29);
-            this.label15.TabIndex = 25;
-            this.label15.Text = "*";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -271,27 +211,6 @@
             this.label12.TabIndex = 19;
             this.label12.Text = "*";
             // 
-            // txtpass
-            // 
-            this.txtpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpass.Location = new System.Drawing.Point(595, 231);
-            this.txtpass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(211, 31);
-            this.txtpass.TabIndex = 22;
-            this.txtpass.TextChanged += new System.EventHandler(this.txtpass_TextChanged);
-            this.txtpass.Leave += new System.EventHandler(this.txtpass_Leave);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(394, 242);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 25);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Mật khẩu";
-            // 
             // txtusername
             // 
             this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -300,8 +219,6 @@
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(211, 31);
             this.txtusername.TabIndex = 20;
-            this.txtusername.TextChanged += new System.EventHandler(this.txtusername_TextChanged);
-            this.txtusername.Leave += new System.EventHandler(this.txtusername_Leave);
             // 
             // idcard
             // 
@@ -421,7 +338,6 @@
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(213, 31);
             this.phone.TabIndex = 10;
-            this.phone.TextChanged += new System.EventHandler(this.phone_TextChanged);
             // 
             // gmail
             // 
@@ -478,34 +394,47 @@
             this.txtname.TabIndex = 8;
             this.txtname.Leave += new System.EventHandler(this.txtname_Leave);
             // 
-            // label16
+            // label5
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.White;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(30, 798);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(381, 25);
-            this.label16.TabIndex = 20;
-            this.label16.Text = "Note : Những ô có (*) là thông tin bắt buộc!";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(40, 38);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(397, 46);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Welcome to DNtrain";
             // 
-            // addnv
+            // dtgaddnv
+            // 
+            this.dtgaddnv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgaddnv.Location = new System.Drawing.Point(37, 108);
+            this.dtgaddnv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtgaddnv.Name = "dtgaddnv";
+            this.dtgaddnv.ReadOnly = true;
+            this.dtgaddnv.RowHeadersWidth = 51;
+            this.dtgaddnv.RowTemplate.Height = 24;
+            this.dtgaddnv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgaddnv.Size = new System.Drawing.Size(957, 232);
+            this.dtgaddnv.TabIndex = 21;
+            this.dtgaddnv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgaddnv_CellClick);
+            // 
+            // updatenv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(1027, 834);
+            this.BackColor = System.Drawing.Color.Cyan;
+            this.ClientSize = new System.Drawing.Size(1027, 871);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtgaddnv);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "addnv";
-            this.Text = "addnv";
-            ((System.ComponentModel.ISupportInitialize)(this.dtgaddnv)).EndInit();
+            this.Name = "updatenv";
+            this.Text = "updatenv";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgaddnv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,9 +442,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dtgaddnv;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btok;
+        private System.Windows.Forms.Label gmaildkk;
+        private System.Windows.Forms.Label namedk;
+        private System.Windows.Forms.Label userdk;
+        private System.Windows.Forms.Label passdk;
+        private System.Windows.Forms.Label idcarddk;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtusername;
         private System.Windows.Forms.TextBox idcard;
         private System.Windows.Forms.Label label9;
@@ -533,22 +471,7 @@
         private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtname;
-        private System.Windows.Forms.TextBox txtpass;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label idcarddk;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label namedk;
-        private System.Windows.Forms.Label userdk;
-        private System.Windows.Forms.Label passdk;
-        private System.Windows.Forms.Label gmaildkk;
-        private System.Windows.Forms.Button btok;
-        private System.Windows.Forms.Label phonedk;
-        private System.Windows.Forms.Label usernamedk;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dtgaddnv;
     }
 }

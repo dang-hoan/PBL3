@@ -13,29 +13,56 @@ namespace pbl.Admin
 {
     public partial class addschedule : Form
     {
-        public delegate void Mydel(string usern);
-        public Mydel d;
-        public string usern { get; set; }
+        
         public addschedule()
         {
             InitializeComponent();
-        }
+            showsche();
+            cbb();
 
+
+        }
+        public void cbb()
+        {
+            List<string> list = new List<string>();
+            list= BLLTRAIN.Instance.Getstation();
+            foreach (string s in list)
+            {
+                cbbDep.Items.Add(s);
+            }
+            foreach(string s in list)
+            {
+                cbbDes.Items.Add(s);
+            }
+        }
+        public void showsche()
+        {
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
+        }
         private void bTOK_Click(object sender, EventArgs e)
         {
-
-            SCHEDULE s = new SCHEDULE()
+            int comp = DateTime.Compare(daydep.Value, daydes.Value);
+            if (comp >= 0)
             {
-                
-                Departure = cbbgadi.Text,
-                Destination = cbbgaden.Text,
-                DepartureTime = datengaydi.Value,
-                
-            };
+                MessageBox.Show("Thời gian đến phải sau thời gian đi!");
+                return;
+            }
+            else
+            {
+                SCHEDULE s = new SCHEDULE
+                {
+                    Departure = cbbDep.Text,
+                    Destination = cbbDes.Text,
+                    DepartureTime = daydep.Value,
+                    ArrivalTime = daydes.Value,
 
-           // BLLTRAIN.Instance.Execute(s);
-            d("");
-            this.Close();
+                };
+
+                BLLTRAIN.Instance.Execute(s);
+                showsche();
+
+
+            }
         }
     }
 }

@@ -45,12 +45,25 @@ namespace pbl.BLL
             }
             return false;
         }
-        
+        public int Getpidnv()
+        {
+            var p = (from pos in db.POSITIONs
+                     where pos.Position == "Nhân viên"
+                     select pos.PositionID).FirstOrDefault();
+            return p;
+        }
+        public int Getpidkh()
+        {
+            var p = (from pos in db.POSITIONs
+                     where pos.Position == "Khách hàng"
+                     select pos.PositionID).FirstOrDefault();
+            return p;
+        }
         public void Execute(PEOPLE s)
         {
             s.PositionID = (from POSITION pos in db.POSITIONs
-                     where pos.Position.Equals("Khách hàng")
-                     select pos.PositionID).FirstOrDefault();
+                            where pos.Position.Equals("Nhân viên")
+                            select pos.PositionID).FirstOrDefault();
             if (!check(s.Username))
             {
                 db.PEOPLE.Add(s);
@@ -71,7 +84,32 @@ namespace pbl.BLL
             }
 
         }
+        public void Executenv(PEOPLE s)
+        {
+            s.PositionID = (from POSITION pos in db.POSITIONs
+                            where pos.Position.Equals("Nhân viên")
+                            select pos.PositionID).FirstOrDefault();
+            if (!check(s.Username))
+            {
+                db.PEOPLE.Add(s);
+                //db.SaveChanges();
+            }
+            else
+            {
+                PEOPLE temp = db.PEOPLE.Find(s.Username);
+                temp.Name = s.Name;
+                temp.Gender = s.Gender;
+                temp.BirthDay = s.BirthDay;
+                temp.Phone = s.Phone;
+                temp.Address = s.Address;
+                temp.IDCard = s.IDCard;
+                temp.Email = s.Email;
+                temp.PositionID = s.PositionID;
+                
+            }
+            db.SaveChanges();
 
+        }
         public void Execute2(LOGIN s)
         {
             if (!check2(s.Username))
@@ -197,6 +235,7 @@ namespace pbl.BLL
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
+        
         public void delnv(string IDCard)
         {
             PEOPLE s = db.PEOPLE.Find(IDCard);
@@ -205,7 +244,8 @@ namespace pbl.BLL
         }
         public List<PEOPLE> searchP(string text)
         {
-            var result = from p in db.PEOPLE where  p.Name.Contains(text)  && p.PositionID == 222  select p;
+            int id = Getpidnv();
+            var result = from p in db.PEOPLE where  p.Name.Contains(text)  && p.PositionID == id select p;
             return result.ToList();
         }
         public List<PEOPLE> searchem(string text)
@@ -217,7 +257,8 @@ namespace pbl.BLL
             }
             else
             {
-                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == 333 select p;
+                int id = Getpidkh();
+                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == id select p;
                 if(result.Count() == 0 )
                 {
                     MessageBox.Show("Không có khách hàng có tên bạn muốn tìm trong hệ thống !", "Thông báo");
@@ -229,6 +270,29 @@ namespace pbl.BLL
                
             }
            
+        }
+        public List<PEOPLE> searchnv(string text)
+        {
+            if (text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên nhân viên cần tìm !", "Thông báo");
+                return null;
+            }
+            else
+            {
+                int id = Getpidnv();
+                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == id select p;
+                if (result.Count() == 0)
+                {
+                    MessageBox.Show("Không có nhân viên có tên bạn muốn tìm trong hệ thống !", "Thông báo");
+
+                }
+
+                return result.ToList();
+
+
+            }
+
         }
         public LOGIN Getloginbyloginid(string username)
         {
@@ -269,8 +333,8 @@ namespace pbl.BLL
         public List<PEOPLE> sort()
         {
             List<PEOPLE> list = new List<PEOPLE>();
-             
-                var result = from p in db.PEOPLE where p.PositionID == 222 orderby p.Name  select p;
+            int id = Getpidnv();
+            var result = from p in db.PEOPLE where p.PositionID == id orderby p.Name  select p;
                 list = result.ToList();                        
             return list;
         }

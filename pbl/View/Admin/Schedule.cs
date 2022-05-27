@@ -25,16 +25,10 @@ namespace pbl
 
         public void showsche(string Pos)
         {
-            Pos = "111";
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
         }
-        private void btaddschedule_Click(object sender, EventArgs e)
-        {
-            addschedule a = new addschedule();
-            a.Show();
-            a.d = new addschedule.Mydel(showsche);
-
-        }
+         
+        
         
         
     }
