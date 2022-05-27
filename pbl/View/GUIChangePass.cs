@@ -25,6 +25,11 @@ namespace pbl
 
         private void bAgree_Click(object sender, EventArgs e)
         {
+            if(txtNewPass.Text == "" || txtConfirmPass.Text == "")
+            {
+                MessageBox.Show("Mật khẩu không được để trống!");
+                return;
+            }
             if (!txtNewPass.Text.Equals(txtConfirmPass.Text))
             {
                 MessageBox.Show("Mật khẩu xác nhận không khớp với mật khẩu mới!");

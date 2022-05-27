@@ -400,7 +400,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
-            this.ClientSize = new System.Drawing.Size(1400, 553);
+            this.ClientSize = new System.Drawing.Size(1631, 553);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buthuy);
             this.Controls.Add(this.butok);

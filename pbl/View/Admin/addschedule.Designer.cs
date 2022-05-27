@@ -120,21 +120,27 @@
             // 
             // cbbDes
             // 
+            this.cbbDes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbDes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbDes.FormattingEnabled = true;
             this.cbbDes.Location = new System.Drawing.Point(422, 82);
             this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(284, 28);
             this.cbbDes.TabIndex = 38;
+            this.cbbDes.TextChanged += new System.EventHandler(this.cbbDes_TextChanged);
             // 
             // cbbDep
             // 
+            this.cbbDep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbDep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbDep.FormattingEnabled = true;
             this.cbbDep.Location = new System.Drawing.Point(422, 18);
             this.cbbDep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(284, 28);
             this.cbbDep.TabIndex = 37;
+            this.cbbDep.TextChanged += new System.EventHandler(this.cbbDep_TextChanged);
             // 
             // bTOK
             // 

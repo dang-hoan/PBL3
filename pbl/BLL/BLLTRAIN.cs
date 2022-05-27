@@ -670,7 +670,7 @@ namespace pbl.BLL
                     if ((t.ScheduleID == id) && (Train || t.TrainName.Equals(TrainName)))//2 tàu trùng tên
                     {
                         sum++;
-                        if (bool.Parse(t.Booked)) booked++;
+                        if (t.Booked == "đã đặt") booked++;
                         if (t.SeatNo.Contains(this.carriage[carriage - 1])) result.Add(t);
                     }
                 }
@@ -969,6 +969,17 @@ namespace pbl.BLL
             else
                 return (from sch in db.SCHEDULEs.ToList()
                         select sch.Destination).ToList();
+        }
+        public List<string> GetStation(string station)
+        {
+            PBL3 db = new PBL3();
+            if (station != "")
+                return (from sta in db.STATIONs.ToList()
+                        where !sta.StationName.Equals(station)
+                        select sta.StationName).ToList();
+            else
+                return (from sta in db.STATIONs.ToList()
+                        select sta.StationName).ToList();
         }
         public bool checksch(int scheduleid)
         {

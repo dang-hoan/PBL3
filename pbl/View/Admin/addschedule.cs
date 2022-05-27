@@ -64,5 +64,22 @@ namespace pbl.Admin
 
             }
         }
+
+        private void cbbDep_TextChanged(object sender, EventArgs e)
+        {
+            cbbDes.Items.Clear();
+            foreach (string s in BLLTRAIN.Instance.GetStation(cbbDep.Text).Distinct())
+            {
+                cbbDes.Items.Add(s);
+            }
+        }
+        private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+            cbbDep.Items.Clear();
+            foreach (string s in BLLTRAIN.Instance.GetStation(cbbDes.Text).Distinct())
+            {
+                cbbDep.Items.Add(s);
+            }
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace pbl.View
         {
             int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
             int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
-            int comp3 = DateTime.Compare(dateFromDep.Value, dateToDes.Value);
+            int comp3 = DateTime.Compare(dateFromDep.Value, dateFromDes.Value);
             if (comp > 0 || comp2 > 0)
             {
                 if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong cả ngày đi và ngày đến)!");
@@ -58,7 +58,8 @@ namespace pbl.View
             }
             if (comp3 >= 0)
             {
-                MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+                MessageBox.Show("Mốc thời gian từ trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+                return;
             }
             string date1 = dateFromDep.Value.ToString("yyyy/MM/dd HH:mm");
             string date2 = dateToDep.Value.ToString("yyyy/MM/dd HH:mm");
