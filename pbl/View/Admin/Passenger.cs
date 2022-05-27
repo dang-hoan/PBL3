@@ -15,7 +15,7 @@ namespace pbl.View.Admin
         public Passenger()
         {
             InitializeComponent();
-            showpass(333);
+            showpass();
         }
         public void deltxt()
         {
@@ -27,9 +27,9 @@ namespace pbl.View.Admin
         {
             dataGridView1.DataSource = BLLpeople.instance.searchem(txtsearch.Text);
         }
-        public void showpass(int PositionId)
+        public void showpass()
         {
-            dataGridView1.DataSource = BLLpeople.instance.getallnv(PositionId);
+            dataGridView1.DataSource = BLLpeople.instance.getallnv(BLLpeople.instance.Getpidkh());
         }
 
         private void txtsearch_MouseClick(object sender, MouseEventArgs e)

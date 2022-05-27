@@ -16,16 +16,16 @@ namespace pbl.View.Admin
         public searchnv()
         {
             InitializeComponent();
-            shownv(222);
+            shownv();
         }
         public void deltxt()
         {
 
             txtsearch.Text = "";
         }
-        public void shownv(int PositionId)
+        public void shownv()
         {
-            dataGridView1.DataSource = BLLpeople.instance.getallnv(PositionId);
+            dataGridView1.DataSource = BLLpeople.instance.getallnv(BLLpeople.instance.Getpidnv());
         }
         private void btsearch_Click(object sender, EventArgs e)
         {

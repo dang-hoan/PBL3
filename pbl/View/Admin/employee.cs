@@ -22,13 +22,15 @@ namespace pbl
         {
             
             InitializeComponent();
-            showw(222);
+            showw();
+
+
         }
         Form f = null;
-        public void showw(int Pos)
+        public void showw()
         {
-            Pos = 222;
-            dtgridemploy.DataSource = BLLpeople.instance.getallnv(Pos);
+           
+            dtgridemploy.DataSource = BLLpeople.instance.getallnv(BLLpeople.instance.Getpidnv()) ;
         }
         
         
@@ -68,7 +70,7 @@ namespace pbl
                     BLLpeople.instance.delperson(row.Cells["Username"].Value.ToString());
                 }
             }
-            showw(111);
+            showw();
 
         }
 

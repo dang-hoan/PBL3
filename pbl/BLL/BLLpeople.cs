@@ -45,7 +45,20 @@ namespace pbl.BLL
             }
             return false;
         }
-        
+        public int Getpidnv()
+        {
+            var p = (from pos in db.POSITIONs
+                     where pos.Position == "Nhân viên"
+                     select pos.PositionID).FirstOrDefault();
+            return p;
+        }
+        public int Getpidkh()
+        {
+            var p = (from pos in db.POSITIONs
+                     where pos.Position == "Khách hàng"
+                     select pos.PositionID).FirstOrDefault();
+            return p;
+        }
         public void Execute(PEOPLE s)
         {
             s.PositionID = (from POSITION pos in db.POSITIONs
