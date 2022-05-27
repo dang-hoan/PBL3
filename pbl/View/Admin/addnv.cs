@@ -25,8 +25,8 @@ namespace pbl.View.Admin
 
         public void shownv()
         {
-
-            dtgaddnv.DataSource = BLLpeople.instance.getallnv(2);
+            BLLpeople.instance.Getpidnv();
+            dtgaddnv.DataSource = BLLpeople.instance.getallnv(BLLpeople.instance.Getpidnv());
         }
 
         private void idcard_Leave(object sender, EventArgs e)

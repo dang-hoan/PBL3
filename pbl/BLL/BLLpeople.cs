@@ -45,7 +45,20 @@ namespace pbl.BLL
             }
             return false;
         }
-        
+        public int Getpidnv()
+        {
+            var p = (from pos in db.POSITIONs
+                     where pos.Position == "Nhân viên"
+                     select pos.PositionID).FirstOrDefault();
+            return p;
+        }
+        public int Getpidkh()
+        {
+            var p = (from pos in db.POSITIONs
+                     where pos.Position == "Khách hàng"
+                     select pos.PositionID).FirstOrDefault();
+            return p;
+        }
         public void Execute(PEOPLE s)
         {
             s.PositionID = (from POSITION pos in db.POSITIONs
@@ -231,7 +244,8 @@ namespace pbl.BLL
         }
         public List<PEOPLE> searchP(string text)
         {
-            var result = from p in db.PEOPLE where  p.Name.Contains(text)  && p.PositionID == 222  select p;
+            int id = Getpidnv();
+            var result = from p in db.PEOPLE where  p.Name.Contains(text)  && p.PositionID == id select p;
             return result.ToList();
         }
         public List<PEOPLE> searchem(string text)
@@ -243,7 +257,8 @@ namespace pbl.BLL
             }
             else
             {
-                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == 333 select p;
+                int id = Getpidkh();
+                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == id select p;
                 if(result.Count() == 0 )
                 {
                     MessageBox.Show("Không có khách hàng có tên bạn muốn tìm trong hệ thống !", "Thông báo");
@@ -265,7 +280,8 @@ namespace pbl.BLL
             }
             else
             {
-                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == 222 select p;
+                int id = Getpidnv();
+                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == id select p;
                 if (result.Count() == 0)
                 {
                     MessageBox.Show("Không có nhân viên có tên bạn muốn tìm trong hệ thống !", "Thông báo");
@@ -317,8 +333,8 @@ namespace pbl.BLL
         public List<PEOPLE> sort()
         {
             List<PEOPLE> list = new List<PEOPLE>();
-             
-                var result = from p in db.PEOPLE where p.PositionID == 222 orderby p.Name  select p;
+            int id = Getpidnv();
+            var result = from p in db.PEOPLE where p.PositionID == id orderby p.Name  select p;
                 list = result.ToList();                        
             return list;
         }

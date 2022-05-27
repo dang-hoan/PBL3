@@ -411,6 +411,7 @@
             this.dtgaddnv.Location = new System.Drawing.Point(37, 108);
             this.dtgaddnv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgaddnv.Name = "dtgaddnv";
+            this.dtgaddnv.ReadOnly = true;
             this.dtgaddnv.RowHeadersWidth = 51;
             this.dtgaddnv.RowTemplate.Height = 24;
             this.dtgaddnv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
