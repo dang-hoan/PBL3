@@ -45,7 +45,7 @@ namespace pbl.View
         }
        public void show ()
         {
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2();
         }
         private void butall_Click(object sender, EventArgs e)
         {
@@ -90,16 +90,7 @@ namespace pbl.View
             {
                 MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
             }
-            string date1 = dateFromDep.Value.ToString("yyyy/MM/dd HH:mm");
-            string date2 = dateToDep.Value.ToString("yyyy/MM/dd HH:mm");
-            string date3 = dateFromDes.Value.ToString("yyyy/MM/dd HH:mm");
-            string date4 = dateToDes.Value.ToString("yyyy/MM/dd HH:mm");
-            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
-            if (string.Compare(date1, now) < 0 || string.Compare(date2, now) < 0 || string.Compare(date3, now) < 0 || string.Compare(date4, now) < 0)
-            {
-                MessageBox.Show("Lịch trình phải có thời gian bắt đầu từ thời điểm hiện tại!");
-                return;
-            }
+          
             SCHEDULE_BLL s = new SCHEDULE_BLL
             {
                 ScheduleID = -1,
@@ -117,10 +108,18 @@ namespace pbl.View
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString());
-                addtrain f = new addtrain(scheduleid);
-                f.d = new addtrain.Mydel(show);
-                f.Show();
+
+                string state = Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells["DepartureTime"].Value).ToString("yyyy/MM/dd HH:mm");
+                string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+                if (string.Compare(state, now) > 0)
+                {
+                    int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString());
+                    addtrain f = new addtrain(scheduleid);
+                    f.d = new addtrain.Mydel(show);
+                    f.Show();
+                }
+                else
+                { MessageBox.Show(" Chuyến tàu đã xuất phát "); }
             }
             else
             MessageBox.Show(" vui lòng chọn một lịch trình!");

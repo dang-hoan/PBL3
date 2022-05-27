@@ -52,22 +52,14 @@ namespace pbl.View
         }
         public void GUI()
         { 
-            for (int i = 0; i <= 25; i++)
+            for (int i = 1; i <= 25; i++)
             {
                 cbbseat.Items.Add(i.ToString());
             }
           
 
         }
-        private void txtgiave_TextChanged(object sender, EventArgs e)
-        {
-            if (cbbmave.Text != "")
-            {
-                decimal? heso = decimal.Parse(cbbmave.Text);
-                decimal? gia = (decimal)heso * giave;
-                txtgiave.Text = gia.ToString();
-            }
-        }
+    
 
         private void gettrainid(int trainid)
         {
@@ -84,7 +76,8 @@ namespace pbl.View
             }
             for (int i = 1; i <= num; i++)
             {
-                cbbmave.Items.Add(Convert.ToChar(i+48));
+                cbbmave.Items.Add(Convert.ToChar(i+64)).ToString();
+                
             }
         }
 
@@ -148,7 +141,12 @@ namespace pbl.View
       
         private void cbbmave_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cbbmave.Text != "")
+            {
+                int sotoa = Convert.ToChar(cbbmave.Text) - 64;
+                decimal? gia = Convert.ToDecimal((((sotoa - 1) * 0.1) + 1) * Convert.ToDouble(giave));
+                txtgiave.Text = gia.ToString();
+            }
         }
     }
 }

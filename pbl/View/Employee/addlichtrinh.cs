@@ -41,9 +41,16 @@ namespace pbl.View
         private void bTOK_Click(object sender, EventArgs e)
         {
             int comp = DateTime.Compare(daydep.Value, daydes.Value);
-            if (comp >= 0)
+            if (comp > 0)
             {
                 MessageBox.Show("Thời gian đến phải sau thời gian đi!");
+                return;
+            }
+            string date1 = daydep.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(date1, now) < 0 )
+            {
+                MessageBox.Show("Lịch trình phải có thời gian bắt đầu từ thời điểm hiện tại!");
                 return;
             }
             else
