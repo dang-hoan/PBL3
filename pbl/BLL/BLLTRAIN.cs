@@ -62,7 +62,7 @@ namespace pbl.BLL
                     {
                         TrainID = TrainID,
                         SeatNo = carriage[i] + j.ToString(),
-                        TicketPrice = (decimal)(Convert.ToInt32(TicketPrice) * (max - 0.1 * (i - 1))),
+                        TicketPrice = (decimal)(Convert.ToDouble(TicketPrice) * (max - 0.1 * (i - 1))),
                         Booked = false,
                         CustomerUN = ""
                     });
