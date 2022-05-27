@@ -19,6 +19,7 @@ namespace pbl.View
         {
             InitializeComponent();
             gui();
+            show();
         }
         public void gui()
         {
@@ -37,8 +38,8 @@ namespace pbl.View
             {
                 cbbDes.Items.Add(s);
             }
-          
 
+            reset();
         }
 
         private void bSearch_Click(object sender, EventArgs e)
@@ -90,7 +91,7 @@ namespace pbl.View
 
         private void butall_Click(object sender, EventArgs e)
         {
-            show();
+            reset();
 
         }
         public void show()
@@ -104,14 +105,20 @@ namespace pbl.View
 
         private void butve_Click(object sender, EventArgs e)
         {
-
+            butdelte_Click(sender, e);
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                int trainid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["TrainID"].Value.ToString());
-               addve f = new addve(trainid);
-                f.Show();
-                f.d = new addve.Mydel(show2);
-                MessageBox.Show("thêm thành công vé tàu mới ");
+                if (dataGridView1.SelectedRows[0].Cells["State"].Value.ToString() == "Hoạt động")
+                {
+                    int trainid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["TrainID"].Value.ToString());
+                    addve f = new addve(trainid);
+                    f.Show();
+                    f.d = new addve.Mydel(show2);
+                }
+                else
+                {
+                    MessageBox.Show(" Tàu đã ngừng hoạt động!");
+                }    
             }
             else
                 MessageBox.Show(" vui lòng chọn một lịch trình!");
@@ -119,17 +126,21 @@ namespace pbl.View
         }
 
         private void butdelte_Click(object sender, EventArgs e)
-        { 
-            if (dataGridView1.SelectedRows.Count > 0)
-            { 
-                foreach(DataGridViewRow  i in dataGridView1.SelectedRows)
+        {
+            reset();
+        }
+        public void reset ()
+       
+        {
+            show();
+                foreach (DataGridViewRow i in dataGridView1.Rows)
                 {
                     int scheduleid = Convert.ToInt32(i.Cells["ScheduleID"].Value.ToString());
                     BLLTRAIN.Instance.trainstate(scheduleid);
                     show();
-                }    
-                    
-            }
+                }
+
+            
         }
     }
 }

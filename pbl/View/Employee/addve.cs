@@ -93,6 +93,11 @@ namespace pbl.View
             }
             else
             {
+                if (BLLTRAIN.Instance.checkseat(Convert.ToInt32(txtschedule.Text), cbbmave.Text + cbbseat.Text, Convert.ToInt32(txttrainid.Text)))
+                {
+                    MessageBox.Show(" Đã có vé trong hệ thông ");
+                    return;
+                }
                 TICKET s = new TICKET
                 {
                     TrainID = int.Parse(txttrainid.Text),
@@ -124,7 +129,7 @@ namespace pbl.View
 
         private void pChat_Click(object sender, EventArgs e)
         {
-            if (kiemtra == -1)
+            if (txttrainid.Text == "")
             {
                 trainve f = new trainve();
                 f.Show();
@@ -141,12 +146,13 @@ namespace pbl.View
       
         private void cbbmave_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //A1 B2 =>string
             if (cbbmave.Text != "")
-            {
+            {               
                 int sotoa = Convert.ToChar(cbbmave.Text) - 64;
                 decimal? gia = Convert.ToDecimal((((sotoa - 1) * 0.1) + 1) * Convert.ToDouble(giave));
                 txtgiave.Text = gia.ToString();
-            }
+            }  
         }
     }
 }

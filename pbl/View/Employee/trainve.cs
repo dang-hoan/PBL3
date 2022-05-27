@@ -105,9 +105,16 @@ namespace pbl.View
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["TrainID"].Value.ToString());
-                d(scheduleid);
-                this.Close();
+                if (dataGridView1.SelectedRows[0].Cells["State"].Value.ToString() == "Hoạt động")
+                {
+                    int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["TrainID"].Value.ToString());
+                    d(scheduleid);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(" Tàu đã ngừng hoạt động!");
+                }
             }
             else
                 MessageBox.Show(" vui lòng chọn một lịch trình!");
