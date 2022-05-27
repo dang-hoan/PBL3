@@ -120,8 +120,6 @@
             // 
             // cbbDes
             // 
-            this.cbbDes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbDes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbDes.FormattingEnabled = true;
             this.cbbDes.Location = new System.Drawing.Point(422, 82);
             this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -132,8 +130,6 @@
             // 
             // cbbDep
             // 
-            this.cbbDep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbDep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbDep.FormattingEnabled = true;
             this.cbbDep.Location = new System.Drawing.Point(422, 18);
             this.cbbDep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

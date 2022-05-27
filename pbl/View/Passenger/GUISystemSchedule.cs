@@ -79,7 +79,7 @@ namespace pbl
             }
             if(comp3 >= 0)
             {
-                MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+                MessageBox.Show("Mốc thời gian từ trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
                 return;
             }
             string date1 = dateFromDep.Value.ToString("yyyy/MM/dd HH:mm");
