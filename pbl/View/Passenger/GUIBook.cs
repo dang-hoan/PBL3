@@ -46,7 +46,7 @@ namespace pbl
                     }
                     else
                     {
-                        BLLTRAIN.Instance.SetTicket(dt.Cells["TicketID"].Value.ToString(), GUILogin.userName, true);
+                        BLLTRAIN.Instance.SetTicket(Convert.ToInt32(dt.Cells["TicketID"].Value.ToString()), GUILogin.userName, true);
                         MessageBox.Show($"Đã đặt thành công vé có mã {dt.Cells["TicketID"].Value.ToString()}!");
                     }
                 }

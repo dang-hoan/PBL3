@@ -798,7 +798,7 @@ namespace pbl.BLL
             return result;
         }
 
-        public void SetTicket(string TicketID, string userName, bool booked)
+        public void SetTicket(int TicketID, string userName, bool booked)
         {
             PBL3 db = new PBL3();
             TICKET tic = db.TICKETs.Find(TicketID);
