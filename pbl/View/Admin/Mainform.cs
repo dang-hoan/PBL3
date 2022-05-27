@@ -105,13 +105,14 @@ namespace pbl.View.Admin
 
         private void btupdatenv_Click(object sender, EventArgs e)
         {
-            ShowForm(new addnv());
+            ShowForm(new updatenv());
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bttimkiemnv_Click(object sender, EventArgs e)
         {
 
+            ShowForm(new searchnv());
         }
     }
 }

@@ -28,33 +28,6 @@ namespace pbl.View.Admin
             dtgaddnv.DataSource = BLLpeople.instance.getallnv(222);
         }
         
-        private void btok_Click(object sender, EventArgs e)
-        {
-
-            PEOPLE s = new PEOPLE()
-            {
-                Username = txtusername.Text,
-                Name = txtname.Text,
-                Gender = (male.Checked == true) ? true : false,
-                BirthDay = date.Value,
-                Phone = phone.Text,
-                Address = address.Text,
-                Email = gmail.Text,
-                IDCard = idcard.Text,
-                PositionID = 222,
-            };
-            LOGIN l = new LOGIN()
-            {
-
-                PassWord = txtpass.Text,
-                Username = txtusername.Text,
-            };
-            BLLpeople.instance.Execute(s);
-            BLLpeople.instance.Execute2(l);
-            shownv();
-            
-        }
-
         private void idcard_Leave(object sender, EventArgs e)
         {
             if (idcard.Text.Length != 12)
@@ -151,12 +124,45 @@ namespace pbl.View.Admin
             }
             if(gmail.Text.Contains("@gmail.com"))
             {
-                gmaildkk.Text = "Gmail không đúng định dạngq !";
+                gmaildkk.Text = "";
             }
             else
             {
-                gmaildkk.Text = "";
+                gmaildkk.Text = "Gmail không đúng định dạngq !";
             }
+        }
+
+        private void btok_Click(object sender, EventArgs e)
+        {
+            if (txtname.Text == "" || txtusername.Text == "" || txtpass.Text == "" || idcard.Text == "" || gmail.Text =="")
+            {
+                MessageBox.Show("Bạn chưa nhập đủ thông tin bắt buộc !");
+            }
+            else
+            {
+                PEOPLE s = new PEOPLE()
+                {
+                    Username = txtusername.Text,
+                    Name = txtname.Text,
+                    Gender = (male.Checked == true) ? true : false,
+                    BirthDay = date.Value,
+                    Phone = phone.Text,
+                    Address = address.Text,
+                    Email = gmail.Text,
+                    IDCard = idcard.Text,
+                    PositionID = 222,
+                };
+                LOGIN l = new LOGIN()
+                {
+                    State = "Đang làm",
+                    PassWord = txtpass.Text,
+                    Username = txtusername.Text,
+                };
+                BLLpeople.instance.Executenv(s);
+                BLLpeople.instance.Execute2(l);
+                shownv();
+            }
+            
         }
     }
 }
