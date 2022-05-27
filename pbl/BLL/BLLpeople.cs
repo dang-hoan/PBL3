@@ -73,9 +73,9 @@ namespace pbl.BLL
         }
         public void Executenv(PEOPLE s)
         {
-            /*s.PositionID = (from POSITION pos in db.POSITIONs
+            s.PositionID = (from POSITION pos in db.POSITIONs
                             where pos.Position.Equals("Nhân viên")
-                            select pos.PositionID).FirstOrDefault();*/
+                            select pos.PositionID).FirstOrDefault();
             if (!check(s.Username))
             {
                 db.PEOPLE.Add(s);

@@ -1,5 +1,6 @@
 ﻿using pbl.Admin;
 using pbl.BLL;
+using pbl.View.Employee;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -113,6 +114,22 @@ namespace pbl.View.Admin
         {
 
             ShowForm(new searchnv());
+        }
+
+        private void btdoanhthu_Click(object sender, EventArgs e)
+        {
+            ShowForm(new doanhthu());
+        }
+
+        private void btxoa_Click(object sender, EventArgs e)
+        {
+            ShowForm(new delsche());
+        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowForm(new note());
         }
     }
 }

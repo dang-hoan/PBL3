@@ -45,7 +45,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelmain = new System.Windows.Forms.Panel();
-            this.btxoa = new System.Windows.Forms.Button();
             this.panelmenu.SuspendLayout();
             this.panelqllt.SuspendLayout();
             this.panelqlnv.SuspendLayout();
@@ -75,19 +74,20 @@
             this.btdoanhthu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btdoanhthu.Image = ((System.Drawing.Image)(resources.GetObject("btdoanhthu.Image")));
             this.btdoanhthu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btdoanhthu.Location = new System.Drawing.Point(0, 835);
+            this.btdoanhthu.Location = new System.Drawing.Point(0, 766);
             this.btdoanhthu.Name = "btdoanhthu";
             this.btdoanhthu.Size = new System.Drawing.Size(309, 71);
             this.btdoanhthu.TabIndex = 9;
             this.btdoanhthu.Text = "Doanh Thu";
             this.btdoanhthu.UseVisualStyleBackColor = true;
+            this.btdoanhthu.Click += new System.EventHandler(this.btdoanhthu_Click);
             // 
             // button11
             // 
             this.button11.Dock = System.Windows.Forms.DockStyle.Top;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(0, 764);
+            this.button11.Location = new System.Drawing.Point(0, 695);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(309, 71);
             this.button11.TabIndex = 8;
@@ -98,13 +98,12 @@
             // panelqllt
             // 
             this.panelqllt.BackColor = System.Drawing.Color.Silver;
-            this.panelqllt.Controls.Add(this.btxoa);
             this.panelqllt.Controls.Add(this.btsearchsche);
             this.panelqllt.Controls.Add(this.btaddsche);
             this.panelqllt.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelqllt.Location = new System.Drawing.Point(0, 559);
             this.panelqllt.Name = "panelqllt";
-            this.panelqllt.Size = new System.Drawing.Size(309, 205);
+            this.panelqllt.Size = new System.Drawing.Size(309, 136);
             this.panelqllt.TabIndex = 7;
             // 
             // btsearchsche
@@ -224,6 +223,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Trang chủ";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -253,17 +253,6 @@
             this.panelmain.Name = "panelmain";
             this.panelmain.Size = new System.Drawing.Size(931, 744);
             this.panelmain.TabIndex = 2;
-            // 
-            // btxoa
-            // 
-            this.btxoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btxoa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btxoa.Location = new System.Drawing.Point(0, 133);
-            this.btxoa.Name = "btxoa";
-            this.btxoa.Size = new System.Drawing.Size(309, 67);
-            this.btxoa.TabIndex = 2;
-            this.btxoa.Text = "Xóa lịch trình";
-            this.btxoa.UseVisualStyleBackColor = false;
             // 
             // Mainform
             // 
@@ -301,6 +290,5 @@
         private System.Windows.Forms.Panel panelmain;
         private System.Windows.Forms.Button bttimkiemnv;
         private System.Windows.Forms.Button btdoanhthu;
-        private System.Windows.Forms.Button btxoa;
     }
 }
