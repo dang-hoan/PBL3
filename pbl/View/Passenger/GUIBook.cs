@@ -40,7 +40,7 @@ namespace pbl
             {
                 for(int i = 0; i < dataGridView1.SelectedRows.Count; i++){
                     DataGridViewRow dt = dataGridView1.SelectedRows[i];
-                    if (dt.Cells["Booked"].Value.ToString().Equals("True"))
+                    if (dt.Cells["Booked"].Value.ToString().Equals("đã đặt"))
                     {
                         MessageBox.Show("Vé có mã là " + dt.Cells["TicketID"].Value.ToString() +" đã có người đặt!");
                     }

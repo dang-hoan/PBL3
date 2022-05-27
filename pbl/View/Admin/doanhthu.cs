@@ -35,7 +35,7 @@ namespace pbl.View.Employee
             
             dataGridView1.DataSource = BLLTRAIN.Instance.dthu(Convert.ToInt32(cbbmonth.Text),Convert.ToInt32(cbbyear.Text));
         }
-        int[] k = { 10,10,15,15,15,15,10,15};
+        int[] k = { 20,20,25,25,25,25,20,25};
         private void button1_Click(object sender, EventArgs e)
         {
             BLLTRAIN.Instance.Print(dataGridView1, k,"DOANH THU");

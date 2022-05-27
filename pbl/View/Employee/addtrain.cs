@@ -82,6 +82,7 @@ namespace pbl.View
                     NumberOfCarriages = int.Parse(txtsotoa.Text),
                     DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
                     BasicPrice = decimal.Parse(txtgiagoc.Text),
+                    State = "Hoạt động"
                 };
                 BLLTRAIN.Instance.Executetrain(s);
                 d();
@@ -108,7 +109,7 @@ namespace pbl.View
 
         private void lich_trinh_Click(object sender, EventArgs e)
         {
-            if (trainid == -1)
+            if(schedule.Text == "")
             {
                 lichtrinadd f = new lichtrinadd();
                 f.Show();

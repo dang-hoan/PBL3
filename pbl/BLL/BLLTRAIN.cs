@@ -239,6 +239,20 @@ namespace pbl.BLL
             }
             return false;
         }
+        public bool checkseat(int scheduleid, string maghe, int trainid)
+        {   //idlcih
+            //idtau
+            //mave
+            MessageBox.Show(scheduleid + "," + maghe + ", " + trainid);
+            PBL3 db = new PBL3();
+            var result = (from sch in db.SCHEDULEs
+                       join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                       join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                       where sch.ScheduleID == scheduleid && tra.TrainID == trainid && tic.SeatNo == maghe
+                      select tic).FirstOrDefault();
+            if (result != null) return true;
+            else return false;
+        }
         public bool check2(string username)
         {
             PBL3 db = new PBL3();
