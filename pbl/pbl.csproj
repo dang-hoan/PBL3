@@ -131,11 +131,23 @@
     <Compile Include="View\AddSecurity.Designer.cs">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Employee\doanhthu.cs">
+    <Compile Include="View\Admin\doanhthu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Employee\doanhthu.Designer.cs">
+    <Compile Include="View\Admin\doanhthu.Designer.cs">
       <DependentUpon>doanhthu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\searchnv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\searchnv.Designer.cs">
+      <DependentUpon>searchnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\updatenv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\updatenv.Designer.cs">
+      <DependentUpon>updatenv.cs</DependentUpon>
     </Compile>
     <Compile Include="View\InputPass.cs">
       <SubType>Form</SubType>
@@ -392,8 +404,14 @@
     <EmbeddedResource Include="View\AddSecurity.resx">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Employee\doanhthu.resx">
+    <EmbeddedResource Include="View\Admin\doanhthu.resx">
       <DependentUpon>doanhthu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\searchnv.resx">
+      <DependentUpon>searchnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\updatenv.resx">
+      <DependentUpon>updatenv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\InputPass.resx">
       <DependentUpon>InputPass.cs</DependentUpon>

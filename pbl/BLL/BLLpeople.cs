@@ -49,8 +49,8 @@ namespace pbl.BLL
         public void Execute(PEOPLE s)
         {
             s.PositionID = (from POSITION pos in db.POSITIONs
-                     where pos.Position.Equals("Khách hàng")
-                     select pos.PositionID).FirstOrDefault();
+                            where pos.Position.Equals("Nhân viên")
+                            select pos.PositionID).FirstOrDefault();
             if (!check(s.Username))
             {
                 db.PEOPLE.Add(s);
@@ -79,7 +79,7 @@ namespace pbl.BLL
             if (!check(s.Username))
             {
                 db.PEOPLE.Add(s);
-                db.SaveChanges();
+                //db.SaveChanges();
             }
             else
             {
@@ -92,8 +92,10 @@ namespace pbl.BLL
                 temp.IDCard = s.IDCard;
                 temp.Email = s.Email;
                 temp.PositionID = s.PositionID;
-                db.SaveChanges();
+                MessageBox.Show(s.Name + ", " + s.Gender + ", " + s.BirthDay + ", " + s.Phone + ", " + s.Address + ", " + s.IDCard + ", " + s.Email + ", " + s.PositionID);
+               // db.SaveChanges();
             }
+            db.SaveChanges();
 
         }
         public void Execute2(LOGIN s)
@@ -221,6 +223,7 @@ namespace pbl.BLL
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
+        
         public void delnv(string IDCard)
         {
             PEOPLE s = db.PEOPLE.Find(IDCard);
@@ -253,6 +256,28 @@ namespace pbl.BLL
                
             }
            
+        }
+        public List<PEOPLE> searchnv(string text)
+        {
+            if (text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên nhân viên cần tìm !", "Thông báo");
+                return null;
+            }
+            else
+            {
+                var result = from p in db.PEOPLE where p.Name.Contains(text) && p.PositionID == 222 select p;
+                if (result.Count() == 0)
+                {
+                    MessageBox.Show("Không có nhân viên có tên bạn muốn tìm trong hệ thống !", "Thông báo");
+
+                }
+
+                return result.ToList();
+
+
+            }
+
         }
         public LOGIN Getloginbyloginid(string username)
         {

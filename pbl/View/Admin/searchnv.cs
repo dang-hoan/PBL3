@@ -8,28 +8,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace pbl.View.Admin
 {
-    public partial class Passenger : Form
+    public partial class searchnv : Form
     {
-        public Passenger()
+        public searchnv()
         {
             InitializeComponent();
-            showpass(333);
+            shownv(222);
         }
         public void deltxt()
         {
 
             txtsearch.Text = "";
         }
-
-        private void btsearch_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = BLLpeople.instance.searchem(txtsearch.Text);
-        }
-        public void showpass(int PositionId)
+        public void shownv(int PositionId)
         {
             dataGridView1.DataSource = BLLpeople.instance.getallnv(PositionId);
+        }
+        private void btsearch_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = BLLpeople.instance.searchnv(txtsearch.Text);
         }
 
         private void txtsearch_MouseClick(object sender, MouseEventArgs e)

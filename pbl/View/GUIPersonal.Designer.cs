@@ -44,6 +44,8 @@
             this.bSavePass = new System.Windows.Forms.Button();
             this.bEditPass = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labConfirm = new System.Windows.Forms.Label();
+            this.labNew = new System.Windows.Forms.Label();
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -54,6 +56,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labPhone = new System.Windows.Forms.Label();
+            this.labEmail = new System.Windows.Forms.Label();
+            this.labIDCard = new System.Windows.Forms.Label();
+            this.labBirthDay = new System.Windows.Forms.Label();
+            this.labName = new System.Windows.Forms.Label();
             this.txtBirthDay = new System.Windows.Forms.DateTimePicker();
             this.txtIDCard = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -70,17 +77,6 @@
             this.txtAnswer = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.labUsername = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -252,9 +248,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label23);
+            this.groupBox2.Controls.Add(this.labConfirm);
             this.groupBox2.Controls.Add(this.bSavePass);
-            this.groupBox2.Controls.Add(this.label24);
+            this.groupBox2.Controls.Add(this.labNew);
             this.groupBox2.Controls.Add(this.bEditPass);
             this.groupBox2.Controls.Add(this.txtConfirm);
             this.groupBox2.Controls.Add(this.txtNew);
@@ -271,6 +267,28 @@
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mật khẩu";
+            // 
+            // labConfirm
+            // 
+            this.labConfirm.AutoSize = true;
+            this.labConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labConfirm.ForeColor = System.Drawing.Color.Red;
+            this.labConfirm.Location = new System.Drawing.Point(216, 171);
+            this.labConfirm.Name = "labConfirm";
+            this.labConfirm.Size = new System.Drawing.Size(25, 20);
+            this.labConfirm.TabIndex = 32;
+            this.labConfirm.Text = "fw";
+            // 
+            // labNew
+            // 
+            this.labNew.AutoSize = true;
+            this.labNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNew.ForeColor = System.Drawing.Color.Red;
+            this.labNew.Location = new System.Drawing.Point(216, 119);
+            this.labNew.Name = "labNew";
+            this.labNew.Size = new System.Drawing.Size(25, 20);
+            this.labNew.TabIndex = 31;
+            this.labNew.Text = "fw";
             // 
             // txtPosition
             // 
@@ -289,6 +307,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(306, 30);
             this.txtName.TabIndex = 7;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtUsername
             // 
@@ -367,15 +386,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.labUsername);
+            this.groupBox1.Controls.Add(this.labPhone);
+            this.groupBox1.Controls.Add(this.labEmail);
+            this.groupBox1.Controls.Add(this.labIDCard);
+            this.groupBox1.Controls.Add(this.labBirthDay);
+            this.groupBox1.Controls.Add(this.labName);
             this.groupBox1.Controls.Add(this.txtBirthDay);
             this.groupBox1.Controls.Add(this.txtIDCard);
             this.groupBox1.Controls.Add(this.label12);
@@ -407,6 +422,62 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
             // 
+            // labPhone
+            // 
+            this.labPhone.AutoSize = true;
+            this.labPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labPhone.ForeColor = System.Drawing.Color.Red;
+            this.labPhone.Location = new System.Drawing.Point(239, 497);
+            this.labPhone.Name = "labPhone";
+            this.labPhone.Size = new System.Drawing.Size(79, 20);
+            this.labPhone.TabIndex = 29;
+            this.labPhone.Text = "*Bắt buộc";
+            // 
+            // labEmail
+            // 
+            this.labEmail.AutoSize = true;
+            this.labEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labEmail.ForeColor = System.Drawing.Color.Red;
+            this.labEmail.Location = new System.Drawing.Point(239, 434);
+            this.labEmail.Name = "labEmail";
+            this.labEmail.Size = new System.Drawing.Size(79, 20);
+            this.labEmail.TabIndex = 28;
+            this.labEmail.Text = "*Bắt buộc";
+            this.labEmail.Click += new System.EventHandler(this.label22_Click);
+            // 
+            // labIDCard
+            // 
+            this.labIDCard.AutoSize = true;
+            this.labIDCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labIDCard.ForeColor = System.Drawing.Color.Red;
+            this.labIDCard.Location = new System.Drawing.Point(239, 376);
+            this.labIDCard.Name = "labIDCard";
+            this.labIDCard.Size = new System.Drawing.Size(79, 20);
+            this.labIDCard.TabIndex = 27;
+            this.labIDCard.Text = "*Bắt buộc";
+            // 
+            // labBirthDay
+            // 
+            this.labBirthDay.AutoSize = true;
+            this.labBirthDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labBirthDay.ForeColor = System.Drawing.Color.Red;
+            this.labBirthDay.Location = new System.Drawing.Point(239, 256);
+            this.labBirthDay.Name = "labBirthDay";
+            this.labBirthDay.Size = new System.Drawing.Size(291, 20);
+            this.labBirthDay.TabIndex = 25;
+            this.labBirthDay.Text = "*Ngày sinh mặc định là thời điểm hiện tại";
+            // 
+            // labName
+            // 
+            this.labName.AutoSize = true;
+            this.labName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labName.ForeColor = System.Drawing.Color.Red;
+            this.labName.Location = new System.Drawing.Point(239, 145);
+            this.labName.Name = "labName";
+            this.labName.Size = new System.Drawing.Size(25, 20);
+            this.labName.TabIndex = 23;
+            this.labName.Text = "fw";
+            // 
             // txtBirthDay
             // 
             this.txtBirthDay.Enabled = false;
@@ -414,6 +485,7 @@
             this.txtBirthDay.Name = "txtBirthDay";
             this.txtBirthDay.Size = new System.Drawing.Size(306, 30);
             this.txtBirthDay.TabIndex = 21;
+            this.txtBirthDay.FontChanged += new System.EventHandler(this.txtBirthDay_FontChanged);
             // 
             // txtIDCard
             // 
@@ -592,127 +664,6 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Câu hỏi";
             // 
-            // labUsername
-            // 
-            this.labUsername.AutoSize = true;
-            this.labUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labUsername.ForeColor = System.Drawing.Color.Red;
-            this.labUsername.Location = new System.Drawing.Point(239, 91);
-            this.labUsername.Name = "labUsername";
-            this.labUsername.Size = new System.Drawing.Size(25, 20);
-            this.labUsername.TabIndex = 22;
-            this.labUsername.Text = "fw";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(239, 145);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(25, 20);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "fw";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(239, 193);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(25, 20);
-            this.label16.TabIndex = 24;
-            this.label16.Text = "fw";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(239, 256);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(25, 20);
-            this.label17.TabIndex = 25;
-            this.label17.Text = "fw";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(239, 319);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(25, 20);
-            this.label18.TabIndex = 26;
-            this.label18.Text = "fw";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(239, 376);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(25, 20);
-            this.label19.TabIndex = 27;
-            this.label19.Text = "fw";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(239, 554);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(25, 20);
-            this.label20.TabIndex = 30;
-            this.label20.Text = "fw";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(239, 497);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(25, 20);
-            this.label21.TabIndex = 29;
-            this.label21.Text = "fw";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(239, 434);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(25, 20);
-            this.label22.TabIndex = 28;
-            this.label22.Text = "fw";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Red;
-            this.label23.Location = new System.Drawing.Point(216, 171);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(25, 20);
-            this.label23.TabIndex = 32;
-            this.label23.Text = "fw";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Red;
-            this.label24.Location = new System.Drawing.Point(216, 119);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(25, 20);
-            this.label24.TabIndex = 31;
-            this.label24.Text = "fw";
-            // 
             // GUIPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -779,16 +730,12 @@
         private System.Windows.Forms.ComboBox cbbQuestion;
         private System.Windows.Forms.PictureBox pAdd;
         private System.Windows.Forms.Button bDelete;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label labUsername;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label labBirthDay;
+        private System.Windows.Forms.Label labName;
+        private System.Windows.Forms.Label labPhone;
+        private System.Windows.Forms.Label labEmail;
+        private System.Windows.Forms.Label labIDCard;
+        private System.Windows.Forms.Label labConfirm;
+        private System.Windows.Forms.Label labNew;
     }
 }
