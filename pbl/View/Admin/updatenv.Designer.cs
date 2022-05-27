@@ -227,6 +227,8 @@
             this.idcard.Name = "idcard";
             this.idcard.Size = new System.Drawing.Size(190, 27);
             this.idcard.TabIndex = 19;
+            this.idcard.TextChanged += new System.EventHandler(this.idcard_TextChanged);
+            this.idcard.Leave += new System.EventHandler(this.idcard_Leave);
             // 
             // label9
             // 
@@ -344,6 +346,8 @@
             this.gmail.Name = "gmail";
             this.gmail.Size = new System.Drawing.Size(190, 27);
             this.gmail.TabIndex = 11;
+            this.gmail.TextChanged += new System.EventHandler(this.gmail_TextChanged);
+            this.gmail.Leave += new System.EventHandler(this.gmail_Leave);
             // 
             // label6
             // 
@@ -387,6 +391,7 @@
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(190, 27);
             this.txtname.TabIndex = 8;
+            this.txtname.Leave += new System.EventHandler(this.txtname_Leave);
             // 
             // label5
             // 
