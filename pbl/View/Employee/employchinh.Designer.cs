@@ -271,6 +271,7 @@
             this.IsMdiContainer = true;
             this.Name = "Employeechinh";
             this.Text = "Employee";
+            this.Load += new System.EventHandler(this.Employeechinh_Load);
             this.pnxuly.ResumeLayout(false);
             this.panel_User.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();

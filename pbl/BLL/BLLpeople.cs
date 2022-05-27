@@ -92,8 +92,7 @@ namespace pbl.BLL
                 temp.IDCard = s.IDCard;
                 temp.Email = s.Email;
                 temp.PositionID = s.PositionID;
-                MessageBox.Show(s.Name + ", " + s.Gender + ", " + s.BirthDay + ", " + s.Phone + ", " + s.Address + ", " + s.IDCard + ", " + s.Email + ", " + s.PositionID);
-               // db.SaveChanges();
+                
             }
             db.SaveChanges();
 

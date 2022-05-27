@@ -14,7 +14,7 @@ namespace pbl.View.Admin
 {
     public partial class addnv : Form
     {
-       
+
         public addnv()
         {
 
@@ -22,12 +22,13 @@ namespace pbl.View.Admin
             shownv();
 
         }
+
         public void shownv()
         {
 
             dtgaddnv.DataSource = BLLpeople.instance.getallnv(222);
         }
-        
+
         private void idcard_Leave(object sender, EventArgs e)
         {
             if (idcard.Text.Length != 12)
@@ -82,7 +83,7 @@ namespace pbl.View.Admin
 
         private void txtpass_Leave(object sender, EventArgs e)
         {
-            if(txtpass.Text.Length == 0)
+            if (txtpass.Text.Length == 0)
             {
                 MessageBox.Show("Mật khẩu không được để rỗng !");
             }
@@ -109,20 +110,20 @@ namespace pbl.View.Admin
         private void gmail_TextChanged(object sender, EventArgs e)
         {
             int count = 0, xam = 0;
-            for(int i = 0; i < gmail.Text.Length; i++)
+            for (int i = 0; i < gmail.Text.Length; i++)
             {
                 if (gmail.Text[i] == '.') count++;
                 if (gmail.Text[i] == '@') xam++;
             }
-            if(count !=1 && xam !=1)
+            if (count != 1 && xam != 1)
             {
                 gmaildkk.Text = "Gmail không đúng định dạng !";
             }
-            else 
+            else
             {
                 gmaildkk.Text = "";
             }
-            if(gmail.Text.Contains("@gmail.com"))
+            if (gmail.Text.Contains("@gmail.com"))
             {
                 gmaildkk.Text = "";
             }
@@ -134,9 +135,13 @@ namespace pbl.View.Admin
 
         private void btok_Click(object sender, EventArgs e)
         {
-            if (txtname.Text == "" || txtusername.Text == "" || txtpass.Text == "" || idcard.Text == "" || gmail.Text =="")
+            if (txtname.Text == "" || txtusername.Text == "" || txtpass.Text == "" || idcard.Text == "" || gmail.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập đủ thông tin bắt buộc !");
+            }
+            else if ( usernamedk.Text != "")
+            {
+                MessageBox.Show("Tên đăng nhập đã tồn tại");
             }
             else
             {
@@ -161,8 +166,46 @@ namespace pbl.View.Admin
                 BLLpeople.instance.Executenv(s);
                 BLLpeople.instance.Execute2(l);
                 shownv();
+                txtname.Text = "";
+                male.Checked = false;
+                female.Checked = false;
+                phone.Text = "";
+                address.Text = "";
+                gmail.Text = "";
+                idcard.Text = "";
+                date.Text = DateTime.Now.ToString();
+                txtusername.Text = "";
+                txtpass.Text = "";
             }
             
+        }
+
+        private void phone_TextChanged(object sender, EventArgs e)
+        {
+            if (phone.Text.Length < 10 || phone.Text.Length > 10)
+            {
+                phonedk.Text = " Số điện thoại có 10-11 số !";
+                phone.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                phonedk.Text = "";
+                phone.BackColor = Color.White;
+            }
+        }
+
+        private void txtusername_TextChanged(object sender, EventArgs e)
+        {
+            if(!BLLpeople.instance.check(txtusername.Text))
+            {
+                usernamedk.Text = "";
+
+            }
+            else
+            {
+                usernamedk.Text = "Tên đăng nhập đã tồn tại ";
+
+            }
         }
     }
 }
