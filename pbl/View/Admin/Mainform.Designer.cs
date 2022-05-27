@@ -45,10 +45,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelmain = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelmenu.SuspendLayout();
             this.panelqllt.SuspendLayout();
             this.panelqlnv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelmenu
@@ -239,35 +243,61 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Cyan;
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(330, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(931, 21);
+            this.panel1.Size = new System.Drawing.Size(931, 50);
             this.panel1.TabIndex = 1;
             // 
             // panelmain
             // 
             this.panelmain.BackColor = System.Drawing.Color.Red;
-            this.panelmain.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelmain.Location = new System.Drawing.Point(330, 21);
+            this.panelmain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelmain.Location = new System.Drawing.Point(330, 50);
             this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(931, 744);
+            this.panelmain.Size = new System.Drawing.Size(931, 714);
             this.panelmain.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(330, 50);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(931, 23);
+            this.panel2.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(881, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(47, 41);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1261, 764);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelmain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelmenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Mainform";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Mainform_Load);
             this.panelmenu.ResumeLayout(false);
             this.panelqllt.ResumeLayout(false);
             this.panelqlnv.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,5 +320,7 @@
         private System.Windows.Forms.Panel panelmain;
         private System.Windows.Forms.Button bttimkiemnv;
         private System.Windows.Forms.Button btdoanhthu;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel2;
     }
 }

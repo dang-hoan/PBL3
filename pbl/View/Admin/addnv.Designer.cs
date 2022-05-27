@@ -31,6 +31,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtgaddnv = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.phonedk = new System.Windows.Forms.Label();
+            this.btok = new System.Windows.Forms.Button();
             this.gmaildkk = new System.Windows.Forms.Label();
             this.namedk = new System.Windows.Forms.Label();
             this.userdk = new System.Windows.Forms.Label();
@@ -61,7 +63,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.btok = new System.Windows.Forms.Button();
+            this.usernamedk = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgaddnv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +93,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.usernamedk);
+            this.groupBox1.Controls.Add(this.phonedk);
             this.groupBox1.Controls.Add(this.btok);
             this.groupBox1.Controls.Add(this.gmaildkk);
             this.groupBox1.Controls.Add(this.namedk);
@@ -128,6 +134,24 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
+            // 
+            // phonedk
+            // 
+            this.phonedk.AutoSize = true;
+            this.phonedk.Location = new System.Drawing.Point(130, 218);
+            this.phonedk.Name = "phonedk";
+            this.phonedk.Size = new System.Drawing.Size(0, 16);
+            this.phonedk.TabIndex = 37;
+            // 
+            // btok
+            // 
+            this.btok.Location = new System.Drawing.Point(594, 257);
+            this.btok.Name = "btok";
+            this.btok.Size = new System.Drawing.Size(134, 36);
+            this.btok.TabIndex = 36;
+            this.btok.Text = "OK";
+            this.btok.UseVisualStyleBackColor = true;
+            this.btok.Click += new System.EventHandler(this.btok_Click);
             // 
             // gmaildkk
             // 
@@ -256,6 +280,7 @@
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(188, 27);
             this.txtusername.TabIndex = 20;
+            this.txtusername.TextChanged += new System.EventHandler(this.txtusername_TextChanged);
             this.txtusername.Leave += new System.EventHandler(this.txtusername_Leave);
             // 
             // idcard
@@ -376,6 +401,7 @@
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(190, 27);
             this.phone.TabIndex = 10;
+            this.phone.TextChanged += new System.EventHandler(this.phone_TextChanged);
             // 
             // gmail
             // 
@@ -444,15 +470,21 @@
             this.label16.TabIndex = 20;
             this.label16.Text = "Note : Những ô có (*) là thông tin bắt buộc!";
             // 
-            // btok
+            // usernamedk
             // 
-            this.btok.Location = new System.Drawing.Point(594, 257);
-            this.btok.Name = "btok";
-            this.btok.Size = new System.Drawing.Size(134, 36);
-            this.btok.TabIndex = 36;
-            this.btok.Text = "OK";
-            this.btok.UseVisualStyleBackColor = true;
-            this.btok.Click += new System.EventHandler(this.btok_Click);
+            this.usernamedk.AutoSize = true;
+            this.usernamedk.Location = new System.Drawing.Point(529, 160);
+            this.usernamedk.Name = "usernamedk";
+            this.usernamedk.Size = new System.Drawing.Size(0, 16);
+            this.usernamedk.TabIndex = 38;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(136, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 16);
+            this.label7.TabIndex = 39;
             // 
             // addnv
             // 
@@ -510,5 +542,8 @@
         private System.Windows.Forms.Label passdk;
         private System.Windows.Forms.Label gmaildkk;
         private System.Windows.Forms.Button btok;
+        private System.Windows.Forms.Label phonedk;
+        private System.Windows.Forms.Label usernamedk;
+        private System.Windows.Forms.Label label7;
     }
 }

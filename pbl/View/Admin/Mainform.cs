@@ -23,6 +23,7 @@ namespace pbl.View.Admin
             InitializeComponent();
             this.login = login;
             anpanel();
+            ShowForm(new note());
         }
         
         Form f = null;
@@ -130,6 +131,17 @@ namespace pbl.View.Admin
         private void button1_Click(object sender, EventArgs e)
         {
             ShowForm(new note());
+        }
+
+        private void Mainform_Load(object sender, EventArgs e)
+        {
+           // this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            login.Show();
         }
     }
 }

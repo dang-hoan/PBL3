@@ -17,8 +17,8 @@ namespace pbl
         int numberOfCarriages = 25;
         Image imageLeft1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1) - Copy.png"), imageRight1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1).png");
         Image imageLeft2 = (Image)new Bitmap(@"C:\PBL3\picture\play1.png"), imageRight2 = (Image)new Bitmap(@"C:\PBL3\picture\play.png");
-        private List<string> list = null;
-        public GUIBook(List<string> list)
+        private List<int> list = null;
+        public GUIBook(List<int> list)
         {
             InitializeComponent();
             this.list = list;

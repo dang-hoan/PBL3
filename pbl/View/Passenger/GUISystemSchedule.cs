@@ -46,12 +46,12 @@ namespace pbl
         }
         private void bBook_Click(object sender, EventArgs e)
         {
-            List<string> list = new List<string>();
+            List<int> list = new List<int>();
             if (dataGridView1.SelectedRows.Count >= 1)
             {
                 foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
                 {
-                    list.Add(dr.Cells["ScheduleID"].Value.ToString());
+                    list.Add(Convert.ToInt32(dr.Cells["ScheduleID"].Value.ToString()));
                 }
                 GUIBook book = new GUIBook(list);
                 book.Show();

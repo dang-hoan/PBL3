@@ -124,5 +124,10 @@ namespace pbl.View
         {
             showform(new train());
         }
+
+        private void Employeechinh_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
