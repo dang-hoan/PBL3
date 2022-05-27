@@ -219,6 +219,11 @@ namespace pbl
 
         private void bSaveSecurity_Click(object sender, EventArgs e)
         {
+            if (txtAnswer.Text == "")
+            {
+                MessageBox.Show("Để bảo đảm an toàn cho bạn, bạn không được phép tạo câu trả lời bảo mật rỗng!");
+                return;
+            }
             if (cbbQuestion.Text == "")
             {
                 cbbQuestion.Enabled = false;
@@ -285,6 +290,39 @@ namespace pbl
             cbbQuestion.SelectedItem = null;
             txtAnswer.Text = "";
             InitQuestion();
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+        private bool CheckName(string Name)
+        {
+            foreach(char i in Name)
+            {
+                if(i < 65 || i > 90 || i < 97 || i > 122 || i != ' ')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            if (!CheckName(Name)) labName.Text = "*Tên không hợp lệ (tên chỉ chứa khoảng trắng và các ký tự trong bảng chữ cái!";
+            else labName.Text = "";
+        }
+
+        private void txtBirthDay_FontChanged(object sender, EventArgs e)
+        {
+            string s = txtBirthDay.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+            if(string.Compare(s, now) > 0)
+            {
+                labBirthDay.Text = "*Ngày sinh không thể sau thời điểm hiện tại";
+                return;
+            }
+            labBirthDay.Text = "";
         }
     }
 }

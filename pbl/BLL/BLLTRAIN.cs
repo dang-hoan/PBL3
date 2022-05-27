@@ -62,7 +62,7 @@ namespace pbl.BLL
                     {
                         TrainID = TrainID,
                         SeatNo = carriage[i] + j.ToString(),
-                        TicketPrice = (decimal)(Convert.ToInt32(TicketPrice) * (max - 0.1 * (i - 1))),
+                        TicketPrice = (decimal)(Convert.ToDouble(TicketPrice) * (max - 0.1 * (i - 1))),
                         Booked = false,
                         CustomerUN = ""
                     });
@@ -415,11 +415,11 @@ namespace pbl.BLL
                          select new TICKET_View
                          {
                              ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID.ToString(),
+                             TrainID = tra.TrainID,
                              TrainName = tra.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
-                             TicketPrice = tic.TicketPrice.ToString(),
+                             TicketPrice = (double)tic.TicketPrice,
                              Departure = sch.Departure,
                              Destination = sch.Destination,
                              DepartureTime = sch.DepartureTime.ToString(),
@@ -642,32 +642,32 @@ namespace pbl.BLL
                          };
             return result.ToList();
         }
-        public List<TICKET_View> GetTicket(List<string> list)
+        public List<TICKET_View> GetTicket(List<int> list)
         {
             PBL3 db = new PBL3();
             List<TICKET_View> result = new List<TICKET_View>();
-            foreach (string id in list)
+            foreach (int id in list)
             {
                 foreach (TICKET_View t in BLLTRAIN.Instance.GetAllTICKETView())
                 {
-                    if (t.ScheduleID.Equals(id)) result.Add(t);
+                    if (t.ScheduleID == id) result.Add(t);
                 }
             }
             return result;
         }
       
-        public List<TICKET_View> GetTicket(List<string> list, string TrainName, int carriage, ref int booked, ref int unbooked)
+        public List<TICKET_View> GetTicket(List<int> list, string TrainName, int carriage, ref int booked, ref int unbooked)
         {
             PBL3 db = new PBL3();
             bool Train = false;
             if (TrainName == "") Train = true;
             List<TICKET_View> result = new List<TICKET_View>();
             int sum = 0;
-            foreach (string id in list)
+            foreach (int id in list)
             {
                 foreach (TICKET_View t in BLLTRAIN.Instance.GetAllTICKETView())
                 {
-                    if (t.ScheduleID.Equals(id) && (Train || t.TrainName.Equals(TrainName)))//2 tàu trùng tên
+                    if ((t.ScheduleID == id) && (Train || t.TrainName.Equals(TrainName)))//2 tàu trùng tên
                     {
                         sum++;
                         if (bool.Parse(t.Booked)) booked++;
@@ -781,15 +781,15 @@ namespace pbl.BLL
                          select tra.TrainName;
             return result.ToList();
         }
-        public List<string> GetTrain(List<string> list)
+        public List<string> GetTrain(List<int> list)
         {
             PBL3 db = new PBL3();
             List<string> result = new List<string>();
-            foreach (string id in list)
+            foreach (int id in list)
             {
                 foreach (TRAIN t in db.TRAINs)
                 {
-                    if (t.ScheduleID.Equals(id))
+                    if (t.ScheduleID == id)
                     {
                         result.Add(t.TrainName);
                     }
@@ -798,7 +798,7 @@ namespace pbl.BLL
             return result;
         }
 
-        public void SetTicket(string TicketID, string userName, bool booked)
+        public void SetTicket(int TicketID, string userName, bool booked)
         {
             PBL3 db = new PBL3();
             TICKET tic = db.TICKETs.Find(TicketID);

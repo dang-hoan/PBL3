@@ -88,12 +88,12 @@ namespace pbl.View
         }
         private void butdat_Click(object sender, EventArgs e)
         {
-            List<string> list = new List<string>();
+            List<int> list = new List<int>();
             if (dataGridView1.SelectedRows.Count >= 1)
             {
                 foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
                 {
-                    list.Add(dr.Cells["ScheduleID"].Value.ToString());
+                    list.Add(Convert.ToInt32(dr.Cells["ScheduleID"].Value.ToString()));
                 }
                 GUIBook book = new GUIBook(list);
                 book.Show();
@@ -140,7 +140,7 @@ namespace pbl.View
 
         private void butmuave_Click(object sender, EventArgs e)
         {
-            List<string> list = new List<string>();
+            List<int> list = new List<int>();
             if (dataGridView1.SelectedRows.Count >= 1)
             {
                 
@@ -149,7 +149,7 @@ namespace pbl.View
                     
                     if (dr.Cells["Booked"].Value.ToString() == "chưa đặt")
                     {
-                        list.Add(dr.Cells["ScheduleID"].Value.ToString());
+                        list.Add(Convert.ToInt32(dr.Cells["ScheduleID"].Value.ToString()));
                         GUIBook book = new GUIBook(list);
                         book.Show();
                     }

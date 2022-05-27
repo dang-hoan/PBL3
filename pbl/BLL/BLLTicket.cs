@@ -74,11 +74,11 @@ namespace pbl.BLL
                          select new TICKET_View
                          {
                              ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID.ToString(),
+                             TrainID = tra.TrainID,
                              TrainName = tra.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
-                             TicketPrice = tic.TicketPrice.ToString(),
+                             TicketPrice = (double)tic.TicketPrice,
                              Departure = sch.Departure,
                              Destination = sch.Destination,
                              DepartureTime = sch.DepartureTime.ToString(),
@@ -133,11 +133,11 @@ namespace pbl.BLL
                         select new TICKET_View
                         {
                             ScheduleID = (int)tra.ScheduleID,
-                            TrainID = tra.TrainID.ToString(),
+                            TrainID = tra.TrainID,
                             TrainName = tra.TrainName,
                             TicketID = tic.TicketID,
                             SeatNo = tic.SeatNo,
-                            TicketPrice = tic.TicketPrice.ToString(),
+                            TicketPrice = (double)tic.TicketPrice,
                             Departure = sch.Departure,
                             Destination = sch.Destination,
                             DepartureTime = sch.DepartureTime.ToString(),

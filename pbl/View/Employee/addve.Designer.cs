@@ -72,6 +72,7 @@
             this.butcancel.TabIndex = 123;
             this.butcancel.Text = "Hủy";
             this.butcancel.UseVisualStyleBackColor = true;
+            this.butcancel.Click += new System.EventHandler(this.butcancel_Click);
             // 
             // label8
             // 
@@ -138,7 +139,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(262, 59);
             this.label2.TabIndex = 136;
-            this.label2.Text = "Chọn một lịch trình trước khi thêm (kích chuột vào hình tờ lịch)!";
+            this.label2.Text = "Chọn một chuyến tàu trước khi thêm (kích chuột vào hình chuyến tàu)!";
             // 
             // txttrainid
             // 
@@ -202,6 +203,8 @@
             // 
             // cbbseat
             // 
+            this.cbbseat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbseat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbseat.FormattingEnabled = true;
             this.cbbseat.Location = new System.Drawing.Point(265, 288);
             this.cbbseat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -212,6 +215,8 @@
             // 
             // cbbmave
             // 
+            this.cbbmave.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbmave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbmave.FormattingEnabled = true;
             this.cbbmave.Location = new System.Drawing.Point(185, 288);
             this.cbbmave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -245,6 +250,7 @@
             this.Controls.Add(this.butadd);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "addve";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addve";
             this.Load += new System.EventHandler(this.addve_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pChat)).EndInit();

@@ -61,7 +61,7 @@ namespace pbl
                 {
                     foreach (DataGridViewRow i in dataGridView1.SelectedRows)
                     {
-                        BLLTRAIN.Instance.SetTicket(i.Cells["TicketID"].Value.ToString(), GUILogin.userName, false);
+                        BLLTRAIN.Instance.SetTicket(Convert.ToInt32(i.Cells["TicketID"].Value.ToString()), GUILogin.userName, false);
                     }
                     MessageBox.Show("Đã huỷ những vé bạn chọn!");
                     cbbTrain.Items.Clear();
