@@ -601,6 +601,7 @@ namespace pbl.BLL
             }
             return result;
         }
+      
         public List<TICKET_View> GetTicket(List<string> list, string TrainName, int carriage, ref int booked, ref int unbooked)
         {
             PBL3 db = new PBL3();
@@ -665,6 +666,20 @@ namespace pbl.BLL
             List<TRAIN> data = new List<TRAIN>();
             data = db.TRAINs.Where(p => (p.TrainID == trainid)).Select(p => p).ToList();
             return data;
+        }
+        public void trainstate(int scheduleid)
+        {
+            PBL3 db = new PBL3();
+         
+            var data = (from sch in db.SCHEDULEs.ToList()
+                        join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                        where sch.ScheduleID == scheduleid && string.Compare(sch.DepartureTime.ToString("yyyy/MM/dd HH:mm"), DateTime.Now.ToString("yyyy/MM/dd HH:mm")) < 0
+                        select tra).ToList() ;
+            foreach(TRAIN train in data)
+            {
+                train.State = " dừng hoạt động ";
+            }
+            db.SaveChanges();
         }
         public List<TRAIN> GettrainBytrainid(int scheduleid)
         {
@@ -1033,6 +1048,19 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             return (from sch in db.SCHEDULEs.ToList()
                     where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0
+                    select new SCHEDULE_View
+                    {
+                        ScheduleID = sch.ScheduleID,
+                        Departure = sch.Departure,
+                        Destination = sch.Destination,
+                        DepartureTime = sch.DepartureTime.ToString(),
+                        ArrivalTime = sch.ArrivalTime.ToString()
+                    }).ToList();
+        }
+        public List<SCHEDULE_View> GetSchedule2()
+        {
+            PBL3 db = new PBL3();
+            return (from sch in db.SCHEDULEs.ToList()
                     select new SCHEDULE_View
                     {
                         ScheduleID = sch.ScheduleID,

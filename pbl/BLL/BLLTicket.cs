@@ -68,7 +68,7 @@ namespace pbl.BLL
                          join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
 
                          join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
-                         where ((Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination)) || tic.Booked.Equals(booked))
+                         where ((Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination)) && tic.Booked.Equals(booked))
                          //where      sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
 
                          select new TICKET_View
@@ -83,11 +83,11 @@ namespace pbl.BLL
                              Destination = sch.Destination,
                              DepartureTime = sch.DepartureTime.ToString(),
                              ArrivalTime = sch.ArrivalTime.ToString(),
-                             Booked = (tic.Booked.Value) ? "chưa đặt" : "đã đặt"
+                             Booked = (tic.Booked.Value) ?  "đã đặt": "chưa đặt" 
                          };
             return result.ToList();
         }
-        public void delticket(string ticketid )
+        public void delticket(int ticketid )
         {
             TICKET s= db.TICKETs.Find(ticketid);
             db.TICKETs.Remove(s);

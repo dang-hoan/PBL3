@@ -82,7 +82,7 @@ namespace pbl.View
 
         private void buttrain_Click(object sender, EventArgs e)
         {
-            addtrain f = new addtrain(0);
+            addtrain f = new addtrain(-1);
             f.Show();
             f.d = new addtrain.Mydel(show);
 
@@ -120,7 +120,16 @@ namespace pbl.View
 
         private void butdelte_Click(object sender, EventArgs e)
         { 
-            if (dataGridView1.SelectedRows.Count > 0) { }
+            if (dataGridView1.SelectedRows.Count > 0)
+            { 
+                foreach(DataGridViewRow  i in dataGridView1.SelectedRows)
+                {
+                    int scheduleid = Convert.ToInt32(i.Cells["ScheduleID"].Value.ToString());
+                    BLLTRAIN.Instance.trainstate(scheduleid);
+                    show();
+                }    
+                    
+            }
         }
     }
 }
