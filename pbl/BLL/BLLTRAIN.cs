@@ -69,7 +69,7 @@ namespace pbl.BLL
                 }
             }
         }
-        public void Print(DataGridView dataGridView1, int[] numberChar)
+        public void Print(DataGridView dataGridView1, int[] numberChar,string header)
         {
             string path = null;
             OpenFileDialog o = new OpenFileDialog();
@@ -138,7 +138,7 @@ namespace pbl.BLL
                         r_Header.Font.Size = 18;
                         r_Header.Font.Name = "Times New Roman";
                         r_Header.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                        r_Header.Value2 = "Dữ liệu DataGridView";
+                        r_Header.Value2 = header;
                         //Tô màu cho tiêu đề
                         r_Header.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
                         r_Header.Font.Bold = true;
@@ -470,7 +470,14 @@ namespace pbl.BLL
             }
             return data;
         }
+        public List<string> Getstation()
+        {
+            PBL3 db = new PBL3();
+            var result = from STATION sta in db.STATIONs.ToList()
+                         select sta.StationName;
+            return result.ToList();
 
+        }
         //Passenger
         public string GetName(string Username)
         {
@@ -502,6 +509,53 @@ namespace pbl.BLL
                              ArrivalTime = sch.ArrivalTime.ToString()
                          };
             return result.ToList();
+        }
+        public List<doanhthu_view> dthu(int month,int year)
+        {
+            PBL3 db = new PBL3();
+            int numberTicket = 0; double Totalmoney = 0;
+            List<doanhthu_view> list = new List<doanhthu_view>();
+            foreach(SCHEDULE s in db.SCHEDULEs)
+            {
+                if(s.DepartureTime.ToString("dd/MM/yyyy HH:mm:ss").Contains(month + "/" + year))
+                {
+                    foreach(TRAIN t in db.TRAINs)
+                    {
+                        numberTicket = 0;
+                         Totalmoney = 0;
+                        if (t.ScheduleID == s.ScheduleID)
+                        {
+                            foreach(TICKET ti in db.TICKETs)
+                            {
+                                if(ti.TrainID == t.TrainID)
+                                {
+                                    if(ti.Booked == true)
+                                    {
+                                        numberTicket++;
+                                        Totalmoney +=Convert.ToDouble(ti.TicketPrice);
+
+                                    }
+
+                                }
+                            }
+                            list.Add(new doanhthu_view
+                            {
+                                TrainID = t.TrainID,
+                                TrainName = t.TrainName,
+                                Depature = s.Departure,
+                                Destination=s.Destination,
+                                DepartureTime = s.DepartureTime,
+                               ArrivalTime=s.ArrivalTime,
+                               TotalTickets= numberTicket,
+                               Totalmoney=Totalmoney
+                            } );
+                        }
+                        
+                    }
+                }
+                
+            }
+            return list;
         }
         public List<TICKET_User_View> GetTicket(SCHEDULE_View schedule, string userName, string TrainName)
         {
@@ -1083,6 +1137,19 @@ namespace pbl.BLL
             db.TRAINs.Add(s);
             db.SaveChanges();
 
+
+        }
+        public void delsche(int ScheduleID)
+        {
+            PBL3 db = new PBL3();
+            
+            SCHEDULE s = db.SCHEDULEs.Find(ScheduleID);
+            TRAIN t = new TRAIN();
+            t=db.TRAINs.Where(p => p.ScheduleID == ScheduleID).Single();
+            db.TRAINs.Remove(t);
+            db.SaveChanges();
+            db.SCHEDULEs.Remove(s);
+            db.SaveChanges();
 
         }
         public List<Train_View> Getalltrain()

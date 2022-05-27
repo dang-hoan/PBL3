@@ -149,7 +149,7 @@ namespace pbl.View.Admin
                     Address = address.Text,
                     Email = gmail.Text,
                     IDCard = idcard.Text,
-                    PositionID = 2,
+                    
                 };
                 LOGIN l = new LOGIN()
                 {

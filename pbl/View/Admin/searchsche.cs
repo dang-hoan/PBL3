@@ -18,22 +18,55 @@ namespace pbl.View.Admin
         {
             InitializeComponent();
             showsche();
+            cbb();
         }
         public void showsche()
         {
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
         }
+        public void cbb()
+        {
+            List<string> list = new List<string>();
+            list = BLLTRAIN.Instance.Getstation();
+            foreach (string s in list)
+            {
+                cbbDep.Items.Add(s);
+            }
+            foreach (string s in list)
+            {
+                cbbDes.Items.Add(s);
+            }
+        }
 
         private void bTOK_Click(object sender, EventArgs e)
         {
-            SCHEDULE_View s = new SCHEDULE_View()
+            int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
+            int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
+            int comp3 = DateTime.Compare(dateFromDep.Value, dateToDes.Value);
+            if (comp > 0 || comp2 > 0)
             {
+                if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong cả ngày đi và ngày đến)!");
+                else if (comp > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đi)!");
+                else MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đến)!");
+                return;
+            }
+            if (comp3 >= 0)
+            {
+                MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+            }
+
+            SCHEDULE_BLL s = new SCHEDULE_BLL
+            {
+                ScheduleID = -1,
                 Departure = cbbDep.Text,
                 Destination = cbbDes.Text,
-                // DepartureTime = DepTime,
+                FromDepartureTime = dateFromDep.Value,
+                ToDepartureTime = dateToDep.Value,
+                FromArrivalTime = dateFromDes.Value,
+                ToArrivalTime = dateToDes.Value
             };
-
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
+            
         }
     }
 }

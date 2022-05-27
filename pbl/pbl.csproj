@@ -76,6 +76,7 @@
     <Compile Include="BLL\BLLTRAIN.cs" />
     <Compile Include="DTO\CBBSecurity.cs" />
     <Compile Include="DTO\CBBpeople.cs" />
+    <Compile Include="DTO\doanhthu_view.cs" />
     <Compile Include="DTO\employeeview.cs" />
     <Compile Include="DTO\PEOPLE_View.cs" />
     <Compile Include="DTO\Schedule.cs" />
@@ -130,6 +131,12 @@
     </Compile>
     <Compile Include="View\AddSecurity.Designer.cs">
       <DependentUpon>AddSecurity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\delsche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\delsche.Designer.cs">
+      <DependentUpon>delsche.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\doanhthu.cs">
       <SubType>Form</SubType>
@@ -403,6 +410,9 @@
     </Compile>
     <EmbeddedResource Include="View\AddSecurity.resx">
       <DependentUpon>AddSecurity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\delsche.resx">
+      <DependentUpon>delsche.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\doanhthu.resx">
       <DependentUpon>doanhthu.cs</DependentUpon>

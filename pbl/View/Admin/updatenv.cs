@@ -24,21 +24,110 @@ namespace pbl.View.Admin
             dtgaddnv.DataSource = BLLpeople.instance.getallnv(2);
         }
 
+        private void idcard_Leave(object sender, EventArgs e)
+        {
+            if (idcard.Text.Length != 12)
+            {
+                MessageBox.Show("Id card có 12 số !");
+            }
+        }
+
+        private void idcard_TextChanged(object sender, EventArgs e)
+        {
+
+            if (idcard.Text.Length < 12)
+            {
+                idcarddk.Text = "Nhập chưa đủ 12 số";
+                idcard.BackColor = Color.LightCoral;
+            }
+            else if (idcard.Text.Length > 12)
+            {
+                idcarddk.Text = "Nhập quá 12 số";
+                idcard.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                idcard.BackColor = Color.White;
+                idcarddk.Text = "";
+            }
+        }
+
+        private void txtname_Leave(object sender, EventArgs e)
+        {
+            if (txtname.Text.Length == 0)
+            {
+                MessageBox.Show("Họ và tên không được để rỗng !");
+            }
+        }
+
+        private void gmail_Leave(object sender, EventArgs e)
+        {
+            if (gmail.Text.Length == 0)
+            {
+                MessageBox.Show("Gmail không được để rỗng !");
+            }
+        }
+
+        private void txtusername_Leave(object sender, EventArgs e)
+        {
+            if (txtusername.Text.Length == 0)
+            {
+                MessageBox.Show("Tên đăng nhập không được để rỗng !");
+            }
+        }
+
+       
+        private void gmail_TextChanged(object sender, EventArgs e)
+        {
+            int count = 0, xam = 0;
+            for (int i = 0; i < gmail.Text.Length; i++)
+            {
+                if (gmail.Text[i] == '.') count++;
+                if (gmail.Text[i] == '@') xam++;
+            }
+            if (count != 1 && xam != 1)
+            {
+                gmaildkk.Text = "Gmail không đúng định dạng !";
+            }
+            else
+            {
+                gmaildkk.Text = "";
+            }
+            if (gmail.Text.Contains("@gmail.com"))
+            {
+                gmaildkk.Text = "";
+            }
+            else
+            {
+                gmaildkk.Text = "Gmail không đúng định dạngq !";
+            }
+        }
+
         private void btok_Click(object sender, EventArgs e)
         {
-            PEOPLE s = new PEOPLE()
+            if(gmaildkk.Text != "" ||idcarddk.Text != ""||txtname.Text =="")
             {
-                Username = txtusername.Text,
-                Name = txtname.Text,
-                Gender = (male.Checked == true) ? true : false,
-                BirthDay = date.Value,
-                Phone = phone.Text,
-                Address = address.Text,
-                Email = gmail.Text,
-                IDCard = idcard.Text
-            };
-            BLLpeople.instance.Executenv(s);
-            shownv();
+
+                MessageBox.Show("Vui lòng nhập đủ thông tin bắt buộc!");
+            }
+            else
+            {
+                PEOPLE s = new PEOPLE()
+                {
+                    Username = txtusername.Text,
+                    Name = txtname.Text,
+                    Gender = (male.Checked == true) ? true : false,
+                    BirthDay = date.Value,
+                    Phone = phone.Text,
+                    Address = address.Text,
+                    Email = gmail.Text,
+                    IDCard = idcard.Text,
+
+                };
+                BLLpeople.instance.Executenv(s);
+                shownv();
+            }
+            
         }
 
         private void dtgaddnv_CellClick(object sender, DataGridViewCellEventArgs e)

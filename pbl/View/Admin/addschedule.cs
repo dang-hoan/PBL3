@@ -18,6 +18,22 @@ namespace pbl.Admin
         {
             InitializeComponent();
             showsche();
+            cbb();
+
+
+        }
+        public void cbb()
+        {
+            List<string> list = new List<string>();
+            list= BLLTRAIN.Instance.Getstation();
+            foreach (string s in list)
+            {
+                cbbDep.Items.Add(s);
+            }
+            foreach(string s in list)
+            {
+                cbbDes.Items.Add(s);
+            }
         }
         public void showsche()
         {
@@ -43,9 +59,9 @@ namespace pbl.Admin
                 };
 
                 BLLTRAIN.Instance.Execute(s);
-                MessageBox.Show("OK");
-               
-                
+                showsche();
+
+
             }
         }
     }
