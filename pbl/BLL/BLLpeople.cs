@@ -71,7 +71,31 @@ namespace pbl.BLL
             }
 
         }
+        public void Executenv(PEOPLE s)
+        {
+            s.PositionID = (from POSITION pos in db.POSITIONs
+                            where pos.Position.Equals("Nhân viên")
+                            select pos.PositionID).FirstOrDefault();
+            if (!check(s.Username))
+            {
+                db.PEOPLE.Add(s);
+                db.SaveChanges();
+            }
+            else
+            {
+                PEOPLE temp = db.PEOPLE.Find(s.Username);
+                temp.Name = s.Name;
+                temp.Gender = s.Gender;
+                temp.BirthDay = s.BirthDay;
+                temp.Phone = s.Phone;
+                temp.Address = s.Address;
+                temp.IDCard = s.IDCard;
+                temp.Email = s.Email;
+                temp.PositionID = s.PositionID;
+                db.SaveChanges();
+            }
 
+        }
         public void Execute2(LOGIN s)
         {
             if (!check2(s.Username))

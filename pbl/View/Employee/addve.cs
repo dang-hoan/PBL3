@@ -59,11 +59,10 @@ namespace pbl.View
           
 
         }
-    
-
         private void gettrainid(int trainid)
         {
-            label2.Visible = false;
+            if(txtschedule.Text != "") label2.Visible = false;
+            else label2.Visible = true;
             foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(trainid))
             {
                 txtschedule.Text = i.ScheduleID.ToString();
@@ -85,11 +84,13 @@ namespace pbl.View
         {
             if (txttrainid.Text == "")
             {
-                MessageBox.Show("chon mot lich trinh truoc khi ok!");
+                MessageBox.Show("chon mot chuyen tau truoc khi ok!");
+                return;
             }
             if ( (cbbseat.Text == "") || (cbbmave.Text == ""))
             {
                 MessageBox.Show("bạn chưa nhập đủ dư liệu bắt buộc ");
+                return;
             }
             else
             {
@@ -130,7 +131,7 @@ namespace pbl.View
                 f.Show();
                 f.d = new trainve.mydel(gettrainid);
             }
-            else MessageBox.Show("da chon lich trinh truoc do!");
+            else MessageBox.Show("da chon chuyen tau truoc do!");
         }
 
         private void cbbseat_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,7 +139,11 @@ namespace pbl.View
 
         }
 
-      
+        private void butcancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void cbbmave_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbbmave.Text != "")

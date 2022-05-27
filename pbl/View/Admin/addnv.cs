@@ -49,7 +49,7 @@ namespace pbl.View.Admin
                 PassWord = txtpass.Text,
                 Username = txtusername.Text,
             };
-            BLLpeople.instance.Execute(s);
+            BLLpeople.instance.Executenv(s);
             BLLpeople.instance.Execute2(l);
             shownv();
             
