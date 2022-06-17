@@ -469,7 +469,7 @@
             this.txtBirthDay.Name = "txtBirthDay";
             this.txtBirthDay.Size = new System.Drawing.Size(306, 30);
             this.txtBirthDay.TabIndex = 21;
-            this.txtBirthDay.FontChanged += new System.EventHandler(this.txtBirthDay_FontChanged);
+            this.txtBirthDay.ValueChanged += new System.EventHandler(this.txtBirthDay_ValueChanged);
             // 
             // txtIDCard
             // 

@@ -22,7 +22,7 @@ namespace pbl.View
             this.Size = new Size(750, 528);
             this.CenterToScreen();
             showform(CreatForm());
-         //   ten.Text = BLLTRAIN.Instance.GetName(userName);
+            ten.Text = BLLTRAIN.Instance.GetName(GUILogin.userName);
             this.login = login;
 
         }

@@ -56,6 +56,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.labBirthDay = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +76,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.Controls.Add(this.labBirthDay);
             this.groupBox1.Controls.Add(this.txtname);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label11);
@@ -298,6 +300,7 @@
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(266, 30);
             this.date.TabIndex = 12;
+            this.date.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // label4
             // 
@@ -395,6 +398,15 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Mật khẩu:";
             // 
+            // labBirthDay
+            // 
+            this.labBirthDay.AutoSize = true;
+            this.labBirthDay.ForeColor = System.Drawing.Color.Red;
+            this.labBirthDay.Location = new System.Drawing.Point(136, 197);
+            this.labBirthDay.Name = "labBirthDay";
+            this.labBirthDay.Size = new System.Drawing.Size(0, 20);
+            this.labBirthDay.TabIndex = 28;
+            // 
             // addkhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -447,5 +459,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtname;
+        private System.Windows.Forms.Label labBirthDay;
     }
 }

@@ -48,6 +48,18 @@ namespace pbl.View
         }
         private void butok_Click(object sender, EventArgs e)
         {
+            string sa = date.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(sa, now) > 0)
+            {
+                labBirthDay.Text = "*Người dùng tối thiểu phải đủ 15 tuổi!";
+            }
+            else labBirthDay.Text = "";
+            if (labBirthDay.Text != "")
+            {
+                MessageBox.Show("Bạn nhập thông tin ngày sinh chưa đúng yêu cầu!");
+                return;
+            }
             if ((txtidcard.Text == "") || (txtname.Text == "") || (txtsdt.Text == "") || (txtuser.Text == ""))
             {
                 MessageBox.Show("bạn chưa nhập đủ dữ liệu bắt buộc ");
@@ -158,6 +170,18 @@ namespace pbl.View
         private void buthuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void date_ValueChanged(object sender, EventArgs e)
+        {
+            string s = date.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(s, now) > 0)
+            {
+                labBirthDay.Text = "*Người dùng tối thiểu phải đủ 15 tuổi!";
+                return;
+            }
+            labBirthDay.Text = "";
         }
 
         private void txtpass_Click(object sender, EventArgs e)

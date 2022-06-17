@@ -29,6 +29,7 @@ namespace pbl
             dateToDes.MinDate = DateTime.Now;
             dateToDes.MaxDate = DateTime.Now.AddYears(100);
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
+            BLLTRAIN.Instance.SetScheduleView(dataGridView1);
         }
         private void Init()
         {
@@ -137,10 +138,10 @@ namespace pbl
                 MessageBox.Show("Ga bạn nhập không tồn tại hoặc không phù hợp với lịch trình!");
             }
         }
-        public int[] numberChar = new int[5] { 14, 25, 25, 30, 30 };
+        public int[] numberChar = new int[5] { 17, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"");
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Lịch trình hệ thống", this);
         }
     }
 }

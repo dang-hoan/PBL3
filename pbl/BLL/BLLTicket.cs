@@ -81,8 +81,8 @@ namespace pbl.BLL
                              TicketPrice = (double)tic.TicketPrice,
                              Departure = sch.Departure,
                              Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString(),
+                             DepartureTime = sch.DepartureTime,
+                             ArrivalTime = sch.ArrivalTime,
                              Booked = (tic.Booked.Value) ?  "đã đặt": "chưa đặt" 
                          };
             return result.ToList();
@@ -140,8 +140,8 @@ namespace pbl.BLL
                             TicketPrice = (double)tic.TicketPrice,
                             Departure = sch.Departure,
                             Destination = sch.Destination,
-                            DepartureTime = sch.DepartureTime.ToString(),
-                            ArrivalTime = sch.ArrivalTime.ToString(),
+                            DepartureTime = sch.DepartureTime,
+                            ArrivalTime = sch.ArrivalTime,
                             Booked = ((bool)tic.Booked.Value) ? "đã đặt" : "chưa đặt",
                         };
         

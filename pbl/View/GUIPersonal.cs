@@ -283,18 +283,6 @@ namespace pbl
             else labName.Text = "";
         }
 
-        private void txtBirthDay_FontChanged(object sender, EventArgs e)
-        {
-            string s = txtBirthDay.Value.ToString("yyyy/MM/dd HH:mm");
-            string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
-            if(string.Compare(s, now) > 0)
-            {
-                labBirthDay.Text = "*Người dùng tối thiểu phải đủ 15 tuổi!";
-                return;
-            }
-            labBirthDay.Text = "";
-        }
-
         private void txtIDCard_TextChanged(object sender, EventArgs e)
         {
             if (txtEmail.Text == "")
@@ -360,6 +348,19 @@ namespace pbl
                 else labConfirm.Text = "";
             }
             else labConfirm.Text = "*Không thể để trống ô mật khẩu!";
+        }
+
+        private void txtBirthDay_ValueChanged(object sender, EventArgs e)
+        {
+            string s = txtBirthDay.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(s, now) > 0)
+            {
+                labBirthDay.Text = "*Người dùng tối thiểu phải đủ 15 tuổi!";
+                return;
+            }
+            labBirthDay.Text = "";
+
         }
     }
 }

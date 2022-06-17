@@ -11,6 +11,7 @@ using pbl.DTO;
 using COMExcel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using System.Drawing;
+using System.ComponentModel;
 
 //3 loop able: list<SCHEDULE>, list<PEOPLE>, list<POSITION>
 namespace pbl.BLL
@@ -69,14 +70,14 @@ namespace pbl.BLL
                 }
             }
         }
-        public void Print(DataGridView dataGridView1, int[] numberChar,string header)
+        public void Print(DataGridView dataGridView1, int[] numberChar,string header, Form this1)
         {
             string path = null;
             OpenFileDialog o = new OpenFileDialog();
             o.InitialDirectory = "c:\\";
             //o.Multiselect = true;
             o.Filter = "Doc files|*.docx|Text files(*.txt)|*.txt|Excel files|*.xls|Excel files|*.xlsx|All files(*.*)|*.*";
-            o.FilterIndex = 3;
+            o.FilterIndex = 5;
 
             DialogResult dialog = o.ShowDialog();
             if (dialog == DialogResult.Cancel) return;
@@ -96,7 +97,7 @@ namespace pbl.BLL
                         {
                             for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
                             sw.WriteLine();
-                            for (int i = 0; i < dataGridView1.Columns.Count; i++) sw.Write("|" + Edit(dataGridView1.Columns[i].Name, numberChar[i]));
+                            for (int i = 0; i < dataGridView1.Columns.Count; i++) sw.Write("|" + Edit(dataGridView1.Columns[i].HeaderText, numberChar[i]));
                             sw.Write("|\n");
                             foreach (DataGridViewRow dr in dataGridView1.Rows)
                             {
@@ -116,6 +117,14 @@ namespace pbl.BLL
                 case ".xls":
                 case ".xlsx":
                     {
+                        //Đóng file excel có path đang mở
+                        //COMExcel.Application App = new COMExcel.Application();
+                        //Workbook Book = App.Workbooks.Add(path);
+                        //Book.Save();
+                        //Book.Close(true);
+                        //App.Quit();
+                        //System.Runtime.InteropServices.Marshal.ReleaseComObject(App);
+
                         // Khởi động chtr Excell
                         COMExcel.Application exApp = new COMExcel.Application();
 
@@ -129,7 +138,7 @@ namespace pbl.BLL
                         // Lấy sheet 1.
                         Worksheet exSheet = (Worksheet)exBook.Worksheets[1];
                         exSheet.Activate();
-                        exSheet.Name = "Export Data Sheet";
+                        exSheet.Name = header.Replace(' ', '_');
 
                         //Ghi dữ liệu
                         //Ghi tiêu đề
@@ -140,7 +149,7 @@ namespace pbl.BLL
                         r_Header.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
                         r_Header.Value2 = header;
                         //Tô màu cho tiêu đề
-                        r_Header.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
+                        r_Header.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#548235"));
                         r_Header.Font.Bold = true;
                         r_Header.Font.Color = ColorTranslator.ToOle(System.Drawing.Color.Black);
 
@@ -152,11 +161,13 @@ namespace pbl.BLL
                         r_STT.Font.Name = "Times New Roman";
                         r_STT.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
                         r_STT.Value2 = "STT";
+                        //Tô màu
+                        r_STT.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#A9D08E"));
                         //Tạo các tên cột còn lại theo bảng DataGridView
-                        List<dynamic> arrColumn = new List<dynamic>();
+                        List <dynamic> arrColumn = new List<dynamic>();
                         foreach (DataGridViewColumn dc in dataGridView1.Columns)
                         {
-                            arrColumn.Add(dc.Name.ToString());
+                            arrColumn.Add(dc.HeaderText.ToString());
                         }
                         Range column = exSheet.get_Range("B2", carriage[dataGridView1.Columns.Count].ToString() + "2");
                         column.Font.Size = 14;
@@ -165,6 +176,7 @@ namespace pbl.BLL
                         column.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
                         column.Value2 = arrColumn.ToArray();
                         column.ColumnWidth = 25;
+                        column.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#A9D08E"));
 
                         //Ghi dữ liệu
                         int stt = 0;
@@ -184,8 +196,18 @@ namespace pbl.BLL
                             rowData.Font.Name = "Times New Roman";
                             rowData.Value2 = arr.ToArray();
                             rowData.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                            rowData.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#E2EFDA"));
                         }
-                        MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
+
+                        //Thêm đường viền
+                        //Trái, phải, dọc, ngang
+                        Range range = exSheet.get_Range("a1", carriage[dataGridView1.Columns.Count].ToString() + row);
+                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeLeft).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeRight).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeTop).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeBottom).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlInsideHorizontal).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlInsideVertical).LineStyle = COMExcel.XlLineStyle.xlContinuous;
 
                         //// Hiển thị chương trình excel
                         //exApp.Visible = true;
@@ -198,8 +220,17 @@ namespace pbl.BLL
                         // Ẩn chương trình
                         //exApp.Visible = false;
 
-                        // Save file
-                        exBook.SaveAs(path);
+                        try
+                        {
+                            // Save file
+                            exBook.SaveAs(path);
+
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Chúng tôi không thể lưu vào file bạn chọn vì nó đang được mở!");
+                            return;
+                        }
 
                         // Đóng chương trình
                         exBook.Close(true, misValue, misValue);
@@ -411,10 +442,63 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
 
         }
-        public void Sort()
+        public List<TICKET_User_View> Sort(List<TICKET_User_View> list, int column, bool order)
         {
-            PBL3 db = new PBL3();
+            switch (column)
+            {
+                case 0:
+                    {
+                        if(order) return list.OrderBy(u => u.ScheduleID).ToList();
+                        else return list.OrderByDescending(u => u.ScheduleID).ToList();
+                    }
 
+                case 1:
+                    {
+                        if (order) return list.OrderBy(u => u.TrainID).ToList();
+                        else return list.OrderByDescending(u => u.TrainID).ToList();
+                    }
+                case 2:
+                    {
+                        if (order) return list.OrderBy(u => u.TrainName).ToList();
+                        else return list.OrderByDescending(u => u.TrainName).ToList();
+                    }
+                case 3:
+                    {
+                        if (order) return list.OrderBy(u => u.TicketID).ToList();
+                        else return list.OrderByDescending(u => u.TicketID).ToList();
+                    }
+                case 4:
+                    {
+                        if (order) return list.OrderBy(u => u.SeatNo).ToList();
+                        else return list.OrderByDescending(u => u.SeatNo).ToList();
+                    }
+                case 5:
+                    {
+                        if (order) return list.OrderBy(u => u.TicketPrice).ToList();
+                        else return list.OrderByDescending(u => u.TicketPrice).ToList();
+                    }
+                case 6:
+                    {
+                        if (order) return list.OrderBy(u => u.Departure).ToList();
+                        else return list.OrderByDescending(u => u.Departure).ToList();
+                    }
+                case 7:
+                    {
+                        if (order) return list.OrderBy(u => u.Destination).ToList();
+                        else return list.OrderByDescending(u => u.Destination).ToList();
+                    }
+                case 8:
+                    {
+                        if (order) return list.OrderBy(u => u.DepartureTime).ToList();
+                        else return list.OrderByDescending(u => u.DepartureTime).ToList();
+                    }
+                case 9:
+                    {
+                        if (order) return list.OrderBy(u => u.ArrivalTime).ToList();
+                        else return list.OrderByDescending(u => u.ArrivalTime).ToList();
+                    }
+            }
+            return null;
         }
 
         public List<TICKET_View> GetAllTICKETView()
@@ -436,8 +520,8 @@ namespace pbl.BLL
                              TicketPrice = (double)tic.TicketPrice,
                              Departure = sch.Departure,
                              Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString(),
+                             DepartureTime = sch.DepartureTime,
+                             ArrivalTime = sch.ArrivalTime,
                              Booked = (bool)tic.Booked ? "đã đặt" : "chưa đặt",
                              OwnUsername = (ticpeo == null) ? "" : tic.CustomerUN,
                              OwnName = (ticpeo == null) ? "" : ticpeo.Name
@@ -492,6 +576,41 @@ namespace pbl.BLL
             return result.ToList();
 
         }
+        //Đặt tiêu đề cho DataGridView
+        private string[] TicketView = { "Mã lịch trình", "Mã tàu", "Tên tàu", "Mã vé", "Số ghế", "Giá vé"
+                , "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến", "Trạng thái", "Tên đăng nhập chủ", "Tên chủ"};
+        private string[] PeopleView = { "Tên đăng nhập", "Họ và tên", "Giới tính", "Ngày sinh", "Địa chỉ", "Số CCCD"
+                , "Email", "Số điện thoại", "Vị trí"};
+        private string[] ScheduleView = { "Mã lịch trình", "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến" };
+        private string[] TurnOverView = { "Mã tàu", "Tên tàu", "Ga đi", "Ga đến", "Thời gian đi","Thời gian đến",
+                "Tổng số vé đã bán", "Tổng tiền thu được"};
+        private string[] TrainView = { "Mã lịch trình", "Mã tàu", "Tên tàu","Số toa", "Tên đăng nhập lái tàu", "Giá cơ bản", "Trạng thái" };
+        public void SetTicketUserView(DataGridView d)
+        {
+            for(int i = 0; i < TicketView.Length - 3; i++) d.Columns[i].HeaderText = TicketView[i];
+        }
+        public void SetTicketView(DataGridView d)
+        {
+            for(int i = 0; i < TicketView.Length; i++) d.Columns[i].HeaderText = TicketView[i];
+        }
+        public void SetPeopleView(DataGridView d)
+        {
+            for(int i = 0; i < PeopleView.Length; i++) d.Columns[i].HeaderText = PeopleView[i];
+        }
+        public void SetScheduleView(DataGridView d)
+        {
+            for(int i = 0; i < ScheduleView.Length; i++) d.Columns[i].HeaderText = ScheduleView[i];
+        }
+        public void SetTurnOverView(DataGridView d)
+        {
+            for(int i = 0; i < TurnOverView.Length; i++) d.Columns[i].HeaderText = TurnOverView[i];
+        }
+        public void SetTrainView(DataGridView d)
+        {
+            for(int i = 0; i < TrainView.Length; i++) d.Columns[i].HeaderText = TrainView[i];
+        }
+
+
         //Passenger
         public string GetName(string Username)
         {
@@ -512,15 +631,15 @@ namespace pbl.BLL
                          select new TICKET_User_View
                          {
                              ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID.ToString(),
+                             TrainID = tra.TrainID,
                              TrainName = tra.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
-                             TicketPrice = tic.TicketPrice.ToString(),
+                             TicketPrice = (double)tic.TicketPrice,
                              Departure = sch.Departure,
                              Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString()
+                             DepartureTime = sch.DepartureTime,
+                             ArrivalTime = sch.ArrivalTime
                          };
             return result.ToList();
         }
@@ -587,15 +706,15 @@ namespace pbl.BLL
                          select new TICKET_User_View
                          {
                              ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID.ToString(),
+                             TrainID = tra.TrainID,
                              TrainName = tra.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
-                             TicketPrice = tic.TicketPrice.ToString(),
+                             TicketPrice = (double)tic.TicketPrice,
                              Departure = sch.Departure,
                              Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString()
+                             DepartureTime = sch.DepartureTime,
+                             ArrivalTime = sch.ArrivalTime
                          };
             return result.ToList();
         }
@@ -611,15 +730,15 @@ namespace pbl.BLL
                          select new TICKET_User_View
                          {
                              ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID.ToString(),
+                             TrainID = tra.TrainID,
                              TrainName = tra.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
-                             TicketPrice = tic.TicketPrice.ToString(),
+                             TicketPrice = (double)tic.TicketPrice,
                              Departure = sch.Departure,
                              Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString()
+                             DepartureTime = sch.DepartureTime,
+                             ArrivalTime = sch.ArrivalTime
                          };
             return result.ToList();
         }
@@ -644,15 +763,15 @@ namespace pbl.BLL
                          select new TICKET_User_View
                          {
                              ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID.ToString(),
+                             TrainID = tra.TrainID,
                              TrainName = tra.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
-                             TicketPrice = tic.TicketPrice.ToString(),
+                             TicketPrice = (double)tic.TicketPrice,
                              Departure = sch.Departure,
                              Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString()
+                             DepartureTime = sch.DepartureTime,
+                             ArrivalTime = sch.ArrivalTime
                          };
             return result.ToList();
         }
