@@ -38,57 +38,14 @@ namespace pbl.View
             {
                 cbbDes.Items.Add(s);
             }
-
+            dateFromDep.Enabled = false;
+            dateFromDes.Enabled = false;
+            dateToDep.Enabled = false;
+            dateToDes.Enabled = false;
             reset();
         }
 
-        private void bSearch_Click(object sender, EventArgs e)
-        {
-            int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
-            int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
-            int comp3 = DateTime.Compare(dateFromDep.Value, dateToDes.Value);
-            if (comp > 0 || comp2 > 0)
-            {
-                if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong cả ngày đi và ngày đến)!");
-                else if (comp > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đi)!");
-                else MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đến)!");
-                return;
-            }
-            if (comp3 >= 0)
-            {
-                MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
-            }
-            string date1 = dateFromDep.Value.ToString("yyyy/MM/dd HH:mm");
-            string date2 = dateToDep.Value.ToString("yyyy/MM/dd HH:mm");
-            string date3 = dateFromDes.Value.ToString("yyyy/MM/dd HH:mm");
-            string date4 = dateToDes.Value.ToString("yyyy/MM/dd HH:mm");
-            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
-            if (string.Compare(date1, now) < 0 || string.Compare(date2, now) < 0 || string.Compare(date3, now) < 0 || string.Compare(date4, now) < 0)
-            {
-                MessageBox.Show("Lịch trình phải có thời gian bắt đầu từ thời điểm hiện tại!");
-                return;
-            }
-            SCHEDULE_BLL s = new SCHEDULE_BLL
-            {
-                ScheduleID = -1,
-                Departure = cbbDep.Text,
-                Destination = cbbDes.Text,
-                FromDepartureTime = dateFromDep.Value,
-                ToDepartureTime = dateToDep.Value,
-                FromArrivalTime = dateFromDes.Value,
-                ToArrivalTime = dateToDes.Value
-            };
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetTrain2(s);
-        }
-
-        private void buttrain_Click(object sender, EventArgs e)
-        {
-            addtrain f = new addtrain(-1);
-            f.Show();
-            f.d = new addtrain.Mydel(show);
-
-        }
-
+      
         private void butall_Click(object sender, EventArgs e)
         {
             reset();
@@ -105,7 +62,7 @@ namespace pbl.View
 
         private void butve_Click(object sender, EventArgs e)
         {
-            butdelte_Click(sender, e);
+            //butdelte_Click(sender, e);
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 if (dataGridView1.SelectedRows[0].Cells["State"].Value.ToString() == "Hoạt động")
@@ -124,13 +81,7 @@ namespace pbl.View
                 MessageBox.Show(" vui lòng chọn một lịch trình!");
 
         }
-
-        private void butdelte_Click(object sender, EventArgs e)
-        {
-            reset();
-        }
-        public void reset ()
-       
+        public void reset ()     
         {
             show();
                 foreach (DataGridViewRow i in dataGridView1.Rows)
@@ -139,8 +90,128 @@ namespace pbl.View
                     BLLTRAIN.Instance.trainstate(scheduleid);
                     show();
                 }
+  
+        }
 
+        private void butstate_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                if (dataGridView1.SelectedRows[0].Cells["State"].Value.ToString() != "Hoạt động")
+                {
+                   // string scheduleid = dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString();
+                   // trainve f = new trainve(Convert.ToInt32(scheduleid));
+                   // f.Show();
+                   //f.d= new trainve.mydel(show);
+                }
+                
+            }
             
+        }
+
+        private void buttrain_Click_1(object sender, EventArgs e)
+        {
+
+            addtrain f = new addtrain(-1);
+            f.Show();
+            f.d = new addtrain.Mydel(show);
+
+        }
+
+        private void bSearch_Click_1(object sender, EventArgs e)
+        {
+            string date1 = dateFromDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date2 = dateToDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date3 = dateFromDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string date4 = dateToDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+          
+                if (checkBox1.Checked)
+                {
+                    int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
+                    int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
+                    int comp3 = DateTime.Compare(dateFromDep.Value, dateToDes.Value);
+                    if (comp > 0 || comp2 > 0)
+                    {
+                        if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong cả ngày đi và ngày đến)!");
+                        else if (comp > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đi)!");
+                        else MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đến)!");
+                        return;
+                    }
+                    if (comp3 >= 0)
+                    {
+                        MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+                    }
+                }
+            
+            if (checkBox1.Checked)
+            {
+                SCHEDULE_BLL s = new SCHEDULE_BLL
+                {
+                    ScheduleID = -1,
+                    Departure = cbbDep.Text,
+                    Destination = cbbDes.Text,
+                    FromDepartureTime = dateFromDep.Value,
+                    ToDepartureTime = dateToDep.Value,
+                    FromArrivalTime = dateFromDes.Value,
+                    ToArrivalTime = dateToDes.Value
+                };
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetTrain2(s);
+            }
+            else
+            {
+                SCHEDULE_BLL s = new SCHEDULE_BLL
+                {
+                    ScheduleID = -1,
+                    Departure = cbbDep.Text,
+                    Destination = cbbDes.Text,
+                };
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetTrain3(s);
+            }  
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox1.Checked)
+            {
+                dateFromDep.Enabled = false;
+                dateFromDes.Enabled = false;
+                dateToDep.Enabled = false;
+                dateToDes.Enabled = false;
+
+            }
+            else
+            {
+                dateFromDep.Enabled = true;
+                dateFromDes.Enabled = true;
+                dateToDep.Enabled = true;
+                dateToDes.Enabled = true;
+
+            }
+
+        }
+
+        private void cbbDep_TextChanged(object sender, EventArgs e)
+        {
+            cbbDes.Items.Clear();
+            foreach (string s in BLLTRAIN.Instance.GetDestination(cbbDep.Text).Distinct())
+            {
+                cbbDes.Items.Add(s);
+            }
+        }
+
+        private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+            cbbDep.Items.Clear();
+            foreach (string s in BLLTRAIN.Instance.GetDeparture(cbbDes.Text).Distinct())
+            {
+                cbbDep.Items.Add(s);
+            }
+        }
+
+        private void butall_Click_1(object sender, EventArgs e)
+        {
+            show();
         }
     }
 }

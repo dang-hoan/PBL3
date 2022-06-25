@@ -23,5 +23,10 @@ namespace pbl
     
         public virtual PEOPLE Person { get; set; }
         public virtual TRAIN TRAIN { get; set; }
+
+        //public static implicit operator TICKET(TICKET v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

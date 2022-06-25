@@ -33,17 +33,18 @@
             this.btAdd = new System.Windows.Forms.Button();
             this.butshow = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.cbbshow = new System.Windows.Forms.ComboBox();
+            this.txtsearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // butdel
             // 
             this.butdel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.butdel.Location = new System.Drawing.Point(719, 549);
-            this.butdel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.butdel.Location = new System.Drawing.Point(639, 439);
             this.butdel.Name = "butdel";
-            this.butdel.Size = new System.Drawing.Size(165, 50);
+            this.butdel.Size = new System.Drawing.Size(147, 40);
             this.butdel.TabIndex = 15;
             this.butdel.Text = "XÓA";
             this.butdel.UseVisualStyleBackColor = false;
@@ -52,10 +53,9 @@
             // butsua
             // 
             this.butsua.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.butsua.Location = new System.Drawing.Point(416, 549);
-            this.butsua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.butsua.Location = new System.Drawing.Point(370, 439);
             this.butsua.Name = "butsua";
-            this.butsua.Size = new System.Drawing.Size(165, 50);
+            this.butsua.Size = new System.Drawing.Size(147, 40);
             this.butsua.TabIndex = 14;
             this.butsua.Text = "SỬA";
             this.butsua.UseVisualStyleBackColor = false;
@@ -64,10 +64,9 @@
             // btAdd
             // 
             this.btAdd.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btAdd.Location = new System.Drawing.Point(79, 549);
-            this.btAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btAdd.Location = new System.Drawing.Point(70, 439);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(165, 50);
+            this.btAdd.Size = new System.Drawing.Size(147, 40);
             this.btAdd.TabIndex = 13;
             this.btAdd.Text = "THÊM";
             this.btAdd.UseVisualStyleBackColor = false;
@@ -76,12 +75,11 @@
             // butshow
             // 
             this.butshow.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.butshow.Location = new System.Drawing.Point(782, 32);
-            this.butshow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.butshow.Location = new System.Drawing.Point(70, 12);
             this.butshow.Name = "butshow";
-            this.butshow.Size = new System.Drawing.Size(165, 54);
+            this.butshow.Size = new System.Drawing.Size(147, 43);
             this.butshow.TabIndex = 12;
-            this.butshow.Text = "XEM";
+            this.butshow.Text = "Tìm kiếm";
             this.butshow.UseVisualStyleBackColor = false;
             this.butshow.Click += new System.EventHandler(this.butshow_Click);
             // 
@@ -89,44 +87,53 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 120);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 115);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(933, 398);
+            this.dataGridView1.Size = new System.Drawing.Size(829, 318);
             this.dataGridView1.TabIndex = 16;
             // 
             // cbbshow
             // 
             this.cbbshow.FormattingEnabled = true;
-            this.cbbshow.Location = new System.Drawing.Point(551, 50);
-            this.cbbshow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbbshow.Location = new System.Drawing.Point(80, 66);
             this.cbbshow.Name = "cbbshow";
-            this.cbbshow.Size = new System.Drawing.Size(206, 28);
-            this.cbbshow.TabIndex = 17;
+            this.cbbshow.Size = new System.Drawing.Size(137, 24);
+            this.cbbshow.TabIndex = 21;
+            this.cbbshow.SelectedIndexChanged += new System.EventHandler(this.cbbshow_SelectedIndexChanged_1);
+            // 
+            // txtsearch
+            // 
+            this.txtsearch.Location = new System.Drawing.Point(297, 66);
+            this.txtsearch.Name = "txtsearch";
+            this.txtsearch.Size = new System.Drawing.Size(220, 22);
+            this.txtsearch.TabIndex = 27;
+            this.txtsearch.Text = "nhập thông tin bạn muốn tìm kiếm";
+            this.txtsearch.Click += new System.EventHandler(this.txtsearch_Click);
             // 
             // khachhang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1029, 666);
+            this.ClientSize = new System.Drawing.Size(915, 533);
+            this.Controls.Add(this.txtsearch);
             this.Controls.Add(this.cbbshow);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.butdel);
             this.Controls.Add(this.butsua);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.butshow);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "khachhang";
             this.Text = "infor";
             this.AutoSizeChanged += new System.EventHandler(this.btAdd_Click);
             this.TextChanged += new System.EventHandler(this.khachhang_TextChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -137,6 +144,8 @@
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Button butshow;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ComboBox cbbshow;
+        private System.Windows.Forms.TextBox txtsearch;
     }
 }

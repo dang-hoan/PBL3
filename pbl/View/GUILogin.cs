@@ -61,7 +61,7 @@ namespace pbl
                     }
                 case "Nhân viên":
                     {
-                        Employeechinh f = new Employeechinh(this);
+                        Employeechinh f = new Employeechinh(this,txtusername.Text);
                         f.Show();
                         this.Hide();
                         break;

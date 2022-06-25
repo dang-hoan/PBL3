@@ -87,6 +87,7 @@ namespace pbl.View
                 BLLTRAIN.Instance.Executetrain(s);
                 d();
                 this.Close();
+                BLLTRAIN.Instance.AddListTicket(s.TrainID,s.NumberOfCarriages,s.BasicPrice.ToString());
             }
 
            

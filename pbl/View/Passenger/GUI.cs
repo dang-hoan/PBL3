@@ -205,5 +205,10 @@ namespace pbl.View
         {
             panel_Other.Visible = false;
         }
+
+        private void panel_User_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace pbl.View
             scheduleid = s;
             InitializeComponent();
             GUI();
+            
         }
         public void GUI()
         {
@@ -35,7 +36,16 @@ namespace pbl.View
             {
                 cbbDes.Items.Add(s);
             }
-
+            if(scheduleid !="")
+            {
+               foreach(SCHEDULE p in BLLTRAIN.Instance.GetScheduleid(Convert.ToInt32(scheduleid)))
+                {
+                    cbbDep.Text = p.Departure;
+                    cbbDep.Enabled = false;
+                    cbbDes.Text = p.Destination;
+                    cbbDes.Enabled = false;
+                } ;
+            }    
         }
 
         private void bTOK_Click(object sender, EventArgs e)
@@ -55,19 +65,21 @@ namespace pbl.View
             }
             else
             {
-                SCHEDULE s = new SCHEDULE
-                {
-                    Departure = cbbDep.Text,
-                    Destination = cbbDes.Text,
-                    DepartureTime = daydep.Value,
-                    ArrivalTime = daydes.Value,
+                    SCHEDULE s = new SCHEDULE
+                    {
+                        ScheduleID = -1,
+                        Departure = cbbDep.Text,
+                        Destination = cbbDes.Text,
+                        DepartureTime = daydep.Value,
+                        ArrivalTime = daydes.Value,
 
-                };
+                    };
 
-                BLLTRAIN.Instance.Execute(s);
-                MessageBox.Show("OK");
-                d();
-                this.Close();
+                    BLLTRAIN.Instance.Execute(s);
+                    MessageBox.Show("OK");
+                    d();
+                    this.Close();
+                    
             }
         }
 

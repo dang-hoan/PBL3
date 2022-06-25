@@ -56,7 +56,7 @@ namespace pbl.BLL
             }
             for (int i = 0; i < NumberOfCarriages; i++)
             {
-                for (int j = 1; j <= 25; j++)
+                for (int j = 1; j <= 30; j++)
                 {
                     db.TICKETs.Add(new TICKET
                     {
@@ -281,11 +281,22 @@ namespace pbl.BLL
         public void Execute(SCHEDULE s)
         {
             PBL3 db = new PBL3();
-
-            db.SCHEDULEs.Add(s);
-            db.SaveChanges();
+            if (s.ScheduleID == -1)
+            {
+                db.SCHEDULEs.Add(s);
+                db.SaveChanges();
+            }
+            else
+            {
+                SCHEDULE tep = db.SCHEDULEs.Find(s.ScheduleID);
+                tep.Departure = s.Departure;
+                tep.Destination = s.Destination;
+                db.SaveChanges();
+            }    
+           
 
         }
+
         public PEOPLE GetuserByusername(string username)
         {
             PBL3 db = new PBL3();
@@ -728,6 +739,25 @@ namespace pbl.BLL
             }).ToList();
             return data;
         }
+        public List<Train_View> GetTrain3(SCHEDULE_BLL schedule)
+        {
+            PBL3 db = new PBL3();
+            var data = (from SCHEDULE sch in db.SCHEDULEs.ToList()
+                        join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
+                        where ( sch.Departure.Equals(schedule.Departure)) && (sch.Destination.Equals(schedule.Destination))
+                              
+            select new Train_View
+            {
+                TrainID = tra.TrainID,
+                TrainName = tra.TrainName,
+                NumberOfCarriages = tra.NumberOfCarriages,
+                DriverUN = tra.DriverUN,
+                ScheduleID = (int)tra.ScheduleID,
+                BasicPrice = tra.BasicPrice,
+                State = tra.State
+            }).ToList();
+            return data;
+        }
         public List<TRAIN> trainaddve(int trainid)
         {
             PBL3 db = new PBL3();
@@ -810,6 +840,14 @@ namespace pbl.BLL
                 }
             }
             return result;
+        }
+        public void addticket(TICKET s)
+        {
+            PBL3 db = new PBL3();
+            TICKET ticket = (from  tic in db.TICKETs.ToList()
+                             where (tic.TRAIN == s.TRAIN)&&(tic.SeatNo == s.SeatNo)
+                             select tic).FirstOrDefault();
+            SetTicket(ticket.TicketID,s.CustomerUN,true);
         }
 
         public void SetTicket(int TicketID, string userName, bool booked)
@@ -1150,8 +1188,7 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             db.TRAINs.Add(s);
             db.SaveChanges();
-
-
+            AddListTicket(s.TrainID,s.NumberOfCarriages,s.BasicPrice.ToString());
         }
         public void delsche(int ScheduleID)
         {
@@ -1180,6 +1217,160 @@ namespace pbl.BLL
                         BasicPrice = tra.BasicPrice,
                         State = (tra.State != null)?tra.State.ToString():"",
                     }).ToList();
+        }
+        public List<ticket_nhanvien> Getallve()
+        {
+            PBL3 db = new PBL3();
+            List<ticket_nhanvien> list = new List<ticket_nhanvien>();
+            foreach (SCHEDULE sch in db.SCHEDULEs)
+            {
+
+                foreach (TRAIN tra in db.TRAINs)
+                {
+                    if (sch.ScheduleID == tra.ScheduleID)
+                    {
+                        int numberTicket = 0;
+                        foreach (TICKET ti in db.TICKETs)
+                        {
+                            if (ti.TrainID == tra.TrainID)
+                            {
+                                if (ti.Booked == true)
+                                {
+                                    numberTicket++;
+                                }
+
+                            }
+                        }
+                        list.Add(new ticket_nhanvien
+                        {
+                            Malichtrinh = (int)tra.ScheduleID,
+                            Matau = tra.TrainID,
+                            Tentau = tra.TrainName,
+                            Sotoa = tra.NumberOfCarriages,
+                            Nguoilaitau = (tra.DriverUN != null) ? tra.DriverUN.ToString() : "Chưa có",
+                            Noidi = sch.Departure,
+                            Noiden = sch.Destination,
+                            thoigiandi= sch.DepartureTime.ToString(),
+                            thoigianden= sch.ArrivalTime.ToString(),
+                            Trangthai = (tra.State != null) ? tra.State.ToString() : "",
+                            Sovedaban = numberTicket,
+                        });
+                    }
+                }
+
+            }
+            return list;
+        }
+        public List<ticket_nhanvien> Getallve(SCHEDULE_BLL lt)
+        {
+            PBL3 db = new PBL3();
+            List<ticket_nhanvien> list = new List<ticket_nhanvien>();
+
+          
+                foreach (SCHEDULE sch in db.SCHEDULEs)
+                {
+                if ((sch.Departure == lt.Departure) && (sch.Destination == lt.Destination))
+                    {
+                    foreach (TRAIN tra in db.TRAINs)
+                    {
+                        if (sch.ScheduleID == tra.ScheduleID)
+                        {
+                            int numberTicket = 0;
+                            foreach (TICKET t in db.TICKETs)
+                            {
+                                if (tra.TrainID == t.TrainID)
+                                {
+                                    if (t.Booked == true)
+                                    {
+                                        numberTicket++;
+                                    }
+
+                                }
+                            }
+                            list.Add(new ticket_nhanvien
+                            {
+                                Malichtrinh = (int)tra.ScheduleID,
+                                Matau = tra.TrainID,
+                                Tentau = tra.TrainName,
+                                Sotoa = tra.NumberOfCarriages,
+                                Nguoilaitau = (tra.DriverUN != null) ? tra.DriverUN.ToString() : "Chưa có",
+                                Noidi = sch.Departure,
+                                Noiden = sch.Destination,
+                                thoigiandi = sch.DepartureTime.ToString(),
+                                thoigianden = sch.ArrivalTime.ToString(),
+                                Trangthai = (tra.State != null) ? tra.State.ToString() : "",
+                                Sovedaban = numberTicket,
+                            });
+                        }
+                    }  
+                }
+            }
+            return list;
+        }
+        public List<ticket_nhanvien> Getallve2(SCHEDULE_BLL lt)
+        {
+            PBL3 db = new PBL3();
+            List<ticket_nhanvien> list = new List<ticket_nhanvien>();
+
+
+            foreach (SCHEDULE sch in db.SCHEDULEs)
+            {
+                if ((sch.Departure == lt.Departure) && (sch.Destination == lt.Destination)
+                      && (DateTime.Compare(lt.FromDepartureTime, sch.DepartureTime) <= 0 && DateTime.Compare(sch.DepartureTime, lt.ToDepartureTime) <= 0)
+                       && (DateTime.Compare(lt.FromArrivalTime, sch.ArrivalTime) <= 0 && DateTime.Compare(sch.ArrivalTime, lt.ToArrivalTime) <= 0))
+                    {
+                    foreach (TRAIN tra in db.TRAINs)
+                    {
+                        if (sch.ScheduleID == tra.ScheduleID)
+                        {
+                            int numberTicket = 0;
+                            foreach (TICKET t in db.TICKETs)
+                            {
+                                if (tra.TrainID == t.TrainID)
+                                {
+                                    if (t.Booked == true)
+                                    {
+                                        numberTicket++;
+                                    }
+
+                                }
+                            }
+                            list.Add(new ticket_nhanvien
+                            {
+                                Malichtrinh = (int)tra.ScheduleID,
+                                Matau = tra.TrainID,
+                                Tentau = tra.TrainName,
+                                Sotoa = tra.NumberOfCarriages,
+                                Nguoilaitau = (tra.DriverUN != null) ? tra.DriverUN.ToString() : "Chưa có",
+                                Noidi = sch.Departure,
+                                Noiden = sch.Destination,
+                                thoigiandi = sch.DepartureTime.ToString(),
+                                thoigianden = sch.ArrivalTime.ToString(),
+                                Trangthai = (tra.State != null) ? tra.State.ToString() : "",
+                                Sovedaban = numberTicket,
+                            });
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+        public List<Train_View> Getalltrain(string s)
+        {
+            PBL3 db = new PBL3();
+            var kq = from tra in db.TRAINs.ToList()
+                     where tra.State == s
+                     select new Train_View
+                     {
+                         ScheduleID = (int)tra.ScheduleID,
+                         TrainID = tra.TrainID,
+                         TrainName = tra.TrainName,
+                         NumberOfCarriages = tra.NumberOfCarriages,
+                         DriverUN = (tra.DriverUN != null) ? tra.DriverUN.ToString() : "Chưa có",
+                         BasicPrice = tra.BasicPrice,
+                         State = (tra.State != null) ? tra.State.ToString() : "",
+                     };
+            return kq.ToList();
         }
 
         public List<SCHEDULE_View> GetSchedule(SCHEDULE_View schedule)

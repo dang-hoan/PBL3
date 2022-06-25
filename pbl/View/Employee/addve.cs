@@ -107,7 +107,7 @@ namespace pbl.View
                     Booked = false
 
                 };
-                BLLTicket.instance.Execute(s);
+            //    BLLTicket.instance.Execute(s);
                 d("");
                 this.Close();
             }

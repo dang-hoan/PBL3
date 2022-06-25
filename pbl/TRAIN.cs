@@ -25,7 +25,7 @@ namespace pbl
         public string TrainName { get; set; }
         public int NumberOfCarriages { get; set; }
         public string DriverUN { get; set; }
-        public Nullable<int> ScheduleID { get; set; }
+        public int ScheduleID { get; set; }
         public Nullable<decimal> BasicPrice { get; set; }
         public string State { get; set; }
     

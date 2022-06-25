@@ -62,7 +62,7 @@ namespace pbl.BLL
         public void Execute(PEOPLE s)
         {
             s.PositionID = (from POSITION pos in db.POSITIONs
-                            where pos.Position.Equals("Nhân viên")
+                            where pos.Position.Equals("Khách hàng")
                             select pos.PositionID).FirstOrDefault();
             if (!check(s.Username))
             {
@@ -140,10 +140,13 @@ namespace pbl.BLL
 
         public List<CBBItem> GetCBBs(string txt)
         {
+            int positi = (from POSITION pos in db.POSITIONs
+                          where pos.Position.Equals("Khách hàng")
+                          select pos.PositionID).FirstOrDefault(); ;
         List<CBBItem> data = new List<CBBItem>();
         foreach (PEOPLE i in db.PEOPLE)
         {
-            if (i.PositionID == 124)
+            if (i.PositionID == positi)
             {
                 if (i.Name.Contains(txt))
                     data.Add(new CBBItem
@@ -156,28 +159,87 @@ namespace pbl.BLL
         }
         return data;
         }
-        public List<PEOPLE_View> getppbylist(string username)
+        public List<CBBItem> GetCBBname()
         {
-            List<PEOPLE_View> data = new List<PEOPLE_View>();
-            foreach(PEOPLE_View i in GetPPByUsername(username))
+            List<CBBItem> data = new List<CBBItem>();
+            foreach (PEOPLE i in db.PEOPLE)
             {
 
-                data.Add(new PEOPLE_View
+                data.Add(new CBBItem
                 {
-                    IDCard = i.IDCard,
-                    Name = i.Name,
-                    Username = i.Username,
-                    Gender = i.Gender,
-                    BirthDay = i.BirthDay,
-                    Address = i.Address,
-                    Email = i.Email,
-                    Phone = i.Phone,
-                    Position = i.Position,
-                }) ;
+                    Value = i.Username,
+                    Text = i.Name
+
+                });
             }
-                return data;
+            return data;
         }
-        public List<PEOPLE_View> GetPPByUsername(string username)
+        public List<PEOPLE_View> getppbylist(string username,int s)
+        {
+            List<PEOPLE_View> data = new List<PEOPLE_View>();
+            if (s == 1)//tim kiem theo ten dang nhap
+            {
+                foreach (PEOPLE_View i in GetPPByUsername(username))
+                {
+
+                    data.Add(new PEOPLE_View
+                    {
+                        IDCard = i.IDCard,
+                        Name = i.Name,
+                        Username = i.Username,
+                        Gender = i.Gender,
+                        BirthDay = i.BirthDay,
+                        Address = i.Address,
+                        Email = i.Email,
+                        Phone = i.Phone,
+                        Position = i.Position,
+                    });
+                }
+            }
+            else
+            if (s == 2)//tim kiem theo id
+            {
+                foreach (PEOPLE_View i in GetPPByid(username))
+                {
+
+                    data.Add(new PEOPLE_View
+                    {
+                        IDCard = i.IDCard,
+                        Name = i.Name,
+                        Username = i.Username,
+                        Gender = i.Gender,
+                        BirthDay = i.BirthDay,
+                        Address = i.Address,
+                        Email = i.Email,
+                        Phone = i.Phone,
+                        Position = i.Position,
+                    });
+                }
+            }
+            else
+            if (s == 3)//tim kiem theo ten 
+            {
+                foreach (PEOPLE_View i in GetPPByname(username))
+                {
+
+                    data.Add(new PEOPLE_View
+                    {
+                        IDCard = i.IDCard,
+                        Name = i.Name,
+                        Username = i.Username,
+                        Gender = i.Gender,
+                        BirthDay = i.BirthDay,
+                        Address = i.Address,
+                        Email = i.Email,
+                        Phone = i.Phone,
+                        Position = i.Position,
+                    });
+                }
+            }
+            return data;
+        }
+
+        public List<PEOPLE_View> GetPPByUsername(string username)//tim kiem theo ten dang nhap
         {
             int PositionID = (from pos in db.POSITIONs
                               where pos.Position == "Khách hàng"
@@ -206,7 +268,7 @@ namespace pbl.BLL
             {
                 data = (from peo in db.PEOPLE
                         join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
-                        where peo.Username == username && pos.PositionID == PositionID
+                        where (peo.Username == username) && pos.PositionID == PositionID
                         select new PEOPLE_View
                         {
                             Username = peo.Username,
@@ -220,6 +282,58 @@ namespace pbl.BLL
                             Position = pos.Position
                         }).ToList();
             }
+            return data;
+        }
+        public List<PEOPLE_View> GetPPByname(string name)//theo ten
+        {
+            int PositionID = (from pos in db.POSITIONs
+                              where pos.Position == "Khách hàng"
+                              select pos.PositionID).FirstOrDefault();
+            List<PEOPLE_View> data = new List<PEOPLE_View>();
+         
+            
+                data = (from peo in db.PEOPLE
+                        join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
+                        where (peo.Name.IndexOf(name)!= -1)&& pos.PositionID == PositionID
+                        select new PEOPLE_View
+                        {
+                            Username = peo.Username,
+                            Name = peo.Name,
+                            Gender = ((bool)peo.Gender) ? "Nam" : "Nữ",
+                            BirthDay = peo.BirthDay,
+                            Address = peo.Address,
+                            IDCard = peo.IDCard,
+                            Email = peo.Email,
+                            Phone = peo.Phone,
+                            Position = pos.Position
+                        }).ToList();
+            
+            return data;
+        }
+        public List<PEOPLE_View> GetPPByid(string id)//theo id
+        {
+            int PositionID = (from pos in db.POSITIONs
+                              where pos.Position == "Khách hàng"
+                              select pos.PositionID).FirstOrDefault();
+            List<PEOPLE_View> data = new List<PEOPLE_View>();
+
+
+            data = (from peo in db.PEOPLE
+                    join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
+                    where (peo.IDCard == id) && pos.PositionID == PositionID
+                    select new PEOPLE_View
+                    {
+                        Username = peo.Username,
+                        Name = peo.Name,
+                        Gender = ((bool)peo.Gender) ? "Nam" : "Nữ",
+                        BirthDay = peo.BirthDay,
+                        Address = peo.Address,
+                        IDCard = peo.IDCard,
+                        Email = peo.Email,
+                        Phone = peo.Phone,
+                        Position = pos.Position
+                    }).ToList();
+
             return data;
         }
         public void delperson(string username)
