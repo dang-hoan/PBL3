@@ -498,38 +498,5 @@ namespace pbl.BLL
                 list = result.ToList();                        
             return list;
         }
-        public void Getnvbyuser(string username)
-        {
-
-            PEOPLE pb = db.PEOPLE.Find(username);
-            POSITION posi = new POSITION();
-
-
-            MessageBox.Show("HỌ VÀ TÊN : " + pb.Name + "\n"
-                + "ĐỊA CHỈ : " + pb.Address + "\n"
-                + "EMAIL : " + pb.Email + "\n"
-                + "SĐT : " + pb.Phone + "\n"
-                + "IDCARD : " + pb.IDCard + "\n",
-                // + "POSITION : " + posi.Position + "\n",
-                "Thông tin nguười dùng ");
-        }
-        public List<tkten_view> searchtennv(string ten)
-
-        {
-            List<tkten_view> list = new List<tkten_view>();
-            int id = Getpidnv();
-            int id1 = Getpidkh();
-            var result = from PEOPLE p in db.PEOPLE.ToList()
-                         join POSITION pos in db.POSITIONs on p.PositionID equals pos.PositionID
-                         where p.Name.Contains(ten) && (p.PositionID == id || p.PositionID == id1)
-
-                         select new tkten_view
-                         {
-                             Username = p.Username,
-                             Name = p.Name
-                         };
-
-            return result.ToList();
-        }
     }
 }

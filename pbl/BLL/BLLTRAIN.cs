@@ -328,10 +328,7 @@ namespace pbl.BLL
                 db.SaveChanges();
             }
 
-            }    
-           
-
-        }
+        }    
         public void Executep(SCHEDULE s)
         {
             PBL3 db = new PBL3();
@@ -1212,7 +1209,7 @@ namespace pbl.BLL
                     select sta.StationName).ToList();
         else
             return (from sch in db.SCHEDULEs.ToList()
-                    select sch.Departure).ToList();
+                    select sch.STATION1.StationName).ToList();
     }
     public List<string> GetDestinationp(string Departure)
     {
@@ -1223,7 +1220,7 @@ namespace pbl.BLL
                     select sta.StationName).ToList();
         else
             return (from sch in db.SCHEDULEs.ToList()
-                    select sch.Departure).ToList();
+                    select sch.STATION.StationName).ToList();
     }
     //Trả về ds tất cả ga trong table STATION (ngoại trừ ga trùng vs ga được truyền vào)
     public List<CBBSchedule> GetAllStation(int StationID)
@@ -1429,7 +1426,6 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             return (from sch in db.SCHEDULEs.ToList()
                     from tri in sch.TRIPs
-                    
                     select new Train_View
                     {
                         ScheduleID = sch.ScheduleID,
@@ -1647,27 +1643,6 @@ namespace pbl.BLL
             var result = from tic in db.TICKETs.ToList()
                          where tic.TRIP.SCHEDULE.DepartureTime.ToString("d-M-yyyy H:m:s").Contains(date) && tic.CustomerUN == userName
                          select tic.TRIP.SCHEDULE.DepartureTime.Day;
-            return result.ToList();
-        }
-        public List<SCHEDULE_View> GetSchedulead(string DepartureTime, string ArrivalTime, string Dep, string Des)
-        {
-            PBL3 db = new PBL3();
-
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-
-                         where
-                               DepartureTime.Contains(sch.DepartureTime.ToString("d/M/yyyy"))
-                               && ArrivalTime.Contains(sch.ArrivalTime.ToString("d/M/yyyy"))
-                               && sch.Departure.ToString() == Dep && sch.Destination.ToString() == Des
-
-                         select new SCHEDULE_View
-                         {
-                             ScheduleID = sch.ScheduleID,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString()
-                         };
             return result.ToList();
         }
     }
