@@ -60,6 +60,7 @@
             // 
             // txtBirthDay
             // 
+            this.txtBirthDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtBirthDay.Location = new System.Drawing.Point(261, 341);
             this.txtBirthDay.Name = "txtBirthDay";
             this.txtBirthDay.Size = new System.Drawing.Size(306, 26);

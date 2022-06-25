@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
+using pbl.DTO;
 
 namespace pbl.View
 {
@@ -27,11 +28,11 @@ namespace pbl.View
             List<string> listDep = new List<string>();
             List<string> listDes = new List<string>();
             BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
-            foreach (string s in listDep.Distinct())
+            foreach (string s in listDep)
             {
                 cbbDep.Items.Add(s);
             }
-            foreach (string s in listDes.Distinct())
+            foreach (string s in listDes)
             {
                 cbbDes.Items.Add(s);
             }
@@ -57,8 +58,8 @@ namespace pbl.View
             {
                 SCHEDULE s = new SCHEDULE
                 {
-                    Departure = cbbDep.Text,
-                    Destination = cbbDes.Text,
+                    DepartureID = ((CBBSchedule)cbbDep.SelectedItem).Value,
+                    ArrivalID = ((CBBSchedule)cbbDes.SelectedItem).Value,
                     DepartureTime = daydep.Value,
                     ArrivalTime = daydes.Value,
 

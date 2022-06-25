@@ -15,9 +15,9 @@ namespace pbl
     public partial class SECURITY
     {
         public int SecurityID { get; set; }
-        public string OwnUN { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
+        public string OwnUN { get; set; }
     
         public virtual PEOPLE Person { get; set; }
     }

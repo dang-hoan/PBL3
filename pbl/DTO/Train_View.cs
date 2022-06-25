@@ -14,6 +14,5 @@ namespace pbl.DTO
         public int NumberOfCarriages { get; set; }
         public string DriverUN { get; set; }
         public decimal? BasicPrice { get; set; }
-        public string State { get; set; }
     }
 } 

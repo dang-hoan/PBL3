@@ -17,23 +17,15 @@ namespace pbl
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TRAIN()
         {
-            this.TICKETs = new HashSet<TICKET>();
-            this.TICKET_MANAGER = new HashSet<TICKET_MANAGER>();
+            this.TRIPs = new HashSet<TRIP>();
         }
     
         public int TrainID { get; set; }
         public string TrainName { get; set; }
         public int NumberOfCarriages { get; set; }
-        public string DriverUN { get; set; }
-        public Nullable<int> ScheduleID { get; set; }
-        public Nullable<decimal> BasicPrice { get; set; }
-        public string State { get; set; }
+        public Nullable<bool> State { get; set; }
     
-        public virtual PEOPLE Person { get; set; }
-        public virtual SCHEDULE SCHEDULE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TICKET> TICKETs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TICKET_MANAGER> TICKET_MANAGER { get; set; }
+        public virtual ICollection<TRIP> TRIPs { get; set; }
     }
 }

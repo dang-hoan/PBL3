@@ -13,7 +13,6 @@ using Microsoft.Office.Interop.Excel;
 using System.Drawing;
 using System.ComponentModel;
 
-//3 loop able: list<SCHEDULE>, list<PEOPLE>, list<POSITION>
 namespace pbl.BLL
 {
     public class BLLTRAIN
@@ -46,24 +45,23 @@ namespace pbl.BLL
             if ((total - s.Length) % 2 == 1) result += ' ';
             return result;
         }
-        public void AddListTicket(int TrainID, int NumberOfCarriages, string TicketPrice)
+        public void AddListTicket(TRIP trip)
         {
             PBL3 db = new PBL3();
-            List<char> seatnumber = new List<char>(NumberOfCarriages);
+            int NumberOfCarriages = (from tra in db.TRAINs
+                                     where tra.TrainID == trip.TrainID
+                                     select tra.NumberOfCarriages).FirstOrDefault();
             float max = (float)(1 + (NumberOfCarriages - 1) * 0.1);
-            for (int i = 0; i < NumberOfCarriages; i++)
-            {
-                seatnumber.Add(carriage[i]);
-            }
             for (int i = 0; i < NumberOfCarriages; i++)
             {
                 for (int j = 1; j <= 25; j++)
                 {
                     db.TICKETs.Add(new TICKET
                     {
-                        TrainID = TrainID,
+                        ScheduleID = trip.ScheduleID,
+                        TrainID = trip.TrainID,
                         SeatNo = carriage[i] + j.ToString(),
-                        TicketPrice = (decimal)(Convert.ToDouble(TicketPrice) * (max - 0.1 * (i - 1))),
+                        TicketPrice = (decimal)(Convert.ToDouble(trip.BasicPrice) * (max - 0.1 * (i - 1))),
                         Booked = false,
                         CustomerUN = ""
                     });
@@ -274,13 +272,10 @@ namespace pbl.BLL
         {   //idlcih
             //idtau
             //mave
-            MessageBox.Show(scheduleid + "," + maghe + ", " + trainid);
             PBL3 db = new PBL3();
-            var result = (from sch in db.SCHEDULEs
-                       join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                       join tic in db.TICKETs on tra.TrainID equals tic.TrainID
-                       where sch.ScheduleID == scheduleid && tra.TrainID == trainid && tic.SeatNo == maghe
-                      select tic).FirstOrDefault();
+            var result = (from tic in db.TICKETs                          
+                          where tic.TRIP.SCHEDULE.ScheduleID == scheduleid && tic.TRIP.TRAIN.TrainID == trainid && tic.SeatNo == maghe
+                          select tic).FirstOrDefault();
             if (result != null) return true;
             else return false;
         }
@@ -326,17 +321,11 @@ namespace pbl.BLL
         public string CheckAccount(string Username, string Password)
         {
             PBL3 db = new PBL3();
-            foreach (LOGIN log in db.LOGINs)
-            {
-                if (log.Username.Equals(Username) && log.PassWord.Equals(Password))
-                {
-                    var result = from pos in db.POSITIONs
-                                 join peo in db.PEOPLE on pos.PositionID equals peo.PositionID
-                                 where peo.Username.Equals(Username)
-                                 select pos.Position;
-                    return result.FirstOrDefault();
-                }
-            }
+            var result = (from log in db.LOGINs
+                         join pos in db.POSITIONs on log.Person.PositionID equals pos.PositionID
+                         where log.Username == Username && log.PassWord == Password
+                         select pos.Position).FirstOrDefault();
+            if (result != null) return result;
             return "Không tồn tại";
         }
 
@@ -405,7 +394,7 @@ namespace pbl.BLL
             var result = from sec in db.SECURITies
                          where sec.OwnUN.Equals(userName)
                          select sec.Question;
-            return result.ToList();
+            return result.ToList().Distinct().ToList();
         }
         public string GetAnswerSecurity(string userName, int secID)
         {
@@ -504,24 +493,21 @@ namespace pbl.BLL
         public List<TICKET_View> GetAllTICKETView()
         {
             PBL3 db = new PBL3();
-
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         join PEOPLE peo in db.PEOPLE on tic.CustomerUN equals peo.Username into TIC_PEO_Group
+            var result = from tic in db.TICKETs
+                         join peo in db.PEOPLE on tic.CustomerUN equals peo.Username into TIC_PEO_Group
                          from ticpeo in TIC_PEO_Group.DefaultIfEmpty()
                          select new TICKET_View
                          {
-                             ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID,
-                             TrainName = tra.TrainName,
+                             ScheduleID = tic.TRIP.ScheduleID,
+                             TrainID = tic.TRIP.TrainID,
+                             TrainName = tic.TRIP.TRAIN.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
                              TicketPrice = (double)tic.TicketPrice,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime,
-                             ArrivalTime = sch.ArrivalTime,
+                             Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                             Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                             DepartureTime = tic.TRIP.SCHEDULE.DepartureTime,
+                             ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime,
                              Booked = (bool)tic.Booked ? "đã đặt" : "chưa đặt",
                              OwnUsername = (ticpeo == null) ? "" : tic.CustomerUN,
                              OwnName = (ticpeo == null) ? "" : ticpeo.Name
@@ -531,8 +517,7 @@ namespace pbl.BLL
         public List<PEOPLE_View> GetAllPEOPLEView()
         {
             PBL3 db = new PBL3();
-            var result = from PEOPLE peo in db.PEOPLE
-                         join POSITION pos in db.POSITIONs on peo.PositionID equals pos.PositionID
+            var result = from peo in db.PEOPLE
                          select new PEOPLE_View
                          {
                              Username = peo.Username,
@@ -543,7 +528,7 @@ namespace pbl.BLL
                              IDCard = peo.IDCard,
                              Email = peo.Email,
                              Phone = peo.Phone,
-                             Position = pos.Position
+                             Position = peo.POSITION.Position
                          };
             return result.ToList();
         }
@@ -568,12 +553,14 @@ namespace pbl.BLL
             }
             return data;
         }
-        public List<string> Getstation()
+        public List<CBBSchedule> Getstation()
         {
             PBL3 db = new PBL3();
-            var result = from STATION sta in db.STATIONs.ToList()
-                         select sta.StationName;
-            return result.ToList();
+            var result = (from sta in db.STATIONs.ToList()
+                         select new CBBSchedule{
+                             Value = sta.StationID,
+                             Text = sta.StationName }).ToList();
+            return result;
 
         }
         //Đặt tiêu đề cho DataGridView
@@ -623,23 +610,20 @@ namespace pbl.BLL
         public List<TICKET_User_View> GetTicket(string userName)
         {
             PBL3 db = new PBL3();
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         join PEOPLE peo in db.PEOPLE on tic.CustomerUN equals peo.Username
+            var result = from tic in db.TICKETs
                          where tic.CustomerUN == userName
                          select new TICKET_User_View
                          {
-                             ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID,
-                             TrainName = tra.TrainName,
+                             ScheduleID = tic.TRIP.SCHEDULE.ScheduleID,
+                             TrainID = tic.TRIP.TRAIN.TrainID,
+                             TrainName = tic.TRIP.TRAIN.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
                              TicketPrice = (double)tic.TicketPrice,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime,
-                             ArrivalTime = sch.ArrivalTime
+                             Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                             Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                             DepartureTime = tic.TRIP.SCHEDULE.DepartureTime,
+                             ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime
                          };
             return result.ToList();
         }
@@ -652,38 +636,34 @@ namespace pbl.BLL
             {
                 if(s.DepartureTime.ToString("dd/MM/yyyy HH:mm:ss").Contains(month + "/" + year))
                 {
-                    foreach(TRAIN t in db.TRAINs)
+                    foreach(TRIP tri in s.TRIPs)
                     {
                         numberTicket = 0;
-                         Totalmoney = 0;
-                        if (t.ScheduleID == s.ScheduleID)
+                        Totalmoney = 0;
+                        foreach (TICKET ti in db.TICKETs)
                         {
-                            foreach(TICKET ti in db.TICKETs)
+                            if (ti.TrainID == tri.TRAIN.TrainID)
                             {
-                                if(ti.TrainID == t.TrainID)
+                                if (ti.Booked == true)
                                 {
-                                    if(ti.Booked == true)
-                                    {
-                                        numberTicket++;
-                                        Totalmoney +=Convert.ToDouble(ti.TicketPrice);
-
-                                    }
+                                    numberTicket++;
+                                    Totalmoney += Convert.ToDouble(ti.TicketPrice);
 
                                 }
+
                             }
-                            list.Add(new doanhthu_view
-                            {
-                                TrainID = t.TrainID,
-                                TrainName = t.TrainName,
-                                Depature = s.Departure,
-                                Destination=s.Destination,
-                                DepartureTime = s.DepartureTime,
-                               ArrivalTime=s.ArrivalTime,
-                               TotalTickets= numberTicket,
-                               Totalmoney=Totalmoney
-                            } );
                         }
-                        
+                        list.Add(new doanhthu_view
+                        {
+                            TrainID = tri.TRAIN.TrainID,
+                            TrainName = tri.TRAIN.TrainName,
+                            Depature = s.STATION.StationName,
+                            Destination = s.STATION1.StationName,
+                            DepartureTime = s.DepartureTime,
+                            ArrivalTime = s.ArrivalTime,
+                            TotalTickets = numberTicket,
+                            Totalmoney = Totalmoney
+                        });
                     }
                 }
                 
@@ -696,25 +676,23 @@ namespace pbl.BLL
             bool Dep = false, Des = false, Train = false;
             if (schedule.Departure == "") Dep = true;
             if (TrainName == "") Train = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
-                               && sch.DepartureTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.DepartureTime)
-                               && sch.ArrivalTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.ArrivalTime)
-                               && (Train || tra.TrainName.Equals(TrainName)) && tic.CustomerUN == userName
+            var result = from tic in db.TICKETs
+                         where (Dep || tic.TRIP.SCHEDULE.STATION1.StationName.Equals(schedule.Departure)) && (Des || tic.TRIP.SCHEDULE.STATION.StationName.Equals(schedule.Destination))
+                               && tic.TRIP.SCHEDULE.DepartureTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.DepartureTime)
+                               && tic.TRIP.SCHEDULE.ArrivalTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.ArrivalTime)
+                               && (Train || tic.TRIP.TRAIN.TrainName.Equals(TrainName)) && tic.CustomerUN == userName
                          select new TICKET_User_View
                          {
-                             ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID,
-                             TrainName = tra.TrainName,
+                             ScheduleID = tic.TRIP.ScheduleID,
+                             TrainID = tic.TRIP.TrainID,
+                             TrainName = tic.TRIP.TRAIN.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
                              TicketPrice = (double)tic.TicketPrice,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime,
-                             ArrivalTime = sch.ArrivalTime
+                             Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                             Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                             DepartureTime = tic.TRIP.SCHEDULE.DepartureTime,
+                             ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime
                          };
             return result.ToList();
         }
@@ -723,22 +701,20 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             bool Train = false;
             if (TrainName == "") Train = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         where (Train || tra.TrainName.Equals(TrainName)) && tic.CustomerUN == userName
+            var result = from tic in db.TICKETs
+                         where (Train || tic.TRIP.TRAIN.TrainName.Equals(TrainName)) && tic.CustomerUN == userName
                          select new TICKET_User_View
                          {
-                             ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID,
-                             TrainName = tra.TrainName,
+                             ScheduleID = tic.TRIP.ScheduleID,
+                             TrainID = tic.TRIP.TrainID,
+                             TrainName = tic.TRIP.TRAIN.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
                              TicketPrice = (double)tic.TicketPrice,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime,
-                             ArrivalTime = sch.ArrivalTime
+                             Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                             Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                             DepartureTime = tic.TRIP.SCHEDULE.DepartureTime,
+                             ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime
                          };
             return result.ToList();
         }
@@ -753,25 +729,23 @@ namespace pbl.BLL
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
             if (TrainName == "") Train = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
-                               && (DateTime.Compare(schedule.FromDepartureTime, sch.DepartureTime) <= 0 && DateTime.Compare(sch.DepartureTime, schedule.ToDepartureTime) <= 0)
-                               && (DateTime.Compare(schedule.FromArrivalTime, sch.ArrivalTime) <= 0 && DateTime.Compare(sch.ArrivalTime, schedule.ToArrivalTime) <= 0)
-                               && (Train || tra.TrainName.Equals(TrainName)) && tic.CustomerUN == userName
+            var result = from tic in db.TICKETs
+                         where (Dep || tic.TRIP.SCHEDULE.STATION1.StationName.Equals(schedule.Departure)) && (Des || tic.TRIP.SCHEDULE.STATION.StationName.Equals(schedule.Destination))
+                               && (DateTime.Compare(schedule.FromDepartureTime, tic.TRIP.SCHEDULE.DepartureTime) <= 0 && DateTime.Compare(tic.TRIP.SCHEDULE.DepartureTime, schedule.ToDepartureTime) <= 0)
+                               && (DateTime.Compare(schedule.FromArrivalTime, tic.TRIP.SCHEDULE.ArrivalTime) <= 0 && DateTime.Compare(tic.TRIP.SCHEDULE.ArrivalTime, schedule.ToArrivalTime) <= 0)
+                               && (Train || tic.TRIP.TRAIN.TrainName.Equals(TrainName)) && tic.CustomerUN == userName
                          select new TICKET_User_View
                          {
-                             ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID,
-                             TrainName = tra.TrainName,
+                             ScheduleID = tic.TRIP.ScheduleID,
+                             TrainID = tic.TRIP.TrainID,
+                             TrainName = tic.TRIP.TRAIN.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
                              TicketPrice = (double)tic.TicketPrice,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime,
-                             ArrivalTime = sch.ArrivalTime
+                             Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                             Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                             DepartureTime = tic.TRIP.SCHEDULE.DepartureTime,
+                             ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime
                          };
             return result.ToList();
         }
@@ -814,11 +788,10 @@ namespace pbl.BLL
         public List<string> GetTrain(string userName)
         {
             PBL3 db = new PBL3();
-            var result = from tra in db.TRAINs
-                         join tic in db.TICKETs on tra.TrainID equals tic.TrainID
+            var result = from tic in db.TICKETs
                          where tic.CustomerUN == userName
-                         select tra.TrainName;
-            return result.ToList();
+                         select tic.TRIP.TRAIN.TrainName;
+            return result.ToList().Distinct().ToList();
         }
         public List<Train_View> GetTrain2(SCHEDULE_BLL schedule)
         {
@@ -830,20 +803,19 @@ namespace pbl.BLL
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            var data =  (from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
-                               && (DateTime.Compare(schedule.FromDepartureTime, sch.DepartureTime) <= 0 && DateTime.Compare(sch.DepartureTime, schedule.ToDepartureTime) <= 0)
-                               && (DateTime.Compare(schedule.FromArrivalTime, sch.ArrivalTime) <= 0 && DateTime.Compare(sch.ArrivalTime, schedule.ToArrivalTime) <= 0)
+            var data =  (
+                         from tri in db.TRIPs
+                         where (Dep || tri.SCHEDULE.STATION1.StationName.Equals(schedule.Departure)) && (Des || tri.SCHEDULE.STATION.StationName.Equals(schedule.Destination))
+                               && (DateTime.Compare(schedule.FromDepartureTime, tri.SCHEDULE.DepartureTime) <= 0 && DateTime.Compare(tri.SCHEDULE.DepartureTime, schedule.ToDepartureTime) <= 0)
+                               && (DateTime.Compare(schedule.FromArrivalTime, tri.SCHEDULE.ArrivalTime) <= 0 && DateTime.Compare(tri.SCHEDULE.ArrivalTime, schedule.ToArrivalTime) <= 0)
             select new Train_View
             {
-                TrainID = tra.TrainID,
-                TrainName = tra.TrainName,
-                NumberOfCarriages = tra.NumberOfCarriages,
-                DriverUN = tra.DriverUN,
-                ScheduleID = (int)tra.ScheduleID,
-                BasicPrice = tra.BasicPrice,
-                State = tra.State
+                TrainID = tri.TrainID,
+                TrainName = tri.TRAIN.TrainName,
+                NumberOfCarriages = tri.TRAIN.NumberOfCarriages,
+                DriverUN = tri.DriverUN,
+                ScheduleID = tri.ScheduleID,
+                BasicPrice = tri.BasicPrice
             }).ToList();
             return data;
         }
@@ -856,25 +828,28 @@ namespace pbl.BLL
         }
         public void trainstate(int scheduleid)
         {
-            PBL3 db = new PBL3();
+            //KHÔNG CẦN THIẾT LƯU
+            //PBL3 db = new PBL3();
          
-            var data = (from sch in db.SCHEDULEs.ToList()
-                        join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                        where sch.ScheduleID == scheduleid && string.Compare(sch.DepartureTime.ToString("yyyy/MM/dd HH:mm"), DateTime.Now.ToString("yyyy/MM/dd HH:mm")) < 0
-                        select tra).ToList() ;
-            foreach(TRAIN train in data)
-            {
-                train.State = " dừng hoạt động ";
-            }
-            db.SaveChanges();
+            //var data = (from sch in db.SCHEDULEs.ToList()
+            //            from tri in sch.TRIPs
+                        
+            //            where sch.ScheduleID == scheduleid && string.Compare(sch.DepartureTime.ToString("yyyy/MM/dd HH:mm"), DateTime.Now.ToString("yyyy/MM/dd HH:mm")) < 0
+            //            select tri.TRAIN).ToList() ;
+            //foreach(TRAIN train in data)
+            //{
+            //    //train.State = " dừng hoạt động ";
+            //}
+            //db.SaveChanges();
         }
         public List<TRAIN> GettrainBytrainid(int scheduleid)
         {
             PBL3 db = new PBL3();
             List<TRAIN> data = new List<TRAIN>();
-
-
-            data = db.TRAINs.Where(p => (p.ScheduleID == scheduleid)).Select(p => p).ToList();
+            data = (
+                   from tri in db.TRIPs
+                   where tri.ScheduleID == scheduleid
+                   select tri.TRAIN).ToList();
 
             return data;
         }
@@ -884,15 +859,13 @@ namespace pbl.BLL
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
-                               && sch.DepartureTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.DepartureTime)
-                               && sch.ArrivalTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.ArrivalTime)
+            var result = from tic in db.TICKETs
+                         where (Dep || tic.TRIP.SCHEDULE.STATION1.StationName.Equals(schedule.Departure)) && (Des || tic.TRIP.SCHEDULE.STATION.StationName.Equals(schedule.Destination))
+                               && tic.TRIP.SCHEDULE.DepartureTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.DepartureTime)
+                               && tic.TRIP.SCHEDULE.ArrivalTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.ArrivalTime)
                                && tic.CustomerUN == userName
-                         select tra.TrainName;
-            return result.ToList();
+                         select tic.TRIP.TRAIN.TrainName;
+            return result.ToList().Distinct().ToList();
         }
         public List<string> GetTrain(SCHEDULE_BLL schedule, string userName)
         {
@@ -904,15 +877,13 @@ namespace pbl.BLL
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
-                               && (DateTime.Compare(schedule.FromDepartureTime, sch.DepartureTime) <= 0 && DateTime.Compare(sch.DepartureTime, schedule.ToDepartureTime) <= 0)
-                               && (DateTime.Compare(schedule.FromArrivalTime, sch.ArrivalTime) <= 0 && DateTime.Compare(sch.ArrivalTime, schedule.ToArrivalTime) <= 0)
+            var result = from tic in db.TICKETs
+                         where (Dep || tic.TRIP.SCHEDULE.STATION1.StationName.Equals(schedule.Departure)) && (Des || tic.TRIP.SCHEDULE.STATION.StationName.Equals(schedule.Destination))
+                               && (DateTime.Compare(schedule.FromDepartureTime, tic.TRIP.SCHEDULE.DepartureTime) <= 0 && DateTime.Compare(tic.TRIP.SCHEDULE.DepartureTime, schedule.ToDepartureTime) <= 0)
+                               && (DateTime.Compare(schedule.FromArrivalTime, tic.TRIP.SCHEDULE.ArrivalTime) <= 0 && DateTime.Compare(tic.TRIP.SCHEDULE.ArrivalTime, schedule.ToArrivalTime) <= 0)
                                && tic.CustomerUN == userName
-                         select tra.TrainName;
-            return result.ToList();
+                         select tic.TRIP.TRAIN.TrainName;
+            return result.ToList().Distinct().ToList();
         }
         public List<string> GetTrain(List<int> list)
         {
@@ -920,15 +891,19 @@ namespace pbl.BLL
             List<string> result = new List<string>();
             foreach (int id in list)
             {
-                foreach (TRAIN t in db.TRAINs)
+                foreach (SCHEDULE s in db.SCHEDULEs)
                 {
-                    if (t.ScheduleID == id)
+                    if (s.ScheduleID == id)
                     {
-                        result.Add(t.TrainName);
+                        foreach (TRIP t in s.TRIPs)
+                        {
+                            result.Add(t.TRAIN.TrainName);
+                        }
+                        break;
                     }
                 }
             }
-            return result;
+            return result.Distinct().ToList();
         }
 
         public void SetTicket(int TicketID, string userName, bool booked)
@@ -947,6 +922,7 @@ namespace pbl.BLL
             }
             db.SaveChanges();
         }
+        //BUG!!! (Tàu trùng tên)
         public int GetNumberOfCarriages(string TrainName)
         {
             PBL3 db = new PBL3();
@@ -958,7 +934,9 @@ namespace pbl.BLL
                 if (t.TrainName.Equals(TrainName))
                     result = t.NumberOfCarriages;
             }
-            return result;
+            return (from tra in db.TRAINs
+                   where tra.TrainName.Equals(TrainName)
+                   select tra.NumberOfCarriages).FirstOrDefault();
         }
         public int GetNumberBooked(List<string> list, string TrainName)
         {
@@ -968,14 +946,21 @@ namespace pbl.BLL
             if (TrainName == "") Train = true;
             foreach (string id in list)
             {
-                foreach (TRAIN t in db.TRAINs)
+                foreach(SCHEDULE s in db.SCHEDULEs)
                 {
-                    if (t.ScheduleID.Equals(id) && (Train || t.TrainName.Equals(TrainName)))
+                    if (s.ScheduleID.Equals(id))
                     {
-                        foreach (TICKET ti in db.TICKETs.ToList())
+                        foreach (TRIP t in s.TRIPs)
                         {
-                            if (ti.TrainID.Equals(t.TrainID) && ti.Booked == true) result++;
+                            if (Train || t.TRAIN.TrainName.Equals(TrainName))
+                            {
+                                foreach(TICKET ti in t.TICKETs)
+                                {
+                                    if(ti.Booked == true) result++;
+                                }
+                            }
                         }
+                        break;
                     }
                 }
             }
@@ -985,95 +970,82 @@ namespace pbl.BLL
         public void GetStation(string userName, ref List<string> cbbDep, ref List<string> cbbDes)
         {
             PBL3 db = new PBL3();
-            cbbDep = (from sch in db.SCHEDULEs.ToList()
-                      join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                      join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+            cbbDep = (from tic in db.TICKETs
                       where tic.CustomerUN == userName
-                      select sch.Departure).ToList();
-            cbbDes = (from sch in db.SCHEDULEs.ToList()
-                      join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                      join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+                      select tic.TRIP.SCHEDULE.STATION1.StationName).ToList().Distinct().ToList();
+            cbbDes = (from tic in db.TICKETs
                       where tic.CustomerUN == userName
-                      select sch.Destination).ToList();
+                      select tic.TRIP.SCHEDULE.STATION.StationName).ToList().Distinct().ToList();
         }
         public List<string> GetDeparture(string userName, string Destination)
         {
             PBL3 db = new PBL3();
             if (Destination != "")
-                return (from sch in db.SCHEDULEs.ToList()
-                        join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                        join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                        where tic.CustomerUN == userName && sch.Destination.Equals(Destination)
-                        select sch.Departure).ToList();
+                return (from tic in db.TICKETs
+                        where tic.CustomerUN == userName && tic.TRIP.SCHEDULE.STATION.StationName.Equals(Destination)
+                        select tic.TRIP.SCHEDULE.STATION1.StationName).ToList().Distinct().ToList();
             else
-                return (from sch in db.SCHEDULEs.ToList()
-                        join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                        join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+                return (from tic in db.TICKETs
                         where tic.CustomerUN == userName
-                        select sch.Departure).ToList();
+                        select tic.TRIP.SCHEDULE.STATION1.StationName).ToList().Distinct().ToList();
         }
         public List<string> GetDestination(string userName, string Departure)
         {
             PBL3 db = new PBL3();
             if (Departure != "")
-                return (from sch in db.SCHEDULEs.ToList()
-                        join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                        join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                        where tic.CustomerUN == userName && sch.Departure.Equals(Departure)
-                        select sch.Destination).ToList();
+                return (from tic in db.TICKETs
+                        where tic.CustomerUN == userName && tic.TRIP.SCHEDULE.STATION1.StationName.Equals(Departure)
+                        select tic.TRIP.SCHEDULE.STATION.StationName).ToList().Distinct().ToList();
             else
-                return (from sch in db.SCHEDULEs.ToList()
-                        join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                        join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+                return (from tic in db.TICKETs
                         where tic.CustomerUN == userName
-                        select sch.Destination).ToList();
+                        select tic.TRIP.SCHEDULE.STATION.StationName).ToList().Distinct().ToList();
         }
         //public List<string> GetDeparture2(string userName, string Departure)
         //{
         //    PBL3 db = new PBL3();
         //    if (Departure != "")
         //        return (from sch in db.SCHEDULEs.ToList()
-        //                join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-        //                join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-        //                where tic.CustomerUN == userName && sch.Departure.Contains(Departure)
-        //                select sch.Departure).ToList();
+        //                join tri in db.TRIPs on sch.ScheduleID equals tri.ScheduleIDjoin tra in db.TRAINs on tri.TrainID equals tri.TRAIN.TrainID
+        //                from tic in tri.TRAIN.TICKETs.ToList()
+        //                where tic.CustomerUN == userName && sch.STATION.StationName.Contains(Departure)
+        //                select sch.STATION.StationName).ToList();
         //    else
         //        return (from sch in db.SCHEDULEs.ToList()
-        //                join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-        //                join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+        //                join tri in db.TRIPs on sch.ScheduleID equals tri.ScheduleIDjoin tra in db.TRAINs on tri.TrainID equals tri.TRAIN.TrainID
+        //                from tic in tri.TRAIN.TICKETs.ToList()
         //                where tic.CustomerUN == userName
-        //                select sch.Departure).ToList();
+        //                select sch.STATION.StationName).ToList();
         //}
         //public List<string> GetDestination2(string userName, string Destination)
         //{
         //    PBL3 db = new PBL3();
         //    if (Destination != "")
         //        return (from sch in db.SCHEDULEs.ToList()
-        //                join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-        //                join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-        //                where tic.CustomerUN == userName && sch.Destination.Contains(Destination)
-        //                select sch.Destination).ToList();
+        //                join tri in db.TRIPs on sch.ScheduleID equals tri.ScheduleIDjoin tra in db.TRAINs on tri.TrainID equals tri.TRAIN.TrainID
+        //                from tic in tri.TRAIN.TICKETs.ToList()
+        //                where tic.CustomerUN == userName && sch.STATION1.StationName.Contains(Destination)
+        //                select sch.STATION1.StationName).ToList();
         //    else
         //        return (from sch in db.SCHEDULEs.ToList()
-        //                join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-        //                join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+        //                join tri in db.TRIPs on sch.ScheduleID equals tri.ScheduleIDjoin tra in db.TRAINs on tri.TrainID equals tri.TRAIN.TrainID
+        //                from tic in tri.TRAIN.TICKETs.ToList()
         //                where tic.CustomerUN == userName
-        //                select sch.Destination).ToList();
+        //                select sch.STATION1.StationName).ToList();
         //}
         public void GetStation(ref List<string> cbbDep, ref List<string> cbbDes)
         {
             PBL3 db = new PBL3();
             cbbDep = (from sch in db.SCHEDULEs.ToList()
-                      select sch.Departure).ToList();
+                      select sch.STATION1.StationName).ToList().Distinct().ToList();
             cbbDes = (from sch in db.SCHEDULEs.ToList()
-                      select sch.Destination).ToList();
+                      select sch.STATION.StationName).ToList().Distinct().ToList();
         }
         public List<CBBpeople> GetAllCBBDriver()
         {
             PBL3 db = new PBL3();
             return (from peo in db.PEOPLE.ToList()
-                    join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
-                    where pos.Position == "Lái tàu"
+                    where peo.POSITION.Position == "Lái tàu"
                     select new CBBpeople
                     {
                         Value = peo.Username,
@@ -1086,22 +1058,22 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             if (Destination != "")
                 return (from sch in db.SCHEDULEs.ToList()
-                        where sch.Destination.Equals(Destination)
-                        select sch.Departure).ToList();
+                        where sch.STATION.StationName.Equals(Destination)
+                        select sch.STATION1.StationName).ToList().Distinct().ToList();
             else
                 return (from sch in db.SCHEDULEs.ToList()
-                        select sch.Departure).ToList();
+                        select sch.STATION1.StationName).ToList().Distinct().ToList();
         }
         public List<string> GetDestination(string Departure)
         {
             PBL3 db = new PBL3();
             if (Departure != "")
                 return (from sch in db.SCHEDULEs.ToList()
-                        where sch.Departure.Equals(Departure)
-                        select sch.Destination).ToList();
+                        where sch.STATION1.StationName.Equals(Departure)
+                        select sch.STATION.StationName).ToList().Distinct().ToList();
             else
                 return (from sch in db.SCHEDULEs.ToList()
-                        select sch.Destination).ToList();
+                        select sch.STATION.StationName).ToList().Distinct().ToList();
         }
         public List<string> GetStation(string station)
         {
@@ -1109,10 +1081,10 @@ namespace pbl.BLL
             if (station != "")
                 return (from sta in db.STATIONs.ToList()
                         where !sta.StationName.Equals(station)
-                        select sta.StationName).ToList();
+                        select sta.StationName).ToList().Distinct().ToList();
             else
                 return (from sta in db.STATIONs.ToList()
-                        select sta.StationName).ToList();
+                        select sta.StationName).ToList().Distinct().ToList();
         }
         public bool checksch(int scheduleid)
         {
@@ -1135,17 +1107,15 @@ namespace pbl.BLL
         public List<SCHEDULE_View> GetSchedule(string userName)
         {
             PBL3 db = new PBL3();
-            var result = from sch in db.SCHEDULEs.ToList()
-                         join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
+            var result = from tic in db.TICKETs
                          where tic.CustomerUN == userName
                          select new SCHEDULE_View
                          {
-                             ScheduleID = sch.ScheduleID,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString()
+                             ScheduleID = tic.TRIP.ScheduleID,
+                             Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                             Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                             DepartureTime = tic.TRIP.SCHEDULE.DepartureTime.ToString(),
+                             ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime.ToString()
                          };
             return result.ToList().GroupBy(s => s.ScheduleID).Select(g => g.First()).ToList();
         }
@@ -1161,28 +1131,25 @@ namespace pbl.BLL
             {
                 if (s.DepartureTime.ToString("d-M-yyyy H:m:s").Contains(date))
                 {
-                    foreach (TRAIN t in db.TRAINs)
+                    foreach (TRIP t in s.TRIPs)
                     {
-                        if (t.ScheduleID.Equals(s.ScheduleID))
+                        foreach (TICKET ti in t.TICKETs.ToList())
                         {
-                            foreach (TICKET ti in db.TICKETs.ToList())
+                            if (ti.CustomerUN == userName)
                             {
-                                if (ti.TrainID.Equals(t.TrainID) && ti.CustomerUN == userName)
-                                {
-                                    result += $"\n  Lịch trình {dem++}:\n";
-                                    result += "  Ga đi: " + s.Departure + "\n";
-                                    result += "  Ga đến: " + s.Destination + "\n";
-                                    result += "  Thời gian khởi hành:\n  " + s.DepartureTime + "\n";
-                                    result += "  Thời gian đến:\n  " + s.ArrivalTime + "\n";
-                                    UngetSchedule = false;
-                                    break;
-                                }
-                            }
-                            if (UngetSchedule == false)
-                            {
-                                UngetSchedule = true;
+                                result += $"\n  Lịch trình {dem++}:\n";
+                                result += "  Ga đi: " + s.STATION1.StationName + "\n";
+                                result += "  Ga đến: " + s.STATION.StationName + "\n";
+                                result += "  Thời gian khởi hành:\n  " + s.DepartureTime + "\n";
+                                result += "  Thời gian đến:\n  " + s.ArrivalTime + "\n";
+                                UngetSchedule = false;
                                 break;
                             }
+                        }
+                        if (UngetSchedule == false)
+                        {
+                            UngetSchedule = true;
+                            break;
                         }
 
                     }
@@ -1197,20 +1164,18 @@ namespace pbl.BLL
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
-                               && sch.DepartureTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.DepartureTime)
-                               && sch.ArrivalTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.ArrivalTime)
+            var result = from tic in db.TICKETs
+                         where (Dep || tic.TRIP.SCHEDULE.STATION1.StationName.Equals(schedule.Departure)) && (Des || tic.TRIP.SCHEDULE.STATION.StationName.Equals(schedule.Destination))
+                               && tic.TRIP.SCHEDULE.DepartureTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.DepartureTime)
+                               && tic.TRIP.SCHEDULE.ArrivalTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.ArrivalTime)
                                && tic.CustomerUN == userName
                          select new SCHEDULE_View
                          {
-                             ScheduleID = sch.ScheduleID,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString()
+                             ScheduleID = tic.TRIP.ScheduleID,
+                             Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                             Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                             DepartureTime = tic.TRIP.SCHEDULE.DepartureTime.ToString(),
+                             ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime.ToString()
                          };
             return result.ToList().GroupBy(s => s.ScheduleID).Select(g => g.First()).ToList();
         }
@@ -1224,20 +1189,18 @@ namespace pbl.BLL
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join TICKET tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
-                               && (DateTime.Compare(schedule.FromDepartureTime, sch.DepartureTime) <= 0 && DateTime.Compare(sch.DepartureTime, schedule.ToDepartureTime) <= 0)
-                               && (DateTime.Compare(schedule.FromArrivalTime, sch.ArrivalTime) <= 0 && DateTime.Compare(sch.ArrivalTime, schedule.ToArrivalTime) <= 0)
+            var result = from tic in db.TICKETs
+                         where (Dep || tic.TRIP.SCHEDULE.STATION1.StationName.Equals(schedule.Departure)) && (Des || tic.TRIP.SCHEDULE.STATION.StationName.Equals(schedule.Destination))
+                               && (DateTime.Compare(schedule.FromDepartureTime, tic.TRIP.SCHEDULE.DepartureTime) <= 0 && DateTime.Compare(tic.TRIP.SCHEDULE.DepartureTime, schedule.ToDepartureTime) <= 0)
+                               && (DateTime.Compare(schedule.FromArrivalTime, tic.TRIP.SCHEDULE.ArrivalTime) <= 0 && DateTime.Compare(tic.TRIP.SCHEDULE.ArrivalTime, schedule.ToArrivalTime) <= 0)
                                && tic.CustomerUN == userName
                          select new SCHEDULE_View
                          {
-                             ScheduleID = sch.ScheduleID,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime.ToString(),
-                             ArrivalTime = sch.ArrivalTime.ToString()
+                             ScheduleID = tic.TRIP.ScheduleID,
+                             Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                             Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                             DepartureTime = tic.TRIP.SCHEDULE.DepartureTime.ToString(),
+                             ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime.ToString()
                          };
             return result.ToList().GroupBy(s => s.ScheduleID).Select(g => g.First()).ToList();
         }
@@ -1249,8 +1212,8 @@ namespace pbl.BLL
                     select new SCHEDULE_View
                     {
                         ScheduleID = sch.ScheduleID,
-                        Departure = sch.Departure,
-                        Destination = sch.Destination,
+                        Departure = sch.STATION1.StationName,
+                        Destination = sch.STATION.StationName,
                         DepartureTime = sch.DepartureTime.ToString(),
                         ArrivalTime = sch.ArrivalTime.ToString()
                     }).ToList();
@@ -1262,8 +1225,8 @@ namespace pbl.BLL
                     select new SCHEDULE_View
                     {
                         ScheduleID = sch.ScheduleID,
-                        Departure = sch.Departure,
-                        Destination = sch.Destination,
+                        Departure = sch.STATION1.StationName,
+                        Destination = sch.STATION.StationName,
                         DepartureTime = sch.DepartureTime.ToString(),
                         ArrivalTime = sch.ArrivalTime.ToString()
                     }).ToList();
@@ -1286,29 +1249,32 @@ namespace pbl.BLL
         public void delsche(int ScheduleID)
         {
             PBL3 db = new PBL3();
-            
-            SCHEDULE s = db.SCHEDULEs.Find(ScheduleID);
-            TRAIN t = new TRAIN();
-            t=db.TRAINs.Where(p => p.ScheduleID == ScheduleID).Single();
-            db.TRAINs.Remove(t);
+            foreach(SCHEDULE s in db.SCHEDULEs)
+            {
+                if(s.ScheduleID == ScheduleID)
+                {
+                    foreach(TRIP t in s.TRIPs)
+                        db.TRIPs.Remove(t);
+                    db.SCHEDULEs.Remove(s);
+                    break;
+                }
+            }
             db.SaveChanges();
-            db.SCHEDULEs.Remove(s);
-            db.SaveChanges();
-
         }
         public List<Train_View> Getalltrain()
         {
             PBL3 db = new PBL3();
-            return (from tra in db.TRAINs.ToList()
+            return (from sch in db.SCHEDULEs.ToList()
+                    from tri in sch.TRIPs
+                    
                     select new Train_View
                     {
-                        ScheduleID = (int)tra.ScheduleID,
-                        TrainID = tra.TrainID,
-                        TrainName = tra.TrainName,
-                        NumberOfCarriages = tra.NumberOfCarriages,
-                        DriverUN = (tra.DriverUN != null)?tra.DriverUN.ToString():"Chưa có",
-                        BasicPrice = tra.BasicPrice,
-                        State = (tra.State != null)?tra.State.ToString():"",
+                        ScheduleID = sch.ScheduleID,
+                        TrainID = tri.TRAIN.TrainID,
+                        TrainName = tri.TRAIN.TrainName,
+                        NumberOfCarriages = tri.TRAIN.NumberOfCarriages,
+                        DriverUN = (tri.DriverUN != null) ? tri.DriverUN.ToString() : "Chưa có",
+                        BasicPrice = tri.BasicPrice
                     }).ToList();
         }
 
@@ -1318,15 +1284,15 @@ namespace pbl.BLL
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
+            var result = from sch in db.SCHEDULEs.ToList()
+                         where (Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination))
                                && sch.DepartureTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.DepartureTime)
                                && sch.ArrivalTime.ToString("dd/MM/yyyy H:m:s").Contains(schedule.ArrivalTime)
                          select new SCHEDULE_View
                          {
                              ScheduleID = sch.ScheduleID,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
+                             Departure = sch.STATION1.StationName,
+                             Destination = sch.STATION.StationName,
                              DepartureTime = sch.DepartureTime.ToString(),
                              ArrivalTime = sch.ArrivalTime.ToString()
                          };
@@ -1342,15 +1308,15 @@ namespace pbl.BLL
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         where (Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination))
+            var result = from sch in db.SCHEDULEs.ToList()
+                         where (Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination))
                                && (DateTime.Compare(schedule.FromDepartureTime, sch.DepartureTime) <= 0 && DateTime.Compare(sch.DepartureTime, schedule.ToDepartureTime) <= 0)
                                && (DateTime.Compare(schedule.FromArrivalTime, sch.ArrivalTime) <= 0 && DateTime.Compare(sch.ArrivalTime, schedule.ToArrivalTime) <= 0)
                          select new SCHEDULE_View
                          {
                              ScheduleID = sch.ScheduleID,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
+                             Departure = sch.STATION1.StationName,
+                             Destination = sch.STATION.StationName,
                              DepartureTime = sch.DepartureTime.ToString(),
                              ArrivalTime = sch.ArrivalTime.ToString()
                          };
@@ -1362,58 +1328,28 @@ namespace pbl.BLL
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
-            //var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-            //             where (Dep || sch.Departure.Equals(schedule.Departure)) || (Des || sch.Destination.Equals(schedule.Destination))
+            //var result = from sch in db.SCHEDULEs.ToList()
+            //             where (Dep || sch.STATION.StationName.Equals(schedule.Departure)) || (Des || sch.STATION1.StationName.Equals(schedule.Destination))
             //                   && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         where ((Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination)))
+            var result = from sch in db.SCHEDULEs.ToList()
+                         where ((Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination)))
                          select new SCHEDULE_View
                          {
                              ScheduleID = sch.ScheduleID,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
+                             Departure = sch.STATION1.StationName,
+                             Destination = sch.STATION.StationName,
                              DepartureTime = sch.DepartureTime.ToString(),
                              ArrivalTime = sch.ArrivalTime.ToString()
                          };
             return result.ToList();
         }
-
-        public void delschedule(int scheduleid)
-        {
-            PBL3 db = new PBL3();
-            SCHEDULE s = db.SCHEDULEs.Find(scheduleid);
-            db.SCHEDULEs.Remove(s);
-            //TRAIN f = db.TRAINs.Where(p => p.ScheduleID == scheduleid).Single();
-            //string train = f.TrainID;
-            //TICKET dn = new TICKET();
-            //dn = db.TICKETs.Where(p => p.TrainID == train).Single();
-            List<string> vs = new List<string>();
-            foreach (String i in db.TRAINs.Where(p => p.ScheduleID == scheduleid).Select(p => p.TrainID.ToString()).ToList())
-            {
-                vs.Add(i);
-            }
-            foreach (TRAIN i in db.TRAINs.Where(p => p.ScheduleID == scheduleid))
-            {
-                db.TRAINs.Remove(i);
-            }
-            foreach (string i in vs)
-            {
-                TICKET t = db.TICKETs.Find(i);
-                db.TICKETs.Remove(t);
-            }
-
-
-            db.SaveChanges();
-        }
         public List<int> GetDayOfDepartureTime(string month, string year, string userName)
         {
             PBL3 db = new PBL3();
             string date = month + "-" + year;
-            var result = from sch in db.SCHEDULEs.ToList()
-                         join tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                         join tic in db.TICKETs.ToList() on tra.TrainID equals tic.TrainID
-                         where sch.DepartureTime.ToString("d-M-yyyy H:m:s").Contains(date) && tic.CustomerUN == userName
-                         select sch.DepartureTime.Day;
+            var result = from tic in db.TICKETs.ToList()
+                         where tic.TRIP.SCHEDULE.DepartureTime.ToString("d-M-yyyy H:m:s").Contains(date) && tic.CustomerUN == userName
+                         select tic.TRIP.SCHEDULE.DepartureTime.Day;
             return result.ToList();
         }
 

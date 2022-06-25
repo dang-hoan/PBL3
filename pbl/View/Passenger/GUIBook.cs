@@ -29,7 +29,7 @@ namespace pbl
         private void Init()
         {
             cbbTrain.Items.Add("Tất cả");
-            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(list).Distinct().ToArray());
+            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(list).ToArray());
             pLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(pLeft_MouseMove);
             pLeft.MouseLeave += new System.EventHandler(pLeft_MouseLeave);
             pRight.MouseMove += new System.Windows.Forms.MouseEventHandler(pRight_MouseMove);

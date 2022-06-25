@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
+using pbl.DTO;
 
 namespace pbl.Admin
 {
@@ -23,17 +24,9 @@ namespace pbl.Admin
 
         }
         public void cbb()
-        {
-            List<string> list = new List<string>();
-            list= BLLTRAIN.Instance.Getstation();
-            foreach (string s in list)
-            {
-                cbbDep.Items.Add(s);
-            }
-            foreach(string s in list)
-            {
-                cbbDes.Items.Add(s);
-            }
+        {   
+            cbbDep.Items.Add(BLLTRAIN.Instance.Getstation().ToArray());
+            cbbDes.Items.Add(BLLTRAIN.Instance.Getstation().ToArray());
         }
         public void showsche()
         {
@@ -51,8 +44,8 @@ namespace pbl.Admin
             {
                 SCHEDULE s = new SCHEDULE
                 {
-                    Departure = cbbDep.Text,
-                    Destination = cbbDes.Text,
+                    DepartureID = ((CBBSchedule)cbbDep.SelectedItem).Value,
+                    ArrivalID = ((CBBSchedule)cbbDes.SelectedItem).Value,
                     DepartureTime = daydep.Value,
                     ArrivalTime = daydes.Value,
 
@@ -68,7 +61,7 @@ namespace pbl.Admin
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
             cbbDes.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetStation(cbbDep.Text).Distinct())
+            foreach (string s in BLLTRAIN.Instance.GetStation(cbbDep.Text))
             {
                 cbbDes.Items.Add(s);
             }
@@ -76,7 +69,7 @@ namespace pbl.Admin
         private void cbbDes_TextChanged(object sender, EventArgs e)
         {
             cbbDep.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetStation(cbbDes.Text).Distinct())
+            foreach (string s in BLLTRAIN.Instance.GetStation(cbbDes.Text))
             {
                 cbbDep.Items.Add(s);
             }

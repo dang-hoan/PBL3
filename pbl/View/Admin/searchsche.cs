@@ -26,16 +26,9 @@ namespace pbl.View.Admin
         }
         public void cbb()
         {
-            List<string> list = new List<string>();
-            list = BLLTRAIN.Instance.Getstation();
-            foreach (string s in list)
-            {
-                cbbDep.Items.Add(s);
-            }
-            foreach (string s in list)
-            {
-                cbbDes.Items.Add(s);
-            }
+            cbbDep.Items.Add(BLLTRAIN.Instance.Getstation().ToArray());
+            cbbDes.Items.Add(BLLTRAIN.Instance.Getstation().ToArray());
+
         }
 
         private void bTOK_Click(object sender, EventArgs e)
@@ -73,7 +66,7 @@ namespace pbl.View.Admin
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
             cbbDes.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDestination(cbbDep.Text).Distinct())
+            foreach (string s in BLLTRAIN.Instance.GetDestination(cbbDep.Text))
             {
                 cbbDes.Items.Add(s);
             }
@@ -81,7 +74,7 @@ namespace pbl.View.Admin
         private void cbbDes_TextChanged(object sender, EventArgs e)
         {
             cbbDep.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDeparture(cbbDes.Text).Distinct())
+            foreach (string s in BLLTRAIN.Instance.GetDeparture(cbbDes.Text))
             {
                 cbbDep.Items.Add(s);
             }

@@ -14,10 +14,10 @@ namespace pbl
     
     public partial class LOGIN
     {
-        public int IDlogin { get; set; }
+        public int LoginID { get; set; }
         public string Username { get; set; }
         public string PassWord { get; set; }
-        public string State { get; set; }
+        public Nullable<bool> State { get; set; }
     
         public virtual PEOPLE Person { get; set; }
     }

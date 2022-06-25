@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUITicket));
             this.panel_Content = new System.Windows.Forms.Panel();
+            this.sortA = new System.Windows.Forms.PictureBox();
+            this.sortZ = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbbSort = new System.Windows.Forms.ComboBox();
             this.bShowAll = new System.Windows.Forms.Button();
             this.bSearch = new System.Windows.Forms.Button();
             this.pSave = new System.Windows.Forms.PictureBox();
@@ -38,16 +42,12 @@
             this.labelSchedule = new System.Windows.Forms.Label();
             this.pOption = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cbbSort = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.sortZ = new System.Windows.Forms.PictureBox();
-            this.sortA = new System.Windows.Forms.PictureBox();
             this.panel_Content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sortA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sortZ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sortZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sortA)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Content
@@ -69,6 +69,47 @@
             this.panel_Content.Name = "panel_Content";
             this.panel_Content.Size = new System.Drawing.Size(1093, 692);
             this.panel_Content.TabIndex = 0;
+            // 
+            // sortA
+            // 
+            this.sortA.Image = ((System.Drawing.Image)(resources.GetObject("sortA.Image")));
+            this.sortA.Location = new System.Drawing.Point(595, 43);
+            this.sortA.Name = "sortA";
+            this.sortA.Size = new System.Drawing.Size(45, 42);
+            this.sortA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.sortA.TabIndex = 64;
+            this.sortA.TabStop = false;
+            this.sortA.Click += new System.EventHandler(this.sortA_Click);
+            // 
+            // sortZ
+            // 
+            this.sortZ.Image = ((System.Drawing.Image)(resources.GetObject("sortZ.Image")));
+            this.sortZ.Location = new System.Drawing.Point(656, 43);
+            this.sortZ.Name = "sortZ";
+            this.sortZ.Size = new System.Drawing.Size(45, 42);
+            this.sortZ.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.sortZ.TabIndex = 63;
+            this.sortZ.TabStop = false;
+            this.sortZ.Click += new System.EventHandler(this.sortZ_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(456, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 20);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Thuộc tính sắp xếp";
+            // 
+            // cbbSort
+            // 
+            this.cbbSort.BackColor = System.Drawing.Color.White;
+            this.cbbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSort.FormattingEnabled = true;
+            this.cbbSort.Location = new System.Drawing.Point(459, 50);
+            this.cbbSort.Name = "cbbSort";
+            this.cbbSort.Size = new System.Drawing.Size(121, 28);
+            this.cbbSort.TabIndex = 61;
             // 
             // bShowAll
             // 
@@ -173,48 +214,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(980, 490);
             this.dataGridView1.TabIndex = 37;
             // 
-            // cbbSort
-            // 
-            this.cbbSort.BackColor = System.Drawing.Color.White;
-            this.cbbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbSort.FormattingEnabled = true;
-            this.cbbSort.Location = new System.Drawing.Point(459, 50);
-            this.cbbSort.Name = "cbbSort";
-            this.cbbSort.Size = new System.Drawing.Size(121, 28);
-            this.cbbSort.TabIndex = 61;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(456, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 20);
-            this.label1.TabIndex = 62;
-            this.label1.Text = "Thuộc tính sắp xếp";
-            // 
-            // sortZ
-            // 
-            this.sortZ.Image = ((System.Drawing.Image)(resources.GetObject("sortZ.Image")));
-            this.sortZ.Location = new System.Drawing.Point(656, 43);
-            this.sortZ.Name = "sortZ";
-            this.sortZ.Size = new System.Drawing.Size(45, 42);
-            this.sortZ.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.sortZ.TabIndex = 63;
-            this.sortZ.TabStop = false;
-            this.sortZ.Click += new System.EventHandler(this.sortZ_Click);
-            // 
-            // sortA
-            // 
-            this.sortA.Image = ((System.Drawing.Image)(resources.GetObject("sortA.Image")));
-            this.sortA.Location = new System.Drawing.Point(595, 43);
-            this.sortA.Name = "sortA";
-            this.sortA.Size = new System.Drawing.Size(45, 42);
-            this.sortA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.sortA.TabIndex = 64;
-            this.sortA.TabStop = false;
-            this.sortA.Click += new System.EventHandler(this.sortA_Click);
-            // 
             // GUITicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -225,11 +224,11 @@
             this.Text = "VÉ CÁ NHÂN";
             this.panel_Content.ResumeLayout(false);
             this.panel_Content.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sortA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sortZ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sortZ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sortA)).EndInit();
             this.ResumeLayout(false);
 
         }

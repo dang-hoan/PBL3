@@ -59,30 +59,34 @@ namespace pbl.BLL
         }
         public List<TICKET_View> getticketbylist(SCHEDULE_View schedule, bool book)
         {
-        
-            bool Dep = false, Des = false, booked = book;
-         
-            if (schedule.Departure == "") Dep = true;
-            if (schedule.Destination == "")Des = true;
-            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                         join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
 
-                         join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
-                         where ((Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination)) && tic.Booked.Equals(booked))
+            bool Dep = false, Des = false, booked = book;
+
+            if (schedule.Departure == "") Dep = true;
+            if (schedule.Destination == "") Des = true;
+            var result = from tic in db.TICKETs
+                         where ((Dep || tic.TRIP.SCHEDULE.STATION1.StationName.Equals(schedule.Departure)) && (Des || tic.TRIP.SCHEDULE.STATION.StationName.Equals(schedule.Destination)) && tic.Booked.Equals(booked))
                          //where      sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
+
+            //var result = from sch in db.SCHEDULEs.ToList()
+            //             join tra in db.TRAINs on sch.ScheduleID equals tri.TRAIN.ScheduleID
+
+            //             from tic in tri.TRAIN.TICKETs
+            //             where ((Dep || sch.Departure.Equals(schedule.Departure)) && (Des || sch.Destination.Equals(schedule.Destination)) && tic.Booked.Equals(booked))
+
 
                          select new TICKET_View
                          {
-                             ScheduleID = (int)tra.ScheduleID,
-                             TrainID = tra.TrainID,
-                             TrainName = tra.TrainName,
+                             ScheduleID = tic.TRIP.ScheduleID,
+                             TrainID = tic.TRIP.TrainID,
+                             TrainName = tic.TRIP.TRAIN.TrainName,
                              TicketID = tic.TicketID,
                              SeatNo = tic.SeatNo,
                              TicketPrice = (double)tic.TicketPrice,
-                             Departure = sch.Departure,
-                             Destination = sch.Destination,
-                             DepartureTime = sch.DepartureTime,
-                             ArrivalTime = sch.ArrivalTime,
+                             Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                             Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                             DepartureTime = tic.TRIP.SCHEDULE.DepartureTime,
+                             ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime,
                              Booked = (tic.Booked.Value) ?  "đã đặt": "chưa đặt" 
                          };
             return result.ToList();
@@ -127,21 +131,19 @@ namespace pbl.BLL
             List<TICKET_View> data = new List<TICKET_View>();
             foreach (TICKET i in Getticketbyticketid(ticketid))
             {
-                var s = from SCHEDULE sch in db.SCHEDULEs.ToList()
-                        join TRAIN tra in db.TRAINs on sch.ScheduleID equals tra.ScheduleID
-                        join TICKET tic in db.TICKETs on tra.TrainID equals tic.TrainID
+                var s = from tic in db.TICKETs
                         select new TICKET_View
                         {
-                            ScheduleID = (int)tra.ScheduleID,
-                            TrainID = tra.TrainID,
-                            TrainName = tra.TrainName,
+                            ScheduleID = tic.TRIP.ScheduleID,
+                            TrainID = tic.TRIP.TrainID,
+                            TrainName = tic.TRIP.TRAIN.TrainName,
                             TicketID = tic.TicketID,
                             SeatNo = tic.SeatNo,
                             TicketPrice = (double)tic.TicketPrice,
-                            Departure = sch.Departure,
-                            Destination = sch.Destination,
-                            DepartureTime = sch.DepartureTime,
-                            ArrivalTime = sch.ArrivalTime,
+                            Departure = tic.TRIP.SCHEDULE.STATION1.StationName,
+                            Destination = tic.TRIP.SCHEDULE.STATION.StationName,
+                            DepartureTime = tic.TRIP.SCHEDULE.DepartureTime,
+                            ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime,
                             Booked = ((bool)tic.Booked.Value) ? "đã đặt" : "chưa đặt",
                         };
         

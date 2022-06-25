@@ -61,23 +61,23 @@ namespace pbl.View
         }
         private void gettrainid(int trainid)
         {
-            if(txtschedule.Text != "") label2.Visible = false;
-            else label2.Visible = true;
-            foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(trainid))
-            {
-                txtschedule.Text = i.ScheduleID.ToString();
-                txttrainid.Text = i.TrainID.ToString();
-                txtname.Text = i.TrainName;
-                txtsotau.Text = i.NumberOfCarriages.ToString();
-                num = i.NumberOfCarriages;
-                giave = i.BasicPrice;
+            //if(txtschedule.Text != "") label2.Visible = false;
+            //else label2.Visible = true;
+            //foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(trainid))
+            //{
+            //    txtschedule.Text = i.ScheduleID.ToString();
+            //    txttrainid.Text = i.TrainID.ToString();
+            //    txtname.Text = i.TrainName;
+            //    txtsotau.Text = i.NumberOfCarriages.ToString();
+            //    num = i.NumberOfCarriages;
+            //    giave = i.BasicPrice;
              
-            }
-            for (int i = 1; i <= num; i++)
-            {
-                cbbmave.Items.Add(Convert.ToChar(i+64)).ToString();
+            //}
+            //for (int i = 1; i <= num; i++)
+            //{
+            //    cbbmave.Items.Add(Convert.ToChar(i+64)).ToString();
                 
-            }
+            //}
         }
 
         private void butthem_Click(object sender, EventArgs e)

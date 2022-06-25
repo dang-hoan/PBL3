@@ -46,7 +46,7 @@ namespace pbl
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             cbbQuestion.Items.Clear();
-            cbbQuestion.Items.AddRange(BLLTRAIN.Instance.GetQuestionSecurity2(txtUsername.Text).Distinct().ToArray());
+            cbbQuestion.Items.AddRange(BLLTRAIN.Instance.GetQuestionSecurity2(txtUsername.Text).ToArray());
             for(int i = 0; i < cbbQuestion.Items.Count; i++)
             {
                 cbbQuestion.Items[i] = i+1 + ". " + cbbQuestion.Items[i];

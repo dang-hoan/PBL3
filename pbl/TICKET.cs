@@ -14,14 +14,15 @@ namespace pbl
     
     public partial class TICKET
     {
+        public Nullable<int> ScheduleID { get; set; }
+        public Nullable<int> TrainID { get; set; }
         public int TicketID { get; set; }
-        public int TrainID { get; set; }
         public string SeatNo { get; set; }
         public decimal TicketPrice { get; set; }
         public Nullable<bool> Booked { get; set; }
         public string CustomerUN { get; set; }
     
         public virtual PEOPLE Person { get; set; }
-        public virtual TRAIN TRAIN { get; set; }
+        public virtual TRIP TRIP { get; set; }
     }
 }

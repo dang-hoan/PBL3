@@ -62,7 +62,7 @@ namespace pbl.BLL
         public void Execute(PEOPLE s)
         {
             s.PositionID = (from POSITION pos in db.POSITIONs
-                            where pos.Position.Equals("Nhân viên")
+                            where pos.Position.Equals("Khách hàng")
                             select pos.PositionID).FirstOrDefault();
             if (!check(s.Username))
             {

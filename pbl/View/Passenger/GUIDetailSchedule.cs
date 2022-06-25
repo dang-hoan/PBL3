@@ -38,11 +38,11 @@ namespace pbl
             List<string> listDep = new List<string>();
             List<string> listDes = new List<string>();
             BLLTRAIN.Instance.GetStation(GUILogin.userName, ref listDep, ref listDes);
-            foreach (string s in listDep.Distinct())
+            foreach (string s in listDep)
             {
                 cbbDep.Items.Add(s);
             }
-            foreach (string s in listDes.Distinct())
+            foreach (string s in listDes)
             {
                 cbbDes.Items.Add(s);
             }
@@ -51,7 +51,7 @@ namespace pbl
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
             cbbDes.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, cbbDep.Text).Distinct())
+            foreach (string s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, cbbDep.Text))
             {
                 cbbDes.Items.Add(s);
             }
@@ -60,7 +60,7 @@ namespace pbl
         private void cbbDes_TextChanged(object sender, EventArgs e)
         {
             cbbDep.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, cbbDes.Text).Distinct())
+            foreach (string s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, cbbDes.Text))
             {
                 cbbDep.Items.Add(s);
             }

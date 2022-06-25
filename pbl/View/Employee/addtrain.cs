@@ -35,9 +35,9 @@ namespace pbl.View
             {
                 schedule.Text = i.ScheduleID.ToString();
                 schedule.Enabled = false;
-                cbbDep.Text = i.Departure;
+                cbbDep.Text = i.STATION.StationName;
                 cbbDep.Enabled = false;
-                cbbDes.Text = i.Destination;
+                cbbDes.Text = i.STATION1.StationName;
                 cbbDes.Enabled = false;
             }
             List<string> name = new List<string>();
@@ -75,16 +75,21 @@ namespace pbl.View
             }
             else
             {
-                TRAIN s = new TRAIN
-                {
-                    ScheduleID = Convert.ToInt32(schedule.Text),
-                    TrainName = txtname.Text,
-                    NumberOfCarriages = int.Parse(txtsotoa.Text),
-                    DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
-                    BasicPrice = decimal.Parse(txtgiagoc.Text),
-                    State = "Hoạt động"
-                };
-                BLLTRAIN.Instance.Executetrain(s);
+                //TRIP s = new TRIP
+                //{
+                //    ScheduleID = Convert.ToInt32(schedule.Text),
+                //    TrainID = Convert.ToInt32(txtname.Text),
+                //}
+                //TRAIN s = new TRAIN
+                //{
+                //    ScheduleID = Convert.ToInt32(schedule.Text),
+                //    TrainName = txtname.Text,
+                //    NumberOfCarriages = int.Parse(txtsotoa.Text),
+                //    DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
+                //    BasicPrice = decimal.Parse(txtgiagoc.Text),
+                //    State = "Hoạt động"
+                //};
+                //BLLTRAIN.Instance.Executetrain(s);
                 d();
                 this.Close();
             }
@@ -97,8 +102,8 @@ namespace pbl.View
             foreach (SCHEDULE i in BLLTRAIN.Instance.GetScheduleid(scheduleid))
             {
                 schedule.Text = i.ScheduleID.ToString();
-                cbbDep.Text = i.Departure;
-                cbbDes.Text = i.Destination;
+                cbbDep.Text = i.STATION.StationName;
+                cbbDes.Text = i.STATION1.StationName;
             }
         }
 

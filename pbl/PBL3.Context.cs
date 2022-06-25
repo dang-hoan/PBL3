@@ -13,7 +13,7 @@ namespace pbl
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PBL3: DbContext
+    public partial class PBL3 : DbContext
     {
         public PBL3()
             : base("name=PBL3-Hoan")
@@ -26,13 +26,14 @@ namespace pbl
         }
     
         public virtual DbSet<LOGIN> LOGINs { get; set; }
+        public virtual DbSet<NOTICE> NOTICEs { get; set; }
         public virtual DbSet<PEOPLE> PEOPLE { get; set; }
         public virtual DbSet<POSITION> POSITIONs { get; set; }
         public virtual DbSet<SCHEDULE> SCHEDULEs { get; set; }
         public virtual DbSet<SECURITY> SECURITies { get; set; }
         public virtual DbSet<STATION> STATIONs { get; set; }
         public virtual DbSet<TICKET> TICKETs { get; set; }
-        public virtual DbSet<TICKET_MANAGER> TICKET_MANAGER { get; set; }
         public virtual DbSet<TRAIN> TRAINs { get; set; }
+        public virtual DbSet<TRIP> TRIPs { get; set; }
     }
 }

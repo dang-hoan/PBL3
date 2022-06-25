@@ -32,11 +32,11 @@ namespace pbl
             List<string> listDep = new List<string>();
             List<string> listDes = new List<string>();
             BLLTRAIN.Instance.GetStation(GUILogin.userName, ref listDep, ref listDes);
-            foreach (string str in listDep.Distinct())
+            foreach (string str in listDep)
             {
                 cbbDep.Items.Add(str);
             }
-            foreach (string str in listDes.Distinct())
+            foreach (string str in listDes)
             {
                 cbbDes.Items.Add(str);
             }
@@ -113,7 +113,7 @@ namespace pbl
             //cbbDep.Items.Clear();
             //cbbDep.Items.AddRange(BLLTRAIN.Instance.GetDeparture2(GUILogin.userName, cbbDep.Text).Distinct().ToArray());
             cbbDes.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, cbbDep.Text).Distinct())
+            foreach (string s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, cbbDep.Text))
             {
                 cbbDes.Items.Add(s);
             }
@@ -124,7 +124,7 @@ namespace pbl
             //cbbDes.Items.Clear();
             //cbbDes.Items.AddRange(BLLTRAIN.Instance.GetDestination2(GUILogin.userName, cbbDes.Text).Distinct().ToArray());
             cbbDep.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, cbbDes.Text).Distinct())
+            foreach (string s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, cbbDes.Text))
             {
                 cbbDep.Items.Add(s);
             }

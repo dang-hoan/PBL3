@@ -12,23 +12,23 @@ namespace pbl
     using System;
     using System.Collections.Generic;
     
-    public partial class SCHEDULE
+    public partial class TRIP
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SCHEDULE()
+        public TRIP()
         {
-            this.TRIPs = new HashSet<TRIP>();
+            this.TICKETs = new HashSet<TICKET>();
         }
     
         public int ScheduleID { get; set; }
-        public Nullable<int> DepartureID { get; set; }
-        public Nullable<int> ArrivalID { get; set; }
-        public System.DateTime DepartureTime { get; set; }
-        public System.DateTime ArrivalTime { get; set; }
+        public int TrainID { get; set; }
+        public decimal BasicPrice { get; set; }
+        public string DriverUN { get; set; }
     
-        public virtual STATION STATION { get; set; }
-        public virtual STATION STATION1 { get; set; }
+        public virtual PEOPLE Person { get; set; }
+        public virtual SCHEDULE SCHEDULE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TRIP> TRIPs { get; set; }
+        public virtual ICollection<TICKET> TICKETs { get; set; }
+        public virtual TRAIN TRAIN { get; set; }
     }
 }

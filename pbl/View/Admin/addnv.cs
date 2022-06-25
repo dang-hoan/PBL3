@@ -171,7 +171,7 @@ namespace pbl.View.Admin
                 };
                 LOGIN l = new LOGIN()
                 {
-                    State = "Đang làm",
+                    State = true,
                     PassWord = txtpass.Text,
                     Username = txtusername.Text,
                 };

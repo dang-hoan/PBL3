@@ -12,13 +12,10 @@ namespace pbl
     using System;
     using System.Collections.Generic;
     
-    public partial class TICKET_MANAGER
+    public partial class NOTICE
     {
-        public int TicketManagerID { get; set; }
-        public int TrainID { get; set; }
-        public int TotalTickets { get; set; }
-        public int BookedTickets { get; set; }
-    
-        public virtual TRAIN TRAIN { get; set; }
+        public int NoticeID { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
     }
 }

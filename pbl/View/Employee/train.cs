@@ -30,11 +30,11 @@ namespace pbl.View
             List<string> listDep = new List<string>();
             List<string> listDes = new List<string>();
             BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
-            foreach (string s in listDep.Distinct())
+            foreach (string s in listDep)
             {
                 cbbDep.Items.Add(s);
             }
-            foreach (string s in listDes.Distinct())
+            foreach (string s in listDes)
             {
                 cbbDes.Items.Add(s);
             }
