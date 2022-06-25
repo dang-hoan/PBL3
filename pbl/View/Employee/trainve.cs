@@ -15,7 +15,7 @@ namespace pbl.View
 {
     public partial class trainve : Form
     {
-        public  delegate void mydel(int scheduleid );
+        public  delegate void mydel(int scheduleid, int trainid);
         public mydel d;
         public trainve()
         {

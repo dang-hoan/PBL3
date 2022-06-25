@@ -37,7 +37,7 @@ namespace pbl
         private void Init()
         {
             cbbTrain.Items.Add("Tất cả");
-            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(GUILogin.userName).Distinct().ToArray());
+            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(GUILogin.userName).ToArray());
             cbbSort.Items.AddRange(new string[]
             {
                 "Mã lịch trình", "Mã tàu", "Tên tàu", "Mã vé", "Số ghế", "Giá vé"
@@ -56,7 +56,7 @@ namespace pbl
 
             cbbTrain.Items.Clear();
             cbbTrain.Items.Add("Tất cả");
-            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(schedule, GUILogin.userName).Distinct().ToArray());
+            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(schedule, GUILogin.userName).ToArray());
         }
         private void bCancel_Click(object sender, EventArgs e)
         {
@@ -103,7 +103,7 @@ namespace pbl
         public int[] numberChar = new int[10] { 17, 10, 25, 13, 14, 25, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Vé cá nhân", this);
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Vé cá nhân");
         }
 
         private void sortA_Click(object sender, EventArgs e)

@@ -29,16 +29,16 @@ namespace pbl
         {
             cbbDep.Text = s.Departure;
             cbbDes.Text = s.Destination;
-            List<string> listDep = new List<string>();
-            List<string> listDes = new List<string>();
+            List<CBBSchedule> listDep = new List<CBBSchedule>();
+            List<CBBSchedule> listDes = new List<CBBSchedule>();
             BLLTRAIN.Instance.GetStation(GUILogin.userName, ref listDep, ref listDes);
-            foreach (string str in listDep)
+            foreach (CBBSchedule sch in listDep)
             {
-                cbbDep.Items.Add(str);
+                cbbDep.Items.Add(sch);
             }
-            foreach (string str in listDes)
+            foreach (CBBSchedule sch in listDes)
             {
-                cbbDes.Items.Add(str);
+                cbbDes.Items.Add(sch);
             }
 
             //Khởi tạo thuộc tính DateTimePicker dateDep và dateDes
@@ -113,10 +113,9 @@ namespace pbl
             //cbbDep.Items.Clear();
             //cbbDep.Items.AddRange(BLLTRAIN.Instance.GetDeparture2(GUILogin.userName, cbbDep.Text).Distinct().ToArray());
             cbbDes.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, cbbDep.Text))
-            {
+            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, rep))
                 cbbDes.Items.Add(s);
-            }
         }
 
         private void cbbDes_TextChanged(object sender, EventArgs e)
@@ -124,7 +123,8 @@ namespace pbl
             //cbbDes.Items.Clear();
             //cbbDes.Items.AddRange(BLLTRAIN.Instance.GetDestination2(GUILogin.userName, cbbDes.Text).Distinct().ToArray());
             cbbDep.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, cbbDes.Text))
+            int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, rep))
             {
                 cbbDep.Items.Add(s);
             }

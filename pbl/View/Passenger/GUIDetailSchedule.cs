@@ -35,14 +35,14 @@ namespace pbl
             dateFromDes.Value = DateTime.Now;
             dateToDes.Size = new Size(150, 28);
             dateToDes.Value = DateTime.Now;
-            List<string> listDep = new List<string>();
-            List<string> listDes = new List<string>();
+            List<CBBSchedule> listDep = new List<CBBSchedule>();
+            List<CBBSchedule> listDes = new List<CBBSchedule>();
             BLLTRAIN.Instance.GetStation(GUILogin.userName, ref listDep, ref listDes);
-            foreach (string s in listDep)
+            foreach (CBBSchedule s in listDep)
             {
                 cbbDep.Items.Add(s);
             }
-            foreach (string s in listDes)
+            foreach (CBBSchedule s in listDes)
             {
                 cbbDes.Items.Add(s);
             }
@@ -50,19 +50,23 @@ namespace pbl
 
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
-            cbbDes.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, cbbDep.Text))
+            if (cbbDep.SelectedItem != null)
             {
-                cbbDes.Items.Add(s);
+                cbbDes.Items.Clear();
+                int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
+                foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, rep))
+                    cbbDes.Items.Add(s);
             }
         }
 
         private void cbbDes_TextChanged(object sender, EventArgs e)
         {
-            cbbDep.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, cbbDes.Text))
+            if (cbbDes.SelectedItem != null)
             {
-                cbbDep.Items.Add(s);
+                cbbDep.Items.Clear();
+                int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
+                foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, rep))
+                    cbbDep.Items.Add(s);
             }
         }
 
@@ -118,7 +122,7 @@ namespace pbl
         public int[] numberChar = new int[5] { 17, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Lịch trình cá nhân", this);
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Lịch trình cá nhân");
         }
     }
 }

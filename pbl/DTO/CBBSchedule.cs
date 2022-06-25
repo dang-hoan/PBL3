@@ -9,7 +9,7 @@ namespace pbl.DTO
 {
     public class CBBSchedule
     {
-        public int Value { get; set; }
+        public int? Value { get; set; } = -1;
         public string Text { get; set; }
         public override string ToString()
         {

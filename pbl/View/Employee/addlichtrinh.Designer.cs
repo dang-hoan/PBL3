@@ -134,6 +134,7 @@
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(284, 28);
             this.cbbDes.TabIndex = 20;
+            this.cbbDes.TextChanged += new System.EventHandler(this.cbbDes_TextChanged);
             // 
             // cbbDep
             // 
@@ -143,6 +144,7 @@
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(284, 28);
             this.cbbDep.TabIndex = 19;
+            this.cbbDep.TextChanged += new System.EventHandler(this.cbbDep_TextChanged);
             // 
             // button1
             // 

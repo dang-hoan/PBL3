@@ -17,14 +17,16 @@ namespace pbl.View
 
         public delegate void mydel();
         public mydel d;
+        int malichtrinh { get; set; }
         int matau { get; set; }
         string vitri { get; set; }
         string trangthai { get; set; }
 
 
-        public datve(int trainid, string seatno,string s)
+        public datve(int scheduleid, int trainid, string seatno,string s)
         {
             InitializeComponent();
+            malichtrinh = scheduleid;
             matau = trainid;
             vitri = seatno;
             trangthai = s;
@@ -70,6 +72,7 @@ namespace pbl.View
             }
             TICKET tic = new TICKET
             {
+                ScheduleID = malichtrinh,
                 TrainID = matau,
                 SeatNo = vitri,
                 CustomerUN = txtidcard.Text,

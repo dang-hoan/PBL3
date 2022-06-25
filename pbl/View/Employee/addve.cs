@@ -35,7 +35,7 @@ namespace pbl.View
         }
         public void intit()
         {
-            gettrainid(trainid);
+            gettrainid(Convert.ToInt32(txtschedule.Text), trainid);
             //foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(int.Parse(trainid)))
             //{
             //    txttrainid.Text = i.TrainID.ToString();
@@ -59,11 +59,11 @@ namespace pbl.View
           
 
         }
-        private void gettrainid(int trainid)
+        private void gettrainid(int scheduleid, int trainid)
         {
             //if(txtschedule.Text != "") label2.Visible = false;
             //else label2.Visible = true;
-            //foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(trainid))
+            //foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(scheduleid, trainid))
             //{
             //    txtschedule.Text = i.ScheduleID.ToString();
             //    txttrainid.Text = i.TrainID.ToString();

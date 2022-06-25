@@ -11,8 +11,8 @@ namespace pbl.DTO
         public int Malichtrinh { get; set; }
         public int Matau { get; set; }
         public string Tentau { get; set; }
-        public string Noiden { get; set; }
         public string Noidi { get; set; }
+        public string Noiden { get; set; }
         public string Nguoilaitau { get; set; }
         public int Sotoa { get; set; }
         public string thoigiandi { get; set; }

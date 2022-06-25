@@ -29,79 +29,79 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(note));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbnd1 = new System.Windows.Forms.Label();
+            this.ltd1 = new System.Windows.Forms.Label();
+            this.lbtd2 = new System.Windows.Forms.Label();
+            this.lbnd3 = new System.Windows.Forms.Label();
+            this.lbtd3 = new System.Windows.Forms.Label();
+            this.lbnd2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lbnd1
             // 
-            this.label1.Location = new System.Drawing.Point(35, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(994, 59);
-            this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
+            this.lbnd1.Location = new System.Drawing.Point(18, 40);
+            this.lbnd1.Name = "lbnd1";
+            this.lbnd1.Size = new System.Drawing.Size(994, 119);
+            this.lbnd1.TabIndex = 0;
+            this.lbnd1.Text = resources.GetString("lbnd1.Text");
             // 
-            // label2
+            // ltd1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Thông báo 1 ";
+            this.ltd1.AutoSize = true;
+            this.ltd1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ltd1.Location = new System.Drawing.Point(18, 9);
+            this.ltd1.Name = "ltd1";
+            this.ltd1.Size = new System.Drawing.Size(107, 18);
+            this.ltd1.TabIndex = 1;
+            this.ltd1.Text = "Thông báo 1 ";
             // 
-            // label3
+            // lbtd2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 98);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 18);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Thông báo 2 ";
+            this.lbtd2.AutoSize = true;
+            this.lbtd2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtd2.Location = new System.Drawing.Point(18, 167);
+            this.lbtd2.Name = "lbtd2";
+            this.lbtd2.Size = new System.Drawing.Size(107, 18);
+            this.lbtd2.TabIndex = 3;
+            this.lbtd2.Text = "Thông báo 2 ";
             // 
-            // label4
+            // lbnd3
             // 
-            this.label4.Location = new System.Drawing.Point(35, 234);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(994, 59);
-            this.label4.TabIndex = 2;
-            this.label4.Text = resources.GetString("label4.Text");
+            this.lbnd3.Location = new System.Drawing.Point(18, 394);
+            this.lbnd3.Name = "lbnd3";
+            this.lbnd3.Size = new System.Drawing.Size(994, 142);
+            this.lbnd3.TabIndex = 2;
+            this.lbnd3.Text = resources.GetString("lbnd3.Text");
             // 
-            // label5
+            // lbtd3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 197);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 18);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Thông báo 3";
+            this.lbtd3.AutoSize = true;
+            this.lbtd3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtd3.Location = new System.Drawing.Point(23, 361);
+            this.lbtd3.Name = "lbtd3";
+            this.lbtd3.Size = new System.Drawing.Size(102, 18);
+            this.lbtd3.TabIndex = 5;
+            this.lbtd3.Text = "Thông báo 3";
             // 
-            // label6
+            // lbnd2
             // 
-            this.label6.Location = new System.Drawing.Point(35, 138);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(994, 59);
-            this.label6.TabIndex = 4;
-            this.label6.Text = resources.GetString("label6.Text");
+            this.lbnd2.Location = new System.Drawing.Point(18, 205);
+            this.lbnd2.Name = "lbnd2";
+            this.lbnd2.Size = new System.Drawing.Size(994, 132);
+            this.lbnd2.TabIndex = 4;
+            this.lbnd2.Text = resources.GetString("lbnd2.Text");
             // 
             // note
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 328);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1066, 568);
+            this.Controls.Add(this.lbtd3);
+            this.Controls.Add(this.lbnd2);
+            this.Controls.Add(this.lbtd2);
+            this.Controls.Add(this.lbnd3);
+            this.Controls.Add(this.ltd1);
+            this.Controls.Add(this.lbnd1);
             this.Name = "note";
             this.Text = "note";
             this.ResumeLayout(false);
@@ -111,11 +111,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbnd1;
+        private System.Windows.Forms.Label ltd1;
+        private System.Windows.Forms.Label lbtd2;
+        private System.Windows.Forms.Label lbnd3;
+        private System.Windows.Forms.Label lbtd3;
+        private System.Windows.Forms.Label lbnd2;
     }
 }

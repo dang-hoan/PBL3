@@ -33,17 +33,11 @@ namespace pbl
         }
         private void Init()
         {
-            List<string> listDep = new List<string>();
-            List<string> listDes = new List<string>();
+            List<CBBSchedule> listDep = new List<CBBSchedule>();
+            List<CBBSchedule> listDes = new List<CBBSchedule>();
             BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
-            foreach (string s in listDep)
-            {
-                cbbDep.Items.Add(s);
-            }
-            foreach (string s in listDes)
-            {
-                cbbDes.Items.Add(s);
-            }
+            foreach (CBBSchedule s in listDep) cbbDep.Items.Add(s);
+            foreach (CBBSchedule s in listDes) cbbDes.Items.Add(s);
         }
         private void bBook_Click(object sender, EventArgs e)
         {
@@ -109,7 +103,8 @@ namespace pbl
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
             cbbDes.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDestination(cbbDep.Text))
+            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(rep))
             {
                 cbbDes.Items.Add(s);
             }
@@ -117,7 +112,8 @@ namespace pbl
         private void cbbDes_TextChanged(object sender, EventArgs e)
         {
             cbbDep.Items.Clear();
-            foreach (string s in BLLTRAIN.Instance.GetDeparture(cbbDes.Text))
+            int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture(rep))
             {
                 cbbDep.Items.Add(s);
             }
@@ -141,7 +137,7 @@ namespace pbl
         public int[] numberChar = new int[5] { 17, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Lịch trình hệ thống", this);
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Lịch trình hệ thống");
         }
     }
 }

@@ -26,27 +26,19 @@ namespace pbl.View
         }
         public void GUI()
         {
-            List<string> listDep = new List<string>();
-            List<string> listDes = new List<string>();
-            BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
-            foreach (string s in listDep)
-            {
-                cbbDep.Items.Add(s);
-            }
-            foreach (string s in listDes)
-            {
-                cbbDes.Items.Add(s);
-            }
-            if(scheduleid !="")
-            {
-               foreach(SCHEDULE p in BLLTRAIN.Instance.GetScheduleid(Convert.ToInt32(scheduleid)))
-                {
-                    cbbDep.Text = p.Departure;
-                    cbbDep.Enabled = false;
-                    cbbDes.Text = p.Destination;
-                    cbbDes.Enabled = false;
-                } ;
-            }    
+            cbbDep.Items.AddRange(BLLTRAIN.Instance.Getstation().ToArray());
+            cbbDes.Items.AddRange(BLLTRAIN.Instance.Getstation().ToArray());
+            //K hiểu
+            //if(scheduleid !="")
+            //{
+            //   foreach(SCHEDULE p in BLLTRAIN.Instance.GetScheduleid(Convert.ToInt32(scheduleid)))
+            //    {
+            //        cbbDep.Text = p.STATION1.StationName.ToString();
+            //        cbbDep.Enabled = false;
+            //        cbbDes.Text = p.STATION.StationName.ToString();
+            //        cbbDes.Enabled = false;
+            //    } ;
+            //}    
         }
 
         private void bTOK_Click(object sender, EventArgs e)
@@ -69,8 +61,8 @@ namespace pbl.View
                     SCHEDULE s = new SCHEDULE
                     {
                         ScheduleID = -1,
-                        Departure = cbbDep.Text,
-                        Destination = cbbDes.Text,
+                        DepartureID = ((CBBSchedule)cbbDep.SelectedItem).Value,
+                        ArrivalID = ((CBBSchedule)cbbDes.SelectedItem).Value,
                         DepartureTime = daydep.Value,
                         ArrivalTime = daydes.Value,
 
@@ -92,6 +84,20 @@ namespace pbl.View
         private void hourdep_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbbDep_TextChanged(object sender, EventArgs e)
+        {
+            cbbDes.Items.Clear();
+            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
+            cbbDes.Items.AddRange(BLLTRAIN.Instance.GetAllStation(rep).ToArray());
+        }
+
+        private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+            cbbDep.Items.Clear();
+            int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
+            cbbDep.Items.AddRange(BLLTRAIN.Instance.GetAllStation(rep).ToArray());
         }
     }
 }

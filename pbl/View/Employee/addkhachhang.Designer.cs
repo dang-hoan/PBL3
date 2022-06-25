@@ -30,6 +30,7 @@
         {
             this.butok = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labBirthDay = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.labBirthDay = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +105,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
             // 
+            // labBirthDay
+            // 
+            this.labBirthDay.AutoSize = true;
+            this.labBirthDay.ForeColor = System.Drawing.Color.Red;
+            this.labBirthDay.Location = new System.Drawing.Point(136, 197);
+            this.labBirthDay.Name = "labBirthDay";
+            this.labBirthDay.Size = new System.Drawing.Size(0, 20);
+            this.labBirthDay.TabIndex = 28;
+            // 
             // txtname
             // 
             this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -152,12 +161,13 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.ForeColor = System.Drawing.Color.Red;
             this.label9.ImageKey = "(none)";
             this.label9.Location = new System.Drawing.Point(606, 83);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 20);
+            this.label9.Size = new System.Drawing.Size(77, 20);
             this.label9.TabIndex = 22;
-            this.label9.Text = "label9";
+            this.label9.Text = "*bắt buộc";
             // 
             // txtidcard
             // 
@@ -397,15 +407,6 @@
             this.label10.Size = new System.Drawing.Size(99, 25);
             this.label10.TabIndex = 18;
             this.label10.Text = "Mật khẩu:";
-            // 
-            // labBirthDay
-            // 
-            this.labBirthDay.AutoSize = true;
-            this.labBirthDay.ForeColor = System.Drawing.Color.Red;
-            this.labBirthDay.Location = new System.Drawing.Point(136, 197);
-            this.labBirthDay.Name = "labBirthDay";
-            this.labBirthDay.Size = new System.Drawing.Size(0, 20);
-            this.labBirthDay.TabIndex = 28;
             // 
             // addkhachhang
             // 

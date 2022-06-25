@@ -24,17 +24,11 @@ namespace pbl.View
 
         public void gui()
         {
-            List<string> listDep = new List<string>();
-            List<string> listDes = new List<string>();
+            List<CBBSchedule> listDep = new List<CBBSchedule>();
+            List<CBBSchedule> listDes = new List<CBBSchedule>();
             BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
-            foreach (string s in listDep.Distinct())
-            {
-                cbbDep.Items.Add(s);
-            }
-            foreach (string s in listDes.Distinct())
-            {
-                cbbDes.Items.Add(s);
-            }
+            foreach (CBBSchedule s in listDep) cbbDep.Items.Add(s);
+            foreach (CBBSchedule s in listDes) cbbDes.Items.Add(s);
             dateFromDep.Enabled = false;
             dateFromDes.Enabled = false;
             dateToDep.Enabled = false;
@@ -125,9 +119,9 @@ namespace pbl.View
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-
+                int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Malichtrinh"].Value.ToString());
                 int trainid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Matau"].Value.ToString());
-                bookve f = new bookve(trainid,"xem");
+                bookve f = new bookve(scheduleid, trainid,"xem");
                 f.Show();
                 f.d = new bookve.Mydel(show2);
             }   
@@ -140,8 +134,9 @@ namespace pbl.View
             {
                 if (dataGridView1.SelectedRows[0].Cells["Trangthai"].Value.ToString() == "Hoạt động")
                 {
+                    int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Malichtrinh"].Value.ToString());
                     int trainid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Matau"].Value.ToString());
-                    bookve f = new bookve(trainid,"mua");
+                    bookve f = new bookve(scheduleid,trainid,"mua");
                     f.Show();
                     f.d = new bookve.Mydel(show2);
                 }
@@ -149,6 +144,26 @@ namespace pbl.View
                 {
                     MessageBox.Show(" Tàu đã ngừng hoạt động!");
                 }
+            }
+        }
+
+        private void cbbDep_TextChanged(object sender, EventArgs e)
+        {
+            cbbDes.Items.Clear();
+            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(rep))
+            {
+                cbbDes.Items.Add(s);
+            }
+        }
+
+        private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+            cbbDep.Items.Clear();
+            int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture(rep))
+            {
+                cbbDep.Items.Add(s);
             }
         }
     }

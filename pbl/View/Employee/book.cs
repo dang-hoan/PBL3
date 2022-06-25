@@ -16,16 +16,17 @@ namespace pbl.View
     {
         public delegate void Mydel(string s);
         public Mydel d { get; set; }
-        public int trainid = -1; 
+        public int trainid = -1, scheduleid = -1; 
         public string trangthai ="";
         int num;
         decimal? giave;
         Label[] label = new Label[31];
         HandlerMyInterfaces handler2 = new HandlerMyInterfaces(Color.FromArgb(0, 192, 0), Color.FromArgb(0, 170, 0), Color.Green);
-        public bookve(int s, string k)
+        public bookve(int s, int t, string k)
         {
             InitializeComponent();
-            trainid = s;
+            scheduleid = s;
+            trainid = t;
             trangthai = k;
             MessageBox.Show(trangthai);
             intit();
@@ -45,7 +46,7 @@ namespace pbl.View
             txtdes.Enabled = false;
             timedep.Enabled = false;
             timedes.Enabled = false;
-            gettrainid(trainid);
+            gettrainid(scheduleid, trainid);
 
         }
       
@@ -124,16 +125,15 @@ namespace pbl.View
                 }    
             }
         }
-        private void gettrainid(int trainid)
+        private void gettrainid(int scheduleid, int trainid)
         {
             int s=-1;
-            foreach (TRAIN i in BLLTRAIN.Instance.trainaddve(trainid))
+            foreach (TRIP i in BLLTRAIN.Instance.GetTrip(scheduleid, trainid))
             {
-                txtnametrain.Text = i.TrainName;
-                num = i.NumberOfCarriages;
+                txtnametrain.Text = i.TRAIN.TrainName;
+                num = i.TRAIN.NumberOfCarriages;
                 giave = i.BasicPrice;
                 txtgiave.Text=giave.ToString();
-                txtnametrain.Text = i.TrainName;
                 foreach(CBBItem k in BLLpeople.instance.GetCBBname())
                 {
                   if(k.Value == i.DriverUN)
@@ -145,8 +145,8 @@ namespace pbl.View
             }
             foreach(SCHEDULE sch in BLLTRAIN.Instance.GetScheduleid(s))
             {
-                txtdep.Text = sch.Departure;
-                txtdes.Text = sch.Destination;
+                txtdep.Text = sch.STATION1.StationName;
+                txtdes.Text = sch.STATION.StationName;
                 timedep.Text = sch.DepartureTime.ToString();
                 timedes.Text = sch.ArrivalTime.ToString();
             }    
@@ -169,12 +169,12 @@ namespace pbl.View
            string seatno = cbbmave.Text+ghe;
             if (trangthai == "mua")
             {
-                datve f = new datve(trainid, seatno,"");
+                datve f = new datve(scheduleid, trainid, seatno,"");
                 f.Show();
             }
             if (trangthai == "xem")
             {
-                datve f = new datve(trainid, seatno,"xem");
+                datve f = new datve(scheduleid, trainid, seatno,"xem");
                 f.Show();
             }
 

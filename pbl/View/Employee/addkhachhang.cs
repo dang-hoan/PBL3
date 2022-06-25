@@ -60,6 +60,16 @@ namespace pbl.View
                 MessageBox.Show("Bạn nhập thông tin ngày sinh chưa đúng yêu cầu!");
                 return;
             }
+            if(txtsdt.Text.Length > 9 || txtsdt.Text.Length < 9)
+            {
+                MessageBox.Show("Số điện thoại phải có 9 chữ số (không tính số 0 ở đầu)!");
+                return;
+            }
+            if(txtidcard.Text.Length > 12 || txtidcard.Text.Length < 12)
+            {
+                MessageBox.Show("Số CCCD phải có 12 chữ số!");
+                return;
+            }
             if ((txtidcard.Text == "") || (txtname.Text == "") || (txtsdt.Text == "") || (txtuser.Text == ""))
             {
                 MessageBox.Show("bạn chưa nhập đủ dữ liệu bắt buộc ");
@@ -143,17 +153,24 @@ namespace pbl.View
         {
             if (txtidcard.Text.Length != 12)
             {
-                label9.Text = "nhap chua du 12 chu so ";
+                label9.Text = "Nhập chưa đúng 12 chữ số";
             }
             else
             {
-                label9.Text = "nhap da du  12 chu so ";
+                label9.Text = "Đã đủ 12 chữ số";
             }
         }
 
         private void txtsdt_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtsdt.Text.Length != 9)
+            {
+                label11.Text = "Nhập chưa đúng 9 chữ số";
+            }
+            else
+            {
+                label11.Text = "Đã đủ 9 chữ số";
+            }
         }
 
 

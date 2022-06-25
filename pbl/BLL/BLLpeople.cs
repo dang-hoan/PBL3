@@ -45,6 +45,37 @@ namespace pbl.BLL
             }
             return false;
         }
+        public void Getnvbyuser(string username)
+        {
+
+            PEOPLE pb = db.PEOPLE.Find(username);
+            POSITION posi = new POSITION();
+
+
+            MessageBox.Show("HỌ VÀ TÊN : " + pb.Name + "\n"
+                + "ĐỊA CHỈ : " + pb.Address + "\n"
+                + "EMAIL : " + pb.Email + "\n"
+                + "SĐT : " + pb.Phone + "\n"
+                + "IDCARD : " + pb.IDCard + "\n",
+                // + "POSITION : " + posi.Position + "\n",
+                "Thông tin nguười dùng ");
+        }
+        public List<tkten_view> searchtennv(string ten)
+
+        {
+            List<tkten_view> list = new List<tkten_view>();
+            int id = Getpidnv();
+            int id1 = Getpidkh();
+            var result = from p in db.PEOPLE.ToList()
+                         where p.Name.Contains(ten) && (p.PositionID == id || p.PositionID == id1)
+                         select new tkten_view
+                         {
+                             Username = p.Username,
+                             Name = p.Name
+                         };
+
+            return result.ToList();
+        }
         public int Getpidnv()
         {
             var p = (from pos in db.POSITIONs
@@ -61,7 +92,7 @@ namespace pbl.BLL
         }
         public void Execute(PEOPLE s)
         {
-            s.PositionID = (from POSITION pos in db.POSITIONs
+            s.PositionID = (from pos in db.POSITIONs
                             where pos.Position.Equals("Khách hàng")
                             select pos.PositionID).FirstOrDefault();
             if (!check(s.Username))
@@ -135,8 +166,6 @@ namespace pbl.BLL
             return dn.ToList();
 
         }
-
-
 
         public List<CBBItem> GetCBBs(string txt)
         {
