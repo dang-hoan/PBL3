@@ -19,7 +19,8 @@ namespace pbl.View.Admin
         {
             InitializeComponent();
             this.login = login;
-            
+            this.Size = new Size(1018, 540);
+            this.StartPosition = FormStartPosition.CenterScreen;
             
             ShowForm(new note());
         }
@@ -145,6 +146,11 @@ namespace pbl.View.Admin
 
             BLLpeople.instance.Getnvbyuser(Username);
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ShowForm(new Notice());
         }
     }
 }

@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbbmonth = new System.Windows.Forms.ComboBox();
             this.cbbyear = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pPrint = new System.Windows.Forms.Button();
             this.btdoanhthu = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,52 +59,56 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(241, 35);
+            this.label1.Location = new System.Drawing.Point(271, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 16);
+            this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tháng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(488, 35);
+            this.label2.Location = new System.Drawing.Point(549, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 16);
+            this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Năm";
             // 
             // cbbmonth
             // 
             this.cbbmonth.FormattingEnabled = true;
-            this.cbbmonth.Location = new System.Drawing.Point(293, 27);
+            this.cbbmonth.Location = new System.Drawing.Point(330, 34);
+            this.cbbmonth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbmonth.Name = "cbbmonth";
-            this.cbbmonth.Size = new System.Drawing.Size(139, 24);
+            this.cbbmonth.Size = new System.Drawing.Size(156, 28);
             this.cbbmonth.TabIndex = 2;
             // 
             // cbbyear
             // 
             this.cbbyear.FormattingEnabled = true;
-            this.cbbyear.Location = new System.Drawing.Point(542, 27);
+            this.cbbyear.Location = new System.Drawing.Point(610, 34);
+            this.cbbyear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbyear.Name = "cbbyear";
-            this.cbbyear.Size = new System.Drawing.Size(139, 24);
+            this.cbbyear.Size = new System.Drawing.Size(156, 28);
             this.cbbyear.TabIndex = 3;
             // 
-            // button1
+            // pPrint
             // 
-            this.button1.Location = new System.Drawing.Point(1129, 365);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 39);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "In báo cáo";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pPrint.Location = new System.Drawing.Point(1270, 456);
+            this.pPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pPrint.Name = "pPrint";
+            this.pPrint.Size = new System.Drawing.Size(159, 49);
+            this.pPrint.TabIndex = 5;
+            this.pPrint.Text = "In báo cáo";
+            this.pPrint.UseVisualStyleBackColor = true;
+            this.pPrint.Click += new System.EventHandler(this.button1_Click);
             // 
             // btdoanhthu
             // 
-            this.btdoanhthu.Location = new System.Drawing.Point(744, 27);
+            this.btdoanhthu.Location = new System.Drawing.Point(837, 34);
+            this.btdoanhthu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btdoanhthu.Name = "btdoanhthu";
-            this.btdoanhthu.Size = new System.Drawing.Size(92, 32);
+            this.btdoanhthu.Size = new System.Drawing.Size(104, 40);
             this.btdoanhthu.TabIndex = 6;
             this.btdoanhthu.Text = "Xem ";
             this.btdoanhthu.UseVisualStyleBackColor = true;
@@ -184,20 +188,20 @@
             // 
             // dtg
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column9,
@@ -212,13 +216,14 @@
             this.dtg.EnableHeadersVisualStyles = false;
             this.dtg.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dtg.HeaderForeColor = System.Drawing.Color.Black;
-            this.dtg.Location = new System.Drawing.Point(58, 88);
+            this.dtg.Location = new System.Drawing.Point(65, 110);
+            this.dtg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg.Name = "dtg";
             this.dtg.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtg.RowHeadersVisible = false;
             this.dtg.RowHeadersWidth = 51;
             this.dtg.RowTemplate.Height = 24;
-            this.dtg.Size = new System.Drawing.Size(1223, 247);
+            this.dtg.Size = new System.Drawing.Size(1376, 309);
             this.dtg.TabIndex = 7;
             // 
             // Column9
@@ -279,17 +284,18 @@
             // 
             // doanhthu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(1342, 430);
+            this.ClientSize = new System.Drawing.Size(1510, 538);
             this.Controls.Add(this.dtg);
             this.Controls.Add(this.btdoanhthu);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pPrint);
             this.Controls.Add(this.cbbyear);
             this.Controls.Add(this.cbbmonth);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "doanhthu";
             this.Text = "doanhthu";
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();
@@ -304,7 +310,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbbmonth;
         private System.Windows.Forms.ComboBox cbbyear;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button pPrint;
         private System.Windows.Forms.Button btdoanhthu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

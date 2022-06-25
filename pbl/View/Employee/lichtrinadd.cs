@@ -70,13 +70,15 @@ namespace pbl.View
 
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
-            cbbDes.Items.Clear();
-            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
-            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(rep))
-                cbbDes.Items.Add(s);
+            
         }
 
         private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbbDep_Click(object sender, EventArgs e)
         {
             cbbDep.Items.Clear();
             int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
@@ -86,5 +88,12 @@ namespace pbl.View
             }
         }
 
+        private void cbbDes_Click(object sender, EventArgs e)
+        {
+            cbbDes.Items.Clear();
+            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(rep))
+                cbbDes.Items.Add(s);
+        }
     }
 }

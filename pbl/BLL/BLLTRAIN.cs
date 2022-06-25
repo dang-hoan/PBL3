@@ -45,11 +45,6 @@ namespace pbl.BLL
             if ((total - s.Length) % 2 == 1) result += ' ';
             return result;
         }
-
-        internal void Print(BunifuCustomDataGrid dtg, int[] k, string v)
-        {
-            throw new NotImplementedException();
-        }
         public void AddListTicket(TRIP trip)
 
         {
@@ -329,6 +324,12 @@ namespace pbl.BLL
             }
 
         }    
+        public void AddNotice(NOTICE notice)
+        {
+            PBL3 db = new PBL3();
+            db.NOTICEs.Add(notice);
+            db.SaveChanges();
+        }
         public void Executep(SCHEDULE s)
         {
             PBL3 db = new PBL3();
@@ -453,10 +454,22 @@ namespace pbl.BLL
             s.Answer = newAnswer;
             db.SaveChanges();
         }
-        public void Delete()
+        public void DeleteSchedule(int ScheduleID)
         {
             PBL3 db = new PBL3();
-
+            foreach(SCHEDULE s in db.SCHEDULEs)
+            {
+                if(s.ScheduleID == ScheduleID)
+                {
+                    foreach(TRIP t in s.TRIPs)
+                    {
+                        t.TICKETs.Clear();
+                    }
+                    s.TRIPs.Clear();
+                    db.SCHEDULEs.Remove(s);
+                    break;
+                }
+            }
         }
         public List<SCHEDULE_View> GetSchedulead(string DepartureTime, string ArrivalTime, string Dep, string Des)
         {
@@ -854,6 +867,17 @@ namespace pbl.BLL
                          where tic.CustomerUN == userName
                          select tic.TRIP.TRAIN.TrainName;
             return result.ToList().Distinct().ToList();
+        }
+        public List<CBBItem> GetTrain()
+        {
+            PBL3 db = new PBL3();
+            var result = from tra in db.TRAINs
+                         select new CBBItem
+                         {
+                             Value = tra.TrainID,
+                             Text = tra.TrainName
+                         };
+            return result.ToList();
         }
         public List<Train_View> GetTrain2(SCHEDULE_BLL schedule)
         {
@@ -1398,10 +1422,10 @@ namespace pbl.BLL
             data = db.SCHEDULEs.Where(p => (p.ScheduleID == scheduleid)).Select(p => p).ToList();
             return data;
         }
-        public void Executetrain(TRAIN s)
+        public void Executetrip(TRIP s)
         {
             PBL3 db = new PBL3();
-            db.TRAINs.Add(s);
+            db.TRIPs.Add(s);
             db.SaveChanges();
             //Duc
             //AddListTicket(s.TrainID,s.NumberOfCarriages,s.BasicPrice.ToString());

@@ -61,7 +61,13 @@ namespace pbl
 
         private void bunifuThinButton23_Click(object sender, EventArgs e)
         {
+            if (dtg.SelectedRows.Count > 0)
+            {
+                for(int i = 0; i < dtg.SelectedRows.Count; i++)
+                    BLLTRAIN.Instance.DeleteSchedule(Convert.ToInt32(dtg.SelectedRows[i].Cells["Mã lịch trình"].Value.ToString()));
 
+            }
+            else MessageBox.Show("Hãy chọn ít nhất 1 lịch trình để xoá!");
         }
         //them
         private void bunifuThinButton21_Click(object sender, EventArgs e)
@@ -74,6 +80,8 @@ namespace pbl
             }
             else
             {
+                if (cbbDep.SelectedItem == null) MessageBox.Show("Yes");
+                MessageBox.Show(cbbDep.Text);
                 SCHEDULE s = new SCHEDULE
                 {
                     ScheduleID = -1,
@@ -98,11 +106,12 @@ namespace pbl
             if (comp > 0)
             {
                 MessageBox.Show("Thời gian đi phải  trước mốc thời gian đến !");
+                return;
             }
 
 
             dtg.DataSource = BLLTRAIN.Instance.GetSchedulead(dateDep.Value.ToString("d/M/yyyy HH:mm"),
-                dateDes.Value.ToString("d/M/yyyy HH:mm"), cbbDep.SelectedItem.ToString(), cbbDes.SelectedItem.ToString());
+                dateDes.Value.ToString("d/M/yyyy HH:mm"), cbbDep.Text, cbbDes.Text);
         }
 
 
@@ -116,21 +125,36 @@ namespace pbl
 
         private void cbbDep_TextChanged(object sender, EventArgs e)
         {
-            cbbDes.Items.Clear();
-            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
-            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(rep))
-            {
-                cbbDes.Items.Add(s);
-            }
         }
 
         private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void bShowAll_Click(object sender, EventArgs e)
+        {
+            showsche();
+        }
+
+        private void cbbDep_Click(object sender, EventArgs e)
         {
             cbbDep.Items.Clear();
             int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
             foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture(rep))
             {
                 cbbDep.Items.Add(s);
+            }
+
+        }
+
+        private void cbbDes_Click(object sender, EventArgs e)
+        {
+
+            cbbDes.Items.Clear();
+            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(rep))
+            {
+                cbbDes.Items.Add(s);
             }
         }
     }

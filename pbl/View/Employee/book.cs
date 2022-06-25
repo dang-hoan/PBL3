@@ -134,7 +134,7 @@ namespace pbl.View
                 num = i.TRAIN.NumberOfCarriages;
                 giave = i.BasicPrice;
                 txtgiave.Text=giave.ToString();
-                foreach(CBBItem k in BLLpeople.instance.GetCBBname())
+                foreach(CBBpeople k in BLLpeople.instance.GetCBBname())
                 {
                   if(k.Value == i.DriverUN)
                     {

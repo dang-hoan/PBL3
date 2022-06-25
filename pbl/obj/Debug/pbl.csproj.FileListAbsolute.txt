@@ -164,7 +164,6 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.ResolveComReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.AddSecurity.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Employee.doanhthu.resources
-C:\PBL3\pbl\obj\Debug\pbl.employee.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Home.resources
 C:\PBL3\pbl\obj\Debug\pbl.note.resources
 C:\PBL3\pbl\obj\Debug\pbl.Schedule.resources
@@ -209,3 +208,6 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.CopyComplete
 C:\PBL3\pbl\obj\Debug\pbl.exe
 C:\PBL3\pbl\obj\Debug\pbl.pdb
+C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Notice.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Add.resources
+C:\PBL3\pbl\obj\Debug\pbl.View.Admin.employee.resources

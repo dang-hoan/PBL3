@@ -46,7 +46,7 @@ namespace pbl.View
             //}
             txtschedule.Enabled = false;
                 txttrainid.Enabled = false;
-                txtname.Enabled = false;
+                cbbName.Enabled = false;
                 txtsotau.Enabled = false;
             
         }

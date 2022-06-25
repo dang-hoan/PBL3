@@ -167,18 +167,18 @@ namespace pbl.BLL
 
         }
 
-        public List<CBBItem> GetCBBs(string txt)
+        public List<CBBpeople> GetCBBs(string txt)
         {
             int positi = (from POSITION pos in db.POSITIONs
                           where pos.Position.Equals("Khách hàng")
                           select pos.PositionID).FirstOrDefault(); ;
-        List<CBBItem> data = new List<CBBItem>();
+        List<CBBpeople> data = new List<CBBpeople>();
         foreach (PEOPLE i in db.PEOPLE)
         {
             if (i.PositionID == positi)
             {
                 if (i.Name.Contains(txt))
-                    data.Add(new CBBItem
+                    data.Add(new CBBpeople
                     {
                         Value = i.Username,
                         Text = i.Name
@@ -188,13 +188,13 @@ namespace pbl.BLL
         }
         return data;
         }
-        public List<CBBItem> GetCBBname()
+        public List<CBBpeople> GetCBBname()
         {
-            List<CBBItem> data = new List<CBBItem>();
+            List<CBBpeople> data = new List<CBBpeople>();
             foreach (PEOPLE i in db.PEOPLE)
             {
 
-                data.Add(new CBBItem
+                data.Add(new CBBpeople
                 {
                     Value = i.Username,
                     Text = i.Name
@@ -295,6 +295,7 @@ namespace pbl.BLL
             }
             else
             {
+                //MessageBox.Show(username);
                 data = (from peo in db.PEOPLE
                         join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
                         where (peo.Username == username) && pos.PositionID == PositionID

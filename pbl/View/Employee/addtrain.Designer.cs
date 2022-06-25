@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addtrain));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtgiagoc = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbblaixe = new System.Windows.Forms.ComboBox();
             this.txtsotoa = new System.Windows.Forms.TextBox();
-            this.txtname = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.lich_trinh = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.bTOK = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbbName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lich_trinh)).BeginInit();
             this.SuspendLayout();
@@ -55,12 +55,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.Controls.Add(this.cbbName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtgiagoc);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cbblaixe);
             this.groupBox1.Controls.Add(this.txtsotoa);
-            this.groupBox1.Controls.Add(this.txtname);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
@@ -79,6 +79,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "thêm chuyến tàu mới";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(19, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(442, 20);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Chọn một lịch trình trước khi thêm (kích chuột vào hình tờ lịch)!";
             // 
             // txtgiagoc
             // 
@@ -110,19 +120,12 @@
             // 
             // txtsotoa
             // 
+            this.txtsotoa.Enabled = false;
             this.txtsotoa.Location = new System.Drawing.Point(232, 295);
             this.txtsotoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtsotoa.Name = "txtsotoa";
             this.txtsotoa.Size = new System.Drawing.Size(284, 26);
             this.txtsotoa.TabIndex = 56;
-            // 
-            // txtname
-            // 
-            this.txtname.Location = new System.Drawing.Point(232, 234);
-            this.txtname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(284, 26);
-            this.txtname.TabIndex = 55;
             // 
             // label7
             // 
@@ -239,15 +242,16 @@
             this.bTOK.UseVisualStyleBackColor = true;
             this.bTOK.Click += new System.EventHandler(this.bTOK_Click);
             // 
-            // label1
+            // cbbName
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(19, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(442, 20);
-            this.label1.TabIndex = 60;
-            this.label1.Text = "Chọn một lịch trình trước khi thêm (kích chuột vào hình tờ lịch)!";
+            this.cbbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbName.FormattingEnabled = true;
+            this.cbbName.Location = new System.Drawing.Point(232, 232);
+            this.cbbName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbbName.Name = "cbbName";
+            this.cbbName.Size = new System.Drawing.Size(284, 28);
+            this.cbbName.TabIndex = 61;
+            this.cbbName.SelectedIndexChanged += new System.EventHandler(this.cbbName_SelectedIndexChanged);
             // 
             // addtrain
             // 
@@ -282,12 +286,12 @@
         private System.Windows.Forms.ComboBox cbbDep;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtsotoa;
-        private System.Windows.Forms.TextBox txtname;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bTOK;
         private System.Windows.Forms.ComboBox cbblaixe;
         private System.Windows.Forms.TextBox txtgiagoc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbbName;
     }
 }

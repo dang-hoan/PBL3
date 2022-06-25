@@ -147,6 +147,12 @@
     <Compile Include="View\AddSecurity.Designer.cs">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Admin\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\doanhthu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,12 @@
     </Compile>
     <Compile Include="View\Admin\note.Designer.cs">
       <DependentUpon>note.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\Notice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\Notice.Designer.cs">
+      <DependentUpon>Notice.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\Schedule.cs">
       <SubType>Form</SubType>
@@ -390,6 +402,9 @@
     <EmbeddedResource Include="View\AddSecurity.resx">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\doanhthu.resx">
       <DependentUpon>doanhthu.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\note.resx">
       <DependentUpon>note.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\Notice.resx">
+      <DependentUpon>Notice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>

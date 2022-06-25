@@ -61,8 +61,8 @@ namespace pbl.View
                     SCHEDULE s = new SCHEDULE
                     {
                         ScheduleID = -1,
-                        DepartureID = ((CBBSchedule)cbbDep.SelectedItem).Value,
-                        ArrivalID = ((CBBSchedule)cbbDes.SelectedItem).Value,
+                        DepartureID = ((CBBSchedule)(cbbDep.SelectedItem)).Value,
+                        ArrivalID = ((CBBSchedule)(cbbDes.SelectedItem)).Value,
                         DepartureTime = daydep.Value,
                         ArrivalTime = daydes.Value,
 
@@ -86,18 +86,18 @@ namespace pbl.View
 
         }
 
-        private void cbbDep_TextChanged(object sender, EventArgs e)
-        {
-            cbbDes.Items.Clear();
-            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
-            cbbDes.Items.AddRange(BLLTRAIN.Instance.GetAllStation(rep).ToArray());
-        }
-
-        private void cbbDes_TextChanged(object sender, EventArgs e)
+        private void cbbDep_Click(object sender, EventArgs e)
         {
             cbbDep.Items.Clear();
             int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
             cbbDep.Items.AddRange(BLLTRAIN.Instance.GetAllStation(rep).ToArray());
+        }
+
+        private void cbbDes_Click(object sender, EventArgs e)
+        {
+            cbbDes.Items.Clear();
+            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
+            cbbDes.Items.AddRange(BLLTRAIN.Instance.GetAllStation(rep).ToArray());
         }
     }
 }

@@ -31,6 +31,7 @@ namespace pbl.View
         PBL3 db = new PBL3();
         private void Init()
         {
+            cbbName.Items.AddRange(BLLTRAIN.Instance.GetTrain().ToArray());
             foreach (SCHEDULE i in BLLTRAIN.Instance.GetScheduleid(trainid))
             {
                 schedule.Text = i.ScheduleID.ToString();
@@ -69,27 +70,20 @@ namespace pbl.View
             {
                 MessageBox.Show("chon mot lich trinh truoc khi ok!");
             }
-            if ( (txtname.Text == "") || (txtsotoa.Text == "") || (cbblaixe.Text == "")||(schedule.Text==""))
+            if ( (cbbName.Text == "") || (txtsotoa.Text == "") || (cbblaixe.Text == "")||(schedule.Text==""))
             {
                 MessageBox.Show("bạn chưa nhập đủ dư liệu bắt buộc ");
             }
             else
             {
-                //TRIP s = new TRIP
-                //{
-                //    ScheduleID = Convert.ToInt32(schedule.Text),
-                //    TrainID = Convert.ToInt32(txtname.Text),
-                //}
-                //TRAIN s = new TRAIN
-                //{
-                //    ScheduleID = Convert.ToInt32(schedule.Text),
-                //    TrainName = txtname.Text,
-                //    NumberOfCarriages = int.Parse(txtsotoa.Text),
-                //    DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
-                //    BasicPrice = decimal.Parse(txtgiagoc.Text),
-                //    State = "Hoạt động"
-                //};
-                //BLLTRAIN.Instance.Executetrain(s);
+                TRIP s = new TRIP
+                {
+                    ScheduleID = Convert.ToInt32(schedule.Text),
+                    TrainID = Convert.ToInt32(((CBBItem)cbbName.SelectedItem).Value),
+                    DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
+                    BasicPrice = (decimal)Convert.ToDouble(txtgiagoc.Text)
+                };
+                BLLTRAIN.Instance.Executetrip(s);
                 d();
                 this.Close();
                 //BLLTRAIN.Instance.AddListTicket(s.TrainID,s.NumberOfCarriages,s.BasicPrice.ToString());
@@ -111,6 +105,11 @@ namespace pbl.View
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbbName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtsotoa.Text = BLLTRAIN.Instance.GetNumberOfCarriages(cbbName.Text).ToString();
         }
 
         private void lich_trinh_Click(object sender, EventArgs e)

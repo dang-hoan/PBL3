@@ -12,7 +12,7 @@ using pbl.BLL;
 using pbl.DTO;
 
 
-namespace pbl
+namespace pbl.View.Admin
 {
 
 
@@ -230,48 +230,8 @@ namespace pbl
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            if (txtname.Text == "" || txtusername.Text == "" || txtpass.Text == "" || idcard.Text == "" || gmail.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập đủ thông tin bắt buộc !");
-            }
-            else if (usernamedk.Text != "")
-            {
-                MessageBox.Show("Tên đăng nhập đã tồn tại");
-            }
-            else
-            {
-                PEOPLE s = new PEOPLE()
-                {
-                    Username = txtusername.Text,
-                    Name = txtname.Text,
-                    Gender = (male.Checked == true) ? true : false,
-                    BirthDay = date.Value,
-                    Phone = phone.Text,
-                    Address = address.Text,
-                    Email = gmail.Text,
-                    IDCard = idcard.Text,
-
-                };
-                LOGIN l = new LOGIN()
-                {
-                    State = true,
-                    PassWord = txtpass.Text,
-                    Username = txtusername.Text,
-                };
-                BLLpeople.instance.Executenv(s);
-                BLLpeople.instance.Execute2(l);
-                showw();
-                txtname.Text = "";
-                male.Checked = false;
-                female.Checked = false;
-                phone.Text = "";
-                address.Text = "";
-                gmail.Text = "";
-                idcard.Text = "";
-                date.Text = DateTime.Now.ToString();
-                txtusername.Text = "";
-                txtpass.Text = "";
-            }
+            Add add = new Add();
+            add.Show();
         }
 
         private void bunifuThinButton22_Click(object sender, EventArgs e)

@@ -15,6 +15,7 @@ namespace pbl
         public note()
         {
             InitializeComponent();
+            //Init();
         }
     }
 }
