@@ -385,10 +385,27 @@ namespace pbl.BLL
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
-        public List<PEOPLE> searchP(string text)
+        public List<employeeview> searchP(string text)
         {
             int id = Getpidnv();
-            var result = from p in db.PEOPLE where  p.Name.Contains(text)  && p.PositionID == id select p;
+
+            List<employeeview> list = new List<employeeview>();
+            var result = from PEOPLE p in db.PEOPLE.ToList()
+                         join POSITION pos in db.POSITIONs on p.PositionID equals pos.PositionID
+                         where p.Name.Contains(text) && p.PositionID == id
+
+                         select new employeeview
+                         {
+                             Username = p.Username,
+                             Name = p.Name,
+                             Gender = ((bool)p.Gender) ? "Nam" : "Nu",
+                             BirthDay = p.BirthDay,
+                             Address = p.Address,
+                             Email = p.Email,
+                             Phone = p.Phone,
+                             IDCard = p.IDCard,
+
+                         };
             return result.ToList();
         }
         public List<PEOPLE> searchem(string text)
@@ -480,6 +497,39 @@ namespace pbl.BLL
             var result = from p in db.PEOPLE where p.PositionID == id orderby p.Name  select p;
                 list = result.ToList();                        
             return list;
+        }
+        public void Getnvbyuser(string username)
+        {
+
+            PEOPLE pb = db.PEOPLE.Find(username);
+            POSITION posi = new POSITION();
+
+
+            MessageBox.Show("HỌ VÀ TÊN : " + pb.Name + "\n"
+                + "ĐỊA CHỈ : " + pb.Address + "\n"
+                + "EMAIL : " + pb.Email + "\n"
+                + "SĐT : " + pb.Phone + "\n"
+                + "IDCARD : " + pb.IDCard + "\n",
+                // + "POSITION : " + posi.Position + "\n",
+                "Thông tin nguười dùng ");
+        }
+        public List<tkten_view> searchtennv(string ten)
+
+        {
+            List<tkten_view> list = new List<tkten_view>();
+            int id = Getpidnv();
+            int id1 = Getpidkh();
+            var result = from PEOPLE p in db.PEOPLE.ToList()
+                         join POSITION pos in db.POSITIONs on p.PositionID equals pos.PositionID
+                         where p.Name.Contains(ten) && (p.PositionID == id || p.PositionID == id1)
+
+                         select new tkten_view
+                         {
+                             Username = p.Username,
+                             Name = p.Name
+                         };
+
+            return result.ToList();
         }
     }
 }

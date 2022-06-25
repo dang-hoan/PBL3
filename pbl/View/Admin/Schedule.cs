@@ -20,6 +20,7 @@ namespace pbl
         {
             
             InitializeComponent();
+            
             cbb();
             showsche();
         }
@@ -103,6 +104,7 @@ namespace pbl
             dtg.DataSource = BLLTRAIN.Instance.GetSchedulead(dateDep.Value.ToString("d/M/yyyy HH:mm"),
                 dateDes.Value.ToString("d/M/yyyy HH:mm"), cbbDep.SelectedItem.ToString(), cbbDes.SelectedItem.ToString());
         }
+
 
         private void cbbDep_Leave(object sender, EventArgs e)
         {

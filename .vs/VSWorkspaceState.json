@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\pbl",
+    "\\pbl\\View",
+    "\\pbl\\View\\Admin"
   ],
-  "SelectedNode": "\\pbl.sln",
+  "SelectedNode": "\\pbl\\View\\Admin",
   "PreviewInSolutionExplorer": false
 }

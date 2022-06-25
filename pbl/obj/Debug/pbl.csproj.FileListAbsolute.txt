@@ -209,3 +209,7 @@ C:\pbl\pbl\obj\Debug\pbl.exe
 C:\pbl\pbl\obj\Debug\pbl.pdb
 C:\PBL3\pbl\bin\Debug\pbl.pdb
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Home.resources
+<<<<<<< HEAD
+=======
+C:\PBL3\pbl\bin\Debug\Bunifu_UI_v1.5.3.dll
+>>>>>>> f705f7fc528c2256abeb18316f130d6ba5b0d6f1

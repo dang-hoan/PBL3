@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6B6F1566-4875-436C-88FF-2CCEE3FBB93A}</ProjectGuid>
+    <ProjectGuid>{ED69970B-801C-4EAE-B76F-C2C0191DF6B0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>pbl</RootNamespace>
     <AssemblyName>pbl</AssemblyName>
@@ -58,10 +58,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -117,6 +119,9 @@
     </Compile>
     <Compile Include="POSITION.cs">
       <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RJButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="SCHEDULE.cs">
       <DependentUpon>PBL3.tt</DependentUpon>
