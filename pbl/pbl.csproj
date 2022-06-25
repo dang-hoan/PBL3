@@ -83,6 +83,7 @@
     <Compile Include="DTO\Schedule.cs" />
     <Compile Include="DTO\SCHEDULE_BLL.cs" />
     <Compile Include="DTO\SCHEDULE_View.cs" />
+    <Compile Include="DTO\ticket_nhanvien.cs" />
     <Compile Include="DTO\TICKET_User_View.cs" />
     <Compile Include="DTO\TICKET_View.cs" />
     <Compile Include="LOGIN.cs">
@@ -159,6 +160,12 @@
     </Compile>
     <Compile Include="View\Admin\updatenv.Designer.cs">
       <DependentUpon>updatenv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Employee\book.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Employee\book.Designer.cs">
+      <DependentUpon>book.cs</DependentUpon>
     </Compile>
     <Compile Include="View\InputPass.cs">
       <SubType>Form</SubType>
@@ -426,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\updatenv.resx">
       <DependentUpon>updatenv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Employee\book.resx">
+      <DependentUpon>book.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\InputPass.resx">
       <DependentUpon>InputPass.cs</DependentUpon>

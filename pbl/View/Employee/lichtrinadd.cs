@@ -68,5 +68,29 @@ namespace pbl.View
 
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
         }
+
+        private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbDep_TextChanged(object sender, EventArgs e)
+        {
+            cbbDes.Items.Clear();
+            foreach (string s in BLLTRAIN.Instance.GetDestination(cbbDep.Text).Distinct())
+            {
+                cbbDes.Items.Add(s);
+            }
+        }
+
+        private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+            cbbDep.Items.Clear();
+            foreach (string s in BLLTRAIN.Instance.GetDeparture(cbbDes.Text).Distinct())
+            {
+                cbbDep.Items.Add(s);
+            }
+        }
+
     }
 }
