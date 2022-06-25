@@ -135,6 +135,18 @@ namespace pbl.View.Admin
 
         private void btok_Click(object sender, EventArgs e)
         {
+            string sa = date.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(sa, now) > 0)
+            {
+                labBirthDay.Text = "*Người dùng tối thiểu phải đủ 15 tuổi!";
+            }
+            else labBirthDay.Text = "";
+            if (labBirthDay.Text != "")
+            {
+                MessageBox.Show("Bạn nhập thông tin ngày sinh chưa đúng yêu cầu!");
+                return;
+            }
             if (txtname.Text == "" || txtusername.Text == "" || txtpass.Text == "" || idcard.Text == "" || gmail.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập đủ thông tin bắt buộc !");
@@ -206,6 +218,18 @@ namespace pbl.View.Admin
                 usernamedk.Text = "Tên đăng nhập đã tồn tại ";
 
             }
+        }
+
+        private void date_ValueChanged(object sender, EventArgs e)
+        {
+            string s = date.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(s, now) > 0)
+            {
+                labBirthDay.Text = "*Người dùng tối thiểu phải đủ 15 tuổi!";
+                return;
+            }
+            labBirthDay.Text = "";
         }
     }
 }

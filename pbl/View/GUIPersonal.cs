@@ -66,9 +66,9 @@ namespace pbl
         private void bSavePass_Click(object sender, EventArgs e)
         {
             if (txtOld.Enabled == false) return;
-            if (!txtNew.Text.Equals(txtConfirm.Text))
+            if(labConfirm.Text != "")
             {
-                MessageBox.Show("Mật khẩu xác nhận và mật khẩu mới không khớp!");
+                MessageBox.Show("Bạn nhập thông tin chưa đúng yêu cầu!");
             }
             else if(txtOld.Text == "")
             {
@@ -113,34 +113,9 @@ namespace pbl
         private void bSaveInfor_Click(object sender, EventArgs e)
         {
             if (txtName.Enabled == false) return;
-            if (!CheckNumber(txtIDCard.Text))
+            if(labName.Text != "" || labBirthDay.Text != "" || labIDCard.Text != "" || labEmail.Text != "" || labPhone.Text != "")
             {
-                MessageBox.Show("Số căn cước công dân phải có dạng số!");
-                return;
-            }
-            if (!CheckNumber(txtPhone.Text))
-            {
-                MessageBox.Show("Số điện thoại phải có dạng số!");
-                return;
-            }
-            if (txtIDCard.Text.Length > 12)
-            {
-                MessageBox.Show("Số căn cước công dân chỉ có 12 chữ số!");
-                return;
-            }
-            if (txtIDCard.Text.Length < 12)
-            {
-                MessageBox.Show("Số căn cước công dân phải đủ 12 chữ số!");
-                return;
-            }
-            if (txtPhone.Text.Length > 10)
-            {
-                MessageBox.Show("Số điện thoại chỉ có 10 chữ số!");
-                return;
-            }
-            if (txtPhone.Text.Length < 10)
-            {
-                MessageBox.Show("Số điện thoại phải đủ 10 chữ số!");
+                MessageBox.Show("Bạn nhập thông tin chưa đúng yêu cầu!");
                 return;
             }
             InputPass input = new InputPass();
@@ -291,16 +266,11 @@ namespace pbl
             txtAnswer.Text = "";
             InitQuestion();
         }
-
-        private void label22_Click(object sender, EventArgs e)
-        {
-
-        }
         private bool CheckName(string Name)
         {
             foreach(char i in Name)
             {
-                if(i < 65 || i > 90 || i < 97 || i > 122 || i != ' ')
+                if(i >= 48 && i <= 57)
                 {
                     return false;
                 }
@@ -309,20 +279,88 @@ namespace pbl
         }
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            if (!CheckName(Name)) labName.Text = "*Tên không hợp lệ (tên chỉ chứa khoảng trắng và các ký tự trong bảng chữ cái!";
+            if (!CheckName(txtName.Text)) labName.Text = "*Tên không thể chứa chữ số!";
             else labName.Text = "";
         }
 
-        private void txtBirthDay_FontChanged(object sender, EventArgs e)
+        private void txtIDCard_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "")
+            {
+                labEmail.Text = "*Bắt buộc";
+                return;
+            }
+            if (!CheckNumber(txtIDCard.Text))
+            {
+                labIDCard.Text = "Số căn cước công dân phải có dạng số!";
+                return;
+            }
+            if (txtIDCard.Text.Length > 12)
+            {
+                labIDCard.Text = "*Số căn cước công dân chỉ có 12 chữ số!";
+                return;
+            }
+            if (txtIDCard.Text.Length < 12)
+            {
+                labIDCard.Text = "*Số căn cước công dân phải đủ 12 chữ số!";
+                return;
+            }
+            labIDCard.Text = "";
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "") labEmail.Text = "*Bắt buộc";
+            else if (!txtEmail.Text.Contains("@gmail.com")) labEmail.Text = "*Email không đúng định dạng!";
+            else
+            {
+                if ("@gmail.com".IndexOf(txtEmail.Text) != "@gmail.com".LastIndexOf(txtEmail.Text)) labEmail.Text = "*Email không đúng định dạng!";
+                else labEmail.Text = "";
+            }
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            if (!CheckNumber(txtPhone.Text))
+            {
+                labPhone.Text = "Số điện thoại phải có dạng số!";
+                return;
+            }
+            if (txtPhone.Text == "") labPhone.Text = "*Bắt buộc";
+            else if (txtPhone.Text.Length > 10)
+            {
+                labPhone.Text = "*Số điện thoại chỉ có 10 chữ số!";
+                return;
+            }
+            else if (txtPhone.Text.Length < 10)
+            {
+                labPhone.Text = "Số điện thoại phải đủ 10 chữ số!";
+                return;
+            }
+            labPhone.Text = "";
+        }
+
+        private void txtNew_TextChanged(object sender, EventArgs e)
+        {
+            if (txtConfirm.Text != "" && txtNew.Text != "")
+            {
+                if (txtConfirm.Text != txtNew.Text) labConfirm.Text = "*Mật khẩu xác nhận không khớp với mật khẩu mới!";
+                else labConfirm.Text = "";
+            }
+            else labConfirm.Text = "*Không thể để trống ô mật khẩu!";
+        }
+
+        private void txtBirthDay_ValueChanged(object sender, EventArgs e)
         {
             string s = txtBirthDay.Value.ToString("yyyy/MM/dd HH:mm");
-            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
-            if(string.Compare(s, now) > 0)
+            string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(s, now) > 0)
             {
-                labBirthDay.Text = "*Ngày sinh không thể sau thời điểm hiện tại";
+                labBirthDay.Text = "*Người dùng tối thiểu phải đủ 15 tuổi!";
                 return;
             }
             labBirthDay.Text = "";
+
         }
     }
 }

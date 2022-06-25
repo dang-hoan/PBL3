@@ -22,6 +22,7 @@ namespace pbl
 
             Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("nl");
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(GUILogin.userName);
+            BLLTRAIN.Instance.SetScheduleView(dataGridView1);
         }
 
         private void Init()
@@ -74,7 +75,7 @@ namespace pbl
         {
             int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
             int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
-            int comp3 = DateTime.Compare(dateFromDep.Value, dateToDes.Value);
+            int comp3 = DateTime.Compare(dateFromDep.Value, dateFromDes.Value);
             if (comp > 0 || comp2 > 0)
             {
                 if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến  (trong cả ngày đi và ngày đến)!");
@@ -84,7 +85,8 @@ namespace pbl
             }
             if (comp3 >= 0)
             {
-                MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+                MessageBox.Show("Mốc thời gian từ trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+                return;
             }
             SCHEDULE_BLL s = new SCHEDULE_BLL
             {
@@ -113,10 +115,10 @@ namespace pbl
                 MessageBox.Show("Ga bạn nhập không tồn tại hoặc không phù hợp với lịch trình!");
             }
         }
-        public int[] numberChar = new int[5] { 14, 25, 25, 30, 30 };
+        public int[] numberChar = new int[5] { 17, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"");
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Lịch trình cá nhân", this);
         }
     }
 }

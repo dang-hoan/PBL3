@@ -32,11 +32,17 @@ namespace pbl
             Init();
             Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("nl");
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName);
+            BLLTRAIN.Instance.SetTicketUserView(dataGridView1);
         }
         private void Init()
         {
             cbbTrain.Items.Add("Tất cả");
             cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(GUILogin.userName).Distinct().ToArray());
+            cbbSort.Items.AddRange(new string[]
+            {
+                "Mã lịch trình", "Mã tàu", "Tên tàu", "Mã vé", "Số ghế", "Giá vé"
+                , "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến"
+            });
         }
 
         private void Get(SCHEDULE_BLL s)
@@ -94,10 +100,76 @@ namespace pbl
         {
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName);
         }
-        public int[] numberChar = new int[10] { 14, 10, 25, 8, 14, 25, 25, 25, 30, 30 };
+        public int[] numberChar = new int[10] { 17, 10, 25, 13, 14, 25, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"");
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Vé cá nhân", this);
+        }
+
+        private void sortA_Click(object sender, EventArgs e)
+        {
+            if (cbbSort.Text != "")
+            {
+                sortA.BackColor = Color.Green;
+                sortZ.BackColor = Color.White;
+                List<TICKET_User_View> list = new List<TICKET_User_View>();
+                foreach (DataGridViewRow i in dataGridView1.Rows)
+                {
+                    TICKET_User_View s = new TICKET_User_View
+                    {
+                        ScheduleID = Convert.ToInt32(i.Cells[0].Value.ToString()),
+                        TrainID = Convert.ToInt32(i.Cells[1].Value.ToString()),
+                        TrainName = i.Cells[2].Value.ToString(),
+                        TicketID = Convert.ToInt32(i.Cells[3].Value.ToString()),
+                        SeatNo = i.Cells[4].Value.ToString(),
+                        TicketPrice = Convert.ToDouble(i.Cells[5].Value.ToString()),
+                        Departure = i.Cells[6].Value.ToString(),
+                        Destination = i.Cells[7].Value.ToString(),
+                        DepartureTime = Convert.ToDateTime(i.Cells[8].Value.ToString()),
+                        ArrivalTime = Convert.ToDateTime(i.Cells[9].Value.ToString())
+                    };
+                    list.Add(s);
+                }
+                dataGridView1.DataSource = BLLTRAIN.Instance.Sort(list, cbbSort.SelectedIndex, true);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn thuộc tính sắp xếp!");
+                return;
+            }
+        }
+
+        private void sortZ_Click(object sender, EventArgs e)
+        {
+            if (cbbSort.Text != "")
+            {
+                sortZ.BackColor = Color.Green;
+                sortA.BackColor = Color.White;
+                List<TICKET_User_View> list = new List<TICKET_User_View>();
+                foreach (DataGridViewRow i in dataGridView1.Rows)
+                {
+                    TICKET_User_View s = new TICKET_User_View
+                    {
+                        ScheduleID = Convert.ToInt32(i.Cells[0].Value.ToString()),
+                        TrainID = Convert.ToInt32(i.Cells[1].Value.ToString()),
+                        TrainName = i.Cells[2].Value.ToString(),
+                        TicketID = Convert.ToInt32(i.Cells[3].Value.ToString()),
+                        SeatNo = i.Cells[4].Value.ToString(),
+                        TicketPrice = Convert.ToDouble(i.Cells[5].Value.ToString()),
+                        Departure = i.Cells[6].Value.ToString(),
+                        Destination = i.Cells[7].Value.ToString(),
+                        DepartureTime = Convert.ToDateTime(i.Cells[8].Value.ToString()),
+                        ArrivalTime = Convert.ToDateTime(i.Cells[9].Value.ToString())
+                    };
+                    list.Add(s);
+                }
+                dataGridView1.DataSource = BLLTRAIN.Instance.Sort(list, cbbSort.SelectedIndex, false);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn thuộc tính sắp xếp!");
+                return;
+            }
         }
     }
 }

@@ -38,7 +38,8 @@ namespace pbl.View.Employee
         int[] k = { 20,20,25,25,25,25,20,25};
         private void button1_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, k,"DOANH THU");
+            if(dataGridView1.DataSource != null)
+                BLLTRAIN.Instance.Print(dataGridView1, k,"DOANH THU",this);
         }
     }
 }

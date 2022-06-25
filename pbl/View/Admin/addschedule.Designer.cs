@@ -126,6 +126,7 @@
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(284, 28);
             this.cbbDes.TabIndex = 38;
+            this.cbbDes.TextChanged += new System.EventHandler(this.cbbDes_TextChanged);
             // 
             // cbbDep
             // 
@@ -135,6 +136,7 @@
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(284, 28);
             this.cbbDep.TabIndex = 37;
+            this.cbbDep.TextChanged += new System.EventHandler(this.cbbDep_TextChanged);
             // 
             // bTOK
             // 

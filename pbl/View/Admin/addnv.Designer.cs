@@ -65,6 +65,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.labBirthDay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgaddnv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +97,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.Controls.Add(this.labBirthDay);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.usernamedk);
             this.groupBox1.Controls.Add(this.phonedk);
@@ -455,6 +457,7 @@
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(208, 31);
             this.date.TabIndex = 12;
+            this.date.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // label10
             // 
@@ -489,6 +492,14 @@
             this.label16.Size = new System.Drawing.Size(381, 25);
             this.label16.TabIndex = 20;
             this.label16.Text = "Note : Những ô có (*) là thông tin bắt buộc!";
+            // 
+            // labBirthDay
+            // 
+            this.labBirthDay.AutoSize = true;
+            this.labBirthDay.Location = new System.Drawing.Point(595, 71);
+            this.labBirthDay.Name = "labBirthDay";
+            this.labBirthDay.Size = new System.Drawing.Size(0, 20);
+            this.labBirthDay.TabIndex = 40;
             // 
             // addnv
             // 
@@ -550,5 +561,6 @@
         private System.Windows.Forms.Label phonedk;
         private System.Windows.Forms.Label usernamedk;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labBirthDay;
     }
 }

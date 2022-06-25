@@ -16,8 +16,8 @@ namespace pbl.DTO
         public double TicketPrice { get; set; }
         public string Departure { get; set; }
         public string Destination { get; set; }
-        public string DepartureTime { get; set; }
-        public string ArrivalTime { get; set; }
+        public DateTime DepartureTime { get; set; }
+        public DateTime ArrivalTime { get; set; }
         public string Booked { get; set; }
         public string OwnUsername { get; set; }
         public string OwnName { get; set; }

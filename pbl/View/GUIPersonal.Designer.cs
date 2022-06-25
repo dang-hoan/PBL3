@@ -45,7 +45,6 @@
             this.bEditPass = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labConfirm = new System.Windows.Forms.Label();
-            this.labNew = new System.Windows.Forms.Label();
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -93,6 +92,7 @@
             this.txtConfirm.PasswordChar = '*';
             this.txtConfirm.Size = new System.Drawing.Size(164, 30);
             this.txtConfirm.TabIndex = 5;
+            this.txtConfirm.TextChanged += new System.EventHandler(this.txtNew_TextChanged);
             // 
             // txtNew
             // 
@@ -103,6 +103,7 @@
             this.txtNew.PasswordChar = '*';
             this.txtNew.Size = new System.Drawing.Size(164, 30);
             this.txtNew.TabIndex = 4;
+            this.txtNew.TextChanged += new System.EventHandler(this.txtNew_TextChanged);
             // 
             // txtOld
             // 
@@ -208,6 +209,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(306, 30);
             this.txtEmail.TabIndex = 10;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtPhone
             // 
@@ -217,6 +219,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(306, 30);
             this.txtPhone.TabIndex = 9;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // bSavePass
             // 
@@ -250,7 +253,6 @@
             // 
             this.groupBox2.Controls.Add(this.labConfirm);
             this.groupBox2.Controls.Add(this.bSavePass);
-            this.groupBox2.Controls.Add(this.labNew);
             this.groupBox2.Controls.Add(this.bEditPass);
             this.groupBox2.Controls.Add(this.txtConfirm);
             this.groupBox2.Controls.Add(this.txtNew);
@@ -273,22 +275,10 @@
             this.labConfirm.AutoSize = true;
             this.labConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labConfirm.ForeColor = System.Drawing.Color.Red;
-            this.labConfirm.Location = new System.Drawing.Point(216, 171);
+            this.labConfirm.Location = new System.Drawing.Point(30, 171);
             this.labConfirm.Name = "labConfirm";
-            this.labConfirm.Size = new System.Drawing.Size(25, 20);
+            this.labConfirm.Size = new System.Drawing.Size(0, 20);
             this.labConfirm.TabIndex = 32;
-            this.labConfirm.Text = "fw";
-            // 
-            // labNew
-            // 
-            this.labNew.AutoSize = true;
-            this.labNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labNew.ForeColor = System.Drawing.Color.Red;
-            this.labNew.Location = new System.Drawing.Point(216, 119);
-            this.labNew.Name = "labNew";
-            this.labNew.Size = new System.Drawing.Size(25, 20);
-            this.labNew.TabIndex = 31;
-            this.labNew.Text = "fw";
             // 
             // txtPosition
             // 
@@ -429,9 +419,8 @@
             this.labPhone.ForeColor = System.Drawing.Color.Red;
             this.labPhone.Location = new System.Drawing.Point(239, 497);
             this.labPhone.Name = "labPhone";
-            this.labPhone.Size = new System.Drawing.Size(79, 20);
+            this.labPhone.Size = new System.Drawing.Size(0, 20);
             this.labPhone.TabIndex = 29;
-            this.labPhone.Text = "*Bắt buộc";
             // 
             // labEmail
             // 
@@ -440,10 +429,8 @@
             this.labEmail.ForeColor = System.Drawing.Color.Red;
             this.labEmail.Location = new System.Drawing.Point(239, 434);
             this.labEmail.Name = "labEmail";
-            this.labEmail.Size = new System.Drawing.Size(79, 20);
+            this.labEmail.Size = new System.Drawing.Size(0, 20);
             this.labEmail.TabIndex = 28;
-            this.labEmail.Text = "*Bắt buộc";
-            this.labEmail.Click += new System.EventHandler(this.label22_Click);
             // 
             // labIDCard
             // 
@@ -452,9 +439,8 @@
             this.labIDCard.ForeColor = System.Drawing.Color.Red;
             this.labIDCard.Location = new System.Drawing.Point(239, 376);
             this.labIDCard.Name = "labIDCard";
-            this.labIDCard.Size = new System.Drawing.Size(79, 20);
+            this.labIDCard.Size = new System.Drawing.Size(0, 20);
             this.labIDCard.TabIndex = 27;
-            this.labIDCard.Text = "*Bắt buộc";
             // 
             // labBirthDay
             // 
@@ -463,9 +449,8 @@
             this.labBirthDay.ForeColor = System.Drawing.Color.Red;
             this.labBirthDay.Location = new System.Drawing.Point(239, 256);
             this.labBirthDay.Name = "labBirthDay";
-            this.labBirthDay.Size = new System.Drawing.Size(291, 20);
+            this.labBirthDay.Size = new System.Drawing.Size(0, 20);
             this.labBirthDay.TabIndex = 25;
-            this.labBirthDay.Text = "*Ngày sinh mặc định là thời điểm hiện tại";
             // 
             // labName
             // 
@@ -474,9 +459,8 @@
             this.labName.ForeColor = System.Drawing.Color.Red;
             this.labName.Location = new System.Drawing.Point(239, 145);
             this.labName.Name = "labName";
-            this.labName.Size = new System.Drawing.Size(25, 20);
+            this.labName.Size = new System.Drawing.Size(0, 20);
             this.labName.TabIndex = 23;
-            this.labName.Text = "fw";
             // 
             // txtBirthDay
             // 
@@ -485,7 +469,7 @@
             this.txtBirthDay.Name = "txtBirthDay";
             this.txtBirthDay.Size = new System.Drawing.Size(306, 30);
             this.txtBirthDay.TabIndex = 21;
-            this.txtBirthDay.FontChanged += new System.EventHandler(this.txtBirthDay_FontChanged);
+            this.txtBirthDay.ValueChanged += new System.EventHandler(this.txtBirthDay_ValueChanged);
             // 
             // txtIDCard
             // 
@@ -495,6 +479,7 @@
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(306, 30);
             this.txtIDCard.TabIndex = 20;
+            this.txtIDCard.TextChanged += new System.EventHandler(this.txtIDCard_TextChanged);
             // 
             // label12
             // 
@@ -736,6 +721,5 @@
         private System.Windows.Forms.Label labEmail;
         private System.Windows.Forms.Label labIDCard;
         private System.Windows.Forms.Label labConfirm;
-        private System.Windows.Forms.Label labNew;
     }
 }
