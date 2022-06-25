@@ -54,7 +54,7 @@ namespace pbl
                 case "Giám đốc":
                     {
                         //Form1 f = new Form1(this);
-                        Mainform f = new Mainform(this);
+                        Home f = new Home(this);
                         f.Show();
                         this.Hide();
                         break;

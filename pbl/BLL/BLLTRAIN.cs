@@ -11,7 +11,8 @@ using pbl.DTO;
 using COMExcel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using System.Drawing;
-using System.ComponentModel;
+using Bunifu.Framework.UI;
+
 
 //3 loop able: list<SCHEDULE>, list<PEOPLE>, list<POSITION>
 namespace pbl.BLL
@@ -46,6 +47,12 @@ namespace pbl.BLL
             if ((total - s.Length) % 2 == 1) result += ' ';
             return result;
         }
+
+        internal void Print(BunifuCustomDataGrid dtg, int[] k, string v)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddListTicket(int TrainID, int NumberOfCarriages, string TicketPrice)
         {
             PBL3 db = new PBL3();
@@ -325,6 +332,14 @@ namespace pbl.BLL
                 db.SaveChanges();
             }    
            
+
+        }
+        public void Executep(SCHEDULE s)
+        {
+            PBL3 db = new PBL3();
+
+            db.SCHEDULEs.Add(s);
+            db.SaveChanges();
 
         }
 
@@ -1141,6 +1156,28 @@ namespace pbl.BLL
                 return (from sch in db.SCHEDULEs.ToList()
                         select sch.Destination).ToList();
         }
+        public List<string> GetDeparturep(string Destination)
+        {
+            PBL3 db = new PBL3();
+            if (Destination != "")
+                return (from sta in db.STATIONs.ToList()
+                        where !sta.StationName.Equals(Destination)
+                        select sta.StationName).ToList();
+            else
+                return (from sch in db.SCHEDULEs.ToList()
+                        select sch.Departure).ToList();
+        }
+        public List<string> GetDestinationp(string Departure)
+        {
+            PBL3 db = new PBL3();
+            if (Departure != "")
+                return (from sta in db.STATIONs.ToList()
+                        where !sta.StationName.Equals(Departure)
+                        select sta.StationName).ToList();
+            else
+                return (from sch in db.SCHEDULEs.ToList()
+                        select sch.Departure).ToList();
+        }
         public List<string> GetStation(string station)
         {
             PBL3 db = new PBL3();
@@ -1607,7 +1644,27 @@ namespace pbl.BLL
                          select sch.DepartureTime.Day;
             return result.ToList();
         }
+        public List<SCHEDULE_View> GetSchedulead(string DepartureTime, string ArrivalTime, string Dep, string Des)
+        {
+            PBL3 db = new PBL3();
 
+            var result = from SCHEDULE sch in db.SCHEDULEs.ToList()
+
+                         where
+                               DepartureTime.Contains(sch.DepartureTime.ToString("d/M/yyyy"))
+                               && ArrivalTime.Contains(sch.ArrivalTime.ToString("d/M/yyyy"))
+                               && sch.Departure.ToString() == Dep && sch.Destination.ToString() == Des
+
+                         select new SCHEDULE_View
+                         {
+                             ScheduleID = sch.ScheduleID,
+                             Departure = sch.Departure,
+                             Destination = sch.Destination,
+                             DepartureTime = sch.DepartureTime.ToString(),
+                             ArrivalTime = sch.ArrivalTime.ToString()
+                         };
+            return result.ToList();
+        }
     }
 
 }

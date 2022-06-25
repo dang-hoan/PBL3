@@ -33,13 +33,12 @@ namespace pbl.View.Employee
         private void btdoanhthu_Click(object sender, EventArgs e)
         {
             
-            dataGridView1.DataSource = BLLTRAIN.Instance.dthu(Convert.ToInt32(cbbmonth.Text),Convert.ToInt32(cbbyear.Text));
+            dtg.DataSource = BLLTRAIN.Instance.dthu(Convert.ToInt32(cbbmonth.Text),Convert.ToInt32(cbbyear.Text));
         }
         int[] k = { 20,20,25,25,25,25,20,25};
         private void button1_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.DataSource != null)
-                BLLTRAIN.Instance.Print(dataGridView1, k,"DOANH THU",this);
+            BLLTRAIN.Instance.Print(dtg, k,"DOANH THU");
         }
     }
 }

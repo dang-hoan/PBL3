@@ -1,4 +1,4 @@
-﻿using pbl.Admin;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,16 +20,118 @@ namespace pbl
         {
             
             InitializeComponent();
-            showsche("");
+            cbb();
+            showsche();
+        }
+        
+
+        public void showsche()
+        {
+            dtg.DataSource = BLLTRAIN.Instance.GetSchedule();
         }
 
-        public void showsche(string Pos)
+        private void baddlt_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
+            
         }
-         
+        public void cbb()
+        {
+            List<string> list = new List<string>();
+            list = BLLTRAIN.Instance.Getstation();
+            foreach (string s in list)
+            {
+                cbbDep.Items.Add(s);
+            }
+            foreach (string s in list)
+            {
+                cbbDes.Items.Add(s);
+            }
+        }
         
+
         
-        
+
+        private void bdellt_Click(object sender, EventArgs e)
+        {
+
+            if (dtg.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dtg.SelectedRows)
+                {
+                    BLLTRAIN.Instance.delschedule(Convert.ToInt32(row.Cells["Malt"].Value));
+                }
+            }
+        }
+
+        private void bunifuThinButton23_Click(object sender, EventArgs e)
+        {
+
+        }
+        //them
+        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        {
+            int comp = DateTime.Compare(dateDep.Value, dateDes.Value);
+            if (comp >= 0)
+            {
+                MessageBox.Show("Thời gian đến phải sau thời gian đi!");
+                return;
+            }
+            else
+            {
+                SCHEDULE s = new SCHEDULE
+                {
+                    Departure = cbbDep.Text,
+                    Destination = cbbDes.Text,
+                    DepartureTime = dateDep.Value,
+                    ArrivalTime = dateDes.Value,
+
+                };
+
+                BLLTRAIN.Instance.Executep(s);
+                showsche();
+
+
+            }
+        }
+        //timkiem
+        private void bunifuThinButton22_Click(object sender, EventArgs e)
+        {
+            int comp = DateTime.Compare(dateDep.Value, dateDes.Value);
+
+            if (comp > 0)
+            {
+                MessageBox.Show("Thời gian đi phải  trước mốc thời gian đến !");
+            }
+
+
+            dtg.DataSource = BLLTRAIN.Instance.GetSchedulead(dateDep.Value.ToString("d/M/yyyy HH:mm"),
+                dateDes.Value.ToString("d/M/yyyy HH:mm"), cbbDep.SelectedItem.ToString(), cbbDes.SelectedItem.ToString());
+        }
+
+        private void cbbDep_Leave(object sender, EventArgs e)
+        {
+            if(cbbDep.SelectedItem == cbbDes.SelectedItem)
+            {
+
+            }
+        }
+
+        private void cbbDep_TextChanged(object sender, EventArgs e)
+        {
+            cbbDes.Items.Clear();
+            foreach (string s in BLLTRAIN.Instance.GetDestinationp(cbbDep.Text).Distinct())
+            {
+                cbbDes.Items.Add(s);
+            }
+        }
+
+        private void cbbDes_TextChanged(object sender, EventArgs e)
+        {
+            cbbDep.Items.Clear();
+            foreach (string s in BLLTRAIN.Instance.GetDeparturep(cbbDes.Text).Distinct())
+            {
+                cbbDep.Items.Add(s);
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6B6F1566-4875-436C-88FF-2CCEE3FBB93A}</ProjectGuid>
+    <ProjectGuid>{ED69970B-801C-4EAE-B76F-C2C0191DF6B0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>pbl</RootNamespace>
     <AssemblyName>pbl</AssemblyName>
@@ -48,16 +48,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>D:\DOWN LOAD\New folder\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -85,6 +90,7 @@
     <Compile Include="DTO\ticket_nhanvien.cs" />
     <Compile Include="DTO\TICKET_User_View.cs" />
     <Compile Include="DTO\TICKET_View.cs" />
+    <Compile Include="DTO\tkten_view.cs" />
     <Compile Include="LOGIN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -108,6 +114,9 @@
     </Compile>
     <Compile Include="POSITION.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RJButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="SCHEDULE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -133,29 +142,35 @@
     <Compile Include="View\AddSecurity.Designer.cs">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\delsche.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\delsche.Designer.cs">
-      <DependentUpon>delsche.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Admin\doanhthu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Admin\doanhthu.Designer.cs">
       <DependentUpon>doanhthu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\searchnv.cs">
+    <Compile Include="View\Admin\employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Admin\searchnv.Designer.cs">
-      <DependentUpon>searchnv.cs</DependentUpon>
+    <Compile Include="View\Admin\employee.Designer.cs">
+      <DependentUpon>employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\updatenv.cs">
+    <Compile Include="View\Admin\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Admin\updatenv.Designer.cs">
-      <DependentUpon>updatenv.cs</DependentUpon>
+    <Compile Include="View\Admin\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\note.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\note.Designer.cs">
+      <DependentUpon>note.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\Schedule.Designer.cs">
+      <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Employee\book.cs">
       <SubType>Form</SubType>
@@ -175,24 +190,6 @@
     </Compile>
     <Compile Include="View\Employee\addtrain.Designer.cs">
       <DependentUpon>addtrain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\addnv.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\addnv.Designer.cs">
-      <DependentUpon>addnv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\Mainform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\Mainform.Designer.cs">
-      <DependentUpon>Mainform.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\searchsche.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\searchsche.Designer.cs">
-      <DependentUpon>searchsche.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Employee\addve.cs">
       <SubType>Form</SubType>
@@ -217,36 +214,6 @@
     </Compile>
     <Compile Include="View\Employee\datve.Designer.cs">
       <DependentUpon>datve.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\addschedule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\addschedule.Designer.cs">
-      <DependentUpon>addschedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\employee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\employee.Designer.cs">
-      <DependentUpon>employee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\note.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\note.Designer.cs">
-      <DependentUpon>note.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\Passenger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\Passenger.Designer.cs">
-      <DependentUpon>Passenger.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\Schedule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\Schedule.Designer.cs">
-      <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Employee\employchinh.cs">
       <SubType>Form</SubType>
@@ -418,17 +385,20 @@
     <EmbeddedResource Include="View\AddSecurity.resx">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\delsche.resx">
-      <DependentUpon>delsche.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\doanhthu.resx">
       <DependentUpon>doanhthu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\searchnv.resx">
-      <DependentUpon>searchnv.cs</DependentUpon>
+    <EmbeddedResource Include="View\Admin\employee.resx">
+      <DependentUpon>employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\updatenv.resx">
-      <DependentUpon>updatenv.cs</DependentUpon>
+    <EmbeddedResource Include="View\Admin\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\note.resx">
+      <DependentUpon>note.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\Schedule.resx">
+      <DependentUpon>Schedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\book.resx">
       <DependentUpon>book.cs</DependentUpon>
@@ -445,15 +415,6 @@
     <EmbeddedResource Include="View\Employee\addtrain.resx">
       <DependentUpon>addtrain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\addnv.resx">
-      <DependentUpon>addnv.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\Mainform.resx">
-      <DependentUpon>Mainform.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\searchsche.resx">
-      <DependentUpon>searchsche.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\addkhachhang.resx">
       <DependentUpon>addkhachhang.cs</DependentUpon>
     </EmbeddedResource>
@@ -465,21 +426,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\datve.resx">
       <DependentUpon>datve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\addschedule.resx">
-      <DependentUpon>addschedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\employee.resx">
-      <DependentUpon>employee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\note.resx">
-      <DependentUpon>note.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\Passenger.resx">
-      <DependentUpon>Passenger.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\Schedule.resx">
-      <DependentUpon>Schedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\employchinh.resx">
       <DependentUpon>employchinh.cs</DependentUpon>
