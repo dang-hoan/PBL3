@@ -126,23 +126,23 @@
             // 
             // cbbDep
             // 
+            this.cbbDep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDep.FormattingEnabled = true;
             this.cbbDep.Location = new System.Drawing.Point(177, 81);
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(234, 28);
             this.cbbDep.TabIndex = 77;
-            this.cbbDep.TextChanged += new System.EventHandler(this.cbbDep_TextChanged);
-            this.cbbDep.Leave += new System.EventHandler(this.cbbStation_Leave);
+            this.cbbDep.Click += new System.EventHandler(this.cbbDep_Click);
             // 
             // cbbDes
             // 
+            this.cbbDes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDes.FormattingEnabled = true;
             this.cbbDes.Location = new System.Drawing.Point(566, 81);
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(234, 28);
             this.cbbDes.TabIndex = 78;
-            this.cbbDes.TextChanged += new System.EventHandler(this.cbbDes_TextChanged);
-            this.cbbDes.Leave += new System.EventHandler(this.cbbStation_Leave);
+            this.cbbDes.Click += new System.EventHandler(this.cbbDes_Click);
             // 
             // bSearch
             // 

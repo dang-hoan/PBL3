@@ -297,7 +297,6 @@
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(284, 28);
             this.cbbDep.TabIndex = 37;
-            this.cbbDep.TextChanged += new System.EventHandler(this.cbbDep_TextChanged);
             this.cbbDep.Click += new System.EventHandler(this.cbbDep_Click);
             this.cbbDep.Leave += new System.EventHandler(this.cbbDep_Leave);
             // 
@@ -320,7 +319,6 @@
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(284, 28);
             this.cbbDes.TabIndex = 38;
-            this.cbbDes.TextChanged += new System.EventHandler(this.cbbDes_TextChanged);
             this.cbbDes.Click += new System.EventHandler(this.cbbDes_Click);
             // 
             // label3

@@ -16,11 +16,11 @@ namespace pbl
     public partial class GUITicket : Form
     {
         private bool NoScheduleClick = true;
-        private SCHEDULE_BLL schedule = new SCHEDULE_BLL
+        private SCHEDULE_User_BLL schedule = new SCHEDULE_User_BLL
         {
             ScheduleID = -1,
-            Departure = "",
-            Destination = "",
+            DepartureID = -1,
+            ArrivalID = -1,
             FromDepartureTime = DateTime.Now,
             ToDepartureTime = DateTime.Now,
             FromArrivalTime = DateTime.Now,
@@ -45,10 +45,10 @@ namespace pbl
             });
         }
 
-        private void Get(SCHEDULE_BLL s)
+        private void Get(SCHEDULE_User_BLL s)
         {
-            schedule.Departure = s.Departure;
-            schedule.Destination = s.Destination;
+            schedule.DepartureID = s.DepartureID;
+            schedule.ArrivalID = s.ArrivalID;
             schedule.FromDepartureTime = s.FromDepartureTime;
             schedule.ToDepartureTime = s.ToDepartureTime;
             schedule.FromArrivalTime = s.FromArrivalTime;

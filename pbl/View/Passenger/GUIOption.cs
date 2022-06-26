@@ -18,17 +18,15 @@ namespace pbl
         DateTimePicker dateToDep = new DateTimePicker();
         DateTimePicker dateFromDes = new DateTimePicker();
         DateTimePicker dateToDes = new DateTimePicker();
-        public delegate void MyDel(SCHEDULE_BLL s);
+        public delegate void MyDel(SCHEDULE_User_BLL s);
         public MyDel d { get; set; }
-        public GUIOption(SCHEDULE_BLL s)
+        public GUIOption(SCHEDULE_User_BLL s)
         {
             InitializeComponent();
             Init(s);
         }
-        private void Init(SCHEDULE_BLL s)
+        private void Init(SCHEDULE_User_BLL s)
         {
-            cbbDep.Text = s.Departure;
-            cbbDes.Text = s.Destination;
             List<CBBSchedule> listDep = new List<CBBSchedule>();
             List<CBBSchedule> listDes = new List<CBBSchedule>();
             BLLTRAIN.Instance.GetStation(GUILogin.userName, ref listDep, ref listDes);
@@ -39,6 +37,22 @@ namespace pbl
             foreach (CBBSchedule sch in listDes)
             {
                 cbbDes.Items.Add(sch);
+            }
+            for(int i = 0; i < cbbDep.Items.Count; i++)
+            {
+                if(((CBBSchedule)cbbDep.Items[i]).Value == s.DepartureID)
+                {
+                    cbbDep.SelectedIndex = i;
+                    break;
+                }
+            }
+            for(int i = 0; i < cbbDes.Items.Count; i++)
+            {
+                if(((CBBSchedule)cbbDes.Items[i]).Value == s.ArrivalID)
+                {
+                    cbbDes.SelectedIndex = i;
+                    break;
+                }
             }
 
             //Khởi tạo thuộc tính DateTimePicker dateDep và dateDes
@@ -91,11 +105,11 @@ namespace pbl
                 MessageBox.Show("Mốc thời gian từ trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
                 return;
             }
-            SCHEDULE_BLL s = new SCHEDULE_BLL
+            SCHEDULE_User_BLL s = new SCHEDULE_User_BLL
             {
                 ScheduleID = -1,
-                Departure = cbbDep.Text,
-                Destination = cbbDes.Text,
+                DepartureID = (int)((CBBSchedule)cbbDep.SelectedItem).Value,
+                ArrivalID = (int)((CBBSchedule)cbbDes.SelectedItem).Value,
                 FromDepartureTime = dateFromDep.Value,
                 ToDepartureTime = dateToDep.Value,
                 FromArrivalTime = dateFromDes.Value,
@@ -108,42 +122,45 @@ namespace pbl
         {
             this.Close();
         }
-        private void cbbDep_TextChanged(object sender, EventArgs e)
-        {
-            //cbbDep.Items.Clear();
-            //cbbDep.Items.AddRange(BLLTRAIN.Instance.GetDeparture2(GUILogin.userName, cbbDep.Text).Distinct().ToArray());
-            cbbDes.Items.Clear();
-            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
-            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, rep))
-                cbbDes.Items.Add(s);
-        }
 
-        private void cbbDes_TextChanged(object sender, EventArgs e)
+        private void cbbDep_Click(object sender, EventArgs e)
         {
-            //cbbDes.Items.Clear();
-            //cbbDes.Items.AddRange(BLLTRAIN.Instance.GetDestination2(GUILogin.userName, cbbDes.Text).Distinct().ToArray());
+            string temp = cbbDep.Text;
             cbbDep.Items.Clear();
             int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
             foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture(GUILogin.userName, rep))
             {
                 cbbDep.Items.Add(s);
             }
-        }
-        private void cbbStation_Leave(object sender, EventArgs e)
-        {
-            ComboBox cbb = (ComboBox)sender;
-            if (cbb.Text != "")
+            for (int i = 0; i < cbbDep.Items.Count; i++)
             {
-                foreach (object i in cbb.Items)
+                if (cbbDep.Items[i].ToString().Equals(temp))
                 {
-                    if (i.ToString().Equals(cbb.Text))
-                    {
-                        return;
-                    }
+                    cbbDep.SelectedIndex = i;
+                    break;
                 }
-                ((ComboBox)sender).Text = "";
-                MessageBox.Show("Ga bạn nhập không tồn tại hoặc không phù hợp với lịch trình!");
             }
+
+        }
+
+        private void cbbDes_Click(object sender, EventArgs e)
+        {
+            string temp = cbbDes.Text;
+            cbbDes.Items.Clear();
+            int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(GUILogin.userName, rep))
+            {
+                cbbDes.Items.Add(s);
+            }
+            for (int i = 0; i < cbbDes.Items.Count; i++)
+            {
+                if (cbbDes.Items[i].ToString().Equals(temp))
+                {
+                    cbbDes.SelectedIndex = i;
+                    break;
+                }
+            }
+
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addtrain));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtgiagoc = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.lich_trinh = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.bTOK = new System.Windows.Forms.Button();
-            this.cbbName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lich_trinh)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +79,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "thêm chuyến tàu mới";
+            // 
+            // cbbName
+            // 
+            this.cbbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbName.FormattingEnabled = true;
+            this.cbbName.Location = new System.Drawing.Point(232, 232);
+            this.cbbName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbbName.Name = "cbbName";
+            this.cbbName.Size = new System.Drawing.Size(284, 28);
+            this.cbbName.TabIndex = 61;
+            this.cbbName.SelectedIndexChanged += new System.EventHandler(this.cbbName_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -192,6 +203,7 @@
             // 
             // cbbDes
             // 
+            this.cbbDes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDes.FormattingEnabled = true;
             this.cbbDes.Location = new System.Drawing.Point(302, 172);
             this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -201,6 +213,7 @@
             // 
             // cbbDep
             // 
+            this.cbbDep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDep.FormattingEnabled = true;
             this.cbbDep.Location = new System.Drawing.Point(302, 119);
             this.cbbDep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -241,17 +254,6 @@
             this.bTOK.Text = "OK";
             this.bTOK.UseVisualStyleBackColor = true;
             this.bTOK.Click += new System.EventHandler(this.bTOK_Click);
-            // 
-            // cbbName
-            // 
-            this.cbbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbName.FormattingEnabled = true;
-            this.cbbName.Location = new System.Drawing.Point(232, 232);
-            this.cbbName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbbName.Name = "cbbName";
-            this.cbbName.Size = new System.Drawing.Size(284, 28);
-            this.cbbName.TabIndex = 61;
-            this.cbbName.SelectedIndexChanged += new System.EventHandler(this.cbbName_SelectedIndexChanged);
             // 
             // addtrain
             // 

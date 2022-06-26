@@ -102,7 +102,7 @@ namespace pbl.View
                     FromArrivalTime = dateFromDes.Value,
                     ToArrivalTime = dateToDes.Value
                 };
-                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
             }
             else
             {
@@ -167,32 +167,43 @@ namespace pbl.View
 
         }
 
-        private void cbbDep_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void cbbDes_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void cbbDep_Click(object sender, EventArgs e)
         {
+
+            string temp = cbbDep.Text;
             cbbDep.Items.Clear();
             int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
-            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture(rep))
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture2(rep))
             {
                 cbbDep.Items.Add(s);
+            }
+            for (int i = 0; i < cbbDep.Items.Count; i++)
+            {
+                if (cbbDep.Items[i].ToString().Equals(temp))
+                {
+                    cbbDep.SelectedIndex = i;
+                    break;
+                }
             }
 
         }
 
         private void cbbDes_Click(object sender, EventArgs e)
         {
+            string temp = cbbDes.Text;
             cbbDes.Items.Clear();
             int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
-            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(rep))
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination2(rep))
             {
                 cbbDes.Items.Add(s);
+            }
+            for (int i = 0; i < cbbDes.Items.Count; i++)
+            {
+                if (cbbDes.Items[i].ToString().Equals(temp))
+                {
+                    cbbDes.SelectedIndex = i;
+                    break;
+                }
             }
 
         }

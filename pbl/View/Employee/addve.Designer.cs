@@ -154,9 +154,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(266, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 138;
-            this.label3.Text = "Train id";
+            this.label3.Text = "Mã tàu";
             // 
             // txtschedule
             // 
@@ -171,9 +171,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(266, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 141;
-            this.label1.Text = "Scheduleid";
+            this.label1.Text = "Mã lịch trình";
             // 
             // label5
             // 
@@ -189,9 +189,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(266, 186);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 20);
+            this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 145;
-            this.label4.Text = "Train name";
+            this.label4.Text = "Tên tàu";
             // 
             // cbbseat
             // 

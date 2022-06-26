@@ -88,16 +88,40 @@ namespace pbl.View
 
         private void cbbDep_Click(object sender, EventArgs e)
         {
+            string temp = cbbDep.Text;
             cbbDep.Items.Clear();
             int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
-            cbbDep.Items.AddRange(BLLTRAIN.Instance.GetAllStation(rep).ToArray());
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetAllStation(rep))
+            {
+                cbbDep.Items.Add(s);
+            }
+            for (int i = 0; i < cbbDep.Items.Count; i++)
+            {
+                if (cbbDep.Items[i].ToString().Equals(temp))
+                {
+                    cbbDep.SelectedIndex = i;
+                    break;
+                }
+            }
         }
 
         private void cbbDes_Click(object sender, EventArgs e)
         {
+            string temp = cbbDes.Text;
             cbbDes.Items.Clear();
             int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
-            cbbDes.Items.AddRange(BLLTRAIN.Instance.GetAllStation(rep).ToArray());
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetAllStation(rep))
+            {
+                cbbDes.Items.Add(s);
+            }
+            for (int i = 0; i < cbbDes.Items.Count; i++)
+            {
+                if (cbbDes.Items[i].ToString().Equals(temp))
+                {
+                    cbbDes.SelectedIndex = i;
+                    break;
+                }
+            }
         }
     }
 }
