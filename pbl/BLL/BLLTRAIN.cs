@@ -55,7 +55,7 @@ namespace pbl.BLL
             float max = (float)(1 + (NumberOfCarriages - 1) * 0.1);
             for (int i = 0; i < NumberOfCarriages; i++)
             {
-                for (int j = 1; j <= 25; j++)
+                for (int j = 1; j <= 30; j++)
                 {
                     db.TICKETs.Add(new TICKET
                     {

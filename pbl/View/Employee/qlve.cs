@@ -132,17 +132,18 @@ namespace pbl.View
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                if (dataGridView1.SelectedRows[0].Cells["Trangthai"].Value.ToString() == "Hoạt động")
+                if (Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells["thoigiandi"].Value.ToString()).CompareTo(DateTime.Now)>=0)
                 {
                     int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Malichtrinh"].Value.ToString());
                     int trainid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Matau"].Value.ToString());
                     bookve f = new bookve(scheduleid,trainid,"mua");
+                    MessageBox.Show(scheduleid.ToString());
                     f.Show();
                     f.d = new bookve.Mydel(show2);
                 }
                 else
                 {
-                    MessageBox.Show(" Tàu đã ngừng hoạt động!");
+                    MessageBox.Show("Chuyến tàu bạn chọn đã xuất phát!");
                 }
             }
         }
