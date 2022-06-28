@@ -48,7 +48,7 @@
             this.cbbDep = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.butall = new System.Windows.Forms.Button();
-            this.butstate = new System.Windows.Forms.Button();
+            this.bDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,7 +70,7 @@
             this.panel1.Controls.Add(this.cbbDep);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.butall);
-            this.panel1.Controls.Add(this.butstate);
+            this.panel1.Controls.Add(this.bDelete);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -284,18 +284,18 @@
             this.butall.UseVisualStyleBackColor = false;
             this.butall.Click += new System.EventHandler(this.butall_Click_1);
             // 
-            // butstate
+            // bDelete
             // 
-            this.butstate.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.butstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butstate.Location = new System.Drawing.Point(916, 636);
-            this.butstate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.butstate.Name = "butstate";
-            this.butstate.Size = new System.Drawing.Size(169, 41);
-            this.butstate.TabIndex = 167;
-            this.butstate.Text = "Chỉnh sửa ";
-            this.butstate.UseVisualStyleBackColor = false;
-            this.butstate.Click += new System.EventHandler(this.butstate_Click);
+            this.bDelete.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bDelete.Location = new System.Drawing.Point(916, 636);
+            this.bDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bDelete.Name = "bDelete";
+            this.bDelete.Size = new System.Drawing.Size(169, 41);
+            this.bDelete.TabIndex = 167;
+            this.bDelete.Text = "Xoá chuyến";
+            this.bDelete.UseVisualStyleBackColor = false;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
             // 
             // dataGridView1
             // 
@@ -353,6 +353,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button butstate;
+        private System.Windows.Forms.Button bDelete;
     }
 }

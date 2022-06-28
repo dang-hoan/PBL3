@@ -48,11 +48,13 @@ namespace pbl.BLL
         public void AddListTicket(TRIP trip)
 
         {
+            MessageBox.Show("2");
             PBL3 db = new PBL3();
             int NumberOfCarriages = (from tra in db.TRAINs
                                      where tra.TrainID == trip.TrainID
                                      select tra.NumberOfCarriages).FirstOrDefault();
             float max = (float)(1 + (NumberOfCarriages - 1) * 0.1);
+            MessageBox.Show(NumberOfCarriages.ToString());
             for (int i = 0; i < NumberOfCarriages; i++)
             {
                 for (int j = 1; j <= 30; j++)
@@ -63,11 +65,11 @@ namespace pbl.BLL
                         TrainID = trip.TrainID,
                         SeatNo = carriage[i] + j.ToString(),
                         TicketPrice = (decimal)(Convert.ToDouble(trip.BasicPrice) * (max - 0.1 * (i - 1))),
-                        Booked = false,
-                        CustomerUN = ""
+                        Booked = false
                     });
                 }
             }
+            db.SaveChanges();
         }
         public void Print(DataGridView dataGridView1, int[] numberChar,string header)
         {
@@ -370,7 +372,7 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             var result = (from log in db.LOGINs
                          join pos in db.POSITIONs on log.Person.PositionID equals pos.PositionID
-                         where log.Username == Username && log.PassWord == Password
+                         where log.Username.Equals(Username) && log.PassWord.Equals(Password)
                          select pos.Position).FirstOrDefault();
             if (result != null) return result;
             return "Không tồn tại";
@@ -477,19 +479,26 @@ namespace pbl.BLL
         public void DeleteSchedule(int ScheduleID)
         {
             PBL3 db = new PBL3();
-            foreach(SCHEDULE s in db.SCHEDULEs)
-            {
-                if(s.ScheduleID == ScheduleID)
-                {
-                    foreach(TRIP t in s.TRIPs)
-                    {
-                        t.TICKETs.Clear();
-                    }
-                    s.TRIPs.Clear();
-                    db.SCHEDULEs.Remove(s);
-                    break;
-                }
-            }
+            var data = from tic in db.TICKETs
+                       where tic.ScheduleID == ScheduleID
+                       select tic;
+            db.TICKETs.RemoveRange(data);
+            var data2 = from t in db.TRIPs
+                        where t.ScheduleID == ScheduleID
+                        select t;
+            db.TRIPs.RemoveRange(data2);
+            db.SCHEDULEs.Remove(db.SCHEDULEs.Find(ScheduleID));
+            db.SaveChanges();
+        }
+        public void DeleteTrip(int ScheduleID, int TrainID)
+        {
+            PBL3 db = new PBL3();
+            var data = from tic in db.TICKETs
+                       where tic.ScheduleID == ScheduleID && tic.TrainID == TrainID
+                       select tic;
+            db.TICKETs.RemoveRange(data);
+            db.TRIPs.Remove(db.TRIPs.Find(ScheduleID, TrainID));
+            db.SaveChanges();
         }
         public List<SCHEDULE_View> GetSchedulead(string DepartureTime, string ArrivalTime, string Dep, string Des)
         {
@@ -1458,7 +1467,7 @@ namespace pbl.BLL
                         Destination = tri.SCHEDULE.STATION.StationName,
                         DepartureTime = tri.SCHEDULE.DepartureTime.ToString(),
                         ArrivalTime = tri.SCHEDULE.ArrivalTime.ToString()
-                    }).ToList();
+                    }).ToList().GroupBy(s => s.ScheduleID).Select(g => g.FirstOrDefault()).ToList();
         }
         public List<SCHEDULE_View> GetSchedule2()
         {
@@ -1478,13 +1487,13 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             return db.SCHEDULEs.Where(p => (p.ScheduleID == scheduleid)).Select(p => p).FirstOrDefault();
         }
-        public void Executetrip(TRIP s)
+        public void AddTrip(TRIP s)
         {
             PBL3 db = new PBL3();
             db.TRIPs.Add(s);
             db.SaveChanges();
-            //Duc
-            //AddListTicket(s.TrainID,s.NumberOfCarriages,s.BasicPrice.ToString());
+            MessageBox.Show("1");
+            AddListTicket(s);
         }
         public void delsche(int ScheduleID)
         {

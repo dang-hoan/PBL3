@@ -73,29 +73,40 @@ namespace pbl
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
             int comp = DateTime.Compare(dateDep.Value, dateDes.Value);
-            if (comp >= 0)
+            if (comp > 0)
             {
                 MessageBox.Show("Thời gian đến phải sau thời gian đi!");
                 return;
             }
+            string date1 = dateDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(date1, now) < 0)
+            {
+                MessageBox.Show("Lịch trình phải có thời gian bắt đầu từ thời điểm hiện tại!");
+                return;
+            }
             else
             {
-                if (cbbDep.SelectedItem == null) MessageBox.Show("Yes");
-                MessageBox.Show(cbbDep.Text);
                 SCHEDULE s = new SCHEDULE
                 {
                     ScheduleID = -1,
-                    DepartureID = ((CBBSchedule)cbbDep.SelectedItem).Value,
-                    ArrivalID = ((CBBSchedule)cbbDes.SelectedItem).Value,
+                    DepartureID = ((CBBSchedule)(cbbDep.SelectedItem)).Value,
+                    ArrivalID = ((CBBSchedule)(cbbDes.SelectedItem)).Value,
                     DepartureTime = dateDep.Value,
                     ArrivalTime = dateDes.Value,
 
                 };
-
-                BLLTRAIN.Instance.Execute(s);
-                showsche();
-
-
+                if (!BLLTRAIN.Instance.CheckSchedule(s))
+                {
+                    BLLTRAIN.Instance.Execute(s);
+                    MessageBox.Show("Đã thêm lịch trình vào hệ thống thành công!");
+                    showsche();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Lịch trình bạn chọn đã tồn tại trong hệ thống!");
+                }
             }
         }
         //timkiem

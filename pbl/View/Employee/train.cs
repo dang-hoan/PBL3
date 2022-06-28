@@ -87,22 +87,6 @@ namespace pbl.View
   
         }
 
-        private void butstate_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                if (dataGridView1.SelectedRows[0].Cells["State"].Value.ToString() != "Hoạt động")
-                {
-                   // string scheduleid = dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString();
-                   // trainve f = new trainve(Convert.ToInt32(scheduleid));
-                   // f.Show();
-                   //f.d= new trainve.mydel(show);
-                }
-                
-            }
-            
-        }
-
         private void buttrain_Click_1(object sender, EventArgs e)
         {
 
@@ -227,6 +211,23 @@ namespace pbl.View
                 }
             }
 
+        }
+
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count > 0)
+            {
+                foreach(DataGridViewRow r in dataGridView1.SelectedRows)
+                {
+                    BLLTRAIN.Instance.DeleteTrip(Convert.ToInt32(r.Cells[0].Value.ToString()), Convert.ToInt32(r.Cells[1].Value.ToString()));
+                }
+                MessageBox.Show("Đã xoá thành công các chuyến tàu bạn chọn!");
+                show();
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn ít nhất 1 chuyến tàu để xoá!");
+            }
         }
     }
 }

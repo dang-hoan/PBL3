@@ -81,5 +81,10 @@ namespace pbl.View
             BLLTRAIN.Instance.addticket(tic);
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

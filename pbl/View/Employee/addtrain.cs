@@ -31,11 +31,15 @@ namespace pbl.View
         {
             cbbName.Items.AddRange(BLLTRAIN.Instance.GetTrain().ToArray());
             SCHEDULE i = BLLTRAIN.Instance.GetScheduleid(scheduleid);
-            schedule.Text = i.ScheduleID.ToString();
+            if(i != null)
+            {
+                schedule.Text = i.ScheduleID.ToString();
+                cbbDep.Text = i.STATION1.StationName;
+                cbbDes.Text = i.STATION.StationName;
+
+            }
             schedule.Enabled = false;
-            cbbDep.Text = i.STATION1.StationName;
             cbbDep.Enabled = false;
-            cbbDes.Text = i.STATION.StationName;
             cbbDes.Enabled = false;
             foreach (CBBpeople s in BLLTRAIN.Instance.GetAllCBBDriver())
             {
@@ -58,39 +62,52 @@ namespace pbl.View
         {
 
         }
-
+        private bool CheckNum(string money)
+        {
+            int temp;
+            if(!int.TryParse(money, out temp))
+            {
+                MessageBox.Show("Giá vé cơ bản phải là một số!");
+                return false;
+            }
+            else if (temp <= 0)
+            {
+                MessageBox.Show("Giá vé cơ bản phải là một số dương!");
+                return false;
+            }
+            return true;
+        }
         private void bTOK_Click(object sender, EventArgs e)
         {
             if (schedule.Text == "")
             {
                 MessageBox.Show("Chọn một lịch trình trước bấm xác nhận!");
+                return;
             }
-            if ( (cbbName.Text == "") || (txtsotoa.Text == "") || (cbblaixe.Text == "")||(schedule.Text==""))
+            if ( (cbbName.Text == "") || (txtsotoa.Text == "") || (cbblaixe.Text == "") || txtgiagoc.Text == "")
             {
-                MessageBox.Show("Bạn chưa nhập đủ dữ liệu bắt buộc!");
+                MessageBox.Show("Bạn chưa nhập đủ thông tin cho chuyến tàu!");
+                return;
+            }
+            if (!CheckNum(txtgiagoc.Text)) return;
+            if (!BLLTRAIN.Instance.CheckTrip(Convert.ToInt32(schedule.Text), Convert.ToInt32(((CBBItem)cbbName.SelectedItem).Value)))
+            {
+                TRIP s = new TRIP
+                {
+                    ScheduleID = Convert.ToInt32(schedule.Text),
+                    TrainID = Convert.ToInt32(((CBBItem)cbbName.SelectedItem).Value),
+                    DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
+                    BasicPrice = (decimal)Convert.ToDouble(txtgiagoc.Text)
+                };
+                BLLTRAIN.Instance.AddTrip(s);
+                MessageBox.Show("Đã thêm chuyến tàu thành công!");
+                d();
+                this.Close();
             }
             else
             {
-                if (!BLLTRAIN.Instance.CheckTrip(Convert.ToInt32(schedule.Text), Convert.ToInt32(((CBBItem)cbbName.SelectedItem).Value)))
-                {
-                    TRIP s = new TRIP
-                    {
-                        ScheduleID = Convert.ToInt32(schedule.Text),
-                        TrainID = Convert.ToInt32(((CBBItem)cbbName.SelectedItem).Value),
-                        DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
-                        BasicPrice = (decimal)Convert.ToDouble(txtgiagoc.Text)
-                    };
-                    BLLTRAIN.Instance.Executetrip(s);
-                    BLLTRAIN.Instance.AddListTicket(s);
-                    d();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Chuyến tàu bạn thêm đã có trong hệ thống!");
-                }
+                MessageBox.Show("Chuyến tàu bạn thêm đã có trong hệ thống!");
             }
-
            
         }
         private void getScheduleID(int scheduleid)
