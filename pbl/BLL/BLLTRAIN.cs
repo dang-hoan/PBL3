@@ -46,15 +46,12 @@ namespace pbl.BLL
             return result;
         }
         public void AddListTicket(TRIP trip)
-
         {
-            MessageBox.Show("2");
             PBL3 db = new PBL3();
             int NumberOfCarriages = (from tra in db.TRAINs
                                      where tra.TrainID == trip.TrainID
                                      select tra.NumberOfCarriages).FirstOrDefault();
             float max = (float)(1 + (NumberOfCarriages - 1) * 0.1);
-            MessageBox.Show(NumberOfCarriages.ToString());
             for (int i = 0; i < NumberOfCarriages; i++)
             {
                 for (int j = 1; j <= 30; j++)
@@ -1492,7 +1489,6 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             db.TRIPs.Add(s);
             db.SaveChanges();
-            MessageBox.Show("1");
             AddListTicket(s);
         }
         public void delsche(int ScheduleID)

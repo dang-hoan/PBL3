@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using pbl.DTO;
 
 namespace pbl.BLL
@@ -27,11 +28,11 @@ namespace pbl.BLL
         private BLLTicket()
         {
         }
-        public List<TICKET> getticketbylist(int tranid, string ma)
+        public List<TICKET> getticketbylist(int scheduleid, int trainid, string matoa)
         {
             PBL3 db = new PBL3();
             var s = ( from t in db.TICKETs.ToList()
-                      where ((t.TrainID==tranid)&&(t.SeatNo.IndexOf(ma)!=-1))
+                      where (t.ScheduleID==scheduleid && (t.TrainID==trainid)&&(t.SeatNo.ToUpper().Contains(matoa)))
                       select t).ToList();
             return s;
         }

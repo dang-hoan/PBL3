@@ -28,9 +28,7 @@ namespace pbl.View
             scheduleid = s;
             trainid = t;
             trangthai = k;
-            MessageBox.Show(trangthai);
             intit();
-            cbbmave.Text = "A";
             set();
             setcolor();
         }
@@ -110,7 +108,7 @@ namespace pbl.View
     public void setcolor()
         {
             
-            foreach (TICKET tic in BLLTicket.instance.getticketbylist(trainid, cbbmave.Text))
+            foreach (TICKET tic in BLLTicket.instance.getticketbylist(scheduleid, trainid, cbbmave.Text))
             {
                 string s = tic.SeatNo;
                 s = s.Substring(1);
@@ -151,8 +149,8 @@ namespace pbl.View
             for (int i = 1; i <= num; i++)
             {
                 cbbmave.Items.Add(Convert.ToChar(i + 64)).ToString();
-
             }
+            cbbmave.SelectedIndex = 0;
         }
 
 
@@ -164,18 +162,9 @@ namespace pbl.View
         private void label_Click(object sender, EventArgs e)
         { 
             string ghe = ((Label)sender).Text.Trim();
-           string seatno = cbbmave.Text+ghe;
-            if (trangthai == "mua")
-            {
-                datve f = new datve(scheduleid, trainid, seatno,"");
-                f.Show();
-            }
-            if (trangthai == "xem")
-            {
-                datve f = new datve(scheduleid, trainid, seatno,"xem");
-                f.Show();
-            }
-
+            string seatno = cbbmave.Text+ghe;
+            datve f = new datve(scheduleid, trainid, seatno, trangthai);
+            f.Show();
         }
         
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.DTO;
 using pbl.BLL;
+using System.Threading;
 
 namespace pbl.View
 {
@@ -18,6 +19,7 @@ namespace pbl.View
         {
             InitializeComponent();
             gui();
+            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("nl");
             show();
         }
         public void gui()
@@ -57,7 +59,6 @@ namespace pbl.View
         private void themlt_Click(object sender, EventArgs e)
         {
             addlichtrinh f = new addlichtrinh();
-           
             f.d = new addlichtrinh.Mydel(show);
             f.Show();
         }
@@ -206,6 +207,18 @@ namespace pbl.View
                 }
             }
 
+        }
+
+        private void bDelSchedule_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+                    BLLTRAIN.Instance.DeleteSchedule(Convert.ToInt32(dataGridView1.SelectedRows[i].Cells[0].Value.ToString()));
+                MessageBox.Show("Đã xoá thành công các lịch trình bạn chọn!");
+                show();
+            }
+            else MessageBox.Show("Hãy chọn ít nhất 1 lịch trình để xoá!");
         }
     }
 }

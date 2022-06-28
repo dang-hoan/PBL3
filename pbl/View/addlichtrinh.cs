@@ -29,8 +29,8 @@ namespace pbl.View
 
         private void bTOK_Click(object sender, EventArgs e)
         {
-            int comp = DateTime.Compare(daydep.Value, daydes.Value);
-            if (comp > 0)
+            int comp = string.Compare(daydep.Value.ToString("yyyy/MM/dd HH:mm"), daydes.Value.ToString("yyyy/MM/dd HH:mm"));
+            if (comp >= 0)
             {
                 MessageBox.Show("Thời gian đến phải sau thời gian đi!");
                 return;
@@ -40,6 +40,11 @@ namespace pbl.View
             if (string.Compare(date1, now) < 0 )
             {
                 MessageBox.Show("Lịch trình phải có thời gian bắt đầu từ thời điểm hiện tại!");
+                return;
+            }
+            if(cbbDep.Text == "" || cbbDes.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập đủ thông tin lịch trình!");
                 return;
             }
             else

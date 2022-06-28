@@ -6,13 +6,14 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using pbl.BLL;
 using pbl.DTO;
 
 
-namespace pbl
+namespace pbl.View
 {
     public partial class Schedule : Form
     {
@@ -20,8 +21,8 @@ namespace pbl
         {
             
             InitializeComponent();
-            
-            cbb();
+            cbb(); 
+            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("nl");
             showsche();
         }
         
@@ -43,71 +44,24 @@ namespace pbl
             foreach (CBBSchedule s in listDep) cbbDep.Items.Add(s);
             foreach (CBBSchedule s in listDes) cbbDes.Items.Add(s);
         }
-        
-
-        
-
-        private void bdellt_Click(object sender, EventArgs e)
-        {
-
-            //if (dtg.SelectedRows.Count > 0)
-            //{
-            //    foreach (DataGridViewRow row in dtg.SelectedRows)
-            //    {
-            //        BLLTRAIN.Instance.delschedule(Convert.ToInt32(row.Cells["Malt"].Value));
-            //    }
-            //}
-        }
 
         private void bunifuThinButton23_Click(object sender, EventArgs e)
         {
             if (dtg.SelectedRows.Count > 0)
             {
                 for(int i = 0; i < dtg.SelectedRows.Count; i++)
-                    BLLTRAIN.Instance.DeleteSchedule(Convert.ToInt32(dtg.SelectedRows[i].Cells["Mã lịch trình"].Value.ToString()));
-
+                    BLLTRAIN.Instance.DeleteSchedule(Convert.ToInt32(dtg.SelectedRows[i].Cells[0].Value.ToString()));
+                MessageBox.Show("Đã xoá thành công các lịch trình bạn chọn!");
+                showsche();
             }
             else MessageBox.Show("Hãy chọn ít nhất 1 lịch trình để xoá!");
         }
         //them
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            int comp = DateTime.Compare(dateDep.Value, dateDes.Value);
-            if (comp > 0)
-            {
-                MessageBox.Show("Thời gian đến phải sau thời gian đi!");
-                return;
-            }
-            string date1 = dateDep.Value.ToString("yyyy/MM/dd HH:mm");
-            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
-            if (string.Compare(date1, now) < 0)
-            {
-                MessageBox.Show("Lịch trình phải có thời gian bắt đầu từ thời điểm hiện tại!");
-                return;
-            }
-            else
-            {
-                SCHEDULE s = new SCHEDULE
-                {
-                    ScheduleID = -1,
-                    DepartureID = ((CBBSchedule)(cbbDep.SelectedItem)).Value,
-                    ArrivalID = ((CBBSchedule)(cbbDes.SelectedItem)).Value,
-                    DepartureTime = dateDep.Value,
-                    ArrivalTime = dateDes.Value,
-
-                };
-                if (!BLLTRAIN.Instance.CheckSchedule(s))
-                {
-                    BLLTRAIN.Instance.Execute(s);
-                    MessageBox.Show("Đã thêm lịch trình vào hệ thống thành công!");
-                    showsche();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Lịch trình bạn chọn đã tồn tại trong hệ thống!");
-                }
-            }
+            addlichtrinh f = new addlichtrinh();
+            f.d = new addlichtrinh.Mydel(showsche);
+            f.Show();
         }
         //timkiem
         private void bunifuThinButton22_Click(object sender, EventArgs e)
@@ -121,8 +75,8 @@ namespace pbl
             }
 
 
-            dtg.DataSource = BLLTRAIN.Instance.GetSchedulead(dateDep.Value.ToString("d/M/yyyy HH:mm"),
-                dateDes.Value.ToString("d/M/yyyy HH:mm"), cbbDep.Text, cbbDes.Text);
+            dtg.DataSource = BLLTRAIN.Instance.GetSchedulead(dateDep.Value.ToString("d/M/yyyy"),
+                dateDes.Value.ToString("d/M/yyyy"), cbbDep.Text, cbbDes.Text);
         }
 
 

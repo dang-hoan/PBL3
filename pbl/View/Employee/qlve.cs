@@ -137,7 +137,6 @@ namespace pbl.View
                     int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Malichtrinh"].Value.ToString());
                     int trainid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Matau"].Value.ToString());
                     bookve f = new bookve(scheduleid,trainid,"mua");
-                    MessageBox.Show(scheduleid.ToString());
                     f.Show();
                     f.d = new bookve.Mydel(show2);
                 }

@@ -48,6 +48,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.bDelSchedule = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // 
             this.themlt.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.themlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.themlt.Location = new System.Drawing.Point(826, 610);
+            this.themlt.Location = new System.Drawing.Point(542, 612);
             this.themlt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.themlt.Name = "themlt";
             this.themlt.Size = new System.Drawing.Size(144, 41);
@@ -82,7 +83,7 @@
             // 
             this.butall.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.butall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butall.Location = new System.Drawing.Point(394, 610);
+            this.butall.Location = new System.Drawing.Point(64, 612);
             this.butall.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butall.Name = "butall";
             this.butall.Size = new System.Drawing.Size(144, 41);
@@ -149,12 +150,12 @@
             // 
             this.buttrain.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttrain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttrain.Location = new System.Drawing.Point(42, 610);
+            this.buttrain.Location = new System.Drawing.Point(298, 612);
             this.buttrain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttrain.Name = "buttrain";
-            this.buttrain.Size = new System.Drawing.Size(146, 41);
+            this.buttrain.Size = new System.Drawing.Size(148, 41);
             this.buttrain.TabIndex = 135;
-            this.buttrain.Text = "Thêm chuyến tàu";
+            this.buttrain.Text = "Thêm chuyến";
             this.buttrain.UseVisualStyleBackColor = false;
             this.buttrain.Click += new System.EventHandler(this.buttrain_Click);
             // 
@@ -264,12 +265,26 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // bDelSchedule
+            // 
+            this.bDelSchedule.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bDelSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bDelSchedule.Location = new System.Drawing.Point(777, 612);
+            this.bDelSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bDelSchedule.Name = "bDelSchedule";
+            this.bDelSchedule.Size = new System.Drawing.Size(144, 41);
+            this.bDelSchedule.TabIndex = 190;
+            this.bDelSchedule.Text = "Xoá lịch trình";
+            this.bDelSchedule.UseVisualStyleBackColor = false;
+            this.bDelSchedule.Click += new System.EventHandler(this.bDelSchedule_Click);
+            // 
             // lichtrinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1029, 666);
+            this.Controls.Add(this.bDelSchedule);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.dateToDes);
             this.Controls.Add(this.dateToDep);
@@ -321,5 +336,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button bDelSchedule;
     }
 }

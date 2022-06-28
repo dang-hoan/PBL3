@@ -36,7 +36,7 @@ namespace pbl.View
         {
             if (trangthai == "xem")
             {
-                foreach (TICKET i in BLLTicket.instance.getticketbylist(matau, vitri))
+                foreach (TICKET i in BLLTicket.instance.getticketbylist(malichtrinh,matau, vitri))
                 {
                     if (i.Booked ==true)
                     {
@@ -53,8 +53,8 @@ namespace pbl.View
                 txtidcard.Enabled = false;
                 txtname.Enabled = false;
                 txtsdt.Enabled = false;
+                button1.Visible = false;
             }
-           
 
         }
         private void button1_Click(object sender, EventArgs e)

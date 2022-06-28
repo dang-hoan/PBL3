@@ -215,10 +215,10 @@
     <Compile Include="View\Employee\addve.Designer.cs">
       <DependentUpon>addve.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Employee\addlichtrinh.cs">
+    <Compile Include="View\addlichtrinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Employee\addlichtrinh.Designer.cs">
+    <Compile Include="View\addlichtrinh.Designer.cs">
       <DependentUpon>addlichtrinh.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Employee\addkhachhang.cs">
@@ -442,7 +442,7 @@
     <EmbeddedResource Include="View\Employee\addkhachhang.resx">
       <DependentUpon>addkhachhang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Employee\addlichtrinh.resx">
+    <EmbeddedResource Include="View\addlichtrinh.resx">
       <DependentUpon>addlichtrinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\addve.resx">
