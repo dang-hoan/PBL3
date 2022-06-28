@@ -22,26 +22,21 @@ namespace pbl.View
             InitializeComponent();
             if (schedule.Text != "") label1.Visible = false;
             else label1.Visible = true;
-            trainid = s;
+            scheduleid = s;
             Init();
             schedule.Enabled = false;
-            cbbDep.Enabled = false;
-            cbbDes.Enabled = false;
         }
         PBL3 db = new PBL3();
         private void Init()
         {
             cbbName.Items.AddRange(BLLTRAIN.Instance.GetTrain().ToArray());
-            foreach (SCHEDULE i in BLLTRAIN.Instance.GetScheduleid(trainid))
-            {
-                schedule.Text = i.ScheduleID.ToString();
-                schedule.Enabled = false;
-                cbbDep.Text = i.STATION.StationName;
-                cbbDep.Enabled = false;
-                cbbDes.Text = i.STATION1.StationName;
-                cbbDes.Enabled = false;
-            }
-            List<string> name = new List<string>();
+            SCHEDULE i = BLLTRAIN.Instance.GetScheduleid(scheduleid);
+            schedule.Text = i.ScheduleID.ToString();
+            schedule.Enabled = false;
+            cbbDep.Text = i.STATION1.StationName;
+            cbbDep.Enabled = false;
+            cbbDes.Text = i.STATION.StationName;
+            cbbDes.Enabled = false;
             foreach (CBBpeople s in BLLTRAIN.Instance.GetAllCBBDriver())
             {
                 cbblaixe.Items.Add(s);
@@ -68,25 +63,32 @@ namespace pbl.View
         {
             if (schedule.Text == "")
             {
-                MessageBox.Show("chon mot lich trinh truoc khi ok!");
+                MessageBox.Show("Chọn một lịch trình trước bấm xác nhận!");
             }
             if ( (cbbName.Text == "") || (txtsotoa.Text == "") || (cbblaixe.Text == "")||(schedule.Text==""))
             {
-                MessageBox.Show("bạn chưa nhập đủ dư liệu bắt buộc ");
+                MessageBox.Show("Bạn chưa nhập đủ dữ liệu bắt buộc!");
             }
             else
             {
-                TRIP s = new TRIP
+                if (!BLLTRAIN.Instance.CheckTrip(Convert.ToInt32(schedule.Text), Convert.ToInt32(((CBBItem)cbbName.SelectedItem).Value)))
                 {
-                    ScheduleID = Convert.ToInt32(schedule.Text),
-                    TrainID = Convert.ToInt32(((CBBItem)cbbName.SelectedItem).Value),
-                    DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
-                    BasicPrice = (decimal)Convert.ToDouble(txtgiagoc.Text)
-                };
-                BLLTRAIN.Instance.Executetrip(s);
-                d();
-                this.Close();
-                BLLTRAIN.Instance.AddListTicket(s);
+                    TRIP s = new TRIP
+                    {
+                        ScheduleID = Convert.ToInt32(schedule.Text),
+                        TrainID = Convert.ToInt32(((CBBItem)cbbName.SelectedItem).Value),
+                        DriverUN = ((CBBpeople)cbblaixe.SelectedItem).Value,
+                        BasicPrice = (decimal)Convert.ToDouble(txtgiagoc.Text)
+                    };
+                    BLLTRAIN.Instance.Executetrip(s);
+                    BLLTRAIN.Instance.AddListTicket(s);
+                    d();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Chuyến tàu bạn thêm đã có trong hệ thống!");
+                }
             }
 
            
@@ -94,12 +96,10 @@ namespace pbl.View
         private void getScheduleID(int scheduleid)
         {
             label1.Visible = false;
-            foreach (SCHEDULE i in BLLTRAIN.Instance.GetScheduleid(scheduleid))
-            {
-                schedule.Text = i.ScheduleID.ToString();
-                cbbDep.Text = i.STATION.StationName;
-                cbbDes.Text = i.STATION1.StationName;
-            }
+            SCHEDULE i = BLLTRAIN.Instance.GetScheduleid(scheduleid);
+            schedule.Text = i.ScheduleID.ToString();
+            cbbDep.Text = i.STATION1.StationName;
+            cbbDes.Text = i.STATION.StationName;
         }
 
         private void button1_Click(object sender, EventArgs e)

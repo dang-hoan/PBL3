@@ -57,7 +57,7 @@ namespace pbl.View
             {
                 Departure = cbbDep.Text,
                 Destination = cbbDes.Text,
-                // DepartureTime = DepTime,
+                //DepartureTime = DepTime.Value,
             };
 
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);

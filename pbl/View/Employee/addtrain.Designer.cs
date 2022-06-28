@@ -78,7 +78,7 @@
             this.groupBox1.Size = new System.Drawing.Size(590, 472);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "thêm chuyến tàu mới";
+            this.groupBox1.Text = "Thêm chuyến tàu mới";
             // 
             // cbbName
             // 
@@ -203,7 +203,6 @@
             // 
             // cbbDes
             // 
-            this.cbbDes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDes.FormattingEnabled = true;
             this.cbbDes.Location = new System.Drawing.Point(302, 172);
             this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -213,7 +212,6 @@
             // 
             // cbbDep
             // 
-            this.cbbDep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDep.FormattingEnabled = true;
             this.cbbDep.Location = new System.Drawing.Point(302, 119);
             this.cbbDep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -246,12 +244,12 @@
             // 
             // bTOK
             // 
-            this.bTOK.Location = new System.Drawing.Point(437, 507);
+            this.bTOK.Location = new System.Drawing.Point(407, 507);
             this.bTOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bTOK.Name = "bTOK";
-            this.bTOK.Size = new System.Drawing.Size(80, 41);
+            this.bTOK.Size = new System.Drawing.Size(110, 41);
             this.bTOK.TabIndex = 5;
-            this.bTOK.Text = "OK";
+            this.bTOK.Text = "Xác nhận";
             this.bTOK.UseVisualStyleBackColor = true;
             this.bTOK.Click += new System.EventHandler(this.bTOK_Click);
             // 

@@ -143,13 +143,11 @@ namespace pbl.View
                 }    
                 s = i.ScheduleID;
             }
-            foreach(SCHEDULE sch in BLLTRAIN.Instance.GetScheduleid(s))
-            {
-                txtdep.Text = sch.STATION1.StationName;
-                txtdes.Text = sch.STATION.StationName;
-                timedep.Text = sch.DepartureTime.ToString();
-                timedes.Text = sch.ArrivalTime.ToString();
-            }    
+            SCHEDULE sch = BLLTRAIN.Instance.GetScheduleid(s);
+            txtdep.Text = sch.STATION1.StationName;
+            txtdes.Text = sch.STATION.StationName;
+            timedep.Text = sch.DepartureTime.ToString("dd/MM/yyyy HH:mm");
+            timedes.Text = sch.ArrivalTime.ToString("dd/MM/yyyy HH:mm");
             for (int i = 1; i <= num; i++)
             {
                 cbbmave.Items.Add(Convert.ToChar(i + 64)).ToString();

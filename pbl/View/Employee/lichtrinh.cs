@@ -18,6 +18,7 @@ namespace pbl.View
         {
             InitializeComponent();
             gui();
+            show();
         }
         public void gui()
         {
@@ -47,7 +48,7 @@ namespace pbl.View
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
 
-                    //BLLTRAIN.Instance.delschedule(Convert.ToInt32(row.Cells["ScheduleID"].Value.ToString()));
+                    BLLTRAIN.Instance.DeleteSchedule(Convert.ToInt32(row.Cells["ScheduleID"].Value.ToString()));
                 }
             }
             show();
@@ -55,7 +56,7 @@ namespace pbl.View
 
         private void themlt_Click(object sender, EventArgs e)
         {
-            addlichtrinh f = new addlichtrinh("");
+            addlichtrinh f = new addlichtrinh();
            
             f.d = new addlichtrinh.Mydel(show);
             f.Show();
@@ -121,7 +122,6 @@ namespace pbl.View
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-
                 string state = Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells["DepartureTime"].Value).ToString("yyyy/MM/dd HH:mm");
                 string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
                 if (string.Compare(state, now) > 0)
@@ -132,10 +132,10 @@ namespace pbl.View
                     f.Show();
                 }
                 else
-                { MessageBox.Show(" Chuyến tàu đã xuất phát "); }
+                { MessageBox.Show("Chuyến tàu bạn chọn đã xuất phát!"); }
             }
             else
-            MessageBox.Show(" vui lòng chọn một lịch trình!");
+            MessageBox.Show("Vui lòng chọn một lịch trình!");
             
         }
 

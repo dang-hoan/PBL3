@@ -289,6 +289,26 @@ namespace pbl.BLL
             }
             return false;
         }
+        public bool CheckTrip(int ScheduleID, int TrainID)
+        {
+            PBL3 db = new PBL3();
+            var data = (from tri in db.TRIPs
+                        where tri.ScheduleID == ScheduleID && tri.TrainID == TrainID
+                        select tri).FirstOrDefault();
+            if (data != null) return true;
+            return false;
+        }
+        public bool CheckSchedule(SCHEDULE s)
+        {
+            PBL3 db = new PBL3();
+            var data = (from sch in db.SCHEDULEs.ToList()
+                        where sch.DepartureID == s.DepartureID && sch.ArrivalID == s.ArrivalID
+                        && sch.DepartureTime.ToString("dd/MM/yyyy HH:mm").CompareTo(s.DepartureTime.ToString("dd/MM/yyyy HH:mm")) == 0 
+                        && sch.ArrivalTime.ToString("dd/MM/yyyy HH:mm").CompareTo(s.ArrivalTime.ToString("dd/MM/yyyy HH:mm")) == 0
+                        select sch).FirstOrDefault();
+            if (data != null) return true;
+            return false;
+        }
         public void AddPassenger(PEOPLE s)
         {
             PBL3 db = new PBL3();
@@ -1453,12 +1473,10 @@ namespace pbl.BLL
                         ArrivalTime = sch.ArrivalTime.ToString()
                     }).ToList();
         }
-        public List<SCHEDULE> GetScheduleid(int scheduleid)
+        public SCHEDULE GetScheduleid(int scheduleid)
         {
             PBL3 db = new PBL3();
-            List<SCHEDULE> data = new List<SCHEDULE>();
-            data = db.SCHEDULEs.Where(p => (p.ScheduleID == scheduleid)).Select(p => p).ToList();
-            return data;
+            return db.SCHEDULEs.Where(p => (p.ScheduleID == scheduleid)).Select(p => p).FirstOrDefault();
         }
         public void Executetrip(TRIP s)
         {

@@ -16,29 +16,15 @@ namespace pbl.View
     {
         public delegate void Mydel();
         public Mydel d { get; set; }
-        string scheduleid;
-        public addlichtrinh(string s)
+        public addlichtrinh()
         {
-            scheduleid = s;
             InitializeComponent();
             GUI();
-            
         }
         public void GUI()
         {
             cbbDep.Items.AddRange(BLLTRAIN.Instance.Getstation().ToArray());
             cbbDes.Items.AddRange(BLLTRAIN.Instance.Getstation().ToArray());
-            //K hiểu
-            //if(scheduleid !="")
-            //{
-            //   foreach(SCHEDULE p in BLLTRAIN.Instance.GetScheduleid(Convert.ToInt32(scheduleid)))
-            //    {
-            //        cbbDep.Text = p.STATION1.StationName.ToString();
-            //        cbbDep.Enabled = false;
-            //        cbbDes.Text = p.STATION.StationName.ToString();
-            //        cbbDes.Enabled = false;
-            //    } ;
-            //}    
         }
 
         private void bTOK_Click(object sender, EventArgs e)
@@ -58,21 +44,26 @@ namespace pbl.View
             }
             else
             {
-                    SCHEDULE s = new SCHEDULE
-                    {
-                        ScheduleID = -1,
-                        DepartureID = ((CBBSchedule)(cbbDep.SelectedItem)).Value,
-                        ArrivalID = ((CBBSchedule)(cbbDes.SelectedItem)).Value,
-                        DepartureTime = daydep.Value,
-                        ArrivalTime = daydes.Value,
+                SCHEDULE s = new SCHEDULE
+                {
+                    ScheduleID = -1,
+                    DepartureID = ((CBBSchedule)(cbbDep.SelectedItem)).Value,
+                    ArrivalID = ((CBBSchedule)(cbbDes.SelectedItem)).Value,
+                    DepartureTime = daydep.Value,
+                    ArrivalTime = daydes.Value,
 
-                    };
-
+                };
+                if (!BLLTRAIN.Instance.CheckSchedule(s))
+                {
                     BLLTRAIN.Instance.Execute(s);
-                    MessageBox.Show("OK");
+                    MessageBox.Show("Đã thêm lịch trình vào hệ thống thành công!");
                     d();
                     this.Close();
-                    
+                }
+                else
+                {
+                    MessageBox.Show("Lịch trình bạn chọn đã tồn tại trong hệ thống!");
+                }   
             }
         }
 
