@@ -41,10 +41,11 @@
             // 
             // butdel
             // 
-            this.butdel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.butdel.Location = new System.Drawing.Point(639, 439);
+            this.butdel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.butdel.Location = new System.Drawing.Point(790, 612);
+            this.butdel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butdel.Name = "butdel";
-            this.butdel.Size = new System.Drawing.Size(147, 40);
+            this.butdel.Size = new System.Drawing.Size(131, 40);
             this.butdel.TabIndex = 15;
             this.butdel.Text = "XÓA";
             this.butdel.UseVisualStyleBackColor = false;
@@ -52,10 +53,11 @@
             // 
             // butsua
             // 
-            this.butsua.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.butsua.Location = new System.Drawing.Point(370, 439);
+            this.butsua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.butsua.Location = new System.Drawing.Point(487, 612);
+            this.butsua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butsua.Name = "butsua";
-            this.butsua.Size = new System.Drawing.Size(147, 40);
+            this.butsua.Size = new System.Drawing.Size(131, 40);
             this.butsua.TabIndex = 14;
             this.butsua.Text = "SỬA";
             this.butsua.UseVisualStyleBackColor = false;
@@ -63,10 +65,11 @@
             // 
             // btAdd
             // 
-            this.btAdd.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btAdd.Location = new System.Drawing.Point(70, 439);
+            this.btAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btAdd.Location = new System.Drawing.Point(150, 612);
+            this.btAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(147, 40);
+            this.btAdd.Size = new System.Drawing.Size(131, 40);
             this.btAdd.TabIndex = 13;
             this.btAdd.Text = "THÊM";
             this.btAdd.UseVisualStyleBackColor = false;
@@ -74,10 +77,11 @@
             // 
             // butshow
             // 
-            this.butshow.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.butshow.Location = new System.Drawing.Point(70, 12);
+            this.butshow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.butshow.Location = new System.Drawing.Point(99, 42);
+            this.butshow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butshow.Name = "butshow";
-            this.butshow.Size = new System.Drawing.Size(147, 43);
+            this.butshow.Size = new System.Drawing.Size(165, 54);
             this.butshow.TabIndex = 12;
             this.butshow.Text = "Tìm kiếm";
             this.butshow.UseVisualStyleBackColor = false;
@@ -87,39 +91,42 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 115);
+            this.dataGridView1.Location = new System.Drawing.Point(81, 175);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(829, 318);
+            this.dataGridView1.Size = new System.Drawing.Size(933, 398);
             this.dataGridView1.TabIndex = 16;
             // 
             // cbbshow
             // 
             this.cbbshow.FormattingEnabled = true;
-            this.cbbshow.Location = new System.Drawing.Point(80, 66);
+            this.cbbshow.Location = new System.Drawing.Point(110, 109);
+            this.cbbshow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbshow.Name = "cbbshow";
-            this.cbbshow.Size = new System.Drawing.Size(137, 24);
+            this.cbbshow.Size = new System.Drawing.Size(154, 28);
             this.cbbshow.TabIndex = 21;
             this.cbbshow.SelectedIndexChanged += new System.EventHandler(this.cbbshow_SelectedIndexChanged_1);
             // 
             // txtsearch
             // 
-            this.txtsearch.Location = new System.Drawing.Point(297, 66);
+            this.txtsearch.Location = new System.Drawing.Point(354, 109);
+            this.txtsearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtsearch.Name = "txtsearch";
-            this.txtsearch.Size = new System.Drawing.Size(220, 22);
+            this.txtsearch.Size = new System.Drawing.Size(247, 26);
             this.txtsearch.TabIndex = 27;
             this.txtsearch.Text = "nhập thông tin bạn muốn tìm kiếm";
             this.txtsearch.Click += new System.EventHandler(this.txtsearch_Click);
             // 
             // khachhang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(915, 533);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1098, 693);
             this.Controls.Add(this.txtsearch);
             this.Controls.Add(this.cbbshow);
             this.Controls.Add(this.dataGridView1);
@@ -127,7 +134,9 @@
             this.Controls.Add(this.butsua);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.butshow);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "khachhang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "infor";
             this.AutoSizeChanged += new System.EventHandler(this.btAdd_Click);
             this.TextChanged += new System.EventHandler(this.khachhang_TextChanged);

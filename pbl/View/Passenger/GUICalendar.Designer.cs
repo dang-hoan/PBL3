@@ -43,9 +43,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(243, 47);
+            this.label2.Location = new System.Drawing.Point(273, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 16);
+            this.label2.Size = new System.Drawing.Size(44, 19);
             this.label2.TabIndex = 13;
             this.label2.Text = "Năm";
             // 
@@ -53,9 +53,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 45);
+            this.label1.Location = new System.Drawing.Point(56, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.Size = new System.Drawing.Size(58, 19);
             this.label1.TabIndex = 16;
             this.label1.Text = "Tháng";
             // 
@@ -63,10 +63,10 @@
             // 
             this.cbbYear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbbYear.FormattingEnabled = true;
-            this.cbbYear.Location = new System.Drawing.Point(287, 45);
+            this.cbbYear.Location = new System.Drawing.Point(323, 56);
             this.cbbYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbYear.Name = "cbbYear";
-            this.cbbYear.Size = new System.Drawing.Size(108, 24);
+            this.cbbYear.Size = new System.Drawing.Size(121, 28);
             this.cbbYear.TabIndex = 18;
             this.cbbYear.Leave += new System.EventHandler(this.cbbYear_Leave);
             // 
@@ -74,10 +74,10 @@
             // 
             this.cbbMonth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbbMonth.FormattingEnabled = true;
-            this.cbbMonth.Location = new System.Drawing.Point(107, 44);
+            this.cbbMonth.Location = new System.Drawing.Point(120, 55);
             this.cbbMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbMonth.Name = "cbbMonth";
-            this.cbbMonth.Size = new System.Drawing.Size(108, 24);
+            this.cbbMonth.Size = new System.Drawing.Size(121, 28);
             this.cbbMonth.TabIndex = 17;
             this.cbbMonth.Leave += new System.EventHandler(this.cbbMonth_Leave);
             // 
@@ -86,10 +86,10 @@
             this.panel_Detail.BackColor = System.Drawing.Color.LightGray;
             this.panel_Detail.Controls.Add(this.listBox1);
             this.panel_Detail.Controls.Add(this.labelTitle);
-            this.panel_Detail.Location = new System.Drawing.Point(532, 2);
+            this.panel_Detail.Location = new System.Drawing.Point(598, 2);
             this.panel_Detail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_Detail.Name = "panel_Detail";
-            this.panel_Detail.Size = new System.Drawing.Size(283, 512);
+            this.panel_Detail.Size = new System.Drawing.Size(318, 640);
             this.panel_Detail.TabIndex = 45;
             // 
             // listBox1
@@ -98,12 +98,12 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(25, 91);
+            this.listBox1.ItemHeight = 22;
+            this.listBox1.Location = new System.Drawing.Point(28, 114);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBox1.Size = new System.Drawing.Size(227, 364);
+            this.listBox1.Size = new System.Drawing.Size(255, 444);
             this.listBox1.TabIndex = 47;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -111,9 +111,9 @@
             // 
             this.labelTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelTitle.Location = new System.Drawing.Point(44, 17);
+            this.labelTitle.Location = new System.Drawing.Point(50, 21);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(223, 67);
+            this.labelTitle.Size = new System.Drawing.Size(251, 84);
             this.labelTitle.TabIndex = 42;
             this.labelTitle.Text = "Chi tiết lịch trình";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,10 +122,10 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(415, 41);
+            this.button1.Location = new System.Drawing.Point(467, 51);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 32);
+            this.button1.Size = new System.Drawing.Size(82, 40);
             this.button1.TabIndex = 46;
             this.button1.Text = "Hiển thị";
             this.button1.UseVisualStyleBackColor = false;
@@ -133,9 +133,9 @@
             // 
             // GUICalendar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 516);
+            this.ClientSize = new System.Drawing.Size(918, 645);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel_Detail);
             this.Controls.Add(this.cbbMonth);
@@ -144,6 +144,7 @@
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GUICalendar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LỊCH CÁ NHÂN";
             this.Click += new System.EventHandler(this.GUICalendar_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GUICalendar_KeyDown);

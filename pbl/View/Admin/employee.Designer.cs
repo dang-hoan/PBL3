@@ -96,7 +96,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.bAdd);
             this.panel2.Controls.Add(this.bUpdate);
             this.panel2.Controls.Add(this.bunifuTextbox1);
@@ -106,7 +106,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1538, 710);
+            this.panel2.Size = new System.Drawing.Size(1514, 710);
             this.panel2.TabIndex = 1;
             // 
             // bAdd
@@ -116,7 +116,7 @@
             this.bAdd.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.bAdd.ActiveForecolor = System.Drawing.Color.White;
             this.bAdd.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bAdd.BackColor = System.Drawing.Color.White;
             this.bAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bAdd.BackgroundImage")));
             this.bAdd.ButtonText = "Thêm";
             this.bAdd.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -124,11 +124,11 @@
             this.bAdd.ForeColor = System.Drawing.Color.SeaGreen;
             this.bAdd.IdleBorderThickness = 1;
             this.bAdd.IdleCornerRadius = 20;
-            this.bAdd.IdleFillColor = System.Drawing.Color.SeaGreen;
+            this.bAdd.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bAdd.IdleForecolor = System.Drawing.Color.Black;
             this.bAdd.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bAdd.Location = new System.Drawing.Point(1063, 602);
-            this.bAdd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.bAdd.Location = new System.Drawing.Point(1032, 602);
+            this.bAdd.Margin = new System.Windows.Forms.Padding(6);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(187, 68);
             this.bAdd.TabIndex = 23;
@@ -142,7 +142,7 @@
             this.bUpdate.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.bUpdate.ActiveForecolor = System.Drawing.Color.White;
             this.bUpdate.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bUpdate.BackColor = System.Drawing.Color.White;
             this.bUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bUpdate.BackgroundImage")));
             this.bUpdate.ButtonText = "Cập nhật";
             this.bUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -150,11 +150,11 @@
             this.bUpdate.ForeColor = System.Drawing.Color.SeaGreen;
             this.bUpdate.IdleBorderThickness = 1;
             this.bUpdate.IdleCornerRadius = 20;
-            this.bUpdate.IdleFillColor = System.Drawing.Color.SeaGreen;
+            this.bUpdate.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bUpdate.IdleForecolor = System.Drawing.Color.Black;
             this.bUpdate.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bUpdate.Location = new System.Drawing.Point(1284, 602);
-            this.bUpdate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.bUpdate.Location = new System.Drawing.Point(1273, 602);
+            this.bUpdate.Margin = new System.Windows.Forms.Padding(6);
             this.bUpdate.Name = "bUpdate";
             this.bUpdate.Size = new System.Drawing.Size(185, 68);
             this.bUpdate.TabIndex = 22;
@@ -292,7 +292,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.usernamedk);
             this.groupBox1.Controls.Add(this.phonedk);
@@ -742,11 +742,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(1538, 710);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1514, 710);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "employee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "employee";
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();

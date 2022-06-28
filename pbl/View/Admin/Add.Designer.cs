@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.usernamedk = new System.Windows.Forms.Label();
             this.phonedk = new System.Windows.Forms.Label();
@@ -61,16 +63,14 @@
             this.date = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.bConfirm = new pbl.RJButton();
             this.bCancel = new pbl.RJButton();
-            this.label13 = new System.Windows.Forms.Label();
+            this.bConfirm = new pbl.RJButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.bCancel);
             this.groupBox1.Controls.Add(this.bConfirm);
@@ -114,6 +114,29 @@
             this.groupBox1.Size = new System.Drawing.Size(1276, 557);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(479, 49);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(379, 37);
+            this.label13.TabIndex = 43;
+            this.label13.Text = "THÊM NHÂN VIÊN MỚI";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(817, 264);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(23, 29);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "*";
             // 
             // label7
             // 
@@ -278,7 +301,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(96, 367);
+            this.label9.Location = new System.Drawing.Point(93, 367);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 25);
             this.label9.TabIndex = 18;
@@ -395,7 +418,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(96, 186);
+            this.label6.Location = new System.Drawing.Point(93, 188);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 25);
@@ -417,7 +440,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(88, 303);
+            this.label10.Location = new System.Drawing.Point(93, 306);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(138, 25);
@@ -434,35 +457,9 @@
             this.txtname.Size = new System.Drawing.Size(312, 31);
             this.txtname.TabIndex = 8;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(817, 264);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 29);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "*";
-            // 
-            // bConfirm
-            // 
-            this.bConfirm.BackColor = System.Drawing.Color.SeaGreen;
-            this.bConfirm.FlatAppearance.BorderSize = 0;
-            this.bConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bConfirm.ForeColor = System.Drawing.Color.White;
-            this.bConfirm.Location = new System.Drawing.Point(331, 448);
-            this.bConfirm.Name = "bConfirm";
-            this.bConfirm.Size = new System.Drawing.Size(242, 47);
-            this.bConfirm.TabIndex = 41;
-            this.bConfirm.Text = "Xác nhận";
-            this.bConfirm.UseVisualStyleBackColor = false;
-            this.bConfirm.Click += new System.EventHandler(this.bConfirm_Click);
-            // 
             // bCancel
             // 
-            this.bCancel.BackColor = System.Drawing.Color.SeaGreen;
+            this.bCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bCancel.FlatAppearance.BorderSize = 0;
             this.bCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bCancel.ForeColor = System.Drawing.Color.White;
@@ -474,16 +471,19 @@
             this.bCancel.UseVisualStyleBackColor = false;
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
-            // label13
+            // bConfirm
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(479, 49);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(379, 37);
-            this.label13.TabIndex = 43;
-            this.label13.Text = "THÊM NHÂN VIÊN MỚI";
+            this.bConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bConfirm.FlatAppearance.BorderSize = 0;
+            this.bConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bConfirm.ForeColor = System.Drawing.Color.White;
+            this.bConfirm.Location = new System.Drawing.Point(331, 448);
+            this.bConfirm.Name = "bConfirm";
+            this.bConfirm.Size = new System.Drawing.Size(242, 47);
+            this.bConfirm.TabIndex = 41;
+            this.bConfirm.Text = "Xác nhận";
+            this.bConfirm.UseVisualStyleBackColor = false;
+            this.bConfirm.Click += new System.EventHandler(this.bConfirm_Click);
             // 
             // Add
             // 
@@ -492,6 +492,7 @@
             this.ClientSize = new System.Drawing.Size(1280, 563);
             this.Controls.Add(this.groupBox1);
             this.Name = "Add";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

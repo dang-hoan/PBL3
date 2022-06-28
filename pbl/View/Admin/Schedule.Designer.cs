@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelsche = new System.Windows.Forms.Panel();
             this.bShowAll = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -74,7 +74,7 @@
             this.panelsche.Location = new System.Drawing.Point(0, 0);
             this.panelsche.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelsche.Name = "panelsche";
-            this.panelsche.Size = new System.Drawing.Size(1510, 710);
+            this.panelsche.Size = new System.Drawing.Size(1508, 710);
             this.panelsche.TabIndex = 0;
             // 
             // bShowAll
@@ -84,7 +84,7 @@
             this.bShowAll.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.bShowAll.ActiveForecolor = System.Drawing.Color.White;
             this.bShowAll.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bShowAll.BackColor = System.Drawing.Color.White;
             this.bShowAll.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bShowAll.BackgroundImage")));
             this.bShowAll.ButtonText = "Xem tất cả";
             this.bShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -92,10 +92,10 @@
             this.bShowAll.ForeColor = System.Drawing.Color.SeaGreen;
             this.bShowAll.IdleBorderThickness = 1;
             this.bShowAll.IdleCornerRadius = 20;
-            this.bShowAll.IdleFillColor = System.Drawing.Color.SeaGreen;
+            this.bShowAll.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bShowAll.IdleForecolor = System.Drawing.Color.Black;
             this.bShowAll.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bShowAll.Location = new System.Drawing.Point(1141, 628);
+            this.bShowAll.Location = new System.Drawing.Point(1109, 628);
             this.bShowAll.Margin = new System.Windows.Forms.Padding(6);
             this.bShowAll.Name = "bShowAll";
             this.bShowAll.Size = new System.Drawing.Size(155, 60);
@@ -110,7 +110,7 @@
             this.pAdd.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.pAdd.ActiveForecolor = System.Drawing.Color.White;
             this.pAdd.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.pAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pAdd.BackColor = System.Drawing.Color.White;
             this.pAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pAdd.BackgroundImage")));
             this.pAdd.ButtonText = "Thêm";
             this.pAdd.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -118,10 +118,10 @@
             this.pAdd.ForeColor = System.Drawing.Color.SeaGreen;
             this.pAdd.IdleBorderThickness = 1;
             this.pAdd.IdleCornerRadius = 20;
-            this.pAdd.IdleFillColor = System.Drawing.Color.SeaGreen;
+            this.pAdd.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pAdd.IdleForecolor = System.Drawing.Color.Black;
             this.pAdd.IdleLineColor = System.Drawing.Color.Transparent;
-            this.pAdd.Location = new System.Drawing.Point(952, 556);
+            this.pAdd.Location = new System.Drawing.Point(929, 556);
             this.pAdd.Margin = new System.Windows.Forms.Padding(6);
             this.pAdd.Name = "pAdd";
             this.pAdd.Size = new System.Drawing.Size(155, 60);
@@ -136,7 +136,7 @@
             this.pSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.pSearch.ActiveForecolor = System.Drawing.Color.White;
             this.pSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.pSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pSearch.BackColor = System.Drawing.Color.White;
             this.pSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pSearch.BackgroundImage")));
             this.pSearch.ButtonText = "Tìm kiếm";
             this.pSearch.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -144,10 +144,10 @@
             this.pSearch.ForeColor = System.Drawing.Color.SeaGreen;
             this.pSearch.IdleBorderThickness = 1;
             this.pSearch.IdleCornerRadius = 20;
-            this.pSearch.IdleFillColor = System.Drawing.Color.SeaGreen;
+            this.pSearch.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pSearch.IdleForecolor = System.Drawing.Color.Black;
             this.pSearch.IdleLineColor = System.Drawing.Color.Transparent;
-            this.pSearch.Location = new System.Drawing.Point(1141, 556);
+            this.pSearch.Location = new System.Drawing.Point(1109, 556);
             this.pSearch.Margin = new System.Windows.Forms.Padding(6);
             this.pSearch.Name = "pSearch";
             this.pSearch.Size = new System.Drawing.Size(155, 60);
@@ -162,7 +162,7 @@
             this.pDelete.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.pDelete.ActiveForecolor = System.Drawing.Color.White;
             this.pDelete.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.pDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pDelete.BackColor = System.Drawing.Color.White;
             this.pDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pDelete.BackgroundImage")));
             this.pDelete.ButtonText = "Xoá";
             this.pDelete.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -170,10 +170,10 @@
             this.pDelete.ForeColor = System.Drawing.Color.SeaGreen;
             this.pDelete.IdleBorderThickness = 1;
             this.pDelete.IdleCornerRadius = 20;
-            this.pDelete.IdleFillColor = System.Drawing.Color.SeaGreen;
+            this.pDelete.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pDelete.IdleForecolor = System.Drawing.Color.Black;
             this.pDelete.IdleLineColor = System.Drawing.Color.Transparent;
-            this.pDelete.Location = new System.Drawing.Point(1324, 556);
+            this.pDelete.Location = new System.Drawing.Point(1289, 556);
             this.pDelete.Margin = new System.Windows.Forms.Padding(6);
             this.pDelete.Name = "pDelete";
             this.pDelete.Size = new System.Drawing.Size(155, 60);
@@ -183,20 +183,20 @@
             // 
             // dtg
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -208,7 +208,7 @@
             this.dtg.EnableHeadersVisualStyles = false;
             this.dtg.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dtg.HeaderForeColor = System.Drawing.Color.Black;
-            this.dtg.Location = new System.Drawing.Point(39, 55);
+            this.dtg.Location = new System.Drawing.Point(53, 55);
             this.dtg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg.Name = "dtg";
             this.dtg.ReadOnly = true;
@@ -217,7 +217,7 @@
             this.dtg.RowHeadersWidth = 51;
             this.dtg.RowTemplate.Height = 24;
             this.dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg.Size = new System.Drawing.Size(836, 561);
+            this.dtg.Size = new System.Drawing.Size(836, 620);
             this.dtg.TabIndex = 52;
             // 
             // Column1
@@ -270,11 +270,11 @@
             this.groupBox1.Controls.Add(this.dateDep);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(915, 55);
+            this.groupBox1.Location = new System.Drawing.Point(929, 55);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(547, 465);
+            this.groupBox1.Size = new System.Drawing.Size(515, 465);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin lịch trình";
@@ -407,11 +407,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1510, 710);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1508, 710);
             this.Controls.Add(this.panelsche);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Schedule";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedule";
             this.panelsche.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();

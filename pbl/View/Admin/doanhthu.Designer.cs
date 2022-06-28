@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbbmonth = new System.Windows.Forms.ComboBox();
@@ -94,24 +94,26 @@
             // 
             // pPrint
             // 
+            this.pPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pPrint.Location = new System.Drawing.Point(1270, 456);
             this.pPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pPrint.Name = "pPrint";
             this.pPrint.Size = new System.Drawing.Size(159, 49);
             this.pPrint.TabIndex = 5;
             this.pPrint.Text = "In báo cáo";
-            this.pPrint.UseVisualStyleBackColor = true;
+            this.pPrint.UseVisualStyleBackColor = false;
             this.pPrint.Click += new System.EventHandler(this.button1_Click);
             // 
             // btdoanhthu
             // 
-            this.btdoanhthu.Location = new System.Drawing.Point(837, 34);
+            this.btdoanhthu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btdoanhthu.Location = new System.Drawing.Point(839, 29);
             this.btdoanhthu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btdoanhthu.Name = "btdoanhthu";
             this.btdoanhthu.Size = new System.Drawing.Size(104, 40);
             this.btdoanhthu.TabIndex = 6;
             this.btdoanhthu.Text = "Xem ";
-            this.btdoanhthu.UseVisualStyleBackColor = true;
+            this.btdoanhthu.UseVisualStyleBackColor = false;
             this.btdoanhthu.Click += new System.EventHandler(this.btdoanhthu_Click);
             // 
             // Column1
@@ -188,20 +190,20 @@
             // 
             // dtg
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column9,
@@ -286,7 +288,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1510, 538);
             this.Controls.Add(this.dtg);
             this.Controls.Add(this.btdoanhthu);
@@ -297,6 +299,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "doanhthu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "doanhthu";
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();
             this.ResumeLayout(false);

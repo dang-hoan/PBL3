@@ -107,6 +107,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelStar);
             this.Name = "GUIFeedback";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PHẢN HỒI";
             this.ResumeLayout(false);
             this.PerformLayout();

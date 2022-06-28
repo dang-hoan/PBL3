@@ -104,6 +104,7 @@
             this.Controls.Add(this.lbnd1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "note";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "note";
             this.ResumeLayout(false);
             this.PerformLayout();

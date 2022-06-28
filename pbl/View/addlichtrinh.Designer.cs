@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.bTOK = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.daydes = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,36 +38,21 @@
             this.cbbDes = new System.Windows.Forms.ComboBox();
             this.cbbDep = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bTOK
             // 
+            this.bTOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bTOK.Location = new System.Drawing.Point(161, 325);
             this.bTOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bTOK.Name = "bTOK";
             this.bTOK.Size = new System.Drawing.Size(80, 41);
             this.bTOK.TabIndex = 3;
             this.bTOK.Text = "Thêm";
-            this.bTOK.UseVisualStyleBackColor = true;
+            this.bTOK.UseVisualStyleBackColor = false;
             this.bTOK.Click += new System.EventHandler(this.bTOK_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.daydes);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.daydep);
-            this.panel1.Controls.Add(this.cbbDes);
-            this.panel1.Controls.Add(this.cbbDep);
-            this.panel1.Location = new System.Drawing.Point(47, 34);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(523, 274);
-            this.panel1.TabIndex = 2;
             // 
             // label9
             // 
@@ -150,26 +134,45 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.Location = new System.Drawing.Point(351, 325);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 41);
             this.button1.TabIndex = 4;
             this.button1.Text = "Huỷ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.daydes);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.daydep);
+            this.panel1.Controls.Add(this.cbbDes);
+            this.panel1.Controls.Add(this.cbbDep);
+            this.panel1.Location = new System.Drawing.Point(47, 34);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(523, 274);
+            this.panel1.TabIndex = 2;
             // 
             // addlichtrinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Cyan;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(623, 385);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bTOK);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "addlichtrinh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THÊM LỊCH TRÌNH";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -180,7 +183,6 @@
         #endregion
 
         private System.Windows.Forms.Button bTOK;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -190,5 +192,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker daydes;
+        private System.Windows.Forms.Panel panel1;
     }
 }

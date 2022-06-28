@@ -273,6 +273,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bShowAll);
             this.Name = "GUIDetailSchedule";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LỊCH CÁ NHÂN";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();

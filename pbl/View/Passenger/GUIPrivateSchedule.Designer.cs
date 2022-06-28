@@ -99,6 +99,7 @@
             this.Controls.Add(this.panel_Content);
             this.Controls.Add(this.panel1);
             this.Name = "GUIPrivateSchedule";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LỊCH TRÌNH CÁ NHÂN";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

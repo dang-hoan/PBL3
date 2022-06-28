@@ -52,26 +52,28 @@
             // 
             // butadd
             // 
+            this.butadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.butadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butadd.Location = new System.Drawing.Point(482, 384);
+            this.butadd.Location = new System.Drawing.Point(159, 396);
             this.butadd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butadd.Name = "butadd";
             this.butadd.Size = new System.Drawing.Size(100, 38);
             this.butadd.TabIndex = 100;
             this.butadd.Text = "Thêm";
-            this.butadd.UseVisualStyleBackColor = true;
+            this.butadd.UseVisualStyleBackColor = false;
             this.butadd.Click += new System.EventHandler(this.butthem_Click);
             // 
             // butcancel
             // 
+            this.butcancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.butcancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butcancel.Location = new System.Drawing.Point(368, 384);
+            this.butcancel.Location = new System.Drawing.Point(368, 396);
             this.butcancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butcancel.Name = "butcancel";
             this.butcancel.Size = new System.Drawing.Size(100, 38);
             this.butcancel.TabIndex = 123;
             this.butcancel.Text = "Hủy";
-            this.butcancel.UseVisualStyleBackColor = true;
+            this.butcancel.UseVisualStyleBackColor = false;
             this.butcancel.Click += new System.EventHandler(this.butcancel_Click);
             // 
             // label8
@@ -196,7 +198,6 @@
             // cbbseat
             // 
             this.cbbseat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbseat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbseat.FormattingEnabled = true;
             this.cbbseat.Location = new System.Drawing.Point(266, 288);
             this.cbbseat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -208,7 +209,6 @@
             // cbbmave
             // 
             this.cbbmave.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbmave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbmave.FormattingEnabled = true;
             this.cbbmave.Location = new System.Drawing.Point(184, 288);
             this.cbbmave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -231,6 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(634, 458);
             this.Controls.Add(this.cbbName);
             this.Controls.Add(this.cbbmave);

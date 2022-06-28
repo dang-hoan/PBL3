@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employeechinh));
             this.pnxuly = new System.Windows.Forms.Panel();
-            this.panel_Other = new System.Windows.Forms.Panel();
             this.panel_User = new System.Windows.Forms.Panel();
             this.labelLogOut = new System.Windows.Forms.Label();
             this.labelPersonal = new System.Windows.Forms.Label();
@@ -57,41 +56,24 @@
             // 
             // pnxuly
             // 
-            this.pnxuly.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnxuly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pnxuly.Controls.Add(this.panel_Other);
-            this.pnxuly.Location = new System.Drawing.Point(0, 51);
+            this.pnxuly.BackColor = System.Drawing.Color.White;
+            this.pnxuly.Controls.Add(this.panel_User);
+            this.pnxuly.Location = new System.Drawing.Point(3, 62);
+            this.pnxuly.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnxuly.Name = "pnxuly";
-            this.pnxuly.Size = new System.Drawing.Size(1087, 600);
+            this.pnxuly.Size = new System.Drawing.Size(1096, 689);
             this.pnxuly.TabIndex = 19;
             this.pnxuly.Paint += new System.Windows.Forms.PaintEventHandler(this.pnxuly_Paint);
             // 
-            // panel_Other
-            // 
-            this.panel_Other.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Other.AutoSize = true;
-            this.panel_Other.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panel_Other.Location = new System.Drawing.Point(0, 0);
-            this.panel_Other.Name = "panel_Other";
-            this.panel_Other.Size = new System.Drawing.Size(189, 600);
-            this.panel_Other.TabIndex = 21;
-            this.panel_Other.Visible = false;
-            // 
             // panel_User
             // 
-            this.panel_User.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_User.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.panel_User.Controls.Add(this.labelLogOut);
             this.panel_User.Controls.Add(this.labelPersonal);
-            this.panel_User.Location = new System.Drawing.Point(846, 51);
+            this.panel_User.Location = new System.Drawing.Point(876, 2);
             this.panel_User.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_User.Name = "panel_User";
-            this.panel_User.Size = new System.Drawing.Size(217, 212);
+            this.panel_User.Size = new System.Drawing.Size(218, 84);
             this.panel_User.TabIndex = 6;
             this.panel_User.Visible = false;
             this.panel_User.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_User_Paint_1);
@@ -102,9 +84,9 @@
             this.labelLogOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLogOut.Location = new System.Drawing.Point(21, 163);
+            this.labelLogOut.Location = new System.Drawing.Point(3, 40);
             this.labelLogOut.Name = "labelLogOut";
-            this.labelLogOut.Size = new System.Drawing.Size(190, 32);
+            this.labelLogOut.Size = new System.Drawing.Size(214, 40);
             this.labelLogOut.TabIndex = 13;
             this.labelLogOut.Text = "Đăng xuất";
             this.labelLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -116,9 +98,9 @@
             this.labelPersonal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelPersonal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPersonal.Location = new System.Drawing.Point(21, 20);
+            this.labelPersonal.Location = new System.Drawing.Point(3, 0);
             this.labelPersonal.Name = "labelPersonal";
-            this.labelPersonal.Size = new System.Drawing.Size(190, 32);
+            this.labelPersonal.Size = new System.Drawing.Size(214, 40);
             this.labelPersonal.TabIndex = 12;
             this.labelPersonal.Text = "Hồ sơ cá nhân";
             this.labelPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,25 +108,20 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.panel_User);
             this.panel1.Controls.Add(this.ve);
             this.panel1.Controls.Add(this.chuyentau);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox10);
             this.panel1.Controls.Add(this.lichtrinh);
             this.panel1.Controls.Add(this.khachhang);
-            this.panel1.Controls.Add(this.pnxuly);
             this.panel1.Controls.Add(this.home);
             this.panel1.Controls.Add(this.ten);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1090, 658);
+            this.panel1.Size = new System.Drawing.Size(1095, 61);
             this.panel1.TabIndex = 20;
             // 
             // ve
@@ -152,9 +129,10 @@
             this.ve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ve.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ve.Image = ((System.Drawing.Image)(resources.GetObject("ve.Image")));
-            this.ve.Location = new System.Drawing.Point(660, 3);
+            this.ve.Location = new System.Drawing.Point(646, 0);
+            this.ve.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ve.Name = "ve";
-            this.ve.Size = new System.Drawing.Size(70, 46);
+            this.ve.Size = new System.Drawing.Size(47, 58);
             this.ve.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ve.TabIndex = 3;
             this.ve.TabStop = false;
@@ -166,10 +144,10 @@
             this.chuyentau.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.chuyentau.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chuyentau.Image = ((System.Drawing.Image)(resources.GetObject("chuyentau.Image")));
-            this.chuyentau.Location = new System.Drawing.Point(504, 2);
+            this.chuyentau.Location = new System.Drawing.Point(527, 0);
             this.chuyentau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chuyentau.Name = "chuyentau";
-            this.chuyentau.Size = new System.Drawing.Size(72, 47);
+            this.chuyentau.Size = new System.Drawing.Size(47, 58);
             this.chuyentau.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.chuyentau.TabIndex = 13;
             this.chuyentau.TabStop = false;
@@ -178,9 +156,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(1003, 5);
+            this.pictureBox5.Location = new System.Drawing.Point(1030, -1);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(37, 40);
+            this.pictureBox5.Size = new System.Drawing.Size(37, 61);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 10;
             this.pictureBox5.TabStop = false;
@@ -189,10 +168,10 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(945, 6);
+            this.pictureBox10.Location = new System.Drawing.Point(983, 2);
             this.pictureBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(52, 40);
+            this.pictureBox10.Size = new System.Drawing.Size(47, 58);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 9;
             this.pictureBox10.TabStop = false;
@@ -203,9 +182,10 @@
             this.lichtrinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lichtrinh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lichtrinh.Image = ((System.Drawing.Image)(resources.GetObject("lichtrinh.Image")));
-            this.lichtrinh.Location = new System.Drawing.Point(346, 3);
+            this.lichtrinh.Location = new System.Drawing.Point(410, 0);
+            this.lichtrinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lichtrinh.Name = "lichtrinh";
-            this.lichtrinh.Size = new System.Drawing.Size(79, 46);
+            this.lichtrinh.Size = new System.Drawing.Size(47, 58);
             this.lichtrinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.lichtrinh.TabIndex = 2;
             this.lichtrinh.TabStop = false;
@@ -216,9 +196,10 @@
             this.khachhang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.khachhang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.khachhang.Image = ((System.Drawing.Image)(resources.GetObject("khachhang.Image")));
-            this.khachhang.Location = new System.Drawing.Point(169, 2);
+            this.khachhang.Location = new System.Drawing.Point(290, 0);
+            this.khachhang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.khachhang.Name = "khachhang";
-            this.khachhang.Size = new System.Drawing.Size(79, 46);
+            this.khachhang.Size = new System.Drawing.Size(47, 58);
             this.khachhang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.khachhang.TabIndex = 5;
             this.khachhang.TabStop = false;
@@ -228,9 +209,10 @@
             // 
             this.home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.home.Image = ((System.Drawing.Image)(resources.GetObject("home.Image")));
-            this.home.Location = new System.Drawing.Point(9, 6);
+            this.home.Location = new System.Drawing.Point(177, -1);
+            this.home.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.home.Name = "home";
-            this.home.Size = new System.Drawing.Size(88, 43);
+            this.home.Size = new System.Drawing.Size(47, 58);
             this.home.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.home.TabIndex = 0;
             this.home.TabStop = false;
@@ -240,25 +222,28 @@
             // 
             this.ten.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ten.Location = new System.Drawing.Point(760, 6);
+            this.ten.Location = new System.Drawing.Point(699, 2);
             this.ten.Name = "ten";
-            this.ten.Size = new System.Drawing.Size(196, 39);
+            this.ten.Size = new System.Drawing.Size(273, 54);
             this.ten.TabIndex = 8;
             this.ten.Text = "Employee";
+            this.ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Employeechinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1065, 653);
+            this.ClientSize = new System.Drawing.Size(1098, 752);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnxuly);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Employeechinh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
             this.Load += new System.EventHandler(this.Employeechinh_Load);
             this.pnxuly.ResumeLayout(false);
-            this.pnxuly.PerformLayout();
             this.panel_User.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ve)).EndInit();
@@ -269,7 +254,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.khachhang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.home)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -279,7 +263,6 @@
         private System.Windows.Forms.PictureBox ve;
         private System.Windows.Forms.PictureBox lichtrinh;
         private System.Windows.Forms.PictureBox home;
-        private System.Windows.Forms.Panel panel_Other;
         private System.Windows.Forms.PictureBox khachhang;
         private System.Windows.Forms.Label ten;
         private System.Windows.Forms.PictureBox pictureBox10;

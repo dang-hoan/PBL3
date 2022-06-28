@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuTextbox1 = new Bunifu.Framework.UI.BunifuTextbox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -66,7 +66,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.bunifuTextbox1);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -80,7 +80,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1530, 119);
+            this.panel1.Size = new System.Drawing.Size(1530, 92);
             this.panel1.TabIndex = 0;
             // 
             // bunifuTextbox1
@@ -90,7 +90,7 @@
             this.bunifuTextbox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuTextbox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.bunifuTextbox1.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuTextbox1.Icon")));
-            this.bunifuTextbox1.Location = new System.Drawing.Point(34, 31);
+            this.bunifuTextbox1.Location = new System.Drawing.Point(34, 12);
             this.bunifuTextbox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuTextbox1.Name = "bunifuTextbox1";
             this.bunifuTextbox1.Size = new System.Drawing.Size(413, 65);
@@ -102,7 +102,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1379, 31);
+            this.pictureBox3.Location = new System.Drawing.Point(1383, 15);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 62);
@@ -114,7 +114,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(904, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(908, 15);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(61, 62);
@@ -126,7 +126,7 @@
             // pttcn
             // 
             this.pttcn.Image = ((System.Drawing.Image)(resources.GetObject("pttcn.Image")));
-            this.pttcn.Location = new System.Drawing.Point(1305, 31);
+            this.pttcn.Location = new System.Drawing.Point(1309, 15);
             this.pttcn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pttcn.Name = "pttcn";
             this.pttcn.Size = new System.Drawing.Size(68, 62);
@@ -138,7 +138,7 @@
             // pdt
             // 
             this.pdt.Image = ((System.Drawing.Image)(resources.GetObject("pdt.Image")));
-            this.pdt.Location = new System.Drawing.Point(798, 31);
+            this.pdt.Location = new System.Drawing.Point(802, 15);
             this.pdt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pdt.Name = "pdt";
             this.pdt.Size = new System.Drawing.Size(68, 62);
@@ -150,7 +150,7 @@
             // plt
             // 
             this.plt.Image = ((System.Drawing.Image)(resources.GetObject("plt.Image")));
-            this.plt.Location = new System.Drawing.Point(688, 31);
+            this.plt.Location = new System.Drawing.Point(692, 15);
             this.plt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.plt.Name = "plt";
             this.plt.Size = new System.Drawing.Size(68, 62);
@@ -162,7 +162,7 @@
             // pnv
             // 
             this.pnv.Image = ((System.Drawing.Image)(resources.GetObject("pnv.Image")));
-            this.pnv.Location = new System.Drawing.Point(580, 31);
+            this.pnv.Location = new System.Drawing.Point(584, 15);
             this.pnv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnv.Name = "pnv";
             this.pnv.Size = new System.Drawing.Size(68, 62);
@@ -174,7 +174,7 @@
             // phome
             // 
             this.phome.Image = ((System.Drawing.Image)(resources.GetObject("phome.Image")));
-            this.phome.Location = new System.Drawing.Point(475, 31);
+            this.phome.Location = new System.Drawing.Point(479, 15);
             this.phome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.phome.Name = "phome";
             this.phome.Size = new System.Drawing.Size(68, 62);
@@ -201,21 +201,21 @@
             this.panelmain.Controls.Add(this.paneldx);
             this.panelmain.Controls.Add(this.paneltk);
             this.panelmain.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelmain.Location = new System.Drawing.Point(0, 119);
+            this.panelmain.Location = new System.Drawing.Point(0, 92);
             this.panelmain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(1530, 769);
+            this.panelmain.Size = new System.Drawing.Size(1530, 796);
             this.panelmain.TabIndex = 1;
             // 
             // paneldx
             // 
-            this.paneldx.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.paneldx.BackColor = System.Drawing.Color.White;
             this.paneldx.Controls.Add(this.btdx);
             this.paneldx.Controls.Add(this.btttcn);
             this.paneldx.Location = new System.Drawing.Point(1305, 0);
             this.paneldx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.paneldx.Name = "paneldx";
-            this.paneldx.Size = new System.Drawing.Size(225, 204);
+            this.paneldx.Size = new System.Drawing.Size(225, 137);
             this.paneldx.TabIndex = 1;
             this.paneldx.Visible = false;
             // 
@@ -254,27 +254,27 @@
             // 
             // dtgtk
             // 
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgtk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgtk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgtk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgtk.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtgtk.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgtk.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgtk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgtk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgtk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgtk.ColumnHeadersVisible = false;
             this.dtgtk.DoubleBuffered = true;
             this.dtgtk.EnableHeadersVisualStyles = false;
             this.dtgtk.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dtgtk.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.dtgtk.Location = new System.Drawing.Point(0, 0);
+            this.dtgtk.Location = new System.Drawing.Point(0, -6);
             this.dtgtk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgtk.Name = "dtgtk";
             this.dtgtk.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -282,7 +282,7 @@
             this.dtgtk.RowHeadersWidth = 51;
             this.dtgtk.RowTemplate.Height = 24;
             this.dtgtk.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgtk.Size = new System.Drawing.Size(413, 176);
+            this.dtgtk.Size = new System.Drawing.Size(413, 182);
             this.dtgtk.TabIndex = 0;
             this.dtgtk.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgtk_CellClick);
             // 
@@ -302,6 +302,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

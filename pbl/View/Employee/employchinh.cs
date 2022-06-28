@@ -19,7 +19,7 @@ namespace pbl.View
         {
             InitializeComponent();
             this.login = login;
-            this.Size = new Size(800, 528);
+            this.Size = new Size(750, 528);
             this.CenterToScreen();
             showform(CreatForm());
             ten.Text = BLLTRAIN.Instance.GetName(username);
@@ -46,7 +46,6 @@ namespace pbl.View
         {
             if (form != null) form.Close();
             form = subform;
-            panel_Other.Visible = false;
             panel_User.Visible = false;
             subform.TopLevel = false;
             subform.FormBorderStyle = FormBorderStyle.None;
@@ -109,20 +108,6 @@ namespace pbl.View
             //    panel_Other.BackColor = Color.Green;
             //    panel_Other.Visible = true;
             //}
-        }
-
-        private void pOther_Click(object sender, EventArgs e)
-        {
-            if (panel_Other.Visible)
-            {
-                panel_Other.BackColor = Color.FromArgb(0, 192, 0);
-                panel_Other.Visible = false;
-            }
-            else
-            {
-                panel_Other.BackColor = Color.Green;
-                panel_Other.Visible = true;
-            }
         }
         private void pHome_Click(object sender, EventArgs e)
         {

@@ -69,6 +69,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "GUINotification";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THÔNG BÁO";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

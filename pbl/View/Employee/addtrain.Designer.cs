@@ -54,7 +54,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.cbbName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtgiagoc);
@@ -71,7 +71,7 @@
             this.groupBox1.Controls.Add(this.cbbDes);
             this.groupBox1.Controls.Add(this.cbbDep);
             this.groupBox1.Controls.Add(this.lich_trinh);
-            this.groupBox1.Location = new System.Drawing.Point(56, 15);
+            this.groupBox1.Location = new System.Drawing.Point(21, 22);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -121,7 +121,6 @@
             // cbblaixe
             // 
             this.cbblaixe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbblaixe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbblaixe.FormattingEnabled = true;
             this.cbblaixe.Location = new System.Drawing.Point(232, 354);
             this.cbblaixe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -233,37 +232,41 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(562, 507);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(369, 514);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 41);
+            this.button1.Size = new System.Drawing.Size(99, 41);
             this.button1.TabIndex = 6;
             this.button1.Text = "Hủy";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // bTOK
             // 
-            this.bTOK.Location = new System.Drawing.Point(407, 507);
+            this.bTOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bTOK.Location = new System.Drawing.Point(137, 514);
             this.bTOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bTOK.Name = "bTOK";
             this.bTOK.Size = new System.Drawing.Size(110, 41);
             this.bTOK.TabIndex = 5;
             this.bTOK.Text = "Xác nhận";
-            this.bTOK.UseVisualStyleBackColor = true;
+            this.bTOK.UseVisualStyleBackColor = false;
             this.bTOK.Click += new System.EventHandler(this.bTOK_Click);
             // 
             // addtrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(704, 579);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(636, 579);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bTOK);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "addtrain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addtrain";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

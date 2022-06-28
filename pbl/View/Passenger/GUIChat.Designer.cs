@@ -146,6 +146,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "GUIChat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GUIChat";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
