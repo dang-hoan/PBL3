@@ -106,7 +106,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1514, 710);
+            this.panel2.Size = new System.Drawing.Size(1527, 710);
             this.panel2.TabIndex = 1;
             // 
             // bAdd
@@ -127,7 +127,7 @@
             this.bAdd.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bAdd.IdleForecolor = System.Drawing.Color.Black;
             this.bAdd.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bAdd.Location = new System.Drawing.Point(1032, 602);
+            this.bAdd.Location = new System.Drawing.Point(1040, 624);
             this.bAdd.Margin = new System.Windows.Forms.Padding(6);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(187, 68);
@@ -153,7 +153,7 @@
             this.bUpdate.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bUpdate.IdleForecolor = System.Drawing.Color.Black;
             this.bUpdate.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bUpdate.Location = new System.Drawing.Point(1273, 602);
+            this.bUpdate.Location = new System.Drawing.Point(1281, 624);
             this.bUpdate.Margin = new System.Windows.Forms.Padding(6);
             this.bUpdate.Name = "bUpdate";
             this.bUpdate.Size = new System.Drawing.Size(185, 68);
@@ -168,7 +168,7 @@
             this.bunifuTextbox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuTextbox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.bunifuTextbox1.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuTextbox1.Icon")));
-            this.bunifuTextbox1.Location = new System.Drawing.Point(1063, 16);
+            this.bunifuTextbox1.Location = new System.Drawing.Point(1071, 38);
             this.bunifuTextbox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuTextbox1.Name = "bunifuTextbox1";
             this.bunifuTextbox1.Size = new System.Drawing.Size(375, 65);
@@ -206,7 +206,7 @@
             this.dtg.EnableHeadersVisualStyles = false;
             this.dtg.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dtg.HeaderForeColor = System.Drawing.Color.Black;
-            this.dtg.Location = new System.Drawing.Point(54, 65);
+            this.dtg.Location = new System.Drawing.Point(62, 87);
             this.dtg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg.Name = "dtg";
             this.dtg.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -325,7 +325,7 @@
             this.groupBox1.Controls.Add(this.date);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtname);
-            this.groupBox1.Location = new System.Drawing.Point(1032, 93);
+            this.groupBox1.Location = new System.Drawing.Point(1040, 115);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -743,7 +743,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1514, 710);
+            this.ClientSize = new System.Drawing.Size(1527, 710);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "employee";

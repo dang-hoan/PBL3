@@ -39,17 +39,32 @@ namespace pbl
         {
             if(dataGridView1.SelectedRows.Count > 0)
             {
+                List<int> arr = new List<int>();
+                List<int> arr2 = new List<int>();
                 for(int i = 0; i < dataGridView1.SelectedRows.Count; i++){
                     DataGridViewRow dt = dataGridView1.SelectedRows[i];
                     if (dt.Cells["Booked"].Value.ToString().Equals("đã đặt"))
                     {
-                        MessageBox.Show("Vé có mã là " + dt.Cells["TicketID"].Value.ToString() +" đã có người đặt!");
+                        arr.Add(Convert.ToInt32(dt.Cells["TicketID"].Value.ToString()));
                     }
                     else
                     {
+                        arr2.Add(Convert.ToInt32(dt.Cells["TicketID"].Value.ToString()));
                         BLLTRAIN.Instance.SetTicket(Convert.ToInt32(dt.Cells["TicketID"].Value.ToString()), GUILogin.userName, true);
-                        MessageBox.Show($"Đã đặt thành công vé có mã {dt.Cells["TicketID"].Value.ToString()}!");
                     }
+                }
+                string s1 = "", s2 = "";
+                if (arr.Count != 0)
+                {
+                    for (int i = 0; i < arr.Count - 1; i++) s1 += arr[i].ToString() + ",  ";
+                    s1 += arr[arr.Count - 1].ToString();
+                    MessageBox.Show("Các vé có mã là " + s1 + " đã có người đặt!");
+                }
+                if(arr2.Count != 0)
+                {
+                    for (int i = 0; i < arr2.Count - 1; i++) s2 += arr2[i].ToString() + ",  ";
+                    s2 += arr2[arr2.Count - 1].ToString();
+                    MessageBox.Show($"Đã đặt thành công các vé có mã là {s2}!");
                 }
                 Reload();
             }

@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(139, 119);
+            this.label1.Location = new System.Drawing.Point(47, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 24);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(139, 212);
+            this.label2.Location = new System.Drawing.Point(47, 174);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 24);
             this.label2.TabIndex = 1;
@@ -60,19 +60,19 @@
             // txtContent
             // 
             this.txtContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContent.Location = new System.Drawing.Point(143, 244);
+            this.txtContent.Location = new System.Drawing.Point(51, 206);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(1364, 372);
+            this.txtContent.Size = new System.Drawing.Size(912, 178);
             this.txtContent.TabIndex = 2;
             // 
             // txtTitle
             // 
             this.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTitle.Location = new System.Drawing.Point(143, 146);
+            this.txtTitle.Location = new System.Drawing.Point(51, 115);
             this.txtTitle.Multiline = true;
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(1364, 51);
+            this.txtTitle.Size = new System.Drawing.Size(912, 45);
             this.txtTitle.TabIndex = 3;
             // 
             // bConfirm
@@ -81,7 +81,7 @@
             this.bConfirm.FlatAppearance.BorderSize = 0;
             this.bConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bConfirm.ForeColor = System.Drawing.Color.Black;
-            this.bConfirm.Location = new System.Drawing.Point(508, 655);
+            this.bConfirm.Location = new System.Drawing.Point(170, 411);
             this.bConfirm.Name = "bConfirm";
             this.bConfirm.Size = new System.Drawing.Size(167, 40);
             this.bConfirm.TabIndex = 4;
@@ -95,7 +95,7 @@
             this.bNew.FlatAppearance.BorderSize = 0;
             this.bNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bNew.ForeColor = System.Drawing.Color.Black;
-            this.bNew.Location = new System.Drawing.Point(1000, 655);
+            this.bNew.Location = new System.Drawing.Point(662, 411);
             this.bNew.Name = "bNew";
             this.bNew.Size = new System.Drawing.Size(167, 40);
             this.bNew.TabIndex = 5;
@@ -108,7 +108,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(650, 57);
+            this.label3.Location = new System.Drawing.Point(379, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(305, 37);
             this.label3.TabIndex = 6;
@@ -119,7 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1676, 740);
+            this.ClientSize = new System.Drawing.Size(1018, 482);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.bNew);
             this.Controls.Add(this.bConfirm);
@@ -131,6 +131,7 @@
             this.Name = "Notice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notice";
+            this.Load += new System.EventHandler(this.Notice_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

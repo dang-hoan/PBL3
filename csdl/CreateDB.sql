@@ -12,7 +12,7 @@ CREATE TABLE PEOPLE(
 	Address nvarchar(100),
 	IDCard char(12) NOT NULL,
 	Email varchar(50),
-	Phone char(11) NOT NULL,
+	Phone char(10) NOT NULL,
 	PositionID int foreign key (PositionID) references POSITION
 )
 
@@ -29,12 +29,6 @@ CREATE TABLE NOTICE(
 	Content nvarchar(MAX)
 )
 
-CREATE TABLE SCHEDULE(
-	ScheduleID int NOT NULL identity(1,1) primary key,
-	DepartureTime datetime NOT NULL,
-    ArrivalTime datetime NOT NULL
-)
-
 CREATE TABLE STATION(
 	StationID int NOT NULL identity(1,1) primary key,
 	StationName nvarchar(50) NOT NULL,
@@ -42,33 +36,37 @@ CREATE TABLE STATION(
 	State nvarchar(50)
 )
 
-CREATE TABLE SCHEDULE_STATION_DETAIL(
-	KeyID int NOT NULL identity(1,1) primary key,
-	ScheduleID int foreign key (ScheduleID) references SCHEDULE,
-	StationID int foreign key (StationID) references STATION
+CREATE TABLE SCHEDULE(
+	ScheduleID int NOT NULL identity(1,1) primary key,
+	DepartureID int foreign key (DepartureID) references STATION,
+	ArrivalID int foreign key (ArrivalID) references STATION,
+	DepartureTime datetime NOT NULL,
+    ArrivalTime datetime NOT NULL
 )
 
 CREATE TABLE TRAIN(
 	TrainID int NOT NULL identity(1,1) primary key,
 	TrainName nvarchar(50) NOT NULL,
 	NumberOfCarriages int NOT NULL,
-	BasicPrice money,
-	State bit,
-	DriverUN varchar(20) foreign key (DriverUN) references PEOPLE
+	State bit
 )
 
 CREATE TABLE TRIP(
-	TripID int NOT NULL identity(1,1) primary key,
 	ScheduleID int foreign key (ScheduleID) references SCHEDULE,
-	TrainID int foreign key (TrainID) references TRAIN
+	TrainID int foreign key (TrainID) references TRAIN,
+	BasicPrice money NOT NULL,
+	DriverUN varchar(20) foreign key (DriverUN) references PEOPLE
+	constraint pk primary key (ScheduleID, TrainID) 
 )
 
 CREATE TABLE TICKET(
+	ScheduleID int,
+	TrainID int,
+	constraint fk foreign key (ScheduleID, TrainID) references TRIP,
 	TicketID int NOT NULL identity(1,1) primary key,	
 	SeatNo varchar(10) NOT NULL,
 	TicketPrice money NOT NULL,
 	Booked bit,	
-	TrainID int NOT NULL foreign key (TrainID) references TRAIN,
 	CustomerUN varchar(20) foreign key (CustomerUN) references PEOPLE
 )
 

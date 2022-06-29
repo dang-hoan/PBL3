@@ -128,6 +128,7 @@
             // 
             this.ve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ve.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ve.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ve.Image = ((System.Drawing.Image)(resources.GetObject("ve.Image")));
             this.ve.Location = new System.Drawing.Point(646, 0);
             this.ve.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -155,6 +156,7 @@
             // 
             // pictureBox5
             // 
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(1030, -1);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -167,6 +169,7 @@
             // 
             // pictureBox10
             // 
+            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(983, 2);
             this.pictureBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -181,6 +184,7 @@
             // 
             this.lichtrinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lichtrinh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lichtrinh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lichtrinh.Image = ((System.Drawing.Image)(resources.GetObject("lichtrinh.Image")));
             this.lichtrinh.Location = new System.Drawing.Point(410, 0);
             this.lichtrinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -195,6 +199,7 @@
             // 
             this.khachhang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.khachhang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.khachhang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.khachhang.Image = ((System.Drawing.Image)(resources.GetObject("khachhang.Image")));
             this.khachhang.Location = new System.Drawing.Point(290, 0);
             this.khachhang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -208,6 +213,7 @@
             // home
             // 
             this.home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.home.Cursor = System.Windows.Forms.Cursors.Hand;
             this.home.Image = ((System.Drawing.Image)(resources.GetObject("home.Image")));
             this.home.Location = new System.Drawing.Point(177, -1);
             this.home.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -227,7 +233,7 @@
             this.ten.Size = new System.Drawing.Size(273, 54);
             this.ten.TabIndex = 8;
             this.ten.Text = "Employee";
-            this.ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ten.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Employeechinh
             // 

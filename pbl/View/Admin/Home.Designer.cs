@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuTextbox1 = new Bunifu.Framework.UI.BunifuTextbox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -41,7 +41,6 @@
             this.plt = new System.Windows.Forms.PictureBox();
             this.pnv = new System.Windows.Forms.PictureBox();
             this.phome = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelmain = new System.Windows.Forms.Panel();
             this.paneldx = new System.Windows.Forms.Panel();
             this.btdx = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@
             this.paneltk = new System.Windows.Forms.Panel();
             this.dtgtk = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.labelName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,7 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.plt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelmain.SuspendLayout();
             this.paneldx.SuspendLayout();
             this.paneltk.SuspendLayout();
@@ -67,6 +66,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.labelName);
             this.panel1.Controls.Add(this.bunifuTextbox1);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -75,7 +75,6 @@
             this.panel1.Controls.Add(this.plt);
             this.panel1.Controls.Add(this.pnv);
             this.panel1.Controls.Add(this.phome);
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -101,8 +100,9 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1383, 15);
+            this.pictureBox3.Location = new System.Drawing.Point(1490, 15);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 62);
@@ -113,6 +113,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(908, 15);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -125,8 +126,9 @@
             // 
             // pttcn
             // 
+            this.pttcn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pttcn.Image = ((System.Drawing.Image)(resources.GetObject("pttcn.Image")));
-            this.pttcn.Location = new System.Drawing.Point(1309, 15);
+            this.pttcn.Location = new System.Drawing.Point(1420, 15);
             this.pttcn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pttcn.Name = "pttcn";
             this.pttcn.Size = new System.Drawing.Size(68, 62);
@@ -137,6 +139,7 @@
             // 
             // pdt
             // 
+            this.pdt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pdt.Image = ((System.Drawing.Image)(resources.GetObject("pdt.Image")));
             this.pdt.Location = new System.Drawing.Point(802, 15);
             this.pdt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -149,6 +152,7 @@
             // 
             // plt
             // 
+            this.plt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.plt.Image = ((System.Drawing.Image)(resources.GetObject("plt.Image")));
             this.plt.Location = new System.Drawing.Point(692, 15);
             this.plt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -161,6 +165,7 @@
             // 
             // pnv
             // 
+            this.pnv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnv.Image = ((System.Drawing.Image)(resources.GetObject("pnv.Image")));
             this.pnv.Location = new System.Drawing.Point(584, 15);
             this.pnv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -173,6 +178,7 @@
             // 
             // phome
             // 
+            this.phome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.phome.Image = ((System.Drawing.Image)(resources.GetObject("phome.Image")));
             this.phome.Location = new System.Drawing.Point(479, 15);
             this.phome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -182,18 +188,6 @@
             this.phome.TabIndex = 3;
             this.phome.TabStop = false;
             this.phome.Click += new System.EventHandler(this.phome_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1474, 15);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(53, 51);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panelmain
             // 
@@ -221,6 +215,7 @@
             // 
             // btdx
             // 
+            this.btdx.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btdx.Location = new System.Drawing.Point(0, 65);
             this.btdx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btdx.Name = "btdx";
@@ -232,6 +227,7 @@
             // 
             // btttcn
             // 
+            this.btttcn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btttcn.Location = new System.Drawing.Point(0, 0);
             this.btttcn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btttcn.Name = "btttcn";
@@ -254,20 +250,20 @@
             // 
             // dtgtk
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgtk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgtk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgtk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgtk.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtgtk.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgtk.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgtk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgtk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtgtk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgtk.ColumnHeadersVisible = false;
             this.dtgtk.DoubleBuffered = true;
@@ -292,6 +288,17 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // labelName
+            // 
+            this.labelName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(1060, 12);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(356, 61);
+            this.labelName.TabIndex = 6;
+            this.labelName.Text = "Tên khách hàng";
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -312,7 +319,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.plt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelmain.ResumeLayout(false);
             this.paneldx.ResumeLayout(false);
             this.paneltk.ResumeLayout(false);
@@ -335,10 +341,10 @@
         private System.Windows.Forms.PictureBox plt;
         private System.Windows.Forms.PictureBox pnv;
         private System.Windows.Forms.PictureBox phome;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btttcn;
         private Bunifu.Framework.UI.BunifuTextbox bunifuTextbox1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dtgtk;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label labelName;
     }
 }

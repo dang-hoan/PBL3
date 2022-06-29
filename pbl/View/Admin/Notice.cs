@@ -39,5 +39,10 @@ namespace pbl.View.Admin
             this.txtTitle.Text = "";
             this.txtContent.Text = "";
         }
+
+        private void Notice_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

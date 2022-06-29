@@ -51,7 +51,6 @@ namespace pbl.BLL
             int NumberOfCarriages = (from tra in db.TRAINs
                                      where tra.TrainID == trip.TrainID
                                      select tra.NumberOfCarriages).FirstOrDefault();
-            float max = (float)(1 + (NumberOfCarriages - 1) * 0.1);
             for (int i = 0; i < NumberOfCarriages; i++)
             {
                 for (int j = 1; j <= 30; j++)
@@ -60,8 +59,8 @@ namespace pbl.BLL
                     {
                         ScheduleID = trip.ScheduleID,
                         TrainID = trip.TrainID,
-                        SeatNo = carriage[i] + j.ToString(),
-                        TicketPrice = (decimal)(Convert.ToDouble(trip.BasicPrice) * (max - 0.1 * (i - 1))),
+                        SeatNo = carriage[i].ToString().ToUpper() + j.ToString(),
+                        TicketPrice = (decimal)(Convert.ToDouble(trip.BasicPrice) * (0.1 * i + 1)),
                         Booked = false
                     });
                 }
@@ -948,12 +947,12 @@ namespace pbl.BLL
                         }).ToList();
             return data;
         }
-        public List<TRIP> GetTrip(int ScheduleID, int TrainID)
+        public TRIP GetTrip(int ScheduleID, int TrainID)
         {
             PBL3 db = new PBL3();
             return (from tri in db.TRIPs
                     where tri.ScheduleID == ScheduleID && tri.TrainID == TrainID
-                    select tri).ToList();
+                    select tri).ToList().FirstOrDefault();
         }
         public void trainstate(int scheduleid)
         {
@@ -1037,8 +1036,8 @@ namespace pbl.BLL
         public void addticket(TICKET s)
         {
             PBL3 db = new PBL3();
-            int ticketID = (from tic in db.TICKETs.ToList()
-                             where (tic.ScheduleID == s.ScheduleID) && (tic.TrainID == s.TrainID) && (tic.SeatNo == s.SeatNo)
+            int ticketID =  (from tic in db.TICKETs.ToList()
+                             where (tic.ScheduleID == s.ScheduleID) && (tic.TrainID == s.TrainID) && (tic.SeatNo.ToUpper() == s.SeatNo)
                              select tic.TicketID).FirstOrDefault();
             SetTicket(ticketID, s.CustomerUN, true);
         }

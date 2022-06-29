@@ -57,12 +57,55 @@ namespace pbl.View
             }
 
         }
+        private bool CheckNumber(string txt)
+        {
+            foreach (char i in txt)
+            {
+                if (i < 48 || i > 57) return false;
+            }
+            return true;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (BLLpeople.instance.check(txtidcard.Text))
+            if(txtname.Text == "" || txtidcard.Text == "" || txtemail.Text == "" || txtsdt.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập đủ thông tin cho khách hàng!");
+                return;
+            }
+            if (!CheckNumber(txtidcard.Text))
+            {
+                MessageBox.Show("Số căn cước công dân phải có dạng số!");
+                return;
+            }
+            if (txtidcard.Text.Length > 12)
+            {
+                MessageBox.Show("Số căn cước công dân chỉ có 12 chữ số!");
+                return;
+            }
+            if (txtidcard.Text.Length < 12)
+            {
+                MessageBox.Show("Số căn cước công dân phải đủ 12 chữ số!");
+                return;
+            }
+            if (!CheckNumber(txtsdt.Text))
+            {
+                MessageBox.Show("Số điện thoại phải có dạng số!");
+                return;
+            }
+            if (txtsdt.Text.Length > 10)
+            {
+                MessageBox.Show("*Số điện thoại chỉ có 10 chữ số!");
+                return;
+            }
+            else if (txtsdt.Text.Length < 10)
+            {
+                MessageBox.Show("Số điện thoại phải đủ 10 chữ số!");
+                return;
+            }
+            if (!BLLpeople.instance.check(txtidcard.Text))
             {
                 PEOPLE p = new PEOPLE
-                { Phone = txtsdt.Text,
+                {   Phone = txtsdt.Text,
                     Email = txtemail.Text,
                     Name = txtname.Text,
                     IDCard = txtidcard.Text,
@@ -79,7 +122,9 @@ namespace pbl.View
                 Booked = true
             };
             BLLTRAIN.Instance.addticket(tic);
-            
+            MessageBox.Show("Đã đặt vé thành công cho khách hàng " + txtname.Text + "!");
+            d();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

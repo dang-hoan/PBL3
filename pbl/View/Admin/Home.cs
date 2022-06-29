@@ -21,7 +21,7 @@ namespace pbl.View.Admin
             this.login = login;
             this.Size = new Size(1018, 540);
             this.StartPosition = FormStartPosition.CenterScreen;
-            
+            labelName.Text = BLLTRAIN.Instance.GetName(GUILogin.userName);
             ShowForm(new note());
         }
         Form f = null;
@@ -86,14 +86,13 @@ namespace pbl.View.Admin
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             paneltk.Visible = false;
-            paneldx.Visible = true;
             if(paneldx.Visible == true)
             {
                 paneldx.Visible = false;
             }
             else
             {
-                paneldx.Visible =true;
+                paneldx.Visible = true;
             }
         }
 

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelsche = new System.Windows.Forms.Panel();
             this.bShowAll = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -57,6 +57,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelsche.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -64,6 +65,7 @@
             // 
             // panelsche
             // 
+            this.panelsche.Controls.Add(this.button1);
             this.panelsche.Controls.Add(this.bShowAll);
             this.panelsche.Controls.Add(this.pAdd);
             this.panelsche.Controls.Add(this.pSearch);
@@ -74,7 +76,7 @@
             this.panelsche.Location = new System.Drawing.Point(0, 0);
             this.panelsche.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelsche.Name = "panelsche";
-            this.panelsche.Size = new System.Drawing.Size(1508, 710);
+            this.panelsche.Size = new System.Drawing.Size(1522, 710);
             this.panelsche.TabIndex = 0;
             // 
             // bShowAll
@@ -95,7 +97,7 @@
             this.bShowAll.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bShowAll.IdleForecolor = System.Drawing.Color.Black;
             this.bShowAll.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bShowAll.Location = new System.Drawing.Point(1109, 628);
+            this.bShowAll.Location = new System.Drawing.Point(1122, 626);
             this.bShowAll.Margin = new System.Windows.Forms.Padding(6);
             this.bShowAll.Name = "bShowAll";
             this.bShowAll.Size = new System.Drawing.Size(155, 60);
@@ -121,7 +123,7 @@
             this.pAdd.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pAdd.IdleForecolor = System.Drawing.Color.Black;
             this.pAdd.IdleLineColor = System.Drawing.Color.Transparent;
-            this.pAdd.Location = new System.Drawing.Point(929, 556);
+            this.pAdd.Location = new System.Drawing.Point(942, 554);
             this.pAdd.Margin = new System.Windows.Forms.Padding(6);
             this.pAdd.Name = "pAdd";
             this.pAdd.Size = new System.Drawing.Size(155, 60);
@@ -147,7 +149,7 @@
             this.pSearch.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pSearch.IdleForecolor = System.Drawing.Color.Black;
             this.pSearch.IdleLineColor = System.Drawing.Color.Transparent;
-            this.pSearch.Location = new System.Drawing.Point(1109, 556);
+            this.pSearch.Location = new System.Drawing.Point(1122, 554);
             this.pSearch.Margin = new System.Windows.Forms.Padding(6);
             this.pSearch.Name = "pSearch";
             this.pSearch.Size = new System.Drawing.Size(155, 60);
@@ -173,7 +175,7 @@
             this.pDelete.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pDelete.IdleForecolor = System.Drawing.Color.Black;
             this.pDelete.IdleLineColor = System.Drawing.Color.Transparent;
-            this.pDelete.Location = new System.Drawing.Point(1289, 556);
+            this.pDelete.Location = new System.Drawing.Point(1302, 554);
             this.pDelete.Margin = new System.Windows.Forms.Padding(6);
             this.pDelete.Name = "pDelete";
             this.pDelete.Size = new System.Drawing.Size(155, 60);
@@ -183,20 +185,20 @@
             // 
             // dtg
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -208,7 +210,7 @@
             this.dtg.EnableHeadersVisualStyles = false;
             this.dtg.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dtg.HeaderForeColor = System.Drawing.Color.Black;
-            this.dtg.Location = new System.Drawing.Point(53, 55);
+            this.dtg.Location = new System.Drawing.Point(66, 53);
             this.dtg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtg.Name = "dtg";
             this.dtg.ReadOnly = true;
@@ -270,7 +272,7 @@
             this.groupBox1.Controls.Add(this.dateDep);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(929, 55);
+            this.groupBox1.Location = new System.Drawing.Point(942, 53);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -282,7 +284,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(48, 320);
+            this.label9.Location = new System.Drawing.Point(50, 362);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 20);
             this.label9.TabIndex = 44;
@@ -292,7 +294,7 @@
             // 
             this.cbbDep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDep.FormattingEnabled = true;
-            this.cbbDep.Location = new System.Drawing.Point(168, 45);
+            this.cbbDep.Location = new System.Drawing.Point(170, 87);
             this.cbbDep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(284, 28);
@@ -304,7 +306,7 @@
             // 
             this.dateDes.CustomFormat = "dd/MM/yyyy";
             this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDes.Location = new System.Drawing.Point(168, 312);
+            this.dateDes.Location = new System.Drawing.Point(170, 354);
             this.dateDes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateDes.Name = "dateDes";
             this.dateDes.Size = new System.Drawing.Size(284, 26);
@@ -314,7 +316,7 @@
             // 
             this.cbbDes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDes.FormattingEnabled = true;
-            this.cbbDes.Location = new System.Drawing.Point(168, 134);
+            this.cbbDes.Location = new System.Drawing.Point(170, 176);
             this.cbbDes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbDes.Name = "cbbDes";
             this.cbbDes.Size = new System.Drawing.Size(284, 28);
@@ -324,7 +326,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 55);
+            this.label3.Location = new System.Drawing.Point(50, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 42;
@@ -334,7 +336,7 @@
             // 
             this.dateDep.CustomFormat = "dd/MM/yyyy";
             this.dateDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDep.Location = new System.Drawing.Point(168, 231);
+            this.dateDep.Location = new System.Drawing.Point(170, 273);
             this.dateDep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateDep.Name = "dateDep";
             this.dateDep.Size = new System.Drawing.Size(284, 26);
@@ -343,7 +345,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 144);
+            this.label2.Location = new System.Drawing.Point(50, 186);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 41;
@@ -352,7 +354,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 239);
+            this.label1.Location = new System.Drawing.Point(50, 281);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 20);
             this.label1.TabIndex = 40;
@@ -403,12 +405,23 @@
             this.Column5.ReadOnly = true;
             this.Column5.Width = 125;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(1302, 637);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 49);
+            this.button1.TabIndex = 54;
+            this.button1.Text = "Tìm kiếm";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.bunifuThinButton22_Click);
+            // 
             // Schedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1508, 710);
+            this.ClientSize = new System.Drawing.Size(1522, 710);
             this.Controls.Add(this.panelsche);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Schedule";
@@ -449,5 +462,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 pSearch;
         private Bunifu.Framework.UI.BunifuThinButton2 pAdd;
         private Bunifu.Framework.UI.BunifuThinButton2 bShowAll;
+        private System.Windows.Forms.Button button1;
     }
 }

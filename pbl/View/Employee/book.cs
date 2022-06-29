@@ -28,8 +28,8 @@ namespace pbl.View
             scheduleid = s;
             trainid = t;
             trangthai = k;
-            intit();
             set();
+            intit();
             setcolor();
         }
 
@@ -50,15 +50,11 @@ namespace pbl.View
       
         public void set()
         {
-
-          
             int size = 50;
             int X = 60, Y = 210;
             for (int i = 0; i < 30; i++)
             {
                 label[i] = new Label();
-                if (label[i] == null)
-                    MessageBox.Show("null");
                 //Tên label
                 label[i].Text = (i + 1).ToString();
                 label[i].TextAlign = ContentAlignment.MiddleCenter;
@@ -81,11 +77,10 @@ namespace pbl.View
 
                 this.Controls.Add(label[i]);
             }
-
         }
         public void color(ref Label b, string s)
         {
-           if(s=="")
+            if (s=="")
             {
                 b.BackColor = Color.FromArgb(0, 170, 0);
             }    
@@ -107,7 +102,6 @@ namespace pbl.View
        
     public void setcolor()
         {
-            
             foreach (TICKET tic in BLLTicket.instance.getticketbylist(scheduleid, trainid, cbbmave.Text))
             {
                 string s = tic.SeatNo;
@@ -126,7 +120,8 @@ namespace pbl.View
         private void gettrainid(int scheduleid, int trainid)
         {
             int s=-1;
-            foreach (TRIP i in BLLTRAIN.Instance.GetTrip(scheduleid, trainid))
+            TRIP i = BLLTRAIN.Instance.GetTrip(scheduleid, trainid);
+            if(i != null)
             {
                 txtnametrain.Text = i.TRAIN.TrainName;
                 num = i.TRAIN.NumberOfCarriages;
@@ -140,17 +135,16 @@ namespace pbl.View
                     }    
                 }    
                 s = i.ScheduleID;
+                txtdep.Text = i.SCHEDULE.STATION1.StationName;
+                txtdes.Text = i.SCHEDULE.STATION.StationName;
+                timedep.Text = i.SCHEDULE.DepartureTime.ToString("dd/MM/yyyy HH:mm");
+                timedes.Text = i.SCHEDULE.ArrivalTime.ToString("dd/MM/yyyy HH:mm");
+                for (int j = 1; j <= num; j++)
+                {
+                    cbbmave.Items.Add(Convert.ToChar(j + 64)).ToString();
+                }
+                cbbmave.SelectedIndex = 0;
             }
-            SCHEDULE sch = BLLTRAIN.Instance.GetScheduleid(s);
-            txtdep.Text = sch.STATION1.StationName;
-            txtdes.Text = sch.STATION.StationName;
-            timedep.Text = sch.DepartureTime.ToString("dd/MM/yyyy HH:mm");
-            timedes.Text = sch.ArrivalTime.ToString("dd/MM/yyyy HH:mm");
-            for (int i = 1; i <= num; i++)
-            {
-                cbbmave.Items.Add(Convert.ToChar(i + 64)).ToString();
-            }
-            cbbmave.SelectedIndex = 0;
         }
 
 
@@ -164,6 +158,7 @@ namespace pbl.View
             string ghe = ((Label)sender).Text.Trim();
             string seatno = cbbmave.Text+ghe;
             datve f = new datve(scheduleid, trainid, seatno, trangthai);
+            f.d += new datve.mydel(setcolor);
             f.Show();
         }
         

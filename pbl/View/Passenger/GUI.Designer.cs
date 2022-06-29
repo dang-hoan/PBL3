@@ -331,7 +331,7 @@
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.Location = new System.Drawing.Point(673, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(356, 61);
+            this.labelName.Size = new System.Drawing.Size(308, 61);
             this.labelName.TabIndex = 5;
             this.labelName.Text = "Tên khách hàng";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
