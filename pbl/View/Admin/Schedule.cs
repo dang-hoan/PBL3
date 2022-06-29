@@ -31,11 +31,6 @@ namespace pbl.View
         {
             dtg.DataSource = BLLTRAIN.Instance.GetSchedule2();
         }
-
-        private void baddlt_Click(object sender, EventArgs e)
-        {
-            
-        }
         public void cbb()
         {
             List<CBBSchedule> listDep = new List<CBBSchedule>();
@@ -43,49 +38,6 @@ namespace pbl.View
             BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
             foreach (CBBSchedule s in listDep) cbbDep.Items.Add(s);
             foreach (CBBSchedule s in listDes) cbbDes.Items.Add(s);
-        }
-
-        private void bunifuThinButton23_Click(object sender, EventArgs e)
-        {
-            if (dtg.SelectedRows.Count > 0)
-            {
-                for(int i = 0; i < dtg.SelectedRows.Count; i++)
-                    BLLTRAIN.Instance.DeleteSchedule(Convert.ToInt32(dtg.SelectedRows[i].Cells[0].Value.ToString()));
-                MessageBox.Show("Đã xoá thành công các lịch trình bạn chọn!");
-                showsche();
-            }
-            else MessageBox.Show("Hãy chọn ít nhất 1 lịch trình để xoá!");
-        }
-        //them
-        private void bunifuThinButton21_Click(object sender, EventArgs e)
-        {
-            addlichtrinh f = new addlichtrinh();
-            f.d = new addlichtrinh.Mydel(showsche);
-            f.Show();
-        }
-        //timkiem
-        private void bunifuThinButton22_Click(object sender, EventArgs e)
-        {
-            int comp = DateTime.Compare(dateDep.Value, dateDes.Value);
-            MessageBox.Show(MousePosition.ToString() + ", " + dateDes.Location.ToString());
-            if (comp > 0)
-            {
-                MessageBox.Show("Thời gian đi phải  trước mốc thời gian đến !");
-                return;
-            }
-
-
-            dtg.DataSource = BLLTRAIN.Instance.GetSchedulead(dateDep.Value.ToString("d/M/yyyy"),
-                dateDes.Value.ToString("d/M/yyyy"), cbbDep.Text, cbbDes.Text);
-        }
-
-
-        private void cbbDep_Leave(object sender, EventArgs e)
-        {
-            if(cbbDep.SelectedItem == cbbDes.SelectedItem)
-            {
-
-            }
         }
 
         private void bShowAll_Click(object sender, EventArgs e)
@@ -130,6 +82,40 @@ namespace pbl.View
                     break;
                 }
             }
+        }
+
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            addlichtrinh f = new addlichtrinh();
+            f.d = new addlichtrinh.Mydel(showsche);
+            f.Show();
+        }
+
+        private void bSearch_Click(object sender, EventArgs e)
+        {
+            int comp = DateTime.Compare(dateDep.Value, dateDes.Value);
+            MessageBox.Show(MousePosition.ToString() + ", " + dateDes.Location.ToString());
+            if (comp > 0)
+            {
+                MessageBox.Show("Thời gian đi phải  trước mốc thời gian đến !");
+                return;
+            }
+
+
+            dtg.DataSource = BLLTRAIN.Instance.GetSchedulead(dateDep.Value.ToString("d/M/yyyy"),
+                dateDes.Value.ToString("d/M/yyyy"), cbbDep.Text, cbbDes.Text);
+        }
+
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+            if (dtg.SelectedRows.Count > 0)
+            {
+                for (int i = 0; i < dtg.SelectedRows.Count; i++)
+                    BLLTRAIN.Instance.DeleteSchedule(Convert.ToInt32(dtg.SelectedRows[i].Cells[0].Value.ToString()));
+                MessageBox.Show("Đã xoá thành công các lịch trình bạn chọn!");
+                showsche();
+            }
+            else MessageBox.Show("Hãy chọn ít nhất 1 lịch trình để xoá!");
         }
     }
 }

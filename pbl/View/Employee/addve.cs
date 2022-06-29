@@ -132,9 +132,9 @@ namespace pbl.View
         {
             if (txttrainid.Text == "")
             {
-                trainve f = new trainve();
-                f.Show();
-                f.d = new trainve.mydel(gettrainid);
+                //trainve f = new trainve();
+                //f.Show();
+                //f.d = new trainve.mydel(gettrainid);
             }
             else MessageBox.Show("da chon chuyen tau truoc do!");
         }

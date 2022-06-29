@@ -430,12 +430,6 @@
     <EmbeddedResource Include="View\InputPass.resx">
       <DependentUpon>InputPass.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="View\Employee\trainve.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Employee\trainve.Designer.cs">
-      <DependentUpon>trainve.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="View\Employee\addtrain.resx">
       <DependentUpon>addtrain.cs</DependentUpon>
     </EmbeddedResource>
@@ -547,9 +541,6 @@
     </Compile>
     <EmbeddedResource Include="View\Employee\lichtrinh.resx">
       <DependentUpon>lichtrinh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Employee\trainve.resx">
-      <DependentUpon>trainve.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />

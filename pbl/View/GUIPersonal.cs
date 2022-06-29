@@ -113,7 +113,12 @@ namespace pbl
         private void bSaveInfor_Click(object sender, EventArgs e)
         {
             if (txtName.Enabled == false) return;
-            if(labName.Text != "" || labBirthDay.Text != "" || labIDCard.Text != "" || labEmail.Text != "" || labPhone.Text != "")
+            if (txtBirthDay.Text == "" || txtUsername.Text == "" || txtIDCard.Text == "" || txtEmail.Text == "" || txtPhone.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập đủ thông tin bắt buộc !");
+                return;
+            }
+            if (labName.Text != "" || labBirthDay.Text != "" || labIDCard.Text != "" || labEmail.Text != "" || labPhone.Text != "" || labUser.Text != "")
             {
                 MessageBox.Show("Bạn nhập thông tin chưa đúng yêu cầu!");
                 return;
@@ -151,11 +156,6 @@ namespace pbl
             txtIDCard.Enabled = false;
             txtEmail.Enabled = false;
             txtPhone.Enabled = false;
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
         }
         public int Confirm = 0;
         private void GetConfirmPass(string ConfirmPass, bool Get)
@@ -247,19 +247,19 @@ namespace pbl
         {
             if (cbbQuestion.Enabled == false) return;
             if (cbbQuestion.SelectedItem == null) return;
-            //InputPass input = new InputPass();
-            //input.GetConfirmPass = new InputPass.MyDel(GetConfirmPass);
-            //input.ShowDialog();
-            //if (Confirm == 0) return;
-            //if (Confirm == -1)
-            //{
-            //    MessageBox.Show("Mật khẩu xác nhận không đúng!");
-            //    return;
-            //}
-            //else
-            //{
-            //    Confirm = -1;
-            //}
+            InputPass input = new InputPass();
+            input.GetConfirmPass = new InputPass.MyDel(GetConfirmPass);
+            input.ShowDialog();
+            if (Confirm == 0) return;
+            if (Confirm == -1)
+            {
+                MessageBox.Show("Mật khẩu xác nhận không đúng!");
+                return;
+            }
+            else
+            {
+                Confirm = -1;
+            }
             BLLTRAIN.Instance.DelSecurity(((CBBSecurity)cbbQuestion.SelectedItem).Value);
             MessageBox.Show("Đã xoá thành công câu hỏi bảo mật bạn chọn!");
             cbbQuestion.SelectedItem = null;
@@ -285,9 +285,9 @@ namespace pbl
 
         private void txtIDCard_TextChanged(object sender, EventArgs e)
         {
-            if (txtEmail.Text == "")
+            if (txtIDCard.Text == "")
             {
-                labEmail.Text = "*Bắt buộc";
+                labIDCard.Text = "*Bắt buộc";
                 return;
             }
             if (!CheckNumber(txtIDCard.Text))
@@ -305,25 +305,47 @@ namespace pbl
                 labIDCard.Text = "*Số căn cước công dân phải đủ 12 chữ số!";
                 return;
             }
+            if (BLLTRAIN.Instance.CheckIDCard2(txtIDCard.Text))
+            {
+                //labIDCard.Text = "*Số căn cước công dân bạn nhập đã tồn tại trong hệ thống!";
+                //return;
+            }
             labIDCard.Text = "";
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
-            if (txtEmail.Text == "") labEmail.Text = "*Bắt buộc";
-            else if (!txtEmail.Text.Contains("@gmail.com")) labEmail.Text = "*Email không đúng định dạng!";
+            if (txtEmail.Text == "")
+            {
+                labEmail.Text = "*Bắt buộc";
+                return;
+            }
+            if (!txtEmail.Text.Contains("@gmail.com"))
+            {
+                labEmail.Text = "*Email không đúng định dạng!";
+                return;
+            }
             else
             {
-                if ("@gmail.com".IndexOf(txtEmail.Text) != "@gmail.com".LastIndexOf(txtEmail.Text)) labEmail.Text = "*Email không đúng định dạng!";
-                else labEmail.Text = "";
+                if ("@gmail.com".IndexOf(txtEmail.Text) != "@gmail.com".LastIndexOf(txtEmail.Text))
+                {
+                    labEmail.Text = "*Email không đúng định dạng!";
+                    return;
+                }
             }
+            if (BLLTRAIN.Instance.CheckEmail(txtEmail.Text))
+            {
+                //labEmail.Text = "*Email đã tồn tại!";
+                //return;
+            }
+            labEmail.Text = "";
         }
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
             if (!CheckNumber(txtPhone.Text))
             {
-                labPhone.Text = "Số điện thoại phải có dạng số!";
+                labPhone.Text = "*Số điện thoại phải có dạng số!";
                 return;
             }
             if (txtPhone.Text == "") labPhone.Text = "*Bắt buộc";
@@ -334,8 +356,14 @@ namespace pbl
             }
             else if (txtPhone.Text.Length < 10)
             {
-                labPhone.Text = "Số điện thoại phải đủ 10 chữ số!";
+                labPhone.Text = "*Số điện thoại phải đủ 10 chữ số!";
                 return;
+            }
+            else if (BLLTRAIN.Instance.CheckPhone(txtPhone.Text))
+            {
+                //labPhone.Text = "*Số điện thoại bạn nhập đã tồn tại trong hệ thống!";
+                //return;
+
             }
             labPhone.Text = "";
         }
@@ -361,6 +389,21 @@ namespace pbl
             }
             labBirthDay.Text = "";
 
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "")
+            {
+                labUser.Text = "*Bắt buộc";
+                return;
+            }
+            if (BLLTRAIN.Instance.check(txtUsername.Text))
+            {
+                //labUser.Text = "*Username đã tồn tại!";
+                //return;
+            }
+            labUser.Text = "";
         }
     }
 }

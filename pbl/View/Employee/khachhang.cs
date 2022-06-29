@@ -55,6 +55,7 @@ namespace pbl.View
                 {
                     BLLpeople.instance.delperson(row.Cells["Username"].Value.ToString());
                 }
+                MessageBox.Show("Đã xoá thành công các khách hàng bạn chọn!");
                 show("");
             }
 

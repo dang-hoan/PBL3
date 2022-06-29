@@ -36,17 +36,16 @@ namespace pbl.View
         {
             if (trangthai == "xem")
             {
-                foreach (TICKET i in BLLTicket.instance.getticketbylist(malichtrinh,matau, vitri))
+                TICKET i = BLLTicket.instance.GetTicket(malichtrinh, matau, vitri);
+                if (i != null)
                 {
-                    if (i.Booked ==true)
+                    if (i.Booked == true)
                     {
-                        foreach (PEOPLE_View peo in BLLpeople.instance.GetPPByUsername(i.CustomerUN))
-                        {
-                            txtemail.Text = peo.Email;
-                            txtidcard.Text = peo.IDCard;
-                            txtname.Text = peo.Name;
-                            txtsdt.Text = peo.Phone;
-                        }
+                        PEOPLE_View peo = BLLpeople.instance.GetPPByUsername(i.CustomerUN)[0];
+                        txtemail.Text = peo.Email;
+                        txtidcard.Text = peo.IDCard;
+                        txtname.Text = peo.Name;
+                        txtsdt.Text = peo.Phone;
                     }
                 };
                 txtemail.Enabled = false;
@@ -54,8 +53,8 @@ namespace pbl.View
                 txtname.Enabled = false;
                 txtsdt.Enabled = false;
                 button1.Visible = false;
+                button2.Location = new Point(label5.Location.X + 40, button2.Location.Y);
             }
-
         }
         private bool CheckNumber(string txt)
         {
@@ -94,13 +93,37 @@ namespace pbl.View
             }
             if (txtsdt.Text.Length > 10)
             {
-                MessageBox.Show("*Số điện thoại chỉ có 10 chữ số!");
+                MessageBox.Show("Số điện thoại chỉ có 10 chữ số!");
                 return;
             }
             else if (txtsdt.Text.Length < 10)
             {
                 MessageBox.Show("Số điện thoại phải đủ 10 chữ số!");
                 return;
+            }
+            if (!txtemail.Text.Contains("@gmail.com"))
+            {
+                MessageBox.Show("Email không đúng định dạng!");
+                return;
+            }
+            else
+            {
+                if ("@gmail.com".IndexOf(txtemail.Text) != "@gmail.com".LastIndexOf(txtemail.Text))
+                {
+                    MessageBox.Show("Email không đúng định dạng!");
+                    return;
+                }
+            }
+            if (BLLTRAIN.Instance.CheckEmail(txtemail.Text))
+            {
+                MessageBox.Show("Email đã tồn tại!");
+                return;
+            }
+            if (BLLTRAIN.Instance.CheckPhone(txtsdt.Text))
+            {
+                MessageBox.Show("Số điện thoại bạn nhập đã tồn tại trong hệ thống!");
+                return;
+
             }
             if (!BLLpeople.instance.check(txtidcard.Text))
             {
@@ -130,6 +153,26 @@ namespace pbl.View
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtidcard_TextChanged(object sender, EventArgs e)
+        {
+            PEOPLE p = BLLTRAIN.Instance.CheckIDCard(txtidcard.Text);
+            if (p != null)
+            {
+                txtname.Text = p.Name;
+                txtemail.Text = p.Email;
+                txtsdt.Text = p.Phone;
+                txtname.Enabled = false;
+                txtemail.Enabled = false;
+                txtsdt.Enabled = false;
+            }
+            else
+            {
+                txtname.Enabled = true;
+                txtemail.Enabled = true;
+                txtsdt.Enabled = true;
+            }
         }
     }
 }

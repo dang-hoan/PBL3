@@ -77,11 +77,6 @@ namespace pbl.View
             this.Dispose();
         }
 
-        private void hourdep_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbbDep_Click(object sender, EventArgs e)
         {
             string temp = cbbDep.Text;

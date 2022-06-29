@@ -127,11 +127,6 @@ namespace pbl.View
             showform(new GUIPersonal());
         }
 
-        private void panel_User_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void labelLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -147,21 +142,6 @@ namespace pbl.View
         {
             showform(new train());
             ChangeColor(chuyentau, null);
-        }
-
-        private void Employeechinh_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel_User_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pnxuly_Paint(object sender, PaintEventArgs e)
-        {
-           
         }
     }
 }

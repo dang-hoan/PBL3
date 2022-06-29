@@ -263,7 +263,7 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             foreach (PEOPLE i in db.PEOPLE)
             {
-                if (i.Username == username) return true;
+                if (i.Username.ToUpper() == username.ToUpper()) return true;
             }
             return false;
         }
@@ -283,7 +283,7 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             foreach (LOGIN i in db.LOGINs)
             {
-                if (i.Username == username) return true;
+                if (i.Username.ToUpper() == username.ToUpper()) return true;
             }
             return false;
         }
@@ -304,6 +304,40 @@ namespace pbl.BLL
                         && sch.DepartureTime.ToString("dd/MM/yyyy HH:mm").CompareTo(s.DepartureTime.ToString("dd/MM/yyyy HH:mm")) == 0 
                         && sch.ArrivalTime.ToString("dd/MM/yyyy HH:mm").CompareTo(s.ArrivalTime.ToString("dd/MM/yyyy HH:mm")) == 0
                         select sch).FirstOrDefault();
+            if (data != null) return true;
+            return false;
+        }
+        public PEOPLE CheckIDCard(string IDCard)
+        {
+            PBL3 db = new PBL3();
+            return (from peo in db.PEOPLE
+                    where peo.IDCard.Equals(IDCard)
+                    select peo).FirstOrDefault();
+        }
+        public bool CheckIDCard2(string IDCard)
+        {
+            PBL3 db = new PBL3();
+            var data = (from peo in db.PEOPLE
+                        where peo.IDCard.Equals(IDCard)
+                        select peo).FirstOrDefault();
+            if (data != null) return true;
+            return false;
+        }
+        public bool CheckPhone(string Phone)
+        {
+            PBL3 db = new PBL3();
+            var data = (from peo in db.PEOPLE
+                        where peo.Phone.Equals(Phone)
+                        select peo).FirstOrDefault();
+            if (data != null) return true;
+            return false;
+        }
+        public bool CheckEmail(string Email)
+        {
+            PBL3 db = new PBL3();
+            var data = (from peo in db.PEOPLE
+                       where peo.Email.Equals(Email)
+                       select peo).FirstOrDefault();
             if (data != null) return true;
             return false;
         }
@@ -629,7 +663,7 @@ namespace pbl.BLL
             {
                 foreach (PEOPLE_View i in BLLTRAIN.Instance.GetAllPEOPLEView())
                 {
-                    if (i.Username.Equals(Username))
+                    if (i.Username.ToUpper().Equals(Username.ToUpper()))
                     {
                         data.Add(i);
                         break;
@@ -1055,6 +1089,24 @@ namespace pbl.BLL
             {
                 tic.Booked = false;
                 tic.CustomerUN = null;
+            }
+            db.SaveChanges();
+        }
+        public void SetTicket(List<int> TicketID, string userName, bool booked)
+        {
+            PBL3 db = new PBL3();
+            if (userName == "") userName = null;
+            foreach (int t in TicketID)
+            {
+                foreach (TICKET tic in db.TICKETs)
+                {
+                    if (tic.TicketID == t)
+                    {
+                        tic.Booked = booked;
+                        tic.CustomerUN = userName;
+                        break;
+                    }
+                }
             }
             db.SaveChanges();
         }

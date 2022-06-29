@@ -205,7 +205,6 @@ C:\PBL3\pbl\obj\Debug\pbl.GUIOption.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUISchedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.Properties.Resources.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.lichtrinh.resources
-C:\PBL3\pbl\obj\Debug\pbl.View.trainve.resources
 C:\PBL3\pbl\obj\Debug\pbl.csproj.GenerateResource.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.CoreCompileInputs.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.CopyComplete

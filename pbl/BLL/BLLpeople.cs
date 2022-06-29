@@ -27,12 +27,12 @@ namespace pbl.BLL
         private BLLpeople()
             {
             }
-        PBL3 db = new PBL3();
         public bool check(string username)
         {
+            PBL3 db = new PBL3();
             foreach (PEOPLE i in db.PEOPLE)
             {
-                if (i.Username == username) return true;
+                if (i.Username.ToUpper().Equals(username.ToUpper())) return true;
             }
             return false;
         }
@@ -41,13 +41,13 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             foreach (LOGIN i in db.LOGINs)
             {
-                if (i.Username == username) return true;
+                if (i.Username.ToUpper() == username.ToUpper()) return true;
             }
             return false;
         }
         public void Getnvbyuser(string username)
         {
-
+            PBL3 db = new PBL3();
             PEOPLE pb = db.PEOPLE.Find(username);
             POSITION posi = new POSITION();
 
@@ -61,8 +61,8 @@ namespace pbl.BLL
                 "Thông tin nguười dùng ");
         }
         public List<tkten_view> searchtennv(string ten)
-
         {
+            PBL3 db = new PBL3();
             List<tkten_view> list = new List<tkten_view>();
             int id = Getpidnv();
             int id1 = Getpidkh();
@@ -78,6 +78,7 @@ namespace pbl.BLL
         }
         public int Getpidnv()
         {
+            PBL3 db = new PBL3();
             var p = (from pos in db.POSITIONs
                      where pos.Position == "Nhân viên"
                      select pos.PositionID).FirstOrDefault();
@@ -85,6 +86,7 @@ namespace pbl.BLL
         }
         public int Getpidkh()
         {
+            PBL3 db = new PBL3();
             var p = (from pos in db.POSITIONs
                      where pos.Position == "Khách hàng"
                      select pos.PositionID).FirstOrDefault();
@@ -92,6 +94,7 @@ namespace pbl.BLL
         }
         public void Execute(PEOPLE s)
         {
+            PBL3 db = new PBL3();
             s.PositionID = (from pos in db.POSITIONs
                             where pos.Position.Equals("Khách hàng")
                             select pos.PositionID).FirstOrDefault();
@@ -117,6 +120,7 @@ namespace pbl.BLL
         }
         public void Executenv(PEOPLE s)
         {
+            PBL3 db = new PBL3();
             s.PositionID = (from POSITION pos in db.POSITIONs
                             where pos.Position.Equals("Nhân viên")
                             select pos.PositionID).FirstOrDefault();
@@ -143,6 +147,7 @@ namespace pbl.BLL
         }
         public void Execute2(LOGIN s)
         {
+            PBL3 db = new PBL3();
             if (!check2(s.Username))
             {
                 db.LOGINs.Add(s);
@@ -160,6 +165,7 @@ namespace pbl.BLL
 
         public List<LOGIN> Getloginbyusername(string username)
         {
+            PBL3 db = new PBL3();
             List<LOGIN> dn = new List<LOGIN>();
             dn = db.LOGINs.Where(p => p.Username == username).Select(p => p).ToList();
 
@@ -169,6 +175,7 @@ namespace pbl.BLL
 
         public List<CBBpeople> GetCBBs(string txt)
         {
+            PBL3 db = new PBL3();
             int positi = (from POSITION pos in db.POSITIONs
                           where pos.Position.Equals("Khách hàng")
                           select pos.PositionID).FirstOrDefault(); ;
@@ -190,6 +197,7 @@ namespace pbl.BLL
         }
         public List<CBBpeople> GetCBBname()
         {
+            PBL3 db = new PBL3();
             List<CBBpeople> data = new List<CBBpeople>();
             foreach (PEOPLE i in db.PEOPLE)
             {
@@ -205,6 +213,7 @@ namespace pbl.BLL
         }
         public List<PEOPLE_View> getppbylist(string username,int s)
         {
+            PBL3 db = new PBL3();
             List<PEOPLE_View> data = new List<PEOPLE_View>();
             if (s == 1)//tim kiem theo ten dang nhap
             {
@@ -270,6 +279,7 @@ namespace pbl.BLL
 
         public List<PEOPLE_View> GetPPByUsername(string username)//tim kiem theo ten dang nhap
         {
+            PBL3 db = new PBL3();
             int PositionID = (from pos in db.POSITIONs
                               where pos.Position == "Khách hàng"
                               select pos.PositionID).FirstOrDefault();
@@ -295,7 +305,6 @@ namespace pbl.BLL
             }
             else
             {
-                //MessageBox.Show(username);
                 data = (from peo in db.PEOPLE
                         join pos in db.POSITIONs on peo.PositionID equals pos.PositionID
                         where (peo.Username == username) && pos.PositionID == PositionID
@@ -316,6 +325,7 @@ namespace pbl.BLL
         }
         public List<PEOPLE_View> GetPPByname(string name)//theo ten
         {
+            PBL3 db = new PBL3();
             int PositionID = (from pos in db.POSITIONs
                               where pos.Position == "Khách hàng"
                               select pos.PositionID).FirstOrDefault();
@@ -342,6 +352,7 @@ namespace pbl.BLL
         }
         public List<PEOPLE_View> GetPPByid(string id)//theo id
         {
+            PBL3 db = new PBL3();
             int PositionID = (from pos in db.POSITIONs
                               where pos.Position == "Khách hàng"
                               select pos.PositionID).FirstOrDefault();
@@ -368,28 +379,29 @@ namespace pbl.BLL
         }
         public void delperson(string username)
         {
-            
-            MessageBox.Show(username);
+            PBL3 db = new PBL3();
             PEOPLE s = db.PEOPLE.Find(username);
-            LOGIN dn = new LOGIN();
-                dn = db.LOGINs.Where(p => p.Username == username).Single();
-           
-            db.LOGINs.Remove(dn);
-            db.SaveChanges();
+            LOGIN dn =  db.LOGINs.Where(p => p.Username == username).FirstOrDefault();
+            List<int> list = (from tic in db.TICKETs
+                                where tic.CustomerUN.Equals(username)
+                                select tic.TicketID).ToList();
+            BLLTRAIN.Instance.SetTicket(list, "", false);
+            if(dn != null) db.LOGINs.Remove(dn);
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
         
         public void delnv(string IDCard)
         {
+            PBL3 db = new PBL3();
             PEOPLE s = db.PEOPLE.Find(IDCard);
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
         public List<employeeview> searchP(string text)
         {
+            PBL3 db = new PBL3();
             int id = Getpidnv();
-
             List<employeeview> list = new List<employeeview>();
             var result = from PEOPLE p in db.PEOPLE.ToList()
                          join POSITION pos in db.POSITIONs on p.PositionID equals pos.PositionID
@@ -411,7 +423,8 @@ namespace pbl.BLL
         }
         public List<PEOPLE> searchem(string text)
         {
-            if(text == "")
+            PBL3 db = new PBL3();
+            if (text == "")
             {
                  MessageBox.Show("Vui lòng nhập tên khách hàng cần tìm !", "Thông báo");
                 return null;
@@ -434,6 +447,7 @@ namespace pbl.BLL
         }
         public List<PEOPLE> searchnv(string text)
         {
+            PBL3 db = new PBL3();
             if (text == "")
             {
                 MessageBox.Show("Vui lòng nhập tên nhân viên cần tìm !", "Thông báo");
@@ -457,20 +471,22 @@ namespace pbl.BLL
         }
         public LOGIN Getloginbyloginid(string username)
         {
+            PBL3 db = new PBL3();
             LOGIN dn = new LOGIN();
-            dn = db.LOGINs.Where(p => p.Username == username).Single();
-
+            dn = db.LOGINs.Where(p => p.Username == username).FirstOrDefault();
             return dn;
 
         }
         public PEOPLE GetuserByusername(string username )
         {
+            PBL3 db = new PBL3();
             return db.PEOPLE.Find(username);
 
         }
       
         public List<PEOPLE_View> getallnv(int PositionId)
         {
+            PBL3 db = new PBL3();
             List<PEOPLE_View> list = new List<PEOPLE_View>();
             var l2 = from PEOPLE p in db.PEOPLE.ToList()
                      join POSITION pos in db.POSITIONs on p.PositionID equals pos.PositionID
@@ -493,6 +509,7 @@ namespace pbl.BLL
         }
         public List<PEOPLE> sort()
         {
+            PBL3 db = new PBL3();
             List<PEOPLE> list = new List<PEOPLE>();
             int id = Getpidnv();
             var result = from p in db.PEOPLE where p.PositionID == id orderby p.Name  select p;

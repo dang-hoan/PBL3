@@ -63,7 +63,6 @@
             this.pnxuly.Name = "pnxuly";
             this.pnxuly.Size = new System.Drawing.Size(1096, 689);
             this.pnxuly.TabIndex = 19;
-            this.pnxuly.Paint += new System.Windows.Forms.PaintEventHandler(this.pnxuly_Paint);
             // 
             // panel_User
             // 
@@ -76,7 +75,6 @@
             this.panel_User.Size = new System.Drawing.Size(218, 84);
             this.panel_User.TabIndex = 6;
             this.panel_User.Visible = false;
-            this.panel_User.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_User_Paint_1);
             // 
             // labelLogOut
             // 
@@ -178,7 +176,7 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 9;
             this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.canhan);
+            this.pictureBox10.Click += new System.EventHandler(this.labelPersonal_Click);
             // 
             // lichtrinh
             // 
@@ -234,6 +232,7 @@
             this.ten.TabIndex = 8;
             this.ten.Text = "Employee";
             this.ten.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ten.Click += new System.EventHandler(this.labelPersonal_Click);
             // 
             // Employeechinh
             // 
@@ -248,7 +247,6 @@
             this.Name = "Employeechinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
-            this.Load += new System.EventHandler(this.Employeechinh_Load);
             this.pnxuly.ResumeLayout(false);
             this.panel_User.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

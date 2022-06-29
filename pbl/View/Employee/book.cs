@@ -83,18 +83,19 @@ namespace pbl.View
             if (s=="")
             {
                 b.BackColor = Color.FromArgb(0, 170, 0);
-            }    
-
-
+                b.Cursor = Cursors.Hand;
+            }
             if ((s == "dadat") && (trangthai == "mua"))
             {
                 b.Enabled = false;
                 b.BackColor = Color.Red;
+                b.Cursor = Cursors.Default;
             }
             else
             if (s == "dadat")
             {
                 b.BackColor = Color.Red;
+                b.Cursor = Cursors.Hand;
             }
 
         }

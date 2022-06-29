@@ -36,6 +36,14 @@ namespace pbl.BLL
                       select t).ToList();
             return s;
         }
+        public TICKET GetTicket(int scheduleid, int trainid, string matoa)
+        {
+            PBL3 db = new PBL3();
+            var s = ( from t in db.TICKETs.ToList()
+                      where (t.ScheduleID==scheduleid && (t.TrainID==trainid)&&(t.SeatNo.ToUpper().Equals(matoa)))
+                      select t).FirstOrDefault();
+            return s;
+        }
      
        
     }

@@ -15,7 +15,6 @@ namespace pbl.View
 {
     public partial class addkhachhang : Form
     {
-        string user, pass;
         public delegate void Mydel(string username);
         public Mydel d;
         public string username { get; set; }
@@ -24,12 +23,12 @@ namespace pbl.View
             username = s;
             InitializeComponent();
             GUI();
-            user = username;
         }
         public void GUI()
         {
             if (BLLpeople.instance.check(username))
             {
+                label15.Text = "CẬP NHẬT THÔNG TIN KHÁCH HÀNG";
                 PEOPLE p = BLLpeople.instance.GetuserByusername(username);
                 txtuser.Text = p.Username;
                 txtuser.Enabled = false;
@@ -43,8 +42,21 @@ namespace pbl.View
                 txtidcard.Text = p.IDCard;
                 LOGIN g = BLLpeople.instance.Getloginbyloginid(username);
                 txtpass.Text = g.PassWord;
-                pass = txtpass.Text;
+                labBirthDay.Text = "";
+                label9.Text = "";
+                label11.Text = "";
+                label12.Text = "";
+                label13.Text = "";
+                label14.Text = "";
             }
+        }
+        private bool CheckNumber(string txt)
+        {
+            foreach (char i in txt)
+            {
+                if (i < 48 || i > 57) return false;
+            }
+            return true;
         }
         private void butok_Click(object sender, EventArgs e)
         {
@@ -70,19 +82,43 @@ namespace pbl.View
                 MessageBox.Show("Số CCCD phải có 12 chữ số!");
                 return;
             }
-            if ((txtidcard.Text == "") || (txtname.Text == "") || (txtsdt.Text == "") || (txtuser.Text == ""))
+            if (!CheckNumber(txtidcard.Text))
+            {
+                MessageBox.Show("Số CCCD phải là 1 số!");
+                return;
+
+            }
+            if (BLLTRAIN.Instance.CheckIDCard2(txtidcard.Text))
+            {
+                MessageBox.Show("Số căn cước công dân bạn nhập đã tồn tại trong hệ thống!");
+                return;
+            }
+            if(BLLTRAIN.Instance.CheckPhone("0" + txtsdt.Text))
+            {
+                MessageBox.Show("Số điện thoại bạn nhập đã tồn tại trong hệ thống!");
+                return;
+
+            }
+            if (BLLTRAIN.Instance.CheckEmail(txtgamil.Text))
+            {
+                MessageBox.Show("Email bạn nhập đã tồn tại trong hệ thống!");
+                return;
+            }
+            if (!CheckNumber(txtsdt.Text))
+            {
+                MessageBox.Show("Số điện thoại phải là 1 số!");
+                return;
+            }
+            if ((txtidcard.Text == "") || (txtname.Text == "") || (txtsdt.Text == "") || (txtuser.Text == "" || txtpass.Text == ""))
             {
                 MessageBox.Show("bạn chưa nhập đủ dữ liệu bắt buộc ");
             }
-
             else
             {
-                if (user == txtuser.Text)
+                if (!BLLpeople.instance.check(txtuser.Text))
                 {
-                    MessageBox.Show("..");
                     PEOPLE s = new PEOPLE
                     {
-
                         Username = txtuser.Text,
                         Name = txtname.Text,
                         Gender = (rdinam.Checked == true) ? true : false,
@@ -99,44 +135,12 @@ namespace pbl.View
                         PassWord = txtpass.Text,
                     };
                     BLLpeople.instance.Execute(s);
-                    if (pass != txtpass.Text)
-                    {
-                        BLLpeople.instance.Execute2(dn);
-                        MessageBox.Show("ban da doi mk thanh cong !");
-                    }
+                    BLLpeople.instance.Execute2(dn);
+                    MessageBox.Show("Đã cập nhật thành công thông tin khách hàng!");
                     d("");
                     this.Close();
                 }
-                else
-                    if (BLLpeople.instance.check(txtuser.Text))
-                    MessageBox.Show("username của không hợp lệ ");
-                else
-                {
-                    PEOPLE s = new PEOPLE
-                    {
-
-                        Username = txtuser.Text,
-                        Name = txtname.Text,
-                        Gender = (rdinam.Checked == true) ? true : false,
-                        BirthDay = date.Value,
-                        Phone = "0" + txtsdt.Text,
-                        Address = txtdiachi.Text,
-                        Email = txtgamil.Text,
-                        IDCard = txtidcard.Text,
-                        PositionID = 124
-                    };
-
-                    LOGIN dn = new LOGIN()
-                    {
-                        Username = txtuser.Text,
-                        PassWord = txtpass.Text,
-                    };
-                    BLLpeople.instance.Execute(s);
-                    BLLpeople.instance.Execute2(dn);
-                    d("");
-                    this.Close();
-                };
-
+                else if(username == "") MessageBox.Show("Username bạn nhập đã tồn tại trong hệ thống!");
             }
         }
 
@@ -145,7 +149,7 @@ namespace pbl.View
         {
             if (txtidcard.Text.Length != 12)
             {
-                MessageBox.Show("id card chi duoc dung 12 chu so ");
+                MessageBox.Show("Căn cước công dân phải có 12 chữ số!");
             };
         }
 
@@ -176,12 +180,9 @@ namespace pbl.View
 
         private void txtuser_TextChanged(object sender, EventArgs e)
         {
-
-            if (!(BLLpeople.instance.check(txtuser.Text)))
-                label13.Text = ("username hợp lệ ");
-            else
-                if (BLLpeople.instance.check(user))
-                label13.Text = ("username không hợp lệ ");
+            if (BLLpeople.instance.check(txtuser.Text))
+                label13.Text = "Username đã tồn tại!";
+            else label13.Text = "";
         }
 
         private void buthuy_Click(object sender, EventArgs e)

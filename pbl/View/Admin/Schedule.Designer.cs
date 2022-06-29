@@ -28,15 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelsche = new System.Windows.Forms.Panel();
-            this.bShowAll = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.pAdd = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.pSearch = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.pDelete = new Bunifu.Framework.UI.BunifuThinButton2();
             this.dtg = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +52,10 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bSearch = new pbl.RJButton();
+            this.bDelete = new pbl.RJButton();
+            this.bAdd = new pbl.RJButton();
+            this.bShowAll = new pbl.RJButton();
             this.panelsche.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -65,11 +63,10 @@
             // 
             // panelsche
             // 
-            this.panelsche.Controls.Add(this.button1);
             this.panelsche.Controls.Add(this.bShowAll);
-            this.panelsche.Controls.Add(this.pAdd);
-            this.panelsche.Controls.Add(this.pSearch);
-            this.panelsche.Controls.Add(this.pDelete);
+            this.panelsche.Controls.Add(this.bAdd);
+            this.panelsche.Controls.Add(this.bDelete);
+            this.panelsche.Controls.Add(this.bSearch);
             this.panelsche.Controls.Add(this.dtg);
             this.panelsche.Controls.Add(this.groupBox1);
             this.panelsche.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -79,126 +76,22 @@
             this.panelsche.Size = new System.Drawing.Size(1522, 710);
             this.panelsche.TabIndex = 0;
             // 
-            // bShowAll
-            // 
-            this.bShowAll.ActiveBorderThickness = 1;
-            this.bShowAll.ActiveCornerRadius = 20;
-            this.bShowAll.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bShowAll.ActiveForecolor = System.Drawing.Color.White;
-            this.bShowAll.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bShowAll.BackColor = System.Drawing.Color.White;
-            this.bShowAll.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bShowAll.BackgroundImage")));
-            this.bShowAll.ButtonText = "Xem tất cả";
-            this.bShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bShowAll.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShowAll.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bShowAll.IdleBorderThickness = 1;
-            this.bShowAll.IdleCornerRadius = 20;
-            this.bShowAll.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bShowAll.IdleForecolor = System.Drawing.Color.Black;
-            this.bShowAll.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bShowAll.Location = new System.Drawing.Point(1122, 626);
-            this.bShowAll.Margin = new System.Windows.Forms.Padding(6);
-            this.bShowAll.Name = "bShowAll";
-            this.bShowAll.Size = new System.Drawing.Size(155, 60);
-            this.bShowAll.TabIndex = 53;
-            this.bShowAll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bShowAll.Click += new System.EventHandler(this.bShowAll_Click);
-            // 
-            // pAdd
-            // 
-            this.pAdd.ActiveBorderThickness = 1;
-            this.pAdd.ActiveCornerRadius = 20;
-            this.pAdd.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.pAdd.ActiveForecolor = System.Drawing.Color.White;
-            this.pAdd.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.pAdd.BackColor = System.Drawing.Color.White;
-            this.pAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pAdd.BackgroundImage")));
-            this.pAdd.ButtonText = "Thêm";
-            this.pAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pAdd.ForeColor = System.Drawing.Color.SeaGreen;
-            this.pAdd.IdleBorderThickness = 1;
-            this.pAdd.IdleCornerRadius = 20;
-            this.pAdd.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pAdd.IdleForecolor = System.Drawing.Color.Black;
-            this.pAdd.IdleLineColor = System.Drawing.Color.Transparent;
-            this.pAdd.Location = new System.Drawing.Point(942, 554);
-            this.pAdd.Margin = new System.Windows.Forms.Padding(6);
-            this.pAdd.Name = "pAdd";
-            this.pAdd.Size = new System.Drawing.Size(155, 60);
-            this.pAdd.TabIndex = 45;
-            this.pAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.pAdd.Click += new System.EventHandler(this.bunifuThinButton21_Click);
-            // 
-            // pSearch
-            // 
-            this.pSearch.ActiveBorderThickness = 1;
-            this.pSearch.ActiveCornerRadius = 20;
-            this.pSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.pSearch.ActiveForecolor = System.Drawing.Color.White;
-            this.pSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.pSearch.BackColor = System.Drawing.Color.White;
-            this.pSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pSearch.BackgroundImage")));
-            this.pSearch.ButtonText = "Tìm kiếm";
-            this.pSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pSearch.ForeColor = System.Drawing.Color.SeaGreen;
-            this.pSearch.IdleBorderThickness = 1;
-            this.pSearch.IdleCornerRadius = 20;
-            this.pSearch.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pSearch.IdleForecolor = System.Drawing.Color.Black;
-            this.pSearch.IdleLineColor = System.Drawing.Color.Transparent;
-            this.pSearch.Location = new System.Drawing.Point(1122, 554);
-            this.pSearch.Margin = new System.Windows.Forms.Padding(6);
-            this.pSearch.Name = "pSearch";
-            this.pSearch.Size = new System.Drawing.Size(155, 60);
-            this.pSearch.TabIndex = 46;
-            this.pSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.pSearch.Click += new System.EventHandler(this.bunifuThinButton22_Click);
-            // 
-            // pDelete
-            // 
-            this.pDelete.ActiveBorderThickness = 1;
-            this.pDelete.ActiveCornerRadius = 20;
-            this.pDelete.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.pDelete.ActiveForecolor = System.Drawing.Color.White;
-            this.pDelete.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.pDelete.BackColor = System.Drawing.Color.White;
-            this.pDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pDelete.BackgroundImage")));
-            this.pDelete.ButtonText = "Xoá";
-            this.pDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pDelete.ForeColor = System.Drawing.Color.SeaGreen;
-            this.pDelete.IdleBorderThickness = 1;
-            this.pDelete.IdleCornerRadius = 20;
-            this.pDelete.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pDelete.IdleForecolor = System.Drawing.Color.Black;
-            this.pDelete.IdleLineColor = System.Drawing.Color.Transparent;
-            this.pDelete.Location = new System.Drawing.Point(1302, 554);
-            this.pDelete.Margin = new System.Windows.Forms.Padding(6);
-            this.pDelete.Name = "pDelete";
-            this.pDelete.Size = new System.Drawing.Size(155, 60);
-            this.pDelete.TabIndex = 47;
-            this.pDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.pDelete.Click += new System.EventHandler(this.bunifuThinButton23_Click);
-            // 
             // dtg
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -300,7 +193,6 @@
             this.cbbDep.Size = new System.Drawing.Size(284, 28);
             this.cbbDep.TabIndex = 37;
             this.cbbDep.Click += new System.EventHandler(this.cbbDep_Click);
-            this.cbbDep.Leave += new System.EventHandler(this.cbbDep_Leave);
             // 
             // dateDes
             // 
@@ -405,16 +297,65 @@
             this.Column5.ReadOnly = true;
             this.Column5.Width = 125;
             // 
-            // button1
+            // bSearch
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(1302, 637);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 49);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "Tìm kiếm";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.bunifuThinButton22_Click);
+            this.bSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bSearch.FlatAppearance.BorderSize = 0;
+            this.bSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSearch.ForeColor = System.Drawing.Color.Black;
+            this.bSearch.Location = new System.Drawing.Point(1110, 563);
+            this.bSearch.Name = "bSearch";
+            this.bSearch.Size = new System.Drawing.Size(176, 50);
+            this.bSearch.TabIndex = 55;
+            this.bSearch.Text = "Tìm kiếm";
+            this.bSearch.UseVisualStyleBackColor = false;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
+            // 
+            // bDelete
+            // 
+            this.bDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bDelete.FlatAppearance.BorderSize = 0;
+            this.bDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bDelete.ForeColor = System.Drawing.Color.Black;
+            this.bDelete.Location = new System.Drawing.Point(1292, 563);
+            this.bDelete.Name = "bDelete";
+            this.bDelete.Size = new System.Drawing.Size(176, 50);
+            this.bDelete.TabIndex = 56;
+            this.bDelete.Text = "Xoá";
+            this.bDelete.UseVisualStyleBackColor = false;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
+            // 
+            // bAdd
+            // 
+            this.bAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bAdd.FlatAppearance.BorderSize = 0;
+            this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bAdd.ForeColor = System.Drawing.Color.Black;
+            this.bAdd.Location = new System.Drawing.Point(928, 563);
+            this.bAdd.Name = "bAdd";
+            this.bAdd.Size = new System.Drawing.Size(176, 50);
+            this.bAdd.TabIndex = 57;
+            this.bAdd.Text = "Thêm";
+            this.bAdd.UseVisualStyleBackColor = false;
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
+            // 
+            // bShowAll
+            // 
+            this.bShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bShowAll.FlatAppearance.BorderSize = 0;
+            this.bShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShowAll.ForeColor = System.Drawing.Color.Black;
+            this.bShowAll.Location = new System.Drawing.Point(1110, 624);
+            this.bShowAll.Name = "bShowAll";
+            this.bShowAll.Size = new System.Drawing.Size(176, 50);
+            this.bShowAll.TabIndex = 58;
+            this.bShowAll.Text = "Xem tất cả";
+            this.bShowAll.UseVisualStyleBackColor = false;
+            this.bShowAll.Click += new System.EventHandler(this.bShowAll_Click);
             // 
             // Schedule
             // 
@@ -458,10 +399,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private Bunifu.Framework.UI.BunifuThinButton2 pDelete;
-        private Bunifu.Framework.UI.BunifuThinButton2 pSearch;
-        private Bunifu.Framework.UI.BunifuThinButton2 pAdd;
-        private Bunifu.Framework.UI.BunifuThinButton2 bShowAll;
-        private System.Windows.Forms.Button button1;
+        private RJButton bSearch;
+        private RJButton bDelete;
+        private RJButton bShowAll;
+        private RJButton bAdd;
     }
 }
