@@ -133,7 +133,9 @@ namespace pbl.View
                     f.Show();
                 }
                 else
-                { MessageBox.Show("Chuyến tàu bạn chọn đã xuất phát!"); }
+                { 
+                    MessageBox.Show("Lịch trình bạn chọn đã hết hạn!");
+                }
             }
             else
             MessageBox.Show("Vui lòng chọn một lịch trình!");

@@ -32,7 +32,11 @@ namespace pbl.View.Employee
 
         private void btdoanhthu_Click(object sender, EventArgs e)
         {
-            
+            if(cbbmonth.Text == "" || cbbyear.Text == "")
+            {
+                MessageBox.Show("Bạn chưa chọn đủ tháng năm!");
+                return;
+            }
             dtg.DataSource = BLLTRAIN.Instance.dthu(Convert.ToInt32(cbbmonth.Text),Convert.ToInt32(cbbyear.Text));
         }
         int[] k = { 20,20,25,25,25,25,20,25};

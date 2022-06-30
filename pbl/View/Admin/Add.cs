@@ -107,7 +107,7 @@ namespace pbl.View.Admin
                 labIDCard.Text = "*Số căn cước công dân phải đủ 12 chữ số!";
                 return;
             }
-            if (BLLTRAIN.Instance.CheckIDCard2(txtIDCard.Text))
+            if (BLLTRAIN.Instance.CheckIDCard2("", txtIDCard.Text))
             {
                 labIDCard.Text = "*Số căn cước công dân bạn nhập đã tồn tại trong hệ thống!";
                 return;
@@ -135,7 +135,7 @@ namespace pbl.View.Admin
                     return;
                 }
             }
-            if (BLLTRAIN.Instance.CheckEmail(txtEmail.Text))
+            if (BLLTRAIN.Instance.CheckEmail("", txtEmail.Text))
             {
                 labEmail.Text = "*Email đã tồn tại!";
                 return;
@@ -161,7 +161,7 @@ namespace pbl.View.Admin
                 labPhone.Text = "*Số điện thoại phải đủ 10 chữ số!";
                 return;
             }
-            else if (BLLTRAIN.Instance.CheckPhone(txtPhone.Text))
+            else if (BLLTRAIN.Instance.CheckPhone("",txtPhone.Text))
             {
                 labPhone.Text = "*Số điện thoại bạn nhập đã tồn tại trong hệ thống!";
                 return;

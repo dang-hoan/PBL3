@@ -42,30 +42,71 @@ namespace pbl.View
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
+                if(Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells["DepartureTime"].Value.ToString()).ToString("yyyy/M/d H:m").CompareTo(DateTime.Now.ToString("yyyy/M/d H:m")) <= 0)
+                {
+                    MessageBox.Show("Lịch trình bạn chọn đã hết hạn!");
+                    return;
+                }
                 int scheduleid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString());
                 d(scheduleid);
                 this.Close();
             }
             else
-                MessageBox.Show(" vui lòng chọn một lịch trình!");
-
+                MessageBox.Show("Vui lòng chọn một lịch trình!");
         }
 
         private void bSearch_Click(object sender, EventArgs e)
         {
-            SCHEDULE_View s = new SCHEDULE_View()
+            string date1 = dateFromDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date2 = dateToDep.Value.ToString("yyyy/MM/dd HH:mm");
+            string date3 = dateFromDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string date4 = dateToDes.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+
+
+
+            if (checkBox1.Checked)
             {
-                Departure = cbbDep.Text,
-                Destination = cbbDes.Text,
-                //DepartureTime = DepTime.Value,
-            };
+                int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
+                int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
+                int comp3 = DateTime.Compare(dateFromDep.Value, dateToDes.Value);
+                if (comp > 0 || comp2 > 0)
+                {
+                    if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong cả ngày đi và ngày đến)!");
+                    else if (comp > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đi)!");
+                    else MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đến)!");
+                    return;
+                }
+                if (comp3 >= 0)
+                {
+                    MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+                }
+            }
 
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
-        }
-
-        private void cbbDep_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            if (checkBox1.Checked)
+            {
+                SCHEDULE_BLL s = new SCHEDULE_BLL
+                {
+                    ScheduleID = -1,
+                    Departure = cbbDep.Text,
+                    Destination = cbbDes.Text,
+                    FromDepartureTime = dateFromDep.Value,
+                    ToDepartureTime = dateToDep.Value,
+                    FromArrivalTime = dateFromDes.Value,
+                    ToArrivalTime = dateToDes.Value
+                };
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
+            }
+            else
+            {
+                SCHEDULE_View s = new SCHEDULE_View
+                {
+                    ScheduleID = -1,
+                    Departure = cbbDep.Text,
+                    Destination = cbbDes.Text,
+                };
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
+            }
         }
 
         private void cbbDep_Click(object sender, EventArgs e)
@@ -104,6 +145,27 @@ namespace pbl.View
                     break;
                 }
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox1.Checked)
+            {
+                dateFromDep.Enabled = false;
+                dateFromDes.Enabled = false;
+                dateToDep.Enabled = false;
+                dateToDes.Enabled = false;
+
+            }
+            else
+            {
+                dateFromDep.Enabled = true;
+                dateFromDes.Enabled = true;
+                dateToDep.Enabled = true;
+                dateToDes.Enabled = true;
+
+            }
+
         }
     }
 }

@@ -107,7 +107,6 @@
             this.cbbDep.Name = "cbbDep";
             this.cbbDep.Size = new System.Drawing.Size(234, 28);
             this.cbbDep.TabIndex = 142;
-            this.cbbDep.SelectedIndexChanged += new System.EventHandler(this.cbbDep_SelectedIndexChanged);
             this.cbbDep.Click += new System.EventHandler(this.cbbDep_Click);
             // 
             // label10
@@ -260,6 +259,7 @@
             this.checkBox1.TabIndex = 190;
             this.checkBox1.Text = "Tìm kiếm theo thời gian";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // lichtrinadd
             // 

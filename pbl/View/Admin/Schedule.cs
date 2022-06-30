@@ -94,7 +94,6 @@ namespace pbl.View
         private void bSearch_Click(object sender, EventArgs e)
         {
             int comp = DateTime.Compare(dateDep.Value, dateDes.Value);
-            MessageBox.Show(MousePosition.ToString() + ", " + dateDes.Location.ToString());
             if (comp > 0)
             {
                 MessageBox.Show("Thời gian đi phải  trước mốc thời gian đến !");

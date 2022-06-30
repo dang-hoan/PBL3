@@ -118,6 +118,39 @@ namespace pbl.BLL
             }
 
         }
+        public void UpdateNoLogin(PEOPLE s)
+        {
+            PBL3 db = new PBL3();
+            PEOPLE temp = db.PEOPLE.Find(s.Username);
+            temp.Username = s.IDCard;
+            temp.Name = s.Name;
+            temp.Gender = s.Gender;
+            temp.BirthDay = s.BirthDay;
+            temp.Phone = s.Phone;
+            temp.Address = s.Address;
+            temp.IDCard = s.IDCard;
+            temp.Email = s.Email;
+            db.SaveChanges();
+        }
+        public void UpdatePeo(PEOPLE s, string IDCard)
+        {
+            PBL3 db = new PBL3();
+            PEOPLE temp = db.PEOPLE.Find(IDCard);
+            temp.Username = s.Username;
+            temp.Name = s.Name;
+            temp.Gender = s.Gender;
+            temp.BirthDay = s.BirthDay;
+            temp.Phone = s.Phone;
+            temp.Address = s.Address;
+            temp.IDCard = s.IDCard;
+            temp.Email = s.Email;
+            db.SaveChanges();
+        }
+        public void AddLogin(LOGIN log)
+        {
+            PBL3 db = new PBL3();
+            db.LOGINs.Add(log);
+        }
         public void Executenv(PEOPLE s)
         {
             PBL3 db = new PBL3();
@@ -127,7 +160,6 @@ namespace pbl.BLL
             if (!check(s.Username))
             {
                 db.PEOPLE.Add(s);
-                //db.SaveChanges();
             }
             else
             {
@@ -155,22 +187,17 @@ namespace pbl.BLL
             }
             else
             {
-                foreach (LOGIN i in Getloginbyusername(s.Username))
-                {
-                    i.PassWord = s.PassWord;
-                }    
+                LOGIN j = db.LOGINs.Where(p => p.Username == s.Username).Select(p => p).FirstOrDefault();
+                j.PassWord = s.PassWord;
+                db.SaveChanges();
             }    
 
         }
 
-        public List<LOGIN> Getloginbyusername(string username)
+        public LOGIN Getloginbyusername(string username)
         {
             PBL3 db = new PBL3();
-            List<LOGIN> dn = new List<LOGIN>();
-            dn = db.LOGINs.Where(p => p.Username == username).Select(p => p).ToList();
-
-            return dn.ToList();
-
+            return db.LOGINs.Where(p => p.Username == username).Select(p => p).FirstOrDefault();
         }
 
         public List<CBBpeople> GetCBBs(string txt)

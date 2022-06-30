@@ -233,14 +233,81 @@ namespace pbl.View.Admin
             Add add = new Add();
             add.Show();
         }
-
+        private bool CheckNumber(string txt)
+        {
+            foreach (char i in txt)
+            {
+                if (i < 48 || i > 57) return false;
+            }
+            return true;
+        }
         private void bunifuThinButton22_Click(object sender, EventArgs e)
         {
 
-            if (gmaildkk.Text != "" || idcarddk.Text != "" || txtname.Text == "")
+            if (gmaildkk.Text != "" || idcarddk.Text != "" || phone.Text == "")
             {
-
                 MessageBox.Show("Vui lòng nhập đủ thông tin bắt buộc!");
+            }
+            string sa = date.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(sa, now) > 0)
+            {
+                MessageBox.Show("Người dùng tối thiểu phải đủ 15 tuổi!");
+                return;
+            }
+            if (phone.Text.Length != 10)
+            {
+                MessageBox.Show("Số điện thoại phải có 10 chữ số!");
+                return;
+            }
+            if (idcard.Text.Length != 12)
+            {
+                MessageBox.Show("Số CCCD phải có 12 chữ số!");
+                return;
+            }
+            if (!CheckNumber(idcard.Text))
+            {
+                MessageBox.Show("Số CCCD phải là 1 số!");
+                return;
+
+            }
+            if (BLLTRAIN.Instance.CheckIDCard2(txtusername.Text, idcard.Text))
+            {
+                MessageBox.Show("Số căn cước công dân bạn nhập đã tồn tại trong hệ thống!");
+                return;
+            }
+            if (BLLTRAIN.Instance.CheckPhone(txtusername.Text, phone.Text))
+            {
+                MessageBox.Show("Số điện thoại bạn nhập đã tồn tại trong hệ thống!");
+                return;
+
+            }
+            if (BLLTRAIN.Instance.CheckEmail(txtusername.Text, gmail.Text))
+            {
+                MessageBox.Show("Email bạn nhập đã tồn tại trong hệ thống!");
+                return;
+            }
+            if (!CheckNumber(phone.Text))
+            {
+                MessageBox.Show("Số điện thoại phải là 1 số!");
+                return;
+            }
+            if (!gmail.Text.Contains("@gmail.com"))
+            {
+                MessageBox.Show("Email không đúng định dạng!");
+                return;
+            }
+            else
+            {
+                if ("@gmail.com".IndexOf(gmail.Text) != "@gmail.com".LastIndexOf(gmail.Text))
+                {
+                    MessageBox.Show("Email không đúng định dạng!");
+                    return;
+                }
+            }
+            if (txtusername.Text == "" || txtpass.Text == "")
+            {
+                MessageBox.Show("Tên đăng nhập và mật khẩu không thể để trống!");
             }
             else
             {

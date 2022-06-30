@@ -8,6 +8,7 @@ namespace pbl.DTO
 {
     public class doanhthu_view
     {
+        public int ScheduleID { get; set; }
         public int TrainID { get; set; }
         public string TrainName{ get; set; }
         public string Depature { get; set; }

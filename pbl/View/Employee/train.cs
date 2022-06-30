@@ -36,14 +36,6 @@ namespace pbl.View
             dateFromDes.Enabled = false;
             dateToDep.Enabled = false;
             dateToDes.Enabled = false;
-            reset();
-        }
-
-      
-        private void butall_Click(object sender, EventArgs e)
-        {
-            reset();
-
         }
         public void show()
         {
@@ -75,21 +67,9 @@ namespace pbl.View
                 MessageBox.Show(" vui lòng chọn một lịch trình!");
 
         }
-        public void reset ()     
-        {
-            show();
-                foreach (DataGridViewRow i in dataGridView1.Rows)
-                {
-                    int scheduleid = Convert.ToInt32(i.Cells["ScheduleID"].Value.ToString());
-                    BLLTRAIN.Instance.trainstate(scheduleid);
-                    show();
-                }
-  
-        }
 
         private void buttrain_Click_1(object sender, EventArgs e)
         {
-
             addtrain f = new addtrain(-1);
             f.Show();
             f.d = new addtrain.Mydel(show);

@@ -17,7 +17,7 @@ namespace pbl.View
     {
         public delegate void Mydel(string username);
         public Mydel d;
-        public string username { get; set; }
+        private string username;
         public addkhachhang(string s)
         {
             username = s;
@@ -26,7 +26,8 @@ namespace pbl.View
         }
         public void GUI()
         {
-            if (BLLpeople.instance.check(username))
+            checkBox1.Visible = false;
+            if (username != "")
             {
                 label15.Text = "CẬP NHẬT THÔNG TIN KHÁCH HÀNG";
                 PEOPLE p = BLLpeople.instance.GetuserByusername(username);
@@ -41,13 +42,20 @@ namespace pbl.View
                 txtgamil.Text = p.Email;
                 txtidcard.Text = p.IDCard;
                 LOGIN g = BLLpeople.instance.Getloginbyloginid(username);
-                txtpass.Text = g.PassWord;
+                if(g != null) txtpass.Text = g.PassWord;
+
                 labBirthDay.Text = "";
                 label9.Text = "";
                 label11.Text = "";
                 label12.Text = "";
                 label13.Text = "";
                 label14.Text = "";
+
+                if (txtpass.Text == "")
+                {
+                    checkBox1.Checked = false;
+                    checkBox1.Visible = true;
+                }
             }
         }
         private bool CheckNumber(string txt)
@@ -88,18 +96,18 @@ namespace pbl.View
                 return;
 
             }
-            if (BLLTRAIN.Instance.CheckIDCard2(txtidcard.Text))
+            if (BLLTRAIN.Instance.CheckIDCard2(username, txtidcard.Text))
             {
                 MessageBox.Show("Số căn cước công dân bạn nhập đã tồn tại trong hệ thống!");
                 return;
             }
-            if(BLLTRAIN.Instance.CheckPhone("0" + txtsdt.Text))
+            if(BLLTRAIN.Instance.CheckPhone(username, "0" + txtsdt.Text))
             {
                 MessageBox.Show("Số điện thoại bạn nhập đã tồn tại trong hệ thống!");
                 return;
 
             }
-            if (BLLTRAIN.Instance.CheckEmail(txtgamil.Text))
+            if (BLLTRAIN.Instance.CheckEmail(username, txtgamil.Text))
             {
                 MessageBox.Show("Email bạn nhập đã tồn tại trong hệ thống!");
                 return;
@@ -109,13 +117,31 @@ namespace pbl.View
                 MessageBox.Show("Số điện thoại phải là 1 số!");
                 return;
             }
-            if ((txtidcard.Text == "") || (txtname.Text == "") || (txtsdt.Text == "") || (txtuser.Text == "" || txtpass.Text == ""))
+            if ((txtidcard.Text == "") || (txtgamil.Text == "") || (txtsdt.Text == ""))
             {
-                MessageBox.Show("bạn chưa nhập đủ dữ liệu bắt buộc ");
+                MessageBox.Show("Bạn chưa nhập đủ dữ liệu bắt buộc!");
+                return;
+            }
+            if (!txtgamil.Text.Contains("@gmail.com"))
+            {
+                MessageBox.Show("Email không đúng định dạng!");
+                return;
             }
             else
             {
-                if (!BLLpeople.instance.check(txtuser.Text))
+                if ("@gmail.com".IndexOf(txtgamil.Text) != "@gmail.com".LastIndexOf(txtgamil.Text))
+                {
+                    MessageBox.Show("Email không đúng định dạng!");
+                    return;
+                }
+            };
+            if ((txtuser.Text == "" || txtpass.Text == "") && checkBox1.Checked == true)
+            {
+                MessageBox.Show("Tên đăng nhập và mật khẩu không thể để trống!");
+            }
+            else
+            {
+                if(BLLpeople.instance.check(txtuser.Text) == false)
                 {
                     PEOPLE s = new PEOPLE
                     {
@@ -136,11 +162,39 @@ namespace pbl.View
                     };
                     BLLpeople.instance.Execute(s);
                     BLLpeople.instance.Execute2(dn);
-                    MessageBox.Show("Đã cập nhật thành công thông tin khách hàng!");
+                    MessageBox.Show("Đã thêm thành công khách hàng mới!");
                     d("");
                     this.Close();
                 }
-                else if(username == "") MessageBox.Show("Username bạn nhập đã tồn tại trong hệ thống!");
+                else {
+                    //bấm button Add (username truyền dô hàm dựng == "") nhưng nhập username đã tồn tại
+                    if(username == "") MessageBox.Show("Username bạn nhập đã tồn tại trong hệ thống!"); 
+                    //bấm button Update (username truyền dô hàm dựng khác "")
+                    else{
+                        PEOPLE s = new PEOPLE
+                        {
+                            Username = txtuser.Text,
+                            Name = txtname.Text,
+                            Gender = (rdinam.Checked == true) ? true : false,
+                            BirthDay = date.Value,
+                            Phone = "0" + txtsdt.Text,
+                            Address = txtdiachi.Text,
+                            Email = txtgamil.Text,
+                            IDCard = txtidcard.Text
+                        };
+
+                        LOGIN dn = new LOGIN()
+                        {
+                            Username = txtuser.Text,
+                            PassWord = txtpass.Text,
+                        };
+                        BLLpeople.instance.Execute(s);
+                        if(checkBox1.Checked == true) BLLpeople.instance.Execute2(dn);
+                        MessageBox.Show("Đã cập nhật thành công thông tin khách hàng!");
+                        d("");
+                        this.Close();
+                    }
+                }
             }
         }
 
@@ -205,6 +259,12 @@ namespace pbl.View
         private void txtpass_Click(object sender, EventArgs e)
         {
             txtpass.Text = "";
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked) txtpass.Enabled = true;
+            else txtpass.Enabled = false;
         }
     }
 

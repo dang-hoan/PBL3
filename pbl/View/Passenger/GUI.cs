@@ -24,6 +24,7 @@ namespace pbl.View
             ShowForm(CreatForm());            
             AddHandler();
             this.login = login;
+            PBL3 db = new PBL3();
         }        
         private Form CreatForm()
         {

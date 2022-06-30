@@ -314,30 +314,39 @@ namespace pbl.BLL
                     where peo.IDCard.Equals(IDCard)
                     select peo).FirstOrDefault();
         }
-        public bool CheckIDCard2(string IDCard)
+        public bool CheckIDCard2(string userName, string IDCard)
         {
+            bool user;
+            if (userName == "") user = true;
+            else user = false;
             PBL3 db = new PBL3();
             var data = (from peo in db.PEOPLE
-                        where peo.IDCard.Equals(IDCard)
+                        where peo.IDCard.Equals(IDCard) && (user || !peo.Username.ToUpper().Equals(userName.ToUpper()))
                         select peo).FirstOrDefault();
             if (data != null) return true;
             return false;
         }
-        public bool CheckPhone(string Phone)
+        public bool CheckPhone(string userName, string Phone)
         {
+            bool user;
+            if (userName == "") user = true;
+            else user = false;
             PBL3 db = new PBL3();
             var data = (from peo in db.PEOPLE
-                        where peo.Phone.Equals(Phone)
+                        where peo.Phone.Equals(Phone) && (user || !peo.Username.ToUpper().Equals(userName.ToUpper()))
                         select peo).FirstOrDefault();
             if (data != null) return true;
             return false;
         }
-        public bool CheckEmail(string Email)
+        public bool CheckEmail(string userName, string Email)
         {
+            bool user;
+            if (userName == "") user = true;
+            else user = false;
             PBL3 db = new PBL3();
             var data = (from peo in db.PEOPLE
-                       where peo.Email.Equals(Email)
-                       select peo).FirstOrDefault();
+                       where peo.Email.Equals(Email) && (user || !peo.Username.ToUpper().Equals(userName.ToUpper()))
+                        select peo).FirstOrDefault();
             if (data != null) return true;
             return false;
         }
@@ -406,12 +415,6 @@ namespace pbl.BLL
                          select pos.Position).FirstOrDefault();
             if (result != null) return result;
             return "Không tồn tại";
-        }
-
-        public void Add()
-        {
-            PBL3 db = new PBL3();
-
         }
         public void UpdatePEOPLE(PEOPLE p)
         {
@@ -789,10 +792,11 @@ namespace pbl.BLL
                         }
                         list.Add(new doanhthu_view
                         {
-                            TrainID = tri.TRAIN.TrainID,
+                            ScheduleID = tri.ScheduleID,
+                            TrainID = tri.TrainID,
                             TrainName = tri.TRAIN.TrainName,
-                            Depature = s.STATION.StationName,
-                            Destination = s.STATION1.StationName,
+                            Depature = s.STATION1.StationName,
+                            Destination = s.STATION.StationName,
                             DepartureTime = s.DepartureTime,
                             ArrivalTime = s.ArrivalTime,
                             TotalTickets = numberTicket,
@@ -896,7 +900,7 @@ namespace pbl.BLL
             }
             return result;
         }
-      
+        //BUG 2 tàu trùng tên
         public List<TICKET_View> GetTicket(List<int> list, string TrainName, int carriage, ref int booked, ref int unbooked)
         {
             PBL3 db = new PBL3();
@@ -967,12 +971,11 @@ namespace pbl.BLL
         public List<Train_View> GetTrain3(SCHEDULE_BLL schedule)
         {
             PBL3 db = new PBL3();
-            var data = (from sch in db.SCHEDULEs.ToList()
-                        join tri in db.TRIPs on sch.ScheduleID equals tri.ScheduleID
-                        where (sch.STATION1.StationName.Equals(schedule.Departure)) && (sch.STATION.StationName.Equals(schedule.Destination))
+            var data = (from tri in db.TRIPs
+                        where (tri.SCHEDULE.STATION1.StationName.Equals(schedule.Departure)) && (tri.SCHEDULE.STATION.StationName.Equals(schedule.Destination))
                         select new Train_View
                         {
-                            ScheduleID = sch.ScheduleID,
+                            ScheduleID = tri.ScheduleID,
                             TrainID = tri.TrainID,
                             TrainName = tri.TRAIN.TrainName,
                             NumberOfCarriages = tri.TRAIN.NumberOfCarriages,
@@ -988,22 +991,6 @@ namespace pbl.BLL
                     where tri.ScheduleID == ScheduleID && tri.TrainID == TrainID
                     select tri).ToList().FirstOrDefault();
         }
-        public void trainstate(int scheduleid)
-        {
-            //KHÔNG CẦN THIẾT LƯU
-            //PBL3 db = new PBL3();
-         
-            //var data = (from sch in db.SCHEDULEs.ToList()
-            //            from tri in sch.TRIPs
-                        
-            //            where sch.ScheduleID == scheduleid && string.Compare(sch.DepartureTime.ToString("yyyy/MM/dd HH:mm"), DateTime.Now.ToString("yyyy/MM/dd HH:mm")) < 0
-            //            select tri.TRAIN).ToList() ;
-            //foreach(TRAIN train in data)
-            //{
-            //    //train.State = " dừng hoạt động ";
-            //}
-            //db.SaveChanges();
-        }
         public List<TRAIN> GettrainBytrainid(int scheduleid)
         {
             PBL3 db = new PBL3();
@@ -1015,6 +1002,7 @@ namespace pbl.BLL
 
             return data;
         }
+        //BUG tàu trùng tên
         public List<string> GetTrain(SCHEDULE_View schedule, string userName)
         {
             PBL3 db = new PBL3();
@@ -1047,6 +1035,7 @@ namespace pbl.BLL
                          select tic.TRIP.TRAIN.TrainName;
             return result.ToList().Distinct().ToList();
         }
+        //BUG tàu trùng tên
         public List<string> GetTrain(List<int> list)
         {
             PBL3 db = new PBL3();
@@ -1219,38 +1208,6 @@ namespace pbl.BLL
                            }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
             }
         }
-        //public List<string> GetDeparture2(string userName, string Departure)
-        //{
-        //    PBL3 db = new PBL3();
-        //    if (Departure != "")
-        //        return (from sch in db.SCHEDULEs.ToList()
-        //                join tri in db.TRIPs on sch.ScheduleID equals tri.ScheduleIDjoin tra in db.TRAINs on tri.TrainID equals tri.TRAIN.TrainID
-        //                from tic in tri.TRAIN.TICKETs.ToList()
-        //                where tic.CustomerUN == userName && sch.STATION.StationName.Contains(Departure)
-        //                select sch.STATION.StationName).ToList();
-        //    else
-        //        return (from sch in db.SCHEDULEs.ToList()
-        //                join tri in db.TRIPs on sch.ScheduleID equals tri.ScheduleIDjoin tra in db.TRAINs on tri.TrainID equals tri.TRAIN.TrainID
-        //                from tic in tri.TRAIN.TICKETs.ToList()
-        //                where tic.CustomerUN == userName
-        //                select sch.STATION.StationName).ToList();
-        //}
-        //public List<string> GetDestination2(string userName, string Destination)
-        //{
-        //    PBL3 db = new PBL3();
-        //    if (Destination != "")
-        //        return (from sch in db.SCHEDULEs.ToList()
-        //                join tri in db.TRIPs on sch.ScheduleID equals tri.ScheduleIDjoin tra in db.TRAINs on tri.TrainID equals tri.TRAIN.TrainID
-        //                from tic in tri.TRAIN.TICKETs.ToList()
-        //                where tic.CustomerUN == userName && sch.STATION1.StationName.Contains(Destination)
-        //                select sch.STATION1.StationName).ToList();
-        //    else
-        //        return (from sch in db.SCHEDULEs.ToList()
-        //                join tri in db.TRIPs on sch.ScheduleID equals tri.ScheduleIDjoin tra in db.TRAINs on tri.TrainID equals tri.TRAIN.TrainID
-        //                from tic in tri.TRAIN.TICKETs.ToList()
-        //                where tic.CustomerUN == userName
-        //                select sch.STATION1.StationName).ToList();
-        //}
         public List<CBBpeople> GetAllCBBDriver()
         {
             PBL3 db = new PBL3();
@@ -1374,17 +1331,6 @@ namespace pbl.BLL
                         Text = sta.StationName
                     }).ToList();
         }
-        //public List<string> GetStation(int stationID)
-        //{
-        //    PBL3 db = new PBL3();
-        //    if (stationID != -1)
-        //        return (from sta in db.STATIONs.ToList()
-        //                where !sta.StationID.Equals(stationID)
-        //                select sta.StationID).ToList().Distinct().ToList();
-        //    else
-        //        return (from sta in db.STATIONs.ToList()
-        //                select sta.StationName).ToList().Distinct().ToList();
-        //}
         public bool checksch(int scheduleid)
         {
             PBL3 db = new PBL3();
@@ -1434,7 +1380,7 @@ namespace pbl.BLL
                     {
                         foreach (TICKET ti in t.TICKETs.ToList())
                         {
-                            if (ti.CustomerUN == userName)
+                            if (ti.Booked == true && ti.CustomerUN.ToUpper().Equals(userName.ToUpper()))
                             {
                                 result += $"\n  Lịch trình {dem++}:\n";
                                 result += "  Ga đi: " + s.STATION1.StationName + "\n";
@@ -1542,29 +1488,14 @@ namespace pbl.BLL
             db.SaveChanges();
             AddListTicket(s);
         }
-        public void delsche(int ScheduleID)
-        {
-            PBL3 db = new PBL3();
-            foreach(SCHEDULE s in db.SCHEDULEs)
-            {
-                if(s.ScheduleID == ScheduleID)
-                {
-                    foreach(TRIP t in s.TRIPs)
-                        db.TRIPs.Remove(t);
-                    db.SCHEDULEs.Remove(s);
-                    break;
-                }
-            }
-            db.SaveChanges();
-        }
         public List<Train_View> Getalltrain()
         {
             PBL3 db = new PBL3();
-            return (from sch in db.SCHEDULEs.ToList()
-                    from tri in sch.TRIPs
+            return (
+                    from tri in db.TRIPs
                     select new Train_View
                     {
-                        ScheduleID = sch.ScheduleID,
+                        ScheduleID = tri.ScheduleID,
                         TrainID = tri.TRAIN.TrainID,
                         TrainName = tri.TRAIN.TrainName,
                         NumberOfCarriages = tri.TRAIN.NumberOfCarriages,
@@ -1676,36 +1607,6 @@ namespace pbl.BLL
             }
             return list;
         }
-        public List<Train_View> Getalltrain(bool expired)
-        {
-            PBL3 db = new PBL3();
-            if(!expired)
-            return (from tri in db.TRIPs.ToList()
-                     where tri.SCHEDULE.DepartureTime.CompareTo(DateTime.Now) > 0
-                     select new Train_View
-                     {
-                         ScheduleID = (int)tri.ScheduleID,
-                         TrainID = tri.TrainID,
-                         TrainName = tri.TRAIN.TrainName,
-                         NumberOfCarriages = tri.TRAIN.NumberOfCarriages,
-                         DriverUN = (tri.DriverUN != null) ? tri.DriverUN.ToString() : "Chưa có",
-                         BasicPrice = tri.BasicPrice
-                     }).ToList();
-            else
-            {
-                return (from tri in db.TRIPs.ToList()
-                         where tri.SCHEDULE.DepartureTime.CompareTo(DateTime.Now) <= 0
-                         select new Train_View
-                         {
-                             ScheduleID = (int)tri.ScheduleID,
-                             TrainID = tri.TrainID,
-                             TrainName = tri.TRAIN.TrainName,
-                             NumberOfCarriages = tri.TRAIN.NumberOfCarriages,
-                             DriverUN = (tri.DriverUN != null) ? tri.DriverUN.ToString() : "Chưa có",
-                             BasicPrice = tri.BasicPrice
-                         }).ToList();
-            }
-        }
 
         public List<SCHEDULE_View> GetSchedule(SCHEDULE_View schedule)
         {
@@ -1749,7 +1650,7 @@ namespace pbl.BLL
                              DepartureTime = tri.SCHEDULE.DepartureTime.ToString(),
                              ArrivalTime = tri.SCHEDULE.ArrivalTime.ToString()
                          };
-            return result.ToList();
+            return result.ToList().GroupBy(s => s.ScheduleID).Select(g => g.FirstOrDefault()).ToList();
         }
         public List<SCHEDULE_View> GetSchedule2(SCHEDULE_BLL schedule)
         {
@@ -1801,7 +1702,7 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             string date = month + "-" + year;
             var result = from tic in db.TICKETs.ToList()
-                         where tic.TRIP.SCHEDULE.DepartureTime.ToString("d-M-yyyy H:m:s").Contains(date) && tic.CustomerUN == userName
+                         where tic.TRIP.SCHEDULE.DepartureTime.ToString("d-M-yyyy H:m:s").Contains(date) && tic.Booked == true && tic.CustomerUN.ToUpper().Equals(userName.ToUpper())
                          select tic.TRIP.SCHEDULE.DepartureTime.Day;
             return result.ToList();
         }

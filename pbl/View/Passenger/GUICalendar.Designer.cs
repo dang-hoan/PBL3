@@ -105,7 +105,6 @@
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.listBox1.Size = new System.Drawing.Size(255, 444);
             this.listBox1.TabIndex = 47;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // labelTitle
             // 

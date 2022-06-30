@@ -305,10 +305,10 @@ namespace pbl
                 labIDCard.Text = "*Số căn cước công dân phải đủ 12 chữ số!";
                 return;
             }
-            if (BLLTRAIN.Instance.CheckIDCard2(txtIDCard.Text))
+            if (BLLTRAIN.Instance.CheckIDCard2(GUILogin.userName, txtIDCard.Text))
             {
-                //labIDCard.Text = "*Số căn cước công dân bạn nhập đã tồn tại trong hệ thống!";
-                //return;
+                labIDCard.Text = "*Số căn cước công dân đã tồn tại!";
+                return;
             }
             labIDCard.Text = "";
         }
@@ -333,10 +333,10 @@ namespace pbl
                     return;
                 }
             }
-            if (BLLTRAIN.Instance.CheckEmail(txtEmail.Text))
+            if (BLLTRAIN.Instance.CheckEmail(GUILogin.userName, txtEmail.Text))
             {
-                //labEmail.Text = "*Email đã tồn tại!";
-                //return;
+                labEmail.Text = "*Email đã tồn tại!";
+                return;
             }
             labEmail.Text = "";
         }
@@ -359,10 +359,10 @@ namespace pbl
                 labPhone.Text = "*Số điện thoại phải đủ 10 chữ số!";
                 return;
             }
-            else if (BLLTRAIN.Instance.CheckPhone(txtPhone.Text))
+            else if (BLLTRAIN.Instance.CheckPhone(GUILogin.userName, txtPhone.Text))
             {
-                //labPhone.Text = "*Số điện thoại bạn nhập đã tồn tại trong hệ thống!";
-                //return;
+                labPhone.Text = "*Số điện thoại đã tồn tại!";
+                return;
 
             }
             labPhone.Text = "";
@@ -375,7 +375,7 @@ namespace pbl
                 if (txtConfirm.Text != txtNew.Text) labConfirm.Text = "*Mật khẩu xác nhận không khớp với mật khẩu mới!";
                 else labConfirm.Text = "";
             }
-            else labConfirm.Text = "*Không thể để trống ô mật khẩu!";
+            else if(txtConfirm.Enabled == true) labConfirm.Text = "*Không thể để trống ô mật khẩu!";
         }
 
         private void txtBirthDay_ValueChanged(object sender, EventArgs e)
@@ -389,21 +389,6 @@ namespace pbl
             }
             labBirthDay.Text = "";
 
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-            if (txtUsername.Text == "")
-            {
-                labUser.Text = "*Bắt buộc";
-                return;
-            }
-            if (BLLTRAIN.Instance.check(txtUsername.Text))
-            {
-                //labUser.Text = "*Username đã tồn tại!";
-                //return;
-            }
-            labUser.Text = "";
         }
     }
 }

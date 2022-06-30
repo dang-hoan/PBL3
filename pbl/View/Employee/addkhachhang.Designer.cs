@@ -30,11 +30,11 @@
         {
             this.butok = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.labBirthDay = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtidcard = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,6 +59,7 @@
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -79,11 +80,11 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.labBirthDay);
             this.groupBox1.Controls.Add(this.txtname);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtidcard);
             this.groupBox1.Controls.Add(this.label8);
@@ -107,6 +108,18 @@
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.ImageKey = "(none)";
+            this.label12.Location = new System.Drawing.Point(246, 418);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 20);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "*bắt buộc";
             // 
             // labBirthDay
             // 
@@ -148,18 +161,6 @@
             this.label11.Size = new System.Drawing.Size(77, 20);
             this.label11.TabIndex = 25;
             this.label11.Text = "*bắt buộc";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.ImageKey = "(none)";
-            this.label12.Location = new System.Drawing.Point(249, 99);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 20);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "*bắt buộc";
             // 
             // label9
             // 
@@ -349,7 +350,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtpass);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(660, 105);
+            this.groupBox2.Location = new System.Drawing.Point(660, 104);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
@@ -412,7 +413,6 @@
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(198, 30);
             this.txtpass.TabIndex = 25;
-            this.txtpass.Text = "******";
             this.txtpass.Click += new System.EventHandler(this.txtpass_Click);
             // 
             // label10
@@ -437,6 +437,19 @@
             this.label15.Text = "THÊM KHÁCH HÀNG MỚI";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(660, 347);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(184, 24);
+            this.checkBox1.TabIndex = 23;
+            this.checkBox1.Text = "Cho phép đăng nhập";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // addkhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -444,6 +457,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1119, 747);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buthuy);
@@ -459,6 +473,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -488,12 +503,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtname;
         private System.Windows.Forms.Label labBirthDay;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labUser = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,7 +62,6 @@
             this.bCancel = new pbl.RJButton();
             this.bConfirm = new pbl.RJButton();
             this.label14 = new System.Windows.Forms.Label();
-            this.labUser = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +72,6 @@
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.txtPass);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -111,6 +109,14 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
+            // labUser
+            // 
+            this.labUser.AutoSize = true;
+            this.labUser.Location = new System.Drawing.Point(850, 283);
+            this.labUser.Name = "labUser";
+            this.labUser.Size = new System.Drawing.Size(0, 20);
+            this.labUser.TabIndex = 75;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -141,17 +147,6 @@
             this.label15.Size = new System.Drawing.Size(93, 25);
             this.label15.TabIndex = 72;
             this.label15.Text = "Mật khẩu";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(243, 247);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(23, 29);
-            this.label9.TabIndex = 71;
-            this.label9.Text = "*";
             // 
             // label8
             // 
@@ -470,14 +465,6 @@
             this.label14.TabIndex = 24;
             this.label14.Text = "*";
             // 
-            // labUser
-            // 
-            this.labUser.AutoSize = true;
-            this.labUser.Location = new System.Drawing.Point(850, 283);
-            this.labUser.Name = "labUser";
-            this.labUser.Size = new System.Drawing.Size(0, 20);
-            this.labUser.TabIndex = 75;
-            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -500,7 +487,6 @@
         private RJButton bConfirm;
         private RJButton bCancel;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

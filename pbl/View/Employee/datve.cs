@@ -54,6 +54,7 @@ namespace pbl.View
                 txtsdt.Enabled = false;
                 button1.Visible = false;
                 button2.Location = new Point(label5.Location.X + 40, button2.Location.Y);
+                labNote.Text = "";
             }
         }
         private bool CheckNumber(string txt)
@@ -114,34 +115,38 @@ namespace pbl.View
                     return;
                 }
             }
-            if (BLLTRAIN.Instance.CheckEmail(txtemail.Text))
+            if (BLLTRAIN.Instance.CheckEmail("", txtemail.Text) && txtemail.Enabled == true)
             {
                 MessageBox.Show("Email đã tồn tại!");
                 return;
             }
-            if (BLLTRAIN.Instance.CheckPhone(txtsdt.Text))
+            if (BLLTRAIN.Instance.CheckPhone("", txtsdt.Text) && txtemail.Enabled == true)
             {
                 MessageBox.Show("Số điện thoại bạn nhập đã tồn tại trong hệ thống!");
                 return;
 
             }
-            if (!BLLpeople.instance.check(txtidcard.Text))
-            {
+            string user = "";
+            PEOPLE peo = BLLTRAIN.Instance.CheckIDCard(txtidcard.Text);
+            if (peo != null) user = peo.Username;
+            else{
                 PEOPLE p = new PEOPLE
-                {   Phone = txtsdt.Text,
+                {
+                    Phone = txtsdt.Text,
                     Email = txtemail.Text,
                     Name = txtname.Text,
                     IDCard = txtidcard.Text,
                     Username = txtidcard.Text,
                 };
                 BLLpeople.instance.Execute(p);
+                user = txtidcard.Text;
             }
             TICKET tic = new TICKET
             {
                 ScheduleID = malichtrinh,
                 TrainID = matau,
                 SeatNo = vitri,
-                CustomerUN = txtidcard.Text,
+                CustomerUN = user,
                 Booked = true
             };
             BLLTRAIN.Instance.addticket(tic);
@@ -154,12 +159,15 @@ namespace pbl.View
         {
             this.Close();
         }
-
+        string name = "", email = "", sdt = "";
         private void txtidcard_TextChanged(object sender, EventArgs e)
         {
             PEOPLE p = BLLTRAIN.Instance.CheckIDCard(txtidcard.Text);
             if (p != null)
             {
+                name = txtname.Text;
+                email = txtemail.Text;
+                sdt = txtsdt.Text;
                 txtname.Text = p.Name;
                 txtemail.Text = p.Email;
                 txtsdt.Text = p.Phone;
@@ -169,10 +177,19 @@ namespace pbl.View
             }
             else
             {
+                txtname.Text = (name != "") ? name : txtname.Text;
+                txtemail.Text = (email != "") ? email : txtemail.Text;
+                txtsdt.Text = (sdt != "") ? sdt : txtsdt.Text;
                 txtname.Enabled = true;
                 txtemail.Enabled = true;
                 txtsdt.Enabled = true;
             }
+        }
+        private void Update_Leave(object sender, EventArgs e)
+        {
+            name = txtname.Text;
+            email = txtemail.Text;
+            sdt = txtsdt.Text;
         }
     }
 }
