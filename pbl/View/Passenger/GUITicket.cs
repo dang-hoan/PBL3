@@ -53,10 +53,6 @@ namespace pbl
             schedule.ToDepartureTime = s.ToDepartureTime;
             schedule.FromArrivalTime = s.FromArrivalTime;
             schedule.ToArrivalTime = s.ToArrivalTime;
-
-            cbbTrain.Items.Clear();
-            cbbTrain.Items.Add("Tất cả");
-            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(schedule, GUILogin.userName).ToArray());
         }
         private void bCancel_Click(object sender, EventArgs e)
         {
@@ -83,7 +79,12 @@ namespace pbl
             if (NoScheduleClick)
                 dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName, TrainName);
             else
+            {
+                cbbTrain.Items.Clear();
+                cbbTrain.Items.Add("Tất cả");
+                cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(schedule, GUILogin.userName).ToArray());
                 dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(schedule, GUILogin.userName, TrainName);
+            }
         }
         private void Schedule_Click(object sender, EventArgs e)
         {
@@ -98,6 +99,9 @@ namespace pbl
         }
         private void bShowAll_Click(object sender, EventArgs e)
         {
+            cbbTrain.Items.Clear();
+            cbbTrain.Items.Add("Tất cả");
+            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(GUILogin.userName).ToArray());
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName);
         }
         public int[] numberChar = new int[10] { 17, 10, 25, 13, 14, 25, 25, 25, 30, 30 };

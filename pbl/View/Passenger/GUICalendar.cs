@@ -171,7 +171,7 @@ namespace pbl
             if(temp.Text != "")
             {
                 if (!CheckNumber(temp.Text)){
-                    MessageBox.Show("Tháng phải là 1 số (1-12)!");
+                    MessageBox.Show("Tháng phải là 1 số nguyên dương (1-12)!");
                     temp.Text = "";
                     return;
                 }
@@ -205,7 +205,7 @@ namespace pbl
                         return;
                     }
                 }
-                MessageBox.Show("Năm bạn nhập không nằm ngoài phạm vi năm có lịch trình!");
+                MessageBox.Show("Năm bạn nhập nằm ngoài phạm vi năm có lịch trình!");
                 temp.Text = "";
 
             }

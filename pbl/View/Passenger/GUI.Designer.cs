@@ -33,33 +33,33 @@
             this.panel_User = new System.Windows.Forms.Panel();
             this.labelLogOut = new System.Windows.Forms.Label();
             this.labelPersonal = new System.Windows.Forms.Label();
-            this.panel_Other = new System.Windows.Forms.Panel();
-            this.bSetting = new System.Windows.Forms.Button();
-            this.bFeedback = new System.Windows.Forms.Button();
-            this.bHelp = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.panel_Title = new System.Windows.Forms.Panel();
             this.pNotify = new System.Windows.Forms.PictureBox();
             this.pArrow = new System.Windows.Forms.PictureBox();
-            this.pOther = new System.Windows.Forms.PictureBox();
             this.pTicket = new System.Windows.Forms.PictureBox();
             this.pSchedule = new System.Windows.Forms.PictureBox();
             this.pImage = new System.Windows.Forms.PictureBox();
             this.pHome = new System.Windows.Forms.PictureBox();
             this.labelName = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.bHelp = new System.Windows.Forms.Button();
+            this.bFeedback = new System.Windows.Forms.Button();
+            this.bSetting = new System.Windows.Forms.Button();
+            this.panel_Other = new System.Windows.Forms.Panel();
+            this.pOther = new System.Windows.Forms.PictureBox();
             this.panel_Content.SuspendLayout();
             this.panel_User.SuspendLayout();
-            this.panel_Other.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel_Title.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pNotify)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pArrow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOther)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTicket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSchedule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.panel_Other.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pOther)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Content
@@ -113,109 +113,6 @@
             this.labelPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelPersonal.Click += new System.EventHandler(this.CallInfoForm);
             // 
-            // panel_Other
-            // 
-            this.panel_Other.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panel_Other.Controls.Add(this.bSetting);
-            this.panel_Other.Controls.Add(this.bFeedback);
-            this.panel_Other.Controls.Add(this.bHelp);
-            this.panel_Other.Controls.Add(this.label5);
-            this.panel_Other.Controls.Add(this.pictureBox12);
-            this.panel_Other.Location = new System.Drawing.Point(0, 0);
-            this.panel_Other.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel_Other.Name = "panel_Other";
-            this.panel_Other.Size = new System.Drawing.Size(217, 686);
-            this.panel_Other.TabIndex = 4;
-            this.panel_Other.Visible = false;
-            // 
-            // bSetting
-            // 
-            this.bSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.bSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bSetting.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.bSetting.FlatAppearance.BorderSize = 0;
-            this.bSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSetting.ForeColor = System.Drawing.Color.Black;
-            this.bSetting.Image = ((System.Drawing.Image)(resources.GetObject("bSetting.Image")));
-            this.bSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bSetting.Location = new System.Drawing.Point(0, 505);
-            this.bSetting.Margin = new System.Windows.Forms.Padding(0);
-            this.bSetting.Name = "bSetting";
-            this.bSetting.Size = new System.Drawing.Size(217, 62);
-            this.bSetting.TabIndex = 13;
-            this.bSetting.Text = " Cài đặt";
-            this.bSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bSetting.UseVisualStyleBackColor = false;
-            this.bSetting.Click += new System.EventHandler(this.Setting_Click);
-            // 
-            // bFeedback
-            // 
-            this.bFeedback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.bFeedback.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bFeedback.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.bFeedback.FlatAppearance.BorderSize = 0;
-            this.bFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bFeedback.ForeColor = System.Drawing.Color.Black;
-            this.bFeedback.Image = ((System.Drawing.Image)(resources.GetObject("bFeedback.Image")));
-            this.bFeedback.Location = new System.Drawing.Point(0, 445);
-            this.bFeedback.Margin = new System.Windows.Forms.Padding(0);
-            this.bFeedback.Name = "bFeedback";
-            this.bFeedback.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
-            this.bFeedback.Size = new System.Drawing.Size(217, 62);
-            this.bFeedback.TabIndex = 12;
-            this.bFeedback.Text = " Phản hồi";
-            this.bFeedback.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bFeedback.UseVisualStyleBackColor = false;
-            this.bFeedback.Click += new System.EventHandler(this.Feedback_Click);
-            // 
-            // bHelp
-            // 
-            this.bHelp.AutoSize = true;
-            this.bHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.bHelp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.bHelp.FlatAppearance.BorderSize = 0;
-            this.bHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bHelp.ForeColor = System.Drawing.Color.Black;
-            this.bHelp.Image = ((System.Drawing.Image)(resources.GetObject("bHelp.Image")));
-            this.bHelp.Location = new System.Drawing.Point(0, 385);
-            this.bHelp.Margin = new System.Windows.Forms.Padding(0);
-            this.bHelp.Name = "bHelp";
-            this.bHelp.Padding = new System.Windows.Forms.Padding(0, 0, 60, 0);
-            this.bHelp.Size = new System.Drawing.Size(217, 62);
-            this.bHelp.TabIndex = 6;
-            this.bHelp.Text = " Hỗ trợ";
-            this.bHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bHelp.UseVisualStyleBackColor = false;
-            this.bHelp.Click += new System.EventHandler(this.Help_Click);
-            // 
-            // label5
-            // 
-            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Brown;
-            this.label5.Location = new System.Drawing.Point(3, 168);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(220, 34);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Đường sắt Việt Nam";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(0, 41);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(214, 122);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 11;
-            this.pictureBox12.TabStop = false;
-            // 
             // panel_Title
             // 
             this.panel_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -258,19 +155,6 @@
             this.pArrow.TabIndex = 4;
             this.pArrow.TabStop = false;
             this.pArrow.Click += new System.EventHandler(this.pArrow_Click);
-            // 
-            // pOther
-            // 
-            this.pOther.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pOther.Image = ((System.Drawing.Image)(resources.GetObject("pOther.Image")));
-            this.pOther.Location = new System.Drawing.Point(3, 0);
-            this.pOther.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pOther.Name = "pOther";
-            this.pOther.Size = new System.Drawing.Size(47, 58);
-            this.pOther.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pOther.TabIndex = 3;
-            this.pOther.TabStop = false;
-            this.pOther.Click += new System.EventHandler(this.pOther_Click);
             // 
             // pTicket
             // 
@@ -337,6 +221,122 @@
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelName.Click += new System.EventHandler(this.CallInfoForm);
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(0, 41);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(214, 122);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 11;
+            this.pictureBox12.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label5.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Brown;
+            this.label5.Location = new System.Drawing.Point(3, 168);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(220, 34);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Đường sắt Việt Nam";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bHelp
+            // 
+            this.bHelp.AutoSize = true;
+            this.bHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bHelp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bHelp.FlatAppearance.BorderSize = 0;
+            this.bHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bHelp.ForeColor = System.Drawing.Color.Black;
+            this.bHelp.Image = ((System.Drawing.Image)(resources.GetObject("bHelp.Image")));
+            this.bHelp.Location = new System.Drawing.Point(0, 385);
+            this.bHelp.Margin = new System.Windows.Forms.Padding(0);
+            this.bHelp.Name = "bHelp";
+            this.bHelp.Padding = new System.Windows.Forms.Padding(0, 0, 60, 0);
+            this.bHelp.Size = new System.Drawing.Size(217, 62);
+            this.bHelp.TabIndex = 6;
+            this.bHelp.Text = " Hỗ trợ";
+            this.bHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bHelp.UseVisualStyleBackColor = false;
+            this.bHelp.Click += new System.EventHandler(this.Help_Click);
+            // 
+            // bFeedback
+            // 
+            this.bFeedback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bFeedback.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bFeedback.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bFeedback.FlatAppearance.BorderSize = 0;
+            this.bFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bFeedback.ForeColor = System.Drawing.Color.Black;
+            this.bFeedback.Image = ((System.Drawing.Image)(resources.GetObject("bFeedback.Image")));
+            this.bFeedback.Location = new System.Drawing.Point(0, 445);
+            this.bFeedback.Margin = new System.Windows.Forms.Padding(0);
+            this.bFeedback.Name = "bFeedback";
+            this.bFeedback.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
+            this.bFeedback.Size = new System.Drawing.Size(217, 62);
+            this.bFeedback.TabIndex = 12;
+            this.bFeedback.Text = " Phản hồi";
+            this.bFeedback.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bFeedback.UseVisualStyleBackColor = false;
+            this.bFeedback.Click += new System.EventHandler(this.Feedback_Click);
+            // 
+            // bSetting
+            // 
+            this.bSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bSetting.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bSetting.FlatAppearance.BorderSize = 0;
+            this.bSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSetting.ForeColor = System.Drawing.Color.Black;
+            this.bSetting.Image = ((System.Drawing.Image)(resources.GetObject("bSetting.Image")));
+            this.bSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bSetting.Location = new System.Drawing.Point(0, 505);
+            this.bSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetting.Name = "bSetting";
+            this.bSetting.Size = new System.Drawing.Size(217, 62);
+            this.bSetting.TabIndex = 13;
+            this.bSetting.Text = " Cài đặt";
+            this.bSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bSetting.UseVisualStyleBackColor = false;
+            this.bSetting.Click += new System.EventHandler(this.Setting_Click);
+            // 
+            // panel_Other
+            // 
+            this.panel_Other.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel_Other.Controls.Add(this.bSetting);
+            this.panel_Other.Controls.Add(this.bFeedback);
+            this.panel_Other.Controls.Add(this.bHelp);
+            this.panel_Other.Controls.Add(this.label5);
+            this.panel_Other.Controls.Add(this.pictureBox12);
+            this.panel_Other.Location = new System.Drawing.Point(0, 0);
+            this.panel_Other.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_Other.Name = "panel_Other";
+            this.panel_Other.Size = new System.Drawing.Size(217, 686);
+            this.panel_Other.TabIndex = 4;
+            this.panel_Other.Visible = false;
+            // 
+            // pOther
+            // 
+            this.pOther.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pOther.Image = ((System.Drawing.Image)(resources.GetObject("pOther.Image")));
+            this.pOther.Location = new System.Drawing.Point(3, 0);
+            this.pOther.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pOther.Name = "pOther";
+            this.pOther.Size = new System.Drawing.Size(47, 58);
+            this.pOther.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pOther.TabIndex = 3;
+            this.pOther.TabStop = false;
+            this.pOther.Click += new System.EventHandler(this.pOther_Click);
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -350,17 +350,17 @@
             this.Text = "ĐƯỜNG SẮT VIỆT NAM";
             this.panel_Content.ResumeLayout(false);
             this.panel_User.ResumeLayout(false);
-            this.panel_Other.ResumeLayout(false);
-            this.panel_Other.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel_Title.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pNotify)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pArrow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOther)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTicket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSchedule)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.panel_Other.ResumeLayout(false);
+            this.panel_Other.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pOther)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,21 +370,21 @@
         private System.Windows.Forms.Panel panel_Content;
         private System.Windows.Forms.Panel panel_Title;
         private System.Windows.Forms.PictureBox pHome;
-        private System.Windows.Forms.PictureBox pOther;
         private System.Windows.Forms.PictureBox pTicket;
         private System.Windows.Forms.PictureBox pSchedule;
         private System.Windows.Forms.PictureBox pImage;
         private System.Windows.Forms.PictureBox pNotify;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.PictureBox pArrow;
-        private System.Windows.Forms.Panel panel_Other;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel_User;
         private System.Windows.Forms.Label labelLogOut;
         private System.Windows.Forms.Label labelPersonal;
-        private System.Windows.Forms.Button bHelp;
+        private System.Windows.Forms.Panel panel_Other;
         private System.Windows.Forms.Button bSetting;
         private System.Windows.Forms.Button bFeedback;
+        private System.Windows.Forms.Button bHelp;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pOther;
     }
 }

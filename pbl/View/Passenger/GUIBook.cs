@@ -10,144 +10,178 @@ using System.Windows.Forms;
 using pbl.BLL;
 using pbl.DTO;
 
-namespace pbl
+namespace pbl.View
 {
     public partial class GUIBook : Form
     {
-        int numberOfCarriages = 25;
-        Image imageLeft1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1) - Copy.png"), imageRight1 = (Image)new Bitmap(@"C:\PBL3\picture\play (1).png");
-        Image imageLeft2 = (Image)new Bitmap(@"C:\PBL3\picture\play1.png"), imageRight2 = (Image)new Bitmap(@"C:\PBL3\picture\play.png");
-        private List<int> list = null;
-        public GUIBook(List<int> list)
+        public delegate void Mydel(string s);
+        public Mydel d { get; set; }
+        public int scheduleid = -1; 
+        public string trangthai ="";
+        int num;
+        decimal? giave;
+        Label[] label = new Label[31];
+        HandlerMyInterfaces handler2 = new HandlerMyInterfaces(Color.FromArgb(0, 192, 0), Color.FromArgb(0, 170, 0), Color.Green);
+        public GUIBook(int s)
         {
             InitializeComponent();
-            this.list = list;
-            Init();
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(list);
-            BLLTRAIN.Instance.SetTicketView(dataGridView1);
-        }
-        private void Init()
-        {
-            cbbTrain.Items.Add("Tất cả");
-            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(list).ToArray());
-            pLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(pLeft_MouseMove);
-            pLeft.MouseLeave += new System.EventHandler(pLeft_MouseLeave);
-            pRight.MouseMove += new System.Windows.Forms.MouseEventHandler(pRight_MouseMove);
-            pRight.MouseLeave += new System.EventHandler(pRight_MouseLeave);
-        }
-        private void bBook_Click(object sender, EventArgs e)
-        {
-            if(dataGridView1.SelectedRows.Count > 0)
-            {
-                List<int> arr = new List<int>();
-                List<int> arr2 = new List<int>();
-                for(int i = 0; i < dataGridView1.SelectedRows.Count; i++){
-                    DataGridViewRow dt = dataGridView1.SelectedRows[i];
-                    if (dt.Cells["Booked"].Value.ToString().Equals("đã đặt"))
-                    {
-                        arr.Add(Convert.ToInt32(dt.Cells["TicketID"].Value.ToString()));
-                    }
-                    else
-                    {
-                        arr2.Add(Convert.ToInt32(dt.Cells["TicketID"].Value.ToString()));
-                        BLLTRAIN.Instance.SetTicket(Convert.ToInt32(dt.Cells["TicketID"].Value.ToString()), GUILogin.userName, true);
-                    }
-                }
-                string s1 = "", s2 = "";
-                if (arr.Count != 0)
-                {
-                    for (int i = 0; i < arr.Count - 1; i++) s1 += arr[i].ToString() + ",  ";
-                    s1 += arr[arr.Count - 1].ToString();
-                    MessageBox.Show("Các vé có mã là " + s1 + " đã có người đặt!");
-                }
-                if(arr2.Count != 0)
-                {
-                    for (int i = 0; i < arr2.Count - 1; i++) s2 += arr2[i].ToString() + ",  ";
-                    s2 += arr2[arr2.Count - 1].ToString();
-                    MessageBox.Show($"Đã đặt thành công các vé có mã là {s2}!");
-                }
-                Reload();
-            }
+            scheduleid = s;
+            set();
+            intit();
+            setcolor();
         }
 
-        private void bBack_Click(object sender, EventArgs e)
+
+
+        public void intit()
+        {
+            txtgiave.Enabled = false;
+            txtdivername.Enabled = false;
+            txtdep.Enabled = false;
+            txtdes.Enabled = false;
+            timedep.Enabled = false;
+            timedes.Enabled = false;
+            gettrainid(scheduleid);
+
+        }
+      
+        public void set()
+        {
+            int size = 50;
+            int X = 60, Y = 210;
+            for (int i = 0; i < 30; i++)
+            {
+                label[i] = new Label();
+                //Tên label
+                label[i].Text = (i + 1).ToString();
+                label[i].TextAlign = ContentAlignment.MiddleCenter;
+
+                //Kiểu chữ
+                label[i].Font = new Font("Arial", 12f, FontStyle.Bold);
+
+                //Kích thước, vị trí
+                label[i].Size = new Size(size - 10, size - 10);
+                label[i].Location = new Point(X + size * (i % 10), Y + size * (i / 10));
+
+                //Trang trí
+                label[i].BorderStyle = BorderStyle.FixedSingle;
+                label[i].BackColor = Color.Silver;
+
+                //Xử lý sự kiện
+                label[i].Click += new EventHandler(label_Click);
+                label[i].BackColor = Color.FromArgb(0, 170, 0);
+                label[i].Cursor = Cursors.Hand;
+
+                this.Controls.Add(label[i]);
+            }
+        }
+        public void color(ref Label b, string s)
+        {
+            if (s=="")
+            {
+                b.BackColor = Color.FromArgb(0, 170, 0);
+                b.Cursor = Cursors.Hand;
+            }
+            if ((s == "dadat") && (trangthai == "mua"))
+            {
+                b.Enabled = false;
+                b.BackColor = Color.Red;
+                b.Cursor = Cursors.Default;
+            }
+            else
+            if (s == "dadat")
+            {
+                b.BackColor = Color.Red;
+                b.Cursor = Cursors.Hand;
+            }
+
+        }
+         
+       
+    public void setcolor()
+        {
+            foreach (TICKET tic in BLLTicket.instance.getticketbylist(scheduleid, ((CBBItem)cbbnametrain.SelectedItem).Value, cbbmave.Text))
+            {
+                string s = tic.SeatNo;
+                s = s.Substring(1);
+                int k = int.Parse(s)-1;
+                if (tic.Booked == true)
+                {  
+                    color(ref label[k], "dadat");
+                }
+                else
+                {
+                    color(ref label[k], "");
+                }    
+            }
+        }
+        private void gettrainid(int scheduleid)
+        {
+            cbbnametrain.Items.Add(BLLTRAIN.Instance.GetTrain(scheduleid).ToArray());
+            cbbnametrain.SelectedIndex = 0;
+            for (int j = 1; j <= num; j++)
+            {
+                cbbmave.Items.Add(Convert.ToChar(j + 64)).ToString();
+            }
+            cbbmave.SelectedIndex = 0;
+        }
+
+
+        private void butcancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void cbbTrain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string TrainName = "";
-            if(cbbTrain.Text != "Chọn một tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
-            numberOfCarriages = BLLTRAIN.Instance.GetNumberOfCarriages(TrainName);
-        }
-        private void ChangeLocation(Label lab)
-        {
-            if(lab.Text == "9" || lab.Text == "10")
+        private void label_Click(object sender, EventArgs e)
+        { 
+            string ghe = ((Label)sender).Text.Trim();
+            string seatno = cbbmave.Text+ghe;
+            TICKET tic = new TICKET
             {
-                int x = (pRight.Location.X - pLeft.Location.X - pLeft.Size.Width - labelCarriage.Size.Width) / 2;
-                Point poi = lab.Location;
-                poi.X = pLeft.Location.X + pLeft.Size.Width + x;
-                lab.Location = poi;
+                ScheduleID = scheduleid,
+                TrainID = ((CBBItem)cbbnametrain.SelectedItem).Value,
+                SeatNo = seatno,
+                CustomerUN = GUILogin.userName,
+                Booked = true
+            };
+            BLLTRAIN.Instance.addticket(tic);
+            MessageBox.Show("Đã đặt vé thành công!");
+            setcolor();
+        }
+
+        private void cbbnametrain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TRIP i = BLLTRAIN.Instance.GetTrip(scheduleid, ((CBBItem)cbbnametrain.SelectedItem).Value);
+            if (i != null)
+            {
+                cbbnametrain.Text = i.TRAIN.TrainName;
+                num = i.TRAIN.NumberOfCarriages;
+                giave = i.BasicPrice;
+                foreach (CBBpeople k in BLLpeople.instance.GetCBBname())
+                {
+                    if (k.Value == i.DriverUN)
+                    {
+                        txtdivername.Text = k.Text;
+                    }
+                }
+                txtdep.Text = i.SCHEDULE.STATION1.StationName;
+                txtdes.Text = i.SCHEDULE.STATION.StationName;
+                timedep.Text = i.SCHEDULE.DepartureTime.ToString("dd/MM/yyyy HH:mm");
+                timedes.Text = i.SCHEDULE.ArrivalTime.ToString("dd/MM/yyyy HH:mm");
             }
         }
-        private void pLeft_Click(object sender, EventArgs e)
-        {
-            if (labelCarriage.Text == "1") return;
-            labelCarriage.Text = (Convert.ToInt32(labelCarriage.Text)-1).ToString();
-            ChangeLocation(labelCarriage);
-        }
 
-        private void bSearch_Click(object sender, EventArgs e)
+        private void cbbmave_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Reload();
-        }
-
-        private void bShowAll_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(list);
-        }
-
-        private void pRight_Click(object sender, EventArgs e)
-        {
-            if (labelCarriage.Text == numberOfCarriages.ToString()) return;
-            labelCarriage.Text = (Convert.ToInt32(labelCarriage.Text) + 1).ToString();
-            ChangeLocation(labelCarriage);
-        }
-        private void pLeft_MouseMove(object sender, EventArgs e)
-        {
-            pLeft.Image = imageLeft2;
-        }
-        private void pLeft_MouseLeave(object sender, EventArgs e)
-        {
-            pLeft.Image = imageLeft1;
-        }
-        private void Reload()
-        {
-            string TrainName = ""; int booked = 0, unbooked = 0;
-            if (cbbTrain.Text != "Chọn một tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(list, TrainName, Convert.ToInt32(labelCarriage.Text), ref booked, ref unbooked);
-            labelBooked.Text = booked.ToString();
-            labelUnbooked.Text = unbooked.ToString();
-        }
-        public int[] numberChar = new int[13] { 14, 10, 25, 8, 14, 25, 25, 25, 30, 30, 8, 20, 40 };
-        private void pSave_Click(object sender, EventArgs e)
-        {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Vé hệ thống");
-        }
-
-        private void labelCarriage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pRight_MouseMove(object sender, EventArgs e)
-        {
-            pRight.Image = imageRight2;
-        }
-        private void pRight_MouseLeave(object sender, EventArgs e)
-        {
-            pRight.Image = imageRight1;
+            if (cbbmave.Text != "")
+            {
+                int sotoa = Convert.ToChar(cbbmave.Text) - 64;
+                decimal? gia = Convert.ToDecimal((((sotoa - 1) * 0.1) + 1) * Convert.ToDouble(giave));
+                txtgiave.Text = gia.ToString();
+            }
+            setcolor();
+            
         }
     }
 }
+

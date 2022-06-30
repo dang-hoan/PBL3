@@ -1,4 +1,4 @@
-﻿namespace pbl
+﻿namespace pbl.View
 {
     partial class GUIBook
     {
@@ -28,295 +28,251 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIBook));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelUnbooked = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtdivername = new System.Windows.Forms.TextBox();
+            this.timedes = new System.Windows.Forms.DateTimePicker();
+            this.timedep = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.bShowAll = new System.Windows.Forms.Button();
-            this.bSearch = new System.Windows.Forms.Button();
-            this.pSave = new System.Windows.Forms.PictureBox();
-            this.labelBooked = new System.Windows.Forms.Label();
+            this.txtdes = new System.Windows.Forms.TextBox();
+            this.txtdep = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.labelCarriage = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pLeft = new System.Windows.Forms.PictureBox();
-            this.pRight = new System.Windows.Forms.PictureBox();
-            this.cbbTrain = new System.Windows.Forms.ComboBox();
-            this.bBack = new System.Windows.Forms.Button();
-            this.bBook = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pLeft)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pRight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.cbbmave = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtgiave = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbbnametrain = new System.Windows.Forms.ComboBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // groupBox1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.labelUnbooked);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.bShowAll);
-            this.panel1.Controls.Add(this.bSearch);
-            this.panel1.Controls.Add(this.pSave);
-            this.panel1.Controls.Add(this.labelBooked);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.labelCarriage);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pLeft);
-            this.panel1.Controls.Add(this.pRight);
-            this.panel1.Controls.Add(this.cbbTrain);
-            this.panel1.Controls.Add(this.bBack);
-            this.panel1.Controls.Add(this.bBook);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Location = new System.Drawing.Point(2, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(973, 611);
-            this.panel1.TabIndex = 0;
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.groupBox1.Controls.Add(this.cbbnametrain);
+            this.groupBox1.Controls.Add(this.txtdivername);
+            this.groupBox1.Controls.Add(this.timedes);
+            this.groupBox1.Controls.Add(this.timedep);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtdes);
+            this.groupBox1.Controls.Add(this.txtdep);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(14, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(873, 215);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin Tàu";
             // 
-            // labelUnbooked
+            // txtdivername
             // 
-            this.labelUnbooked.AutoSize = true;
-            this.labelUnbooked.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUnbooked.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelUnbooked.Location = new System.Drawing.Point(667, 65);
-            this.labelUnbooked.Name = "labelUnbooked";
-            this.labelUnbooked.Size = new System.Drawing.Size(61, 68);
-            this.labelUnbooked.TabIndex = 62;
-            this.labelUnbooked.Text = "0";
+            this.txtdivername.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtdivername.Location = new System.Drawing.Point(558, 160);
+            this.txtdivername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtdivername.Name = "txtdivername";
+            this.txtdivername.Size = new System.Drawing.Size(224, 26);
+            this.txtdivername.TabIndex = 15;
+            // 
+            // timedes
+            // 
+            this.timedes.CalendarMonthBackground = System.Drawing.SystemColors.MenuBar;
+            this.timedes.CustomFormat = "dd/MM/yyyy";
+            this.timedes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timedes.Location = new System.Drawing.Point(558, 91);
+            this.timedes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.timedes.Name = "timedes";
+            this.timedes.Size = new System.Drawing.Size(224, 26);
+            this.timedes.TabIndex = 14;
+            // 
+            // timedep
+            // 
+            this.timedep.CalendarMonthBackground = System.Drawing.SystemColors.MenuBar;
+            this.timedep.CustomFormat = "dd/MM/yyyy";
+            this.timedep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timedep.Location = new System.Drawing.Point(558, 34);
+            this.timedep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.timedep.Name = "timedep";
+            this.timedep.Size = new System.Drawing.Size(224, 26);
+            this.timedep.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(24, 160);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 20);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Tên tàu";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(631, 42);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(444, 160);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 19);
-            this.label6.TabIndex = 61;
-            this.label6.Text = "Số vé chưa bán";
+            this.label6.Size = new System.Drawing.Size(82, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Tên lái tàu";
             // 
-            // bShowAll
+            // txtdes
             // 
-            this.bShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bShowAll.Location = new System.Drawing.Point(568, 538);
-            this.bShowAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bShowAll.Name = "bShowAll";
-            this.bShowAll.Size = new System.Drawing.Size(129, 40);
-            this.bShowAll.TabIndex = 60;
-            this.bShowAll.Text = "Xem tất cả";
-            this.bShowAll.UseVisualStyleBackColor = false;
-            this.bShowAll.Click += new System.EventHandler(this.bShowAll_Click);
+            this.txtdes.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtdes.Location = new System.Drawing.Point(151, 91);
+            this.txtdes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtdes.Name = "txtdes";
+            this.txtdes.Size = new System.Drawing.Size(224, 26);
+            this.txtdes.TabIndex = 10;
             // 
-            // bSearch
+            // txtdep
             // 
-            this.bSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.Location = new System.Drawing.Point(827, 98);
-            this.bSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(115, 40);
-            this.bSearch.TabIndex = 59;
-            this.bSearch.Text = "Tìm kiếm";
-            this.bSearch.UseVisualStyleBackColor = false;
-            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
-            // 
-            // pSave
-            // 
-            this.pSave.BackColor = System.Drawing.Color.Green;
-            this.pSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pSave.Image = ((System.Drawing.Image)(resources.GetObject("pSave.Image")));
-            this.pSave.Location = new System.Drawing.Point(28, 540);
-            this.pSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pSave.Name = "pSave";
-            this.pSave.Size = new System.Drawing.Size(53, 32);
-            this.pSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pSave.TabIndex = 58;
-            this.pSave.TabStop = false;
-            this.pSave.Click += new System.EventHandler(this.pSave_Click);
-            // 
-            // labelBooked
-            // 
-            this.labelBooked.AutoSize = true;
-            this.labelBooked.Font = new System.Drawing.Font("Arial Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBooked.ForeColor = System.Drawing.Color.Red;
-            this.labelBooked.Location = new System.Drawing.Point(507, 65);
-            this.labelBooked.Name = "labelBooked";
-            this.labelBooked.Size = new System.Drawing.Size(61, 68);
-            this.labelBooked.TabIndex = 13;
-            this.labelBooked.Text = "0";
+            this.txtdep.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtdep.Location = new System.Drawing.Point(151, 35);
+            this.txtdep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtdep.Name = "txtdep";
+            this.txtdep.Size = new System.Drawing.Size(224, 26);
+            this.txtdep.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(482, 44);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(444, 91);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 19);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Số vé đã bán";
+            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Giờ đến";
             // 
-            // labelCarriage
+            // label4
             // 
-            this.labelCarriage.AutoSize = true;
-            this.labelCarriage.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCarriage.Location = new System.Drawing.Point(338, 80);
-            this.labelCarriage.Name = "labelCarriage";
-            this.labelCarriage.Size = new System.Drawing.Size(36, 40);
-            this.labelCarriage.TabIndex = 10;
-            this.labelCarriage.Text = "1";
-            this.labelCarriage.Click += new System.EventHandler(this.labelCarriage_Click);
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(24, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 20);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Ga đi";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(24, 91);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Ga đến";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(317, 46);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(444, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 19);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Chọn toa";
+            this.label2.Size = new System.Drawing.Size(50, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Giờ đi";
             // 
-            // pLeft
+            // cbbmave
             // 
-            this.pLeft.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pLeft.Image = ((System.Drawing.Image)(resources.GetObject("pLeft.Image")));
-            this.pLeft.Location = new System.Drawing.Point(295, 78);
-            this.pLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pLeft.Name = "pLeft";
-            this.pLeft.Size = new System.Drawing.Size(25, 50);
-            this.pLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pLeft.TabIndex = 8;
-            this.pLeft.TabStop = false;
-            this.pLeft.Click += new System.EventHandler(this.pLeft_Click);
+            this.cbbmave.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cbbmave.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbmave.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.cbbmave.FormattingEnabled = true;
+            this.cbbmave.Location = new System.Drawing.Point(116, 238);
+            this.cbbmave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbbmave.Name = "cbbmave";
+            this.cbbmave.Size = new System.Drawing.Size(150, 28);
+            this.cbbmave.TabIndex = 1;
+            this.cbbmave.SelectedIndexChanged += new System.EventHandler(this.cbbmave_SelectedIndexChanged);
             // 
-            // pRight
+            // label1
             // 
-            this.pRight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pRight.Image = ((System.Drawing.Image)(resources.GetObject("pRight.Image")));
-            this.pRight.Location = new System.Drawing.Point(390, 78);
-            this.pRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pRight.Name = "pRight";
-            this.pRight.Size = new System.Drawing.Size(25, 50);
-            this.pRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pRight.TabIndex = 7;
-            this.pRight.TabStop = false;
-            this.pRight.Click += new System.EventHandler(this.pRight_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(37, 248);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Toa tàu";
             // 
-            // cbbTrain
+            // txtgiave
             // 
-            this.cbbTrain.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbTrain.FormattingEnabled = true;
-            this.cbbTrain.Location = new System.Drawing.Point(88, 40);
-            this.cbbTrain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbbTrain.Name = "cbbTrain";
-            this.cbbTrain.Size = new System.Drawing.Size(138, 27);
-            this.cbbTrain.TabIndex = 6;
-            this.cbbTrain.Text = "Chọn một tàu";
-            this.cbbTrain.SelectedIndexChanged += new System.EventHandler(this.cbbTrain_SelectedIndexChanged);
+            this.txtgiave.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtgiave.Location = new System.Drawing.Point(641, 244);
+            this.txtgiave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtgiave.Name = "txtgiave";
+            this.txtgiave.Size = new System.Drawing.Size(224, 26);
+            this.txtgiave.TabIndex = 18;
             // 
-            // bBack
+            // label8
             // 
-            this.bBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBack.Location = new System.Drawing.Point(828, 538);
-            this.bBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bBack.Name = "bBack";
-            this.bBack.Size = new System.Drawing.Size(114, 40);
-            this.bBack.TabIndex = 4;
-            this.bBack.Text = "Quay lại";
-            this.bBack.UseVisualStyleBackColor = false;
-            this.bBack.Click += new System.EventHandler(this.bBack_Click);
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(546, 248);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 20);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Giá vé";
             // 
-            // bBook
+            // cbbnametrain
             // 
-            this.bBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBook.Location = new System.Drawing.Point(703, 538);
-            this.bBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bBook.Name = "bBook";
-            this.bBook.Size = new System.Drawing.Size(119, 40);
-            this.bBook.TabIndex = 3;
-            this.bBook.Text = "Đặt vé";
-            this.bBook.UseVisualStyleBackColor = false;
-            this.bBook.Click += new System.EventHandler(this.bBook_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 172);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(914, 345);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(88, 50);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(138, 114);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 6;
-            this.pictureBox4.TabStop = false;
+            this.cbbnametrain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbnametrain.FormattingEnabled = true;
+            this.cbbnametrain.Location = new System.Drawing.Point(151, 152);
+            this.cbbnametrain.Name = "cbbnametrain";
+            this.cbbnametrain.Size = new System.Drawing.Size(224, 28);
+            this.cbbnametrain.TabIndex = 17;
+            this.cbbnametrain.SelectedIndexChanged += new System.EventHandler(this.cbbnametrain_SelectedIndexChanged);
             // 
             // GUIBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 616);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(900, 571);
+            this.Controls.Add(this.txtgiave);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbbmave);
+            this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GUIBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ĐẶT VÉ";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pLeft)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pRight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.Text = "book";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button bBook;
-        private System.Windows.Forms.Button bBack;
-        private System.Windows.Forms.ComboBox cbbTrain;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label labelCarriage;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pLeft;
-        private System.Windows.Forms.PictureBox pRight;
-        private System.Windows.Forms.Label labelBooked;
-        private System.Windows.Forms.PictureBox pSave;
-        private System.Windows.Forms.Button bSearch;
-        private System.Windows.Forms.Button bShowAll;
-        private System.Windows.Forms.Label labelUnbooked;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker timedes;
+        private System.Windows.Forms.DateTimePicker timedep;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtdes;
+        private System.Windows.Forms.TextBox txtdep;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbbmave;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtdivername;
+        private System.Windows.Forms.TextBox txtgiave;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbbnametrain;
     }
 }
