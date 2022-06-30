@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(employee));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bAdd = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bUpdate = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -179,19 +179,19 @@
             // 
             // dtg
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -462,6 +462,7 @@
             this.txtpass.Location = new System.Drawing.Point(183, 430);
             this.txtpass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtpass.Name = "txtpass";
+            this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(211, 31);
             this.txtpass.TabIndex = 22;
             this.txtpass.TextChanged += new System.EventHandler(this.txtpass_TextChanged);
@@ -485,8 +486,6 @@
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(211, 31);
             this.txtusername.TabIndex = 20;
-            this.txtusername.TextChanged += new System.EventHandler(this.txtusername_TextChanged);
-            this.txtusername.Leave += new System.EventHandler(this.txtusername_Leave);
             // 
             // idcard
             // 
@@ -661,14 +660,13 @@
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(213, 31);
             this.txtname.TabIndex = 8;
-            this.txtname.TextChanged += new System.EventHandler(this.txtname_TextChanged);
             this.txtname.Leave += new System.EventHandler(this.txtname_Leave);
             // 
             // Column7
             // 
             this.Column7.DataPropertyName = "Username";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.HeaderText = "Tên đăng nhập";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";

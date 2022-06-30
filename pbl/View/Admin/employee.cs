@@ -73,13 +73,6 @@ namespace pbl.View.Admin
 
         }
 
-
-
-        private void txtname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void idcard_Leave_1(object sender, EventArgs e)
         {
             if (idcard.Text.Length != 12)
@@ -124,25 +117,11 @@ namespace pbl.View.Admin
             }
         }
 
-        private void txtusername_TextChanged(object sender, EventArgs e)
-        {
-            if (!BLLpeople.instance.check(txtusername.Text))
-            {
-                usernamedk.Text = "";
-
-            }
-            else
-            {
-                usernamedk.Text = "Tên đăng nhập đã tồn tại ";
-
-            }
-        }
-
         private void phone_TextChanged(object sender, EventArgs e)
         {
             if (phone.Text.Length < 10 || phone.Text.Length > 10)
             {
-                phonedk.Text = " Số điện thoại có 10-11 số !";
+                phonedk.Text = " Số điện thoại phải có 10 chữ số !";
                 phone.BackColor = Color.LightCoral;
             }
             else
@@ -201,24 +180,6 @@ namespace pbl.View.Admin
             else if (txtpass.Text.Length < 9)
             {
                 MessageBox.Show("Mật khẩu phải dài hơn 8 kí tự !");
-            }
-        }
-
-        private void txtusername_Leave(object sender, EventArgs e)
-        {
-            if (txtusername.Text.Length == 0)
-            {
-                MessageBox.Show("Tên đăng nhập không được để rỗng !");
-            }
-            if (!BLLpeople.instance.check(txtusername.Text))
-            {
-                usernamedk.Text = "";
-
-            }
-            else
-            {
-                usernamedk.Text = "Tên đăng nhập đã tồn tại ";
-
             }
         }
 
@@ -305,9 +266,9 @@ namespace pbl.View.Admin
                     return;
                 }
             }
-            if (txtusername.Text == "" || txtpass.Text == "")
+            if (txtpass.Text == "")
             {
-                MessageBox.Show("Tên đăng nhập và mật khẩu không thể để trống!");
+                MessageBox.Show("Mật khẩu không thể để trống!");
             }
             else
             {
@@ -324,6 +285,7 @@ namespace pbl.View.Admin
 
                 };
                 BLLpeople.instance.Executenv(s);
+                MessageBox.Show("Đã cập nhật thành công thông tin nhân viên!");
                 showw();
             }
         }
@@ -334,14 +296,39 @@ namespace pbl.View.Admin
 
         private void dtg_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = this.dtg.Rows[e.RowIndex];
-            if (e.RowIndex >= 0)
+            //k thể lấy mật khẩu
+            //DataGridViewRow row = this.dtg.Rows[e.RowIndex];
+            //if (e.RowIndex >= 0)
+            //{
+            //    txtname.Text = row.Cells[1].Value.ToString();
+            //    txtusername.Text = row.Cells[0].Value.ToString();
+            //    txtusername.Enabled = false;
+            //    usernamedk.Enabled = false;
+            //    if (row.Cells[2].Value.ToString() == "Nam")
+            //    {
+            //        male.Checked = true;
+
+            //    }
+            //    else
+            //    {
+            //        female.Checked = true;
+            //    }
+
+            //    gmail.Text = row.Cells[6].Value.ToString();
+            //    phone.Text = row.Cells[7].Value.ToString();
+            //    idcard.Text = row.Cells[5].Value.ToString();
+            //    date.Text = row.Cells[3].Value.ToString();
+            //    address.Text = row.Cells[4].Value.ToString();
+
+            //}
+            if(dtg.SelectedRows.Count > 0)
             {
-                txtname.Text = row.Cells[1].Value.ToString();
-                txtusername.Text = row.Cells[0].Value.ToString();
+                PEOPLE peo = BLLTRAIN.Instance.GetuserByusername(dtg.SelectedRows[0].Cells[0].Value.ToString());
+                txtname.Text = peo.Name;
+                txtusername.Text = peo.Username;
                 txtusername.Enabled = false;
                 usernamedk.Enabled = false;
-                if (row.Cells[2].Value.ToString() == "Nam")
+                if ((bool)peo.Gender)
                 {
                     male.Checked = true;
 
@@ -351,12 +338,13 @@ namespace pbl.View.Admin
                     female.Checked = true;
                 }
 
-                gmail.Text = row.Cells[6].Value.ToString();
-                phone.Text = row.Cells[7].Value.ToString();
-                idcard.Text = row.Cells[5].Value.ToString();
-                date.Text = row.Cells[3].Value.ToString();
-                address.Text = row.Cells[4].Value.ToString();
-
+                gmail.Text = peo.Email;
+                phone.Text = peo.Phone;
+                idcard.Text = peo.IDCard;
+                date.Text = peo.BirthDay.ToString();
+                address.Text = peo.Address;
+                LOGIN g = BLLpeople.instance.Getloginbyloginid(peo.Username);
+                if (g != null) txtpass.Text = g.PassWord;
             }
         }
     }
