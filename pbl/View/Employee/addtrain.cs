@@ -48,20 +48,6 @@ namespace pbl.View
             if (schedule.Text != "") label1.Visible = false;
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
         private bool CheckNum(string money)
         {
             int temp;

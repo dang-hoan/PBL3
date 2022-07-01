@@ -51,9 +51,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.bShowAll = new System.Windows.Forms.Button();
+            this.sortA = new System.Windows.Forms.PictureBox();
+            this.sortZ = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbbSort = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sortA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sortZ)).BeginInit();
             this.SuspendLayout();
             // 
             // label11
@@ -107,14 +113,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(312, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(312, 126);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(760, 522);
+            this.dataGridView1.Size = new System.Drawing.Size(760, 467);
             this.dataGridView1.TabIndex = 107;
             // 
             // cbbDep
@@ -306,11 +312,58 @@
             this.bShowAll.UseVisualStyleBackColor = false;
             this.bShowAll.Click += new System.EventHandler(this.bShowAll_Click);
             // 
+            // sortA
+            // 
+            this.sortA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sortA.Image = ((System.Drawing.Image)(resources.GetObject("sortA.Image")));
+            this.sortA.Location = new System.Drawing.Point(966, 77);
+            this.sortA.Name = "sortA";
+            this.sortA.Size = new System.Drawing.Size(45, 42);
+            this.sortA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.sortA.TabIndex = 116;
+            this.sortA.TabStop = false;
+            this.sortA.Click += new System.EventHandler(this.sortA_Click);
+            // 
+            // sortZ
+            // 
+            this.sortZ.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sortZ.Image = ((System.Drawing.Image)(resources.GetObject("sortZ.Image")));
+            this.sortZ.Location = new System.Drawing.Point(1027, 77);
+            this.sortZ.Name = "sortZ";
+            this.sortZ.Size = new System.Drawing.Size(45, 42);
+            this.sortZ.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.sortZ.TabIndex = 115;
+            this.sortZ.TabStop = false;
+            this.sortZ.Click += new System.EventHandler(this.sortZ_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(827, 57);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(142, 20);
+            this.label9.TabIndex = 114;
+            this.label9.Text = "Thuộc tính sắp xếp";
+            // 
+            // cbbSort
+            // 
+            this.cbbSort.BackColor = System.Drawing.Color.White;
+            this.cbbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSort.FormattingEnabled = true;
+            this.cbbSort.Location = new System.Drawing.Point(830, 84);
+            this.cbbSort.Name = "cbbSort";
+            this.cbbSort.Size = new System.Drawing.Size(121, 28);
+            this.cbbSort.TabIndex = 113;
+            // 
             // GUISystemSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 644);
+            this.Controls.Add(this.sortA);
+            this.Controls.Add(this.sortZ);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.cbbSort);
             this.Controls.Add(this.bShowAll);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.bBook);
@@ -325,6 +378,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sortA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sortZ)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,5 +409,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox sortA;
+        private System.Windows.Forms.PictureBox sortZ;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbbSort;
     }
 }

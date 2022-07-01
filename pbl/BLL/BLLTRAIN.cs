@@ -611,6 +611,112 @@ namespace pbl.BLL
             }
             return null;
         }
+        public List<TICKET_View> SortSystem(List<TICKET_View> list, int column, bool order)
+        {
+            switch (column)
+            {
+                case 0:
+                    {
+                        if(order) return list.OrderBy(u => u.ScheduleID).ToList();
+                        else return list.OrderByDescending(u => u.ScheduleID).ToList();
+                    }
+
+                case 1:
+                    {
+                        if (order) return list.OrderBy(u => u.TrainID).ToList();
+                        else return list.OrderByDescending(u => u.TrainID).ToList();
+                    }
+                case 2:
+                    {
+                        if (order) return list.OrderBy(u => u.TrainName).ToList();
+                        else return list.OrderByDescending(u => u.TrainName).ToList();
+                    }
+                case 3:
+                    {
+                        if (order) return list.OrderBy(u => u.TicketID).ToList();
+                        else return list.OrderByDescending(u => u.TicketID).ToList();
+                    }
+                case 4:
+                    {
+                        if (order) return list.OrderBy(u => u.SeatNo).ToList();
+                        else return list.OrderByDescending(u => u.SeatNo).ToList();
+                    }
+                case 5:
+                    {
+                        if (order) return list.OrderBy(u => u.TicketPrice).ToList();
+                        else return list.OrderByDescending(u => u.TicketPrice).ToList();
+                    }
+                case 6:
+                    {
+                        if (order) return list.OrderBy(u => u.Departure).ToList();
+                        else return list.OrderByDescending(u => u.Departure).ToList();
+                    }
+                case 7:
+                    {
+                        if (order) return list.OrderBy(u => u.Destination).ToList();
+                        else return list.OrderByDescending(u => u.Destination).ToList();
+                    }
+                case 8:
+                    {
+                        if (order) return list.OrderBy(u => u.DepartureTime).ToList();
+                        else return list.OrderByDescending(u => u.DepartureTime).ToList();
+                    }
+                case 9:
+                    {
+                        if (order) return list.OrderBy(u => u.ArrivalTime).ToList();
+                        else return list.OrderByDescending(u => u.ArrivalTime).ToList();
+                    }
+                case 10:
+                    {
+                        if (order) return list.OrderBy(u => u.Booked).ToList();
+                        else return list.OrderByDescending(u => u.Booked).ToList();
+                    }
+                case 11:
+                    {
+                        if (order) return list.OrderBy(u => u.OwnUsername).ToList();
+                        else return list.OrderByDescending(u => u.OwnUsername).ToList();
+                    }
+                case 12:
+                    {
+                        if (order) return list.OrderBy(u => u.OwnName).ToList();
+                        else return list.OrderByDescending(u => u.OwnName).ToList();
+                    }
+            }
+            return null;
+        }
+        public List<SCHEDULE_View> SortDetail(List<SCHEDULE_View> list, int column, bool order)
+        {
+            switch (column)
+            {
+                case 0:
+                    {
+                        if(order) return list.OrderBy(u => u.ScheduleID).ToList();
+                        else return list.OrderByDescending(u => u.ScheduleID).ToList();
+                    }
+
+                case 1:
+                    {
+                        if (order) return list.OrderBy(u => u.Departure).ToList();
+                        else return list.OrderByDescending(u => u.Departure).ToList();
+                    }
+                case 2:
+                    {
+                        if (order) return list.OrderBy(u => u.Destination).ToList();
+                        else return list.OrderByDescending(u => u.Destination).ToList();
+                    }
+                case 3:
+                    {
+                        if (order) return list.OrderBy(u => Convert.ToDateTime(u.DepartureTime)).ToList();
+                        else return list.OrderByDescending(u => Convert.ToDateTime(u.DepartureTime)).ToList();
+                    }
+                case 4:
+                    {
+                        if (order) return list.OrderBy(u => Convert.ToDateTime(u.ArrivalTime)).ToList();
+                        else return list.OrderByDescending(u => Convert.ToDateTime(u.ArrivalTime)).ToList();
+                    }
+            }
+            return null;
+        }
 
         public List<TICKET_View> GetAllTICKETView()
         {
@@ -700,15 +806,34 @@ namespace pbl.BLL
                           Text = sch.STATION.StationName
                       }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
         }
+        public void GetStation2(ref List<CBBSchedule> cbbDep, ref List<CBBSchedule> cbbDes)
+        {
+            PBL3 db = new PBL3();
+            cbbDep = (from sch in db.SCHEDULEs.ToList()
+                      where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0
+                      select new CBBSchedule
+                      {
+                          Value = sch.DepartureID,
+                          Text = sch.STATION1.StationName
+                      }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
+            cbbDes = (from sch in db.SCHEDULEs.ToList()
+                      where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0
+                      select new CBBSchedule
+                      {
+                          Value = sch.ArrivalID,
+                          Text = sch.STATION.StationName
+                      }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
+        }
         //Đặt tiêu đề cho DataGridView
         private string[] TicketView = { "Mã lịch trình", "Mã tàu", "Tên tàu", "Mã vé", "Số ghế", "Giá vé"
                 , "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến", "Trạng thái", "Tên đăng nhập chủ", "Tên chủ"};
-        private string[] PeopleView = { "Tên đăng nhập", "Họ và tên", "Giới tính", "Ngày sinh", "Địa chỉ", "Số CCCD"
+        private string[] Ticketnhanvien = { "Mã lịch trình", "Mã tàu", "Tên tàu" , "Ga đi", "Ga đến", "Người lái tàu", "Số toa", "Thời gian đi", "Thời gian đến", "Số vé đã bán"};
+    private string[] PeopleView = { "Tên đăng nhập", "Họ và tên", "Giới tính", "Ngày sinh", "Địa chỉ", "Số CCCD"
                 , "Email", "Số điện thoại", "Vị trí"};
         private string[] ScheduleView = { "Mã lịch trình", "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến" };
         private string[] TurnOverView = { "Mã tàu", "Tên tàu", "Ga đi", "Ga đến", "Thời gian đi","Thời gian đến",
                 "Tổng số vé đã bán", "Tổng tiền thu được"};
-        private string[] TrainView = { "Mã lịch trình", "Mã tàu", "Tên tàu","Số toa", "Tên đăng nhập lái tàu", "Giá cơ bản", "Trạng thái" };
+        private string[] TrainView = { "Mã lịch trình", "Mã tàu", "Tên tàu","Số toa", "Tên đăng nhập lái tàu", "Giá cơ bản"};
         public void SetTicketUserView(DataGridView d)
         {
             for(int i = 0; i < TicketView.Length - 3; i++) d.Columns[i].HeaderText = TicketView[i];
@@ -717,7 +842,11 @@ namespace pbl.BLL
         {
             for(int i = 0; i < TicketView.Length; i++) d.Columns[i].HeaderText = TicketView[i];
         }
-        public void SetPeopleView(DataGridView d)
+        public void SetTicketnhanvien(DataGridView d)
+        {
+            for (int i = 0; i < Ticketnhanvien.Length; i++) d.Columns[i].HeaderText = Ticketnhanvien[i];
+        }
+            public void SetPeopleView(DataGridView d)
         {
             for(int i = 0; i < PeopleView.Length; i++) d.Columns[i].HeaderText = PeopleView[i];
         }
@@ -1271,6 +1400,26 @@ namespace pbl.BLL
                             Text = sch.STATION1.StationName
                         }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
         }
+        public List<CBBSchedule> GetDeparture3(int ArrivalID)
+        {
+            PBL3 db = new PBL3();
+            if (ArrivalID != -1)
+                return (from sch in db.SCHEDULEs
+                        where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0 && sch.DepartureID != ArrivalID
+                        select new CBBSchedule
+                        {
+                            Value = sch.DepartureID,
+                            Text = sch.STATION1.StationName
+                        }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
+            else
+                return (from sch in db.SCHEDULEs
+                        where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0
+                        select new CBBSchedule
+                        {
+                            Value = sch.DepartureID,
+                            Text = sch.STATION1.StationName
+                        }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
+        }
         public List<CBBSchedule> GetDestination(int DepartureID)
         {
             PBL3 db = new PBL3();
@@ -1303,6 +1452,26 @@ namespace pbl.BLL
                         }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
             else
                 return (from sch in db.SCHEDULEs
+                        select new CBBSchedule
+                        {
+                            Value = sch.ArrivalID,
+                            Text = sch.STATION.StationName
+                        }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
+        }
+        public List<CBBSchedule> GetDestination3(int DepartureID)
+        {
+            PBL3 db = new PBL3();
+            if (DepartureID != -1)
+                return (from sch in db.SCHEDULEs
+                        where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0 && sch.ArrivalID != DepartureID
+                        select new CBBSchedule
+                        {
+                            Value = sch.ArrivalID,
+                            Text = sch.STATION.StationName
+                        }).GroupBy(x => x.Value).Select(y => y.FirstOrDefault()).ToList();
+            else
+                return (from sch in db.SCHEDULEs
+                        where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0
                         select new CBBSchedule
                         {
                             Value = sch.ArrivalID,
@@ -1480,6 +1649,20 @@ namespace pbl.BLL
         {
             PBL3 db = new PBL3();
             return (from sch in db.SCHEDULEs.ToList()
+                    select new SCHEDULE_View
+                    {
+                        ScheduleID = sch.ScheduleID,
+                        Departure = sch.STATION1.StationName,
+                        Destination = sch.STATION.StationName,
+                        DepartureTime = sch.DepartureTime.ToString(),
+                        ArrivalTime = sch.ArrivalTime.ToString()
+                    }).ToList();
+        }
+        public List<SCHEDULE_View> GetSchedule3()
+        {
+            PBL3 db = new PBL3();
+            return (from sch in db.SCHEDULEs.ToList()
+                    where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0
                     select new SCHEDULE_View
                     {
                         ScheduleID = sch.ScheduleID,
@@ -1689,6 +1872,30 @@ namespace pbl.BLL
                          };
             return result.ToList();
         }
+        public List<SCHEDULE_View> GetSchedule3(SCHEDULE_BLL schedule)
+        {
+            schedule.FromDepartureTime = schedule.FromDepartureTime.AddSeconds(-schedule.FromDepartureTime.Second);
+            schedule.ToDepartureTime = schedule.ToDepartureTime.AddSeconds(-schedule.FromDepartureTime.Second + 59);
+            schedule.FromArrivalTime = schedule.FromArrivalTime.AddSeconds(-schedule.FromArrivalTime.Second);
+            schedule.ToArrivalTime = schedule.ToArrivalTime.AddSeconds(-schedule.ToArrivalTime.Second + 59);
+            PBL3 db = new PBL3();
+            bool Dep = false, Des = false;
+            if (schedule.Departure == "") Dep = true;
+            if (schedule.Destination == "") Des = true;
+            var result = from sch in db.SCHEDULEs.ToList()
+                         where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0 && (Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination))
+                               && (DateTime.Compare(schedule.FromDepartureTime, sch.DepartureTime) <= 0 && DateTime.Compare(sch.DepartureTime, schedule.ToDepartureTime) <= 0)
+                               && (DateTime.Compare(schedule.FromArrivalTime, sch.ArrivalTime) <= 0 && DateTime.Compare(sch.ArrivalTime, schedule.ToArrivalTime) <= 0)
+                         select new SCHEDULE_View
+                         {
+                             ScheduleID = sch.ScheduleID,
+                             Departure = sch.STATION1.StationName,
+                             Destination = sch.STATION.StationName,
+                             DepartureTime = sch.DepartureTime.ToString(),
+                             ArrivalTime = sch.ArrivalTime.ToString()
+                         };
+            return result.ToList();
+        }
         public List<SCHEDULE_View> GetSchedule2(SCHEDULE_View schedule)
         {
             PBL3 db = new PBL3();
@@ -1700,6 +1907,32 @@ namespace pbl.BLL
             //                   && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
             var result = from sch in db.SCHEDULEs.ToList()
                          where ((Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination)))
+                         select new SCHEDULE_View
+                         {
+                             ScheduleID = sch.ScheduleID,
+                             Departure = sch.STATION1.StationName,
+                             Destination = sch.STATION.StationName,
+                             DepartureTime = sch.DepartureTime.ToString(),
+                             ArrivalTime = sch.ArrivalTime.ToString()
+                         };
+            return result.ToList();
+        }
+        public List<SCHEDULE_View> GetSchedule3(SCHEDULE_View schedule)
+        {
+            PBL3 db = new PBL3();
+            bool Dep = false, Des = false;
+            if (schedule.Departure == "") Dep = true;
+            if (schedule.Destination == "") Des = true;
+
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+
+            //var result = from sch in db.SCHEDULEs.ToList()
+            //             where (Dep || sch.STATION.StationName.Equals(schedule.Departure)) || (Des || sch.STATION1.StationName.Equals(schedule.Destination))
+            //                   && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
+            var result = from sch in db.SCHEDULEs.ToList()
+                         where (Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination))
+                         &&(sch.DepartureTime.CompareTo(DateTime.Now.ToString("yyyy/M/d H:m")) >= 0)
+                         where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0 && ((Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination)))
                          select new SCHEDULE_View
                          {
                              ScheduleID = sch.ScheduleID,

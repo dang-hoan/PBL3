@@ -21,6 +21,7 @@ namespace pbl.View
             gui();
             Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("nl");
             show();
+            BLLTRAIN.Instance.SetScheduleView(dataGridView1);
         }
         public void gui()
         {

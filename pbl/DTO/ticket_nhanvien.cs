@@ -17,7 +17,6 @@ namespace pbl.DTO
         public int Sotoa { get; set; }
         public string thoigiandi { get; set; }
         public string thoigianden { get; set; }
-        public string Trangthai { get; set; }
         public int Sovedaban { get; set; }
     }
 }

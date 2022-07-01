@@ -72,6 +72,7 @@
             // 
             // sortA
             // 
+            this.sortA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sortA.Image = ((System.Drawing.Image)(resources.GetObject("sortA.Image")));
             this.sortA.Location = new System.Drawing.Point(595, 43);
             this.sortA.Name = "sortA";
@@ -83,6 +84,7 @@
             // 
             // sortZ
             // 
+            this.sortZ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sortZ.Image = ((System.Drawing.Image)(resources.GetObject("sortZ.Image")));
             this.sortZ.Location = new System.Drawing.Point(656, 43);
             this.sortZ.Name = "sortZ";
