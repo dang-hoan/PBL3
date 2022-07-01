@@ -164,6 +164,13 @@ namespace pbl.View
                 cbbnametrain.Text = i.TRAIN.TrainName;
                 num = i.TRAIN.NumberOfCarriages;
                 giave = i.BasicPrice;
+                if (cbbmave.Text == "") txtgiave.Text = (Convert.ToDecimal((((1 - 1) * 0.1) + 1) * Convert.ToDouble(giave))).ToString();
+                else
+                {
+                    int sotoa = Convert.ToChar(cbbmave.Text) - 64;
+                    decimal? gia = Convert.ToDecimal((((sotoa - 1) * 0.1) + 1) * Convert.ToDouble(giave));
+                    txtgiave.Text = gia.ToString();
+                }
                 foreach (CBBpeople k in BLLpeople.instance.GetCBBname())
                 {
                     if (k.Value == i.DriverUN)
