@@ -86,7 +86,7 @@
             this.butmua.Name = "butmua";
             this.butmua.Size = new System.Drawing.Size(143, 44);
             this.butmua.TabIndex = 216;
-            this.butmua.Text = "Mua vé";
+            this.butmua.Text = "Đặt vé";
             this.butmua.UseVisualStyleBackColor = false;
             this.butmua.Click += new System.EventHandler(this.butmua_Click);
             // 

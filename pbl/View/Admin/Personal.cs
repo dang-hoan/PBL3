@@ -13,9 +13,9 @@ using pbl.View;
 
 namespace pbl
 {
-    public partial class GUIPersonal : Form
+    public partial class Personal : Form
     {
-        public GUIPersonal()
+        public Personal()
         {
             InitializeComponent();
             GUI();
@@ -375,7 +375,7 @@ namespace pbl
                 if (txtConfirm.Text != txtNew.Text) labConfirm.Text = "*Mật khẩu xác nhận không khớp với mật khẩu mới!";
                 else labConfirm.Text = "";
             }
-            else if (txtConfirm.Enabled == true) labConfirm.Text = "*Không thể để trống ô mật khẩu!";
+            else if(txtConfirm.Enabled == true) labConfirm.Text = "*Không thể để trống ô mật khẩu!";
         }
 
         private void txtBirthDay_ValueChanged(object sender, EventArgs e)

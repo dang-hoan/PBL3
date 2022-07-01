@@ -167,6 +167,12 @@
     <Compile Include="View\Admin\employee.Designer.cs">
       <DependentUpon>employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Admin\Personal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Admin\Personal.Designer.cs">
+      <DependentUpon>Personal.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,12 +215,6 @@
     </Compile>
     <Compile Include="View\Employee\addtrain.Designer.cs">
       <DependentUpon>addtrain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Employee\addve.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Employee\addve.Designer.cs">
-      <DependentUpon>addve.cs</DependentUpon>
     </Compile>
     <Compile Include="View\addlichtrinh.cs">
       <SubType>Form</SubType>
@@ -282,30 +282,17 @@
     <Compile Include="View\Passenger\GUIBook.Designer.cs">
       <DependentUpon>GUIBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Passenger\Class1.cs" />
     <Compile Include="View\Passenger\GUISystemSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Passenger\GUISystemSchedule.Designer.cs">
       <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Passenger\Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Passenger\GUICalendar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Passenger\GUICalendar.Designer.cs">
       <DependentUpon>GUICalendar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Passenger\Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="View\GUIForget.cs">
       <SubType>Form</SubType>
@@ -407,6 +394,12 @@
     <Compile Include="View\GUIRegister.Designer.cs">
       <DependentUpon>GUIRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Passenger\MessageNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Passenger\MessageNotice.Designer.cs">
+      <DependentUpon>MessageNotice.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\AddSecurity.resx">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\employee.resx">
       <DependentUpon>employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Admin\Personal.resx">
+      <DependentUpon>Personal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -445,9 +441,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\addlichtrinh.resx">
       <DependentUpon>addlichtrinh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Employee\addve.resx">
-      <DependentUpon>addve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Employee\datve.resx">
       <DependentUpon>datve.cs</DependentUpon>
@@ -486,14 +479,8 @@
     <EmbeddedResource Include="View\Passenger\GUISystemSchedule.resx">
       <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUICalendar.resx">
       <DependentUpon>GUICalendar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GUIForget.resx">
       <DependentUpon>GUIForget.cs</DependentUpon>
@@ -551,6 +538,9 @@
     </Compile>
     <EmbeddedResource Include="View\Employee\lichtrinh.resx">
       <DependentUpon>lichtrinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Passenger\MessageNotice.resx">
+      <DependentUpon>MessageNotice.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />
@@ -653,6 +643,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>

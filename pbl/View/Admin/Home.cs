@@ -71,7 +71,7 @@ namespace pbl.View.Admin
 
         private void pttcn_Click(object sender, EventArgs e)
         {
-            ShowForm(new GUIPersonal());
+            ShowForm(new Personal());
             paneltk.Visible = false;
             paneldx.Visible = false;
         }
@@ -96,16 +96,14 @@ namespace pbl.View.Admin
             }
         }
 
-        private void btttcn_Click(object sender, EventArgs e)
-        {
-            ShowForm(new GUIPersonal());
-        }
-
         private void btdx_Click(object sender, EventArgs e)
         {
-            this.Close();
-            
-            login.Show();
+            DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất khỏi hệ thống không?", "Thông báo", MessageBoxButtons.OKCancel);
+            if (res == DialogResult.OK)
+            {
+                this.Close();
+                login.Show();
+            }
         }
 
         private void dtgname_CellClick(object sender, DataGridViewCellEventArgs e)

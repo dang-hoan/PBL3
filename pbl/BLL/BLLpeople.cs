@@ -49,7 +49,7 @@ namespace pbl.BLL
         {
             PBL3 db = new PBL3();
             PEOPLE pb = db.PEOPLE.Find(username);
-            POSITION posi = new POSITION();
+            //POSITION posi =db.POSITIONs.Where(  p => p.PositionID == pb.PositionID);
 
 
             MessageBox.Show("HỌ VÀ TÊN : " + pb.Name + "\n"
@@ -422,10 +422,13 @@ namespace pbl.BLL
             db.SaveChanges();
         }
         
-        public void delnv(string IDCard)
+        public void delnv(string user)
         {
             PBL3 db = new PBL3();
-            PEOPLE s = db.PEOPLE.Find(IDCard);
+            PEOPLE s = db.PEOPLE.Find(user);
+            LOGIN dn = db.LOGINs.Where(p => p.Username == user).FirstOrDefault();
+            if(dn != null) db.LOGINs.Remove(dn);
+           
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }
@@ -555,7 +558,7 @@ namespace pbl.BLL
                          Email = p.Email,
                          Phone = p.Phone,
                          IDCard = p.IDCard,
-                         Position = pos.Position
+                         //Position = pos.Position
                      };
             /*  list = db.PEOPLE.Where(p => p.PositionID == PositionId).Select(p => p).ToList();*/
 

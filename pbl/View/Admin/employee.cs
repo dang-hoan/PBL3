@@ -84,18 +84,18 @@ namespace pbl.View.Admin
         {
             if (idcard.Text.Length < 12)
             {
-                idcarddk.Text = "Nhập chưa đủ 12 số";
+               dkidcard.Text = "Nhập chưa đủ 12 số";
                 idcard.BackColor = Color.LightCoral;
             }
             else if (idcard.Text.Length > 12)
             {
-                idcarddk.Text = "Nhập quá 12 số";
+                dkidcard.Text = "Nhập quá 12 số";
                 idcard.BackColor = Color.LightCoral;
             }
             else
             {
                 idcard.BackColor = Color.White;
-                idcarddk.Text = "";
+                dkidcard.Text = "";
             }
         }
 
@@ -120,12 +120,12 @@ namespace pbl.View.Admin
         {
             if (phone.Text.Length < 10 || phone.Text.Length > 10)
             {
-                phonedk.Text = " Số điện thoại phải có 10 chữ số !";
+                dkphone.Text = " Số điện thoại phải có 10 chữ số !";
                 phone.BackColor = Color.LightCoral;
             }
             else
             {
-                phonedk.Text = "";
+                dkphone.Text = "";
                 phone.BackColor = Color.White;
             }
         }
@@ -140,19 +140,19 @@ namespace pbl.View.Admin
             }
             if (count != 1 && xam != 1)
             {
-                gmaildkk.Text = "Gmail không đúng định dạng !";
+                dkgmail.Text = "Gmail không đúng định dạng !";
             }
             else
             {
-                gmaildkk.Text = "";
+                dkgmail.Text = "";
             }
             if (gmail.Text.Contains("@gmail.com"))
             {
-                gmaildkk.Text = "";
+                dkgmail.Text = "";
             }
             else
             {
-                gmaildkk.Text = "Gmail không đúng định dạngq !";
+                dkgmail.Text = "Gmail không đúng định dạngq !";
             }
         }
 
@@ -160,12 +160,12 @@ namespace pbl.View.Admin
         {
             if (txtpass.Text.Length < 9)
             {
-                passdk.Text = " Mật khẩu phải dài hơn 8 kí tự !";
+                dkmk.Text = " Mật khẩu phải dài hơn 8 kí tự !";
                 txtpass.BackColor = Color.LightCoral;
             }
             else
             {
-                passdk.Text = "";
+                dkmk.Text = "";
                 txtpass.BackColor = Color.White;
             }
         }
@@ -190,8 +190,7 @@ namespace pbl.View.Admin
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            /* Add add = new Add();
-             add.Show();*/
+            
 
             if (gmaildkk.Text != "" || idcarddk.Text != "" || phone.Text == "")
             {
@@ -395,21 +394,23 @@ namespace pbl.View.Admin
         {
             txtusername.Text = "";
             txtname.Text = "";
-            female.Checked = false;
-            male.Checked =false;
             date.Value=DateTime.Now;
             phone.Text = "";
             address.Text = "";
             gmail.Text = "";
             idcard.Text = "";
             txtusername.Enabled = true;
-            gmaildkk.Text = "";
-            phonedk.Text = "";
-            idcarddk.Text = "";
+            dkgmail.Text = "";
+            dkphone.Text = "";
+            dkidcard.Text = "";
             idcard.BackColor = Color.White;
             phone.BackColor = Color.White;
+           
             txtpass.Text = "";
             txtpass.BackColor = Color.White;
+            dkmk.Text = "";
+            female.Checked = false;
+            male.Checked = false;
 
         }
         private void bunifuTextbox1_Click(object sender, EventArgs e)
@@ -482,6 +483,19 @@ namespace pbl.View.Admin
                 else label13.Text = "";
             }
 
+        }
+
+        private void bunifuThinButton21_Click_1(object sender, EventArgs e)
+        {
+            if (dtg.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dtg.SelectedRows)
+                {
+                    BLLpeople.instance.delnv(row.Cells["Username"].Value.ToString());
+                }
+                MessageBox.Show("Đã xoá thành công các nhân viên bạn chọn!");
+                showw();
+            }
         }
     }
 }

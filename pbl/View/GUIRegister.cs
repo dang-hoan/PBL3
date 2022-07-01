@@ -43,6 +43,12 @@ namespace pbl
         }
         private void bContinue_Click(object sender, EventArgs e)
         {
+            if (txtUsername.Text == "" || txtPass.Text == "" || txtConfirmPass.Text == "" || 
+                txtIDCard.Text == "" || txtPhone.Text == "" || txtEmail.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập đủ dữ liệu bắt buộc!");
+                return;
+            }
             if (BLLTRAIN.Instance.check(txtUsername.Text)){
                 MessageBox.Show("Tên đăng nhập đã tồn tại! Vui lòng chọn tên khác!");
                 return;
@@ -80,6 +86,42 @@ namespace pbl
             if (txtPhone.Text.Length < 10)
             {
                 MessageBox.Show("Số điện thoại phải đủ 10 chữ số!");
+                return;
+            }
+            string sa = txtBirthDay.Value.ToString("yyyy/MM/dd HH:mm");
+            string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
+            if (string.Compare(sa, now) > 0)
+            {
+                MessageBox.Show("Người dùng tối thiểu phải đủ 15 tuổi!");
+                return;
+            }
+            if (!txtEmail.Text.Contains("@gmail.com"))
+            {
+                MessageBox.Show("Email không đúng định dạng!");
+                return;
+            }
+            else
+            {
+                if ("@gmail.com".IndexOf(txtEmail.Text) != "@gmail.com".LastIndexOf(txtEmail.Text))
+                {
+                    MessageBox.Show("Email không đúng định dạng!");
+                    return;
+                }
+            };
+            if (BLLTRAIN.Instance.CheckIDCard2("", txtIDCard.Text))
+            {
+                MessageBox.Show("Số căn cước công dân bạn nhập đã tồn tại trong hệ thống!");
+                return;
+            }
+            if (BLLTRAIN.Instance.CheckPhone("", txtPhone.Text))
+            {
+                MessageBox.Show("Số điện thoại bạn nhập đã tồn tại trong hệ thống!");
+                return;
+
+            }
+            if (BLLTRAIN.Instance.CheckEmail("", txtEmail.Text))
+            {
+                MessageBox.Show("Email bạn nhập đã tồn tại trong hệ thống!");
                 return;
             }
             BLLTRAIN.Instance.AddPassenger(new PEOPLE {

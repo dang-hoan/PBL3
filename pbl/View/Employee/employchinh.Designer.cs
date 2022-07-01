@@ -242,11 +242,13 @@
             this.ClientSize = new System.Drawing.Size(1098, 752);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnxuly);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Employeechinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Employeechinh_FormClosed);
             this.pnxuly.ResumeLayout(false);
             this.panel_User.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
