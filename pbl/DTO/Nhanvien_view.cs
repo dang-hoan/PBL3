@@ -16,6 +16,6 @@ namespace pbl.DTO
         public string IDCard { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string Position { get; set; }
+       // public string Position { get; set; }
     }
 }

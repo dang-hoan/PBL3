@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(employee));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(employee));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bAdd = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bUpdate = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuTextbox1 = new Bunifu.Framework.UI.BunifuTextbox();
@@ -82,7 +83,9 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dkhvt = new System.Windows.Forms.Label();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,6 +94,10 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cccd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dkidcard = new System.Windows.Forms.Label();
+            this.dkphone = new System.Windows.Forms.Label();
+            this.dkgmail = new System.Windows.Forms.Label();
+            this.dkmk = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -100,6 +107,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.bunifuThinButton21);
             this.panel2.Controls.Add(this.bAdd);
             this.panel2.Controls.Add(this.bUpdate);
@@ -111,6 +120,32 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1357, 568);
             this.panel2.TabIndex = 1;
+            // 
+            // bunifuThinButton21
+            // 
+            this.bunifuThinButton21.ActiveBorderThickness = 1;
+            this.bunifuThinButton21.ActiveCornerRadius = 20;
+            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
+            this.bunifuThinButton21.ButtonText = "Xóa";
+            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.IdleBorderThickness = 1;
+            this.bunifuThinButton21.IdleCornerRadius = 20;
+            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.Black;
+            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.Transparent;
+            this.bunifuThinButton21.Location = new System.Drawing.Point(1208, 500);
+            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
+            this.bunifuThinButton21.Name = "bunifuThinButton21";
+            this.bunifuThinButton21.Size = new System.Drawing.Size(118, 54);
+            this.bunifuThinButton21.TabIndex = 24;
+            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click_1);
             // 
             // bAdd
             // 
@@ -209,7 +244,7 @@
             this.dtg.EnableHeadersVisualStyles = false;
             this.dtg.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dtg.HeaderForeColor = System.Drawing.Color.Black;
-            this.dtg.Location = new System.Drawing.Point(55, 70);
+            this.dtg.Location = new System.Drawing.Point(43, 66);
             this.dtg.Name = "dtg";
             this.dtg.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtg.RowHeadersVisible = false;
@@ -223,6 +258,11 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.dkmk);
+            this.groupBox1.Controls.Add(this.dkgmail);
+            this.groupBox1.Controls.Add(this.dkphone);
+            this.groupBox1.Controls.Add(this.dkidcard);
+            this.groupBox1.Controls.Add(this.dkhvt);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label7);
@@ -261,7 +301,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(379, 398);
+            this.groupBox1.Size = new System.Drawing.Size(391, 398);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
@@ -272,7 +312,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(99, 23);
+            this.label5.Location = new System.Drawing.Point(110, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 25);
             this.label5.TabIndex = 41;
@@ -689,31 +729,34 @@
             this.Column14.ReadOnly = true;
             this.Column14.Width = 125;
             // 
-            // bunifuThinButton21
+            // label16
             // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 20;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "Xóa";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 20;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.Black;
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(1208, 500);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(118, 54);
-            this.bunifuThinButton21.TabIndex = 24;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click_1);
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(55, 13);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 18);
+            this.label16.TabIndex = 25;
+            this.label16.Text = "Note :";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(110, 14);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(338, 18);
+            this.label17.TabIndex = 26;
+            this.label17.Text = "Chọn 1 hàng để lấy dữ liệu nhân viên cần cập nhật.";
+            // 
+            // dkhvt
+            // 
+            this.dkhvt.AutoSize = true;
+            this.dkhvt.Location = new System.Drawing.Point(183, 56);
+            this.dkhvt.Name = "dkhvt";
+            this.dkhvt.Size = new System.Drawing.Size(0, 16);
+            this.dkhvt.TabIndex = 27;
             // 
             // Username
             // 
@@ -772,7 +815,7 @@
             // Column15
             // 
             this.Column15.DataPropertyName = "Email";
-            this.Column15.HeaderText = "Gmail";
+            this.Column15.HeaderText = "Email";
             this.Column15.MinimumWidth = 6;
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
@@ -787,6 +830,47 @@
             this.Cccd.ReadOnly = true;
             this.Cccd.Width = 117;
             // 
+            // dkidcard
+            // 
+            this.dkidcard.AutoSize = true;
+            this.dkidcard.Location = new System.Drawing.Point(183, 206);
+            this.dkidcard.Name = "dkidcard";
+            this.dkidcard.Size = new System.Drawing.Size(0, 16);
+            this.dkidcard.TabIndex = 42;
+            // 
+            // dkphone
+            // 
+            this.dkphone.AutoSize = true;
+            this.dkphone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dkphone.ForeColor = System.Drawing.Color.Black;
+            this.dkphone.Location = new System.Drawing.Point(145, 169);
+            this.dkphone.Name = "dkphone";
+            this.dkphone.Size = new System.Drawing.Size(48, 18);
+            this.dkphone.TabIndex = 27;
+            this.dkphone.Text = "Note :";
+            // 
+            // dkgmail
+            // 
+            this.dkgmail.AutoSize = true;
+            this.dkgmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dkgmail.ForeColor = System.Drawing.Color.Black;
+            this.dkgmail.Location = new System.Drawing.Point(128, 126);
+            this.dkgmail.Name = "dkgmail";
+            this.dkgmail.Size = new System.Drawing.Size(48, 18);
+            this.dkgmail.TabIndex = 43;
+            this.dkgmail.Text = "Note :";
+            // 
+            // dkmk
+            // 
+            this.dkmk.AutoSize = true;
+            this.dkmk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dkmk.ForeColor = System.Drawing.Color.Black;
+            this.dkmk.Location = new System.Drawing.Point(146, 376);
+            this.dkmk.Name = "dkmk";
+            this.dkmk.Size = new System.Drawing.Size(48, 18);
+            this.dkmk.TabIndex = 44;
+            this.dkmk.Text = "Note :";
+            // 
             // employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -798,6 +882,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "employee";
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -857,6 +942,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -865,5 +952,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cccd;
+        private System.Windows.Forms.Label dkhvt;
+        private System.Windows.Forms.Label dkidcard;
+        private System.Windows.Forms.Label dkphone;
+        private System.Windows.Forms.Label dkgmail;
+        private System.Windows.Forms.Label dkmk;
     }
 }

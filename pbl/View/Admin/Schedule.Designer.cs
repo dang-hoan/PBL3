@@ -66,7 +66,6 @@
             this.panelsche.Controls.Add(this.bShowAll);
             this.panelsche.Controls.Add(this.bAdd);
             this.panelsche.Controls.Add(this.bDelete);
-            this.panelsche.Controls.Add(this.bSearch);
             this.panelsche.Controls.Add(this.dtg);
             this.panelsche.Controls.Add(this.groupBox1);
             this.panelsche.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -82,7 +81,7 @@
             this.bShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bShowAll.ForeColor = System.Drawing.Color.Black;
-            this.bShowAll.Location = new System.Drawing.Point(837, 498);
+            this.bShowAll.Location = new System.Drawing.Point(988, 482);
             this.bShowAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bShowAll.Name = "bShowAll";
             this.bShowAll.Size = new System.Drawing.Size(156, 40);
@@ -98,10 +97,10 @@
             this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAdd.ForeColor = System.Drawing.Color.Black;
-            this.bAdd.Location = new System.Drawing.Point(837, 438);
+            this.bAdd.Location = new System.Drawing.Point(828, 482);
             this.bAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bAdd.Name = "bAdd";
-            this.bAdd.Size = new System.Drawing.Size(156, 40);
+            this.bAdd.Size = new System.Drawing.Size(119, 40);
             this.bAdd.TabIndex = 57;
             this.bAdd.Text = "Thêm";
             this.bAdd.UseVisualStyleBackColor = false;
@@ -114,10 +113,10 @@
             this.bDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bDelete.ForeColor = System.Drawing.Color.Black;
-            this.bDelete.Location = new System.Drawing.Point(1148, 438);
+            this.bDelete.Location = new System.Drawing.Point(1173, 482);
             this.bDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bDelete.Name = "bDelete";
-            this.bDelete.Size = new System.Drawing.Size(156, 40);
+            this.bDelete.Size = new System.Drawing.Size(122, 40);
             this.bDelete.TabIndex = 56;
             this.bDelete.Text = "Xoá";
             this.bDelete.UseVisualStyleBackColor = false;
@@ -130,10 +129,10 @@
             this.bSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSearch.ForeColor = System.Drawing.Color.Black;
-            this.bSearch.Location = new System.Drawing.Point(1148, 498);
+            this.bSearch.Location = new System.Drawing.Point(314, 356);
             this.bSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(156, 40);
+            this.bSearch.Size = new System.Drawing.Size(119, 40);
             this.bSearch.TabIndex = 55;
             this.bSearch.Text = "Tìm kiếm";
             this.bSearch.UseVisualStyleBackColor = false;
@@ -219,27 +218,30 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.cbbDep);
             this.groupBox1.Controls.Add(this.dateDes);
+            this.groupBox1.Controls.Add(this.bSearch);
             this.groupBox1.Controls.Add(this.cbbDes);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.dateDep);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(837, 42);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(458, 372);
+            this.groupBox1.Size = new System.Drawing.Size(458, 417);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin lịch trình";
+            this.groupBox1.Text = "Tìm kiếm lịch trình";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(44, 290);
+            this.label9.Location = new System.Drawing.Point(19, 289);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 16);
+            this.label9.Size = new System.Drawing.Size(114, 22);
             this.label9.TabIndex = 44;
             this.label9.Text = "NGÀY ĐẾN :";
             // 
@@ -249,7 +251,7 @@
             this.cbbDep.FormattingEnabled = true;
             this.cbbDep.Location = new System.Drawing.Point(151, 70);
             this.cbbDep.Name = "cbbDep";
-            this.cbbDep.Size = new System.Drawing.Size(253, 24);
+            this.cbbDep.Size = new System.Drawing.Size(253, 30);
             this.cbbDep.TabIndex = 37;
             this.cbbDep.Click += new System.EventHandler(this.cbbDep_Click);
             // 
@@ -259,7 +261,7 @@
             this.dateDes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateDes.Location = new System.Drawing.Point(151, 283);
             this.dateDes.Name = "dateDes";
-            this.dateDes.Size = new System.Drawing.Size(253, 22);
+            this.dateDes.Size = new System.Drawing.Size(253, 28);
             this.dateDes.TabIndex = 43;
             // 
             // cbbDes
@@ -268,16 +270,16 @@
             this.cbbDes.FormattingEnabled = true;
             this.cbbDes.Location = new System.Drawing.Point(151, 141);
             this.cbbDes.Name = "cbbDes";
-            this.cbbDes.Size = new System.Drawing.Size(253, 24);
+            this.cbbDes.Size = new System.Drawing.Size(253, 30);
             this.cbbDes.TabIndex = 38;
             this.cbbDes.Click += new System.EventHandler(this.cbbDes_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 78);
+            this.label3.Location = new System.Drawing.Point(19, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.Size = new System.Drawing.Size(68, 22);
             this.label3.TabIndex = 42;
             this.label3.Text = "GA ĐI :";
             // 
@@ -287,24 +289,24 @@
             this.dateDep.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateDep.Location = new System.Drawing.Point(151, 218);
             this.dateDep.Name = "dateDep";
-            this.dateDep.Size = new System.Drawing.Size(253, 22);
+            this.dateDep.Size = new System.Drawing.Size(253, 28);
             this.dateDep.TabIndex = 39;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 149);
+            this.label2.Location = new System.Drawing.Point(19, 149);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 16);
+            this.label2.Size = new System.Drawing.Size(89, 22);
             this.label2.TabIndex = 41;
             this.label2.Text = "GA ĐẾN :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 225);
+            this.label1.Location = new System.Drawing.Point(19, 224);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.Size = new System.Drawing.Size(93, 22);
             this.label1.TabIndex = 40;
             this.label1.Text = "NGÀY ĐI :";
             // 
