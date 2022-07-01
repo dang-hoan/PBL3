@@ -143,5 +143,10 @@ namespace pbl.View
             showform(new train());
             ChangeColor(chuyentau, null);
         }
+
+        private void Employeechinh_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            login.Show();
+        }
     }
 }

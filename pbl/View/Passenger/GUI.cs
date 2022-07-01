@@ -206,5 +206,10 @@ namespace pbl.View
         {
             panel_Other.Visible = false;
         }
+
+        private void GUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            login.Show();
+        }
     }
 }

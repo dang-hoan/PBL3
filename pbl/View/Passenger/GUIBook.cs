@@ -82,17 +82,10 @@ namespace pbl.View
                 b.BackColor = Color.FromArgb(0, 170, 0);
                 b.Cursor = Cursors.Hand;
             }
-            if ((s == "dadat") && (trangthai == "mua"))
+            else
             {
-                b.Enabled = false;
                 b.BackColor = Color.Red;
                 b.Cursor = Cursors.Default;
-            }
-            else
-            if (s == "dadat")
-            {
-                b.BackColor = Color.Red;
-                b.Cursor = Cursors.Hand;
             }
 
         }
@@ -100,7 +93,7 @@ namespace pbl.View
        
     public void setcolor()
         {
-            foreach (TICKET tic in BLLTicket.instance.getticketbylist(scheduleid, ((CBBItem)cbbnametrain.SelectedItem).Value, cbbmave.Text))
+            foreach (TICKET tic in BLLTicket.instance.getticketbylist(scheduleid, ((CBBItem)(cbbnametrain.SelectedItem)).Value, cbbmave.Text))
             {
                 string s = tic.SeatNo;
                 s = s.Substring(1);
@@ -117,7 +110,7 @@ namespace pbl.View
         }
         private void gettrainid(int scheduleid)
         {
-            cbbnametrain.Items.Add(BLLTRAIN.Instance.GetTrain(scheduleid).ToArray());
+            cbbnametrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(scheduleid).ToArray());
             cbbnametrain.SelectedIndex = 0;
             for (int j = 1; j <= num; j++)
             {
@@ -139,11 +132,21 @@ namespace pbl.View
             TICKET tic = new TICKET
             {
                 ScheduleID = scheduleid,
-                TrainID = ((CBBItem)cbbnametrain.SelectedItem).Value,
+                TrainID = ((CBBItem)(cbbnametrain.SelectedItem)).Value,
                 SeatNo = seatno,
                 CustomerUN = GUILogin.userName,
                 Booked = true
             };
+            if (((Label)sender).BackColor == Color.Red)
+            {
+                if (BLLTRAIN.Instance.CheckTicket(tic)){
+                    MessageNotice note = new MessageNotice("Vé này bạn đã đặt!", "Thông báo", "Đồng ý", "Huỷ vé", tic);
+                    note.Show();
+                    note.d += new MessageNotice.MyDel(setcolor);
+                }
+                else MessageBox.Show("Vé này đã có người đặt!");
+                return;
+            }
             BLLTRAIN.Instance.addticket(tic);
             MessageBox.Show("Đã đặt vé thành công!");
             setcolor();
@@ -151,7 +154,7 @@ namespace pbl.View
 
         private void cbbnametrain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TRIP i = BLLTRAIN.Instance.GetTrip(scheduleid, ((CBBItem)cbbnametrain.SelectedItem).Value);
+            TRIP i = BLLTRAIN.Instance.GetTrip(scheduleid, ((CBBItem)(cbbnametrain.SelectedItem)).Value);
             if (i != null)
             {
                 cbbnametrain.Text = i.TRAIN.TrainName;
@@ -169,6 +172,7 @@ namespace pbl.View
                 timedep.Text = i.SCHEDULE.DepartureTime.ToString("dd/MM/yyyy HH:mm");
                 timedes.Text = i.SCHEDULE.ArrivalTime.ToString("dd/MM/yyyy HH:mm");
             }
+            setcolor();
         }
 
         private void cbbmave_SelectedIndexChanged(object sender, EventArgs e)
