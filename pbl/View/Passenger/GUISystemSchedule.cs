@@ -28,6 +28,8 @@ namespace pbl.View
             dateFromDes.MaxDate = DateTime.Now.AddYears(100);
             dateToDes.MinDate = DateTime.Now;
             dateToDes.MaxDate = DateTime.Now.AddYears(100);
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
             BLLTRAIN.Instance.SetScheduleView(dataGridView1);
         }
@@ -38,20 +40,24 @@ namespace pbl.View
             BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
             foreach (CBBSchedule s in listDep) cbbDep.Items.Add(s);
             foreach (CBBSchedule s in listDes) cbbDes.Items.Add(s);
+            cbbSort.Items.AddRange(new string[]
+            {
+                "Mã lịch trình", "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến"
+            });
         }
         private void bBook_Click(object sender, EventArgs e)
         {
             List<int> list = new List<int>();
             if (dataGridView1.SelectedRows.Count >= 1)
             {
-                foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
-                {
-                    list.Add(Convert.ToInt32(dr.Cells["ScheduleID"].Value.ToString()));
-                }
-                GUIBook2 book = new GUIBook2(list);
-                book.Show();
-                //GUIBook book = new GUIBook(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString()));
+                //foreach (DataGridViewRow dr in dataGridView1.SelectedRows)
+                //{
+                //    list.Add(Convert.ToInt32(dr.Cells["ScheduleID"].Value.ToString()));
+                //}
+                //GUIBook2 book = new GUIBook2(list);
                 //book.Show();
+                GUIBook book = new GUIBook(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString()));
+                book.Show();
             }
             else
             {
@@ -60,6 +66,8 @@ namespace pbl.View
         }
         private void bShowAll_Click(object sender, EventArgs e)
         {
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
         }
         private void bSearch_Click(object sender, EventArgs e)
@@ -99,6 +107,8 @@ namespace pbl.View
                 FromArrivalTime = dateFromDes.Value,
                 ToArrivalTime = dateToDes.Value
             };
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s);
             
         }
@@ -146,6 +156,38 @@ namespace pbl.View
                 }
             }
 
+        }
+
+        private void sortA_Click(object sender, EventArgs e)
+        {
+            if (cbbSort.Text != "")
+            {
+                sortA.BackColor = Color.Green;
+                sortZ.BackColor = Color.White;
+                List<SCHEDULE_View> list = dataGridView1.DataSource as List<SCHEDULE_View>;
+                dataGridView1.DataSource = BLLTRAIN.Instance.SortDetail(list, cbbSort.SelectedIndex, true);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn thuộc tính sắp xếp!");
+                return;
+            }
+        }
+
+        private void sortZ_Click(object sender, EventArgs e)
+        {
+            if (cbbSort.Text != "")
+            {
+                sortZ.BackColor = Color.Green;
+                sortA.BackColor = Color.White;
+                List<SCHEDULE_View> list = dataGridView1.DataSource as List<SCHEDULE_View>;
+                dataGridView1.DataSource = BLLTRAIN.Instance.SortDetail(list, cbbSort.SelectedIndex, false);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn thuộc tính sắp xếp!");
+                return;
+            }
         }
     }
 }

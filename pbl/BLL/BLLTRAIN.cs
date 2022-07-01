@@ -611,6 +611,112 @@ namespace pbl.BLL
             }
             return null;
         }
+        public List<TICKET_View> SortSystem(List<TICKET_View> list, int column, bool order)
+        {
+            switch (column)
+            {
+                case 0:
+                    {
+                        if(order) return list.OrderBy(u => u.ScheduleID).ToList();
+                        else return list.OrderByDescending(u => u.ScheduleID).ToList();
+                    }
+
+                case 1:
+                    {
+                        if (order) return list.OrderBy(u => u.TrainID).ToList();
+                        else return list.OrderByDescending(u => u.TrainID).ToList();
+                    }
+                case 2:
+                    {
+                        if (order) return list.OrderBy(u => u.TrainName).ToList();
+                        else return list.OrderByDescending(u => u.TrainName).ToList();
+                    }
+                case 3:
+                    {
+                        if (order) return list.OrderBy(u => u.TicketID).ToList();
+                        else return list.OrderByDescending(u => u.TicketID).ToList();
+                    }
+                case 4:
+                    {
+                        if (order) return list.OrderBy(u => u.SeatNo).ToList();
+                        else return list.OrderByDescending(u => u.SeatNo).ToList();
+                    }
+                case 5:
+                    {
+                        if (order) return list.OrderBy(u => u.TicketPrice).ToList();
+                        else return list.OrderByDescending(u => u.TicketPrice).ToList();
+                    }
+                case 6:
+                    {
+                        if (order) return list.OrderBy(u => u.Departure).ToList();
+                        else return list.OrderByDescending(u => u.Departure).ToList();
+                    }
+                case 7:
+                    {
+                        if (order) return list.OrderBy(u => u.Destination).ToList();
+                        else return list.OrderByDescending(u => u.Destination).ToList();
+                    }
+                case 8:
+                    {
+                        if (order) return list.OrderBy(u => u.DepartureTime).ToList();
+                        else return list.OrderByDescending(u => u.DepartureTime).ToList();
+                    }
+                case 9:
+                    {
+                        if (order) return list.OrderBy(u => u.ArrivalTime).ToList();
+                        else return list.OrderByDescending(u => u.ArrivalTime).ToList();
+                    }
+                case 10:
+                    {
+                        if (order) return list.OrderBy(u => u.Booked).ToList();
+                        else return list.OrderByDescending(u => u.Booked).ToList();
+                    }
+                case 11:
+                    {
+                        if (order) return list.OrderBy(u => u.OwnUsername).ToList();
+                        else return list.OrderByDescending(u => u.OwnUsername).ToList();
+                    }
+                case 12:
+                    {
+                        if (order) return list.OrderBy(u => u.OwnName).ToList();
+                        else return list.OrderByDescending(u => u.OwnName).ToList();
+                    }
+            }
+            return null;
+        }
+        public List<SCHEDULE_View> SortDetail(List<SCHEDULE_View> list, int column, bool order)
+        {
+            switch (column)
+            {
+                case 0:
+                    {
+                        if(order) return list.OrderBy(u => u.ScheduleID).ToList();
+                        else return list.OrderByDescending(u => u.ScheduleID).ToList();
+                    }
+
+                case 1:
+                    {
+                        if (order) return list.OrderBy(u => u.Departure).ToList();
+                        else return list.OrderByDescending(u => u.Departure).ToList();
+                    }
+                case 2:
+                    {
+                        if (order) return list.OrderBy(u => u.Destination).ToList();
+                        else return list.OrderByDescending(u => u.Destination).ToList();
+                    }
+                case 3:
+                    {
+                        if (order) return list.OrderBy(u => Convert.ToDateTime(u.DepartureTime)).ToList();
+                        else return list.OrderByDescending(u => Convert.ToDateTime(u.DepartureTime)).ToList();
+                    }
+                case 4:
+                    {
+                        if (order) return list.OrderBy(u => Convert.ToDateTime(u.ArrivalTime)).ToList();
+                        else return list.OrderByDescending(u => Convert.ToDateTime(u.ArrivalTime)).ToList();
+                    }
+            }
+            return null;
+        }
 
         public List<TICKET_View> GetAllTICKETView()
         {

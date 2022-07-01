@@ -46,19 +46,29 @@
             this.bBook = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.sortA = new System.Windows.Forms.PictureBox();
+            this.sortZ = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbbSort = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sortA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sortZ)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.sortA);
             this.panel1.Controls.Add(this.labelUnbooked);
+            this.panel1.Controls.Add(this.sortZ);
             this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.cbbSort);
             this.panel1.Controls.Add(this.bShowAll);
             this.panel1.Controls.Add(this.bSearch);
             this.panel1.Controls.Add(this.pSave);
@@ -94,7 +104,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(631, 42);
+            this.label6.Location = new System.Drawing.Point(635, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 19);
             this.label6.TabIndex = 61;
@@ -157,7 +167,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(482, 44);
+            this.label5.Location = new System.Drawing.Point(482, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 19);
             this.label5.TabIndex = 12;
@@ -278,14 +288,57 @@
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
             // 
-            // GUIBook
+            // sortA
+            // 
+            this.sortA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sortA.Image = ((System.Drawing.Image)(resources.GetObject("sortA.Image")));
+            this.sortA.Location = new System.Drawing.Point(249, 539);
+            this.sortA.Name = "sortA";
+            this.sortA.Size = new System.Drawing.Size(45, 42);
+            this.sortA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.sortA.TabIndex = 68;
+            this.sortA.TabStop = false;
+            this.sortA.Click += new System.EventHandler(this.sortA_Click);
+            // 
+            // sortZ
+            // 
+            this.sortZ.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sortZ.Image = ((System.Drawing.Image)(resources.GetObject("sortZ.Image")));
+            this.sortZ.Location = new System.Drawing.Point(310, 539);
+            this.sortZ.Name = "sortZ";
+            this.sortZ.Size = new System.Drawing.Size(45, 42);
+            this.sortZ.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.sortZ.TabIndex = 67;
+            this.sortZ.TabStop = false;
+            this.sortZ.Click += new System.EventHandler(this.sortZ_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(110, 519);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 20);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "Thuộc tính sắp xếp";
+            // 
+            // cbbSort
+            // 
+            this.cbbSort.BackColor = System.Drawing.Color.White;
+            this.cbbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSort.FormattingEnabled = true;
+            this.cbbSort.Location = new System.Drawing.Point(113, 546);
+            this.cbbSort.Name = "cbbSort";
+            this.cbbSort.Size = new System.Drawing.Size(121, 28);
+            this.cbbSort.TabIndex = 65;
+            // 
+            // GUIBook2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 616);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "GUIBook";
+            this.Name = "GUIBook2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐẶT VÉ";
             this.panel1.ResumeLayout(false);
@@ -295,6 +348,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sortA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sortZ)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -318,5 +373,9 @@
         private System.Windows.Forms.Button bShowAll;
         private System.Windows.Forms.Label labelUnbooked;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox sortA;
+        private System.Windows.Forms.PictureBox sortZ;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbbSort;
     }
 }
