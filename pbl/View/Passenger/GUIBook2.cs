@@ -23,6 +23,8 @@ namespace pbl
             InitializeComponent();
             this.list = list;
             Init();
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(list);
             BLLTRAIN.Instance.SetTicketView(dataGridView1);
         }
@@ -34,6 +36,11 @@ namespace pbl
             pLeft.MouseLeave += new System.EventHandler(pLeft_MouseLeave);
             pRight.MouseMove += new System.Windows.Forms.MouseEventHandler(pRight_MouseMove);
             pRight.MouseLeave += new System.EventHandler(pRight_MouseLeave);
+            cbbSort.Items.AddRange(new string[]
+            {
+                "Mã lịch trình", "Mã tàu", "Tên tàu", "Mã vé", "Số ghế", "Giá vé"
+                , "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến", "Trạng thái", "Tên đăng nhập chủ", "Tên chủ"
+            });
         }
         private void bBook_Click(object sender, EventArgs e)
         {
@@ -105,6 +112,8 @@ namespace pbl
 
         private void bShowAll_Click(object sender, EventArgs e)
         {
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(list);
         }
 
@@ -126,6 +135,8 @@ namespace pbl
         {
             string TrainName = ""; int booked = 0, unbooked = 0;
             if (cbbTrain.Text != "Chọn một tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(list, TrainName, Convert.ToInt32(labelCarriage.Text), ref booked, ref unbooked);
             labelBooked.Text = booked.ToString();
             labelUnbooked.Text = unbooked.ToString();
@@ -148,6 +159,37 @@ namespace pbl
         private void pRight_MouseLeave(object sender, EventArgs e)
         {
             pRight.Image = imageRight1;
+        }
+        private void sortA_Click(object sender, EventArgs e)
+        {
+            if (cbbSort.Text != "")
+            {
+                sortA.BackColor = Color.Green;
+                sortZ.BackColor = Color.White;
+                List<TICKET_View> list = dataGridView1.DataSource as List<TICKET_View>;
+                dataGridView1.DataSource = BLLTRAIN.Instance.SortSystem(list, cbbSort.SelectedIndex, true);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn thuộc tính sắp xếp!");
+                return;
+            }
+        }
+
+        private void sortZ_Click(object sender, EventArgs e)
+        {
+            if (cbbSort.Text != "")
+            {
+                sortZ.BackColor = Color.Green;
+                sortA.BackColor = Color.White;
+                List<TICKET_View> list = dataGridView1.DataSource as List<TICKET_View>;
+                dataGridView1.DataSource = BLLTRAIN.Instance.SortSystem(list, cbbSort.SelectedIndex, false);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn thuộc tính sắp xếp!");
+                return;
+            }
         }
     }
 }

@@ -45,10 +45,18 @@ namespace pbl
             {
                 cbbDes.Items.Add(s);
             }
+            cbbSort.Items.AddRange(new string[]
+            {
+                "Mã lịch trình", "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến"
+            });
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
         }
 
         private void bShowAll_Click(object sender, EventArgs e)
         {
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(GUILogin.userName);
         }
 
@@ -78,6 +86,8 @@ namespace pbl
                 FromArrivalTime = dateFromDes.Value,
                 ToArrivalTime = dateToDes.Value
             };
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(s, GUILogin.userName);
         }
         public int[] numberChar = new int[5] { 17, 25, 25, 30, 30 };
@@ -124,6 +134,37 @@ namespace pbl
                 }
             }
 
+        }
+        private void sortA_Click(object sender, EventArgs e)
+        {
+            if (cbbSort.Text != "")
+            {
+                sortA.BackColor = Color.Green;
+                sortZ.BackColor = Color.White;
+                List<SCHEDULE_View> list = dataGridView1.DataSource as List<SCHEDULE_View>;
+                dataGridView1.DataSource = BLLTRAIN.Instance.SortDetail(list, cbbSort.SelectedIndex, true);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn thuộc tính sắp xếp!");
+                return;
+            }
+        }
+
+        private void sortZ_Click(object sender, EventArgs e)
+        {
+            if (cbbSort.Text != "")
+            {
+                sortZ.BackColor = Color.Green;
+                sortA.BackColor = Color.White;
+                List<SCHEDULE_View> list = dataGridView1.DataSource as List<SCHEDULE_View>;
+                dataGridView1.DataSource = BLLTRAIN.Instance.SortDetail(list, cbbSort.SelectedIndex, false);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn thuộc tính sắp xếp!");
+                return;
+            }
         }
     }
 }
