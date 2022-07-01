@@ -19,7 +19,6 @@ namespace pbl
         {
             InitializeComponent();
             Init();
-
             Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("nl");
             dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule(GUILogin.userName);
             BLLTRAIN.Instance.SetScheduleView(dataGridView1);

@@ -275,6 +275,12 @@
     <Compile Include="View\Employee\lichtrinadd.Designer.cs">
       <DependentUpon>lichtrinadd.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Passenger\GUIBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Passenger\GUIBook.Designer.cs">
+      <DependentUpon>GUIBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Passenger\Class1.cs" />
     <Compile Include="View\Passenger\GUISystemSchedule.cs">
       <SubType>Form</SubType>
@@ -354,11 +360,11 @@
     <Compile Include="View\Passenger\GUIDetailSchedule.Designer.cs">
       <DependentUpon>GUIDetailSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Passenger\GUIBook.cs">
+    <Compile Include="View\Passenger\GUIBook2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Passenger\GUIBook.Designer.cs">
-      <DependentUpon>GUIBook.cs</DependentUpon>
+    <Compile Include="View\Passenger\GUIBook2.Designer.cs">
+      <DependentUpon>GUIBook2.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Passenger\GUIChat.cs">
       <SubType>Form</SubType>
@@ -473,6 +479,9 @@
       <DependentUpon>GUIRegister.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Passenger\GUIBook.resx">
+      <DependentUpon>GUIBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUISystemSchedule.resx">
       <DependentUpon>GUISystemSchedule.cs</DependentUpon>
     </EmbeddedResource>
@@ -513,8 +522,8 @@
     <EmbeddedResource Include="View\Passenger\GUIDetailSchedule.resx">
       <DependentUpon>GUIDetailSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\GUIBook.resx">
-      <DependentUpon>GUIBook.cs</DependentUpon>
+    <EmbeddedResource Include="View\Passenger\GUIBook2.resx">
+      <DependentUpon>GUIBook2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUIChat.resx">
       <DependentUpon>GUIChat.cs</DependentUpon>

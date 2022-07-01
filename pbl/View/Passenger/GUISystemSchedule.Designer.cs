@@ -1,4 +1,4 @@
-﻿namespace pbl
+﻿namespace pbl.View
 {
     partial class GUISystemSchedule
     {

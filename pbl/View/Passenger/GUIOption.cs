@@ -108,12 +108,12 @@ namespace pbl
             SCHEDULE_User_BLL s = new SCHEDULE_User_BLL
             {
                 ScheduleID = -1,
-                DepartureID = (int)((CBBSchedule)cbbDep.SelectedItem).Value,
-                ArrivalID = (int)((CBBSchedule)cbbDes.SelectedItem).Value,
-                FromDepartureTime = dateFromDep.Value,
-                ToDepartureTime = dateToDep.Value,
-                FromArrivalTime = dateFromDes.Value,
-                ToArrivalTime = dateToDes.Value
+                DepartureID = (cbbDep.SelectedItem == null)?-1:(int)((CBBSchedule)cbbDep.SelectedItem).Value,
+                ArrivalID = (cbbDes.SelectedItem == null) ? -1:(int)((CBBSchedule)cbbDes.SelectedItem).Value,
+                FromDepartureTime = dateFromDep.Value.AddSeconds(-dateFromDep.Value.Second),
+                ToDepartureTime = dateToDep.Value.AddSeconds(-dateToDep.Value.Second),
+                FromArrivalTime = dateFromDes.Value.AddSeconds(-dateFromDes.Value.Second),
+                ToArrivalTime = dateToDes.Value.AddSeconds(-dateToDes.Value.Second)
             };
             d(s);
             this.Close();

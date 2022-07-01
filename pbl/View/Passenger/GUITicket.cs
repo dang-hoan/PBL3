@@ -53,10 +53,6 @@ namespace pbl
             schedule.ToDepartureTime = s.ToDepartureTime;
             schedule.FromArrivalTime = s.FromArrivalTime;
             schedule.ToArrivalTime = s.ToArrivalTime;
-
-            cbbTrain.Items.Clear();
-            cbbTrain.Items.Add("Tất cả");
-            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(schedule, GUILogin.userName).ToArray());
         }
         private void bCancel_Click(object sender, EventArgs e)
         {
@@ -78,12 +74,19 @@ namespace pbl
         }
         private void Reload()
         {
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             string TrainName = "";
             if (cbbTrain.Text != "Tìm theo tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
             if (NoScheduleClick)
                 dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName, TrainName);
             else
+            {
+                cbbTrain.Items.Clear();
+                cbbTrain.Items.Add("Tất cả");
+                cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(schedule, GUILogin.userName).ToArray());
                 dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(schedule, GUILogin.userName, TrainName);
+            }
         }
         private void Schedule_Click(object sender, EventArgs e)
         {
@@ -98,6 +101,11 @@ namespace pbl
         }
         private void bShowAll_Click(object sender, EventArgs e)
         {
+            cbbTrain.Items.Clear();
+            cbbTrain.Items.Add("Tất cả");
+            cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(GUILogin.userName).ToArray());
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName);
         }
         public int[] numberChar = new int[10] { 17, 10, 25, 13, 14, 25, 25, 25, 30, 30 };
@@ -112,24 +120,7 @@ namespace pbl
             {
                 sortA.BackColor = Color.Green;
                 sortZ.BackColor = Color.White;
-                List<TICKET_User_View> list = new List<TICKET_User_View>();
-                foreach (DataGridViewRow i in dataGridView1.Rows)
-                {
-                    TICKET_User_View s = new TICKET_User_View
-                    {
-                        ScheduleID = Convert.ToInt32(i.Cells[0].Value.ToString()),
-                        TrainID = Convert.ToInt32(i.Cells[1].Value.ToString()),
-                        TrainName = i.Cells[2].Value.ToString(),
-                        TicketID = Convert.ToInt32(i.Cells[3].Value.ToString()),
-                        SeatNo = i.Cells[4].Value.ToString(),
-                        TicketPrice = Convert.ToDouble(i.Cells[5].Value.ToString()),
-                        Departure = i.Cells[6].Value.ToString(),
-                        Destination = i.Cells[7].Value.ToString(),
-                        DepartureTime = Convert.ToDateTime(i.Cells[8].Value.ToString()),
-                        ArrivalTime = Convert.ToDateTime(i.Cells[9].Value.ToString())
-                    };
-                    list.Add(s);
-                }
+                List<TICKET_User_View> list = dataGridView1.DataSource as List<TICKET_User_View>;
                 dataGridView1.DataSource = BLLTRAIN.Instance.Sort(list, cbbSort.SelectedIndex, true);
             }
             else
@@ -145,24 +136,7 @@ namespace pbl
             {
                 sortZ.BackColor = Color.Green;
                 sortA.BackColor = Color.White;
-                List<TICKET_User_View> list = new List<TICKET_User_View>();
-                foreach (DataGridViewRow i in dataGridView1.Rows)
-                {
-                    TICKET_User_View s = new TICKET_User_View
-                    {
-                        ScheduleID = Convert.ToInt32(i.Cells[0].Value.ToString()),
-                        TrainID = Convert.ToInt32(i.Cells[1].Value.ToString()),
-                        TrainName = i.Cells[2].Value.ToString(),
-                        TicketID = Convert.ToInt32(i.Cells[3].Value.ToString()),
-                        SeatNo = i.Cells[4].Value.ToString(),
-                        TicketPrice = Convert.ToDouble(i.Cells[5].Value.ToString()),
-                        Departure = i.Cells[6].Value.ToString(),
-                        Destination = i.Cells[7].Value.ToString(),
-                        DepartureTime = Convert.ToDateTime(i.Cells[8].Value.ToString()),
-                        ArrivalTime = Convert.ToDateTime(i.Cells[9].Value.ToString())
-                    };
-                    list.Add(s);
-                }
+                List<TICKET_User_View> list = dataGridView1.DataSource as List<TICKET_User_View>;
                 dataGridView1.DataSource = BLLTRAIN.Instance.Sort(list, cbbSort.SelectedIndex, false);
             }
             else

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using pbl.BLL;
 using pbl.DTO;
 
-namespace pbl
+namespace pbl.View
 {
     public partial class GUISystemSchedule : Form
     {
@@ -48,8 +48,10 @@ namespace pbl
                 {
                     list.Add(Convert.ToInt32(dr.Cells["ScheduleID"].Value.ToString()));
                 }
-                GUIBook book = new GUIBook(list);
+                GUIBook2 book = new GUIBook2(list);
                 book.Show();
+                //GUIBook book = new GUIBook(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString()));
+                //book.Show();
             }
             else
             {

@@ -44,7 +44,12 @@ namespace pbl.BLL
                       select t).FirstOrDefault();
             return s;
         }
-     
-       
+        public List<NOTICE> Getnotice()
+        {
+            PBL3 db = new PBL3();    
+            return db.NOTICEs.ToList();
+        }
+
+
     }
 }
