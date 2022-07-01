@@ -29,24 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(employee));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(employee));
             this.panel2 = new System.Windows.Forms.Panel();
             this.bAdd = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bUpdate = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuTextbox1 = new Bunifu.Framework.UI.BunifuTextbox();
             this.dtg = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.usernamedk = new System.Windows.Forms.Label();
             this.phonedk = new System.Windows.Forms.Label();
@@ -88,7 +82,15 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label13 = new System.Windows.Forms.Label();
+            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cccd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,6 +100,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.bunifuThinButton21);
             this.panel2.Controls.Add(this.bAdd);
             this.panel2.Controls.Add(this.bUpdate);
             this.panel2.Controls.Add(this.bunifuTextbox1);
@@ -127,10 +130,10 @@
             this.bAdd.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bAdd.IdleForecolor = System.Drawing.Color.Black;
             this.bAdd.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bAdd.Location = new System.Drawing.Point(924, 499);
-            this.bAdd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bAdd.Location = new System.Drawing.Point(924, 500);
+            this.bAdd.Margin = new System.Windows.Forms.Padding(5);
             this.bAdd.Name = "bAdd";
-            this.bAdd.Size = new System.Drawing.Size(166, 54);
+            this.bAdd.Size = new System.Drawing.Size(119, 54);
             this.bAdd.TabIndex = 23;
             this.bAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bAdd.Click += new System.EventHandler(this.bunifuThinButton21_Click);
@@ -153,10 +156,10 @@
             this.bUpdate.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.bUpdate.IdleForecolor = System.Drawing.Color.Black;
             this.bUpdate.IdleLineColor = System.Drawing.Color.Transparent;
-            this.bUpdate.Location = new System.Drawing.Point(1139, 499);
-            this.bUpdate.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bUpdate.Location = new System.Drawing.Point(1063, 500);
+            this.bUpdate.Margin = new System.Windows.Forms.Padding(5);
             this.bUpdate.Name = "bUpdate";
-            this.bUpdate.Size = new System.Drawing.Size(164, 54);
+            this.bUpdate.Size = new System.Drawing.Size(135, 54);
             this.bUpdate.TabIndex = 22;
             this.bUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bUpdate.Click += new System.EventHandler(this.bunifuThinButton22_Click);
@@ -194,14 +197,14 @@
             this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.Username,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6,
             this.Column15,
-            this.Column16});
+            this.Cccd});
             this.dtg.DoubleBuffered = true;
             this.dtg.EnableHeadersVisualStyles = false;
             this.dtg.HeaderBgColor = System.Drawing.Color.SeaGreen;
@@ -217,81 +220,10 @@
             this.dtg.TabIndex = 19;
             this.dtg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_CellClick_1);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Username";
-            this.Column1.HeaderText = "Tên đăng nhập";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 118;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Birthday";
-            this.Column2.HeaderText = "Ngày sinh";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 116;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Name";
-            this.Column3.HeaderText = "Họ và Tên";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 117;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Gender";
-            this.Column4.HeaderText = "Giới Tinh";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 119;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Address";
-            this.Column5.HeaderText = "Địa chỉ";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 118;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Phone";
-            this.Column6.HeaderText = "Số điện thoại";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 117;
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "Email";
-            this.Column15.HeaderText = "Gmail";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Width = 118;
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "IDCard";
-            this.Column16.HeaderText = "Cccd";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 117;
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.usernamedk);
@@ -326,13 +258,33 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtname);
             this.groupBox1.Location = new System.Drawing.Point(924, 92);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(379, 398);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cá nhân";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(99, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 25);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "*";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(163, 336);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 16);
+            this.label13.TabIndex = 40;
             // 
             // label7
             // 
@@ -416,7 +368,7 @@
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(136, 308);
+            this.label18.Location = new System.Drawing.Point(143, 301);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(20, 25);
             this.label18.TabIndex = 28;
@@ -459,8 +411,8 @@
             // txtpass
             // 
             this.txtpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpass.Location = new System.Drawing.Point(163, 344);
-            this.txtpass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtpass.Location = new System.Drawing.Point(183, 348);
+            this.txtpass.Margin = new System.Windows.Forms.Padding(4);
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(188, 27);
@@ -481,8 +433,8 @@
             // txtusername
             // 
             this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtusername.Location = new System.Drawing.Point(163, 301);
-            this.txtusername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtusername.Location = new System.Drawing.Point(183, 301);
+            this.txtusername.Margin = new System.Windows.Forms.Padding(4);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(188, 27);
             this.txtusername.TabIndex = 20;
@@ -491,8 +443,8 @@
             // idcard
             // 
             this.idcard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idcard.Location = new System.Drawing.Point(161, 171);
-            this.idcard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.idcard.Location = new System.Drawing.Point(183, 171);
+            this.idcard.Margin = new System.Windows.Forms.Padding(4);
             this.idcard.Name = "idcard";
             this.idcard.Size = new System.Drawing.Size(190, 27);
             this.idcard.TabIndex = 19;
@@ -522,8 +474,8 @@
             // address
             // 
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address.Location = new System.Drawing.Point(161, 246);
-            this.address.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.address.Location = new System.Drawing.Point(183, 245);
+            this.address.Margin = new System.Windows.Forms.Padding(4);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(188, 27);
             this.address.TabIndex = 13;
@@ -532,8 +484,8 @@
             // 
             this.female.AutoSize = true;
             this.female.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.female.Location = new System.Drawing.Point(295, 68);
-            this.female.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.female.Location = new System.Drawing.Point(320, 68);
+            this.female.Margin = new System.Windows.Forms.Padding(4);
             this.female.Name = "female";
             this.female.Size = new System.Drawing.Size(51, 24);
             this.female.TabIndex = 15;
@@ -556,8 +508,8 @@
             // 
             this.male.AutoSize = true;
             this.male.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.male.Location = new System.Drawing.Point(161, 66);
-            this.male.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.male.Location = new System.Drawing.Point(181, 66);
+            this.male.Margin = new System.Windows.Forms.Padding(4);
             this.male.Name = "male";
             this.male.Size = new System.Drawing.Size(65, 24);
             this.male.TabIndex = 14;
@@ -601,8 +553,8 @@
             // phone
             // 
             this.phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone.Location = new System.Drawing.Point(161, 136);
-            this.phone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phone.Location = new System.Drawing.Point(183, 138);
+            this.phone.Margin = new System.Windows.Forms.Padding(4);
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(190, 27);
             this.phone.TabIndex = 10;
@@ -611,8 +563,8 @@
             // gmail
             // 
             this.gmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gmail.Location = new System.Drawing.Point(161, 103);
-            this.gmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gmail.Location = new System.Drawing.Point(181, 99);
+            this.gmail.Margin = new System.Windows.Forms.Padding(4);
             this.gmail.Name = "gmail";
             this.gmail.Size = new System.Drawing.Size(190, 27);
             this.gmail.TabIndex = 11;
@@ -635,8 +587,8 @@
             this.date.CustomFormat = "dd/MM/yyyy";
             this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date.Location = new System.Drawing.Point(161, 210);
-            this.date.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.date.Location = new System.Drawing.Point(186, 211);
+            this.date.Margin = new System.Windows.Forms.Padding(4);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(185, 27);
             this.date.TabIndex = 12;
@@ -656,8 +608,8 @@
             // 
             this.txtname.BackColor = System.Drawing.Color.White;
             this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtname.Location = new System.Drawing.Point(161, 23);
-            this.txtname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtname.Location = new System.Drawing.Point(181, 25);
+            this.txtname.Margin = new System.Windows.Forms.Padding(4);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(190, 27);
             this.txtname.TabIndex = 8;
@@ -737,13 +689,103 @@
             this.Column14.ReadOnly = true;
             this.Column14.Width = 125;
             // 
-            // label13
+            // bunifuThinButton21
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(163, 336);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(0, 16);
-            this.label13.TabIndex = 40;
+            this.bunifuThinButton21.ActiveBorderThickness = 1;
+            this.bunifuThinButton21.ActiveCornerRadius = 20;
+            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
+            this.bunifuThinButton21.ButtonText = "Xóa";
+            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.IdleBorderThickness = 1;
+            this.bunifuThinButton21.IdleCornerRadius = 20;
+            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.Black;
+            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.Transparent;
+            this.bunifuThinButton21.Location = new System.Drawing.Point(1208, 500);
+            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
+            this.bunifuThinButton21.Name = "bunifuThinButton21";
+            this.bunifuThinButton21.Size = new System.Drawing.Size(118, 54);
+            this.bunifuThinButton21.TabIndex = 24;
+            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click_1);
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Tên đăng nhập";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            this.Username.Width = 118;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Birthday";
+            this.Column2.HeaderText = "Ngày sinh";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 116;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Name";
+            this.Column3.HeaderText = "Họ và Tên";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 117;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Gender";
+            this.Column4.HeaderText = "Giới Tinh";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 119;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Address";
+            this.Column5.HeaderText = "Địa chỉ";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 118;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Phone";
+            this.Column6.HeaderText = "Số điện thoại";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 117;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "Email";
+            this.Column15.HeaderText = "Gmail";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Width = 118;
+            // 
+            // Cccd
+            // 
+            this.Cccd.DataPropertyName = "IDCard";
+            this.Cccd.HeaderText = "Cccd";
+            this.Cccd.MinimumWidth = 6;
+            this.Cccd.Name = "Cccd";
+            this.Cccd.ReadOnly = true;
+            this.Cccd.Width = 117;
             // 
             // employee
             // 
@@ -809,17 +851,19 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtname;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dtg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private Bunifu.Framework.UI.BunifuTextbox bunifuTextbox1;
+        private Bunifu.Framework.UI.BunifuThinButton2 bAdd;
+        private Bunifu.Framework.UI.BunifuThinButton2 bUpdate;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label5;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private Bunifu.Framework.UI.BunifuTextbox bunifuTextbox1;
-        private Bunifu.Framework.UI.BunifuThinButton2 bAdd;
-        private Bunifu.Framework.UI.BunifuThinButton2 bUpdate;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cccd;
     }
 }

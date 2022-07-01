@@ -483,5 +483,18 @@ namespace pbl.View.Admin
             }
 
         }
+
+        private void bunifuThinButton21_Click_1(object sender, EventArgs e)
+        {
+            if (dtg.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dtg.SelectedRows)
+                {
+                    BLLpeople.instance.delnv(row.Cells["Username"].Value.ToString());
+                }
+                MessageBox.Show("Đã xoá thành công các nhân viên bạn chọn!");
+                showw();
+            }
+        }
     }
 }

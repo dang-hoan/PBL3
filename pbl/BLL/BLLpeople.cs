@@ -418,10 +418,13 @@ namespace pbl.BLL
             db.SaveChanges();
         }
         
-        public void delnv(string IDCard)
+        public void delnv(string user)
         {
             PBL3 db = new PBL3();
-            PEOPLE s = db.PEOPLE.Find(IDCard);
+            PEOPLE s = db.PEOPLE.Find(user);
+            LOGIN dn = db.LOGINs.Where(p => p.Username == user).FirstOrDefault();
+            if(dn != null) db.LOGINs.Remove(dn);
+           
             db.PEOPLE.Remove(s);
             db.SaveChanges();
         }

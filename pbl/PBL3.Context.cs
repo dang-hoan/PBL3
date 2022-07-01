@@ -16,11 +16,9 @@ namespace pbl
     public partial class PBL3 : DbContext
     {
         public PBL3()
-<<<<<<< HEAD
+
             : base("name=PBL3-Phong")
-=======
-            : base("name=PBL3-Duc")
->>>>>>> cfd09818259f6e9a4528ca189d6a4191523d83a1
+
         {
         }
     
