@@ -14,7 +14,7 @@ namespace pbl
 {
     public partial class note : Form
     {
-        Label[] label = new Label[6];
+        Label[] label = new Label[30];
         public note()
         {
             InitializeComponent();
@@ -25,12 +25,9 @@ namespace pbl
        {
                 int size = 50;
                 int X = 30, Y = 30;
-            for (int i = 0; i < 6; i++)
+           /* for (int i = 0; i < 30; i++)
             {
                 label[i] = new Label();
-                //Tên label
-                label[i].Text = (i + 1).ToString();
-                label[i].TextAlign = ContentAlignment.MiddleCenter;
 
                 //Kiểu chữ
                 label[i].Font = new Font("Arial", 12f, FontStyle.Bold);
@@ -44,22 +41,20 @@ namespace pbl
                 label[i].BorderStyle = BorderStyle.FixedSingle;
                 label[i].BackColor = Color.Silver;
                 this.Controls.Add(label[i]);
-            }
+            }*/
             
        }
         public void init()
         {
             int i = 0;
-           while (i<6)
-           {    
+            int j = 0;
+         string[] arr = new string[30];
                 foreach ( NOTICE no in BLLTicket.instance.Getnotice())
                 {
-                    label[i].Text = no.Title;
-                    label[i + 1].Text = no.Content;
-                }
-                i += 2;
-           }
-           
+                    
+                        label1.Text = no.Title;
+                       
+                 }    
         }
            
     }
