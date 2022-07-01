@@ -20,18 +20,20 @@ namespace pbl.View
         {
             InitializeComponent();
             gui();
+            show();
         }
         public void gui()
         {
             List<CBBSchedule> listDep = new List<CBBSchedule>();
             List<CBBSchedule> listDes = new List<CBBSchedule>();
-            BLLTRAIN.Instance.GetStation(ref listDep, ref listDes);
+            BLLTRAIN.Instance.GetStation2(ref listDep, ref listDes);
             foreach(CBBSchedule s in listDep) cbbDep.Items.Add(s);
             foreach(CBBSchedule s in listDes) cbbDes.Items.Add(s);
+            checkBox1.Checked = false;
         }
          public void show()
         {
-            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule();
+            dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule3();
         }
         private void butall_Click(object sender, EventArgs e)
         {
@@ -95,7 +97,7 @@ namespace pbl.View
                     FromArrivalTime = dateFromDes.Value,
                     ToArrivalTime = dateToDes.Value
                 };
-                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule3(s);
             }
             else
             {
@@ -105,7 +107,7 @@ namespace pbl.View
                     Departure = cbbDep.Text,
                     Destination = cbbDes.Text,
                 };
-                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule2(s);
+                dataGridView1.DataSource = BLLTRAIN.Instance.GetSchedule3(s);
             }
         }
 
@@ -114,7 +116,7 @@ namespace pbl.View
             string temp = cbbDep.Text;
             cbbDep.Items.Clear();
             int rep = (cbbDes.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDes.SelectedItem).Value;
-            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture(rep))
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDeparture3(rep))
             {
                 cbbDep.Items.Add(s);
             }
@@ -133,7 +135,7 @@ namespace pbl.View
             string temp = cbbDes.Text;
             cbbDes.Items.Clear();
             int rep = (cbbDep.SelectedItem == null) ? -1 : (int)((CBBSchedule)cbbDep.SelectedItem).Value;
-            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination(rep))
+            foreach (CBBSchedule s in BLLTRAIN.Instance.GetDestination3(rep))
             {
                 cbbDes.Items.Add(s);
             }
