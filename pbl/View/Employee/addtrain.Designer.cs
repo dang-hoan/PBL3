@@ -145,7 +145,6 @@
             this.label7.Size = new System.Drawing.Size(125, 20);
             this.label7.TabIndex = 54;
             this.label7.Text = "Tên người lái tàu";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label5
             // 

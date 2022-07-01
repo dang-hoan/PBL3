@@ -115,19 +115,21 @@ namespace pbl.View
                     return;
                 }
             }
-            if (BLLTRAIN.Instance.CheckEmail("", txtemail.Text) && txtemail.Enabled == true)
-            {
-                MessageBox.Show("Email đã tồn tại!");
-                return;
-            }
-            if (BLLTRAIN.Instance.CheckPhone("", txtsdt.Text) && txtemail.Enabled == true)
-            {
-                MessageBox.Show("Số điện thoại bạn nhập đã tồn tại trong hệ thống!");
-                return;
-
-            }
             string user = "";
             PEOPLE peo = BLLTRAIN.Instance.CheckIDCard(txtidcard.Text);
+            if (peo == null) 
+            {
+                if (BLLTRAIN.Instance.CheckEmail("", txtemail.Text) && txtemail.Enabled == true)
+                {
+                    MessageBox.Show("Email đã tồn tại!");
+                    return;
+                }
+                if (BLLTRAIN.Instance.CheckPhone("", txtsdt.Text) && txtemail.Enabled == true)
+                {
+                    MessageBox.Show("Số điện thoại bạn nhập đã tồn tại trong hệ thống!");
+                    return;
+                }
+            }
             if (peo != null) user = peo.Username;
             else{
                 PEOPLE p = new PEOPLE

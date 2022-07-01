@@ -1697,6 +1697,29 @@ namespace pbl.BLL
                          };
             return result.ToList();
         }
+        public List<SCHEDULE_View> GetSchedule3(SCHEDULE_View schedule)
+        {
+            PBL3 db = new PBL3();
+            bool Dep = false, Des = false;
+            if (schedule.Departure == "") Dep = true;
+            if (schedule.Destination == "") Des = true;
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+            //var result = from sch in db.SCHEDULEs.ToList()
+            //             where (Dep || sch.STATION.StationName.Equals(schedule.Departure)) || (Des || sch.STATION1.StationName.Equals(schedule.Destination))
+            //                   && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
+            var result = from sch in db.SCHEDULEs.ToList()
+                         where (Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination))
+                         &&(sch.DepartureTime.CompareTo(DateTime.Now.ToString("yyyy/M/d H:m")) >= 0)
+                         select new SCHEDULE_View
+                         {
+                             ScheduleID = sch.ScheduleID,
+                             Departure = sch.STATION1.StationName,
+                             Destination = sch.STATION.StationName,
+                             DepartureTime = sch.DepartureTime.ToString(),
+                             ArrivalTime = sch.ArrivalTime.ToString()
+                         };
+            return result.ToList();
+        }
         public List<int> GetDayOfDepartureTime(string month, string year, string userName)
         {
             PBL3 db = new PBL3();
