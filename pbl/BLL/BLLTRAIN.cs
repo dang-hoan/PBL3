@@ -859,7 +859,7 @@ namespace pbl.BLL
         public List<TICKET_User_View> GetTicket(SCHEDULE_User_BLL schedule, string userName, string TrainName)
         {
             schedule.FromDepartureTime = schedule.FromDepartureTime.AddSeconds(-schedule.FromDepartureTime.Second);
-            schedule.ToDepartureTime = schedule.ToDepartureTime.AddSeconds(-schedule.FromDepartureTime.Second + 59);
+            schedule.ToDepartureTime = schedule.ToDepartureTime.AddSeconds(-schedule.ToDepartureTime.Second + 59);
             schedule.FromArrivalTime = schedule.FromArrivalTime.AddSeconds(-schedule.FromArrivalTime.Second);
             schedule.ToArrivalTime = schedule.ToArrivalTime.AddSeconds(-schedule.ToArrivalTime.Second + 59);
             PBL3 db = new PBL3();
@@ -885,6 +885,8 @@ namespace pbl.BLL
                              DepartureTime = tic.TRIP.SCHEDULE.DepartureTime,
                              ArrivalTime = tic.TRIP.SCHEDULE.ArrivalTime
                          };
+            //schedule.ToDepartureTime = schedule.ToDepartureTime.AddSeconds(-schedule.FromDepartureTime.Second);
+            //schedule.ToArrivalTime = schedule.ToArrivalTime.AddSeconds(-schedule.ToArrivalTime.Second);
             return result.ToList();
         }
         public List<TICKET_View> GetTicket(List<int> list)
@@ -1031,7 +1033,7 @@ namespace pbl.BLL
         public List<string> GetTrain(SCHEDULE_User_BLL schedule, string userName)
         {
             schedule.FromDepartureTime = schedule.FromDepartureTime.AddSeconds(-schedule.FromDepartureTime.Second);
-            schedule.ToDepartureTime = schedule.ToDepartureTime.AddSeconds(-schedule.FromDepartureTime.Second + 59);
+            schedule.ToDepartureTime = schedule.ToDepartureTime.AddSeconds(-schedule.ToDepartureTime.Second + 59);
             schedule.FromArrivalTime = schedule.FromArrivalTime.AddSeconds(-schedule.FromArrivalTime.Second);
             schedule.ToArrivalTime = schedule.ToArrivalTime.AddSeconds(-schedule.ToArrivalTime.Second + 59);
             PBL3 db = new PBL3();
