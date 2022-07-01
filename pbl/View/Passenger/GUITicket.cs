@@ -74,6 +74,8 @@ namespace pbl
         }
         private void Reload()
         {
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             string TrainName = "";
             if (cbbTrain.Text != "Tìm theo tàu" && cbbTrain.Text != "Tất cả") TrainName = cbbTrain.Text;
             if (NoScheduleClick)
@@ -102,6 +104,8 @@ namespace pbl
             cbbTrain.Items.Clear();
             cbbTrain.Items.Add("Tất cả");
             cbbTrain.Items.AddRange(BLLTRAIN.Instance.GetTrain(GUILogin.userName).ToArray());
+            sortA.BackColor = Color.White;
+            sortZ.BackColor = Color.White;
             dataGridView1.DataSource = BLLTRAIN.Instance.GetTicket(GUILogin.userName);
         }
         public int[] numberChar = new int[10] { 17, 10, 25, 13, 14, 25, 25, 25, 30, 30 };
