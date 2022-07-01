@@ -378,6 +378,12 @@ namespace pbl.View.Admin
                             IDCard = idcard.Text,
 
                         };
+                        LOGIN dn = new LOGIN()
+                        {
+                            Username = txtusername.Text,
+                            PassWord = txtpass.Text,
+                        };
+                        BLLpeople.instance.Execute2(dn);
                         BLLpeople.instance.Executenv(s);
                         MessageBox.Show("Đã cập nhật thành công thông tin nhân viên!");
                         showw();

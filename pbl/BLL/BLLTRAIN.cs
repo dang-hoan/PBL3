@@ -180,7 +180,6 @@ namespace pbl.BLL
                                 MessageBox.Show("Chúng tôi không thể lưu vào file bạn chọn vì nó đang được mở!");
                                 return;
                             }
-                            GUILogin.gui.Show();
                         }
                         break;
                     }
@@ -334,7 +333,6 @@ namespace pbl.BLL
                         releaseObject(exSheet);
                         releaseObject(exBook);
                         releaseObject(exApp);
-                        GUILogin.gui.Show();
                         break;
                     }
             }
@@ -1306,21 +1304,15 @@ namespace pbl.BLL
             }
             return result.Distinct().ToList();
         }
-        public void addticket(TICKET s)
+        public bool addticket(TICKET s, bool Type)
         {
             PBL3 db = new PBL3();
-            int ticketID =  (from tic in db.TICKETs.ToList()
+            TICKET t =  (from tic in db.TICKETs.ToList()
                              where (tic.ScheduleID == s.ScheduleID) && (tic.TrainID == s.TrainID) && (tic.SeatNo.ToUpper() == s.SeatNo.ToUpper())
-                             select tic.TicketID).FirstOrDefault();
-            SetTicket(ticketID, s.CustomerUN, true);
-        }
-        public void addticket(TICKET s, bool Type)
-        {
-            PBL3 db = new PBL3();
-            int ticketID =  (from tic in db.TICKETs.ToList()
-                             where (tic.ScheduleID == s.ScheduleID) && (tic.TrainID == s.TrainID) && (tic.SeatNo.ToUpper() == s.SeatNo.ToUpper())
-                             select tic.TicketID).FirstOrDefault();
-            SetTicket(ticketID, s.CustomerUN, Type);
+                             select tic).FirstOrDefault();
+            if (t.TRIP.SCHEDULE.DepartureTime.CompareTo(DateTime.Now) <= 0) return true;
+            SetTicket(t.TicketID, s.CustomerUN, Type);
+            return false;
         }
 
         public void SetTicket(int TicketID, string userName, bool booked)

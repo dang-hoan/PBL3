@@ -163,7 +163,6 @@ C:\PBL3\pbl\obj\Debug\pbl.csproj.AssemblyReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.SuggestedBindingRedirects.cache
 C:\PBL3\pbl\obj\Debug\pbl.csproj.ResolveComReference.cache
 C:\PBL3\pbl\obj\Debug\pbl.AddSecurity.resources
-C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Add.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Employee.doanhthu.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.employee.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.Admin.Home.resources
@@ -189,15 +188,9 @@ C:\PBL3\pbl\obj\Debug\pbl.View.GUISystemSchedule.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUICalendar.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIForget.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIPersonal.resources
-C:\PBL3\pbl\obj\Debug\pbl.GUIFeedback.resources
-C:\PBL3\pbl\obj\Debug\pbl.GUIHelp.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIPrivateSchedule.resources
-C:\PBL3\pbl\obj\Debug\pbl.GUINotification.resources
-C:\PBL3\pbl\obj\Debug\pbl.GUISetting.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUITicket.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIDetailSchedule.resources
-C:\PBL3\pbl\obj\Debug\pbl.GUIBook2.resources
-C:\PBL3\pbl\obj\Debug\pbl.GUIChat.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.GUI.resources
 C:\PBL3\pbl\obj\Debug\pbl.GUIOption.resources
 C:\PBL3\pbl\obj\Debug\pbl.View.GUISchedule.resources

@@ -18,7 +18,6 @@ namespace pbl
     public partial class GUILogin : Form
     {
         public static string userName;
-        public static Form gui;
         public GUILogin()
         {
             InitializeComponent();
@@ -72,7 +71,6 @@ namespace pbl
                         GUI g = new GUI(this, txtusername.Text);
                         g.Show();
                         this.Hide();
-                        gui = g;
                         break;
                     }
             }

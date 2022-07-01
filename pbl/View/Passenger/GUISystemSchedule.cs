@@ -56,12 +56,17 @@ namespace pbl.View
                 //}
                 //GUIBook2 book = new GUIBook2(list);
                 //book.Show();
+                if((Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells["DepartureTime"].Value.ToString())).CompareTo(DateTime.Now) <= 0)
+                {
+                    MessageBox.Show("Lịch trình có mã " + (dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString()) + " đã hết hạn!");
+                    return;
+                }
                 GUIBook book = new GUIBook(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ScheduleID"].Value.ToString()));
                 book.Show();
             }
             else
             {
-                MessageBox.Show("Hãy chọn tối thiểu một lịch trình để đặt vé!");
+                MessageBox.Show("Hãy chọn một lịch trình để đặt vé!");
             }
         }
         private void bShowAll_Click(object sender, EventArgs e)

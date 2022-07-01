@@ -33,19 +33,13 @@ namespace pbl.View
         }
         private void ChangeColor(PictureBox p, Button b)
         {
-            pOther.BackColor = Color.FromArgb(0, 192, 0);
             pHome.BackColor = Color.FromArgb(0, 192, 0);
             //pChat.BackColor = Color.FromArgb(0, 192, 0);
             pTicket.BackColor = Color.FromArgb(0, 192, 0);
             pSchedule.BackColor = Color.FromArgb(0, 192, 0);
-            pNotify.BackColor = Color.FromArgb(0, 192, 0);
             pImage.BackColor = Color.FromArgb(0, 192, 0);
             pArrow.BackColor = Color.FromArgb(0, 192, 0);
             if (p != null) p.BackColor = Color.Green;
-
-            bHelp.BackColor = Color.FromArgb(0, 192, 0);
-            bFeedback.BackColor = Color.FromArgb(0, 192, 0);
-            bSetting.BackColor = Color.FromArgb(0, 192, 0);
             if (b != null) b.BackColor = Color.Green;
 
             labelPersonal.BackColor = Color.FromArgb(0, 192, 0);
@@ -62,9 +56,6 @@ namespace pbl.View
         }
         private void AddHandler()
         {
-            //pOther
-            this.pOther.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
-            this.pOther.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //pHome
             this.pHome.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
             this.pHome.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
@@ -77,9 +68,6 @@ namespace pbl.View
             //pSchedule
             this.pSchedule.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
             this.pSchedule.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
-            //pNotify
-            this.pNotify.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
-            this.pNotify.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
             //labelName
             this.labelName.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
             this.labelName.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
@@ -95,21 +83,11 @@ namespace pbl.View
             //labelLogOut
             this.labelLogOut.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
             this.labelLogOut.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
-            //bHelp
-            this.bHelp.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
-            this.bHelp.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
-            //bFeedback
-            this.bFeedback.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
-            this.bFeedback.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
-            //bSetting
-            this.bSetting.MouseMove += new System.Windows.Forms.MouseEventHandler(handler.Controls_MouseMove);
-            this.bSetting.MouseLeave += new System.EventHandler(handler.Controls_MouseLeave);
         }
         private void ShowForm(Form subForm)
         {
             if (form != null) form.Close();
             form = subForm;
-            panel_Other.Visible = false;
             panel_User.Visible = false;
             subForm.TopLevel = false;
             subForm.FormBorderStyle = FormBorderStyle.None;
@@ -117,34 +95,6 @@ namespace pbl.View
             panel_Content.Controls.Add(subForm);
             panel_Content.Tag = subForm;
             subForm.Show();
-        }
-        private void pOther_Click(object sender, EventArgs e)
-        {
-            if (panel_Other.Visible)
-            {
-                pOther.BackColor = Color.FromArgb(0, 192, 0);
-                panel_Other.Visible = false;
-            }
-            else
-            {
-                pOther.BackColor = Color.Green;
-                panel_Other.Visible = true;
-            }
-        }
-        private void Help_Click(object sender, EventArgs e)
-        {
-            ChangeColor(null, bHelp);
-            ShowForm(new GUIHelp());
-        }
-        private void Feedback_Click(object sender, EventArgs e)
-        {
-            ChangeColor(null, bFeedback);
-            ShowForm(new GUIFeedback());
-        }
-        private void Setting_Click(object sender, EventArgs e)
-        {
-            ChangeColor(null,bSetting);
-            ShowForm(new GUISetting());
         }
 
         private void pHome_Click(object sender, EventArgs e)
@@ -169,12 +119,6 @@ namespace pbl.View
             ShowForm(new GUISchedule());
         }
 
-        private void pNotify_Click(object sender, EventArgs e)
-        {
-            ChangeColor(pNotify, null);
-            ShowForm(new GUINotification());
-        }
-
         private void pArrow_Click(object sender, EventArgs e)
         {
             if(panel_User.Visible) panel_User.Visible = false;
@@ -194,11 +138,6 @@ namespace pbl.View
                 this.Close();
                 login.Show();
             }
-        }
-
-        private void panel_Content_Click(object sender, EventArgs e)
-        {
-            panel_Other.Visible = false;
         }
 
         private void GUI_FormClosed(object sender, FormClosedEventArgs e)

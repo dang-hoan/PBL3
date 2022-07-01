@@ -151,7 +151,12 @@ namespace pbl.View
                 CustomerUN = user,
                 Booked = true
             };
-            BLLTRAIN.Instance.addticket(tic);
+            if (BLLTRAIN.Instance.addticket(tic, true))
+            {
+                MessageBox.Show("Lịch trình đã hết hạn!");
+                d();
+                this.Close();
+            }
             MessageBox.Show("Đã đặt vé thành công cho khách hàng " + txtname.Text + "!");
             d();
             this.Close();

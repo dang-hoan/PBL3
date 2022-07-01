@@ -126,11 +126,6 @@ namespace pbl.View
                 login.Show();
             }
         }
-        private void setting(object sender, EventArgs e)
-        {
-
-            showform(new GUISetting());
-        }
 
         private void pChat_Click(object sender, EventArgs e)
         {

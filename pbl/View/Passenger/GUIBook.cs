@@ -147,7 +147,11 @@ namespace pbl.View
                 else MessageBox.Show("Vé này đã có người đặt!");
                 return;
             }
-            BLLTRAIN.Instance.addticket(tic);
+            if (BLLTRAIN.Instance.addticket(tic, true))
+            {
+                MessageBox.Show("Lịch trình đã hết hạn!");
+                return;
+            }
             MessageBox.Show("Đã đặt vé thành công!");
             setcolor();
         }

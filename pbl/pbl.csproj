@@ -149,12 +149,6 @@
     <Compile Include="View\AddSecurity.Designer.cs">
       <DependentUpon>AddSecurity.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin\Add.Designer.cs">
-      <DependentUpon>Add.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Admin\doanhthu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,35 +300,11 @@
     <Compile Include="View\GUIPersonal.Designer.cs">
       <DependentUpon>GUIPersonal.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Passenger\GUIFeedback.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\GUIFeedback.Designer.cs">
-      <DependentUpon>GUIFeedback.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Passenger\GUIHelp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\GUIHelp.Designer.cs">
-      <DependentUpon>GUIHelp.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Passenger\GUIPrivateSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Passenger\GUIPrivateSchedule.Designer.cs">
       <DependentUpon>GUIPrivateSchedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Passenger\GUINotification.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\GUINotification.Designer.cs">
-      <DependentUpon>GUINotification.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Passenger\GUISetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\GUISetting.Designer.cs">
-      <DependentUpon>GUISetting.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Passenger\GUITicket.cs">
       <SubType>Form</SubType>
@@ -347,18 +317,6 @@
     </Compile>
     <Compile Include="View\Passenger\GUIDetailSchedule.Designer.cs">
       <DependentUpon>GUIDetailSchedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Passenger\GUIBook2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\GUIBook2.Designer.cs">
-      <DependentUpon>GUIBook2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Passenger\GUIChat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Passenger\GUIChat.Designer.cs">
-      <DependentUpon>GUIChat.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Passenger\GUI.cs">
       <SubType>Form</SubType>
@@ -402,9 +360,6 @@
     </Compile>
     <EmbeddedResource Include="View\AddSecurity.resx">
       <DependentUpon>AddSecurity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\Add.resx">
-      <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\doanhthu.resx">
       <DependentUpon>doanhthu.cs</DependentUpon>
@@ -489,33 +444,14 @@
     <EmbeddedResource Include="View\GUIPersonal.resx">
       <DependentUpon>GUIPersonal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\GUIFeedback.resx">
-      <DependentUpon>GUIFeedback.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\GUIHelp.resx">
-      <DependentUpon>GUIHelp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUIPrivateSchedule.resx">
       <DependentUpon>GUIPrivateSchedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\GUINotification.resx">
-      <DependentUpon>GUINotification.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\GUISetting.resx">
-      <DependentUpon>GUISetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUITicket.resx">
       <DependentUpon>GUITicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUIDetailSchedule.resx">
       <DependentUpon>GUIDetailSchedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\GUIBook2.resx">
-      <DependentUpon>GUIBook2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Passenger\GUIChat.resx">
-      <DependentUpon>GUIChat.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Passenger\GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>

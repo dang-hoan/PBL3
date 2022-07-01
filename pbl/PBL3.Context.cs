@@ -18,7 +18,7 @@ namespace pbl
 
         public PBL3()
 
-            : base("name=PBL3-Duc")
+            : base("name=PBL3-Hoan")
         {
         }
     

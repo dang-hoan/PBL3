@@ -40,9 +40,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(53, 33);
+            this.label1.Location = new System.Drawing.Point(60, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 24);
+            this.label1.Size = new System.Drawing.Size(76, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             this.label1.Click += new System.EventHandler(this.label4_Click);
@@ -50,17 +50,19 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 33);
+            this.label2.Location = new System.Drawing.Point(217, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 1;
             // 
             // txt1
             // 
-            this.txt1.Location = new System.Drawing.Point(95, 78);
+            this.txt1.Enabled = false;
+            this.txt1.Location = new System.Drawing.Point(107, 98);
+            this.txt1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt1.Multiline = true;
             this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(892, 132);
+            this.txt1.Size = new System.Drawing.Size(1003, 164);
             this.txt1.TabIndex = 6;
             // 
             // label3
@@ -68,32 +70,35 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(53, 241);
+            this.label3.Location = new System.Drawing.Point(60, 301);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 24);
+            this.label3.Size = new System.Drawing.Size(76, 26);
             this.label3.TabIndex = 7;
             this.label3.Text = "label3";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txt3
             // 
-            this.txt3.Location = new System.Drawing.Point(95, 280);
+            this.txt3.Enabled = false;
+            this.txt3.Location = new System.Drawing.Point(107, 350);
+            this.txt3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt3.Multiline = true;
             this.txt3.Name = "txt3";
-            this.txt3.Size = new System.Drawing.Size(892, 169);
+            this.txt3.Size = new System.Drawing.Size(1003, 210);
             this.txt3.TabIndex = 9;
             // 
             // note
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1066, 568);
+            this.ClientSize = new System.Drawing.Size(1199, 710);
             this.Controls.Add(this.txt3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "note";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "note";
