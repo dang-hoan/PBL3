@@ -47,28 +47,6 @@ namespace pbl.View
             dataGridView1.DataSource = BLLTRAIN.Instance.Getalltrain();
         }
 
-        private void butve_Click(object sender, EventArgs e)
-        {
-            //butdelte_Click(sender, e);
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                if (dataGridView1.SelectedRows[0].Cells["State"].Value.ToString() == "Hoạt động")
-                {
-                    int trainid = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["TrainID"].Value.ToString());
-                    addve f = new addve(trainid);
-                    f.Show();
-                    f.d = new addve.Mydel(show2);
-                }
-                else
-                {
-                    MessageBox.Show(" Tàu đã ngừng hoạt động!");
-                }    
-            }
-            else
-                MessageBox.Show(" vui lòng chọn một lịch trình!");
-
-        }
-
         private void buttrain_Click_1(object sender, EventArgs e)
         {
             addtrain f = new addtrain(-1);

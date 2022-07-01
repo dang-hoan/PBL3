@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelName = new System.Windows.Forms.Label();
             this.bunifuTextbox1 = new Bunifu.Framework.UI.BunifuTextbox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,7 +49,6 @@
             this.paneltk = new System.Windows.Forms.Panel();
             this.dtgtk = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.labelName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -81,6 +81,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1530, 92);
             this.panel1.TabIndex = 0;
+            // 
+            // labelName
+            // 
+            this.labelName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(1060, 12);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(356, 61);
+            this.labelName.TabIndex = 6;
+            this.labelName.Text = "Tên khách hàng";
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelName.Click += new System.EventHandler(this.pttcn_Click);
             // 
             // bunifuTextbox1
             // 
@@ -235,7 +247,7 @@
             this.btttcn.TabIndex = 2;
             this.btttcn.Text = "Thông tin cá nhân ";
             this.btttcn.UseVisualStyleBackColor = true;
-            this.btttcn.Click += new System.EventHandler(this.btttcn_Click);
+            this.btttcn.Click += new System.EventHandler(this.pttcn_Click);
             // 
             // paneltk
             // 
@@ -250,20 +262,20 @@
             // 
             // dtgtk
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dtgtk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtgtk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgtk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgtk.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dtgtk.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgtk.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgtk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgtk.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgtk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgtk.ColumnHeadersVisible = false;
             this.dtgtk.DoubleBuffered = true;
@@ -287,17 +299,6 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // labelName
-            // 
-            this.labelName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(1060, 12);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(356, 61);
-            this.labelName.TabIndex = 6;
-            this.labelName.Text = "Tên khách hàng";
-            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Home
             // 

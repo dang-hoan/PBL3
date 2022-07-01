@@ -12,6 +12,7 @@ using COMExcel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
 using System.Drawing;
 using Bunifu.Framework.UI;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace pbl.BLL
 {
@@ -83,13 +84,110 @@ namespace pbl.BLL
             {
                 case ".docx":
                     {
+                        if (dataGridView1.Rows.Count != 0)
+                        {
+                            int RowCount = dataGridView1.Rows.Count;
+                            int ColumnCount = dataGridView1.Columns.Count;
+                            Object[,] DataArray = new object[RowCount + 1, ColumnCount + 1];
+
+                            //thêm các rows
+                            int r = 0;
+                            for (int c = 0; c <= ColumnCount - 1; c++)
+                            {
+                                for (r = 0; r <= RowCount - 1; r++)
+                                {
+                                    DataArray[r, c] = dataGridView1.Rows[r].Cells[c].Value;
+                                } 
+                            } 
+
+                            Word.Document oDoc = new Word.Document();
+                            oDoc.Application.Visible = true;
+
+                            //định hướng page
+                            oDoc.PageSetup.Orientation = Word.WdOrientation.wdOrientLandscape;
+
+
+                            dynamic oRange = oDoc.Content.Application.Selection.Range;
+                            string oTemp = "";
+                            for (r = 0; r <= RowCount - 1; r++)
+                            {
+                                for (int c = 0; c <= ColumnCount - 1; c++)
+                                {
+                                    oTemp = oTemp + DataArray[r, c] + "\t";
+
+                                }
+                            }
+
+                            //định dạng table
+                            oRange.Text = oTemp;
+
+                            object Separator = Word.WdTableFieldSeparator.wdSeparateByTabs;
+                            object ApplyBorders = true;
+                            object AutoFit = true;
+                            object AutoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitContent;
+
+                            oRange.ConvertToTable(ref Separator, ref RowCount, ref ColumnCount,
+                                                    Type.Missing, Type.Missing, ref ApplyBorders,
+                                                    Type.Missing, Type.Missing, Type.Missing,
+                                                    Type.Missing, Type.Missing, Type.Missing,
+                                                    Type.Missing, ref AutoFit, ref AutoFitBehavior, Type.Missing);
+
+                            oRange.Select();
+
+                            oDoc.Application.Selection.Tables[1].Select();
+                            oDoc.Application.Selection.Tables[1].Rows.AllowBreakAcrossPages = 0;
+                            oDoc.Application.Selection.Tables[1].Rows.Alignment = 0;
+                            oDoc.Application.Selection.Tables[1].Rows[1].Select();
+                            oDoc.Application.Selection.InsertRowsAbove(1);
+                            oDoc.Application.Selection.Tables[1].Rows[1].Select();
+
+                            //header row style
+                            oDoc.Application.Selection.Tables[1].Rows[1].Range.Bold = 1;
+                            oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Name = "Tahoma";
+                            oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Size = 14;
+                            oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Color = Word.WdColor.wdColorBlack;
+
+                            //add header row manually
+                            for (int c = 0; c <= ColumnCount - 1; c++)
+                            {
+                                oDoc.Application.Selection.Tables[1].Cell(1, c + 1).Range.Text = dataGridView1.Columns[c].HeaderText;
+                            }
+
+                            //table style 
+                            oDoc.Application.Selection.Tables[1].set_Style("Grid Table 4 - Accent 6");
+                            oDoc.Application.Selection.Tables[1].Rows[1].Select();
+                            oDoc.Application.Selection.Cells.VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                            //header text
+                            foreach (Word.Section section in oDoc.Application.ActiveDocument.Sections)
+                            {
+                                Word.Range headerRange = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
+                                headerRange.Fields.Add(headerRange, Word.WdFieldType.wdFieldPage);
+                                headerRange.Text = header;
+                                headerRange.Font.Size = 16;
+                                headerRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                            }
+
+                            //save the file
+                            try
+                            {
+                                // Save file
+                                oDoc.SaveAs2(path);
+                                MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Chúng tôi không thể lưu vào file bạn chọn vì nó đang được mở!");
+                                return;
+                            }
+                            GUILogin.gui.Show();
+                        }
                         break;
                     }
                 case ".txt":
                     {
                         int sum = 0;
                         foreach (int i in numberChar) sum += i;
-
                         using (StreamWriter sw = new StreamWriter(path))
                         {
                             for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
@@ -221,7 +319,7 @@ namespace pbl.BLL
                         {
                             // Save file
                             exBook.SaveAs(path);
-
+                            MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
                         }
                         catch (Exception)
                         {
@@ -236,6 +334,7 @@ namespace pbl.BLL
                         releaseObject(exSheet);
                         releaseObject(exBook);
                         releaseObject(exApp);
+                        GUILogin.gui.Show();
                         break;
                     }
             }
@@ -293,6 +392,15 @@ namespace pbl.BLL
             var data = (from tri in db.TRIPs
                         where tri.ScheduleID == ScheduleID && tri.TrainID == TrainID
                         select tri).FirstOrDefault();
+            if (data != null) return true;
+            return false;
+        }
+        public bool CheckTicket(TICKET t){
+            PBL3 db = new PBL3();
+            var data = (from tic in db.TICKETs
+                        where tic.ScheduleID == t.ScheduleID && tic.TrainID == t.TrainID
+                        && tic.SeatNo.Equals(t.SeatNo) && tic.CustomerUN == t.CustomerUN
+                        select tic).FirstOrDefault();
             if (data != null) return true;
             return false;
         }
@@ -1202,9 +1310,17 @@ namespace pbl.BLL
         {
             PBL3 db = new PBL3();
             int ticketID =  (from tic in db.TICKETs.ToList()
-                             where (tic.ScheduleID == s.ScheduleID) && (tic.TrainID == s.TrainID) && (tic.SeatNo.ToUpper() == s.SeatNo)
+                             where (tic.ScheduleID == s.ScheduleID) && (tic.TrainID == s.TrainID) && (tic.SeatNo.ToUpper() == s.SeatNo.ToUpper())
                              select tic.TicketID).FirstOrDefault();
             SetTicket(ticketID, s.CustomerUN, true);
+        }
+        public void addticket(TICKET s, bool Type)
+        {
+            PBL3 db = new PBL3();
+            int ticketID =  (from tic in db.TICKETs.ToList()
+                             where (tic.ScheduleID == s.ScheduleID) && (tic.TrainID == s.TrainID) && (tic.SeatNo.ToUpper() == s.SeatNo.ToUpper())
+                             select tic.TicketID).FirstOrDefault();
+            SetTicket(ticketID, s.CustomerUN, Type);
         }
 
         public void SetTicket(int TicketID, string userName, bool booked)
