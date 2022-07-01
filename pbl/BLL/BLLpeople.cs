@@ -534,6 +534,29 @@ namespace pbl.BLL
 
             return l2.ToList();
         }
+        public List<Nhanvien_view> getallnsv(int PositionId)
+        {
+            PBL3 db = new PBL3();
+            List<Nhanvien_view> list = new List<Nhanvien_view>();
+            var l2 = from PEOPLE p in db.PEOPLE.ToList()
+                     join POSITION pos in db.POSITIONs on p.PositionID equals pos.PositionID
+                     where p.PositionID == PositionId
+                     select new Nhanvien_view
+                     {
+                         Username = p.Username,
+                         Name = p.Name,
+                         Gender = ((bool)p.Gender) ? "Nam" : "Nu",
+                         BirthDay = p.BirthDay.Value.ToString("dd/MM/yyyy"),
+                         Address = p.Address,
+                         Email = p.Email,
+                         Phone = p.Phone,
+                         IDCard = p.IDCard,
+                         Position = pos.Position
+                     };
+            /*  list = db.PEOPLE.Where(p => p.PositionID == PositionId).Select(p => p).ToList();*/
+
+            return l2.ToList();
+        }
         public List<PEOPLE> sort()
         {
             PBL3 db = new PBL3();

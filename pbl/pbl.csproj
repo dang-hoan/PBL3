@@ -85,6 +85,7 @@
     <Compile Include="DTO\CBBpeople.cs" />
     <Compile Include="DTO\doanhthu_view.cs" />
     <Compile Include="DTO\employeeview.cs" />
+    <Compile Include="DTO\Nhanvien_view.cs" />
     <Compile Include="DTO\PEOPLE_View.cs" />
     <Compile Include="DTO\Schedule.cs" />
     <Compile Include="DTO\SCHEDULE_User_BLL.cs" />
