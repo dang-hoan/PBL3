@@ -71,7 +71,7 @@ namespace pbl.View.Admin
 
         private void pttcn_Click(object sender, EventArgs e)
         {
-            ShowForm(new GUIPersonal());
+            ShowForm(new Personal());
             paneltk.Visible = false;
             paneldx.Visible = false;
         }
@@ -94,11 +94,6 @@ namespace pbl.View.Admin
             {
                 paneldx.Visible = true;
             }
-        }
-
-        private void btttcn_Click(object sender, EventArgs e)
-        {
-            ShowForm(new GUIPersonal());
         }
 
         private void btdx_Click(object sender, EventArgs e)

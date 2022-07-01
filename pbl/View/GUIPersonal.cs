@@ -77,12 +77,12 @@ namespace pbl
             else if (BLLTRAIN.Instance.UpdatePass(GUILogin.userName, txtOld.Text, txtNew.Text))
             {
                 MessageBox.Show("Đổi mật khẩu thành công!");
-                txtOld.Text = "";
-                txtNew.Text = "";
-                txtConfirm.Text = "";
                 txtOld.Enabled = false;
                 txtNew.Enabled = false;
                 txtConfirm.Enabled = false;
+                txtOld.Text = "";
+                txtNew.Text = "";
+                txtConfirm.Text = "";
             }
             else
             {
@@ -375,7 +375,7 @@ namespace pbl
                 if (txtConfirm.Text != txtNew.Text) labConfirm.Text = "*Mật khẩu xác nhận không khớp với mật khẩu mới!";
                 else labConfirm.Text = "";
             }
-            else if(txtConfirm.Enabled == true) labConfirm.Text = "*Không thể để trống ô mật khẩu!";
+            else if (txtConfirm.Enabled == true) labConfirm.Text = "*Không thể để trống ô mật khẩu!";
         }
 
         private void txtBirthDay_ValueChanged(object sender, EventArgs e)
