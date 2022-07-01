@@ -21,6 +21,7 @@ namespace pbl.View
             InitializeComponent();
             gui();
             show();
+            BLLTRAIN.Instance.SetScheduleView(dataGridView1);
         }
         public void gui()
         {

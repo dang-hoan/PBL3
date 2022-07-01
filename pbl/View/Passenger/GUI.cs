@@ -21,25 +21,15 @@ namespace pbl.View
             InitializeComponent();
             this.Size = new Size(750, 528);
             labelName.Text = BLLTRAIN.Instance.GetName(userName);
-            ShowForm(CreatForm());            
+            ShowForm(new note());            
             AddHandler();
             this.login = login;
             PBL3 db = new PBL3();
         }        
-        private Form CreatForm()
+        private void CreatForm()
         {
-            Form GUIHome = new Form();
-            PictureBox picture = new PictureBox();
-
-            GUIHome.Size = new Size(1096, 689);
-            picture.Width = 730;
-            picture.Height = 470;
-            Bitmap image = new Bitmap(@"C:\PBL3\picture\text.png");
-            picture.Image = (Image)image;
-            picture.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            GUIHome.Controls.Add(picture);
-            return GUIHome;
+            ShowForm(new note());
+            ChangeColor(pHome, null);
         }
         private void ChangeColor(PictureBox p, Button b)
         {
@@ -160,7 +150,7 @@ namespace pbl.View
         private void pHome_Click(object sender, EventArgs e)
         {
             ChangeColor(pHome, null);
-            ShowForm(CreatForm());
+            ShowForm(new note());
         }
         private void pChat_Click(object sender, EventArgs e)
         {

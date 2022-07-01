@@ -21,25 +21,15 @@ namespace pbl.View
             this.login = login;
             this.Size = new Size(750, 528);
             this.CenterToScreen();
-            showform(CreatForm());
+            showform(new note());
             ten.Text = BLLTRAIN.Instance.GetName(username);
             this.login = login;
 
         }
-        private Form CreatForm()
+        private void CreatForm()
         {
-            Form GUIHome = new Form();
-            PictureBox picture = new PictureBox();
-
-            GUIHome.Size = new Size(1096, 689);
-            picture.Width = 730;
-            picture.Height = 470;
-            Bitmap image = new Bitmap(@"C:\PBL3\picture\text.png");
-            picture.Image = (Image)image;
-            picture.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            GUIHome.Controls.Add(picture);
-            return GUIHome;
+            showform(new note());
+            ChangeColor(home, null);
         }
         Form form = null;
         private void showform(Form subform)
@@ -95,7 +85,7 @@ namespace pbl.View
 
         private void home_Click(object sender, EventArgs e)
         {
-            showform(CreatForm());
+            showform(new note());
 
             ChangeColor(home, null);
             //if (panel_Other.Visible)
@@ -113,7 +103,7 @@ namespace pbl.View
         {
             ChangeColor(null, null);
             labelPersonal.BackColor = Color.Red;
-            showform(CreatForm());
+            showform(new note());
         }
 
         private void canhan(object sender, EventArgs e)

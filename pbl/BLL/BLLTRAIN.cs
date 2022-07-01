@@ -1648,7 +1648,8 @@ namespace pbl.BLL
         public List<SCHEDULE_View> GetSchedule2()
         {
             PBL3 db = new PBL3();
-            return (from sch in db.SCHEDULEs.ToList()
+            var s = (from sch in db.SCHEDULEs.ToList()
+              
                     select new SCHEDULE_View
                     {
                         ScheduleID = sch.ScheduleID,
@@ -1657,6 +1658,11 @@ namespace pbl.BLL
                         DepartureTime = sch.DepartureTime.ToString(),
                         ArrivalTime = sch.ArrivalTime.ToString()
                     }).ToList();
+            var list = s.OrderBy(p => p.DepartureTime)
+                        .ThenBy(p => p.ArrivalTime) 
+                        .ToList();
+            return list;
+
         }
         public List<SCHEDULE_View> GetSchedule3()
         {
@@ -1689,6 +1695,7 @@ namespace pbl.BLL
             PBL3 db = new PBL3();
             return (
                     from tri in db.TRIPs
+                    orderby tri.ScheduleID
                     select new Train_View
                     {
                         ScheduleID = tri.ScheduleID,

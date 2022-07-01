@@ -85,6 +85,7 @@
     <Compile Include="DTO\CBBpeople.cs" />
     <Compile Include="DTO\doanhthu_view.cs" />
     <Compile Include="DTO\employeeview.cs" />
+    <Compile Include="DTO\Nhanvien_view.cs" />
     <Compile Include="DTO\PEOPLE_View.cs" />
     <Compile Include="DTO\Schedule.cs" />
     <Compile Include="DTO\SCHEDULE_User_BLL.cs" />
@@ -172,10 +173,10 @@
     <Compile Include="View\Admin\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\note.cs">
+    <Compile Include="View\note.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Admin\note.Designer.cs">
+    <Compile Include="View\note.Designer.cs">
       <DependentUpon>note.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\Notice.cs">
@@ -421,7 +422,7 @@
     <EmbeddedResource Include="View\Admin\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin\note.resx">
+    <EmbeddedResource Include="View\note.resx">
       <DependentUpon>note.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Admin\Notice.resx">

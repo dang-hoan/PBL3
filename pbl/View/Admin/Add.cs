@@ -17,7 +17,10 @@ namespace pbl.View.Admin
         {
             InitializeComponent();
             txtBirthDay.MaxDate = DateTime.Now;
+            
+
         }
+    
 
         private void bConfirm_Click(object sender, EventArgs e)
         {
@@ -53,6 +56,7 @@ namespace pbl.View.Admin
                 BLLpeople.instance.Executenv(s);
                 BLLpeople.instance.Execute2(l);
                 MessageBox.Show("Đã thêm thành công nhân viên mới!");
+                this.Close();
             }
         }
 

@@ -210,5 +210,10 @@ namespace pbl.View
                 MessageBox.Show("Hãy chọn ít nhất 1 chuyến tàu để xoá!");
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

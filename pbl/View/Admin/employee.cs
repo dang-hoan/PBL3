@@ -18,19 +18,18 @@ namespace pbl.View.Admin
 
     public partial class employee : Form
     {
+        int dk = 1;
         public employee()
         {
 
             InitializeComponent();
             showw();
-
-
         }
         Form f = null;
         public void showw()
         {
 
-            dtg.DataSource = BLLpeople.instance.getallnv(BLLpeople.instance.Getpidnv());
+            dtg.DataSource = BLLpeople.instance.getallnsv(BLLpeople.instance.Getpidnv());
         }
 
 
@@ -182,7 +181,7 @@ namespace pbl.View.Admin
                 MessageBox.Show("Mật khẩu phải dài hơn 8 kí tự !");
             }
         }
-
+      
 
         private void bunifuTextbox1_OnTextChange_1(object sender, EventArgs e)
         {
@@ -191,19 +190,8 @@ namespace pbl.View.Admin
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            Add add = new Add();
-            add.Show();
-        }
-        private bool CheckNumber(string txt)
-        {
-            foreach (char i in txt)
-            {
-                if (i < 48 || i > 57) return false;
-            }
-            return true;
-        }
-        private void bunifuThinButton22_Click(object sender, EventArgs e)
-        {
+            /* Add add = new Add();
+             add.Show();*/
 
             if (gmaildkk.Text != "" || idcarddk.Text != "" || phone.Text == "")
             {
@@ -266,11 +254,7 @@ namespace pbl.View.Admin
                     return;
                 }
             }
-            if (txtpass.Text == "")
-            {
-                MessageBox.Show("Mật khẩu không thể để trống!");
-            }
-            else
+            if (BLLpeople.instance.check(txtusername.Text) == false)
             {
                 PEOPLE s = new PEOPLE()
                 {
@@ -285,9 +269,148 @@ namespace pbl.View.Admin
 
                 };
                 BLLpeople.instance.Executenv(s);
-                MessageBox.Show("Đã cập nhật thành công thông tin nhân viên!");
+                LOGIN dn = new LOGIN()
+                {
+                    Username = txtusername.Text,
+                    PassWord = txtpass.Text,
+                };
+              //  BLLpeople.instance.Execute(s);
+                BLLpeople.instance.Execute2(dn);
                 showw();
+                MessageBox.Show("Đã thêm thành công khách hàng mới!");
+                reset();
+
             }
+        }
+        private bool CheckNumber(string txt)
+        {
+            foreach (char i in txt)
+            {
+                if (i < 48 || i > 57) return false;
+            }
+            return true;
+        }
+        private void bunifuThinButton22_Click(object sender, EventArgs e)
+        {
+            
+
+                if (gmaildkk.Text != "" || idcarddk.Text != "" || phone.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin bắt buộc!");
+                }
+                string sa = date.Value.ToString("yyyy/MM/dd HH:mm");
+                string now = DateTime.Now.AddYears(-15).ToString("yyyy/MM/dd HH:mm");
+                if (string.Compare(sa, now) > 0)
+                {
+                    MessageBox.Show("Người dùng tối thiểu phải đủ 15 tuổi!");
+                    return;
+                }
+                if (phone.Text.Length != 10)
+                {
+                    MessageBox.Show("Số điện thoại phải có 10 chữ số!");
+                    return;
+                }
+                if (idcard.Text.Length != 12)
+                {
+                    MessageBox.Show("Số CCCD phải có 12 chữ số!");
+                    return;
+                }
+                if (!CheckNumber(idcard.Text))
+                {
+                    MessageBox.Show("Số CCCD phải là 1 số!");
+                    return;
+
+                }
+                if (BLLTRAIN.Instance.CheckIDCard2(txtusername.Text, idcard.Text))
+                {
+                    MessageBox.Show("Số căn cước công dân bạn nhập đã tồn tại trong hệ thống!");
+                    return;
+                }
+                if (BLLTRAIN.Instance.CheckPhone(txtusername.Text, phone.Text))
+                {
+                    MessageBox.Show("Số điện thoại bạn nhập đã tồn tại trong hệ thống!");
+                    return;
+
+                }
+                if (BLLTRAIN.Instance.CheckEmail(txtusername.Text, gmail.Text))
+                {
+                    MessageBox.Show("Email bạn nhập đã tồn tại trong hệ thống!");
+                    return;
+                }
+                if (!CheckNumber(phone.Text))
+                {
+                    MessageBox.Show("Số điện thoại phải là 1 số!");
+                    return;
+                }
+                if (!gmail.Text.Contains("@gmail.com"))
+                {
+                    MessageBox.Show("Email không đúng định dạng!");
+                    return;
+                }
+                else
+                {
+                    if ("@gmail.com".IndexOf(gmail.Text) != "@gmail.com".LastIndexOf(gmail.Text))
+                    {
+                        MessageBox.Show("Email không đúng định dạng!");
+                        return;
+                    }
+                }
+            if (txtpass.Text == "")
+            {
+                MessageBox.Show("Mật khẩu không thể để trống!");
+            }
+            else
+            {
+                if (BLLpeople.instance.check(txtusername.Text) == true)
+                {
+
+
+                    if (dtg.SelectedRows.Count == 1)
+                    {
+                        PEOPLE s = new PEOPLE()
+                        {
+                            Username = txtusername.Text,
+                            Name = txtname.Text,
+                            Gender = (male.Checked == true) ? true : false,
+                            BirthDay = date.Value,
+                            Phone = phone.Text,
+                            Address = address.Text,
+                            Email = gmail.Text,
+                            IDCard = idcard.Text,
+
+                        };
+                        BLLpeople.instance.Executenv(s);
+                        MessageBox.Show("Đã cập nhật thành công thông tin nhân viên!");
+                        showw();
+                        reset();
+                    }
+                }
+            }
+
+
+
+            
+        }
+        public void reset()
+        {
+            txtusername.Text = "";
+            txtname.Text = "";
+            female.Checked = false;
+            male.Checked =false;
+            date.Value=DateTime.Now;
+            phone.Text = "";
+            address.Text = "";
+            gmail.Text = "";
+            idcard.Text = "";
+            txtusername.Enabled = true;
+            gmaildkk.Text = "";
+            phonedk.Text = "";
+            idcarddk.Text = "";
+            idcard.BackColor = Color.White;
+            phone.BackColor = Color.White;
+            txtpass.Text = "";
+            txtpass.BackColor = Color.White;
+
         }
         private void bunifuTextbox1_Click(object sender, EventArgs e)
         {
@@ -321,13 +444,14 @@ namespace pbl.View.Admin
             //    address.Text = row.Cells[4].Value.ToString();
 
             //}
+            dk = 0;
             if(dtg.SelectedRows.Count > 0)
             {
                 PEOPLE peo = BLLTRAIN.Instance.GetuserByusername(dtg.SelectedRows[0].Cells[0].Value.ToString());
                 txtname.Text = peo.Name;
                 txtusername.Text = peo.Username;
                 txtusername.Enabled = false;
-                usernamedk.Enabled = false;
+                label13.Text= "";
                 if ((bool)peo.Gender)
                 {
                     male.Checked = true;
@@ -346,6 +470,18 @@ namespace pbl.View.Admin
                 LOGIN g = BLLpeople.instance.Getloginbyloginid(peo.Username);
                 if (g != null) txtpass.Text = g.PassWord;
             }
+            
+        }
+
+        private void txtusername_TextChanged(object sender, EventArgs e)
+        {
+            if(dk==1)
+            {
+                if (BLLpeople.instance.check(txtusername.Text))
+                    label13.Text = "Username đã tồn tại!";
+                else label13.Text = "";
+            }
+
         }
     }
 }
