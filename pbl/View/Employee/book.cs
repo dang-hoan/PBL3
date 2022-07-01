@@ -101,7 +101,7 @@ namespace pbl.View
         }
          
        
-    public void setcolor()
+        public void setcolor()
         {
             foreach (TICKET tic in BLLTicket.instance.getticketbylist(scheduleid, trainid, cbbmave.Text))
             {
@@ -138,8 +138,8 @@ namespace pbl.View
                 s = i.ScheduleID;
                 txtdep.Text = i.SCHEDULE.STATION1.StationName;
                 txtdes.Text = i.SCHEDULE.STATION.StationName;
-                timedep.Text = i.SCHEDULE.DepartureTime.ToString("dd/MM/yyyy HH:mm");
-                timedes.Text = i.SCHEDULE.ArrivalTime.ToString("dd/MM/yyyy HH:mm");
+                timedep.Text = i.SCHEDULE.DepartureTime.ToString();
+                timedes.Text = i.SCHEDULE.ArrivalTime.ToString();
                 for (int j = 1; j <= num; j++)
                 {
                     cbbmave.Items.Add(Convert.ToChar(j + 64)).ToString();

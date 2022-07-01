@@ -72,16 +72,23 @@ namespace pbl.View
                 int comp = DateTime.Compare(dateFromDep.Value, dateToDep.Value);
                 int comp2 = DateTime.Compare(dateFromDes.Value, dateToDes.Value);
                 int comp3 = DateTime.Compare(dateFromDep.Value, dateToDes.Value);
-                if (comp > 0 || comp2 > 0)
+                if ((comp.CompareTo(now) <= 0) && (comp2.CompareTo(now) < 0))
                 {
-                    if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong cả ngày đi và ngày đến)!");
-                    else if (comp > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đi)!");
-                    else MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đến)!");
-                    return;
+                    MessageBox.Show("Lịch trình chỉ bắt đầu từ thời điểm hiện tại!");
                 }
-                if (comp3 >= 0)
+                else
                 {
-                    MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+                    if (comp > 0 || comp2 > 0)
+                    {
+                        if (comp > 0 && comp2 > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong cả ngày đi và ngày đến)!");
+                        else if (comp > 0) MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đi)!");
+                        else MessageBox.Show("Mốc thời gian từ không thể trước mốc thời gian đến (trong ngày đến)!");
+                        return;
+                    }
+                    if (comp3 >= 0)
+                    {
+                        MessageBox.Show("Mốc thời gian đến trong ngày đến tối thiểu phải sau mốc thời gian từ trong ngày đi!");
+                    }
                 }
             }
 

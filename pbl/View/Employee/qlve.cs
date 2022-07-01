@@ -18,6 +18,7 @@ namespace pbl.View
         {
             InitializeComponent();
             gui();
+            BLLTRAIN.Instance.SetTicketnhanvien(dataGridView1);
 
         }
         PBL3 db = new PBL3();
@@ -130,6 +131,7 @@ namespace pbl.View
 
         private void butmua_Click(object sender, EventArgs e)
         {
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 if (Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells["thoigiandi"].Value.ToString()).CompareTo(DateTime.Now)>=0)

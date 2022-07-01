@@ -20,6 +20,7 @@ namespace pbl.View
             InitializeComponent();
             gui();
             show();
+            BLLTRAIN.Instance.SetTrainView(dataGridView1);
         }
         public void gui()
         {

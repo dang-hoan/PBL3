@@ -935,12 +935,13 @@ namespace pbl.BLL
         //Đặt tiêu đề cho DataGridView
         private string[] TicketView = { "Mã lịch trình", "Mã tàu", "Tên tàu", "Mã vé", "Số ghế", "Giá vé"
                 , "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến", "Trạng thái", "Tên đăng nhập chủ", "Tên chủ"};
-        private string[] PeopleView = { "Tên đăng nhập", "Họ và tên", "Giới tính", "Ngày sinh", "Địa chỉ", "Số CCCD"
+        private string[] Ticketnhanvien = { "Mã lịch trình", "Mã tàu", "Tên tàu" , "Ga đi", "Ga đến", "Người lái tàu", "Số toa", "Thời gian đi", "Thời gian đến", "Số vé đã bán"};
+    private string[] PeopleView = { "Tên đăng nhập", "Họ và tên", "Giới tính", "Ngày sinh", "Địa chỉ", "Số CCCD"
                 , "Email", "Số điện thoại", "Vị trí"};
         private string[] ScheduleView = { "Mã lịch trình", "Ga đi", "Ga đến", "Thời gian đi", "Thời gian đến" };
         private string[] TurnOverView = { "Mã tàu", "Tên tàu", "Ga đi", "Ga đến", "Thời gian đi","Thời gian đến",
                 "Tổng số vé đã bán", "Tổng tiền thu được"};
-        private string[] TrainView = { "Mã lịch trình", "Mã tàu", "Tên tàu","Số toa", "Tên đăng nhập lái tàu", "Giá cơ bản", "Trạng thái" };
+        private string[] TrainView = { "Mã lịch trình", "Mã tàu", "Tên tàu","Số toa", "Tên đăng nhập lái tàu", "Giá cơ bản"};
         public void SetTicketUserView(DataGridView d)
         {
             for(int i = 0; i < TicketView.Length - 3; i++) d.Columns[i].HeaderText = TicketView[i];
@@ -949,7 +950,11 @@ namespace pbl.BLL
         {
             for(int i = 0; i < TicketView.Length; i++) d.Columns[i].HeaderText = TicketView[i];
         }
-        public void SetPeopleView(DataGridView d)
+        public void SetTicketnhanvien(DataGridView d)
+        {
+            for (int i = 0; i < Ticketnhanvien.Length; i++) d.Columns[i].HeaderText = Ticketnhanvien[i];
+        }
+            public void SetPeopleView(DataGridView d)
         {
             for(int i = 0; i < PeopleView.Length; i++) d.Columns[i].HeaderText = PeopleView[i];
         }
@@ -2034,10 +2039,15 @@ namespace pbl.BLL
             bool Dep = false, Des = false;
             if (schedule.Departure == "") Dep = true;
             if (schedule.Destination == "") Des = true;
+
+            string now = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+
             //var result = from sch in db.SCHEDULEs.ToList()
             //             where (Dep || sch.STATION.StationName.Equals(schedule.Departure)) || (Des || sch.STATION1.StationName.Equals(schedule.Destination))
             //                   && sch.DepartureTime.ToString("d/M/yyyy H:m:s").Contains(schedule.DepartureTime)
             var result = from sch in db.SCHEDULEs.ToList()
+                         where (Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination))
+                         &&(sch.DepartureTime.CompareTo(DateTime.Now.ToString("yyyy/M/d H:m")) >= 0)
                          where DateTime.Compare(sch.DepartureTime, DateTime.Now) >= 0 && ((Dep || sch.STATION1.StationName.Equals(schedule.Departure)) && (Des || sch.STATION.StationName.Equals(schedule.Destination)))
                          select new SCHEDULE_View
                          {

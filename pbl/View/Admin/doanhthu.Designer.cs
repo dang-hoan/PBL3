@@ -47,6 +47,7 @@
             this.dtg = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,46 +60,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(271, 44);
+            this.label1.Location = new System.Drawing.Point(241, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tháng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(549, 44);
+            this.label2.Location = new System.Drawing.Point(488, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 20);
+            this.label2.Size = new System.Drawing.Size(36, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Năm";
             // 
             // cbbmonth
             // 
             this.cbbmonth.FormattingEnabled = true;
-            this.cbbmonth.Location = new System.Drawing.Point(330, 34);
-            this.cbbmonth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbbmonth.Location = new System.Drawing.Point(293, 27);
             this.cbbmonth.Name = "cbbmonth";
-            this.cbbmonth.Size = new System.Drawing.Size(156, 28);
+            this.cbbmonth.Size = new System.Drawing.Size(139, 24);
             this.cbbmonth.TabIndex = 2;
             // 
             // cbbyear
             // 
             this.cbbyear.FormattingEnabled = true;
-            this.cbbyear.Location = new System.Drawing.Point(610, 34);
-            this.cbbyear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbbyear.Location = new System.Drawing.Point(542, 27);
             this.cbbyear.Name = "cbbyear";
-            this.cbbyear.Size = new System.Drawing.Size(156, 28);
+            this.cbbyear.Size = new System.Drawing.Size(139, 24);
             this.cbbyear.TabIndex = 3;
             // 
             // pPrint
             // 
             this.pPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pPrint.Location = new System.Drawing.Point(1270, 456);
-            this.pPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pPrint.Location = new System.Drawing.Point(1129, 365);
             this.pPrint.Name = "pPrint";
-            this.pPrint.Size = new System.Drawing.Size(159, 49);
+            this.pPrint.Size = new System.Drawing.Size(141, 39);
             this.pPrint.TabIndex = 5;
             this.pPrint.Text = "In báo cáo";
             this.pPrint.UseVisualStyleBackColor = false;
@@ -107,10 +105,9 @@
             // btdoanhthu
             // 
             this.btdoanhthu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btdoanhthu.Location = new System.Drawing.Point(839, 29);
-            this.btdoanhthu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btdoanhthu.Location = new System.Drawing.Point(746, 23);
             this.btdoanhthu.Name = "btdoanhthu";
-            this.btdoanhthu.Size = new System.Drawing.Size(104, 40);
+            this.btdoanhthu.Size = new System.Drawing.Size(92, 32);
             this.btdoanhthu.TabIndex = 6;
             this.btdoanhthu.Text = "Xem ";
             this.btdoanhthu.UseVisualStyleBackColor = false;
@@ -208,6 +205,7 @@
             this.dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column9,
             this.Column10,
+            this.Column17,
             this.Column11,
             this.Column12,
             this.Column13,
@@ -218,14 +216,13 @@
             this.dtg.EnableHeadersVisualStyles = false;
             this.dtg.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.dtg.HeaderForeColor = System.Drawing.Color.Black;
-            this.dtg.Location = new System.Drawing.Point(65, 110);
-            this.dtg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtg.Location = new System.Drawing.Point(58, 88);
             this.dtg.Name = "dtg";
             this.dtg.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtg.RowHeadersVisible = false;
             this.dtg.RowHeadersWidth = 51;
             this.dtg.RowTemplate.Height = 24;
-            this.dtg.Size = new System.Drawing.Size(1376, 309);
+            this.dtg.Size = new System.Drawing.Size(1223, 247);
             this.dtg.TabIndex = 7;
             // 
             // Column9
@@ -237,14 +234,21 @@
             // 
             // Column10
             // 
-            this.Column10.DataPropertyName = "TrainName";
-            this.Column10.HeaderText = "Tên tàu";
+            this.Column10.DataPropertyName = "ScheduleID";
+            this.Column10.HeaderText = "Mã lịch trình";
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
             // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "TrainName";
+            this.Column17.HeaderText = "Tên tàu";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            // 
             // Column11
             // 
-            this.Column11.DataPropertyName = "Departure";
+            this.Column11.DataPropertyName = "Depature";
             this.Column11.HeaderText = "Ga đi";
             this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
@@ -286,10 +290,10 @@
             // 
             // doanhthu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1510, 538);
+            this.ClientSize = new System.Drawing.Size(1342, 430);
             this.Controls.Add(this.dtg);
             this.Controls.Add(this.btdoanhthu);
             this.Controls.Add(this.pPrint);
@@ -297,7 +301,6 @@
             this.Controls.Add(this.cbbmonth);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "doanhthu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "doanhthu";
@@ -326,6 +329,7 @@
         private Bunifu.Framework.UI.BunifuCustomDataGrid dtg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;

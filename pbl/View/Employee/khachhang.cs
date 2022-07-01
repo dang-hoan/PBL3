@@ -27,6 +27,7 @@ namespace pbl.View
             init("");
             cbbshow.Text = "Tất Cả";
             show("");
+            BLLTRAIN.Instance.SetPeopleView(dataGridView1);
             cbbshow.Items.Add("Tất cả");
             cbbshow.Items.Add("Tìm kiếm theo tên");
             cbbshow.Items.Add("Tìm kiếm theo căn cước");
