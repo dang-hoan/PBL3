@@ -68,7 +68,7 @@ namespace pbl.BLL
             }
             db.SaveChanges();
         }
-        public void Print(DataGridView dataGridView1, int[] numberChar,string header)
+        public void Print(DataGridView dataGridView1, int[] numberChar,string header, bool y)
         {
             string path = null;
             OpenFileDialog o = new OpenFileDialog();
@@ -84,7 +84,9 @@ namespace pbl.BLL
             {
                 case ".docx":
                     {
-                        if (dataGridView1.Rows.Count != 0)
+                        int x = 0;
+                        if (y) x = 1;
+                        if (dataGridView1.Rows.Count > x)
                         {
                             int RowCount = dataGridView1.Rows.Count;
                             int ColumnCount = dataGridView1.Columns.Count;
@@ -181,158 +183,180 @@ namespace pbl.BLL
                                 return;
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("Không có gì để xuất!");
+                        }
                         break;
                     }
                 case ".txt":
                     {
-                        int sum = 0;
-                        foreach (int i in numberChar) sum += i;
-                        using (StreamWriter sw = new StreamWriter(path))
+                        int x = 0;
+                        if (y) x = 1;
+                        if (dataGridView1.Rows.Count > x)
                         {
-                            for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
-                            sw.WriteLine();
-                            for (int i = 0; i < dataGridView1.Columns.Count; i++) sw.Write("|" + Edit(dataGridView1.Columns[i].HeaderText, numberChar[i]));
-                            sw.Write("|\n");
-                            foreach (DataGridViewRow dr in dataGridView1.Rows)
+                            int sum = 0;
+                            foreach (int i in numberChar) sum += i;
+                            using (StreamWriter sw = new StreamWriter(path))
                             {
                                 for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
                                 sw.WriteLine();
-                                for (int i = 0; i < dataGridView1.Columns.Count; i++)
-                                {
-                                    sw.Write("|" + Edit(dr.Cells[i].Value.ToString(), numberChar[i]));
-                                }
+                                for (int i = 0; i < dataGridView1.Columns.Count; i++) sw.Write("|" + Edit(dataGridView1.Columns[i].HeaderText, numberChar[i]));
                                 sw.Write("|\n");
+                                foreach (DataGridViewRow dr in dataGridView1.Rows)
+                                {
+                                    for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
+                                    sw.WriteLine();
+                                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                                    {
+                                        sw.Write("|" + Edit(dr.Cells[i].Value.ToString(), numberChar[i]));
+                                    }
+                                    sw.Write("|\n");
+                                }
+                                for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
+                                MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
                             }
-                            for (int k = 0; k < sum + dataGridView1.Columns.Count + 1; k++) sw.Write('-');
-                            MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không có gì để xuất!");
                         }
                         break;
                     }
                 case ".xls":
                 case ".xlsx":
                     {
-                        //Đóng file excel có path đang mở
-                        //COMExcel.Application App = new COMExcel.Application();
-                        //Workbook Book = App.Workbooks.Add(path);
-                        //Book.Save();
-                        //Book.Close(true);
-                        //App.Quit();
-                        //System.Runtime.InteropServices.Marshal.ReleaseComObject(App);
+                        int x = 0;
+                        if (y) x = 1;
+                        if (dataGridView1.Rows.Count > x)
+                        {//Đóng file excel có path đang mở
+                         //COMExcel.Application App = new COMExcel.Application();
+                         //Workbook Book = App.Workbooks.Add(path);
+                         //Book.Save();
+                         //Book.Close(true);
+                         //App.Quit();
+                         //System.Runtime.InteropServices.Marshal.ReleaseComObject(App);
 
-                        // Khởi động chtr Excell
-                        COMExcel.Application exApp = new COMExcel.Application();
+                            // Khởi động chtr Excell
+                            COMExcel.Application exApp = new COMExcel.Application();
 
-                        //// Thêm file temp xls
-                        //Workbook exBook = exApp.Workbooks.Add(
-                        //          COMExcel.XlWBATemplate.xlWBATWorksheet);
+                            //// Thêm file temp xls
+                            //Workbook exBook = exApp.Workbooks.Add(
+                            //          COMExcel.XlWBATemplate.xlWBATWorksheet);
 
-                        // Mở 1 file temp xlsx
-                        object misValue = System.Reflection.Missing.Value;
-                        Workbook exBook = exApp.Workbooks.Add(misValue);
-                        // Lấy sheet 1.
-                        Worksheet exSheet = (Worksheet)exBook.Worksheets[1];
-                        exSheet.Activate();
-                        exSheet.Name = header.Replace(' ', '_');
+                            // Mở 1 file temp xlsx
+                            object misValue = System.Reflection.Missing.Value;
+                            Workbook exBook = exApp.Workbooks.Add(misValue);
+                            // Lấy sheet 1.
+                            Worksheet exSheet = (Worksheet)exBook.Worksheets[1];
+                            exSheet.Activate();
+                            exSheet.Name = header.Replace(' ', '_');
 
-                        //Ghi dữ liệu
-                        //Ghi tiêu đề
-                        Range r_Header = exSheet.get_Range("A1", carriage[dataGridView1.Columns.Count].ToString() + "1");
-                        r_Header.Merge();
-                        r_Header.Font.Size = 18;
-                        r_Header.Font.Name = "Times New Roman";
-                        r_Header.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                        r_Header.Value2 = header;
-                        //Tô màu cho tiêu đề
-                        r_Header.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#548235"));
-                        r_Header.Font.Bold = true;
-                        r_Header.Font.Color = ColorTranslator.ToOle(System.Drawing.Color.Black);
+                            //Ghi dữ liệu
+                            //Ghi tiêu đề
+                            Range r_Header = exSheet.get_Range("A1", carriage[dataGridView1.Columns.Count].ToString() + "1");
+                            r_Header.Merge();
+                            r_Header.Font.Size = 18;
+                            r_Header.Font.Name = "Times New Roman";
+                            r_Header.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                            r_Header.Value2 = header;
+                            //Tô màu cho tiêu đề
+                            r_Header.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#548235"));
+                            r_Header.Font.Bold = true;
+                            r_Header.Font.Color = ColorTranslator.ToOle(System.Drawing.Color.Black);
 
-                        //Tạo các tên cột
-                        //Tạo Ô Số Thứ Tự (STT)
-                        Range r_STT = exSheet.Cells[2, 1];//Cột A dòng 2
-                        r_STT.Font.Size = 14;
-                        r_STT.Font.Bold = true;
-                        r_STT.Font.Name = "Times New Roman";
-                        r_STT.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                        r_STT.Value2 = "STT";
-                        //Tô màu
-                        r_STT.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#A9D08E"));
-                        //Tạo các tên cột còn lại theo bảng DataGridView
-                        List <dynamic> arrColumn = new List<dynamic>();
-                        foreach (DataGridViewColumn dc in dataGridView1.Columns)
-                        {
-                            arrColumn.Add(dc.HeaderText.ToString());
-                        }
-                        Range column = exSheet.get_Range("B2", carriage[dataGridView1.Columns.Count].ToString() + "2");
-                        column.Font.Size = 14;
-                        column.Font.Bold = true;
-                        column.Font.Name = "Times New Roman";
-                        column.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                        column.Value2 = arrColumn.ToArray();
-                        column.ColumnWidth = 25;
-                        column.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#A9D08E"));
-
-                        //Ghi dữ liệu
-                        int stt = 0;
-                        int row = 2;
-                        foreach (DataGridViewRow dr in dataGridView1.Rows)
-                        {
-                            stt++;
-                            row++;
-                            List<dynamic> arr = new List<dynamic>();
-                            arr.Add(stt);
-                            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                            //Tạo các tên cột
+                            //Tạo Ô Số Thứ Tự (STT)
+                            Range r_STT = exSheet.Cells[2, 1];//Cột A dòng 2
+                            r_STT.Font.Size = 14;
+                            r_STT.Font.Bold = true;
+                            r_STT.Font.Name = "Times New Roman";
+                            r_STT.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                            r_STT.Value2 = "STT";
+                            //Tô màu
+                            r_STT.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#A9D08E"));
+                            //Tạo các tên cột còn lại theo bảng DataGridView
+                            List<dynamic> arrColumn = new List<dynamic>();
+                            foreach (DataGridViewColumn dc in dataGridView1.Columns)
                             {
-                                arr.Add(dr.Cells[i].Value.ToString());
+                                arrColumn.Add(dc.HeaderText.ToString());
                             }
-                            Range rowData = exSheet.get_Range("A" + row, carriage[dataGridView1.Columns.Count].ToString() + row);//Lấy dòng thứ row ra để đổ dữ liệu
-                            rowData.Font.Size = 12;
-                            rowData.Font.Name = "Times New Roman";
-                            rowData.Value2 = arr.ToArray();
-                            rowData.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                            rowData.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#E2EFDA"));
+                            Range column = exSheet.get_Range("B2", carriage[dataGridView1.Columns.Count].ToString() + "2");
+                            column.Font.Size = 14;
+                            column.Font.Bold = true;
+                            column.Font.Name = "Times New Roman";
+                            column.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                            column.Value2 = arrColumn.ToArray();
+                            column.ColumnWidth = 25;
+                            column.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#A9D08E"));
+
+                            //Ghi dữ liệu
+                            int stt = 0;
+                            int row = 2;
+                            foreach (DataGridViewRow dr in dataGridView1.Rows)
+                            {
+                                stt++;
+                                row++;
+                                List<dynamic> arr = new List<dynamic>();
+                                arr.Add(stt);
+                                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                                {
+                                    arr.Add(dr.Cells[i].Value.ToString());
+                                }
+                                Range rowData = exSheet.get_Range("A" + row, carriage[dataGridView1.Columns.Count].ToString() + row);//Lấy dòng thứ row ra để đổ dữ liệu
+                                rowData.Font.Size = 12;
+                                rowData.Font.Name = "Times New Roman";
+                                rowData.Value2 = arr.ToArray();
+                                rowData.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                                rowData.Interior.Color = ColorTranslator.ToOle(System.Drawing.ColorTranslator.FromHtml("#E2EFDA"));
+                            }
+
+                            //Thêm đường viền
+                            //Trái, phải, dọc, ngang
+                            Range range = exSheet.get_Range("a1", carriage[dataGridView1.Columns.Count].ToString() + row);
+                            range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeLeft).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                            range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeRight).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                            range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeTop).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                            range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeBottom).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                            range.Borders.get_Item(COMExcel.XlBordersIndex.xlInsideHorizontal).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+                            range.Borders.get_Item(COMExcel.XlBordersIndex.xlInsideVertical).LineStyle = COMExcel.XlLineStyle.xlContinuous;
+
+                            //// Hiển thị chương trình excel
+                            //exApp.Visible = true;
+
+                            ////Ghi ra 1 khối
+                            //COMExcel.Range r = (COMExcel.Range)exSheet.get_Range("A1", "A4");
+                            //r.Value2 = "my value";
+                            //r.Columns.AutoFit();
+
+                            // Ẩn chương trình
+                            //exApp.Visible = false;
+
+                            try
+                            {
+                                // Save file
+                                exBook.SaveAs(path);
+                                MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Chúng tôi không thể lưu vào file bạn chọn vì nó đang được mở!");
+                                return;
+                            }
+
+                            // Đóng chương trình
+                            exBook.Close(true, misValue, misValue);
+                            // Thoát và thu hồi bộ nhớ cho COM
+                            exApp.Quit();
+                            releaseObject(exSheet);
+                            releaseObject(exBook);
+                            releaseObject(exApp);
+
                         }
-
-                        //Thêm đường viền
-                        //Trái, phải, dọc, ngang
-                        Range range = exSheet.get_Range("a1", carriage[dataGridView1.Columns.Count].ToString() + row);
-                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeLeft).LineStyle = COMExcel.XlLineStyle.xlContinuous;
-                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeRight).LineStyle = COMExcel.XlLineStyle.xlContinuous;
-                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeTop).LineStyle = COMExcel.XlLineStyle.xlContinuous;
-                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlEdgeBottom).LineStyle = COMExcel.XlLineStyle.xlContinuous;
-                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlInsideHorizontal).LineStyle = COMExcel.XlLineStyle.xlContinuous;
-                        range.Borders.get_Item(COMExcel.XlBordersIndex.xlInsideVertical).LineStyle = COMExcel.XlLineStyle.xlContinuous;
-
-                        //// Hiển thị chương trình excel
-                        //exApp.Visible = true;
-
-                        ////Ghi ra 1 khối
-                        //COMExcel.Range r = (COMExcel.Range)exSheet.get_Range("A1", "A4");
-                        //r.Value2 = "my value";
-                        //r.Columns.AutoFit();
-
-                        // Ẩn chương trình
-                        //exApp.Visible = false;
-
-                        try
+                        else
                         {
-                            // Save file
-                            exBook.SaveAs(path);
-                            MessageBox.Show("Đã xuất dữ liệu ra file bạn chọn!");
+                            MessageBox.Show("Không có gì để xuất!");
                         }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Chúng tôi không thể lưu vào file bạn chọn vì nó đang được mở!");
-                            return;
-                        }
-
-                        // Đóng chương trình
-                        exBook.Close(true, misValue, misValue);
-                        // Thoát và thu hồi bộ nhớ cho COM
-                        exApp.Quit();
-                        releaseObject(exSheet);
-                        releaseObject(exBook);
-                        releaseObject(exApp);
                         break;
                     }
             }
@@ -1006,7 +1030,7 @@ namespace pbl.BLL
             List<doanhthu_view> list = new List<doanhthu_view>();
             foreach(SCHEDULE s in db.SCHEDULEs)
             {
-                if(s.DepartureTime.ToString("dd/MM/yyyy HH:mm:ss").Contains(month + "/" + year))
+                if(s.DepartureTime.ToString("d-M-yyyy HH:mm:ss").Contains(month + "-" + year))
                 {
                     foreach(TRIP tri in s.TRIPs)
                     {

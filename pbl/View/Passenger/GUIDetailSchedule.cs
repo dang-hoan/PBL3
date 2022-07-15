@@ -93,7 +93,7 @@ namespace pbl
         public int[] numberChar = new int[5] { 17, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Lịch trình cá nhân");
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Lịch trình cá nhân", false);
         }
 
         private void cbbDep_Click(object sender, EventArgs e)

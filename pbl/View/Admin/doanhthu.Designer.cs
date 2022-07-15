@@ -291,7 +291,7 @@
             // Column15
             // 
             this.Column15.DataPropertyName = "TotalTickets";
-            this.Column15.HeaderText = "Tổng vé";
+            this.Column15.HeaderText = "Tổng vé đã bán";
             this.Column15.MinimumWidth = 6;
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;

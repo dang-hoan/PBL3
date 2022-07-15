@@ -22,8 +22,6 @@ namespace pbl
         }
        public void set()
        {
-                int size = 50;
-                int X = 30, Y = 30;
             int s = 0;
             foreach(NOTICE no in BLLTicket.instance.Getnotice())
             {
@@ -35,7 +33,6 @@ namespace pbl
         public void init(int s)
         {
             int i = 0;
-            int j = 0;
                 foreach (NOTICE no in BLLTicket.instance.Getnotice())
                 {
                    if (i <  s-1)

@@ -111,7 +111,7 @@ namespace pbl
         public int[] numberChar = new int[10] { 17, 10, 25, 13, 14, 25, 25, 25, 30, 30 };
         private void pSave_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Vé cá nhân");
+            BLLTRAIN.Instance.Print(dataGridView1, numberChar,"Vé cá nhân",false);
         }
 
         private void sortA_Click(object sender, EventArgs e)

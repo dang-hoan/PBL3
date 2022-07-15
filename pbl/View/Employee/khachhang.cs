@@ -18,9 +18,6 @@ namespace pbl.View
 {
     public partial class khachhang : Form
     {
-
-
-        int tk;
         public khachhang()
         {
             InitializeComponent();
@@ -87,16 +84,11 @@ namespace pbl.View
             txtsearch.Enabled = false;
 
             if (s == "ten")
-            { txtsearch.Text = "Tìm kiếm theo tên";
-                tk = 1;
-            }
+                txtsearch.Text = "Tìm kiếm theo tên";
             if (s == "user")
-            { txtsearch.Text = "Tìm kiếm theo tên đăng nhập";
-                tk = 3;
-            }
+                txtsearch.Text = "Tìm kiếm theo tên đăng nhập";
             if (s == "id")
-            { txtsearch.Text = "Tìm kiếm theo căn cước";
-                tk = 2; }
+                txtsearch.Text = "Tìm kiếm theo căn cước";
 
         }
         private void butshow_Click(object sender, EventArgs e)

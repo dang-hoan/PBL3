@@ -39,10 +39,10 @@ namespace pbl.View.Employee
             }
             dtg.DataSource = BLLTRAIN.Instance.dthu(Convert.ToInt32(cbbmonth.Text),Convert.ToInt32(cbbyear.Text));
         }
-        int[] k = { 20,20,25,25,25,25,20,25};
+        int[] k = { 20,20,25,25,25,25,25,25, 40};
         private void button1_Click(object sender, EventArgs e)
         {
-            BLLTRAIN.Instance.Print(dtg, k,"DOANH THU");
+            BLLTRAIN.Instance.Print(dtg, k,"DOANH THU", true);
         }
     }
 }
